@@ -1,0 +1,38 @@
+# === Node / Vite (frontend) ===
+node_modules/
+dist/
+.env
+.env.*
+.vscode/
+
+# === Python (backend) ===
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.venv/
+env/
+*.egg-info/
+
+# === Data & outputs ===
+data/*.csv
+data/*.xlsx
+data/*.json
+!data/README.md          # allow a readme if you add one
+assets/
+supabase/.temp/
+logs/
+
+# === System files ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === IDE / Editor ===
+.idea/
+*.code-workspace
+
+# === OS cruft ===
+*.bak
+*.tmp
