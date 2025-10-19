@@ -3,6 +3,8 @@ import { MapPin, Phone, Mail, ExternalLink, CheckCircle } from 'lucide-react';
 import { Provider } from '../lib/supabase';
 import { HoverBubble } from './HoverBubble';
 import { useAccessibility } from '../contexts/AccessibilityContext';
+import { StarRating } from './StarRating';
+import { useProviderRating } from '../hooks/useProviderRatings';
 
 type ProviderCardProps = {
   provider: Provider;
@@ -11,6 +13,7 @@ type ProviderCardProps = {
 
 export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, onExpand }) => {
   const { lowSensoryMode } = useAccessibility();
+  const { rating, loading: ratingLoading } = useProviderRating(provider.google_place_id || null);
 
   const normalizeServiceLabel = (value: string) =>
     value
@@ -65,6 +68,22 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, onExpand }
               <CheckCircle className="w-5 h-5 text-green-500" />
             )}
           </h3>
+          
+          {/* Google Reviews Rating */}
+          {ratingLoading ? (
+            <div className="mb-2">
+              <div className="h-4 w-32 bg-gray-200 dark:bg-slate-700 animate-pulse rounded"></div>
+            </div>
+          ) : rating ? (
+            <div className="mb-2">
+              <StarRating 
+                rating={rating.avg_rating} 
+                reviewCount={rating.review_count}
+                size="sm"
+              />
+            </div>
+          ) : null}
+          
           <div className="flex items-center space-x-2 text-sm text-slate-500 dark:text-slate-400">
             <MapPin className="w-4 h-4" />
             <span>
@@ -107,7 +126,7 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, onExpand }
       <div className="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-700">
         <div className="flex items-center space-x-3 text-sm">
           {provider.phone && (
-            <a
+            
               href={`tel:${provider.phone}`}
               className="flex items-center space-x-1 text-slate-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
               aria-label={`Call ${provider.provider_name}`}
@@ -118,7 +137,7 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, onExpand }
             </a>
           )}
           {provider.website && (
-            <a
+            
               href={provider.website.startsWith('http') ? provider.website : `https://${provider.website}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -130,7 +149,7 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, onExpand }
             </a>
           )}
           {provider.scraped_website && !provider.website && (
-            <a
+            
               href={provider.scraped_website.startsWith('http') ? provider.scraped_website : `https://${provider.scraped_website}`}
               target="_blank"
               rel="noopener noreferrer"
