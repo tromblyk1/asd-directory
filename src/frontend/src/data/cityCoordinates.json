@@ -1,0 +1,1146 @@
+{
+  "FT MYERS": {
+    "latitude": 26.6693,
+    "longitude": -81.7605
+  },
+  "FORT MYERS": {
+    "latitude": 26.571817361904763,
+    "longitude": -81.86466098095242
+  },
+  "NAPLES": {
+    "latitude": 26.16926666666667,
+    "longitude": -81.71965
+  },
+  "CAPE CORAL": {
+    "latitude": 26.618650242718427,
+    "longitude": -81.97155445631074
+  },
+  "CLEARWATER": {
+    "latitude": 27.969600605769223,
+    "longitude": -82.7474119134615
+  },
+  "LARGO": {
+    "latitude": 27.896039487179486,
+    "longitude": -82.77313174358977
+  },
+  "MIAMI": {
+    "latitude": 25.76700883070866,
+    "longitude": -80.27801982283478
+  },
+  "Daytona Beach Shores": {
+    "latitude": 29.157488,
+    "longitude": -80.974874
+  },
+  "Maitland": {
+    "latitude": 28.62590178571428,
+    "longitude": -81.36633228571428
+  },
+  "KEY WEST": {
+    "latitude": 24.5552,
+    "longitude": -81.7816
+  },
+  "MIAMI GARDENS": {
+    "latitude": 25.942529678571436,
+    "longitude": -80.23184367857142
+  },
+  "MIAMI LAKES": {
+    "latitude": 25.903670585365855,
+    "longitude": -80.31062892682932
+  },
+  "FORT LAUDERDALE": {
+    "latitude": 26.120706882352966,
+    "longitude": -80.15368349411771
+  },
+  "HIALEAH": {
+    "latitude": 25.890799018867916,
+    "longitude": -80.32387301886791
+  },
+  "MEDLEY": {
+    "latitude": 25.8141,
+    "longitude": -80.3549
+  },
+  "CUTLER BAY": {
+    "latitude": 25.58406666666667,
+    "longitude": -80.33913333333334
+  },
+  "North Miami": {
+    "latitude": 25.89391,
+    "longitude": -80.16062000000001
+  },
+  "NORTH FORT MYERS": {
+    "latitude": 26.710301400000002,
+    "longitude": -81.88042026666666
+  },
+  "APOPKA": {
+    "latitude": 28.673699999999997,
+    "longitude": -81.5012
+  },
+  "ROCKLEDGE": {
+    "latitude": 28.3134,
+    "longitude": -80.7319
+  },
+  "MELBOURNE": {
+    "latitude": 28.11073140350878,
+    "longitude": -80.64689875438592
+  },
+  "DUNEDIN": {
+    "latitude": 28.02599009090909,
+    "longitude": -82.78013281818181
+  },
+  "SPRING HILL": {
+    "latitude": 28.4691234189189,
+    "longitude": -82.5501272567568
+  },
+  "ALACHUA": {
+    "latitude": 29.813499999999994,
+    "longitude": -82.472
+  },
+  "MOUNT DORA": {
+    "latitude": 28.774,
+    "longitude": -81.6439
+  },
+  "OCALA": {
+    "latitude": 29.155590909090908,
+    "longitude": -82.18725454545455
+  },
+  "JACKSONVILLE": {
+    "latitude": 30.283664334532418,
+    "longitude": -81.62245479136685
+  },
+  "Tallahassee": {
+    "latitude": 30.46875706532664,
+    "longitude": -84.25020276884409
+  },
+  "Lakeland": {
+    "latitude": 28.020197847133772,
+    "longitude": -81.95321406369435
+  },
+  "WINTER HAVEN": {
+    "latitude": 28.00534,
+    "longitude": -81.73472000000001
+  },
+  "DORAL": {
+    "latitude": 25.784480000000002,
+    "longitude": -80.33550000000002
+  },
+  "RIVERVIEW": {
+    "latitude": 27.84143529411764,
+    "longitude": -82.31699411764706
+  },
+  "PENSACOLA": {
+    "latitude": 30.446144444444446,
+    "longitude": -87.2264111111111
+  },
+  "HOMELAND": {
+    "latitude": 27.8178,
+    "longitude": -81.8245
+  },
+  "LAUDERHILL": {
+    "latitude": 26.172317260869562,
+    "longitude": -80.2318506956522
+  },
+  "NORTH MIAMI BEACH": {
+    "latitude": 25.938269176470577,
+    "longitude": -80.17657476470586
+  },
+  "LEESBURG": {
+    "latitude": 28.828174999999998,
+    "longitude": -81.86002500000001
+  },
+  "LAKE WORTH": {
+    "latitude": 26.60811600000001,
+    "longitude": -80.12999200000003
+  },
+  "WEST PALM BEACH": {
+    "latitude": 26.715734137931044,
+    "longitude": -80.09282525862065
+  },
+  "CRYSTAL RIVER": {
+    "latitude": 28.8547,
+    "longitude": -82.6669
+  },
+  "PORT SAINT LUCIE": {
+    "latitude": 27.3009105263158,
+    "longitude": -80.33668421052623
+  },
+  "Pembroke Pines": {
+    "latitude": 26.008317106382982,
+    "longitude": -80.33105770212764
+  },
+  "JUPITER": {
+    "latitude": 26.929476470588234,
+    "longitude": -80.13721764705883
+  },
+  "WELLINGTON": {
+    "latitude": 26.653310000000005,
+    "longitude": -80.23875
+  },
+  "LOXAHATCHEE": {
+    "latitude": 26.7383,
+    "longitude": -80.27599999999998
+  },
+  "EUSTIS": {
+    "latitude": 28.855,
+    "longitude": -81.6789
+  },
+  "SAINT PETERSBURG": {
+    "latitude": 27.803185000000006,
+    "longitude": -82.66280250000003
+  },
+  "ST PETERSBURG": {
+    "latitude": 27.782570833333335,
+    "longitude": -82.67059583333334
+  },
+  "SEMINOLE": {
+    "latitude": 27.857470000000006,
+    "longitude": -82.79999000000001
+  },
+  "TAMPA": {
+    "latitude": 27.99749763018869,
+    "longitude": -82.48303969811329
+  },
+  "WESLEY CHAPEL": {
+    "latitude": 28.25095,
+    "longitude": -82.3138
+  },
+  "TARPON SPRINGS": {
+    "latitude": 28.1385,
+    "longitude": -82.743
+  },
+  "APOLLO BEACH": {
+    "latitude": 27.771600000000003,
+    "longitude": -82.41020000000002
+  },
+  "PALM HARBOR": {
+    "latitude": 28.081358333333323,
+    "longitude": -82.73016666666668
+  },
+  "PINELLAS PARK": {
+    "latitude": 27.85830000000001,
+    "longitude": -82.71076666666666
+  },
+  "LITHIA": {
+    "latitude": 27.829299999999996,
+    "longitude": -82.1357
+  },
+  "TREASURE ISLAND": {
+    "latitude": 27.7456,
+    "longitude": -82.7516
+  },
+  "HOBE SOUND": {
+    "latitude": 27.0813,
+    "longitude": -80.1509
+  },
+  "Winter Park": {
+    "latitude": 28.59837959375,
+    "longitude": -81.33095996875001
+  },
+  "FORT PIERCE": {
+    "latitude": 27.4356,
+    "longitude": -80.35315500000003
+  },
+  "TAMARAC": {
+    "latitude": 26.208702562499997,
+    "longitude": -80.25731887500001
+  },
+  "MIRAMAR": {
+    "latitude": 25.98996947619049,
+    "longitude": -80.26410907142856
+  },
+  "HOMESTEAD": {
+    "latitude": 25.495166666666666,
+    "longitude": -80.49176666666666
+  },
+  "Orlando": {
+    "latitude": 28.530197238578694,
+    "longitude": -81.368421106599
+  },
+  "PLANTATION": {
+    "latitude": 26.136008749999995,
+    "longitude": -80.2602666
+  },
+  "OPA LOCKA": {
+    "latitude": 25.9097,
+    "longitude": -80.247
+  },
+  "Port St. Lucie": {
+    "latitude": 27.284544324675338,
+    "longitude": -80.36577267532466
+  },
+  "CORAL SPRINGS": {
+    "latitude": 26.274593779661025,
+    "longitude": -80.2546517118644
+  },
+  "MIRAMAR, FLORIDA": {
+    "latitude": 25.9894,
+    "longitude": -80.2153
+  },
+  "DAYTONA BEACH": {
+    "latitude": 29.205550057142855,
+    "longitude": -81.0390886
+  },
+  "PLANT CITY": {
+    "latitude": 28.021055555555556,
+    "longitude": -82.13596666666668
+  },
+  "LAND O LAKES": {
+    "latitude": 28.241200000000003,
+    "longitude": -82.48375000000001
+  },
+  "RUSKIN": {
+    "latitude": 27.70315,
+    "longitude": -82.42528750000001
+  },
+  "BRANDON": {
+    "latitude": 27.916850000000007,
+    "longitude": -82.29003181818179
+  },
+  "WIMAUMA": {
+    "latitude": 27.7015,
+    "longitude": -82.3151
+  },
+  "Palm Beach Gardens": {
+    "latitude": 26.820703772727267,
+    "longitude": -80.1321813181818
+  },
+  "SEFFNER": {
+    "latitude": 27.9922,
+    "longitude": -82.2863
+  },
+  "NEW PORT RICHEY": {
+    "latitude": 28.26016842105263,
+    "longitude": -82.68297894736841
+  },
+  "TEMPLE TERRACE": {
+    "latitude": 28.037633333333332,
+    "longitude": -82.39006666666667
+  },
+  "Weston": {
+    "latitude": 26.07317254166667,
+    "longitude": -80.3764025
+  },
+  "LUTZ": {
+    "latitude": 28.142530000000004,
+    "longitude": -82.48033000000001
+  },
+  "GIBSONTON": {
+    "latitude": 27.8411,
+    "longitude": -82.3698
+  },
+  "DADE CITY": {
+    "latitude": 28.3318,
+    "longitude": -82.2446
+  },
+  "KENNETH CITY": {
+    "latitude": 27.8201,
+    "longitude": -82.7308
+  },
+  "OKEECHOBEE": {
+    "latitude": 27.4203,
+    "longitude": -80.9454
+  },
+  "ZEPHYRHILLS": {
+    "latitude": 28.227420000000002,
+    "longitude": -82.178
+  },
+  "VALRICO": {
+    "latitude": 27.920099999999994,
+    "longitude": -82.24242857142858
+  },
+  "SARASOTA": {
+    "latitude": 27.378116666666667,
+    "longitude": -82.52033333333334
+  },
+  "PORT RICHEY": {
+    "latitude": 28.3011,
+    "longitude": -82.6927
+  },
+  "Davie": {
+    "latitude": 26.065421059999995,
+    "longitude": -80.25845830000003
+  },
+  "Hollywood": {
+    "latitude": 26.02328756603772,
+    "longitude": -80.22143201886786
+  },
+  "PORT ST JOE": {
+    "latitude": 29.811899999999998,
+    "longitude": -85.303
+  },
+  "LYNN HAVEN": {
+    "latitude": 30.2362,
+    "longitude": -85.6467
+  },
+  "MILTON": {
+    "latitude": 30.607333333333333,
+    "longitude": -87.104
+  },
+  "QUINCY": {
+    "latitude": 30.599600000000002,
+    "longitude": -84.60484
+  },
+  "FORT WALTON BEACH": {
+    "latitude": 30.4487,
+    "longitude": -86.6255
+  },
+  "Palm Bay": {
+    "latitude": 28.017422206896576,
+    "longitude": -80.62711517241375
+  },
+  "MARIANNA": {
+    "latitude": 30.737250000000003,
+    "longitude": -85.22075
+  },
+  "PANAMA CITY": {
+    "latitude": 30.186325,
+    "longitude": -85.666875
+  },
+  "BONIFAY": {
+    "latitude": 30.8464,
+    "longitude": -85.69
+  },
+  "CHIPLEY": {
+    "latitude": 30.7107,
+    "longitude": -85.5486
+  },
+  "Gainesville": {
+    "latitude": 29.66930186567162,
+    "longitude": -82.3719070970149
+  },
+  "Lake Park": {
+    "latitude": 26.798150500000002,
+    "longitude": -80.06014725
+  },
+  "FT WALTON BEACH": {
+    "latitude": 30.4487,
+    "longitude": -86.6255
+  },
+  "MADISON": {
+    "latitude": 30.4802,
+    "longitude": -83.4067
+  },
+  "STUART": {
+    "latitude": 27.180700138888906,
+    "longitude": -80.23927261111108
+  },
+  "SEBRING": {
+    "latitude": 27.4924,
+    "longitude": -81.4357
+  },
+  "LAKE WALES": {
+    "latitude": 27.8774,
+    "longitude": -81.6221
+  },
+  "AVON PARK": {
+    "latitude": 27.6001,
+    "longitude": -81.5015
+  },
+  "ARCADIA": {
+    "latitude": 27.1861,
+    "longitude": -81.8667
+  },
+  "AUBURNDALE": {
+    "latitude": 28.0724,
+    "longitude": -81.8122
+  },
+  "Holly Hill": {
+    "latitude": 29.236575636363646,
+    "longitude": -81.06455836363638
+  },
+  "HAINES CITY": {
+    "latitude": 28.114500000000003,
+    "longitude": -81.6201
+  },
+  "YULEE": {
+    "latitude": 30.622199999999996,
+    "longitude": -81.5906
+  },
+  "MACCLENNY": {
+    "latitude": 30.2737,
+    "longitude": -82.1325
+  },
+  "GREEN COVE SPRINGS": {
+    "latitude": 29.9983,
+    "longitude": -81.7647
+  },
+  "SAINT AUGUSTINE": {
+    "latitude": 29.8285,
+    "longitude": -81.3237
+  },
+  "ORANGE PARK": {
+    "latitude": 30.159063636363626,
+    "longitude": -81.7373
+  },
+  "ST AUGUSTINE": {
+    "latitude": 29.877944444444438,
+    "longitude": -81.34764444444446
+  },
+  "KEYSTONE HEIGHTS": {
+    "latitude": 29.7976,
+    "longitude": -81.9899
+  },
+  "ST. AUGUSTINE": {
+    "latitude": 29.97925,
+    "longitude": -81.4686
+  },
+  "STARKE": {
+    "latitude": 29.9583,
+    "longitude": -82.1185
+  },
+  "OCOEE": {
+    "latitude": 28.5837,
+    "longitude": -81.5326
+  },
+  "BRADENTON": {
+    "latitude": 27.4638375,
+    "longitude": -82.5403
+  },
+  "NOKOMIS": {
+    "latitude": 27.1384,
+    "longitude": -82.4518
+  },
+  "PORT CHARLOTTE": {
+    "latitude": 26.974766666666667,
+    "longitude": -82.11783333333334
+  },
+  "PALMETTO": {
+    "latitude": 27.5429,
+    "longitude": -82.563
+  },
+  "NORTH PORT": {
+    "latitude": 27.066466666666667,
+    "longitude": -82.16
+  },
+  "VENICE": {
+    "latitude": 27.0911,
+    "longitude": -82.39659999999999
+  },
+  "PUNTA GORDA": {
+    "latitude": 26.9157,
+    "longitude": -81.9855
+  },
+  "SOUTHWEST RANCHES": {
+    "latitude": 26.064960000000003,
+    "longitude": -80.35004
+  },
+  "DELRAY BEACH": {
+    "latitude": 26.45384444444444,
+    "longitude": -80.13236666666666
+  },
+  "FT LAUDERDALE": {
+    "latitude": 26.140357894736844,
+    "longitude": -80.17411315789471
+  },
+  "SUNRISE": {
+    "latitude": 26.172107000000004,
+    "longitude": -80.28171164705881
+  },
+  "Opa-locka": {
+    "latitude": 25.924765,
+    "longitude": -80.240709
+  },
+  "COOPER CITY": {
+    "latitude": 26.06196,
+    "longitude": -80.32718374999999
+  },
+  "POMPANO BEACH": {
+    "latitude": 26.23547857142857,
+    "longitude": -80.1189142857143
+  },
+  "LAKE ALFRED": {
+    "latitude": 28.0895,
+    "longitude": -81.7271
+  },
+  "DANIA BEACH": {
+    "latitude": 26.05156583333333,
+    "longitude": -80.1461685
+  },
+  "BOCA RATON": {
+    "latitude": 26.36597403333334,
+    "longitude": -80.15512719999998
+  },
+  "BOYNTON BEACH": {
+    "latitude": 26.528035714285718,
+    "longitude": -80.12035714285716
+  },
+  "FT. LAUDERDALE": {
+    "latitude": 26.1817,
+    "longitude": -80.1746
+  },
+  "Greenacres": {
+    "latitude": 26.636327999999995,
+    "longitude": -80.15029324999999
+  },
+  "Oakland Park": {
+    "latitude": 26.18270364285715,
+    "longitude": -80.13742364285714
+  },
+  "Parkland": {
+    "latitude": 26.31950985714286,
+    "longitude": -80.250045
+  },
+  "Ormond Beach": {
+    "latitude": 29.28402006250002,
+    "longitude": -81.08248278124998
+  },
+  "Coconut Creek": {
+    "latitude": 26.288790304347824,
+    "longitude": -80.18510017391306
+  },
+  "Port Orange": {
+    "latitude": 29.135734034482745,
+    "longitude": -81.00101796551725
+  },
+  "Hallandale Beach": {
+    "latitude": 25.98646783333334,
+    "longitude": -80.14056138888888
+  },
+  "ESTERO": {
+    "latitude": 26.4351,
+    "longitude": -81.8102
+  },
+  "Brooksville": {
+    "latitude": 28.538093679999996,
+    "longitude": -82.45255956000003
+  },
+  "Lake Worth Beach": {
+    "latitude": 26.627475,
+    "longitude": -80.0727127142857
+  },
+  "Coral Gables": {
+    "latitude": 25.750219076923088,
+    "longitude": -80.26378696153847
+  },
+  "RIVIERA BEACH": {
+    "latitude": 26.783728333333332,
+    "longitude": -80.05451333333333
+  },
+  "Aventura": {
+    "latitude": 25.95401642857143,
+    "longitude": -80.13953628571427
+  },
+  "DELAND": {
+    "latitude": 29.03085454545454,
+    "longitude": -81.32164545454548
+  },
+  "South Daytona": {
+    "latitude": 29.162878833333334,
+    "longitude": -81.0223265
+  },
+  "Jensen Beach": {
+    "latitude": 27.238272125,
+    "longitude": -80.2339735
+  },
+  "Key Biscayne": {
+    "latitude": 25.69829,
+    "longitude": -80.163783
+  },
+  "PALM SPRINGS": {
+    "latitude": 26.633550499999988,
+    "longitude": -80.08697874999997
+  },
+  "Miami Beach": {
+    "latitude": 25.801681375,
+    "longitude": -80.14497575
+  },
+  "South Miami": {
+    "latitude": 25.703022083333334,
+    "longitude": -80.29321475000002
+  },
+  "HUDSON": {
+    "latitude": 28.365945599999996,
+    "longitude": -82.6542452
+  },
+  "Miami Shores": {
+    "latitude": 25.8658325,
+    "longitude": -80.1932775
+  },
+  "Miami Springs": {
+    "latitude": 25.816825499999997,
+    "longitude": -80.28095383333333
+  },
+  "Pembroke Park": {
+    "latitude": 25.986741000000002,
+    "longitude": -80.201207
+  },
+  "FT. MYERS": {
+    "latitude": 26.6204,
+    "longitude": -81.8725
+  },
+  "OLDSMAR": {
+    "latitude": 28.046,
+    "longitude": -82.6848
+  },
+  "CLERMONT": {
+    "latitude": 28.5525,
+    "longitude": -81.7574
+  },
+  "INDIALANTIC": {
+    "latitude": 28.1091,
+    "longitude": -80.5787
+  },
+  "JACKSONVILLE BEACH": {
+    "latitude": 30.2801,
+    "longitude": -81.41650000000001
+  },
+  "MIDDLEBURG": {
+    "latitude": 30.084,
+    "longitude": -81.8645
+  },
+  "DEERFIELD BEACH": {
+    "latitude": 26.3124,
+    "longitude": -80.14120000000001
+  },
+  "BELLE GLADE": {
+    "latitude": 26.6843,
+    "longitude": -80.6724
+  },
+  "Belle Isle": {
+    "latitude": 28.504425,
+    "longitude": -81.330277
+  },
+  "FRUIT COVE": {
+    "latitude": 30.0815,
+    "longitude": -81.5477
+  },
+  "Lauderdale Lakes": {
+    "latitude": 26.184677999999998,
+    "longitude": -80.2216865
+  },
+  "ALTAMONTE SPRINGS": {
+    "latitude": 28.6640375,
+    "longitude": -81.3941875
+  },
+  "Hialeah Gardens": {
+    "latitude": 25.869559999999996,
+    "longitude": -80.32991399999999
+  },
+  "Margate": {
+    "latitude": 26.266481499999998,
+    "longitude": -80.19739533333333
+  },
+  "Wilton Manors": {
+    "latitude": 26.158057,
+    "longitude": -80.132563
+  },
+  "North Lauderdale": {
+    "latitude": 26.214904,
+    "longitude": -80.223061
+  },
+  "Palm City": {
+    "latitude": 27.166855312499997,
+    "longitude": -80.2906568125
+  },
+  "West Melbourne": {
+    "latitude": 28.066577714285707,
+    "longitude": -80.67627878571427
+  },
+  "Malabar": {
+    "latitude": 27.983009,
+    "longitude": -80.58231649999999
+  },
+  "Coconut Grove": {
+    "latitude": 25.72923,
+    "longitude": -80.239604
+  },
+  "SANFORD": {
+    "latitude": 28.78285,
+    "longitude": -81.2835
+  },
+  "ROYAL PALM BEACH": {
+    "latitude": 26.66396153846154,
+    "longitude": -80.17927692307691
+  },
+  "LEHIGH ACRES": {
+    "latitude": 26.6268625,
+    "longitude": -81.6609375
+  },
+  "LIVE OAK": {
+    "latitude": 30.2956,
+    "longitude": -82.9844
+  },
+  "BOKEELIA": {
+    "latitude": 26.6627,
+    "longitude": -82.1401
+  },
+  "BONITA SPRINGS": {
+    "latitude": 26.3771,
+    "longitude": -81.7334
+  },
+  "SR 31": {
+    "latitude": 26.9668,
+    "longitude": -81.9545
+  },
+  "GULFPORT": {
+    "latitude": 27.754899999999996,
+    "longitude": -82.7208
+  },
+  "BAY HARBOR ISLANDS": {
+    "latitude": 25.7907,
+    "longitude": -80.13
+  },
+  "WINDERMERE": {
+    "latitude": 28.5006,
+    "longitude": -81.5354
+  },
+  "CAPE CANAVERAL": {
+    "latitude": 28.3903,
+    "longitude": -80.6043
+  },
+  "INDIAN HARBOUR BEACH": {
+    "latitude": 28.178,
+    "longitude": -80.602
+  },
+  "LAKE MARY": {
+    "latitude": 28.7577,
+    "longitude": -81.3508
+  },
+  "MELBOURNE BEACH": {
+    "latitude": 28.0219,
+    "longitude": -80.5389
+  },
+  "COCOA": {
+    "latitude": 28.426800000000004,
+    "longitude": -80.7807
+  },
+  "TITUSVILLE": {
+    "latitude": 28.598399999999998,
+    "longitude": -80.831
+  },
+  "SATELLITE BEACH": {
+    "latitude": 28.178,
+    "longitude": -80.602
+  },
+  "ST CLOUD": {
+    "latitude": 28.273,
+    "longitude": -81.2003
+  },
+  "OVIEDO": {
+    "latitude": 28.651299999999996,
+    "longitude": -81.2066
+  },
+  "KISSIMMEE": {
+    "latitude": 28.306837500000004,
+    "longitude": -81.4121625
+  },
+  "GRANT-VALKARIA": {
+    "latitude": 27.9289,
+    "longitude": -80.5264
+  },
+  "ORANGE CITY": {
+    "latitude": 28.9453,
+    "longitude": -81.29949999999998
+  },
+  "NEWBERRY": {
+    "latitude": 29.6609,
+    "longitude": -82.5852
+  },
+  "BEVERLY HILLS": {
+    "latitude": 28.9295,
+    "longitude": -82.4892
+  },
+  "FRUITLAND PARK": {
+    "latitude": 28.8639,
+    "longitude": -81.8998
+  },
+  "TIOGA": {
+    "latitude": 29.6609,
+    "longitude": -82.5852
+  },
+  "JONESVILLE": {
+    "latitude": 29.6609,
+    "longitude": -82.5852
+  },
+  "MINNEOLA": {
+    "latitude": 28.6259,
+    "longitude": -81.7306
+  },
+  "HOMOSASSA": {
+    "latitude": 28.7508,
+    "longitude": -82.5139
+  },
+  "ARCHER": {
+    "latitude": 29.5597,
+    "longitude": -82.5108
+  },
+  "MICANOPY": {
+    "latitude": 29.5122,
+    "longitude": -82.3053
+  },
+  "WINTER GARDEN": {
+    "latitude": 28.542300000000008,
+    "longitude": -81.5911
+  },
+  "BRONSON": {
+    "latitude": 29.461,
+    "longitude": -82.6356
+  },
+  "CHIEFLAND": {
+    "latitude": 29.4832,
+    "longitude": -82.8809
+  },
+  "TAVARES": {
+    "latitude": 28.801,
+    "longitude": -81.734
+  },
+  "PALMETTO BAY": {
+    "latitude": 25.6062,
+    "longitude": -80.3426
+  },
+  "GROVELAND": {
+    "latitude": 28.5644,
+    "longitude": -81.8745
+  },
+  "WINTER SPRINGS": {
+    "latitude": 28.6831,
+    "longitude": -81.2814
+  },
+  "CITRA": {
+    "latitude": 29.3918,
+    "longitude": -82.1062
+  },
+  "BUSHNELL": {
+    "latitude": 28.6611,
+    "longitude": -82.1553
+  },
+  "INVERNESS": {
+    "latitude": 28.8723,
+    "longitude": -82.3454
+  },
+  "HERNANDO": {
+    "latitude": 28.9223,
+    "longitude": -82.39
+  },
+  "LECANTO": {
+    "latitude": 28.8516,
+    "longitude": -82.4876
+  },
+  "DELTONA": {
+    "latitude": 28.90063333333333,
+    "longitude": -81.23811666666667
+  },
+  "PALATKA": {
+    "latitude": 29.657699999999995,
+    "longitude": -81.6595
+  },
+  "NEW SMYRNA BEACH": {
+    "latitude": 29.0247,
+    "longitude": -80.9584
+  },
+  "PALM COAST": {
+    "latitude": 29.5213,
+    "longitude": -81.21175
+  },
+  "FLAGLER BEACH": {
+    "latitude": 29.475,
+    "longitude": -81.1303
+  },
+  "LAKE HELEN": {
+    "latitude": 28.9806,
+    "longitude": -81.2334
+  },
+  "LAKE CITY": {
+    "latitude": 30.21515,
+    "longitude": -82.6325
+  },
+  "LONGWOOD": {
+    "latitude": 28.71287272727272,
+    "longitude": -81.36563636363634
+  },
+  "APOKA": {
+    "latitude": 28.712,
+    "longitude": -81.5136
+  },
+  "SAINT CLOUD": {
+    "latitude": 28.248,
+    "longitude": -81.2876
+  },
+  "B2": {
+    "latitude": 28.014,
+    "longitude": -81.9523
+  },
+  "GOTHA": {
+    "latitude": 28.5384,
+    "longitude": -81.5208
+  },
+  "DAVENPORT": {
+    "latitude": 28.1963,
+    "longitude": -81.6079
+  },
+  "SEBASTIAN": {
+    "latitude": 27.790100000000002,
+    "longitude": -80.4784
+  },
+  "CASSELBERRY": {
+    "latitude": 28.6724,
+    "longitude": -81.2968
+  },
+  "FL 32816": {
+    "latitude": 28.5663,
+    "longitude": -81.2608
+  },
+  "CHAMPIONSGATE": {
+    "latitude": 28.2531,
+    "longitude": -81.6509
+  },
+  "NORTH PALM BEACH": {
+    "latitude": 26.8289,
+    "longitude": -80.0603
+  },
+  "LANTANA": {
+    "latitude": 26.5747,
+    "longitude": -80.0794
+  },
+  "PALM BEACH": {
+    "latitude": 26.7206,
+    "longitude": -80.0388
+  },
+  "LEGACY PL": {
+    "latitude": 26.8234,
+    "longitude": -80.1387
+  },
+  "ODESSA": {
+    "latitude": 28.1421,
+    "longitude": -82.5905
+  },
+  "ELLENTON": {
+    "latitude": 27.5382,
+    "longitude": -82.5006
+  },
+  "TRINITY": {
+    "latitude": 28.2129,
+    "longitude": -82.6807
+  },
+  "SAFETY HARBOR": {
+    "latitude": 28.0096,
+    "longitude": -82.6967
+  },
+  "OPERATION: SNIP WELLNESS CLINIC": {
+    "latitude": 27.8839,
+    "longitude": -82.8265
+  },
+  "MASARYKTOWN": {
+    "latitude": 28.4409,
+    "longitude": -82.4612
+  },
+  "HOLIDAY": {
+    "latitude": 28.1913,
+    "longitude": -82.7279
+  },
+  "VERO BEACH": {
+    "latitude": 27.633,
+    "longitude": -80.4031
+  },
+  "PINECREST": {
+    "latitude": 25.6682,
+    "longitude": -80.2973
+  },
+  "NORTH BAY VILLAGE": {
+    "latitude": 25.8486,
+    "longitude": -80.1446
+  },
+  "UMATILLA": {
+    "latitude": 28.9254,
+    "longitude": -81.6801
+  },
+  "SUN CITY CENTER": {
+    "latitude": 27.7147,
+    "longitude": -82.3538
+  },
+  "INDIANTOWN": {
+    "latitude": 27.0615,
+    "longitude": -80.4803
+  },
+  "SANTA ROSA BEACH": {
+    "latitude": 30.3659,
+    "longitude": -86.2458
+  },
+  "MIRAMAR BEACH": {
+    "latitude": 30.385,
+    "longitude": -86.3473
+  },
+  "CRAWFORDVILLE": {
+    "latitude": 30.2108,
+    "longitude": -84.3205
+  },
+  "HAVANA": {
+    "latitude": 30.6092,
+    "longitude": -84.4143
+  },
+  "PSYCHOLOGY DEPT BLDG": {
+    "latitude": 30.4478,
+    "longitude": -84.3211
+  },
+  "PACE": {
+    "latitude": 30.6698,
+    "longitude": -87.1794
+  },
+  "GULF BREEZE": {
+    "latitude": 30.3571,
+    "longitude": -87.1639
+  },
+  "MICCOSUKEE": {
+    "latitude": 30.5422,
+    "longitude": -84.1413
+  },
+  "BARTOW": {
+    "latitude": 27.8957,
+    "longitude": -81.8127
+  },
+  "LABELLE": {
+    "latitude": 26.7321,
+    "longitude": -81.434
+  },
+  "POLK CITY": {
+    "latitude": 28.1987,
+    "longitude": -81.8083
+  },
+  "ATLANTIC BEACH": {
+    "latitude": 30.3483,
+    "longitude": -81.4159
+  },
+  "Ponte Vedra": {
+    "latitude": 30.1204,
+    "longitude": -81.4128
+  },
+  "SECOND FLOOR": {
+    "latitude": 30.1459,
+    "longitude": -81.5739
+  },
+  "PONTE VEDRA BEACH": {
+    "latitude": 30.121033333333333,
+    "longitude": -81.3961
+  },
+  "FLEMING ISLAND": {
+    "latitude": 30.0933,
+    "longitude": -81.719
+  },
+  "CALLAHAN": {
+    "latitude": 30.552000000000003,
+    "longitude": -81.8145
+  },
+  "SW RANCHES": {
+    "latitude": 26.0663,
+    "longitude": -80.3339
+  },
+  "ROOM 204": {
+    "latitude": 25.9974,
+    "longitude": -80.3248
+  },
+  "STE102": {
+    "latitude": 26.0968,
+    "longitude": -80.181
+  },
+  "BLDG. A": {
+    "latitude": 30.5422,
+    "longitude": -84.1413
+  },
+  "FORT MYERS BEACH": {
+    "latitude": 26.4527,
+    "longitude": -81.9501
+  },
+  "SANIBEL": {
+    "latitude": 26.4514,
+    "longitude": -82.0868
+  }
+}

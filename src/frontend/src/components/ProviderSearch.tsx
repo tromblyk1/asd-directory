@@ -2,10 +2,17 @@ import { useEffect, useMemo, useState } from 'react';
 import { supabase, type Provider } from '../lib/supabase';
 import { Search, MapPin, Phone, Filter, ExternalLink } from 'lucide-react';
 import { useProviderRatings, type ProviderRating } from '../hooks/useProviderRatings';
+import { useProviderPhotos } from '../hooks/useProviderPhotos';
 import { StarRating } from './StarRating';
+import cityCoordinatesRaw from '../data/cityCoordinates.json';
 
 type ProviderSearchProps = {
   initialSearch?: string;
+};
+
+type Coordinates = {
+  latitude: number;
+  longitude: number;
 };
 
 type InsuranceFilters = {
@@ -34,6 +41,7 @@ type ApplyFilterParams = {
   providers: Provider[];
   searchTerm: string;
   cityFilter: string;
+  cityLocation: Coordinates | null;
   insuranceFilters: InsuranceFilters;
   serviceFilters: ServiceFilters;
 };
@@ -101,20 +109,120 @@ const SERVICE_TOKEN_MAP: Record<string, ServiceKey> = {
   pettherapy: 'pet_therapy',
 };
 
+const CITY_COORDINATES_MAP: Record<string, Coordinates> = Object.fromEntries(
+  Object.entries(cityCoordinatesRaw as Record<string, { latitude: number; longitude: number }> ).map(
+    ([city, coords]) => [city.trim().toLowerCase(), coords]
+  ),
+);
+
+const lookupCityCoordinates = (city?: string | null): Coordinates | null => {
+  if (!city) {
+    return null;
+  }
+  const normalized = city.trim().toLowerCase();
+  return CITY_COORDINATES_MAP[normalized] ?? null;
+};
 const formatReviewCount = (count: number) => (count >= 5 ? '5+' : count.toLocaleString());
+
+const CITY_RADIUS_MILES = 40;
+
+const toRadians = (value: number) => (value * Math.PI) / 180;
+
+const calculateDistanceMiles = (from: Coordinates, to: Coordinates) => {
+  const earthRadiusMiles = 3958.8; // avg earth radius
+  const lat1 = toRadians(from.latitude);
+  const lat2 = toRadians(to.latitude);
+  const deltaLat = lat2 - lat1;
+  const deltaLon = toRadians(to.longitude - from.longitude);
+
+  const a =
+    Math.sin(deltaLat / 2) * Math.sin(deltaLat / 2) +
+    Math.cos(lat1) * Math.cos(lat2) * Math.sin(deltaLon / 2) * Math.sin(deltaLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return earthRadiusMiles * c;
+};
+
+const parseCoordinate = (value: unknown): number | null => {
+  if (typeof value === 'number') {
+    return Number.isFinite(value) ? value : null;
+  }
+  if (typeof value === 'string' && value.trim().length > 0) {
+    const parsed = Number(value);
+    return Number.isFinite(parsed) ? parsed : null;
+  }
+  return null;
+};
+
+const resolveProviderCoordinates = (provider: Provider): Coordinates | null => {
+  const latitude = parseCoordinate((provider as unknown as { latitude?: unknown }).latitude);
+  const longitude = parseCoordinate((provider as unknown as { longitude?: unknown }).longitude);
+
+  if (latitude != null && longitude != null) {
+    return { latitude, longitude };
+  }
+
+  return lookupCityCoordinates(provider.city);
+};
+
+const getCityCoordinates = (cityName: string, providers: Provider[]): Coordinates | null => {
+  const normalizedCity = toComparableCity(cityName);
+  if (!normalizedCity) {
+    return null;
+  }
+
+  let latSum = 0;
+  let lonSum = 0;
+  let count = 0;
+
+  providers.forEach((provider) => {
+    if (toComparableCity(provider.city) === normalizedCity) {
+      const coordinates = resolveProviderCoordinates(provider);
+      if (coordinates) {
+        latSum += coordinates.latitude;
+        lonSum += coordinates.longitude;
+        count += 1;
+      }
+    }
+  });
+
+  if (count > 0) {
+    return {
+      latitude: latSum / count,
+      longitude: lonSum / count,
+    };
+  }
+
+  return lookupCityCoordinates(cityName);
+};
 
 const sortProvidersForDisplay = (
   providers: Provider[],
-  ratings: Record<string, ProviderRating>
+  ratings: Record<string, ProviderRating>,
+  cityLocation: Coordinates | null
 ) => {
   const withIndex = providers.map((provider, index) => ({
     provider,
     index,
     rating:
       provider.google_place_id ? ratings[provider.google_place_id] : undefined,
+    distanceMiles:
+      cityLocation
+        ? (() => {
+            const coords = resolveProviderCoordinates(provider);
+            return coords ? calculateDistanceMiles(cityLocation, coords) : Number.POSITIVE_INFINITY;
+          })()
+        : null,
   }));
 
   withIndex.sort((a, b) => {
+    if (cityLocation) {
+      const distA = a.distanceMiles ?? Number.POSITIVE_INFINITY;
+      const distB = b.distanceMiles ?? Number.POSITIVE_INFINITY;
+      if (distA !== distB) {
+        return distA - distB;
+      }
+    }
+
     const hasRatingA = !!(a.rating && a.rating.review_count > 0);
     const hasRatingB = !!(b.rating && b.rating.review_count > 0);
 
@@ -492,6 +600,7 @@ const applyFilters = ({
   providers,
   searchTerm,
   cityFilter,
+  cityLocation,
   insuranceFilters,
   serviceFilters,
 }: ApplyFilterParams): Provider[] => {
@@ -544,11 +653,6 @@ const applyFilters = ({
     });
   }
 
-  if (cityFilter) {
-    const normalizedFilter = toComparableCity(cityFilter);
-    filtered = filtered.filter((provider) => toComparableCity(provider.city) === normalizedFilter);
-  }
-
   const activeInsurance = (Object.entries(insuranceFilters) as [InsuranceKey, boolean][])
     .filter(([, isActive]) => isActive)
     .map(([key]) => key);
@@ -573,6 +677,29 @@ const applyFilters = ({
     );
   }
 
+  if (cityFilter) {
+    if (cityLocation) {
+      const withDistance = filtered.map((provider) => {
+        const coordinates = resolveProviderCoordinates(provider);
+        const distance = coordinates
+          ? calculateDistanceMiles(cityLocation, coordinates)
+          : Number.POSITIVE_INFINITY;
+
+        return { provider, distance };
+      });
+
+      const withinRadius = withDistance.filter(({ distance }) => distance <= CITY_RADIUS_MILES);
+      const prioritized = (withinRadius.length > 0 ? withinRadius : withDistance).map(
+        ({ provider }) => provider,
+      );
+
+      filtered = prioritized;
+    } else {
+      const normalizedFilter = toComparableCity(cityFilter);
+      filtered = filtered.filter((provider) => toComparableCity(provider.city) === normalizedFilter);
+    }
+  }
+
   return filtered;
 };
 
@@ -585,6 +712,11 @@ export default function ProviderSearch({ initialSearch }: ProviderSearchProps) {
   const [cityFilter, setCityFilter] = useState('');
   const [showFilters, setShowFilters] = useState(true);
   const [loading, setLoading] = useState(true);
+
+  const cityLocation = useMemo(
+    () => (cityFilter ? getCityCoordinates(cityFilter, providers) : null),
+    [cityFilter, providers],
+  );
 
   const googlePlaceIds = useMemo(() => {
     const ids = new Set<string>();
@@ -602,9 +734,19 @@ export default function ProviderSearch({ initialSearch }: ProviderSearchProps) {
   } = useProviderRatings(googlePlaceIds);
 
   const sortedProviders = useMemo(
-    () => sortProvidersForDisplay(filteredProviders, providerRatings),
-    [filteredProviders, providerRatings],
+    () => sortProvidersForDisplay(filteredProviders, providerRatings, cityLocation),
+    [filteredProviders, providerRatings, cityLocation],
   );
+
+  const providerPhotoIds = useMemo(
+    () =>
+      sortedProviders
+        .map((provider) => provider.id?.toString() ?? '')
+        .filter((value): value is string => value.length > 0),
+    [sortedProviders],
+  );
+
+  const { photos: providerPhotos } = useProviderPhotos(providerPhotoIds);
   
   // Insurance filters
   const [insuranceFilters, setInsuranceFilters] = useState<InsuranceFilters>({
@@ -647,6 +789,8 @@ export default function ProviderSearch({ initialSearch }: ProviderSearchProps) {
               state,
               zip,
               service_type,
+              latitude,
+              longitude,
               accepts_medicaid,
               accepts_medicare,
               accepts_florida_blue,
@@ -680,12 +824,18 @@ export default function ProviderSearch({ initialSearch }: ProviderSearchProps) {
           const normalized = (data as Array<Record<string, unknown>>).map((raw) => {
             const zip = normalizeZipValue(raw['zip']);
             const id = raw['id'] != null ? String(raw['id']) : undefined;
+            const latitude = parseCoordinate(raw['latitude']);
+            const longitude = parseCoordinate(raw['longitude']);
+            const googlePlaceId =
+              raw['google_place_id'] != null ? String(raw['google_place_id']) : null;
 
             return {
               ...(raw as Provider),
               id,
               zip,
-              google_place_id: raw['google_place_id'] != null ? String(raw['google_place_id']) : null,
+              latitude,
+              longitude,
+              google_place_id: googlePlaceId,
             } as Provider;
           });
 
@@ -699,11 +849,13 @@ export default function ProviderSearch({ initialSearch }: ProviderSearchProps) {
         }
 
         setProviders(allProviders);
+        const initialCityLocation = getCityCoordinates(cityFilter, allProviders);
         setFilteredProviders(
           applyFilters({
             providers: allProviders,
             searchTerm,
             cityFilter,
+            cityLocation: initialCityLocation,
             insuranceFilters,
             serviceFilters,
           }),
@@ -725,11 +877,12 @@ export default function ProviderSearch({ initialSearch }: ProviderSearchProps) {
         providers,
         searchTerm,
         cityFilter,
+        cityLocation,
         insuranceFilters,
         serviceFilters,
       }),
     );
-  }, [providers, searchTerm, cityFilter, insuranceFilters, serviceFilters]);
+  }, [providers, searchTerm, cityFilter, cityLocation, insuranceFilters, serviceFilters]);
 
   useEffect(() => {
     const parsed = parseInitialQuery(initialSearch);
@@ -882,14 +1035,15 @@ const toggleService = (key: ServiceKey) => {
                     ? providerRatings[provider.google_place_id]
                     : undefined;
                   const shouldShowRatingSkeleton = ratingsLoading && !!provider.google_place_id;
+                  const photos = provider.id ? providerPhotos[provider.id.toString()] ?? [] : [];
 
                   return (
                     <div
                       key={provider.id ?? `${provider.provider_name}-${provider.city}`}
                       className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
                     >
-                      <div className="flex justify-between items-start mb-3">
-                        <div>
+                      <div className="flex flex-col gap-6 md:flex-row md:gap-8">
+                        <div className="flex-1">
                           <h3 className="text-xl font-bold text-gray-900">{provider.provider_name}</h3>
                           {provider.service_type && (
                             <p className="text-sm text-gray-600 mt-1">{provider.service_type}</p>
@@ -897,7 +1051,7 @@ const toggleService = (key: ServiceKey) => {
                           {shouldShowRatingSkeleton ? (
                             <div className="mt-3 h-5 w-48 rounded-full bg-gray-200 animate-pulse"></div>
                           ) : rating ? (
-                            <div className="mt-3 inline-flex items-center gap-3 rounded-full border border-blue-100 bg-white px-3 py-2 shadow-sm">
+                            <div className="mt-3 inline-flex flex-wrap items-center gap-3 rounded-full border border-blue-100 bg-white px-3 py-2 shadow-sm">
                               <span className="inline-flex items-center gap-1.5">
                                 <GoogleLogo className="h-4 w-4" />
                                 <span className="text-[11px] font-semibold uppercase tracking-wider text-gray-600">
@@ -918,87 +1072,137 @@ const toggleService = (key: ServiceKey) => {
                               </span>
                             </div>
                           ) : null}
-                        </div>
-                      </div>
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                        <div className="flex items-start gap-2">
-                          <MapPin size={18} className="text-gray-400 mt-1 flex-shrink-0" />
-                          <div className="text-sm">
-                            <div>{provider.address1}</div>
-                            {provider.address2 && <div className="text-gray-600">{provider.address2}</div>}
-                            <div>
-                              {provider.city}
-                              {provider.state && `, ${provider.state}`}
-                              {provider.zip && ` ${provider.zip}`}
+                          <div className="mt-4 flex flex-col gap-4 md:flex-row md:items-start md:gap-8 text-sm">
+                            <div className="flex items-start gap-2 text-slate-600">
+                              <MapPin size={18} className="text-gray-400 mt-1 flex-shrink-0" />
+                              <div>
+                                <div>{provider.address1}</div>
+                                {provider.address2 && <div className="text-gray-600">{provider.address2}</div>}
+                                <div>
+                                  {provider.city}
+                                  {provider.state && `, ${provider.state}`}
+                                  {provider.zip && ` ${provider.zip}`}
+                                </div>
+                              </div>
+                            </div>
+                            <div className="flex flex-col gap-2 text-slate-600 min-w-[180px]">
+                              <div className="flex items-center gap-2">
+                                <Phone size={18} className="text-gray-400 flex-shrink-0" />
+                                {provider.phone ? (
+                                  <a href={`tel:${provider.phone}`} className="text-blue-600 hover:underline">
+                                    {provider.phone}
+                                  </a>
+                                ) : (
+                                  <span className="text-gray-500 italic">Phone not available</span>
+                                )}
+                              </div>
+                              <div className="flex items-center gap-2">
+                                <ExternalLink size={18} className="text-gray-400 flex-shrink-0" />
+                                {provider.website ? (
+                                  <a
+                                    href={
+                                      provider.website.startsWith('http')
+                                        ? provider.website
+                                        : `https://${provider.website}`
+                                    }
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-blue-600 hover:underline"
+                                  >
+                                    Visit Website
+                                  </a>
+                                ) : provider.scraped_website ? (
+                                  <a
+                                    href={
+                                      provider.scraped_website.startsWith('http')
+                                        ? provider.scraped_website
+                                        : `https://${provider.scraped_website}`
+                                    }
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-blue-600 hover:underline"
+                                  >
+                                    Visit Website
+                                  </a>
+                                ) : (
+                                  <span className="text-gray-500 italic">Website not available</span>
+                                )}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <div className="flex flex-col gap-2 text-sm">
-                          <div className="flex items-center gap-2">
-                            <Phone size={18} className="text-gray-400 flex-shrink-0" />
-                            {provider.phone ? (
-                              <a href={`tel:${provider.phone}`} className="text-blue-600 hover:underline">
-                                {provider.phone}
-                              </a>
+
+                          <div className="flex flex-wrap gap-2 mt-4">
+                            {serviceBadges.length > 0 ? (
+                              serviceBadges.map((badge) => (
+                                <span
+                                  key={`${provider.id ?? provider.provider_name}-service-${badge.label}`}
+                                  className={`px-3 py-1 text-xs rounded-full font-medium ${badge.className}`}
+                                >
+                                  {badge.label}
+                                </span>
+                              ))
                             ) : (
-                              <span className="text-gray-500 italic">Phone not available</span>
+                              <span className="text-xs text-gray-500 italic">Services information not available</span>
                             )}
                           </div>
-                          <div className="flex items-center gap-2">
-                            <ExternalLink size={18} className="text-gray-400 flex-shrink-0" />
-                            {provider.website ? (
-                              <a
-                                href={provider.website.startsWith('http') ? provider.website : `https://${provider.website}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-blue-600 hover:underline"
-                              >
-                                Visit Website
-                              </a>
-                            ) : provider.scraped_website ? (
-                              <a
-                                href={provider.scraped_website.startsWith('http') ? provider.scraped_website : `https://${provider.scraped_website}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-blue-600 hover:underline"
-                              >
-                                Visit Website
-                              </a>
+
+                          <div className="mt-3 flex flex-wrap gap-2">
+                            {insuranceBadges.length > 0 ? (
+                              insuranceBadges.map((badge) => (
+                                <span
+                                  key={`${provider.id ?? provider.provider_name}-insurance-${badge.label}`}
+                                  className={`px-3 py-1 text-xs rounded-full font-medium ${badge.className}`}
+                                >
+                                  {badge.label}
+                                </span>
+                              ))
                             ) : (
-                              <span className="text-gray-500 italic">Website not available</span>
+                              <span className="text-xs text-gray-500 italic">Insurance information not available</span>
                             )}
                           </div>
                         </div>
-                      </div>
 
-                      <div className="flex flex-wrap gap-2 mb-3">
-                        {serviceBadges.length > 0 ? (
-                          serviceBadges.map((badge) => (
-                            <span
-                              key={`${provider.id ?? provider.provider_name}-service-${badge.label}`}
-                              className={`px-3 py-1 text-xs rounded-full font-medium ${badge.className}`}
-                            >
-                              {badge.label}
-                            </span>
-                          ))
-                        ) : (
-                          <span className="text-xs text-gray-500 italic">Services information not available</span>
-                        )}
-                      </div>
-
-                      <div className="flex flex-wrap gap-2">
-                        {insuranceBadges.length > 0 ? (
-                          insuranceBadges.map((badge) => (
-                            <span
-                              key={`${provider.id ?? provider.provider_name}-insurance-${badge.label}`}
-                              className={`px-3 py-1 text-xs rounded-full font-medium ${badge.className}`}
-                            >
-                              {badge.label}
-                            </span>
-                          ))
-                        ) : (
-                          <span className="text-xs text-gray-500 italic">Insurance information not available</span>
+                        {photos.length > 0 && (
+                          <div className="hidden md:flex md:w-72 md:self-stretch lg:w-80">
+                            {photos.length === 1 ? (
+                              <a
+                                key={`${provider.id ?? provider.provider_name}-photo-0`}
+                                href={photos[0].sourceUrl ?? photos[0].imageUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="block h-full w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-shadow"
+                                title={photos[0].sourceUrl ?? 'View source'}
+                              >
+                                <img
+                                  src={photos[0].imageUrl}
+                                  alt={`${provider.provider_name ?? 'Provider'} photo`}
+                                  className="h-full w-full object-contain bg-white"
+                                  loading="lazy"
+                                />
+                              </a>
+                            ) : (
+                              <div className="flex h-full w-full flex-col gap-3">
+                                {photos.slice(0, 2).map((photo, index) => (
+                                  <a
+                                    key={`${provider.id ?? provider.provider_name}-photo-${index}`}
+                                    href={photo.sourceUrl ?? photo.imageUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex-1 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-shadow"
+                                    title={photo.sourceUrl ?? 'View source'}
+                                  >
+                                    <img
+                                      src={photo.imageUrl}
+                                      alt={`${provider.provider_name ?? 'Provider'} photo ${index + 1}`}
+                                      className="h-full w-full object-contain object-center"
+                                      loading="lazy"
+                                    />
+                                  </a>
+                                ))}
+                              </div>
+                            )}
+                          </div>
                         )}
                       </div>
                     </div>

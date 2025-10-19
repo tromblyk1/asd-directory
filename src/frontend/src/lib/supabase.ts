@@ -12,6 +12,8 @@ export interface Provider {
   street?: string | null;
   address1?: string | null;
   address2?: string | null;
+  latitude?: number | null;
+  longitude?: number | null;
   phone?: string | null;
   email?: string | null;
   website?: string | null;
