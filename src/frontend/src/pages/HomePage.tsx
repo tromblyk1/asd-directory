@@ -86,7 +86,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       description: 'Daily living and social skills development programs',
       color: 'bg-violet-100/60 dark:bg-violet-900/20 text-violet-700 dark:text-violet-400',
       hoverInfo: 'Programs to build independence and social confidence',
-      searchQuery: 'life skills',
+      searchQuery: 'service=life_skills',
       page: 'providers' as const,
     },
     {

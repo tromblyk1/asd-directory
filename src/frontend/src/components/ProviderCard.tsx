@@ -126,7 +126,7 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, onExpand }
       <div className="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-700">
         <div className="flex items-center space-x-3 text-sm">
           {provider.phone && (
-            
+            <a
               href={`tel:${provider.phone}`}
               className="flex items-center space-x-1 text-slate-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
               aria-label={`Call ${provider.provider_name}`}
@@ -137,7 +137,7 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, onExpand }
             </a>
           )}
           {provider.website && (
-            
+            <a
               href={provider.website.startsWith('http') ? provider.website : `https://${provider.website}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -149,7 +149,7 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, onExpand }
             </a>
           )}
           {provider.scraped_website && !provider.website && (
-            
+            <a
               href={provider.scraped_website.startsWith('http') ? provider.scraped_website : `https://${provider.scraped_website}`}
               target="_blank"
               rel="noopener noreferrer"

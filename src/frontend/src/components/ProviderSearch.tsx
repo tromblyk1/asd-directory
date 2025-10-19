@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { supabase, type Provider } from '../lib/supabase';
 import { Search, MapPin, Phone, Filter, ExternalLink } from 'lucide-react';
+import { useProviderRatings, type ProviderRating } from '../hooks/useProviderRatings';
+import { StarRating } from './StarRating';
 
 type ProviderSearchProps = {
   initialSearch?: string;
@@ -23,6 +25,7 @@ type ServiceFilters = {
   ot: boolean;
   pt: boolean;
   respite: boolean;
+  life_skills: boolean;
   residential: boolean;
   pet_therapy: boolean;
 };
@@ -55,6 +58,7 @@ const SERVICE_FIELD_MAP: Record<ServiceKey, string> = {
   ot: 'Occupational',
   pt: 'Physical',
   respite: 'Respite',
+  life_skills: 'Life Skills',
   residential: 'Residential',
   pet_therapy: 'Pet Therapy',
 };
@@ -65,6 +69,7 @@ const SERVICE_BOOLEAN_MAP: Partial<Record<ServiceKey, Array<keyof Provider>>> = 
   ot: ['ot'],
   pt: ['pt'],
   respite: ['respite_care'],
+  life_skills: ['life_skills', 'life_skills_development'],
   residential: ['residential'],
   pet_therapy: ['pet_therapy'],
 };
@@ -86,11 +91,82 @@ const SERVICE_TOKEN_MAP: Record<string, ServiceKey> = {
   physical: 'pt',
   respite: 'respite',
   respitecare: 'respite',
+  lifeskills: 'life_skills',
+  life: 'life_skills',
+  socialskills: 'life_skills',
+  lifeskillsdevelopment: 'life_skills',
   residential: 'residential',
   residentialsupports: 'residential',
   pets: 'pet_therapy',
   pettherapy: 'pet_therapy',
 };
+
+const formatReviewCount = (count: number) => (count >= 5 ? '5+' : count.toLocaleString());
+
+const sortProvidersForDisplay = (
+  providers: Provider[],
+  ratings: Record<string, ProviderRating>
+) => {
+  const withIndex = providers.map((provider, index) => ({
+    provider,
+    index,
+    rating:
+      provider.google_place_id ? ratings[provider.google_place_id] : undefined,
+  }));
+
+  withIndex.sort((a, b) => {
+    const hasRatingA = !!(a.rating && a.rating.review_count > 0);
+    const hasRatingB = !!(b.rating && b.rating.review_count > 0);
+
+    if (hasRatingA && !hasRatingB) return -1;
+    if (!hasRatingA && hasRatingB) return 1;
+
+    if (hasRatingA && hasRatingB) {
+      if (b.rating!.avg_rating !== a.rating!.avg_rating) {
+        return b.rating!.avg_rating - a.rating!.avg_rating;
+      }
+      if (b.rating!.review_count !== a.rating!.review_count) {
+        return b.rating!.review_count - a.rating!.review_count;
+      }
+    }
+
+    const nameA = a.provider.provider_name ?? '';
+    const nameB = b.provider.provider_name ?? '';
+    const nameCompare = nameA.localeCompare(nameB, undefined, { sensitivity: 'base' });
+    if (nameCompare !== 0) {
+      return nameCompare;
+    }
+
+    return a.index - b.index;
+  });
+
+  return withIndex.map(({ provider }) => provider);
+};
+
+const GoogleLogo = ({ className }: { className?: string }) => (
+  <svg
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+    className={className}
+  >
+    <path
+      fill="#4285F4"
+      d="M23.49 12.27c0-.78-.07-1.53-.2-2.27H12v4.29h6.53a5.6 5.6 0 01-2.38 3.66v3h3.85c2.25-2.07 3.49-5.12 3.49-8.68z"
+    />
+    <path
+      fill="#34A853"
+      d="M12 24c3.24 0 5.96-1.07 7.95-2.9l-3.85-3a7.17 7.17 0 01-10.79-3.77H1.29v3.11A12 12 0 0012 24z"
+    />
+    <path
+      fill="#FBBC05"
+      d="M5.31 14.33a7.2 7.2 0 01-.38-2.33c0-.81.14-1.6.38-2.33V6.56H1.29a12 12 0 000 10.89l4.02-3.12z"
+    />
+    <path
+      fill="#EA4335"
+      d="M12 4.73c1.76 0 3.34.61 4.58 1.81l3.42-3.42C17.97 1.24 15.24 0 12 0A12 12 0 001.29 6.56l4.02 3.11A7.17 7.17 0 0112 4.73z"
+    />
+  </svg>
+);
 
 const INSURANCE_OPTIONS: Array<{ key: InsuranceKey; label: string }> = [
   { key: 'medicaid', label: 'Medicaid' },
@@ -109,6 +185,7 @@ const SERVICE_OPTIONS: Array<{ key: ServiceKey; label: string }> = [
   { key: 'ot', label: 'Occupational Therapy' },
   { key: 'pt', label: 'Physical Therapy' },
   { key: 'respite', label: 'Respite Care' },
+  { key: 'life_skills', label: 'Life Skills Programs' },
   { key: 'residential', label: 'Residential Supports' },
   { key: 'pet_therapy', label: 'Pet Therapy' },
 ];
@@ -144,6 +221,7 @@ const SERVICE_BADGE_CLASSES: Partial<Record<ServiceKey, string>> = {
   ot: 'bg-purple-100 text-purple-800',
   pt: 'bg-rose-100 text-rose-800',
   respite: 'bg-lime-100 text-lime-800',
+  life_skills: 'bg-violet-100 text-violet-800',
   residential: 'bg-slate-200 text-slate-800',
   pet_therapy: 'bg-orange-100 text-orange-800',
 };
@@ -345,6 +423,7 @@ const createServiceFilterState = (activeKeys: ServiceKey[]): ServiceFilters => {
     ot: false,
     pt: false,
     respite: false,
+    life_skills: false,
     residential: false,
     pet_therapy: false,
   };
@@ -449,8 +528,8 @@ const applyFilters = ({
           return zip.includes(lower);
         }
 
-        if (sanitized.length <= 2) {
-          return false;
+        if (sanitized.length === 0) {
+          return true;
         }
 
         return (
@@ -490,7 +569,7 @@ const applyFilters = ({
 
   if (activeServices.length > 0) {
     filtered = filtered.filter((provider) =>
-      activeServices.some((serviceKey) => matchesServiceFilter(provider, serviceKey)),
+      activeServices.every((serviceKey) => matchesServiceFilter(provider, serviceKey)),
     );
   }
 
@@ -506,6 +585,26 @@ export default function ProviderSearch({ initialSearch }: ProviderSearchProps) {
   const [cityFilter, setCityFilter] = useState('');
   const [showFilters, setShowFilters] = useState(true);
   const [loading, setLoading] = useState(true);
+
+  const googlePlaceIds = useMemo(() => {
+    const ids = new Set<string>();
+    filteredProviders.forEach((provider) => {
+      if (provider.google_place_id) {
+        ids.add(provider.google_place_id);
+      }
+    });
+    return Array.from(ids);
+  }, [filteredProviders]);
+
+  const {
+    ratings: providerRatings,
+    loading: ratingsLoading,
+  } = useProviderRatings(googlePlaceIds);
+
+  const sortedProviders = useMemo(
+    () => sortProvidersForDisplay(filteredProviders, providerRatings),
+    [filteredProviders, providerRatings],
+  );
   
   // Insurance filters
   const [insuranceFilters, setInsuranceFilters] = useState<InsuranceFilters>({
@@ -539,6 +638,7 @@ export default function ProviderSearch({ initialSearch }: ProviderSearchProps) {
             .select(`
               id,
               provider_name,
+              google_place_id,
               phone,
               website,
               address1,
@@ -585,6 +685,7 @@ export default function ProviderSearch({ initialSearch }: ProviderSearchProps) {
               ...(raw as Provider),
               id,
               zip,
+              google_place_id: raw['google_place_id'] != null ? String(raw['google_place_id']) : null,
             } as Provider;
           });
 
@@ -636,13 +737,18 @@ export default function ProviderSearch({ initialSearch }: ProviderSearchProps) {
     setServiceFilters(createServiceFilterState(parsed.services));
   }, [initialSearch]);
 
-  const toggleInsurance = (key: InsuranceKey) => {
-    setInsuranceFilters(prev => ({ ...prev, [key]: !prev[key] }));
-  };
-  
-  const toggleService = (key: ServiceKey) => {
-    setServiceFilters(prev => ({ ...prev, [key]: !prev[key] }));
-  };
+const toggleInsurance = (key: InsuranceKey) => {
+  setInsuranceFilters(prev => ({ ...prev, [key]: !prev[key] }));
+};
+
+const toggleService = (key: ServiceKey) => {
+  setServiceFilters(prev => {
+    if (prev[key]) {
+      return createServiceFilterState([]);
+    }
+    return createServiceFilterState([key]);
+  });
+};
 
   const cities = [
     ...new Set(
@@ -659,7 +765,7 @@ export default function ProviderSearch({ initialSearch }: ProviderSearchProps) {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading 10,012 providers...</p>
+          <p className="text-gray-600">Loading provider directory...</p>
         </div>
       </div>
     );
@@ -769,9 +875,13 @@ export default function ProviderSearch({ initialSearch }: ProviderSearchProps) {
                   <p className="text-gray-500 text-sm mt-2">Try adjusting your search criteria</p>
                 </div>
               ) : (
-                filteredProviders.map(provider => {
+                sortedProviders.map(provider => {
                   const serviceBadges = getServiceBadges(provider);
                   const insuranceBadges = getInsuranceBadges(provider);
+                  const rating = provider.google_place_id
+                    ? providerRatings[provider.google_place_id]
+                    : undefined;
+                  const shouldShowRatingSkeleton = ratingsLoading && !!provider.google_place_id;
 
                   return (
                     <div
@@ -784,6 +894,30 @@ export default function ProviderSearch({ initialSearch }: ProviderSearchProps) {
                           {provider.service_type && (
                             <p className="text-sm text-gray-600 mt-1">{provider.service_type}</p>
                           )}
+                          {shouldShowRatingSkeleton ? (
+                            <div className="mt-3 h-5 w-48 rounded-full bg-gray-200 animate-pulse"></div>
+                          ) : rating ? (
+                            <div className="mt-3 inline-flex items-center gap-3 rounded-full border border-blue-100 bg-white px-3 py-2 shadow-sm">
+                              <span className="inline-flex items-center gap-1.5">
+                                <GoogleLogo className="h-4 w-4" />
+                                <span className="text-[11px] font-semibold uppercase tracking-wider text-gray-600">
+                                  Google Reviews
+                                </span>
+                              </span>
+                              <StarRating
+                                rating={rating.avg_rating}
+                                reviewCount={rating.review_count}
+                                size="sm"
+                                showCount={false}
+                              />
+                              <span className="text-sm font-semibold text-gray-900">
+                                {rating.avg_rating.toFixed(1)}
+                              </span>
+                              <span className="text-xs text-gray-500">
+                                ({formatReviewCount(rating.review_count)})
+                              </span>
+                            </div>
+                          ) : null}
                         </div>
                       </div>
 

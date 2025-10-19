@@ -4,6 +4,7 @@ export interface Provider {
   id?: string;
   provider_id?: string | number | null;
   provider_name?: string | null;
+  google_place_id?: string | null;
   verified?: boolean | null;
   city?: string | null;
   state?: string | null;

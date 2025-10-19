@@ -10,15 +10,13 @@ interface StarRatingProps {
   reviewCount: number;
   showCount?: boolean;
   size?: 'sm' | 'md' | 'lg';
-  className?: string;
 }
 
 export const StarRating: React.FC<StarRatingProps> = ({ 
   rating, 
   reviewCount, 
   showCount = true,
-  size = 'md',
-  className,
+  size = 'md' 
 }) => {
   // Size configurations
   const sizeClasses = {
@@ -100,16 +98,14 @@ export const StarRating: React.FC<StarRatingProps> = ({
     return stars;
   };
 
-  const formattedCount = reviewCount >= 5 ? '5+' : reviewCount.toLocaleString();
-
   return (
-    <div className={`flex items-center gap-2 ${className ?? ''}`}>
+    <div className="flex items-center gap-2">
       <div className="flex items-center gap-0.5">
         {renderStars()}
       </div>
       {showCount && (
         <span className={`${sizeClasses[size]} text-gray-600 font-medium`}>
-          {rating.toFixed(1)} ({formattedCount})
+          {rating.toFixed(1)} ({reviewCount.toLocaleString()})
         </span>
       )}
     </div>
