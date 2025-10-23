@@ -351,6 +351,50 @@ const formatCityLabel = (value: string): string =>
     )
     .join(' ');
 
+const sanitizeSearchToken = (token: string): string =>
+  token
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '')
+    .trim();
+
+const escapeRegExp = (value: string): string => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+type CitySearchEntry = {
+  rawKey: string;
+  normalizedForSearch: string;
+};
+
+const CITY_SEARCH_ENTRIES: CitySearchEntry[] = Object.keys(CITY_COORDINATES_MAP)
+  .map((rawKey) => ({
+    rawKey,
+    normalizedForSearch: rawKey.replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim(),
+  }))
+  .filter((entry) => entry.normalizedForSearch.length > 0)
+  .sort((a, b) => b.normalizedForSearch.length - a.normalizedForSearch.length);
+
+const detectCityFromSearchTerm = (term: string): string | null => {
+  const sanitizedTerm = term
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  if (!sanitizedTerm) {
+    return null;
+  }
+
+  const haystack = ` ${sanitizedTerm} `;
+
+  for (const { rawKey, normalizedForSearch } of CITY_SEARCH_ENTRIES) {
+    const pattern = new RegExp(`\\b${escapeRegExp(normalizedForSearch)}\\b`, 'i');
+    if (pattern.test(haystack)) {
+      return formatCityLabel(rawKey);
+    }
+  }
+
+  return null;
+};
+
 const toComparableCity = (value?: string | null): string => {
   const normalized = normalizeCity(value);
   if (!normalized) {
@@ -608,49 +652,73 @@ const applyFilters = ({
 
   const trimmedSearch = searchTerm.trim().toLowerCase();
   if (trimmedSearch) {
-    const tokens = trimmedSearch.split(/\s+/).filter(Boolean);
-    filtered = filtered.filter((provider) => {
-      const name = provider.provider_name ?? '';
-      const city = provider.city ?? '';
-      const zip = normalizeZipValue(provider.zip);
-      const state = provider.state ?? '';
-      const serviceTokens = extractServiceTokens(provider).map((token) =>
-        token.toLowerCase()
+    let tokens = trimmedSearch.split(/\s+/).filter(Boolean);
+
+    if (cityFilter) {
+      const cityTokenSet = new Set(
+        toComparableCity(cityFilter)
+          .split(/\s+/)
+          .map(sanitizeSearchToken)
+          .filter(Boolean),
       );
 
-      const matchesToken = (token: string) => {
-        const lower = token.toLowerCase();
-        const sanitized = lower.replace(/[^a-z0-9]/g, '');
-        const isNumeric = /^[0-9]+$/.test(lower);
+      if (cityTokenSet.size > 0) {
+        tokens = tokens.filter((token) => {
+          const sanitized = sanitizeSearchToken(token);
+          if (!sanitized) {
+            return false;
+          }
+          return !cityTokenSet.has(sanitized);
+        });
+      }
+    }
 
-        const serviceMatch =
-          serviceTokens.some((value) => value.includes(lower)) ||
-          (sanitized in SERVICE_TOKEN_MAP
-            ? matchesServiceFilter(provider, SERVICE_TOKEN_MAP[sanitized])
-            : false);
+    const remainingTokens = tokens
+      .map((token) => token.trim())
+      .filter((token) => token.length > 0);
 
-        if (serviceMatch) {
-          return true;
-        }
+    if (remainingTokens.length > 0) {
+      filtered = filtered.filter((provider) => {
+        const name = provider.provider_name ?? '';
+        const city = provider.city ?? '';
+        const zip = normalizeZipValue(provider.zip);
+        const state = provider.state ?? '';
+        const serviceTokens = extractServiceTokens(provider).map((token) => token.toLowerCase());
 
-        if (isNumeric) {
-          return zip.includes(lower);
-        }
+        const matchesToken = (token: string) => {
+          const lower = token.toLowerCase();
+          const sanitized = lower.replace(/[^a-z0-9]/g, '');
+          const isNumeric = /^[0-9]+$/.test(lower);
 
-        if (sanitized.length === 0) {
-          return true;
-        }
+          const serviceMatch =
+            serviceTokens.some((value) => value.includes(lower)) ||
+            (sanitized in SERVICE_TOKEN_MAP
+              ? matchesServiceFilter(provider, SERVICE_TOKEN_MAP[sanitized])
+              : false);
 
-        return (
-          name.toLowerCase().includes(lower) ||
-          city.toLowerCase().includes(lower) ||
-          state.toLowerCase().includes(lower) ||
-          zip.includes(lower)
-        );
-      };
+          if (serviceMatch) {
+            return true;
+          }
 
-      return tokens.every(matchesToken);
-    });
+          if (isNumeric) {
+            return zip.includes(lower);
+          }
+
+          if (sanitized.length === 0) {
+            return true;
+          }
+
+          return (
+            name.toLowerCase().includes(lower) ||
+            city.toLowerCase().includes(lower) ||
+            state.toLowerCase().includes(lower) ||
+            zip.includes(lower)
+          );
+        };
+
+        return remainingTokens.every(matchesToken);
+      });
+    }
   }
 
   const activeInsurance = (Object.entries(insuranceFilters) as [InsuranceKey, boolean][])
@@ -713,10 +781,19 @@ export default function ProviderSearch({ initialSearch }: ProviderSearchProps) {
   const [showFilters, setShowFilters] = useState(true);
   const [loading, setLoading] = useState(true);
 
-  const cityLocation = useMemo(
-    () => (cityFilter ? getCityCoordinates(cityFilter, providers) : null),
-    [cityFilter, providers],
-  );
+  const derivedSearchCity = useMemo(() => detectCityFromSearchTerm(searchTerm), [searchTerm]);
+
+  const effectiveCityFilter = cityFilter || derivedSearchCity || '';
+
+  const cityLocation = useMemo(() => {
+    if (!effectiveCityFilter) {
+      return null;
+    }
+    return (
+      getCityCoordinates(effectiveCityFilter, providers) ??
+      lookupCityCoordinates(effectiveCityFilter)
+    );
+  }, [effectiveCityFilter, providers]);
 
   const googlePlaceIds = useMemo(() => {
     const ids = new Set<string>();
@@ -849,12 +926,15 @@ export default function ProviderSearch({ initialSearch }: ProviderSearchProps) {
         }
 
         setProviders(allProviders);
-        const initialCityLocation = getCityCoordinates(cityFilter, allProviders);
+        const initialCityName = cityFilter || detectCityFromSearchTerm(searchTerm) || '';
+        const initialCityLocation = initialCityName
+          ? getCityCoordinates(initialCityName, allProviders) ?? lookupCityCoordinates(initialCityName)
+          : null;
         setFilteredProviders(
           applyFilters({
             providers: allProviders,
             searchTerm,
-            cityFilter,
+            cityFilter: initialCityName,
             cityLocation: initialCityLocation,
             insuranceFilters,
             serviceFilters,
@@ -876,13 +956,13 @@ export default function ProviderSearch({ initialSearch }: ProviderSearchProps) {
       applyFilters({
         providers,
         searchTerm,
-        cityFilter,
+        cityFilter: effectiveCityFilter,
         cityLocation,
         insuranceFilters,
         serviceFilters,
       }),
     );
-  }, [providers, searchTerm, cityFilter, cityLocation, insuranceFilters, serviceFilters]);
+  }, [providers, searchTerm, effectiveCityFilter, cityLocation, insuranceFilters, serviceFilters]);
 
   useEffect(() => {
     const parsed = parseInitialQuery(initialSearch);
@@ -951,7 +1031,7 @@ const toggleService = (key: ServiceKey) => {
             <select
               value={cityFilter}
               onChange={(e) => setCityFilter(e.target.value)}
-              className="px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 max-w-[200px] sm:max-w-none overflow-hidden text-ellipsis"
             >
               <option value="">All Cities</option>
               {cities.map(city => (

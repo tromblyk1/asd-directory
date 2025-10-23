@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Sitemap: https://floridaautismservices.com/sitemap.xml
+
+# Block admin or internal pages if needed
+# Disallow: /admin/

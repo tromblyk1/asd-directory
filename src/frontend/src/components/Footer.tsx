@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Infinity, Mail, MapPin, Phone, Heart } from 'lucide-react';
+import { Mail, MapPin, Phone, Heart } from 'lucide-react';
 import { DonateModal } from './DonateModal';
+import logoImage from '../assets/images/logo-rainbow-small.png';
 
 type FooterProps = {
   onNavigate: (page: string) => void;
@@ -16,7 +17,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <Infinity className="w-7 h-7 text-amber-500 dark:text-amber-400" strokeWidth={2.5} />
+              <img
+                src={logoImage}
+                alt="Florida Autism Services - connecting families to autism services"
+                className="h-[45px] max-h-[45px] w-auto object-contain"
+              />
               <span className="font-semibold text-slate-800 dark:text-slate-100">Florida Autism Services</span>
             </div>
             <p className="text-sm text-slate-600 dark:text-slate-400">
@@ -106,11 +111,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
               <li className="flex items-center space-x-2">
                 <Mail className="w-4 h-4" />
-                <span>info@floridaautismservices.com</span>
+                <span>floridaautismservices@gmail.com</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Phone className="w-4 h-4" />
-                <span>(555) 123-4567</span>
+                <span>(321) 300-3447</span>
               </li>
               <li className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4" />

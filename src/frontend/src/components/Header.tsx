@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Infinity, Menu, X, Moon, Sun, Volume2, VolumeX, Heart } from 'lucide-react';
+import { Menu, X, Moon, Sun, Volume2, VolumeX, Heart } from 'lucide-react';
 import { useAccessibility } from '../contexts/AccessibilityContext';
 import { DonateModal } from './DonateModal';
+import logoImage from '../assets/images/logo-rainbow-small.png';
 
 type HeaderProps = {
   currentPage: string;
@@ -31,10 +32,12 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
             className="flex items-center space-x-2 group transition-colors"
             aria-label="Go to homepage"
           >
-            <div className="relative">
-              <Infinity className="w-8 h-8 text-amber-500 dark:text-amber-400 group-hover:text-amber-600 dark:group-hover:text-amber-300 transition-colors" strokeWidth={2.5} />
-            </div>
-            <div className="flex flex-col items-start">
+            <img
+              src={logoImage}
+              alt="Florida Autism Services - connecting families to autism services"
+              className="h-[50px] max-h-[50px] w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+            />
+            <div className="hidden sm:flex flex-col items-start">
               <span className="text-lg font-semibold leading-tight text-slate-800 dark:text-slate-100">Florida Autism Services</span>
               <span className="text-xs text-slate-500 dark:text-slate-400 leading-tight">Connecting families to support</span>
             </div>
@@ -45,11 +48,10 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
               <button
                 key={item.id}
                 onClick={() => onNavigate(item.id)}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  currentPage === item.id
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${currentPage === item.id
                     ? 'bg-teal-100/60 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300'
                     : 'text-slate-600 dark:text-slate-300 hover:bg-blue-50/50 dark:hover:bg-slate-800'
-                }`}
+                  }`}
               >
                 {item.label}
               </button>
@@ -94,7 +96,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
       </div>
 
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-blue-100/50 dark:border-slate-800 bg-white/98 dark:bg-slate-900">
+        <div className="md:hidden border-t border-blue-100/50 dark:border-slate-800 bg-white dark:bg-slate-900">
           <nav className="px-4 py-3 space-y-1">
             {navItems.map((item) => (
               <button
@@ -103,11 +105,10 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
                   onNavigate(item.id);
                   setMobileMenuOpen(false);
                 }}
-                className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors ${
-                  currentPage === item.id
+                className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors ${currentPage === item.id
                     ? 'bg-teal-100/60 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300'
                     : 'text-slate-600 dark:text-slate-300 hover:bg-blue-50/50 dark:hover:bg-slate-800'
-                }`}
+                  }`}
               >
                 {item.label}
               </button>

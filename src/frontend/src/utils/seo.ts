@@ -4,6 +4,7 @@ export const updateSEO = (config: {
   keywords?: string[];
   type?: string;
   url?: string;
+  canonicalUrl?: string;
 }) => {
   const baseTitle = 'Florida Autism Services';
   const title = config.title ? `${config.title} | ${baseTitle}` : baseTitle;
@@ -32,10 +33,24 @@ export const updateSEO = (config: {
   setMetaTag('og:description', description, true);
   setMetaTag('og:type', config.type || 'website', true);
   setMetaTag('og:url', config.url || 'https://floridaautismservices.com', true);
+  setMetaTag('og:image', 'https://floridaautismservices.com/assets/rainbow-ribbon-logo.png', true);
 
   setMetaTag('twitter:card', 'summary_large_image');
   setMetaTag('twitter:title', title);
   setMetaTag('twitter:description', description);
+  setMetaTag('twitter:image', 'https://floridaautismservices.com/assets/rainbow-ribbon-logo.png');
+
+  // Canonical URL for SEO
+  const canonicalUrl = config.canonicalUrl || config.url || window.location.href;
+  let canonicalLink = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
+  
+  if (!canonicalLink) {
+    canonicalLink = document.createElement('link');
+    canonicalLink.setAttribute('rel', 'canonical');
+    document.head.appendChild(canonicalLink);
+  }
+  
+  canonicalLink.setAttribute('href', canonicalUrl);
 };
 
 export const generateStructuredData = (type: 'Organization' | 'WebSite' | 'LocalBusiness', data?: any) => {
@@ -49,12 +64,11 @@ export const generateStructuredData = (type: 'Organization' | 'WebSite' | 'Local
       name: 'Florida Autism Services',
       description: 'Connecting families to autism services across Florida',
       url: 'https://floridaautismservices.com',
-      logo: 'https://floridaautismservices.com/logo.png',
+      logo: 'https://floridaautismservices.com/assets/rainbow-ribbon-logo.png',
       contactPoint: {
         '@type': 'ContactPoint',
-        telephone: '+1-555-123-4567',
         contactType: 'Customer Service',
-        email: 'info@floridaautismservices.com',
+        url: 'https://floridaautismservices.com/contact',
         areaServed: 'US-FL',
       },
     });
@@ -72,11 +86,14 @@ export const generateStructuredData = (type: 'Organization' | 'WebSite' | 'Local
     Object.assign(structuredData, data);
   }
 
-  let scriptElement = document.querySelector('script[type="application/ld+json"]');
+  // Create unique script element for each schema type to prevent overwriting
+  const scriptId = `structured-data-${type.toLowerCase()}`;
+  let scriptElement = document.querySelector(`script#${scriptId}`);
 
   if (!scriptElement) {
     scriptElement = document.createElement('script');
     scriptElement.setAttribute('type', 'application/ld+json');
+    scriptElement.setAttribute('id', scriptId);
     document.head.appendChild(scriptElement);
   }
 

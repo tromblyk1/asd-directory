@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Search, Users, Church, CheckCircle, Shield, Heart, Brain, MessageSquare, Activity, Home, HeartPulse, PawPrint } from 'lucide-react';
 import { HoverBubble } from '../components/HoverBubble';
 import { useAccessibility } from '../contexts/AccessibilityContext';
+import heroBackground from '../assets/images/rainbow-ribbon-hero.jpg';
 
 type HomePageProps = {
   onNavigate: (page: string, searchQuery?: string) => void;
@@ -102,26 +103,24 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
   return (
     <div className="space-y-16">
-      <section className="relative bg-gradient-to-br from-sky-100/40 via-teal-50/30 to-blue-100/40 dark:from-slate-800 dark:via-slate-800 dark:to-slate-900 rounded-3xl p-8 md:p-16 overflow-hidden shadow-sm">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-32 h-32 bg-teal-400 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 right-10 w-40 h-40 bg-amber-400 rounded-full blur-3xl" />
-        </div>
+      <section
+        className="relative w-full overflow-hidden rounded-3xl shadow-sm"
+        style={{
+          backgroundImage: `url(${heroBackground})`,
+          backgroundSize: '100% auto',
+          backgroundPosition: 'center center',
+          backgroundRepeat: 'no-repeat',
+          minHeight: '400px',
+        }}
+      >
+        <div className="absolute inset-0 bg-slate-900/35" aria-hidden="true" />
 
-        <div className="relative z-10 max-w-3xl mx-auto text-center space-y-6">
-          {/* Background watermark logo */}
-          <img
-            src="/Ribbon_Rainbow-Infinite.png"
-            alt=""
-            className="absolute -top-20 left-1/2 -translate-x-1/2 w-auto h-96 opacity-30 pointer-events-none"
-          />
-          
-          {/* Content wrapper */}
-          <div className="relative z-10">
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100">
+        <div className="relative z-10 p-8 md:p-16">
+          <div className="max-w-3xl mx-auto text-center space-y-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-white">
               Connecting Families to Autism Services Across Florida
             </h1>
-            <p className="text-lg text-slate-600 dark:text-slate-300">
+            <p className="text-lg text-white/90">
               A trusted directory of verified providers, resources, and support for individuals with autism and their families.
             </p>
 
@@ -134,13 +133,13 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search by city, ZIP code, or service type..."
-                    className="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-blue-200/50 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:border-teal-500 dark:focus:border-teal-400 focus:outline-none focus:ring-2 focus:ring-teal-500/20"
+                    className="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-blue-200/60 bg-white text-slate-800 placeholder-slate-500 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/20"
                     aria-label="Search for providers"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="px-8 py-4 bg-teal-600 hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-600 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all"
+                  className="px-8 py-4 bg-teal-500 hover:bg-teal-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all"
                 >
                   Find Providers
                 </button>

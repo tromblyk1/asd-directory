@@ -185,7 +185,7 @@ All submissions are reviewed before publication.
 ## Support
 
 For questions or issues:
-- Email: info@floridaautismservices.com
+- Email: floridaautismservices@gmail.com
 - Use the Contact form on the website
 
 ## License

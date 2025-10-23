@@ -21,11 +21,34 @@ export const ContactPage: React.FC = () => {
     setError('');
 
     try {
-      const { error } = await supabase
+      // Save to Supabase database
+      const { error: dbError } = await supabase
         .from('contact_messages')
         .insert([formData]);
 
-      if (error) throw error;
+      if (dbError) throw dbError;
+
+      // Send emails via PHP backend
+      try {
+        console.log('🔥 ABOUT TO CALL PHP ENDPOINT');
+        const emailResponse = await fetch('https://floridaautismservices.com/api/send-contact-email.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (!emailResponse.ok) {
+          console.error('Email sending failed but form was saved');
+          // Still show success - message is in database
+        } else {
+          console.log('Emails sent successfully!');
+        }
+      } catch (emailError) {
+        console.error('Email error:', emailError);
+        // Still show success - message is in database
+      }
 
       setSubmitted(true);
       setFormData({
@@ -189,8 +212,8 @@ export const ContactPage: React.FC = () => {
       <div className="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-6 text-center">
         <p className="text-sm text-slate-600 dark:text-slate-400">
           You can also reach us directly at{' '}
-          <a href="mailto:info@floridaautismservices.com" className="text-teal-600 dark:text-teal-400 hover:underline">
-            info@floridaautismservices.com
+          <a href="mailto:floridaautismservices@gmail.com" className="text-teal-600 dark:text-teal-400 hover:underline">
+            floridaautismservices@gmail.com
           </a>
         </p>
       </div>

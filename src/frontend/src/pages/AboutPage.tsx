@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
-import { Infinity, Target, Shield, Users, CheckCircle, Eye, Heart } from 'lucide-react';
+import { Target, Shield, Users, CheckCircle, Eye, Heart } from 'lucide-react';
 import { DonateModal } from '../components/DonateModal';
+import logoImage from '../assets/images/rainbow-ribbon-logo.png';
 
 export const AboutPage: React.FC = () => {
   const [donateModalOpen, setDonateModalOpen] = useState(false);
 
   return (
     <div className="space-y-12">
-      <section className="bg-gradient-to-br from-sky-100/40 via-teal-50/30 to-amber-50/30 dark:from-slate-800 dark:via-slate-800 dark:to-slate-900 rounded-3xl p-12 text-center">
-        <Infinity className="w-20 h-20 text-amber-500 dark:text-amber-400 mx-auto mb-6" strokeWidth={2.5} />
+      <section className="bg-gradient-to-br from-sky-100/40 via-teal-50/30 to-amber-50/30 dark:from-slate-800 dark:via-slate-800 dark:to-slate-900 rounded-3xl px-10 py-10 text-center">
+        <img
+          src={logoImage}
+          alt="Florida Autism Services - connecting families to autism services"
+          className="mx-auto mb-8 w-[400px] max-w-full h-auto"
+        />
         <h1 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4">
           Our Mission
         </h1>
@@ -66,11 +71,10 @@ export const AboutPage: React.FC = () => {
 
       <section className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-8 md:p-12">
         <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-6 text-center">
-          Our Vetting Process
+          Our Approach
         </h2>
-        <p className="text-center text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto">
-          Every listing goes through a thorough review process to maintain the quality and
-          trustworthiness of our directory.
+        <p className="text-center text-slate-600 dark:text-slate-400 mb-8 max-w-3xl mx-auto">
+          We&apos;ve compiled this directory through extensive research to help Florida families find autism services more easily. Here&apos;s how we built it:
         </p>
 
         <div className="space-y-6 max-w-3xl mx-auto">
@@ -80,11 +84,10 @@ export const AboutPage: React.FC = () => {
             </div>
             <div>
               <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-1">
-                Initial Submission Review
+                Comprehensive Research
               </h3>
               <p className="text-slate-600 dark:text-slate-400">
-                We review all submitted information for completeness and accuracy, checking business
-                details, contact information, and service descriptions.
+                We searched multiple sources including Google, state databases, professional directories, and community resources to identify autism service providers across Florida.
               </p>
             </div>
           </div>
@@ -95,11 +98,10 @@ export const AboutPage: React.FC = () => {
             </div>
             <div>
               <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-1">
-                Credential Verification
+                Official Database Integration
               </h3>
               <p className="text-slate-600 dark:text-slate-400">
-                We verify professional credentials, licenses, and certifications to ensure providers
-                meet Florida state requirements and industry standards.
+                We incorporated data from verified state resources, including the Florida Agency for Persons with Disabilities (APD) provider database and other official government listings.
               </p>
             </div>
           </div>
@@ -110,11 +112,10 @@ export const AboutPage: React.FC = () => {
             </div>
             <div>
               <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-1">
-                Contact Verification
+                Information Aggregation
               </h3>
               <p className="text-slate-600 dark:text-slate-400">
-                We reach out to providers directly to confirm their listing information, current
-                services, and availability.
+                We gathered publicly available information about each provider, including contact details, services offered, location, and insurance accepted based on their websites and public profiles.
               </p>
             </div>
           </div>
@@ -125,13 +126,34 @@ export const AboutPage: React.FC = () => {
             </div>
             <div>
               <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-1">
-                Publication & Ongoing Updates
+                Ongoing Updates
               </h3>
               <p className="text-slate-600 dark:text-slate-400">
-                Once verified, listings are published. We regularly update information and encourage
-                families to report changes or concerns.
+                We continuously add new providers and update information as we discover changes. This is a growing directory, and we encourage families to verify details directly with providers before making decisions.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="rounded-2xl border border-amber-200 bg-amber-50 p-8 md:p-10 shadow-sm">
+        <h2 className="text-2xl font-bold text-amber-800 mb-4 text-center">Important Disclaimer</h2>
+        <p className="text-sm text-amber-900 mb-4 text-center">
+          Please Note: This directory is provided for informational purposes only. All listings are based on publicly available information and have not been independently verified by Florida Autism Services. We do not endorse any particular provider, and we cannot guarantee the accuracy, quality, or current availability of services.
+        </p>
+        <div className="mx-auto max-w-3xl space-y-3 text-sm text-amber-900">
+          <p>We strongly recommend that families:</p>
+          <ul className="list-disc space-y-2 pl-5">
+            <li>Verify credentials directly with providers</li>
+            <li>Check licensing status with Florida licensing boards</li>
+            <li>Read reviews from other families</li>
+            <li>Visit providers in person when possible</li>
+            <li>Confirm insurance coverage with your insurer</li>
+          </ul>
+          <div className="rounded-lg bg-amber-100/60 p-4">
+            <p className="font-medium text-amber-900">
+              Report Issues: If you notice incorrect information or have concerns about a listing, please contact us so we can update our records.
+            </p>
           </div>
         </div>
       </section>
