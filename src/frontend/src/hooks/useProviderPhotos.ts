@@ -80,7 +80,7 @@ async function loadPhotoMap(): Promise<PhotoMap> {
   return loadingPromise;
 }
 
-export function useProviderPhotos(providerIds: Array<string | number | null | undefined>) {
+export function useProviderPhotos(providerIds?: Array<string | number | null | undefined>) {
   const [photoMap, setPhotoMap] = useState<PhotoMap>(cachedPhotoMap ?? {});
   const [error, setError] = useState<string | null>(null);
 
@@ -109,17 +109,16 @@ export function useProviderPhotos(providerIds: Array<string | number | null | un
     };
   }, []);
 
-  const normalizedIds = useMemo(
-    () =>
-      Array.from(
-        new Set(
-          providerIds
-            .filter((value): value is string | number => value !== null && value !== undefined)
-            .map((value) => value.toString()),
-        ),
-      ),
-    [providerIds],
+  const normalizedIds = useMemo(() => {
+  if (!Array.isArray(providerIds)) return [];
+  return Array.from(
+    new Set(
+      providerIds
+        .filter((v): v is string | number => v !== null && v !== undefined)
+        .map((v) => v.toString())
+    )
   );
+}, [providerIds]);
 
   const photos = useMemo(() => {
     const result: PhotoMap = {};

@@ -1,17 +1,18 @@
 import React from 'react';
-import { MapPin, Phone, Mail, ExternalLink, CheckCircle } from 'lucide-react';
+import { MapPin, Phone, ExternalLink, CheckCircle } from 'lucide-react';
 import { Provider } from '../lib/supabase';
-import { HoverBubble } from './HoverBubble';
 import { useAccessibility } from '../contexts/AccessibilityContext';
 import { StarRating } from './StarRating';
 import { useProviderRating } from '../hooks/useProviderRatings';
+import { SERVICE_DEFINITIONS } from '../lib/serviceDefinitions';
 
 type ProviderCardProps = {
   provider: Provider;
   onExpand?: () => void;
+  onNavigate?: (page: string, data?: unknown) => void;
 };
 
-export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, onExpand }) => {
+export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, onExpand, onNavigate }) => {
   const { lowSensoryMode } = useAccessibility();
   const { rating, loading: ratingLoading } = useProviderRating(provider.google_place_id || null);
 
@@ -103,14 +104,46 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, onExpand }
       )}
 
       <div className="flex flex-wrap gap-2 mb-4">
-        {services.slice(0, 4).map((service) => (
-          <span
-            key={service}
-            className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-teal-100/80 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300"
-          >
-            {service}
-          </span>
-        ))}
+        {services.slice(0, 4).map((service) => {
+          const key = service.toLowerCase().includes("aba")
+            ? "aba"
+            : service.toLowerCase().includes("speech")
+            ? "speech"
+            : service.toLowerCase().includes("occupational")
+            ? "ot"
+            : service.toLowerCase().includes("physical")
+            ? "pt"
+            : service.toLowerCase().includes("feeding")
+            ? "feeding"
+            : service.toLowerCase().includes("music")
+            ? "music_therapy"
+            : service.toLowerCase().includes("inpp")
+            ? "inpp"
+            : service.toLowerCase().includes("aac")
+            ? "aac_speech"
+            : service.toLowerCase().includes("dir")
+            ? "dir_floortime"
+            : null;
+
+          const def = key ? SERVICE_DEFINITIONS[key] : null;
+
+          return (
+            <span
+              key={service}
+              title={def ? def.short : undefined} // tooltip
+              onClick={() => {
+                if (onNavigate && def) {
+                  onNavigate('service-detail', { slug: def.slug });
+                }
+              }} // click for details
+              className={`cursor-pointer inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium 
+                bg-teal-100/80 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 
+                hover:bg-teal-200 dark:hover:bg-teal-800 transition`}
+            >
+              {service}
+            </span>
+          );
+        })}
         {services.length > 4 && (
           <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-blue-100/60 dark:bg-slate-700 text-slate-600 dark:text-slate-300">
             +{services.length - 4} more
@@ -122,6 +155,7 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, onExpand }
           </span>
         )}
       </div>
+
 
       <div className="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-700">
         <div className="flex items-center space-x-3 text-sm">

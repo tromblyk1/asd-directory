@@ -1,9 +1,17 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import path from 'path';
 
 // Vite automatically loads matching .env* files into import.meta.env.
 export default defineConfig({
   plugins: [react()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+      '@components': path.resolve(__dirname, './src/components'),
+      '@lib': path.resolve(__dirname, './src/lib'),
+    },
+  },
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
@@ -12,7 +20,6 @@ export default defineConfig({
     port: 5173,
   },
   build: {
-    // SEO & Performance Optimizations
     minify: 'terser',
     cssMinify: true,
     rollupOptions: {

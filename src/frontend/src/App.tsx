@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Routes, Route } from "react-router-dom";
 import { AccessibilityProvider } from './contexts/AccessibilityContext';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
@@ -10,8 +11,9 @@ import { ContactPage } from './pages/ContactPage';
 import { SubmitProviderPage } from './pages/SubmitProviderPage';
 import { AboutPage } from './pages/AboutPage';
 import { updateSEO, generateStructuredData } from './utils/seo';
+import ServiceDetailPage from "./pages/ServiceDetailPage";
 import ABATherapy from './pages/resources/types-of-therapy/ABATherapy';
-import MedicaidWaiver from '../../pages/resources/insurance-funding/MedicaidWaiver';
+import MedicaidWaiver from './pages/resources/insurance-funding/MedicaidWaiver';
 
 type Page =
   | 'home'
@@ -32,9 +34,43 @@ interface PageData {
 }
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<Page>('home');
+  // Parse initial page from URL on load (fixes refresh issue)
+  const getInitialPage = (): Page => {
+    const path = window.location.pathname;
+    if (path === '/' || path === '') return 'home';
+    if (path.startsWith('/providers')) return 'providers';
+    if (path.startsWith('/churches')) return 'churches';
+    if (path.startsWith('/resources/')) return 'article';
+    if (path.startsWith('/resources')) return 'resources';
+    if (path.startsWith('/contact')) return 'contact';
+    if (path.startsWith('/submit')) return 'submit';
+    if (path.startsWith('/about')) return 'about';
+    if (path.startsWith('/services/')) return 'service-detail';
+    return 'home';
+  };
+
+  const getInitialPageData = (): PageData | null => {
+    const path = window.location.pathname;
+
+    if (path.startsWith('/resources/')) {
+      const slug = path.replace('/resources/', '');
+      console.log('Article detected on load. Slug:', slug); // Debug log
+      return { slug };
+    }
+
+    if (path.startsWith('/services/')) {
+      const slug = path.replace('/services/', '');
+      console.log('Service detail detected on load. Slug:', slug);
+      return { slug };
+    }
+
+    return null;
+  };
+
+
+  const [currentPage, setCurrentPage] = useState<Page>(getInitialPage());
   const [searchQuery, setSearchQuery] = useState('');
-  const [pageData, setPageData] = useState<PageData | null>(null);
+  const [pageData, setPageData] = useState<PageData | null>(getInitialPageData());
 
   useEffect(() => {
     generateStructuredData('Organization');
@@ -49,133 +85,139 @@ function App() {
           setPageData(event.state.data);
         }
       } else {
-        setCurrentPage('home');
+        // If no state, parse from URL
+        setCurrentPage(getInitialPage());
+        setPageData(getInitialPageData());
       }
     };
 
     window.addEventListener('popstate', handlePopState);
-    
-    // Set initial state
+
+    // Set initial state based on current URL
     if (!window.history.state) {
-      window.history.replaceState({ page: 'home' }, '', '/');
+      window.history.replaceState(
+        { page: currentPage, data: pageData },
+        '',
+        window.location.pathname
+      );
     }
 
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
   useEffect(() => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 
-  switch (currentPage) {
-    case 'home':
-      updateSEO({
-        title: 'Home',
-        description:
-          'Find trusted autism service providers, resources, and support across Florida. Comprehensive directory of verified ABA therapy, speech therapy, occupational therapy, and more.',
-        keywords: [
-          'Florida autism services',
-          'autism support Florida',
-          'ASD therapies Florida',
-          'autism providers',
-          'special needs services Florida',
-        ],
-        url: 'https://floridaautismservices.com',
-        canonicalUrl: 'https://floridaautismservices.com',
-      });
-      break;
-    case 'providers':
-      updateSEO({
-        title: 'Find Providers',
-        description:
-          'Search verified autism service providers across Florida. Filter by location, service type, and setting. Find ABA, speech, occupational therapy, and more.',
-        keywords: [
-          'autism providers Florida',
-          'ABA therapy Florida',
-          'speech therapy autism',
-          'occupational therapy ASD',
-          'autism specialists',
-        ],
-        url: 'https://floridaautismservices.com/providers',
-        canonicalUrl: 'https://floridaautismservices.com/providers',
-      });
-      break;
-    case 'churches':
-      updateSEO({
-        title: 'Faith-Based Support',
-        description:
-          'Find welcoming churches and faith-based organizations in Florida offering autism support programs, sensory-friendly services, and inclusive communities.',
-        keywords: [
-          'autism friendly churches Florida',
-          'sensory-friendly church',
-          'faith-based autism support',
-          'special needs ministry',
-        ],
-        url: 'https://floridaautismservices.com/churches',
-        canonicalUrl: 'https://floridaautismservices.com/churches',
-      });
-      break;
-    case 'resources':
-      updateSEO({
-        title: 'Educational Resources',
-        description:
-          'Learn about autism therapies, insurance, education rights, and more. Comprehensive guides and articles for families navigating autism services in Florida.',
-        keywords: [
-          'autism resources Florida',
-          'IEP Florida',
-          'autism insurance coverage',
-          'early intervention Florida',
-          'autism education',
-        ],
-        url: 'https://floridaautismservices.com/resources',
-        canonicalUrl: 'https://floridaautismservices.com/resources',
-      });
-      break;
-    case 'article': {
-      const slug = pageData?.slug || '';
-      const articleTitles: { [key: string]: string } = {
-        'understanding-aba-therapy-florida': 'Understanding ABA Therapy in Florida',
-        'florida-medicaid-waiver-autism-guide': 'Florida Medicaid Waiver Guide',
-        'iep-vs-504-plan-comparison': 'IEP vs 504 Plan Comparison',
-        'speech-therapy-autism-expectations': 'Speech Therapy for Autism',
-      };
-      const articleTitle = articleTitles[slug] || 'Resource Article';
-      
-      updateSEO({
-        title: articleTitle,
-        description: 'In-depth resource article for Florida Autism Services families.',
-        url: `https://floridaautismservices.com/resources/${slug}`,
-        canonicalUrl: `https://floridaautismservices.com/resources/${slug}`,
-      });
-      break;
+    switch (currentPage) {
+      case 'home':
+        updateSEO({
+          title: 'Home',
+          description:
+            'Find trusted autism service providers, resources, and support across Florida. Comprehensive directory of verified ABA therapy, speech therapy, occupational therapy, and more.',
+          keywords: [
+            'Florida autism services',
+            'autism support Florida',
+            'ASD therapies Florida',
+            'autism providers',
+            'special needs services Florida',
+          ],
+          url: 'https://floridaautismservices.com',
+          canonicalUrl: 'https://floridaautismservices.com',
+        });
+        break;
+      case 'providers':
+        updateSEO({
+          title: 'Find Providers',
+          description:
+            'Search verified autism service providers across Florida. Filter by location, service type, and setting. Find ABA, speech, occupational therapy, and more.',
+          keywords: [
+            'autism providers Florida',
+            'ABA therapy Florida',
+            'speech therapy autism',
+            'occupational therapy ASD',
+            'autism specialists',
+          ],
+          url: 'https://floridaautismservices.com/providers',
+          canonicalUrl: 'https://floridaautismservices.com/providers',
+        });
+        break;
+      case 'churches':
+        updateSEO({
+          title: 'Faith-Based Support',
+          description:
+            'Find welcoming churches and faith-based organizations in Florida offering autism support programs, sensory-friendly services, and inclusive communities.',
+          keywords: [
+            'autism friendly churches Florida',
+            'sensory-friendly church',
+            'faith-based autism support',
+            'special needs ministry',
+          ],
+          url: 'https://floridaautismservices.com/churches',
+          canonicalUrl: 'https://floridaautismservices.com/churches',
+        });
+        break;
+      case 'resources':
+        updateSEO({
+          title: 'Educational Resources',
+          description:
+            'Learn about autism therapies, insurance, education rights, and more. Comprehensive guides and articles for families navigating autism services in Florida.',
+          keywords: [
+            'autism resources Florida',
+            'IEP Florida',
+            'autism insurance coverage',
+            'early intervention Florida',
+            'autism education',
+          ],
+          url: 'https://floridaautismservices.com/resources',
+          canonicalUrl: 'https://floridaautismservices.com/resources',
+        });
+        break;
+      case 'article': {
+        const slug = pageData?.slug || '';
+        const articleTitles: { [key: string]: string } = {
+          'understanding-aba-therapy-florida': 'Understanding ABA Therapy in Florida',
+          'florida-medicaid-waiver-autism-guide': 'Florida Medicaid Waiver Guide',
+          'iep-vs-504-plan-comparison': 'IEP vs 504 Plan Comparison',
+          'speech-therapy-autism-expectations': 'Speech Therapy for Autism',
+        };
+        const articleTitle = articleTitles[slug] || 'Resource Article';
+
+        updateSEO({
+          title: articleTitle,
+          description: 'In-depth resource article for Florida Autism Services families.',
+          url: `https://floridaautismservices.com/resources/${slug}`,
+          canonicalUrl: `https://floridaautismservices.com/resources/${slug}`,
+        });
+        break;
+      }
+      case 'contact':
+        updateSEO({
+          title: 'Contact Us',
+          description: "Get in touch with Florida Autism Services. We're here to help you find the support and resources you need.",
+          url: 'https://floridaautismservices.com/contact',
+          canonicalUrl: 'https://floridaautismservices.com/contact',
+        });
+        break;
+      case 'submit':
+        updateSEO({
+          title: 'Submit a Provider',
+          description:
+            'Help other families by adding a trusted autism service provider to our directory. All submissions are reviewed and verified.',
+          url: 'https://floridaautismservices.com/submit',
+          canonicalUrl: 'https://floridaautismservices.com/submit',
+        });
+        break;
+      case 'about':
+        updateSEO({
+          title: 'About Us',
+          description:
+            'Learn about our mission to connect families with trusted autism services across Florida. Discover our vetting process and values.',
+          url: 'https://floridaautismservices.com/about',
+          canonicalUrl: 'https://floridaautismservices.com/about',
+        });
+        break;
     }
-    case 'contact':
-      updateSEO({
-        title: 'Contact Us',
-        description: "Get in touch with Florida Autism Services. We're here to help you find the support and resources you need.",
-        url: 'https://floridaautismservices.com/contact',
-        canonicalUrl: 'https://floridaautismservices.com/contact',
-      });
-      break;
-    case 'submit':
-      updateSEO({
-        title: 'Submit a Provider',
-        description:
-          'Help other families by adding a trusted autism service provider to our directory. All submissions are reviewed and verified.',
-        url: 'https://floridaautismservices.com/submit',
-        canonicalUrl: 'https://floridaautismservices.com/submit',
-      });
-      break;
-    case 'about':
-      updateSEO({
-        title: 'About Us',
-        description:
-          'Learn about our mission to connect families with trusted autism services across Florida. Discover our vetting process and values.',
-        url: 'https://floridaautismservices.com/about',
-        canonicalUrl: 'https://floridaautismservices.com/about',
-      });
-      break;
-  }
-}, [currentPage, pageData]);
+  }, [currentPage, pageData]);
 
   const handleNavigate = (page: string, data?: unknown) => {
     setCurrentPage(page as Page);
@@ -211,13 +253,14 @@ function App() {
       case 'home':
         return <HomePage onNavigate={handleNavigate} />;
       case 'providers':
-        return <ProvidersPage initialSearch={searchQuery} />;
+        return <ProvidersPage initialSearch={searchQuery} onNavigate={handleNavigate} />;
       case 'churches':
         return <ChurchesPage />;
       case 'resources':
         return <Resources onNavigate={handleNavigate} />;
       case 'article': {
         const slug = pageData?.slug;
+        console.log('Rendering article. Slug:', slug); // Debug log
 
         switch (slug) {
           case 'understanding-aba-therapy-florida':
@@ -265,6 +308,8 @@ function App() {
         return <SubmitProviderPage />;
       case 'about':
         return <AboutPage />;
+      case 'service-detail':
+        return <ServiceDetailPage />;  
       default:
         return <HomePage onNavigate={handleNavigate} />;
     }
