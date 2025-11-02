@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import Papa from 'papaparse';
+import Papa, { ParseResult } from 'papaparse';
 
 type ProviderPhoto = {
   imageUrl: string;
@@ -32,14 +32,15 @@ async function loadPhotoMap(): Promise<PhotoMap> {
       .then<PhotoMap>((csvText) => {
         const parsedMap: PhotoMap = {};
 
-        Papa.parse(csvText, {
+        type CsvRow = Record<string, string | undefined>;
+
+        Papa.parse<CsvRow>(csvText, {
           header: true,
           skipEmptyLines: true,
-          complete: (results) => {
+          complete: (results: ParseResult<CsvRow>) => {
             const rows = Array.isArray(results.data) ? results.data : [];
 
-            rows.forEach((raw) => {
-              const row = raw as Record<string, string | undefined>;
+            rows.forEach((row) => {
               const providerId = row['provider_id']?.toString().trim();
               const imageUrl = row['image_url']?.toString().trim();
               const sourceUrl = row['website']?.toString().trim();
@@ -77,7 +78,7 @@ async function loadPhotoMap(): Promise<PhotoMap> {
       });
   }
 
-  return loadingPromise;
+  return loadingPromise!;
 }
 
 export function useProviderPhotos(providerIds?: Array<string | number | null | undefined>) {
@@ -110,15 +111,15 @@ export function useProviderPhotos(providerIds?: Array<string | number | null | u
   }, []);
 
   const normalizedIds = useMemo(() => {
-  if (!Array.isArray(providerIds)) return [];
-  return Array.from(
-    new Set(
-      providerIds
-        .filter((v): v is string | number => v !== null && v !== undefined)
-        .map((v) => v.toString())
-    )
-  );
-}, [providerIds]);
+    if (!Array.isArray(providerIds)) return [];
+    return Array.from(
+      new Set(
+        providerIds
+          .filter((value): value is string | number => value !== null && value !== undefined)
+          .map((value) => value.toString()),
+      ),
+    );
+  }, [providerIds]);
 
   const photos = useMemo(() => {
     const result: PhotoMap = {};

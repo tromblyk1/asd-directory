@@ -1,0 +1,18 @@
+{
+  "title": "Pharmacogenetic Testing",
+  "description": "Pharmacogenetic testing analyzes an individual's genetic makeup to predict how they will respond to specific medications, helping clinicians personalize psychiatric medication management for individuals with autism. This testing can identify genetic variants that affect medication metabolism, efficacy, and side effect risk, potentially reducing trial-and-error prescribing. For individuals with autism who may take medications for co-occurring conditions such as anxiety, ADHD, or aggression, pharmacogenetic testing can guide safer and more effective medication choices. Testing is available through specialized laboratories and medical providers in Florida, with coverage varying by insurance plan.",
+  "links": [
+    {
+      "label": "Clinical Pharmacogenetics Implementation Consortium",
+      "url": "https://cpicpgx.org"
+    },
+    {
+      "label": "FDA Pharmacogenomics Information",
+      "url": "https://www.fda.gov/drugs/science-research-drugs/pharmacogenomics"
+    },
+    {
+      "label": "National Institutes of Health Pharmacogenomics",
+      "url": "https://www.genome.gov/health/Pharmacogenomics"
+    }
+  ]
+}

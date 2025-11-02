@@ -41,7 +41,7 @@ export const ChurchCard: React.FC<ChurchCardProps> = ({ church }) => {
         {church.description}
       </p>
 
-      {church.programs.length > 0 && (
+      {church.programs?.length ? (
         <div className="mb-4">
           <h4 className="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-2 flex items-center space-x-1">
             <span>Programs for ASD</span>
@@ -57,9 +57,9 @@ export const ChurchCard: React.FC<ChurchCardProps> = ({ church }) => {
             ))}
           </div>
         </div>
-      )}
+      ) : null}
 
-      {church.features.length > 0 && (
+      {church.features?.length ? (
         <div className="mb-4">
           <h4 className="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-2">Features</h4>
           <div className="flex flex-wrap gap-2">
@@ -81,7 +81,7 @@ export const ChurchCard: React.FC<ChurchCardProps> = ({ church }) => {
             ))}
           </div>
         </div>
-      )}
+      ) : null}
 
       {church.service_times && (
         <div className="flex items-start space-x-2 mb-4 text-sm text-slate-600 dark:text-slate-400">

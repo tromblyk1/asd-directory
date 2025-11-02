@@ -1,0 +1,108 @@
+{
+  "slug": "private-insurance-guide",
+  "title": "Private Insurance Guide for Autism Services",
+  "shortDescription": "Understand how private health insurance covers autism services in Florida, including rights, requirements, and how to maximize benefits.",
+  "description": "Private health insurance in Florida is required by law to provide coverage for autism spectrum disorder services for children under 18. This includes Applied Behavior Analysis (ABA) therapy, speech therapy, occupational therapy, and diagnostic evaluations. Understanding your rights, how to navigate prior authorizations, and how to work effectively with your insurance company can help you access the care your child needs.",
+  "category": "insurance-education",
+  "floridaLaw": {
+    "title": "Florida Autism Insurance Coverage Law",
+    "requirements": [
+      "All fully-insured plans in Florida must cover autism services for children under 18",
+      "Minimum coverage of $36,000 per year for ABA therapy",
+      "Must cover speech therapy, occupational therapy, and physical therapy",
+      "Must cover diagnostic and assessment services",
+      "Cannot deny coverage based on age, as long as under 18",
+      "Cannot impose lifetime caps on autism coverage"
+    ],
+    "exceptions": [
+      "Self-funded employer plans are exempt from Florida law (governed by federal ERISA law)",
+      "Grandfathered health plans may have different requirements",
+      "Out-of-state insurance plans may not be subject to Florida mandates"
+    ]
+  },
+  "typesOfPrivatePlans": [
+    {
+      "type": "Employer-Sponsored Insurance",
+      "description": "Health insurance provided through your job. Most common type of private insurance. May be fully-insured (follows FL law) or self-funded (may not)."
+    },
+    {
+      "type": "Marketplace Plans (ACA)",
+      "description": "Individual plans purchased through Healthcare.gov. All marketplace plans in Florida must comply with autism coverage requirements."
+    },
+    {
+      "type": "Direct-Purchase Private Plans",
+      "description": "Plans bought directly from insurance companies. Must comply with Florida autism coverage mandates."
+    }
+  ],
+  "keyTermsToKnow": {
+    "prior_authorization": "Approval from insurance required before starting therapy. Your provider typically handles this.",
+    "in_network": "Providers contracted with your insurance. Using in-network providers results in lower costs.",
+    "out_of_network": "Providers not contracted with your insurance. Usually requires higher copays and may not count toward deductible.",
+    "deductible": "Amount you pay out-of-pocket before insurance starts covering costs.",
+    "copay": "Fixed amount you pay per visit (e.g., $30 per therapy session).",
+    "coinsurance": "Percentage you pay after meeting deductible (e.g., you pay 20%, insurance pays 80%).",
+    "out_of_pocket_maximum": "Maximum amount you will pay in a year. After reaching this, insurance covers 100%.",
+    "medical_necessity": "Insurance requirement that services must be necessary for treatment, not just helpful."
+  },
+  "howToMaximizeBenefits": [
+    "Always verify your plan's autism coverage before starting services",
+    "Use in-network providers whenever possible",
+    "Keep copies of all prior authorization approvals",
+    "Request case management or care coordination if available",
+    "Track your annual ABA hours and dollar limits",
+    "Submit claims promptly and follow up on denials",
+    "Know your appeal rights if services are denied",
+    "Ask about Explanation of Benefits (EOB) to understand what was billed"
+  ],
+  "commonChallenges": [
+    {
+      "challenge": "Prior authorization delays",
+      "solution": "Ask your provider to submit requests 2-4 weeks before starting therapy. Follow up with insurance if no response after 7 business days."
+    },
+    {
+      "challenge": "Services denied as 'not medically necessary'",
+      "solution": "Request detailed denial reason. Work with your provider to submit clinical documentation. File an appeal with supporting evidence."
+    },
+    {
+      "challenge": "Reaching annual benefit limits",
+      "solution": "Track hours closely. Consider supplementing with school-based services, Florida waivers, or adjusting therapy intensity."
+    },
+    {
+      "challenge": "Out-of-network providers",
+      "solution": "Ask if provider will accept your insurance rate. Request single-case agreement from insurance. Look for in-network alternatives."
+    }
+  ],
+  "yourRights": [
+    "Right to appeal denied claims",
+    "Right to request external review if internal appeals are denied",
+    "Right to reasonable accommodations under ADA",
+    "Right to timely prior authorization decisions (typically 3-15 days)",
+    "Right to clear explanation of coverage and denials",
+    "Protection from discrimination based on disability"
+  ],
+  "learnMore": [
+    {
+      "title": "Florida Office of Insurance Regulation",
+      "url": "https://www.floir.com/",
+      "description": "State agency regulating insurance in Florida. File complaints or get information about your insurance rights."
+    },
+    {
+      "title": "Healthcare.gov - Florida Marketplace",
+      "url": "https://www.healthcare.gov/",
+      "description": "Federal health insurance marketplace for Florida residents. Compare plans and check if you qualify for subsidies."
+    },
+    {
+      "title": "Autism Speaks - Insurance Resources",
+      "url": "https://www.autismspeaks.org/insurance",
+      "description": "Comprehensive guides on navigating autism insurance coverage, sample appeal letters, and state-by-state requirements."
+    }
+  ],
+  "keywords": [
+    "private insurance",
+    "health insurance",
+    "Florida autism law",
+    "ABA coverage",
+    "insurance rights",
+    "prior authorization"
+  ]
+}

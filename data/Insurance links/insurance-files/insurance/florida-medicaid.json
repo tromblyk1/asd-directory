@@ -1,0 +1,89 @@
+{
+  "slug": "florida-medicaid",
+  "title": "Florida Medicaid for Autism Services",
+  "shortDescription": "Florida's comprehensive health coverage program that covers many autism therapies and supports with little to no cost.",
+  "description": "Florida Medicaid provides health coverage to eligible children and adults with autism. It covers a wide range of services including ABA therapy, speech therapy, occupational therapy, medical evaluations, and more. Most services require no copay for children. Florida Medicaid is managed by the Agency for Health Care Administration (AHCA) and includes several managed care plans that families can choose from.",
+  "category": "government-insurance",
+  "whoQualifies": [
+    "Children and adults meeting income and disability requirements",
+    "Children with disabilities may qualify regardless of family income through Katie Beckett",
+    "Families receiving SSI automatically qualify",
+    "Pregnant women and children in low-income families",
+    "Adults with disabilities who meet SSI criteria"
+  ],
+  "whatIsCovered": [
+    "ABA therapy (Applied Behavior Analysis) - up to 40 hours per week",
+    "Speech therapy, occupational therapy, physical therapy",
+    "Autism diagnostic evaluations and assessments",
+    "Psychiatry and mental health counseling",
+    "Medications prescribed for autism-related conditions",
+    "Medical equipment and assistive technology",
+    "Early intervention services for children under 3",
+    "Home health services when medically necessary",
+    "Transportation to medical appointments"
+  ],
+  "howToApply": [
+    "Apply online at ACCESS Florida (www.myflorida.com/accessflorida)",
+    "Visit your local Department of Children and Families (DCF) office",
+    "Call 1-866-762-2237 to request an application by mail",
+    "Provide proof of income, residency, and citizenship",
+    "Submit medical documentation of autism diagnosis",
+    "For Katie Beckett, apply through your local DCF office with a physician's statement"
+  ],
+  "typicalCosts": {
+    "monthly_premium": "$0 for most families",
+    "copays": "$0 for children; small copays for some adult services",
+    "deductible": "$0",
+    "out_of_pocket_max": "None for children"
+  },
+  "floridaSpecificInfo": [
+    "Florida has 11 Medicaid managed care plans to choose from",
+    "Families can switch plans during open enrollment",
+    "Prior authorization may be required for some therapies",
+    "Katie Beckett waiver allows children with disabilities to qualify regardless of parent income",
+    "Services must be provided by Medicaid-enrolled providers"
+  ],
+  "commonQuestions": [
+    {
+      "question": "How many ABA therapy hours does Florida Medicaid cover?",
+      "answer": "Florida Medicaid covers up to 40 hours per week of ABA therapy when medically necessary and prescribed by a doctor."
+    },
+    {
+      "question": "Do I need prior authorization for therapies?",
+      "answer": "Yes, most therapies require prior authorization from your managed care plan. Your provider will typically handle this process."
+    },
+    {
+      "question": "Can I see any therapist with Medicaid?",
+      "answer": "No, you must see providers enrolled with Florida Medicaid and in-network with your managed care plan."
+    },
+    {
+      "question": "What if my child needs services not covered by my plan?",
+      "answer": "You can request an exception or appeal. The iBudget Waiver may also help cover additional services."
+    }
+  ],
+  "learnMore": [
+    {
+      "title": "Florida Medicaid - Agency for Health Care Administration",
+      "url": "https://www.ahca.myflorida.com/medicaid/",
+      "description": "Official Florida AHCA website with comprehensive information about Medicaid eligibility, covered services, and how to apply."
+    },
+    {
+      "title": "ACCESS Florida - Apply for Benefits",
+      "url": "https://www.myflorida.com/accessflorida",
+      "description": "Official online portal to apply for Florida Medicaid and other assistance programs."
+    },
+    {
+      "title": "Florida Department of Children and Families (DCF)",
+      "url": "https://www.myflfamilies.com/",
+      "description": "DCF processes Medicaid applications and manages the Katie Beckett program for children with disabilities."
+    }
+  ],
+  "keywords": [
+    "Florida Medicaid",
+    "autism coverage",
+    "ABA therapy",
+    "Katie Beckett",
+    "managed care",
+    "government insurance"
+  ]
+}

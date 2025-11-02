@@ -60,7 +60,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
 
           <div className="flex items-center space-x-2">
             <button
-              onClick={() => setDonateModalOpen(true)}
+              onClick={() => onNavigate('donate')}
               className="hidden md:flex items-center space-x-1.5 px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white text-sm font-semibold rounded-lg transition-all duration-200 shadow-sm hover:shadow-md"
               aria-label="Support our mission"
             >

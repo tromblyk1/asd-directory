@@ -20,15 +20,24 @@ export interface Provider {
   scraped_website?: string | null;
   service_type?: string | null;
   service_types?: string[] | null;
-  accepts_medicaid?: string | null;
-  accepts_medicare?: string | null;
-  accepts_florida_blue?: string | null;
-  accepts_unitedhealthcare?: string | null;
-  accepts_aetna?: string | null;
-  accepts_cigna?: string | null;
-  accepts_tricare?: string | null;
-  accepts_humana?: string | null;
-  accepts_florida_healthcare_plans?: string | null;
+  accepts_medicaid?: boolean | string | null;
+  accepts_medicare?: boolean | string | null;
+  accepts_florida_blue?: boolean | string | null;
+  accepts_unitedhealthcare?: boolean | string | null;
+  accepts_aetna?: boolean | string | null;
+  accepts_cigna?: boolean | string | null;
+  accepts_tricare?: boolean | string | null;
+  accepts_humana?: boolean | string | null;
+  accepts_florida_healthcare_plans?: boolean | string | null;
+  accepts_wellcare?: boolean | string | null;
+  accepts_molina?: boolean | string | null;
+  accepts_sunshine_health?: boolean | string | null;
+  accepts_florida_kidcare?: boolean | string | null;
+  accepts_pep?: boolean | string | null;
+  accepts_fes_ua?: boolean | string | null;
+  accepts_fes_eo?: boolean | string | null;
+  accepts_ftc?: boolean | string | null;
+  accepts_hope_scholarship?: boolean | string | null;
   aba?: boolean | null;
   speech?: boolean | null;
   ot?: boolean | null;
@@ -41,8 +50,18 @@ export interface Provider {
   life_skills_development?: boolean | null;
   residential?: boolean | null;
   residential_habilitation?: boolean | null;
+  support_groups?: boolean | null;
   church_support?: boolean | null;
   pet_therapy?: boolean | null;
+  virtual_therapy?: boolean | null;
+  ados_testing?: boolean | null;
+  pharmacogenetic_testing?: boolean | null;
+  autism_travel?: boolean | null;
+  mobile_services?: boolean | null;
+  executive_function_coaching?: boolean | null;
+  parent_coaching?: boolean | null;
+  tutoring?: boolean | null;
+  group_therapy?: boolean | null;
 }
 
 export interface Church {

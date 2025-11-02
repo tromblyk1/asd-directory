@@ -1,0 +1,16 @@
+{
+  "slug": "florida-medicaid",
+  "category": "insurances",
+  "title": "Florida Medicaid",
+  "description": "Florida Medicaid provides comprehensive autism coverage for eligible children and adults through various programs including Medicaid Managed Care plans and fee-for-service Medicaid. Children with autism in Florida can qualify for Medicaid through several pathways including family income eligibility, the Children's Medical Services (CMS) Network for children with special healthcare needs, or through SSI disability benefits. Florida Medicaid covers extensive autism services including ABA therapy with no annual dollar caps or visit limits when medically necessary, making it one of the most comprehensive coverage options available. Covered services include diagnostic evaluations by developmental pediatricians or psychologists, ongoing ABA therapy by BCBAs and RBTs, speech therapy, occupational therapy, physical therapy, behavioral health services, psychiatric care, and medication management. To access Medicaid in Florida, families can apply through ACCESS Florida (the state's online benefits portal), at local Department of Children and Families (DCF) offices, or through community partners. Eligibility is determined based on household income, family size, and disability status, with income limits varying by program. There are no copays, deductibles, or out-of-pocket costs for autism services covered under Florida Medicaid.",
+  "links": [
+    {
+      "label": "Florida Medicaid - AHCA",
+      "url": "https://www.ahca.myflorida.com"
+    },
+    {
+      "label": "ACCESS Florida - Apply",
+      "url": "https://www.myflorida.com/accessflorida"
+    }
+  ]
+}

@@ -1,76 +1,142 @@
-import React, { useEffect, useState } from 'react';
-import { Routes, Route } from "react-router-dom";
+import { useEffect, useMemo, useState } from 'react';
 import { AccessibilityProvider } from './contexts/AccessibilityContext';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
 import ProvidersPage from './pages/ProvidersPage';
 import ChurchesPage from './pages/ChurchesPage';
-import Resources from './pages/Resources';
+import ResourcesLanding from './pages/resources/index';
+import ServicesIndex from './pages/resources/services';
+import ServiceDetail from './pages/resources/services/[slug]';
+import InsurancesIndex from './pages/resources/insurances';
+import InsuranceDetail from './pages/resources/insurances/[slug]';
+import ScholarshipsIndex from './pages/resources/scholarships';
+import ScholarshipDetail from './pages/resources/scholarships/[slug]';
 import { ContactPage } from './pages/ContactPage';
 import { SubmitProviderPage } from './pages/SubmitProviderPage';
 import { AboutPage } from './pages/AboutPage';
 import { updateSEO, generateStructuredData } from './utils/seo';
-import ServiceDetailPage from "./pages/ServiceDetailPage";
+import { loadResource } from './lib/loadResource';
+import { RESOURCE_ARTICLES, RESOURCE_ARTICLE_LOOKUP } from './data/resourceArticles';
 import ABATherapy from './pages/resources/types-of-therapy/ABATherapy';
 import MedicaidWaiver from './pages/resources/insurance-funding/MedicaidWaiver';
+import { DonatePage } from './pages/DonatePage';
+import { DonateSuccessPage } from './pages/DonateSuccessPage';
 
-type Page =
-  | 'home'
-  | 'providers'
-  | 'churches'
-  | 'resources'
-  | 'contact'
-  | 'submit'
-  | 'about'
-  | 'resource'
-  | 'article';
+type ResourceCategory = 'service' | 'insurance' | 'scholarship';
+type ResourceFolder = 'services' | 'insurances' | 'scholarships';
+
+type Page = 'home' | 'providers' | 'churches' | 'resources' | 'article' | 'contact' | 'submit' | 'about' | 'donate' | 'donateSuccess';
+
+type ResourceView = 'landing' | 'category' | 'detail';
 
 interface PageData {
+  view?: ResourceView;
+  category?: ResourceCategory;
   slug?: string;
-  category?: string;
   query?: string;
   [key: string]: unknown;
 }
 
+const RESOURCE_PATH_MAP: Record<ResourceCategory, string> = {
+  service: 'services',
+  insurance: 'insurances',
+  scholarship: 'scholarships',
+};
+
+const RESOURCE_CATEGORY_LABELS: Record<ResourceCategory, string> = {
+  service: 'Therapies & Services',
+  insurance: 'Insurance & Funding',
+  scholarship: 'Scholarships & ESA',
+};
+
+const RESOURCE_CATEGORY_DESCRIPTIONS: Record<ResourceCategory, string> = {
+  service: 'Explore evidence-based therapies, clinical supports, and community programs available to autistic individuals across Florida.',
+  insurance: 'Compare Florida insurance plans, waivers, and funding sources that help families cover autism-related services.',
+  scholarship: 'Discover scholarship and education savings programs that fund specialized schooling and therapies for autistic students in Florida.',
+};
+
+const parsePath = (path: string): { page: Page; data?: PageData } => {
+  if (!path || path === '/') {
+    return { page: 'home' };
+  }
+
+  if (path.startsWith('/providers')) {
+    return { page: 'providers' };
+  }
+
+  if (path.startsWith('/churches')) {
+    return { page: 'churches' };
+  }
+
+  if (path.startsWith('/resources')) {
+    const segments = path.split('/').filter(Boolean);
+    if (segments.length === 1) {
+      return { page: 'resources', data: { view: 'landing' } };
+    }
+
+    const [, primarySegment, secondarySegment] = segments;
+    const categoryEntry = Object.entries(RESOURCE_PATH_MAP).find(([, value]) => value === primarySegment);
+
+    if (categoryEntry) {
+      const [category] = categoryEntry as [ResourceCategory, string];
+
+      if (!secondarySegment) {
+        return { page: 'resources', data: { view: 'category', category } };
+      }
+
+      return { page: 'resources', data: { view: 'detail', category, slug: secondarySegment } };
+    }
+
+    const articleMatch = RESOURCE_ARTICLE_LOOKUP.get(primarySegment);
+    if (articleMatch) {
+      return { page: 'article', data: { slug: articleMatch.slug } };
+    }
+
+    return { page: 'resources', data: { view: 'landing' } };
+  }
+
+  if (path.startsWith('/contact')) {
+    return { page: 'contact' };
+  }
+
+  if (path.startsWith('/submit')) {
+    return { page: 'submit' };
+  }
+
+  if (path.startsWith('/about')) {
+    return { page: 'about' };
+  }
+
+  if (path.startsWith('/donate/success')) {
+    return { page: 'donateSuccess' };
+  }
+
+  if (path.startsWith('/donate')) {
+    return { page: 'donate' };
+  }
+
+  return { page: 'home' };
+};
+
+const combinePageData = (base: PageData | undefined, extra?: unknown): PageData | undefined => {
+  let merged = base ? { ...base } : undefined;
+
+  if (typeof extra === 'string') {
+    merged = { ...(merged ?? {}), query: extra };
+  } else if (extra && typeof extra === 'object' && !Array.isArray(extra)) {
+    merged = { ...(merged ?? {}), ...(extra as PageData) };
+  }
+
+  return merged;
+};
+
 function App() {
-  // Parse initial page from URL on load (fixes refresh issue)
-  const getInitialPage = (): Page => {
-    const path = window.location.pathname;
-    if (path === '/' || path === '') return 'home';
-    if (path.startsWith('/providers')) return 'providers';
-    if (path.startsWith('/churches')) return 'churches';
-    if (path.startsWith('/resources/')) return 'article';
-    if (path.startsWith('/resources')) return 'resources';
-    if (path.startsWith('/contact')) return 'contact';
-    if (path.startsWith('/submit')) return 'submit';
-    if (path.startsWith('/about')) return 'about';
-    if (path.startsWith('/services/')) return 'service-detail';
-    return 'home';
-  };
+  const initialState = useMemo(() => parsePath(window.location.pathname), []);
 
-  const getInitialPageData = (): PageData | null => {
-    const path = window.location.pathname;
-
-    if (path.startsWith('/resources/')) {
-      const slug = path.replace('/resources/', '');
-      console.log('Article detected on load. Slug:', slug); // Debug log
-      return { slug };
-    }
-
-    if (path.startsWith('/services/')) {
-      const slug = path.replace('/services/', '');
-      console.log('Service detail detected on load. Slug:', slug);
-      return { slug };
-    }
-
-    return null;
-  };
-
-
-  const [currentPage, setCurrentPage] = useState<Page>(getInitialPage());
-  const [searchQuery, setSearchQuery] = useState('');
-  const [pageData, setPageData] = useState<PageData | null>(getInitialPageData());
+  const [currentPage, setCurrentPage] = useState<Page>(initialState.page);
+  const [pageData, setPageData] = useState<PageData | null>(initialState.data ?? null);
+  const [searchQuery, setSearchQuery] = useState(initialState.data?.query ?? '');
 
   useEffect(() => {
     generateStructuredData('Organization');
@@ -80,172 +146,224 @@ function App() {
   useEffect(() => {
     const handlePopState = (event: PopStateEvent) => {
       if (event.state && event.state.page) {
-        setCurrentPage(event.state.page);
-        if (event.state.data) {
-          setPageData(event.state.data);
-        }
+        const stateData = (event.state.data ?? null) as PageData | null;
+        setCurrentPage(event.state.page as Page);
+        setPageData(stateData);
+        setSearchQuery(stateData?.query ?? '');
       } else {
-        // If no state, parse from URL
-        setCurrentPage(getInitialPage());
-        setPageData(getInitialPageData());
+        const parsed = parsePath(window.location.pathname);
+        setCurrentPage(parsed.page);
+        const data = parsed.data ?? null;
+        setPageData(data);
+        setSearchQuery(data?.query ?? '');
       }
     };
 
     window.addEventListener('popstate', handlePopState);
 
-    // Set initial state based on current URL
     if (!window.history.state) {
       window.history.replaceState(
-        { page: currentPage, data: pageData },
+        { page: initialState.page, data: initialState.data },
         '',
-        window.location.pathname
+        window.location.pathname,
       );
     }
 
     return () => window.removeEventListener('popstate', handlePopState);
-  }, []);
+  }, [initialState]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    switch (currentPage) {
-      case 'home':
-        updateSEO({
-          title: 'Home',
-          description:
-            'Find trusted autism service providers, resources, and support across Florida. Comprehensive directory of verified ABA therapy, speech therapy, occupational therapy, and more.',
-          keywords: [
-            'Florida autism services',
-            'autism support Florida',
-            'ASD therapies Florida',
-            'autism providers',
-            'special needs services Florida',
-          ],
-          url: 'https://floridaautismservices.com',
-          canonicalUrl: 'https://floridaautismservices.com',
-        });
-        break;
-      case 'providers':
-        updateSEO({
-          title: 'Find Providers',
-          description:
-            'Search verified autism service providers across Florida. Filter by location, service type, and setting. Find ABA, speech, occupational therapy, and more.',
-          keywords: [
-            'autism providers Florida',
-            'ABA therapy Florida',
-            'speech therapy autism',
-            'occupational therapy ASD',
-            'autism specialists',
-          ],
-          url: 'https://floridaautismservices.com/providers',
-          canonicalUrl: 'https://floridaautismservices.com/providers',
-        });
-        break;
-      case 'churches':
-        updateSEO({
-          title: 'Faith-Based Support',
-          description:
-            'Find welcoming churches and faith-based organizations in Florida offering autism support programs, sensory-friendly services, and inclusive communities.',
-          keywords: [
-            'autism friendly churches Florida',
-            'sensory-friendly church',
-            'faith-based autism support',
-            'special needs ministry',
-          ],
-          url: 'https://floridaautismservices.com/churches',
-          canonicalUrl: 'https://floridaautismservices.com/churches',
-        });
-        break;
-      case 'resources':
-        updateSEO({
-          title: 'Educational Resources',
-          description:
-            'Learn about autism therapies, insurance, education rights, and more. Comprehensive guides and articles for families navigating autism services in Florida.',
-          keywords: [
-            'autism resources Florida',
-            'IEP Florida',
-            'autism insurance coverage',
-            'early intervention Florida',
-            'autism education',
-          ],
-          url: 'https://floridaautismservices.com/resources',
-          canonicalUrl: 'https://floridaautismservices.com/resources',
-        });
-        break;
-      case 'article': {
-        const slug = pageData?.slug || '';
-        const articleTitles: { [key: string]: string } = {
-          'understanding-aba-therapy-florida': 'Understanding ABA Therapy in Florida',
-          'florida-medicaid-waiver-autism-guide': 'Florida Medicaid Waiver Guide',
-          'iep-vs-504-plan-comparison': 'IEP vs 504 Plan Comparison',
-          'speech-therapy-autism-expectations': 'Speech Therapy for Autism',
-        };
-        const articleTitle = articleTitles[slug] || 'Resource Article';
+    let cancelled = false;
 
-        updateSEO({
-          title: articleTitle,
-          description: 'In-depth resource article for Florida Autism Services families.',
-          url: `https://floridaautismservices.com/resources/${slug}`,
-          canonicalUrl: `https://floridaautismservices.com/resources/${slug}`,
-        });
-        break;
+    const run = async () => {
+      switch (currentPage) {
+        case 'home':
+          updateSEO({
+            title: 'Home',
+            description:
+              'Find trusted autism service providers, resources, and support across Florida. Comprehensive directory of verified ABA therapy, speech therapy, occupational therapy, and more.',
+            keywords: [
+              'Florida autism services',
+              'autism support Florida',
+              'ASD therapies Florida',
+              'autism providers',
+              'special needs services Florida',
+            ],
+            url: 'https://floridaautismservices.com',
+            canonicalUrl: 'https://floridaautismservices.com',
+          });
+          return;
+        case 'providers':
+          updateSEO({
+            title: 'Find Providers',
+            description:
+              'Search verified autism service providers across Florida. Filter by location, service type, and setting. Find ABA, speech, occupational therapy, and more.',
+            keywords: [
+              'autism providers Florida',
+              'ABA therapy Florida',
+              'speech therapy autism',
+              'occupational therapy ASD',
+              'autism specialists',
+            ],
+            url: 'https://floridaautismservices.com/providers',
+            canonicalUrl: 'https://floridaautismservices.com/providers',
+          });
+          return;
+        case 'churches':
+          updateSEO({
+            title: 'Faith-Based Support',
+            description:
+              'Find welcoming churches and faith-based organizations in Florida offering autism support programs, sensory-friendly services, and inclusive communities.',
+            keywords: [
+              'autism friendly churches Florida',
+              'sensory-friendly church',
+              'faith-based autism support',
+              'special needs ministry',
+            ],
+            url: 'https://floridaautismservices.com/churches',
+            canonicalUrl: 'https://floridaautismservices.com/churches',
+          });
+          return;
+        case 'resources': {
+          const view = (pageData?.view as ResourceView) ?? 'landing';
+          if (view === 'detail' && pageData?.slug && pageData?.category) {
+            const folder = RESOURCE_PATH_MAP[pageData.category] as ResourceFolder;
+            const resource = await loadResource(folder, pageData.slug);
+            if (cancelled) {
+              return;
+            }
+
+            if (resource) {
+              const categoryLabel = RESOURCE_CATEGORY_LABELS[pageData.category];
+              const resourceTitle =
+                (resource as { title?: string }).title ?? 'Resource Detail';
+              const description =
+                (resource as { shortDescription?: string; description?: string }).shortDescription ??
+                (resource as { shortDescription?: string; description?: string }).description ??
+                RESOURCE_CATEGORY_DESCRIPTIONS[pageData.category];
+
+              updateSEO({
+                title: `${resourceTitle} | ${categoryLabel}`,
+                description,
+                keywords: [
+                  `${resourceTitle} autism`,
+                  `${categoryLabel.toLowerCase()}`,
+                  'Florida autism directory',
+                ],
+                url: `https://floridaautismservices.com/resources/${folder}/${resource.slug}`,
+                canonicalUrl: `https://floridaautismservices.com/resources/${folder}/${resource.slug}`,
+              });
+              return;
+            }
+          }
+
+          if (view === 'category' && pageData?.category) {
+            const categoryLabel = RESOURCE_CATEGORY_LABELS[pageData.category];
+            updateSEO({
+              title: `${categoryLabel} | Florida Autism Resources`,
+              description: RESOURCE_CATEGORY_DESCRIPTIONS[pageData.category],
+              keywords: [
+                `${categoryLabel.toLowerCase()}`,
+                'Florida autism resources',
+                'autism support directory',
+              ],
+              url: `https://floridaautismservices.com/resources/${RESOURCE_PATH_MAP[pageData.category]}`,
+              canonicalUrl: `https://floridaautismservices.com/resources/${RESOURCE_PATH_MAP[pageData.category]}`,
+            });
+            return;
+          }
+
+          updateSEO({
+            title: 'Florida Autism Resource Center',
+            description:
+              'Guides for therapies, insurance coverage, and scholarships that support autistic individuals and their families throughout Florida.',
+            keywords: [
+              'autism resources Florida',
+              'autism therapy guides',
+              'autism insurance Florida',
+              'autism scholarships Florida',
+            ],
+            url: 'https://floridaautismservices.com/resources',
+            canonicalUrl: 'https://floridaautismservices.com/resources',
+          });
+          return;
+        }
+        case 'article': {
+          const slug = pageData?.slug ?? '';
+          const article = slug ? RESOURCE_ARTICLE_LOOKUP.get(slug) : undefined;
+          const articleTitle = article?.title ?? 'Resource Guide';
+          updateSEO({
+            title: `${articleTitle} | Florida Autism Resources`,
+            description: article?.excerpt ?? 'In-depth guidance for Florida Autism Services families.',
+            keywords: article
+              ? [...article.keywords, 'Florida autism resources']
+              : ['Florida autism resources', 'autism guides'],
+            url: `https://floridaautismservices.com/resources/${slug}`,
+            canonicalUrl: `https://floridaautismservices.com/resources/${slug}`,
+          });
+          return;
+        }
+        case 'contact':
+          updateSEO({
+            title: 'Contact Us',
+            description: "Get in touch with Florida Autism Services. We're here to help you find the support and resources you need.",
+            url: 'https://floridaautismservices.com/contact',
+            canonicalUrl: 'https://floridaautismservices.com/contact',
+          });
+          return;
+        case 'submit':
+          updateSEO({
+            title: 'Submit a Provider',
+            description:
+              'Help other families by adding a trusted autism service provider to our directory. All submissions are reviewed and verified.',
+            url: 'https://floridaautismservices.com/submit',
+            canonicalUrl: 'https://floridaautismservices.com/submit',
+          });
+          return;
+        case 'about':
+          updateSEO({
+            title: 'About Us',
+            description:
+              'Learn about our mission to connect families with trusted autism services across Florida. Discover our vetting process and values.',
+            url: 'https://floridaautismservices.com/about',
+            canonicalUrl: 'https://floridaautismservices.com/about',
+          });
+          return;
       }
-      case 'contact':
-        updateSEO({
-          title: 'Contact Us',
-          description: "Get in touch with Florida Autism Services. We're here to help you find the support and resources you need.",
-          url: 'https://floridaautismservices.com/contact',
-          canonicalUrl: 'https://floridaautismservices.com/contact',
-        });
-        break;
-      case 'submit':
-        updateSEO({
-          title: 'Submit a Provider',
-          description:
-            'Help other families by adding a trusted autism service provider to our directory. All submissions are reviewed and verified.',
-          url: 'https://floridaautismservices.com/submit',
-          canonicalUrl: 'https://floridaautismservices.com/submit',
-        });
-        break;
-      case 'about':
-        updateSEO({
-          title: 'About Us',
-          description:
-            'Learn about our mission to connect families with trusted autism services across Florida. Discover our vetting process and values.',
-          url: 'https://floridaautismservices.com/about',
-          canonicalUrl: 'https://floridaautismservices.com/about',
-        });
-        break;
-    }
+    };
+
+    void run();
+
+    return () => {
+      cancelled = true;
+    };
   }, [currentPage, pageData]);
 
-  const handleNavigate = (page: string, data?: unknown) => {
-    setCurrentPage(page as Page);
+  const handleNavigate = (target: string, data?: unknown) => {
+    const normalizedTarget = target === 'resources' ? '/resources' : target;
 
-    // Add to browser history
-    const state = { page, data };
-    const url = page === 'home' ? '/' : `/${page}`;
-    window.history.pushState(state, '', url);
-
-    if (typeof data === 'string') {
-      setSearchQuery(data);
-      setPageData(null);
+    if (normalizedTarget.startsWith('/')) {
+      const path = normalizedTarget === '' ? '/' : normalizedTarget;
+      const parsed = parsePath(path);
+      const mergedData = combinePageData(parsed.data, data);
+      setCurrentPage(parsed.page);
+      setPageData(mergedData ?? null);
+      const nextQuery = typeof data === 'string' ? data : mergedData?.query ?? '';
+      setSearchQuery(nextQuery);
+      window.history.pushState({ page: parsed.page, data: mergedData }, '', path);
       return;
     }
 
-    if (data && typeof data === 'object') {
-      const typedData = data as PageData;
-      setPageData(typedData);
-      if (typedData.query && typeof typedData.query === 'string') {
-        setSearchQuery(typedData.query);
-      } else {
-        setSearchQuery('');
-      }
-      return;
-    }
-
-    setSearchQuery('');
-    setPageData(null);
+    const nextPage = normalizedTarget as Page;
+    setCurrentPage(nextPage);
+    const mergedData = combinePageData(undefined, data);
+    setPageData(mergedData ?? null);
+    const nextQuery = typeof data === 'string' ? data : mergedData?.query ?? '';
+    setSearchQuery(nextQuery);
+    const url = nextPage === 'home' ? '/' : `/${nextPage}`;
+    window.history.pushState({ page: nextPage, data: mergedData }, '', url);
   };
 
   const renderPage = () => {
@@ -256,11 +374,39 @@ function App() {
         return <ProvidersPage initialSearch={searchQuery} onNavigate={handleNavigate} />;
       case 'churches':
         return <ChurchesPage />;
-      case 'resources':
-        return <Resources onNavigate={handleNavigate} />;
+      case 'resources': {
+        const view = (pageData?.view as ResourceView) ?? 'landing';
+        const category = pageData?.category;
+        const slug = pageData?.slug;
+
+        if (view === 'category') {
+          if (category === 'service') {
+            return <ServicesIndex onNavigate={handleNavigate} />;
+          }
+          if (category === 'insurance') {
+            return <InsurancesIndex onNavigate={handleNavigate} />;
+          }
+          if (category === 'scholarship') {
+            return <ScholarshipsIndex onNavigate={handleNavigate} />;
+          }
+        }
+
+        if (view === 'detail' && slug) {
+          if (category === 'service') {
+            return <ServiceDetail onNavigate={handleNavigate} slug={slug} />;
+          }
+          if (category === 'insurance') {
+            return <InsuranceDetail onNavigate={handleNavigate} slug={slug} />;
+          }
+          if (category === 'scholarship') {
+            return <ScholarshipDetail onNavigate={handleNavigate} slug={slug} />;
+          }
+        }
+
+        return <ResourcesLanding onNavigate={handleNavigate} />;
+      }
       case 'article': {
         const slug = pageData?.slug;
-        console.log('Rendering article. Slug:', slug); // Debug log
 
         switch (slug) {
           case 'understanding-aba-therapy-florida':
@@ -270,15 +416,15 @@ function App() {
           case 'iep-vs-504-plan-comparison':
           case 'speech-therapy-autism-expectations':
             return (
-              <div className="mx-auto max-w-4xl p-8">
+              <div className="mx-auto max-w-4xl rounded-3xl bg-white/95 p-10 shadow-lg ring-1 ring-slate-100 dark:bg-slate-900/80 dark:ring-slate-800">
                 <h1 className="mb-4 text-3xl font-bold text-slate-900 dark:text-slate-100">Article Coming Soon</h1>
                 <p className="mb-6 text-slate-600 dark:text-slate-300">
                   This article is currently being developed. Check back shortly for a full guide.
                 </p>
                 <button
                   type="button"
-                  onClick={() => handleNavigate('resources')}
-                  className="rounded-lg bg-green-600 px-6 py-2 text-sm font-semibold text-white shadow transition hover:bg-green-700"
+                  onClick={() => handleNavigate('/resources')}
+                  className="rounded-full bg-teal-600 px-6 py-2 text-sm font-semibold text-white shadow transition hover:bg-teal-700"
                 >
                   &larr; Back to Resources
                 </button>
@@ -286,15 +432,15 @@ function App() {
             );
           default:
             return (
-              <div className="mx-auto max-w-4xl p-8">
+              <div className="mx-auto max-w-4xl rounded-3xl bg-white/95 p-10 shadow-lg ring-1 ring-slate-100 dark:bg-slate-900/80 dark:ring-slate-800">
                 <h1 className="mb-4 text-3xl font-bold text-slate-900 dark:text-slate-100">Article Not Found</h1>
                 <p className="mb-6 text-slate-600 dark:text-slate-300">
                   The article you&apos;re looking for doesn&apos;t exist or has been moved.
                 </p>
                 <button
                   type="button"
-                  onClick={() => handleNavigate('resources')}
-                  className="rounded-lg bg-green-600 px-6 py-2 text-sm font-semibold text-white shadow transition hover:bg-green-700"
+                  onClick={() => handleNavigate('/resources')}
+                  className="rounded-full bg-teal-600 px-6 py-2 text-sm font-semibold text-white shadow transition hover:bg-teal-700"
                 >
                   &larr; Back to Resources
                 </button>
@@ -308,8 +454,10 @@ function App() {
         return <SubmitProviderPage />;
       case 'about':
         return <AboutPage />;
-      case 'service-detail':
-        return <ServiceDetailPage />;  
+      case 'donate':
+        return <DonatePage />;
+      case 'donateSuccess':
+        return <DonateSuccessPage onNavigate={handleNavigate} />;
       default:
         return <HomePage onNavigate={handleNavigate} />;
     }

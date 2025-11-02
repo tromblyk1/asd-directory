@@ -1,0 +1,91 @@
+{
+  "slug": "medicare",
+  "title": "Medicare for Autism Services",
+  "shortDescription": "Federal health insurance for adults with disabilities that covers medical care, therapy evaluations, and some autism-related services.",
+  "description": "Medicare is federal health insurance primarily for people 65 and older, but also covers adults under 65 with certain disabilities, including autism. Medicare has different parts covering different services. While it covers medical care, diagnostic evaluations, and some therapies, coverage for intensive behavioral interventions like ABA therapy is limited. Many adults with autism qualify for Medicare after receiving Social Security Disability Insurance (SSDI) for 24 months.",
+  "category": "federal-insurance",
+  "whoQualifies": [
+    "Adults 65 and older",
+    "Adults under 65 who have received SSDI for 24 months",
+    "Adults with End-Stage Renal Disease or ALS",
+    "Must be a U.S. citizen or legal permanent resident for 5+ years"
+  ],
+  "whatIsCovered": [
+    "Doctor visits and autism-related medical care",
+    "Diagnostic evaluations and psychological testing",
+    "Outpatient mental health therapy and counseling",
+    "Psychiatric services and medication management",
+    "Physical therapy, occupational therapy, and speech therapy (when medically necessary)",
+    "Durable medical equipment",
+    "Mental health inpatient care",
+    "Prescription medications (Part D)"
+  ],
+  "whatIsNotCovered": [
+    "Most ABA therapy (limited coverage in some states)",
+    "Long-term custodial care",
+    "Personal care assistance for daily living",
+    "Respite care services"
+  ],
+  "medicareParts": {
+    "part_a": "Hospital Insurance - Covers inpatient hospital stays, skilled nursing, hospice",
+    "part_b": "Medical Insurance - Covers doctor visits, outpatient care, therapies, mental health",
+    "part_c": "Medicare Advantage - Private insurance alternative that includes A & B, often with extras",
+    "part_d": "Prescription Drug Coverage - Helps pay for medications"
+  },
+  "typicalCosts": {
+    "part_a_premium": "$0 for most (paid through payroll taxes)",
+    "part_b_premium": "$174.70/month (2024 standard, varies by income)",
+    "part_d_premium": "Varies by plan ($0-$100+/month)",
+    "deductibles": "Part A: $1,632; Part B: $240 annual",
+    "copays": "20% coinsurance for Part B services after deductible"
+  },
+  "floridaSpecificInfo": [
+    "Florida has many Medicare Advantage plans with autism-friendly benefits",
+    "Some Medicare Advantage plans in Florida offer limited ABA therapy coverage",
+    "Florida residents can get help choosing plans through SHINE (Serving Health Insurance Needs of Elders)",
+    "Medicaid may supplement Medicare for low-income individuals (dual eligible)"
+  ],
+  "commonQuestions": [
+    {
+      "question": "Does Medicare cover ABA therapy for adults with autism?",
+      "answer": "Traditional Medicare provides very limited ABA coverage. Some Medicare Advantage plans may offer limited coverage. Check specific plan details."
+    },
+    {
+      "question": "How do I qualify for Medicare if I am under 65 with autism?",
+      "answer": "You must receive Social Security Disability Insurance (SSDI) for 24 months. Apply for SSDI first, then Medicare enrollment happens automatically."
+    },
+    {
+      "question": "Should I choose Original Medicare or Medicare Advantage?",
+      "answer": "Compare both. Medicare Advantage may offer extra benefits like dental, vision, and limited behavioral health services, but has network restrictions."
+    },
+    {
+      "question": "Can I have both Medicare and Medicaid?",
+      "answer": "Yes! Many people with disabilities are 'dual eligible.' Medicaid can help pay Medicare premiums and cover services Medicare does not."
+    }
+  ],
+  "learnMore": [
+    {
+      "title": "Medicare.gov - Official Medicare Website",
+      "url": "https://www.medicare.gov/",
+      "description": "Official federal website to learn about Medicare, compare plans, and enroll in coverage."
+    },
+    {
+      "title": "Medicare Plan Finder",
+      "url": "https://www.medicare.gov/plan-compare/",
+      "description": "Tool to compare Medicare Advantage and Part D plans available in your Florida zip code."
+    },
+    {
+      "title": "Social Security - Apply for Medicare",
+      "url": "https://www.ssa.gov/medicare/",
+      "description": "Information about Medicare eligibility, enrollment periods, and how to apply through Social Security."
+    }
+  ],
+  "keywords": [
+    "Medicare",
+    "SSDI",
+    "federal insurance",
+    "disability coverage",
+    "Medicare Advantage",
+    "adult autism services"
+  ]
+}

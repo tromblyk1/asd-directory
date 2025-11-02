@@ -1,20 +1,22 @@
-import * as React from "react";
+import type { ChangeEvent, InputHTMLAttributes } from "react";
+
+type CheckboxProps = {
+  checked?: boolean;
+  onCheckedChange?: (checked: boolean) => void;
+  className?: string;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "checked" | "onChange">;
 
 export function Checkbox({
   checked,
   onCheckedChange,
   className = "",
   ...props
-}: {
-  checked?: boolean;
-  onCheckedChange?: (checked: boolean) => void;
-  className?: string;
-}) {
+}: CheckboxProps) {
   return (
     <input
       type="checkbox"
       checked={checked}
-      onChange={(e) => onCheckedChange?.(e.target.checked)}
+      onChange={(event: ChangeEvent<HTMLInputElement>) => onCheckedChange?.(event.target.checked)}
       className={`h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 ${className}`}
       {...props}
     />

@@ -1,0 +1,300 @@
+import React, { useState, useMemo } from "react";
+import { base44 } from "@/api/base44Client";
+import { useQuery } from "@tanstack/react-query";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { 
+  Calendar, MapPin, Clock, Users, Search, Filter,
+  ExternalLink, ChevronRight, Star
+} from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { format } from "date-fns";
+
+const categoryColors = {
+  sensory_friendly: "bg-purple-100 text-purple-800 border-purple-200",
+  support_group: "bg-blue-100 text-blue-800 border-blue-200",
+  educational: "bg-green-100 text-green-800 border-green-200",
+  social: "bg-orange-100 text-orange-800 border-orange-200",
+  fundraiser: "bg-pink-100 text-pink-800 border-pink-200",
+  other: "bg-gray-100 text-gray-800 border-gray-200",
+};
+
+export default function Events() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedCity, setSelectedCity] = useState("all");
+  const [timeFilter, setTimeFilter] = useState("upcoming");
+
+  const { data: events = [], isLoading } = useQuery({
+    queryKey: ['events'],
+    queryFn: () => base44.entities.Event.list('date', 500),
+    initialData: [],
+  });
+
+  const cities = [...new Set(events.map(e => e.city).filter(Boolean))].sort();
+  
+  const today = new Date().toISOString().split('T')[0];
+
+  const filteredEvents = useMemo(() => {
+    return events.filter(event => {
+      const matchesSearch = !searchTerm || 
+        event.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        event.description?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        event.city?.toLowerCase().includes(searchTerm.toLowerCase());
+      
+      const matchesCategory = selectedCategory === "all" || event.category === selectedCategory;
+      const matchesCity = selectedCity === "all" || event.city === selectedCity;
+      
+      const isPast = event.date < today;
+      const matchesTime = timeFilter === "all" || 
+        (timeFilter === "upcoming" && !isPast) ||
+        (timeFilter === "past" && isPast);
+
+      return matchesSearch && matchesCategory && matchesCity && matchesTime;
+    });
+  }, [events, searchTerm, selectedCategory, selectedCity, timeFilter, today]);
+
+  // Group events by month
+  const groupedEvents = useMemo(() => {
+    const groups = {};
+    filteredEvents.forEach(event => {
+      const monthKey = format(new Date(event.date), 'MMMM yyyy');
+      if (!groups[monthKey]) {
+        groups[monthKey] = [];
+      }
+      groups[monthKey].push(event);
+    });
+    return groups;
+  }, [filteredEvents]);
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white pb-12">
+      {/* Header */}
+      <div className="bg-gradient-to-r from-green-600 to-blue-600 text-white py-12">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center">
+              <Calendar className="w-8 h-8" />
+            </div>
+            <div>
+              <h1 className="text-4xl font-bold">Events Calendar</h1>
+              <p className="text-xl text-green-50">
+                Sensory-friendly events and community gatherings across Florida
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 py-8">
+        {/* Search and Filters */}
+        <Card className="border-none shadow-lg mb-8">
+          <CardContent className="p-6">
+            <div className="grid md:grid-cols-4 gap-4">
+              <div className="md:col-span-1">
+                <div className="relative">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+                  <Input
+                    type="text"
+                    placeholder="Search events..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="pl-10"
+                  />
+                </div>
+              </div>
+              
+              <div>
+                <Select value={timeFilter} onValueChange={setTimeFilter}>
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="upcoming">Upcoming Events</SelectItem>
+                    <SelectItem value="past">Past Events</SelectItem>
+                    <SelectItem value="all">All Events</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div>
+                <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All Categories</SelectItem>
+                    <SelectItem value="sensory_friendly">Sensory-Friendly</SelectItem>
+                    <SelectItem value="support_group">Support Groups</SelectItem>
+                    <SelectItem value="educational">Educational</SelectItem>
+                    <SelectItem value="social">Social</SelectItem>
+                    <SelectItem value="fundraiser">Fundraisers</SelectItem>
+                    <SelectItem value="other">Other</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div>
+                <Select value={selectedCity} onValueChange={setSelectedCity}>
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All Cities</SelectItem>
+                    {cities.map(city => (
+                      <SelectItem key={city} value={city}>{city}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Results Count */}
+        <div className="mb-6">
+          <p className="text-gray-600">
+            <span className="font-semibold text-gray-900">{filteredEvents.length}</span> events found
+          </p>
+        </div>
+
+        {/* Events List */}
+        {isLoading ? (
+          <div className="text-center py-12">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto" />
+          </div>
+        ) : Object.keys(groupedEvents).length === 0 ? (
+          <Card className="border-none shadow-lg">
+            <CardContent className="py-12 text-center">
+              <Calendar className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                No events found
+              </h3>
+              <p className="text-gray-600">
+                Try adjusting your filters
+              </p>
+            </CardContent>
+          </Card>
+        ) : (
+          <div className="space-y-8">
+            {Object.entries(groupedEvents).map(([month, monthEvents]) => (
+              <div key={month}>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                  <div className="h-1 w-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-full" />
+                  {month}
+                </h2>
+                
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {monthEvents.map((event) => {
+                    const isPast = event.date < today;
+                    
+                    return (
+                      <Card key={event.id} className="border-none shadow-lg hover:shadow-xl transition-shadow group">
+                        {event.image_url && (
+                          <div className="h-48 overflow-hidden">
+                            <img 
+                              src={event.image_url} 
+                              alt={event.title}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
+                          </div>
+                        )}
+                        <CardContent className="p-6">
+                          <div className="flex items-start justify-between mb-3">
+                            <Badge className={`${categoryColors[event.category]} border`}>
+                              {event.category?.replace(/_/g, ' ')}
+                            </Badge>
+                            {event.featured && (
+                              <Badge className="bg-yellow-100 text-yellow-800 border-yellow-200">
+                                <Star className="w-3 h-3 mr-1" />
+                                Featured
+                              </Badge>
+                            )}
+                          </div>
+
+                          <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors">
+                            {event.title}
+                          </h3>
+
+                          <div className="space-y-2 mb-4 text-sm text-gray-600">
+                            <div className="flex items-center gap-2">
+                              <Calendar className="w-4 h-4 flex-shrink-0" />
+                              <span>
+                                {format(new Date(event.date), 'EEEE, MMMM d, yyyy')}
+                              </span>
+                            </div>
+                            {event.time && (
+                              <div className="flex items-center gap-2">
+                                <Clock className="w-4 h-4 flex-shrink-0" />
+                                <span>{event.time}</span>
+                              </div>
+                            )}
+                            <div className="flex items-center gap-2">
+                              <MapPin className="w-4 h-4 flex-shrink-0" />
+                              <span className="truncate">{event.location}, {event.city}</span>
+                            </div>
+                          </div>
+
+                          {event.description && (
+                            <p className="text-sm text-gray-700 mb-4 line-clamp-3">
+                              {event.description}
+                            </p>
+                          )}
+
+                          {event.age_groups && event.age_groups.length > 0 && (
+                            <div className="flex items-center gap-2 mb-4">
+                              <Users className="w-4 h-4 text-gray-400" />
+                              <div className="flex flex-wrap gap-1">
+                                {event.age_groups.map((age, idx) => (
+                                  <Badge key={idx} variant="secondary" className="text-xs">
+                                    {age.replace(/_/g, ' ')}
+                                  </Badge>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+
+                          {isPast ? (
+                            <Badge variant="outline" className="w-full justify-center">
+                              Past Event
+                            </Badge>
+                          ) : event.registration_url ? (
+                            <a 
+                              href={event.registration_url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="block"
+                            >
+                              <Button className="w-full bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700">
+                                Register Now
+                                <ExternalLink className="w-4 h-4 ml-2" />
+                              </Button>
+                            </a>
+                          ) : event.contact_email && (
+                            <a href={`mailto:${event.contact_email}`}>
+                              <Button variant="outline" className="w-full">
+                                Contact for Info
+                              </Button>
+                            </a>
+                          )}
+                        </CardContent>
+                      </Card>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,52 @@
+{
+  "name": "BlogPost",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Post title"
+    },
+    "content": {
+      "type": "string",
+      "description": "Post content (supports markdown)"
+    },
+    "excerpt": {
+      "type": "string",
+      "description": "Brief summary"
+    },
+    "author": {
+      "type": "string",
+      "description": "Author name"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "success_story",
+        "resource_spotlight",
+        "community_news",
+        "tips_advice",
+        "advocacy"
+      ],
+      "description": "Post category"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Featured image"
+    },
+    "published": {
+      "type": "boolean",
+      "default": false,
+      "description": "Published status"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false,
+      "description": "Featured post"
+    }
+  },
+  "required": [
+    "title",
+    "content",
+    "author"
+  ]
+}

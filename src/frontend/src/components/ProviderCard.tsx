@@ -5,6 +5,9 @@ import { useAccessibility } from '../contexts/AccessibilityContext';
 import { StarRating } from './StarRating';
 import { useProviderRating } from '../hooks/useProviderRatings';
 import { SERVICE_DEFINITIONS } from '../lib/serviceDefinitions';
+import { HoverBubble } from './HoverBubble';
+
+type ServiceDefinitionKey = keyof typeof SERVICE_DEFINITIONS;
 
 type ProviderCardProps = {
   provider: Provider;
@@ -12,64 +15,186 @@ type ProviderCardProps = {
   onNavigate?: (page: string, data?: unknown) => void;
 };
 
+const SERVICE_RESOURCE_SLUGS: Partial<Record<ServiceDefinitionKey, string>> = {
+  aba: "aba-therapy",
+  speech: "speech-therapy",
+  ot: "occupational-therapy",
+  pt: "physical-therapy",
+  feeding: "feeding-therapy",
+  music_therapy: "music-therapy",
+  inpp: "inpp",
+  aac_speech: "aac",
+  dir_floortime: "dir-floortime",
+  respite_care: "respite-care",
+  life_skills: "life-skills",
+  residential_program: "residential-program",
+  pet_therapy: "pet-therapy",
+  pharmacogenetic_testing: "pharmacogenetic-testing",
+  autism_travel: "autism-travel",
+  executive_function_coaching: "executive-function-coaching",
+  parent_coaching: "parent-coaching",
+  tutoring: "tutoring",
+  group_therapy: "group-therapy",
+  ados_testing: "ados-testing",
+  faith_based_support: "faith-based",
+};
+
 export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, onExpand, onNavigate }) => {
   const { lowSensoryMode } = useAccessibility();
   const { rating, loading: ratingLoading } = useProviderRating(provider.google_place_id || null);
 
-  const normalizeServiceLabel = (value: string) =>
+  const toSlug = (value: string) =>
     value
-      .split(/\s+/)
-      .map((segment) =>
-        segment.length > 0
-          ? segment[0].toUpperCase() + segment.slice(1).toLowerCase()
-          : segment
-      )
-      .join(' ');
+      .toLowerCase()
+      .replace(/&/g, 'and')
+      .replace(/[^a-z0-9\s-]/g, '')
+      .trim()
+      .replace(/\s+/g, '-');
 
-  // Get all available services for this provider
-  const getServices = () => {
-    const services = new Set<string>();
+  const findDefinitionKey = (value?: string | null): ServiceDefinitionKey | null => {
+    if (!value) return null;
+    const normalized = toSlug(value);
 
-    if (provider.service_type) {
-      services.add(normalizeServiceLabel(provider.service_type));
+    for (const [key, def] of Object.entries(SERVICE_DEFINITIONS)) {
+      const slugNormalized = toSlug(def.slug);
+      const titleNormalized = toSlug(def.title);
+
+      const matches =
+        normalized === def.slug ||
+        normalized === slugNormalized ||
+        normalized === titleNormalized ||
+        (slugNormalized && (normalized.startsWith(slugNormalized) || slugNormalized.startsWith(normalized))) ||
+        (titleNormalized && (normalized.startsWith(titleNormalized) || titleNormalized.startsWith(normalized)));
+
+      if (matches) {
+        return key as ServiceDefinitionKey;
+      }
     }
+
+    return null;
+  };
+
+  const getServices = () => {
+    const services = new Set<ServiceDefinitionKey>();
+    const addService = (key: ServiceDefinitionKey | null | undefined) => {
+      if (key && SERVICE_DEFINITIONS[key]) {
+        services.add(key);
+      }
+    };
+
+    const booleanFieldMap = [
+      ['aba', 'aba'],
+      ['speech', 'speech'],
+      ['ot', 'ot'],
+      ['pt', 'pt'],
+      ['feeding', 'feeding'],
+      ['music_therapy', 'music_therapy'],
+      ['dir_floortime', 'dir_floortime'],
+      ['inpp', 'inpp'],
+      ['aac_speech', 'aac_speech'],
+      ['respite_care', 'respite_care'],
+      ['life_skills', 'life_skills'],
+      ['life_skills_development', 'life_skills'],
+      ['residential', 'residential_program'],
+      ['residential_habilitation', 'residential_program'],
+      ['support_groups', 'support_groups'],
+      ['pet_therapy', 'pet_therapy'],
+      ['church_support', 'church_support'],
+      ['virtual_therapy', 'virtual_therapy'],
+      ['ados_testing', 'ados_testing'],
+      ['pharmacogenetic_testing', 'pharmacogenetic_testing'],
+      ['autism_travel', 'autism_travel'],
+      ['mobile_services', 'mobile_services'],
+      ['executive_function_coaching', 'executive_function_coaching'],
+      ['parent_coaching', 'parent_coaching'],
+      ['tutoring', 'tutoring'],
+      ['group_therapy', 'group_therapy'],
+    ] as const;
+
+    booleanFieldMap.forEach(([field, key]) => {
+      const value = provider[field as keyof Provider];
+      if (value) {
+        addService(key);
+      }
+    });
+
+    addService(findDefinitionKey(provider.service_type));
 
     if (Array.isArray(provider.service_types)) {
-      provider.service_types
-        .filter((label): label is string => typeof label === 'string' && label.trim().length > 0)
-        .forEach((label) => services.add(normalizeServiceLabel(label)));
+      provider.service_types.forEach((serviceType) => {
+        addService(findDefinitionKey(serviceType));
+      });
     }
-
-    if (provider.aba) services.add('ABA Therapy');
-    if (provider.speech) services.add('Speech Therapy');
-    if (provider.ot) services.add('Occupational Therapy');
-    if (provider.pt) services.add('Physical Therapy');
-    if (provider.respite_care) services.add('Respite Care');
-    if (provider.life_skills) services.add('Life Skills');
-    if (provider.residential) services.add('Residential');
-    if (provider.church_support) services.add('Faith-Based');
-    if (provider.pet_therapy) services.add('Pet Therapy');
 
     return Array.from(services);
   };
 
   const services = getServices();
 
+  const isAffirmative = (value: Provider[keyof Provider]) => {
+    if (typeof value === 'boolean') {
+      return value;
+    }
+    if (typeof value === 'string') {
+      const normalized = value.trim().toLowerCase();
+      if (!normalized) return false;
+      return !['no', 'false', '0', 'n/a', 'na'].includes(normalized);
+    }
+    if (typeof value === 'number') {
+      return value > 0;
+    }
+    return false;
+  };
+
+  const insuranceOptions: Array<{ key: keyof Provider; label: string }> = [
+    { key: 'accepts_medicaid', label: 'Medicaid' },
+    { key: 'accepts_medicare', label: 'Medicare' },
+    { key: 'accepts_aetna', label: 'Aetna' },
+    { key: 'accepts_cigna', label: 'Cigna' },
+    { key: 'accepts_tricare', label: 'TRICARE' },
+    { key: 'accepts_humana', label: 'Humana' },
+    { key: 'accepts_florida_blue', label: 'Florida Blue' },
+    { key: 'accepts_unitedhealthcare', label: 'UnitedHealthcare' },
+    { key: 'accepts_florida_healthcare_plans', label: 'Florida Healthcare Plans' },
+    { key: 'accepts_wellcare', label: 'WellCare' },
+    { key: 'accepts_molina', label: 'Molina' },
+    { key: 'accepts_sunshine_health', label: 'Sunshine Health' },
+    { key: 'accepts_florida_kidcare', label: 'Florida KidCare' },
+  ];
+
+  const scholarshipOptions: Array<{ key: keyof Provider; label: string }> = [
+    { key: 'accepts_pep', label: 'PEP Scholarship' },
+    { key: 'accepts_fes_ua', label: 'FES UA' },
+    { key: 'accepts_fes_eo', label: 'FES EO' },
+    { key: 'accepts_ftc', label: 'Florida Tax Credit (FTC)' },
+    { key: 'accepts_hope_scholarship', label: 'Hope Scholarship' },
+  ];
+
+  const insuranceCoverage = insuranceOptions
+    .filter(({ key }) => isAffirmative(provider[key]))
+    .map(({ label }) => label);
+
+  const scholarshipCoverage = scholarshipOptions
+    .filter(({ key }) => isAffirmative(provider[key]))
+    .map(({ label }) => label);
+
   return (
     <div
-      className={`bg-white/90 dark:bg-slate-800 border border-blue-100 dark:border-slate-700 rounded-xl p-6 shadow-sm hover:shadow-md ${
-        lowSensoryMode ? '' : 'transition-shadow duration-200'
-      }`}
+      className={`bg-white/90 dark:bg-slate-800 border border-blue-100 dark:border-slate-700 rounded-xl p-6 shadow-sm hover:shadow-md ${lowSensoryMode ? '' : 'transition-shadow duration-200'
+        }`}
     >
       <div className="flex items-start justify-between mb-3">
         <div className="flex-1">
           <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-1 flex items-center gap-2">
             {provider.provider_name}
             {provider.verified && (
-              <CheckCircle className="w-5 h-5 text-green-500" />
+              <HoverBubble content="Verified provider — information confirmed by Florida Autism Services.">
+                <CheckCircle className="w-5 h-5 text-green-500 cursor-help ml-1" />
+              </HoverBubble>
             )}
+            
           </h3>
-          
+
           {/* Google Reviews Rating */}
           {ratingLoading ? (
             <div className="mb-2">
@@ -77,14 +202,14 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, onExpand, 
             </div>
           ) : rating ? (
             <div className="mb-2">
-              <StarRating 
-                rating={rating.avg_rating} 
+              <StarRating
+                rating={rating.avg_rating}
                 reviewCount={rating.review_count}
                 size="sm"
               />
             </div>
           ) : null}
-          
+
           <div className="flex items-center space-x-2 text-sm text-slate-500 dark:text-slate-400">
             <MapPin className="w-4 h-4" />
             <span>
@@ -104,51 +229,36 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, onExpand, 
       )}
 
       <div className="flex flex-wrap gap-2 mb-4">
-        {services.slice(0, 4).map((service) => {
-          const key = service.toLowerCase().includes("aba")
-            ? "aba"
-            : service.toLowerCase().includes("speech")
-            ? "speech"
-            : service.toLowerCase().includes("occupational")
-            ? "ot"
-            : service.toLowerCase().includes("physical")
-            ? "pt"
-            : service.toLowerCase().includes("feeding")
-            ? "feeding"
-            : service.toLowerCase().includes("music")
-            ? "music_therapy"
-            : service.toLowerCase().includes("inpp")
-            ? "inpp"
-            : service.toLowerCase().includes("aac")
-            ? "aac_speech"
-            : service.toLowerCase().includes("dir")
-            ? "dir_floortime"
-            : null;
+        {services.map((serviceKey) => {
+          const def = SERVICE_DEFINITIONS[serviceKey];
+          if (!def) return null;
 
-          const def = key ? SERVICE_DEFINITIONS[key] : null;
+          const resourceSlug = SERVICE_RESOURCE_SLUGS[serviceKey] ?? def.slug;
+          const canNavigate = Boolean(resourceSlug);
 
           return (
             <span
-              key={service}
-              title={def ? def.short : undefined} // tooltip
+              key={serviceKey}
+              title={def.short}
               onClick={() => {
-                if (onNavigate && def) {
-                  onNavigate('service-detail', { slug: def.slug });
+                if (!canNavigate || !resourceSlug) {
+                  return;
                 }
-              }} // click for details
-              className={`cursor-pointer inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium 
-                bg-teal-100/80 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 
-                hover:bg-teal-200 dark:hover:bg-teal-800 transition`}
+                const path = `/resources/services/${resourceSlug}`;
+                if (onNavigate) {
+                  onNavigate(path);
+                } else {
+                  window.location.assign(path);
+                }
+              }}
+              className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium
+                bg-teal-100/80 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300
+                transition ${canNavigate ? "cursor-pointer hover:bg-teal-200 dark:hover:bg-teal-800" : ""}`}
             >
-              {service}
+              {def.title}
             </span>
           );
         })}
-        {services.length > 4 && (
-          <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-blue-100/60 dark:bg-slate-700 text-slate-600 dark:text-slate-300">
-            +{services.length - 4} more
-          </span>
-        )}
         {services.length === 0 && (
           <span className="text-xs text-slate-500 dark:text-slate-400 italic">
             Services information not available
@@ -156,6 +266,42 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, onExpand, 
         )}
       </div>
 
+
+      {insuranceCoverage.length > 0 && (
+        <div className="mb-4">
+          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400 mb-2">
+            Insurance Accepted
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {insuranceCoverage.map((label) => (
+              <span
+                key={label}
+                className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-blue-100/80 text-blue-800 dark:bg-blue-900/30 dark:text-blue-200"
+              >
+                {label}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {scholarshipCoverage.length > 0 && (
+        <div className="mb-4">
+          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400 mb-2">
+            Scholarships & Funding
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {scholarshipCoverage.map((label) => (
+              <span
+                key={label}
+                className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-amber-100/80 text-amber-800 dark:bg-amber-900/30 dark:text-amber-200"
+              >
+                {label}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-700">
         <div className="flex items-center space-x-3 text-sm">

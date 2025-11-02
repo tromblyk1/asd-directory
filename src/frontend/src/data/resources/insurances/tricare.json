@@ -1,0 +1,18 @@
+{
+  "title": "TRICARE",
+  "description": "TRICARE is the healthcare program for active duty service members, retirees, and their families, providing comprehensive autism coverage in Florida and nationwide. TRICARE covers ABA therapy through the Applied Behavior Analysis for Autism Spectrum Disorder benefit, as well as speech therapy, occupational therapy, and diagnostic evaluations when medically necessary. The Extended Care Health Option provides additional support for eligible beneficiaries with autism. TRICARE beneficiaries in Florida can access care through network providers and military treatment facilities.",
+  "links": [
+    {
+      "label": "TRICARE Official Website",
+      "url": "https://www.tricare.mil"
+    },
+    {
+      "label": "TRICARE Autism Care Demonstration",
+      "url": "https://www.tricare.mil/CoveredServices/BehavioralHealth/ABAforASD"
+    },
+    {
+      "label": "TRICARE Find a Provider",
+      "url": "https://www.tricare.mil/FindDoctor"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "slug": "unitedhealthcare",
+  "title": "UnitedHealthcare Autism Coverage",
+  "shortDescription": "One of the largest health insurers offering comprehensive autism coverage including ABA therapy, speech, OT, and diagnostic services in Florida.",
+  "description": "UnitedHealthcare is one of the largest health insurance providers in the United States with extensive coverage in Florida. They offer comprehensive autism coverage including Applied Behavior Analysis (ABA) therapy, speech therapy, occupational therapy, and diagnostic evaluations. Coverage varies by plan type (employer, individual, or Medicaid managed care). UnitedHealthcare employs case managers and care coordinators to help families access autism services.",
+  "category": "private-insurance",
+  "whatIsCovered": [
+    "ABA therapy - typically 25-40 hours per week when medically necessary",
+    "Autism diagnostic evaluations and ADOS testing",
+    "Speech therapy, occupational therapy, physical therapy",
+    "Mental health counseling and psychiatric services",
+    "Developmental pediatrician visits",
+    "Applied behavior analysis supervision and reassessment",
+    "Assistive communication devices (with prior authorization)",
+    "Medication management for co-occurring conditions"
+  ],
+  "howItWorks": [
+    "Check if your plan covers autism services (most FL plans required to by law)",
+    "Get autism diagnosis from qualified provider",
+    "Request prior authorization for therapies (typically handled by your provider)",
+    "Choose in-network providers to minimize out-of-pocket costs",
+    "Submit claims or providers bill directly",
+    "Track progress through annual reassessments"
+  ],
+  "typicalCosts": {
+    "monthly_premium": "Varies widely by plan ($200-$1,500+/month for families)",
+    "annual_deductible": "$500-$5,000 depending on plan",
+    "copay_per_visit": "$20-$75 for therapy sessions",
+    "coinsurance": "10-30% after deductible",
+    "out_of_pocket_max": "$3,000-$15,000 annually"
+  },
+  "floridaSpecificInfo": [
+    "Florida mandates autism coverage for children under 18 (up to $36,000/year for ABA)",
+    "UnitedHealthcare has large provider networks across Florida",
+    "Available as employer insurance, individual marketplace plans, and Medicaid managed care",
+    "UnitedHealthcare Community Plan manages Medicaid in many Florida counties",
+    "Autism Resource Specialists available to help coordinate care"
+  ],
+  "importantNotes": [
+    "Prior authorization required for ABA therapy and most therapies",
+    "Annual ABA coverage limits vary by plan ($36,000 minimum for FL policies covering children)",
+    "Must use in-network providers for best coverage",
+    "Some plans require diagnosis from specific provider types",
+    "Out-of-network coverage may be available with higher costs"
+  ],
+  "commonQuestions": [
+    {
+      "question": "Does UnitedHealthcare cover ABA therapy in Florida?",
+      "answer": "Yes, UnitedHealthcare plans in Florida must cover ABA therapy for children under 18, with annual minimums of $36,000 per Florida law."
+    },
+    {
+      "question": "Do I need prior authorization for ABA therapy?",
+      "answer": "Yes, prior authorization is required. Your ABA provider will typically submit this request with your child's assessment and treatment plan."
+    },
+    {
+      "question": "How do I find in-network autism providers?",
+      "answer": "Use the provider search tool on UnitedHealthcare.com or call member services. You can also ask providers directly if they accept your plan."
+    },
+    {
+      "question": "What if my claim is denied?",
+      "answer": "You have the right to appeal. Contact UnitedHealthcare member services and work with your provider to submit medical necessity documentation."
+    }
+  ],
+  "learnMore": [
+    {
+      "title": "UnitedHealthcare - Member Portal",
+      "url": "https://www.uhc.com/",
+      "description": "Official UnitedHealthcare website to manage your benefits, find providers, and check coverage details."
+    },
+    {
+      "title": "UnitedHealthcare - Autism Coverage",
+      "url": "https://www.uhc.com/health-and-wellness/health-topics/autism-spectrum-disorder",
+      "description": "Information about UnitedHealthcare's autism coverage, resources, and how to access care coordination services."
+    },
+    {
+      "title": "Find a Doctor - UnitedHealthcare",
+      "url": "https://www.uhc.com/find-a-physician",
+      "description": "Provider search tool to find in-network autism specialists, therapists, and ABA providers near you."
+    }
+  ],
+  "keywords": [
+    "UnitedHealthcare",
+    "private insurance",
+    "ABA therapy",
+    "autism coverage",
+    "Florida insurance",
+    "health insurance"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "slug": "unitedhealthcare",
+  "category": "insurances",
+  "title": "UnitedHealthcare",
+  "description": "UnitedHealthcare offers comprehensive autism spectrum disorder coverage through their commercial health plans, including extensive benefits for ABA therapy, diagnostic services, and related treatments for individuals of all ages. As one of the largest health insurance providers in Florida, UnitedHealthcare complies with state and federal autism insurance mandates, ensuring coverage for medically necessary autism services across their various plan types including PPO, HMO, and POS plans. UnitedHealthcare covers diagnostic evaluations by qualified providers such as developmental pediatricians, child psychologists, and neurologists, as well as ongoing autism treatments including ABA therapy, speech therapy, occupational therapy, physical therapy, and mental health services. ABA therapy coverage through UnitedHealthcare requires prior authorization through their behavioral health division, Optum, with treatment plans typically reviewed every 6-12 months based on progress and continued medical necessity. Most UnitedHealthcare plans cover ABA services provided by Board Certified Behavior Analysts (BCBAs) and supervised Registered Behavior Technicians (RBTs) at in-network rates, with coverage amounts varying by specific plan design.",
+  "links": [
+    {
+      "label": "UnitedHealthcare Member Portal",
+      "url": "https://www.uhc.com"
+    },
+    {
+      "label": "Optum Behavioral Health",
+      "url": "https://www.optum.com"
+    }
+  ]
+}

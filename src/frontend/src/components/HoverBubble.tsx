@@ -26,6 +26,8 @@ export const HoverBubble: React.FC<HoverBubbleProps> = ({ content, children, pos
     right: 'right-full top-1/2 -translate-y-1/2 border-t-transparent border-b-transparent border-l-transparent',
   };
 
+  const isBubbleVisible = !lowSensoryMode && isVisible;
+
   return (
     <div
       className="relative inline-flex items-center"
@@ -39,18 +41,23 @@ export const HoverBubble: React.FC<HoverBubbleProps> = ({ content, children, pos
     >
       {children || <Info className="w-4 h-4 text-teal-600 dark:text-teal-400 cursor-help" />}
 
-      {isVisible && (
+      {isBubbleVisible && (
         <div
-          className={`absolute z-50 ${positionClasses[position]} pointer-events-none ${
-            lowSensoryMode ? '' : 'animate-fadeIn'
-          }`}
+          className={`
+            absolute ${positionClasses[position]}
+            inline-block
+            bg-slate-800 dark:bg-slate-700 text-white text-sm
+            rounded-lg px-3 py-2 shadow-lg
+            whitespace-nowrap sm:whitespace-normal
+            leading-snug
+            min-w-[18rem] sm:min-w-[20rem]
+            max-w-[28rem]
+            break-normal`}
         >
-          <div className="bg-slate-800 dark:bg-slate-700 text-white text-sm rounded-lg px-3 py-2 shadow-lg max-w-xs whitespace-normal">
-            {content}
-            <div
-              className={`absolute w-0 h-0 border-4 border-slate-800 dark:border-slate-700 ${arrowClasses[position]}`}
-            />
-          </div>
+          {content}
+          <div
+            className={`absolute w-0 h-0 border-4 border-slate-800 dark:border-slate-700 ${arrowClasses[position]}`}
+          />
         </div>
       )}
     </div>

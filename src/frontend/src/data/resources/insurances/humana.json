@@ -1,0 +1,18 @@
+{
+  "title": "Humana",
+  "description": "Humana offers health insurance plans in Florida with coverage for autism spectrum disorder services including behavioral analysis therapy, speech and language therapy, and occupational therapy. Humana plans provide access to developmental and behavioral health specialists through their provider network. Coverage for autism services varies by plan type, with many offering comprehensive benefits when services are medically necessary and provided by qualified in-network professionals. Members should verify specific coverage details and authorization requirements with their plan.",
+  "links": [
+    {
+      "label": "Humana Member Resources",
+      "url": "https://www.humana.com"
+    },
+    {
+      "label": "Humana Find a Doctor",
+      "url": "https://www.humana.com/finder"
+    },
+    {
+      "label": "Humana Behavioral Health Services",
+      "url": "https://www.humana.com/provider/medical-resources/behavioral-health"
+    }
+  ]
+}

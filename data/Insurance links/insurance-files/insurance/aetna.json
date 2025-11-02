@@ -1,0 +1,90 @@
+{
+  "slug": "aetna",
+  "title": "Aetna Autism Coverage",
+  "shortDescription": "Major health insurer providing comprehensive autism benefits including ABA therapy, evaluations, and coordinated care across Florida.",
+  "description": "Aetna (a CVS Health company) provides health insurance coverage throughout Florida with comprehensive autism benefits. Their plans cover Applied Behavior Analysis (ABA) therapy, speech and occupational therapy, autism diagnostic evaluations, and mental health services. Aetna offers care coordination through their Autism Spectrum Disorder program to help families navigate services and find quality providers.",
+  "category": "private-insurance",
+  "whatIsCovered": [
+    "Applied Behavior Analysis (ABA) therapy",
+    "Autism diagnostic evaluations (ADOS, ADI-R, etc.)",
+    "Speech-language therapy",
+    "Occupational therapy",
+    "Physical therapy",
+    "Behavioral health counseling",
+    "Psychiatric evaluation and medication management",
+    "Developmental-behavioral pediatrics",
+    "Assistive technology (with prior authorization)"
+  ],
+  "howItWorks": [
+    "Verify autism coverage is included in your specific Aetna plan",
+    "Obtain autism diagnosis from qualified healthcare provider",
+    "Work with your provider to submit prior authorization for therapies",
+    "Select in-network providers to minimize costs",
+    "Aetna Autism Resource Team available for care coordination",
+    "Services billed directly to Aetna or submitted as claims"
+  ],
+  "typicalCosts": {
+    "monthly_premium": "Varies by plan ($150-$1,200+/month for families)",
+    "annual_deductible": "$1,000-$6,000 depending on plan",
+    "copay_per_visit": "$15-$60 for therapy visits",
+    "coinsurance": "10-40% after deductible met",
+    "out_of_pocket_max": "$4,000-$15,000 per year"
+  },
+  "floridaSpecificInfo": [
+    "Florida law requires autism coverage for children with annual minimums of $36,000 for ABA",
+    "Aetna Better Health of Florida manages Medicaid in select counties",
+    "Large network of autism providers throughout Florida",
+    "Available through employers, marketplace, and Medicaid managed care",
+    "Autism care coordination services available to members at no extra cost"
+  ],
+  "importantNotes": [
+    "Prior authorization typically required for ABA and intensive therapies",
+    "In-network providers offer significantly better coverage than out-of-network",
+    "Some plans require autism diagnosis from specific provider credentials",
+    "Annual benefit limits vary by plan but meet Florida minimum requirements",
+    "Appeals process available if services are initially denied"
+  ],
+  "commonQuestions": [
+    {
+      "question": "Does Aetna cover ABA therapy?",
+      "answer": "Yes, Aetna plans in Florida must cover ABA therapy for children under 18 per state law, with annual minimums of $36,000."
+    },
+    {
+      "question": "How do I get prior authorization for ABA therapy?",
+      "answer": "Your ABA provider submits the prior authorization request with diagnostic information and treatment plan. Aetna typically responds within 5-10 business days."
+    },
+    {
+      "question": "Does Aetna have care coordinators for autism?",
+      "answer": "Yes, Aetna offers Autism Resource Specialists who can help coordinate care, find providers, and navigate insurance benefits at no cost to members."
+    },
+    {
+      "question": "What if I disagree with a coverage decision?",
+      "answer": "You can file an appeal through Aetna's member services. Work with your provider to submit clinical documentation supporting medical necessity."
+    }
+  ],
+  "learnMore": [
+    {
+      "title": "Aetna - Member Services",
+      "url": "https://www.aetna.com/",
+      "description": "Official Aetna website to manage benefits, view coverage details, and access member resources."
+    },
+    {
+      "title": "Aetna - Find a Doctor",
+      "url": "https://www.aetna.com/find-a-doctor.html",
+      "description": "Provider directory to search for in-network autism specialists, ABA providers, and therapists in Florida."
+    },
+    {
+      "title": "Aetna Better Health of Florida",
+      "url": "https://www.aetnabetterhealth.com/florida/",
+      "description": "Aetna's Florida Medicaid managed care plan information and member resources."
+    }
+  ],
+  "keywords": [
+    "Aetna",
+    "CVS Health",
+    "autism insurance",
+    "ABA coverage",
+    "Florida health insurance",
+    "private insurance"
+  ]
+}

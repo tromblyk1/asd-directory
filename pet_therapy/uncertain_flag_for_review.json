@@ -1,0 +1,18 @@
+[
+  {
+    "provider_name": "A Heart for H.E.R.O's, Inc.",
+    "website": "http://www.aheartforheros.org/",
+    "phone": "(863) 207-8947",
+    "address1": "5247 Rifle Range Rd, Bartow, FL 33830, USA",
+    "city": "Bartow",
+    "county": "null",
+    "crawl_status": "Success",
+    "decision": "FLAG_FOR_REVIEW",
+    "reason": "Has autism keywords (1) but NO therapy keywords",
+    "has_therapy": false,
+    "has_autism": true,
+    "has_exclusions": false,
+    "therapy_keywords": "",
+    "autism_keywords": "special needs"
+  }
+]

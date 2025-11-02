@@ -1,0 +1,90 @@
+{
+  "slug": "cigna",
+  "title": "Cigna Autism Coverage",
+  "shortDescription": "Comprehensive health insurance offering autism services including ABA therapy, evaluations, and behavioral health support in Florida.",
+  "description": "Cigna Healthcare provides health insurance coverage throughout Florida with comprehensive autism spectrum disorder benefits. Their plans include coverage for Applied Behavior Analysis (ABA) therapy, developmental evaluations, speech and occupational therapy, and mental health services. Cigna emphasizes care coordination and offers dedicated case management for members with autism to help navigate available services and providers.",
+  "category": "private-insurance",
+  "whatIsCovered": [
+    "Applied Behavior Analysis (ABA) therapy",
+    "Autism diagnostic evaluations and assessments",
+    "Speech-language pathology services",
+    "Occupational therapy",
+    "Physical therapy",
+    "Mental health and behavioral counseling",
+    "Psychiatric services and medication management",
+    "Developmental pediatrics",
+    "Augmentative communication devices (with approval)"
+  ],
+  "howItWorks": [
+    "Confirm autism coverage in your specific Cigna plan",
+    "Obtain autism diagnosis from qualified medical professional",
+    "Your provider submits prior authorization request for therapies",
+    "Use in-network providers to maximize benefits",
+    "Cigna may assign case manager for complex care coordination",
+    "Providers typically bill Cigna directly"
+  ],
+  "typicalCosts": {
+    "monthly_premium": "Varies by plan type ($180-$1,400+/month for family coverage)",
+    "annual_deductible": "$1,500-$5,000 depending on plan",
+    "copay_per_visit": "$20-$70 for therapy appointments",
+    "coinsurance": "20-30% after deductible",
+    "out_of_pocket_max": "$5,000-$14,000 annually"
+  },
+  "floridaSpecificInfo": [
+    "Florida mandates autism coverage with $36,000 annual minimum for ABA therapy for children",
+    "Cigna has extensive provider networks throughout Florida",
+    "Available through employer plans, individual marketplace, and some government programs",
+    "Prior authorization turnaround typically 3-7 business days",
+    "Cigna members should call for prior approval before starting intensive therapies"
+  ],
+  "importantNotes": [
+    "Prior authorization required for ABA therapy and most ongoing therapies",
+    "In-network benefits significantly better than out-of-network",
+    "Annual benefit caps vary by plan but meet Florida minimum requirements",
+    "May require specific provider credentials for autism diagnosis",
+    "Can appeal denied claims through Cigna's review process"
+  ],
+  "commonQuestions": [
+    {
+      "question": "Does Cigna cover ABA therapy in Florida?",
+      "answer": "Yes, Cigna plans sold in Florida must cover ABA therapy for children under 18 with annual coverage of at least $36,000 per Florida insurance law."
+    },
+    {
+      "question": "How long does prior authorization take with Cigna?",
+      "answer": "Standard requests typically take 3-7 business days. Urgent requests may be expedited. Your provider will receive notification once approved."
+    },
+    {
+      "question": "Can I choose any ABA provider?",
+      "answer": "You will get the best coverage using in-network providers. Check Cigna's provider directory or ask your ABA clinic if they are in-network."
+    },
+    {
+      "question": "What if therapy visits are denied by Cigna?",
+      "answer": "You can appeal the decision. Contact Cigna member services and work with your provider to submit documentation of medical necessity."
+    }
+  ],
+  "learnMore": [
+    {
+      "title": "Cigna Healthcare - Member Portal",
+      "url": "https://www.cigna.com/",
+      "description": "Official Cigna website to access your plan details, benefits, claims, and find in-network providers."
+    },
+    {
+      "title": "Find a Doctor - Cigna",
+      "url": "https://hcpdirectory.cigna.com/web/public/consumer/directory",
+      "description": "Search Cigna's provider directory for autism specialists, ABA therapists, and behavioral health providers in Florida."
+    },
+    {
+      "title": "Cigna - Behavioral Health Resources",
+      "url": "https://www.cigna.com/individuals-families/member-resources/mental-health-substance-use",
+      "description": "Information about behavioral health coverage, mental health services, and care coordination programs."
+    }
+  ],
+  "keywords": [
+    "Cigna",
+    "autism insurance",
+    "ABA therapy coverage",
+    "behavioral health",
+    "Florida insurance",
+    "private health insurance"
+  ]
+}

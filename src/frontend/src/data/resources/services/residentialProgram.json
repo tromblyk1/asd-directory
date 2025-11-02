@@ -1,0 +1,18 @@
+{
+  "title": "Residential Programs",
+  "description": "Residential programs provide 24-hour care and comprehensive services for individuals with autism who require intensive support or are transitioning toward greater independence. These programs range from therapeutic group homes offering structured support and skill-building to semi-independent living arrangements with varying levels of supervision. Residential facilities in Florida combine housing with behavioral support, life skills training, vocational services, and therapeutic interventions tailored to each resident's needs. Programs serve different age groups and ability levels, with some focusing on crisis stabilization and others on long-term supported living. Funding sources include Medicaid Home and Community-Based Services waivers, private pay, and state developmental disability services.",
+  "links": [
+    {
+      "label": "Florida Agency for Persons with Disabilities",
+      "url": "https://apd.myflorida.com"
+    },
+    {
+      "label": "APD Residential Services",
+      "url": "https://apd.myflorida.com/services/residential.htm"
+    },
+    {
+      "label": "Autism Society Housing Resources",
+      "url": "https://autismsociety.org/resources"
+    }
+  ]
+}

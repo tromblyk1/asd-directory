@@ -1,0 +1,18 @@
+{
+  "title": "Sunshine Health",
+  "description": "Sunshine Health is a Florida-based managed care plan serving Medicaid and Children's Health Insurance Program members throughout the state. The plan provides comprehensive autism services including ABA therapy, speech therapy, occupational therapy, behavioral health counseling, and developmental assessments. Sunshine Health operates an extensive network of autism specialists and therapy providers across Florida's counties. The organization emphasizes care coordination and family support, helping members access necessary autism treatments and navigate the healthcare system effectively.",
+  "links": [
+    {
+      "label": "Sunshine Health Official Website",
+      "url": "https://www.sunshinehealth.com"
+    },
+    {
+      "label": "Sunshine Health Member Portal",
+      "url": "https://www.sunshinehealth.com/members.html"
+    },
+    {
+      "label": "Florida Medicaid Information",
+      "url": "https://www.ahca.myflorida.com/medicaid"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "title": "Florida Blue",
+  "description": "Florida Blue is the state's largest health insurer and a Blue Cross Blue Shield licensee, serving millions of Floridians with comprehensive autism coverage. Florida Blue plans cover medically necessary autism services including ABA therapy, diagnostic evaluations, speech therapy, occupational therapy, and mental health services. The company offers specialized behavioral health programs and maintains an extensive network of autism providers throughout Florida. Members benefit from care coordination services and access to autism-specific resources.",
+  "links": [
+    {
+      "label": "Florida Blue Member Services",
+      "url": "https://www.floridablue.com"
+    },
+    {
+      "label": "Florida Blue Find a Doctor",
+      "url": "https://www.floridablue.com/members/find-a-doctor"
+    },
+    {
+      "label": "Florida Autism Insurance Coverage Information",
+      "url": "https://www.floridahealth.gov/programs-and-services/childrens-health/index.html"
+    }
+  ]
+}

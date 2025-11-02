@@ -1,0 +1,18 @@
+{
+  "title": "WellCare",
+  "description": "WellCare, now part of Centene Corporation, provides managed care services in Florida primarily for Medicaid and Medicare beneficiaries. WellCare plans offer comprehensive autism coverage including ABA therapy, speech therapy, occupational therapy, behavioral health services, and developmental assessments. The company specializes in serving individuals with complex healthcare needs and maintains networks of providers experienced in autism treatment across Florida. WellCare emphasizes care coordination and member support to help families access appropriate autism services and specialists.",
+  "links": [
+    {
+      "label": "WellCare Florida Medicaid",
+      "url": "https://www.wellcare.com/Florida"
+    },
+    {
+      "label": "WellCare Member Portal",
+      "url": "https://www.wellcare.com"
+    },
+    {
+      "label": "Florida Agency for Health Care Administration",
+      "url": "https://www.ahca.myflorida.com"
+    }
+  ]
+}

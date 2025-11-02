@@ -1,0 +1,12 @@
+{
+  "slug": "ibudget-waiver",
+  "category": "insurances",
+  "title": "iBudget Waiver Program",
+  "description": "The iBudget Waiver is Florida's Medicaid Home and Community-Based Services waiver program specifically designed for individuals with developmental disabilities, including autism spectrum disorder, who require substantial support services. Administered by the Agency for Persons with Disabilities (APD), the iBudget provides funding for services and supports that help individuals with autism live in their communities rather than in institutional settings. The program offers a wide range of services including personal care assistance, respite care for family caregivers, residential habilitation, behavioral analysis services, therapy services, supported employment, transportation, assistive technology, home modifications, and specialized medical equipment. Unlike traditional Medicaid, the iBudget operates on an individualized budget system where each participant receives a specific funding allocation based on their assessed needs and tier level, with budgets typically ranging from $15,000 to over $140,000 annually depending on support needs. To qualify for the iBudget Waiver, individuals must be Florida residents, have a qualifying developmental disability diagnosis (including autism), meet financial eligibility requirements for Medicaid, and demonstrate the need for services that would otherwise require institutional level care.",
+  "links": [
+    {
+      "label": "Agency for Persons with Disabilities",
+      "url": "https://apd.myflorida.com"
+    }
+  ]
+}

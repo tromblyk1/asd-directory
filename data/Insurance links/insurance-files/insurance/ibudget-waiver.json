@@ -1,0 +1,94 @@
+{
+  "slug": "ibudget-waiver",
+  "title": "iBudget Waiver (Florida Medicaid Waiver)",
+  "shortDescription": "Florida's home and community-based waiver providing funding for therapies, respite, personal care, and supports not covered by Medicaid.",
+  "description": "The iBudget Waiver is Florida's Medicaid Home and Community-Based Services waiver for individuals with developmental disabilities, including autism. It provides funding for services and supports that help people live in their communities rather than institutions. Services include therapies, respite care, personal care assistance, specialized equipment, behavioral support, and more. The waiver is managed by the Agency for Persons with Disabilities (APD).",
+  "category": "waiver-funding",
+  "whoQualifies": [
+    "Florida residents diagnosed with autism, cerebral palsy, spina bifida, intellectual disability, or Prader-Willi Syndrome",
+    "Diagnosis must have occurred before age 18 (even if now an adult)",
+    "Must be Medicaid eligible",
+    "Requires APD enrollment and determination of developmental disability",
+    "All ages qualify - children, teens, and adults"
+  ],
+  "whatIsCovered": [
+    "Personal Care Assistance (help with daily living activities)",
+    "Respite care (short-term relief for caregivers)",
+    "Residential habilitation (group home or supported living)",
+    "Behavioral services and analysis",
+    "Therapy services (speech, OT, PT not covered by Medicaid)",
+    "Assistive technology and specialized medical equipment",
+    "Environmental modifications (home accessibility improvements)",
+    "Transportation services",
+    "Supported employment and job coaching",
+    "Life skills training",
+    "Consumable medical supplies"
+  ],
+  "howToApply": [
+    "Contact the Agency for Persons with Disabilities (APD) at 1-866-APD-CARES",
+    "Complete APD enrollment application online at apdcares.org",
+    "Provide autism diagnosis documentation showing onset before age 18",
+    "Apply for Florida Medicaid if not already enrolled",
+    "Complete developmental evaluation through APD",
+    "Once approved, get placed on the waiver waitlist",
+    "Wait times vary - critical needs may be prioritized"
+  ],
+  "budgetAmounts": {
+    "tier_1": "$15,000 - $35,000 per year for individuals with lower support needs",
+    "tier_2": "$35,000 - $55,000 per year for moderate support needs",
+    "tier_3": "$55,000+ per year for highest support needs",
+    "note": "Budget amounts determined by assessment of individual needs"
+  },
+  "floridaSpecificInfo": [
+    "Florida has a waitlist for the iBudget Waiver - wait times vary by region and need level",
+    "Crisis situations may qualify for expedited enrollment",
+    "Budgets are individualized based on assessed needs",
+    "Families have flexibility to choose services within their budget",
+    "Must have a support coordinator to help manage services",
+    "Budgets renew annually and can be adjusted based on changing needs"
+  ],
+  "commonQuestions": [
+    {
+      "question": "How long is the waitlist for the iBudget Waiver?",
+      "answer": "Wait times vary significantly by region and individual needs. Some people wait months, others years. Crisis situations receive priority."
+    },
+    {
+      "question": "Can I use iBudget funds to pay family members as caregivers?",
+      "answer": "Yes, in many cases you can hire family members (except spouses or legal guardians) as personal care assistants through the waiver."
+    },
+    {
+      "question": "What happens if my child turns 18?",
+      "answer": "The waiver continues into adulthood. Adult services focus more on employment support, independent living, and community integration."
+    },
+    {
+      "question": "Can I have both Medicaid and the iBudget Waiver?",
+      "answer": "Yes! You must have Medicaid to qualify for iBudget. The waiver covers additional services not included in regular Medicaid."
+    }
+  ],
+  "learnMore": [
+    {
+      "title": "Agency for Persons with Disabilities (APD)",
+      "url": "https://apd.myflorida.com/",
+      "description": "Official Florida APD website with complete information about iBudget Waiver eligibility, services, and how to apply."
+    },
+    {
+      "title": "APD Customer Portal - Apply Online",
+      "url": "https://apdcares.org/",
+      "description": "Online portal to apply for APD services and manage your iBudget Waiver enrollment and services."
+    },
+    {
+      "title": "iBudget Handbook - APD",
+      "url": "https://apd.myflorida.com/waiver/",
+      "description": "Comprehensive guide to understanding the iBudget Waiver, covered services, and how the program works."
+    }
+  ],
+  "keywords": [
+    "iBudget waiver",
+    "Florida waiver",
+    "APD",
+    "Medicaid waiver",
+    "respite care",
+    "personal care assistance",
+    "developmental disability"
+  ]
+}

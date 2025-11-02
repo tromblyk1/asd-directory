@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabase";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
+import { ChangeEvent, useCallback, useEffect, useMemo, useState } from "react";
 import { Loader2 } from "lucide-react";
+import { supabase, Provider } from "../lib/supabase";
+import { Card, CardContent } from "./ui/card";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Checkbox } from "./ui/checkbox";
 import { ProviderCard } from "./ProviderCard";
 
 type FilterOption = { key: string; label: string };
@@ -36,16 +36,30 @@ const FilterGroup = ({
   </div>
 );
 
+type SelectedFilterState = {
+  services: string[];
+  otherServices: string[];
+  ages: string[];
+  insurance: string[];
+  scholarships: string[];
+};
+
 type ProviderSearchProps = {
   initialSearch?: string;
   onNavigate?: (page: string, data?: unknown) => void;
 };
 
 export default function ProviderSearch({ initialSearch, onNavigate }: ProviderSearchProps) {
-  const [providers, setProviders] = useState<any[]>([]);
+  const [providers, setProviders] = useState<Provider[]>([]);
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState(initialSearch ?? "");
-  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+  const [selectedFilters, setSelectedFilters] = useState<SelectedFilterState>({
+    services: [],
+    otherServices: [],
+    ages: [],
+    insurance: [],
+    scholarships: [],
+  });
 
   // -------- Filter Definitions --------
   const coreServices: FilterOption[] = [
@@ -82,7 +96,9 @@ export default function ProviderSearch({ initialSearch, onNavigate }: ProviderSe
     { key: "accepts_molina", label: "Molina" },
     { key: "accepts_sunshine_health", label: "Sunshine Health" },
     { key: "accepts_florida_kidcare", label: "Florida KidCare" },
-        // new scholarship/education programs
+  ];
+
+  const scholarshipFilters: FilterOption[] = [
     { key: "accepts_pep", label: "PEP Scholarship" },
     { key: "accepts_fes_ua", label: "FES UA" },
     { key: "accepts_fes_eo", label: "FES EO" },
@@ -96,8 +112,34 @@ export default function ProviderSearch({ initialSearch, onNavigate }: ProviderSe
     { key: "serves_adults", label: "Adults" },
   ];
 
+  const toggleFilter = (group: keyof SelectedFilterState, key: string) => {
+    setSelectedFilters((prev) => {
+      const currentSelection = prev[group];
+      const isSelected = currentSelection.includes(key);
+      const nextSelection = isSelected
+        ? currentSelection.filter((value) => value !== key)
+        : [...currentSelection, key];
+
+      return {
+        ...prev,
+        [group]: nextSelection,
+      };
+    });
+  };
+
+  const activeFilters = useMemo(
+    () => [
+      ...selectedFilters.services,
+      ...selectedFilters.otherServices,
+      ...selectedFilters.ages,
+      ...selectedFilters.insurance,
+      ...selectedFilters.scholarships,
+    ],
+    [selectedFilters]
+  );
+
   // -------- Query Logic --------
-  const fetchProviders = async () => {
+  const fetchProviders = useCallback(async () => {
     setLoading(true);
     try {
       let query = supabase.from("providers").select("*").limit(300);
@@ -106,29 +148,23 @@ export default function ProviderSearch({ initialSearch, onNavigate }: ProviderSe
         query = query.ilike("provider_name", `%${searchTerm}%`);
       }
 
-      selectedFilters.forEach((key) => {
+      activeFilters.forEach((key) => {
         query = query.eq(key, true);
       });
 
       const { data, error } = await query;
       if (error) throw error;
-      setProviders(data || []);
+      setProviders((data ?? []) as Provider[]);
     } catch (err) {
       console.error(err);
     } finally {
       setLoading(false);
     }
-  };
+  }, [activeFilters, searchTerm]);
 
   useEffect(() => {
     fetchProviders();
-  }, [selectedFilters]);
-
-  const toggleFilter = (key: string) => {
-    setSelectedFilters((prev) =>
-      prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key]
-    );
-  };
+  }, [fetchProviders]);
 
   // -------- UI --------
   return (
@@ -140,36 +176,43 @@ export default function ProviderSearch({ initialSearch, onNavigate }: ProviderSe
             <Input
               placeholder="Search by provider name..."
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={(event: ChangeEvent<HTMLInputElement>) => setSearchTerm(event.target.value)}
               className="mb-4"
             />
 
             <FilterGroup
               title="Services Offered"
               filters={coreServices}
-              selected={selectedFilters}
-              onToggle={toggleFilter}
+              selected={selectedFilters.services}
+              onToggle={(key) => toggleFilter("services", key)}
             />
 
             <FilterGroup
               title="Other Services Offered"
               filters={otherServices}
-              selected={selectedFilters}
-              onToggle={toggleFilter}
+              selected={selectedFilters.otherServices}
+              onToggle={(key) => toggleFilter("otherServices", key)}
             />
 
             <FilterGroup
               title="Ages Served"
               filters={ageFilters}
-              selected={selectedFilters}
-              onToggle={toggleFilter}
+              selected={selectedFilters.ages}
+              onToggle={(key) => toggleFilter("ages", key)}
             />
 
             <FilterGroup
               title="Insurance Accepted"
               filters={insuranceFilters}
-              selected={selectedFilters}
-              onToggle={toggleFilter}
+              selected={selectedFilters.insurance}
+              onToggle={(key) => toggleFilter("insurance", key)}
+            />
+
+            <FilterGroup
+              title="Florida Scholarships & Funding"
+              filters={scholarshipFilters}
+              selected={selectedFilters.scholarships}
+              onToggle={(key) => toggleFilter("scholarships", key)}
             />
 
             <Button
@@ -200,8 +243,17 @@ export default function ProviderSearch({ initialSearch, onNavigate }: ProviderSe
           <p className="text-gray-500">No providers found.</p>
         ) : (
           <div className="grid gap-4">
-            {providers.map((p) => (
-              <ProviderCard key={p.id} provider={p} onNavigate={onNavigate} />
+            {providers.map((provider, index) => (
+              <ProviderCard
+                key={
+                  provider.id
+                  ?? provider.provider_id?.toString()
+                  ?? provider.google_place_id
+                  ?? `${provider.provider_name ?? 'provider'}-${index}`
+                }
+                provider={provider}
+                onNavigate={onNavigate}
+              />
             ))}
           </div>
         )}

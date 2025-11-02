@@ -1,0 +1,335 @@
+import React, { useState } from "react";
+import { base44 } from "@/api/base44Client";
+import { useMutation } from "@tanstack/react-query";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { 
+  CheckCircle, AlertCircle, Loader2, FileText
+} from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+
+export default function SubmitResource() {
+  const [formData, setFormData] = useState({
+    resource_name: "",
+    category: "",
+    description: "",
+    address: "",
+    city: "",
+    phone: "",
+    email: "",
+    website: "",
+    submitter_name: "",
+    submitter_email: "",
+    submitter_relationship: "",
+  });
+
+  const [submitted, setSubmitted] = useState(false);
+
+  const submitMutation = useMutation({
+    mutationFn: (data) => base44.entities.Submission.create(data),
+    onSuccess: () => {
+      setSubmitted(true);
+      setFormData({
+        resource_name: "",
+        category: "",
+        description: "",
+        address: "",
+        city: "",
+        phone: "",
+        email: "",
+        website: "",
+        submitter_name: "",
+        submitter_email: "",
+        submitter_relationship: "",
+      });
+    },
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    submitMutation.mutate(formData);
+  };
+
+  const handleChange = (field, value) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  if (submitted) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-green-50 to-white flex items-center justify-center p-6">
+        <Card className="max-w-2xl w-full border-none shadow-2xl">
+          <CardContent className="p-12 text-center">
+            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <CheckCircle className="w-12 h-12 text-green-600" />
+            </div>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Thank You for Your Submission!
+            </h2>
+            <p className="text-lg text-gray-600 mb-8">
+              We've received your resource submission and will review it within 2-3 business days. 
+              Once verified, it will be added to our directory to help families across Florida.
+            </p>
+            <Button 
+              size="lg"
+              onClick={() => setSubmitted(false)}
+              className="bg-gradient-to-r from-blue-600 to-green-600"
+            >
+              Submit Another Resource
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white pb-12">
+      {/* Header */}
+      <div className="bg-gradient-to-r from-blue-600 to-green-600 text-white py-12">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center">
+              <FileText className="w-8 h-8" />
+            </div>
+            <div>
+              <h1 className="text-4xl font-bold">Submit a Resource</h1>
+              <p className="text-xl text-blue-50">
+                Help us build Florida's most comprehensive ASD directory
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-4xl mx-auto px-6 py-8">
+        <Alert className="mb-8 bg-blue-50 border-blue-200">
+          <AlertCircle className="h-4 w-4 text-blue-600" />
+          <AlertDescription className="text-blue-900">
+            Know a neurodivergent-friendly resource in Florida? Share it with our community! 
+            All submissions are reviewed to ensure accuracy before being added to the directory.
+          </AlertDescription>
+        </Alert>
+
+        <Card className="border-none shadow-xl">
+          <CardHeader className="border-b">
+            <CardTitle className="text-2xl">Resource Information</CardTitle>
+          </CardHeader>
+          <CardContent className="p-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Resource Details */}
+              <div className="space-y-4">
+                <div>
+                  <Label htmlFor="resource_name" className="required">
+                    Resource Name *
+                  </Label>
+                  <Input
+                    id="resource_name"
+                    value={formData.resource_name}
+                    onChange={(e) => handleChange("resource_name", e.target.value)}
+                    placeholder="Church name, clinic name, program name, etc."
+                    required
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="category" className="required">
+                    Category *
+                  </Label>
+                  <Select 
+                    value={formData.category} 
+                    onValueChange={(value) => handleChange("category", value)}
+                    required
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select a category" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="faith_based">Faith Communities</SelectItem>
+                      <SelectItem value="healthcare">Healthcare</SelectItem>
+                      <SelectItem value="education">Education</SelectItem>
+                      <SelectItem value="recreation">Recreation</SelectItem>
+                      <SelectItem value="support_services">Support Services</SelectItem>
+                      <SelectItem value="employment">Employment</SelectItem>
+                      <SelectItem value="daily_living">Daily Living</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div>
+                  <Label htmlFor="description">
+                    Description & Accommodations
+                  </Label>
+                  <Textarea
+                    id="description"
+                    value={formData.description}
+                    onChange={(e) => handleChange("description", e.target.value)}
+                    placeholder="Describe the resource and what makes it neurodivergent-friendly (sensory rooms, trained staff, quiet spaces, visual supports, etc.)"
+                    rows={5}
+                  />
+                  <p className="text-xs text-gray-500 mt-1">
+                    Be specific about accommodations and features that support neurodivergent individuals
+                  </p>
+                </div>
+              </div>
+
+              {/* Location */}
+              <div className="space-y-4 pt-4 border-t">
+                <h3 className="font-semibold text-lg text-gray-900">Location</h3>
+                
+                <div>
+                  <Label htmlFor="address">Street Address</Label>
+                  <Input
+                    id="address"
+                    value={formData.address}
+                    onChange={(e) => handleChange("address", e.target.value)}
+                    placeholder="123 Main Street"
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="city" className="required">
+                    City *
+                  </Label>
+                  <Input
+                    id="city"
+                    value={formData.city}
+                    onChange={(e) => handleChange("city", e.target.value)}
+                    placeholder="Orlando"
+                    required
+                  />
+                </div>
+              </div>
+
+              {/* Contact Information */}
+              <div className="space-y-4 pt-4 border-t">
+                <h3 className="font-semibold text-lg text-gray-900">Contact Information</h3>
+                
+                <div>
+                  <Label htmlFor="phone">Phone Number</Label>
+                  <Input
+                    id="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => handleChange("phone", e.target.value)}
+                    placeholder="(555) 123-4567"
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="email">Email Address</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => handleChange("email", e.target.value)}
+                    placeholder="contact@resource.com"
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="website">Website</Label>
+                  <Input
+                    id="website"
+                    type="url"
+                    value={formData.website}
+                    onChange={(e) => handleChange("website", e.target.value)}
+                    placeholder="https://www.resource.com"
+                  />
+                </div>
+              </div>
+
+              {/* Submitter Information */}
+              <div className="space-y-4 pt-4 border-t">
+                <h3 className="font-semibold text-lg text-gray-900">Your Information</h3>
+                <p className="text-sm text-gray-600">
+                  We may contact you if we need clarification about this resource
+                </p>
+                
+                <div>
+                  <Label htmlFor="submitter_name">Your Name</Label>
+                  <Input
+                    id="submitter_name"
+                    value={formData.submitter_name}
+                    onChange={(e) => handleChange("submitter_name", e.target.value)}
+                    placeholder="Jane Smith"
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="submitter_email" className="required">
+                    Your Email Address *
+                  </Label>
+                  <Input
+                    id="submitter_email"
+                    type="email"
+                    value={formData.submitter_email}
+                    onChange={(e) => handleChange("submitter_email", e.target.value)}
+                    placeholder="jane@example.com"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="submitter_relationship">
+                    Your Relationship to Resource
+                  </Label>
+                  <Input
+                    id="submitter_relationship"
+                    value={formData.submitter_relationship}
+                    onChange={(e) => handleChange("submitter_relationship", e.target.value)}
+                    placeholder="Parent, Provider, Staff Member, etc."
+                  />
+                </div>
+              </div>
+
+              {/* Error Display */}
+              {submitMutation.isError && (
+                <Alert variant="destructive">
+                  <AlertCircle className="h-4 w-4" />
+                  <AlertDescription>
+                    There was an error submitting your resource. Please try again.
+                  </AlertDescription>
+                </Alert>
+              )}
+
+              {/* Submit Button */}
+              <div className="pt-6 border-t">
+                <Button 
+                  type="submit"
+                  size="lg"
+                  className="w-full bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-lg py-6"
+                  disabled={submitMutation.isPending}
+                >
+                  {submitMutation.isPending ? (
+                    <>
+                      <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                      Submitting...
+                    </>
+                  ) : (
+                    <>
+                      <CheckCircle className="w-5 h-5 mr-2" />
+                      Submit Resource
+                    </>
+                  )}
+                </Button>
+                <p className="text-xs text-gray-500 text-center mt-3">
+                  By submitting, you confirm that the information provided is accurate to the best of your knowledge
+                </p>
+              </div>
+            </form>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+}
