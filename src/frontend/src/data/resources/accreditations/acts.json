@@ -1,0 +1,27 @@
+{
+  "code": "ACTS",
+  "name": "Association of Christian Teachers and Schools",
+  "description": "ACTS provides accreditation and support services for Christian schools committed to biblical education and academic excellence. ACTS-accredited schools demonstrate quality in both spiritual and academic dimensions of education.",
+  "recognition": "ACTS accreditation is recognized by the Florida Department of Education for scholarship program eligibility.",
+  "benefits": [
+    "Christian school accreditation",
+    "Florida DOE recognition",
+    "Scholarship program eligibility",
+    "Professional development resources",
+    "Christian educator community"
+  ],
+  "requirements": [
+    "Biblical foundation in education",
+    "Qualified teaching staff",
+    "Academic standards compliance",
+    "Safe learning environment",
+    "Financial accountability"
+  ],
+  "links": [
+    {
+      "label": "ACTS",
+      "url": "https://www.actschools.org/",
+      "description": "Association of Christian Teachers and Schools"
+    }
+  ]
+}

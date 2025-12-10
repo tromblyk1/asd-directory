@@ -1,18 +1,23 @@
 {
+  "slug": "tricare",
+  "category": "insurances",
   "title": "TRICARE",
-  "description": "TRICARE is the healthcare program for active duty service members, retirees, and their families, providing comprehensive autism coverage in Florida and nationwide. TRICARE covers ABA therapy through the Applied Behavior Analysis for Autism Spectrum Disorder benefit, as well as speech therapy, occupational therapy, and diagnostic evaluations when medically necessary. The Extended Care Health Option provides additional support for eligible beneficiaries with autism. TRICARE beneficiaries in Florida can access care through network providers and military treatment facilities.",
+  "shortDescription": "Health coverage for military service members, retirees, and their families.",
+  "description": "TRICARE is the health care program serving active duty service members, National Guard and Reserve members, retirees, their families, and survivors. TRICARE provides comprehensive coverage for autism services through the Autism Care Demonstration (ACD) program, which covers Applied Behavior Analysis and other evidence-based treatments. Military families in Florida can access TRICARE-authorized providers throughout the state.",
+  "benefits": [
+    "Comprehensive ABA coverage through Autism Care Demonstration",
+    "Speech and occupational therapy",
+    "Diagnostic evaluations covered",
+    "No annual dollar caps on ABA (age limits apply)",
+    "Access to network of authorized providers",
+    "Family training and support services"
+  ],
+  "eligibility": "Available to active duty service members, National Guard/Reserve, military retirees, and their eligible family members (dependents).",
   "links": [
     {
-      "label": "TRICARE Official Website",
-      "url": "https://www.tricare.mil"
-    },
-    {
-      "label": "TRICARE Autism Care Demonstration",
-      "url": "https://www.tricare.mil/CoveredServices/BehavioralHealth/ABAforASD"
-    },
-    {
-      "label": "TRICARE Find a Provider",
-      "url": "https://www.tricare.mil/FindDoctor"
+      "label": "TRICARE",
+      "url": "https://www.tricare.mil/",
+      "description": "Official TRICARE website - benefits information and provider search"
     }
   ]
 }

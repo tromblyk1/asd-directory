@@ -1,230 +1,210 @@
 {
   "services/tutoring": [
     {
-      "label": "Florida Department of Education Exceptional Student Education",
-      "url": "https://www.fldoe.org/academics/exceptional-student-edu"
+      "label": "Learning Disabilities Association of Florida",
+      "url": "https://lda-florida.org/",
+      "description": "Florida resources on learning support and educational advocacy"
+    }
+  ],
+  "services/support-groups": [
+    {
+      "label": "Autism Speaks",
+      "url": "https://www.autismspeaks.org/",
+      "description": "Resources for finding local support groups"
     }
   ],
   "services/respite-care": [
     {
       "label": "ARCH National Respite Network",
-      "url": "https://archrespite.org"
+      "url": "https://archrespite.org/",
+      "description": "National resource for respite care information and locators"
     }
   ],
   "services/residential-program": [
     {
-      "label": "Florida Agency for Persons with Disabilities",
-      "url": "https://apd.myflorida.com"
+      "label": "Autism Speaks",
+      "url": "https://www.autismspeaks.org/",
+      "description": "Resources on residential options and housing"
     }
   ],
   "services/physical-therapy": [
     {
-      "label": "American Physical Therapy Association",
-      "url": "https://www.apta.org"
-    },
-    {
-      "label": "APTA Pediatric Physical Therapy",
-      "url": "https://www.pediatricapta.org"
+      "label": "American Physical Therapy Association (APTA)",
+      "url": "https://www.apta.org/",
+      "description": "National professional organization for physical therapists"
     }
   ],
-  "services/pharmacogenetic-testing": [
+  "services/parent-coaching": [
     {
-      "label": "Clinical Pharmacogenetics Implementation Consortium",
-      "url": "https://cpicpgx.org"
+      "label": "Autism Speaks",
+      "url": "https://www.autismspeaks.org/",
+      "description": "Resources on parent training programs and strategies"
     }
   ],
   "services/occupational-therapy": [
     {
       "label": "American Occupational Therapy Association",
-      "url": "https://www.aota.org"
+      "url": "https://www.aota.org/",
+      "description": "National professional organization for occupational therapists"
     }
   ],
   "services/music-therapy": [
     {
-      "label": "American Music Therapy Association",
-      "url": "https://www.musictherapy.org"
+      "label": "American Music Therapy Association (AMTA)",
+      "url": "https://www.musictherapy.org/",
+      "description": "National professional organization for music therapists"
+    },
+    {
+      "label": "Certification Board for Music Therapists (CBMT)",
+      "url": "https://www.cbmt.org/",
+      "description": "Board certification organization for music therapy professionals"
+    }
+  ],
+  "services/mobile-services": [
+    {
+      "label": "Autism Speaks",
+      "url": "https://www.autismspeaks.org/",
+      "description": "Resources on in-home and community-based services"
     }
   ],
   "services/life-skills": [
     {
-      "label": "Florida Agency for Persons with Disabilities",
-      "url": "https://apd.myflorida.com"
-    },
-    {
-      "label": "Florida Division of Vocational Rehabilitation",
-      "url": "https://www.rehabworks.org"
-    }
-  ],
-  "services/inpp": [
-    {
-      "label": "CDC Developmental Milestones",
-      "url": "https://www.cdc.gov/child-development"
+      "label": "Autism Speaks",
+      "url": "https://www.autismspeaks.org/",
+      "description": "Resources on life skills and transition planning"
     }
   ],
   "services/group-therapy": [
     {
-      "label": "American Psychological Association Autism Resources",
-      "url": "https://www.apa.org/topics/autism-spectrum-disorder"
-    }
-  ],
-  "services/autism-travel": [
-    {
-      "label": "TSA Disability Notification Card",
-      "url": "https://www.tsa.gov/travel/passenger-support"
+      "label": "Autism Speaks",
+      "url": "https://www.autismspeaks.org/",
+      "description": "Resources on social skills programs and groups"
     }
   ],
   "services/ados-testing": [
     {
-      "label": "Florida Department of Health Children's Medical Services",
-      "url": "https://www.floridahealth.gov/programs-and-services/childrens-health"
+      "label": "Autism Speaks",
+      "url": "https://www.autismspeaks.org/",
+      "description": "Information on autism diagnosis and evaluation process"
     }
   ],
   "services/aba-therapy": [
     {
-      "label": "Behavior Analyst Certification Board",
-      "url": "https://www.bacb.com"
+      "label": "Behavior Analyst Certification Board (BACB)",
+      "url": "https://www.bacb.com/",
+      "description": "Credentialing organization for behavior analysts"
     },
     {
-      "label": "Florida Association for Behavior Analysis",
-      "url": "https://www.fabaworld.org"
+      "label": "Association for Behavior Analysis International",
+      "url": "https://www.abainternational.org/",
+      "description": "Professional organization for behavior analysis"
+    }
+  ],
+  "scholarships/pep": [
+    {
+      "label": "Florida Department of Education",
+      "url": "https://www.fldoe.org/",
+      "description": "Official state education agency with scholarship program information"
     }
   ],
   "scholarships/hope": [
     {
-      "label": "Florida Department of Education HOPE Program",
-      "url": "https://www.fldoe.org/schools/school-choice/k-12-scholarship-programs/hope"
+      "label": "Florida Department of Education",
+      "url": "https://www.fldoe.org/",
+      "description": "Official state education agency with HOPE Scholarship program information"
     }
   ],
   "scholarships/ftc": [
     {
-      "label": "Florida Department of Education Scholarship Information",
-      "url": "https://www.fldoe.org/schools/school-choice/k-12-scholarship-programs"
+      "label": "AAA Scholarship Foundation",
+      "url": "https://www.aaascholarships.org/",
+      "description": "Alternative scholarship funding organization for FTC"
     },
     {
-      "label": "AAA Scholarship Foundation",
-      "url": "https://www.aaascholarships.org"
+      "label": "Florida Department of Education",
+      "url": "https://www.fldoe.org/",
+      "description": "Official state education agency with scholarship program information"
     }
   ],
   "scholarships/fes-ua": [
     {
-      "label": "Florida Department of Education Special Needs Scholarships",
-      "url": "https://www.fldoe.org/schools/school-choice/k-12-scholarship-programs/ftc"
+      "label": "Florida Department of Education",
+      "url": "https://www.fldoe.org/",
+      "description": "Official state education agency with scholarship program information"
     }
   ],
   "scholarships/fes-eo": [
     {
-      "label": "Florida Department of Education Scholarship Programs",
-      "url": "https://www.fldoe.org/schools/school-choice/k-12-scholarship-programs"
-    }
-  ],
-  "insurances/aetna": [
-    {
-      "label": "Aetna Official Website",
-      "url": "https://www.aetna.com"
+      "label": "AAA Scholarship Foundation",
+      "url": "https://www.aaascholarships.org/",
+      "description": "Alternative scholarship funding organization for FES-EO"
     },
     {
-      "label": "Aetna Member Resources",
-      "url": "https://www.aetna.com/individuals-families.html"
-    }
-  ],
-  "insurances/cigna": [
-    {
-      "label": "Cigna Official Website",
-      "url": "https://www.cigna.com"
-    },
-    {
-      "label": "Cigna Member Resources",
-      "url": "https://www.cigna.com/individuals-families"
-    }
-  ],
-  "insurances/florida-medicaid": [
-    {
-      "label": "Florida Medicaid Program",
-      "url": "https://www.flmedicaidmanagedcare.com"
-    },
-    {
-      "label": "ACCESS Florida Application",
-      "url": "https://www.myflorida.com/accessflorida"
-    },
-    {
-      "label": "Florida Department of Children and Families",
-      "url": "https://www.myflfamilies.com"
-    }
-  ],
-  "insurances/ibudget-waiver": [
-    {
-      "label": "Agency for Persons with Disabilities",
-      "url": "https://apd.myflorida.com"
-    },
-    {
-      "label": "APD Waiver Services",
-      "url": "https://apd.myflorida.com/waiver"
-    }
-  ],
-  "insurances/medicare": [
-    {
-      "label": "Medicare Official Site",
-      "url": "https://www.medicare.gov"
-    },
-    {
-      "label": "Social Security Administration",
-      "url": "https://www.ssa.gov"
-    }
-  ],
-  "insurances/unitedhealthcare": [
-    {
-      "label": "UnitedHealthcare Official Website",
-      "url": "https://www.uhc.com"
-    },
-    {
-      "label": "Optum Health Services",
-      "url": "https://www.optum.com"
-    }
-  ],
-  "insurances/00-private-insurance-guide": [
-    {
-      "label": "Healthcare.gov Marketplace",
-      "url": "https://www.healthcare.gov"
-    },
-    {
-      "label": "Autism Speaks Resources",
-      "url": "https://www.autismspeaks.org"
+      "label": "Florida Department of Education",
+      "url": "https://www.fldoe.org/",
+      "description": "Official state education agency with scholarship program information"
     }
   ],
   "insurances/wellcare": [
     {
-      "label": "WellCare Official Website",
-      "url": "https://www.wellcare.com"
+      "label": "WellCare Florida Medicaid",
+      "url": "https://www.wellcare.com/Florida"
     },
     {
-      "label": "WellCare Florida Medicaid",
-      "url": "https://www.wellcare.com/en/Florida/Medicaid"
+      "label": "WellCare Member Portal",
+      "url": "https://www.wellcare.com"
     }
   ],
   "insurances/sunshine-health": [
     {
-      "label": "Sunshine Health Official Website",
-      "url": "https://www.sunshinehealth.com"
-    },
-    {
-      "label": "Sunshine Health Member Portal",
-      "url": "https://www.sunshinehealth.com/members.html"
+      "label": "Sunshine Health",
+      "url": "https://www.sunshinehealth.com/",
+      "description": "Official Sunshine Health website - member resources and provider search"
     }
   ],
   "insurances/molina": [
     {
-      "label": "Molina Healthcare Official Website",
+      "label": "Molina Healthcare Florida",
+      "url": "https://www.molinahealthcare.com/members/fl/en-us/hp/medicaid/medicaid.aspx"
+    },
+    {
+      "label": "Molina Member Services",
       "url": "https://www.molinahealthcare.com"
     },
     {
-      "label": "Florida Medicaid Managed Care",
+      "label": "Florida Medicaid Managed Care Plans",
       "url": "https://www.flmedicaidmanagedcare.com"
+    }
+  ],
+  "insurances/ibudget-waiver": [
+    {
+      "label": "Agency for Persons with Disabilities (APD)",
+      "url": "https://apd.myflorida.com/",
+      "description": "Florida state agency that administers the iBudget waiver program"
     }
   ],
   "insurances/humana": [
     {
-      "label": "Humana Official Website",
-      "url": "https://www.humana.com"
+      "label": "Humana",
+      "url": "https://www.humana.com/",
+      "description": "Official Humana website - find providers and manage your plan"
+    }
+  ],
+  "insurances/florida-medicaid": [
+    {
+      "label": "Agency for Persons with Disabilities (APD)",
+      "url": "https://apd.myflorida.com/",
+      "description": "Administers iBudget waiver for home and community-based services"
+    }
+  ],
+  "insurances/florida-kidcare": [
+    {
+      "label": "Florida KidCare Official Website",
+      "url": "https://www.floridakidcare.org"
+    },
+    {
+      "label": "Florida Healthy Kids Corporation",
+      "url": "https://www.healthykids.org"
     }
   ],
   "insurances/florida-healthcare-plans": [
@@ -235,18 +215,57 @@
   ],
   "insurances/florida-blue": [
     {
-      "label": "Florida Blue Official Website",
-      "url": "https://www.floridablue.com"
+      "label": "Florida Blue",
+      "url": "https://www.floridablue.com/",
+      "description": "Official Florida Blue website - find doctors, check benefits, and manage your health plan"
     }
   ],
-  "insurances/floridaKidcare": [
+  "insurances/aetna": [
     {
-      "label": "Florida KidCare Official Website",
-      "url": "https://www.floridakidcare.org"
-    },
+      "label": "Aetna",
+      "url": "https://www.aetna.com/",
+      "description": "Official Aetna website - find providers, check benefits, and manage your plan"
+    }
+  ],
+  "insurances/00-private-insurance-guide": [
     {
-      "label": "Florida KidCare Application",
-      "url": "https://www.floridakidcare.org/en/apply"
+      "label": "Autism Speaks Insurance Guide",
+      "url": "https://www.autismspeaks.org"
+    }
+  ],
+  "accreditations/flga-lcms": [
+    {
+      "label": "LCMS Florida-Georgia District",
+      "url": "https://flgadistrict.org/",
+      "description": "Florida-Georgia District Lutheran Church-Missouri Synod"
+    }
+  ],
+  "accreditations/cobis": [
+    {
+      "label": "COBIS",
+      "url": "https://www.cobis.org.uk/",
+      "description": "Council of British International Schools"
+    }
+  ],
+  "accreditations/cgacs": [
+    {
+      "label": "Church of God",
+      "url": "https://www.churchofgod.org/",
+      "description": "Church of God denomination"
+    }
+  ],
+  "accreditations/aisf": [
+    {
+      "label": "AISF",
+      "url": "https://www.aisf.org/",
+      "description": "Association of Independent Schools of Florida"
+    }
+  ],
+  "accreditations/acts": [
+    {
+      "label": "ACTS",
+      "url": "https://www.actschools.org/",
+      "description": "Association of Christian Teachers and Schools"
     }
   ]
 }

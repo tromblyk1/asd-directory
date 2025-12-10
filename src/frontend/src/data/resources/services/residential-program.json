@@ -1,0 +1,29 @@
+{
+  "slug": "residential-program",
+  "category": "services",
+  "title": "Residential Programs",
+  "shortDescription": "Live-in treatment facilities providing 24-hour care and comprehensive services.",
+  "description": "Residential programs provide 24-hour care for individuals with autism who need intensive, round-the-clock support. These programs range from therapeutic boarding schools for teens to adult group homes and specialized treatment facilities. Residential settings offer structured environments with trained staff, integrated therapies, life skills training, and often educational or vocational programming. They serve individuals whose needs exceed what can be provided in a home setting.",
+  "benefits": [
+    "24-hour professional support and supervision",
+    "Intensive therapeutic programming",
+    "Structured daily routines",
+    "Integrated life skills training",
+    "Social opportunities with peers",
+    "Relief for families needing support"
+  ],
+  "whoCanBenefit": [
+    "Individuals needing intensive behavioral support",
+    "Those requiring 24-hour supervision",
+    "Teens needing therapeutic school environment",
+    "Adults transitioning to independent living",
+    "Families unable to provide necessary level of care"
+  ],
+  "links": [
+    {
+      "label": "Autism Speaks",
+      "url": "https://www.autismspeaks.org/",
+      "description": "Resources on residential options and housing"
+    }
+  ]
+}

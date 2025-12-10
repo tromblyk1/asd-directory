@@ -1,18 +1,29 @@
 {
-  "title": "Educational Tutoring",
-  "description": "Specialized tutoring provides individualized academic instruction for students with autism, addressing learning challenges, building on strengths, and supporting success in school subjects. Tutors experienced in autism use multisensory teaching methods, visual supports, structured approaches, and accommodations tailored to each student's learning style and needs. Tutoring can target specific academic skills, homework completion, organization, test preparation, or compensatory strategies for learning differences. Services are available through private tutors, learning centers, school-based programs, and online platforms throughout Florida. Some families access tutoring through educational scholarships or as a related service in Individualized Education Programs.",
+  "slug": "tutoring",
+  "category": "services",
+  "title": "Tutoring",
+  "shortDescription": "Individualized academic support adapted for neurodivergent learning styles.",
+  "description": "Specialized tutoring for students with autism provides individualized academic instruction tailored to neurodivergent learning styles. Tutors experienced with autism understand sensory needs, communication differences, and learning preferences that may differ from neurotypical students. Sessions can address reading, math, writing, study skills, and test preparation while incorporating accommodations and strategies that help autistic learners succeed academically.",
+  "benefits": [
+    "Individualized instruction at student's pace",
+    "Accommodates sensory and learning differences",
+    "Builds academic confidence",
+    "Fills gaps in classroom learning",
+    "Teaches study skills and organization",
+    "Prepares for tests and standardized exams"
+  ],
+  "whoCanBenefit": [
+    "Students struggling academically",
+    "Those needing individualized attention",
+    "Students preparing for standardized tests",
+    "Kids who learn differently than classroom pace",
+    "Homeschool students needing subject support"
+  ],
   "links": [
     {
-      "label": "Understood Learning Differences Resources",
-      "url": "https://www.understood.org"
-    },
-    {
-      "label": "Learning Disabilities Association of America",
-      "url": "https://ldaamerica.org"
-    },
-    {
-      "label": "Florida Department of Education Exceptional Student Education",
-      "url": "https://www.fldoe.org/academics/exceptional-student-edu"
+      "label": "Learning Disabilities Association of Florida",
+      "url": "https://lda-florida.org/",
+      "description": "Florida resources on learning support and educational advocacy"
     }
   ]
 }

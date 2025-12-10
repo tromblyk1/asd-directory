@@ -1,0 +1,27 @@
+{
+  "code": "CSF",
+  "name": "Christian Schools of Florida",
+  "description": "CSF provides accreditation and support services for Christian schools in Florida, ensuring member schools maintain high standards of academic excellence while integrating Christian values throughout the educational experience.",
+  "recognition": "CSF accreditation is recognized by the Florida Department of Education for scholarship program eligibility.",
+  "benefits": [
+    "Florida Christian school network",
+    "Florida DOE recognition",
+    "Scholarship program eligibility",
+    "Professional development resources",
+    "Christian education advocacy"
+  ],
+  "requirements": [
+    "Christian educational mission",
+    "Qualified teaching staff",
+    "Academic curriculum standards",
+    "Safe learning environment",
+    "Financial accountability"
+  ],
+  "links": [
+    {
+      "label": "CSF",
+      "url": "https://www.christianschoolsofflorida.org/",
+      "description": "Christian Schools of Florida"
+    }
+  ]
+}

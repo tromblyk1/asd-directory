@@ -1,0 +1,546 @@
+id,name,address1,address2,city,state,zip_code
+5775,CHANGING HANDS HOME CARE,6966 Jack Horner Ln,null,Jacksonville,FL,32210
+5799,SISTERS HOME CARE SERVICES INC,4010 Highgate Dr,null,Valrico,FL,33594
+6050,"OLGA LIMONTE, INC",6721 Sw 49th Ter,null,Miami,FL,33155
+6068,IRIE CARE LLC,2128 Anoka Way,null,Leesburg,FL,34748
+6069,VICTORY PROVIDER LLC,507 Se 12th Ter,null,Gainesville,FL,32641
+6081,"FAITH INDEPENDENCE LLC
+FAITH HEALTH SOLUTIONS",456 Canby Cir,null,Ocoee,FL,34761
+6103,SUPERIOR PRIVATE TRANSPORTATION OF SWFL,12914 3rd St 12914 3rd St,null,Fort Myers,FL,33905
+6139,FANTA VILLA CARE SERVICES LLC,19135 Us Hwy 19 N,Suite,Clearwater,FL,33764
+6158,KID CARE RESPIRATORY SERVICES CORP,9930 Nw 26th St,null,Doral,FL,33172
+6177,VINSONNA PHYSICAL THERAPY,5079 N Dixie Hwy,Suite,Oakland Park,FL,33334
+6206,"INDEPENDENCE CONNECTION, LLC",2473 9th Ave N,null,St. Petersburg,FL,33713
+6208,"RARE SOUL CARE SERVICES, LLC",7205 Bryan Dairy Rd,null,Largo,FL,33777
+6248,"COMMUNITY BEHAVIOR SUPPORTS, INC.",4717 66th St N,null,Kenneth City,FL,33709
+6250,SHELBEA HOUSTON LLC,1805 James L Redman Pkwy,Suite,Plant City,FL,33563
+6261,"D-TEC DEVELOPING THROUGH ENRICHED CURRICULUM, INC",10766 56th St N,null,Pinellas Park,FL,33782
+6262,A FOUNTAIN OF YOUTH HOME CARE,2229 Richwood Pike Dr,null,Ruskin,FL,33570
+6278,DANDRIDGE NOVELLA,2741 Talco Hills Dr,Suite,Tallahassee,FL,32303
+6291,FLEMING SUPPORT SERVICES,5991 Che,Suite,Jacksonville,FL,32217
+6368,ABACO CONSTRUCTION INC.,6800 Sw 27th St,null,Miami,FL,33155
+6405,GRACE IN MOTION LLC,2534 Ne 20th Pl,null,Cape Coral,FL,33909
+6421,JMB LOVING CARE LLC,1629 Gulf Rd,null,Tarpon Springs,FL,34689
+6438,YOUR CHOICE UNLIMITED INC,30221 Eastport Dr,null,Wesley Chapel,FL,33545
+6447,XTRA HELPING HANDS AND HEARTS LLC,1459 Bitterberry Dr,null,Orange Park,FL,32065
+6459,ALF PHILLIPPE RIDGE,1055 Phillippe Pkwy,null,Safety Harbor,FL,34695
+6466,TROWBRIDGE AG LLC,640 Villagrande Ave S,null,St. Petersburg,FL,33707
+6469,"C & D ENTERPRISES OF NE FL, LLC
+A MOTHERLY LOVE LIVING FACILITY",8058 Swamp Flower Dr E,null,Jacksonville,FL,32244
+6509,AMORE AT HOME LLC,6217 Colmar Pl,null,Apollo Beach,FL,33572
+6510,AUDUBON GARDENS GROUP LLC,1504 Bennett Rd,null,Orlando,FL,32803
+6657,UTOPIA LIVING LLC,8036 Delaware Ave,null,Jacksonville,FL,32208
+7200,Select Physical Therapy - North Palm Beach,2501-B Burns Rd,null,Palm Beach Gardens,FL,33410
+7204,"Susan J Christiansen Ph.D., LMFT - Marriage and Family Therapist",1555 Palm Beach Lakes Blvd,null,West Palm Beach,FL,33401
+7210,Premier Pediatric Therapy,1080 E Indiantown Rd,null,Jupiter,FL,33477
+7219,Select Physical Therapy - Royal Palm Beach,1011 N State Rd 7 A,null,Royal Palm Beach,FL,33411
+7286,"Re-Written Counseling Services, LLC - Port Saint Lucie",10570 S U.s. Hwy 1,null,Port St. Lucie,FL,34952
+7297,Amen Clinics,200 S Park Rd,null,Hollywood,FL,33021
+7298,Light Chiropractic Care,2500 Hollywood Blvd,null,Hollywood,FL,33020
+7305,Luminescence Counseling,465 Se Riverside Dr,null,Stuart,FL,34994
+7314,Select Physical Therapy - Sebastian,1424 U.s. Rte 1,Suite,Sebastian,FL,32958
+7322,Elite Health and Wellness Center & Concierge Primary Care,8980 S U.s. Hwy 1,Suite,Port St. Lucie,FL,34952
+7328,PM Pediatric Urgent Care (Formerly Night Lite Pediatrics) - Port St. Lucie,131 Sw Port St Lucie Blvd,null,Port St. Lucie,FL,34984
+7329,Family Enrichment Center,5407 N 30th St,null,Tampa,FL,33610
+7330,Guardians For New Futures Inc,8561 Commerce Centre Dr,null,Port St. Lucie,FL,34986
+7331,Select Physical Therapy - Port St Lucie,156 Nw California Blvd,null,Port St. Lucie,FL,34986
+7333,Pediatric Associates St. Lucie North,555 Nw Lake Whitney Pl,null,Port St. Lucie,FL,34986
+7334,KIDZ Pediatric Multispecialty Practice Port St. Lucie,10521 Sw Village Center Dr,null,Port St. Lucie,FL,34987
+7347,Hands On Therapy Services,7902 Nw 36th St,null,Miami,FL,33166
+7360,FISIOCORP MIAMI LLC,1440 79th St Causeway,null,North Bay Village,FL,33141
+7363,Unpolished Parenthood,7860 Peters Rd,Suite,Plantation,FL,33324
+7365,Florida Elks Children's Therapy,24175 Se Hwy 450,null,Umatilla,FL,32784
+7368,Family Care Center Therapy & Psychiatry - Westshore,4300 W Cypress St,null,Tampa,FL,33607
+7374,Select Physical Therapy - South Tampa,609 S Howard Ave,Suite,Tampa,FL,33606
+7377,Select Physical Therapy - Northdale,3820 Northdale Blvd,Suite,Tampa,FL,33624
+7379,Lama Pediatric Therapy,1315 W Fletcher Ave,null,Tampa,FL,33612
+7382,"Dr. Kristin Edwards, Tampa Pediatric Psychology",205 S Hoover Blvd,null,Tampa,FL,33609
+7384,"Positive Family Partners, Inc",7402 North 56th St,null,Tampa,FL,33612
+7399,McNulty Counseling and Wellness,106 S Tampania Ave,null,Tampa,FL,33609
+7400,BoardPrep Recovery,2522 W Kennedy Blvd,null,Tampa,FL,33609
+7404,Outpatient Rehabilitation at TGH Medical Village,2333 W Hillsborough Ave,null,Tampa,FL,33603
+7406,Embracing Life Wellness Center - South Tampa TMS - Dr. Melissa Fickey,3333 W Kennedy Blvd,null,Tampa,FL,33609
+7418,Competitive Edge Physical Therapy,3105 W Bay To Bay Blvd,null,Tampa,FL,33629
+7420,Select Physical Therapy - St Joes,4809 N Armenia Ave,null,Tampa,FL,33603
+7427,Select Physical Therapy - Tampa- Fowler Avenue,2764 E Fowler Ave,null,Tampa,FL,33612
+7432,Select Physical Therapy - New Tampa,19651 Bruce B Downs Blvd D2,null,Tampa,FL,33647
+7435,Integrative Physical Therapy Jacksonville,9010 R G Skinner Pkwy,Suite,Jacksonville,FL,32256
+7436,Adult and Pediatric Institute,1002 Se Monterey Commons Blvd,Suite,Stuart,FL,34996
+7439,Compassion Behavioral Health -Addiction Treatment Center-,1 Oakwood Blvd,null,Hollywood,FL,33020
+7441,Tallahassee Orthopedic Clinic Physical Therapy,3334 Capital Medical Blvd,null,Tallahassee,FL,32308
+7443,"Auto Accident Chiropractor Tallahassee, Dr. Pragle",300 W Pensacola St,null,Tallahassee,FL,32301
+7450,Patients First - Lake Ella,1690 N Monroe St,null,Tallahassee,FL,32303
+7456,"Pragle Chiropractic, Accident And Injury Clinic Tallahassee",227 N Bronough St,null,Tallahassee,FL,32301
+7459,Behavior Management Consultants - 4820 Kerry Forest Pkwy,4820 Kerry Forest Pkwy,null,Tallahassee,FL,32309
+7462,University Physical Medicine,1224 Ocala Rd,null,Tallahassee,FL,32304
+7468,TOC Now,2605 Welaunee Blvd,null,Tallahassee,FL,32308
+7483,"BFITT Athletic Training & Fitness Institute, Inc.",1140 Capital Cir Se,null,Tallahassee,FL,32301
+7496,The Palm Beach Institute,314 10th St,null,West Palm Beach,FL,33401
+7498,Lake Gibson Village Health and Rehabilitation Center,855 Carpenters Way,null,Lakeland,FL,33809
+7499,Ultra Cryo & Recovery Lakeland,615 Mid-Florida Dr,Suite,Lakeland,FL,33813
+7506,Select Physical Therapy - Winter Haven,1499 6th St Nw,null,Winter Haven,FL,33881
+7512,Select Physical Therapy - Lakeland South,3900 Florida Ave S,null,Lakeland,FL,33813
+7518,Hess Spinal & Medical Centers - Lakeland,1519 Lakeland Hills Blvd,null,Lakeland,FL,33805
+7519,Select Physical Therapy - Lakeland North,3037 Lakeland Hills Blvd,null,Lakeland,FL,33805
+7522,Apex Health and Wellness,5110 Florida Ave S,null,Lakeland,FL,33813
+7523,Holistic Quarters of Lakeland,231 N Kentucky Ave,null,Lakeland,FL,33801
+7524,Chiropractic Center of Lakeland,2390 Griffin Rd,null,Lakeland,FL,33810
+7525,Integrity Prosthetics & Orthotics,2606 Lakeland Hills Blvd,null,Lakeland,FL,33805
+7532,Amethyst Recovery Center,2749 Sw Port St Lucie Blvd,null,Port St. Lucie,FL,34953
+7535,Wolfson Children's Hospital,800 Prudential Dr,null,Jacksonville,FL,32207
+7542,"Puzzle Peace Counseling, LLC",13500 Sutton Park Dr S,Suite,Jacksonville,FL,32224
+7556,Sobe Health Center,16585 Nw 2nd Ave,Suite,Miami Gardens,FL,33169
+7560,Fresh Start Speech Therapy,9957 Moorings Dr,Suite,Jacksonville,FL,32257
+7569,Select Physical Therapy - Northside,2255 Dunn Ave,null,Jacksonville,FL,32218
+7573,Therapeutic Learning Center,2109 Arc Dr,null,St. Augustine,FL,32084
+7579,Select Physical Therapy - Baymeadows - Southside,8101 Southside Blvd,Suite,Jacksonville,FL,32256
+7580,Physical Healthcare of Jacksonville,12620-6,null,Jacksonville,FL,32246
+7584,Select Physical Therapy - Coral Springs - The Walk,2804 N University Dr,null,Coral Springs,FL,33065
+7592,Joe DiMaggio Children’s Hospital,1005 Joe Dimaggio Dr,null,Hollywood,FL,33021
+7595,MD Now Urgent Care - West Pembroke Pines,16040 Pines Blvd P103,null,Pembroke Pines,FL,33027
+7601,Coral Springs Disc Center,9660 W Sample Rd,Suite,Coral Springs,FL,33065
+7602,Holy Cross Health Inpatient Rehabilitation,Sixth,Fl,Fort Lauderdale,FL,33308
+7604,Total Mental Wellness - Integrative Psychiatry - Fort Lauderdale,The Cumberland,Building,Fort Lauderdale,FL,33301
+7605,Garellek Counseling,4651 Sheridan St,Suite,Hollywood,FL,33021
+7610,Florida Spine & Pain Center,2 Oakwood Blvd,null,Hollywood,FL,33020
+7613,PM Pediatric Urgent Care,14924 Pines Blvd,Suite,Pembroke Pines,FL,33027
+7615,Dr. Pamela Silver - Psychologist,1000 N Hiatus Rd,null,Hollywood,FL,33026
+7616,"Berkower Pain & Spine Rehabilitation: David Berkower, DO",1 Sw 129th Ave,Suite,Pembroke Pines,FL,33027
+7618,Select Physical Therapy - West Pembroke Pines,17796 Sw 2nd St,null,Pembroke Pines,FL,33029
+7620,Select Physical Therapy - East Pembroke Pines,454 N University Dr,null,Hollywood,FL,33024
+7622,Alignment Physical Therapy,1920 E Hallandale Beach Blvd,Suite,Hallandale Beach,FL,33009
+7623,Select Physical Therapy - Hallandale Beach,1731 E Hallandale Beach Blvd,null,Hallandale Beach,FL,33009
+7630,The Genius Kids Academy,111 Ne 3rd St,null,Hallandale Beach,FL,33009
+7631,Kids Miracle Steps PPEC,1371 N Palm Ave,null,Hollywood,FL,33024
+7635,Esencia Therapy & Wellness Center,7310 W Mcnab Rd,null,Tamarac,FL,33321
+7637,Memorial Hospital Miramar,1901 Sw 172nd Ave,null,Pembroke Pines,FL,33029
+7640,Holy Cross Rehabilitation Institute- Pelvic Floor Rehabilitation,1000 Ne 56th St,null,Oakland Park,FL,33334
+7650,Center for Psychological Growth and Wellness,7820 Peters Rd,Suite,Plantation,FL,33324
+7652,Quality in home therapy,Nw 61st St,null,Parkland,FL,33067
+7653,Challenges Conquered Counseling Services,800 E Cypress Creek Rd,null,Oakland Park,FL,33334
+7657,Apolo Wellness Center,12064 Miramar Pkwy,null,Miramar,FL,33025
+7661,Select Physical Therapy - Tamarac,7160 N University Dr,null,Tamarac,FL,33321
+7662,On The Hop,7171 N University Dr,null,Tamarac,FL,33321
+7667,Family Therapy Group of Weston,1200 Weston Rd 3rd,Floor,Weston,FL,33326
+7670,Sunshine Kidz Pediatric Care - Hollywood,6603 Taft St,null,Hollywood,FL,33024
+7672,Select Physical Therapy - Hollywood,3325 Hollywood Blvd,null,Hollywood,FL,33021
+7673,The Lighthouse - Children Therapy Center,113 Curtiss Pkwy,null,Miami,FL,33166
+7674,The NEEDS Center - 175 Industrial Loop S,175 Industrial Loop S,null,Orange Park,FL,32073
+7684,St. Germain Chiropractic Palm Bay,6285 Minton Rd,null,Palm Bay,FL,32907
+7723,Easterseals Florida Palm Bay - 2475 Palm Bay Rd Ne,2475 Palm Bay Rd Ne,null,Palm Bay,FL,32905
+7756,"Therapy with Alyse, LLC - Palm Springs",1825 Forest Hill Blvd,null,Palm Springs,FL,33406
+7962,Youth'n Action Therapy Center,13397 Sw 131st St,null,Miami,FL,33186
+7964,"American Pro-Health Rehabilitation Center, Inc",1890 Sw 57th Ave,null,Miami,FL,33155
+7965,Select Physical Therapy - Kendall - Miami,11140 Sw 88th St,null,Miami,FL,33176
+7967,Select Physical Therapy - Miami Lakes,15150 Bull Run Rd,null,Miami Lakes,FL,33014
+7980,Concentra Urgent Care - Miami Gardens - 20535 Nw 2nd Ave,20535 Nw 2nd Ave,null,Miami Gardens,FL,33169
+7985,Grand Health Institute,1717 N Bayshore Dr,Suite,Miami,FL,33132
+7998,Bee Positive Behavior Services Inc.,10661 N Kendall Dr,null,Miami,FL,33176
+8006,Select Physical Therapy - North Miami,13645 Biscayne Blvd,null,North Miami,FL,33181
+8016,The Healthy Family Chiropractic,5200 Babcock St Ne,Suite,Palm Bay,FL,32905
+8020,"Tammy Bishop Occupational Therapy, LLC",1750 W Broadway St,null,Oviedo,FL,32765
+8023,Skylight Counseling Services,630 S Wickham Rd,Suite,West Melbourne,FL,32904
+8025,PM Pediatric Urgent Care (Formerly Night Lite Pediatrics) - West Melbourne,145 Palm Bay Rd Ne,null,West Melbourne,FL,32904
+8033,Speech4Kids of Gainesville,13577 Nw 2nd Ln,null,Newberry,FL,32669
+8041,Sarkis Family Psychiatry,529 Nw 60th St A,null,Gainesville,FL,32607
+8044,Upward Trend Academy,311 N Orange St,null,New Smyrna Beach,FL,32168
+8054,The Releaf Clinic Gainesville,716 N Main St,null,Gainesville,FL,32601
+8066,Helping Hands,Gainesville,null,Gainesville,FL,32601
+8086,Massage Alchemy,4364 Commercial Way,null,Spring Hill,FL,34606
+8087,"Physicians Group, LLC",4412 Commercial Way,null,Spring Hill,FL,34606
+8100,Select Physical Therapy - Spring Hill,3385 Mariner Blvd,null,Spring Hill,FL,34609
+8101,Acupuncture Plus Holistic Center,3383 Mariner Blvd,null,Spring Hill,FL,34609
+8103,Spring Hill Pediatric Care,99 7 Hills Dr,null,Spring Hill,FL,34609
+8122,ActiveFIT Rehab Physical Therapy,4649 S Clyde Morris Blvd,Suite,Port Orange,FL,32129
+8123,AdventHealth Wellness Center Daytona Beach,301 Memorial Medical Pkwy,null,Holly Hill,FL,32117
+8124,AdventHealth Daytona Beach,301 Memorial Pkwy,null,Holly Hill,FL,32117
+8152,Elevate Recovery Lounge,810 Fentress Ct,Suite,Holly Hill,FL,32117
+8154,AdventHealth Sports Med and Rehab New Smyrna Beach,507 S Orange St,null,New Smyrna Beach,FL,32168
+8166,Creation Counseling,4770 S Ridgewood Ave,null,Port Orange,FL,32127
+8175,Injury Health Center,701 Beville Rd,null,South Daytona,FL,32119
+8181,AdventHealth Sports Med & Rehab Orange City,1053 Medical Center Dr,null,Orange City,FL,32763
+8185,Physical Medicine Institute Orlando,621 Wilkinson St,null,Orlando,FL,32803
+8193,Central Florida Pediatric,324 W Oak St,null,Kissimmee,FL,34741
+8199,Brilliant Brains Behavior Services LLC,3970 Tampa Rd,Suite,Oldsmar,FL,34677
+8200,AdventHealth for Children,601 E Rollins St,null,Orlando,FL,32803
+8201,Creative Insights Counseling,1858 N Alafaya Trl,null,Orlando,FL,32826
+8208,Select Physical Therapy - Turkey Lake,6000 Turkey Lake Rd,null,Orlando,FL,32819
+8220,Orlando Psychology Associates,1630 Hillcrest St,null,Orlando,FL,32803
+8229,Thriveworks Counseling & Psychiatry Orlando,6150 Metrowest Blvd,Suite,Orlando,FL,32835
+8235,Select Physical Therapy - Winter Park,1400 S Orlando Ave,null,Winter Park,FL,32789
+8245,Select Physical Therapy - Orlando - Michigan,4698 E Michigan St,null,Orlando,FL,32812
+8246,Agile Physical Therapy- Orlando,6150 Metrowest Blvd,null,Orlando,FL,32835
+8249,Physical Therapy Specialists of Dr. Phillips,7300 Sand Lake Commons Blvd,Suite,Orlando,FL,32819
+8258,PHYSICAL THERAPY SPECIALISTS,345 W Michigan St,null,Orlando,FL,32806
+8283,Physical Therapy Specialists of Winter Park,5200 Davisson Ave,Suite,Orlando,FL,32810
+8292,Deeply Rooted Psychotherapy of West Palm Beach,1850 Forest Hill Blvd,null,Palm Springs,FL,33406
+8296,Child in Mind Psychological Services,9123 N Military Trl,null,Palm Beach Gardens,FL,33410
+8298,"Psychiatry of the Palm Beaches Port St. Lucie, FL",266 Nw Peacock Blvd,Suite,Port St. Lucie,FL,34986
+8306,Juno Counseling And Wellness,2401 Pga Blvd,null,Palm Beach Gardens,FL,33410
+8328,FIRST Rehab of West Palm Beach,1920 Palm Beach Lakes Blvd,Suite,West Palm Beach,FL,33409
+8331,Pediatric Neurology,150 Sw Chamber Ct,null,Port St. Lucie,FL,34986
+8342,Palm Beach Children's Hospital,Kimmel,Building,West Palm Beach,FL,33407
+8353,Thriveworks Counseling & Psychiatry West Palm Beach,1601 Belvedere Rd,Suite,Palm Springs,FL,33406
+8356,BTTC West Palm Beach Rehab - 5829 Corporate Way,5829 Corporate Way,null,West Palm Beach,FL,33407
+8357,Pelvic Rehabilitation Medicine,1411 N Flagler Dr,null,West Palm Beach,FL,33401
+8358,FIRST Rehab of Lake Worth,5055 S Congress Ave,Suite,Palm Springs,FL,33461
+8359,Select Physical Therapy - West Palm Beach,2670 Forest Hill Blvd,null,Palm Springs,FL,33406
+8375,Child and Family Therapy Center,558 94th Ave N,null,St. Petersburg,FL,33702
+8379,Healing Aura Massage,9410 Seminole Blvd,null,Seminole,FL,33772
+8382,Catalyst Physical Therapy - Palm Harbor,32672 Us Hwy 19 N,null,Palm Harbor,FL,34684
+8423,Select Physical Therapy - Largo,13801 G Walsingham Rd,Suite,Largo,FL,33774
+8424,Neubility Rehabilitation and Wellness,9079 Belcher Rd,null,Pinellas Park,FL,33782
+8427,True North Counseling Services,13911 Carrollwood Village Run,null,Tampa,FL,33618
+8431,Select Physical Therapy - Palm Harbor,31964 Us Hwy 19 N,null,Palm Harbor,FL,34684
+8432,Aries Physical Therapy - Hollywood,3313 Sheridan St,null,Hollywood,FL,33021
+8434,Inspire Vision Therapy and Rehab,Sheridan Executive Center,null,Hollywood,FL,33021
+8435,Miami Spine and Performance,3325 Hollywood Blvd,null,Hollywood,FL,33021
+8437,"Elazar Bloom Counseling & Consulting, PLLC",3860 Sheridan St C,null,Hollywood,FL,33021
+8438,Select Physical Therapy - Miramar,12543 Miramar Pkwy Bay 108,null,Miramar,FL,33027
+8440,Improved Motions Advanced Physical Therapy and Performance,843 Nw Federal Hwy,null,Stuart,FL,34994
+8441,Restore Health Urgent Care,1840 Eldron Blvd Se,null,Palm Bay,FL,32909
+8443,"Justine Sommers, LMHC",525 Nw Lake Whitney Pl,Suite,Port St. Lucie,FL,34986
+8444,Blue Skies Health & Wellness Clinic,10198 Sw Village Pkwy,null,Port St. Lucie,FL,34987
+8445,Tender Care Pediatrics,2115 Se Lennard Rd,null,Port St. Lucie,FL,34952
+8446,Coastal Orthopaedic & Sports Medicine Center,7710 S U.s. Hwy 1,null,Port St. Lucie,FL,34952
+8447,Palm Garden of Port St Lucie,1751 Se Hillmoor Dr,null,Port St. Lucie,FL,34952
+8449,DOT Physicals and Drug Testing,8980 S U.s. Hwy 1,Suite,Port St. Lucie,FL,34952
+8450,Florida Psychiatry Associates,260 Nw Peacock Blvd,null,Port St. Lucie,FL,34986
+8451,ALPI Child Development & Family Services Center,198 Nw Marion Ave,null,Port St. Lucie,FL,34983
+8452,Family Solutions Center,1031 Ives Dairy Rd,Suite,North Miami Beach,FL,33179
+8453,Instinct Health Care,4670 Nw 183rd St,null,Miami Gardens,FL,33055
+8454,"Behavioral Therapy Institute, LLC",815 Nw 57th Ave,Suite,Miami,FL,33126
+8456,Mission PT,7700 N Kendall Dr,null,Miami,FL,33156
+8457,Baracusa Health Care,7235 Coral Wy,null,Miami,FL,33155
+8460,South Tampa Therapy,425 S Orleans Ave,null,Tampa,FL,33606
+8462,"The Play Clinic: Speech, Feeding, Occupational, and Physical Therapy",2810 Land O' Lakes Blvd,null,Land O Lakes,FL,34639
+8464,Center for Child and Adult Psychiatry (CCAP),4144 N Armenia Ave,null,Tampa,FL,33607
+8465,Thriveworks Counseling & Psychiatry Tampa,4115 W Spruce St,null,Tampa,FL,33607
+8466,Select Physical Therapy - Plant City West,511 W Alexander St,null,Plant City,FL,33563
+8467,Select Physical Therapy - Tampa - Himes Avenue,4107 N Himes Ave,Suite,Tampa,FL,33607
+8468,Tampa Bay Family Therapy Center,4144 N Armenia Ave,null,Tampa,FL,33647
+8470,Sport & Spine Physical Therapy & Wellness Center,17824 N,null,Lutz,FL,33549
+8471,Independent Living Inc,6508 Gunn Hwy,null,Tampa,FL,33625
+8472,Select Physical Therapy - Tampa Carrollwood,14813 N Dale Mabry Hwy,Suite,Tampa,FL,33618
+8473,Select Physical Therapy - Tampa Palms,15310 Amberly Dr,Suite,Tampa,FL,33647
+8474,Midtown Movement,1355 N Monroe St,null,Tallahassee,FL,32303
+8475,Children's Learning Clinic,Florida State University,null,Psychology Dept Bldg,FL,32304
+8476,Health & Wellness Integrated Healthcare Centers,1965 Capital Cir Ne,null,Tallahassee,FL,32308
+8477,Agape Detox Center | Florida Alcohol & Drug Rehab,750 E Prima Vista Blvd,null,Port St. Lucie,FL,34952
+8478,ANGEL HUGS HOME CARE INC,7304 Woodhall Ct,null,Tampa,FL,33634
+8479,Randolph's Family Health and Wellness,3037 Lakeland Hills Blvd,Suite,Lakeland,FL,33805
+8480,Scott Lake Health and Rehabilitation - 800 Co Rd 540a,800 Co Rd 540a,null,Lakeland,FL,33813
+8481,Stretch Zone - Lakeland,2113 E County Rd 540a,null,Lakeland,FL,33813
+8482,Select Physical Therapy - Lakeland East,5155 Us Hwy 98 S,Suite,Lakeland,FL,33812
+8484,Beachway Therapy Center | Florida Rehab - 1700 N Dixie Hwy,1700 N Dixie Hwy,null,West Palm Beach,FL,33407
+8485,Transitions Recovery Program,111 Nw 183rd St,null,Miami Gardens,FL,33169
+8486,Oceanside Family Therapy & Assessments,328 2nd Ave N,null,Jacksonville Beach,FL,32250
+8487,Select Physical Therapy - Jacksonville Beach,2520 Isabella Blvd,null,Jacksonville Beach,FL,32250
+8488,Thriveworks Counseling & Psychiatry Jacksonville - 4243 Sunbeam Rd,4243 Sunbeam Rd,null,Jacksonville,FL,32257
+8489,Coastal Pediatric Therapy Center,2730 Isabella Blvd,null,Jacksonville Beach,FL,32250
+8490,Baptist Behavioral Health - Wolfson Children's Bridge Program,Pavilion,Building,Jacksonville,FL,32207
+8491,Select Physical Therapy - Westside,7033 Commonwealth Ave,null,Jacksonville,FL,32220
+8494,"Dennis Hart, MD",4651 Sheridan St,Suite,Hollywood,FL,33021
+8495,"Brian LeDuc, MD",3440 Hollywood Blvd,null,Hollywood,FL,33021
+8496,City of Pembroke Pines Early Development Center Central Campus,12200 Sheridan St,null,Hollywood,FL,33026
+8499,Stretch Zone - Pembroke Pines,14826 Pines Blvd,null,Pembroke Pines,FL,33028
+8500,Child & Family Psychologists,12651 W Sunrise Blvd,null,Sunrise,FL,33323
+8501,Select Physical Therapy - Weston,2229 N Commerce Pkwy,Suite,Weston,FL,33326
+8503,Monterroso Integrative Services - Children's Center,1311 N Palm Ave,null,Hollywood,FL,33026
+8505,Adaptive Mind Therapy | West Palm Beach Therapist,1016 Clare Ave,null,West Palm Beach,FL,33401
+8506,InBloom Autism Services | Southpoint Jacksonville,6820 Southpoint Pkwy,null,Jacksonville,FL,32216
+8507,InBloom Autism Services | Tampa,5447 Beaumont Center Blvd,null,Tampa,FL,33634
+8508,Across the Spectrum Behavioral Therapy - Miami,9999 Ne 2nd Ave,null,Miami,FL,33138
+8509,Restoring Hope Counseling Center,4421 Nw 39th Ave,Building,Gainesville,FL,32606
+8510,Rise Counseling Treasure Coast - Port Saint Lucie,1680 Se Lyngate Dr,null,Port St. Lucie,FL,34952
+8511,Aventura Wellness & Rehab Center,2420 Ne Miami Gardens Dr,null,Miami,FL,33180
+8516,Side By Side Behavioral Health,2151 Consulate Dr,Suite,Orlando,FL,32837
+8517,The Arc of Alachua County,3303 Nw 83 St,null,Gainesville,FL,32606
+8518,United Family Behavioral Therapy,2240 Palm Beach Lakes Blvd,Suite,West Palm Beach,FL,33409
+8519,Tampa Pediatric Psychology,205 S Hoover Blvd,null,Tampa,FL,33609
+8520,Traveling Light Counseling Inc - Port Saint Lucie,1222 Se Port St Lucie Blvd,null,Port St. Lucie,FL,34952
+8521,The Collaborative Behavior Group - Port Saint Lucie,10272 S U.s. Hwy 1,null,Port St. Lucie,FL,34952
+8522,Wolfson Children's Behavioral Health - Bartram Park,13241 Bartram Park Blvd,null,Jacksonville,FL,32258
+8527,Sanford Pelvic Therapy and Wellness,307 E 2nd St,null,Sanford,FL,32771
+8528,Body Mind Spirit Wellness,7088 Mariner Blvd,null,Spring Hill,FL,34609
+8532,Select Physical Therapy - Lake Nona,9145 Narcoossee Rd,Suite,Orlando,FL,32827
+8533,Balance Orlando,1220 Edgewater Dr,null,Orlando,FL,32804
+8534,"Center for Health, Learning & Achievement",310 Waymont Ct,null,Lake Mary,FL,32746
+8535,Sterling Medical Group - Daytona,1040 Mason Ave,null,Holly Hill,FL,32117
+8538,Kid Centered Therapy,7971 Riviera Blvd,null,Miramar,FL,33023
+8539,Blue Heron Psychology,1002 Se Monterey Commons Blvd,null,Stuart,FL,34996
+8540,NEURO PSYCHIATRIC ADDICTION CLINIC - Detox & Rehab in Port St. Lucie,2301 Sw Cary St,null,Port St. Lucie,FL,34984
+8541,Orlando Therapy Center,5766 S Semoran Blvd,null,Orlando,FL,32822
+8543,Miracles Recovery Center,584 Nw University Blvd,null,Port St. Lucie,FL,34986
+8544,Excel Pain and Spine,1417 Lakeland Hills Blvd,null,Lakeland,FL,33805
+8545,Select Physical Therapy - Plant City East,621 E Alexander St,null,Plant City,FL,33563
+8546,Select Physical Therapy - South Dale Mabry,3411 S Dale Mabry Hwy A,null,Tampa,FL,33629
+8547,Infinite Abilities Inc,916 Ne 4th St,null,Pompano Beach,FL,33060
+8548,Mobility Docs LLC Physical Therapy and Performance,4606 W Mcelroy Ave,null,Tampa,FL,33611
+8549,Swish Physical Therapy And Performance,2572 W State Rd 426,Suite,Oviedo,FL,32765
+8558,Absolute Healthcare LLC,3378 Mariner Blvd,null,Spring Hill,FL,34609
+8559,Puzzle Box,125 E Nasa Blvd,Suite,Melbourne,FL,32901
+8560,Dedicated Pediatric Therapy,261 N University Dr,Suite,Plantation,FL,33324
+8561,County Line Chiropractic Medical & Rehab,21309 Nw 2nd Ave,null,Miami Gardens,FL,33169
+8564,A Beautiful Mind Counseling and Consulting - Port Saint Lucie,1225 Se Port St Lucie Blvd,null,Port St. Lucie,FL,34952
+8566,Glory to God PPEC,525 Nw 27th Ave,null,Miami,FL,33125
+8568,Kaleidoscope Interventions,2180 Julian Ave Ne,null,Palm Bay,FL,32905
+8569,Absolute Health and Fitness,3077 Commercial Way,null,Spring Hill,FL,34606
+8570,"Alicia M. Pfahler, MA",null,Suite,Gainesville,FL,32606
+8576,BrightStart Pediatrics,1133 W Airport Blvd,null,Sanford,FL,32773
+8578,Coastal Pediatric Therapy Center - Mandarin,6100 Greenland Rd,null,Jacksonville,FL,32258
+8581,Caring Therapists of Hollywood,3874 Sheridan St,null,Hollywood,FL,33021
+8582,Children's Behavioral Intervention - Palm Springs,1601 Belvedere Rd E-300,null,Palm Springs,FL,33406
+8584,Ethos Health Group - Lakeland,336 W Highland Dr,null,Lakeland,FL,33813
+8585,"Dr. Justin D'Arienzo, Psychologist and Relationship Expert",6058 San Jose Blvd,null,Jacksonville,FL,32217
+8587,Ellie Mental Health - Hollywood,9050 Pines Blvd,null,Hollywood,FL,33024
+8588,"Easterseals Florida, Treasure Coast Early Steps - Port Saint Lucie",2100 Se Hillmoor Dr,null,Port St. Lucie,FL,34952
+8589,Dr. Tripp & Associates - Port Saint Lucie,540 Nw University Blvd,Suite,Port St. Lucie,FL,34986
+8595,InBloom Autism Services | Bartram Jacksonville,12735 Gran Bay Pkwy,null,Jacksonville,FL,32258
+8596,FIRST WORDS Project - Bldg. A,Edgewater Office Park,null,Bldg. A,FL,32309
+8599,Kris Parker and Associates - Port Saint Lucie,1950 Se Port St Lucie Blvd,Suite,Port St. Lucie,FL,34952
+8600,"Learning Steps Diagnostics and Educational Center, LLC - Port Saint Lucie",1860 Sw Fountainview Blvd,null,Port St. Lucie,FL,34986
+8603,"Maximum Achievers, LLC - Palm Springs",1495 Forest Hill Blvd,null,Palm Springs,FL,33406
+8604,EAST FROM WEST LLC,1080 Grandeur St Se,null,Palm Bay,FL,32909
+8606,GREEN STEPHANIE A,4941 Gary Dr,null,Fort Myers,FL,33905
+8611,ASA HOME CARE INC,8700 West Flagler St 110,null,Miami,FL,33174
+8614,KNOBBE DESIGNS INC,825 Center St,Suite,Jupiter,FL,33458
+8616,COMFORT ZONE AGENCY INC,426 E 3rd St,null,Jacksonville,FL,32206
+8617,"REGIONS HEALTHCARE SERVICES, LLC",18425 Nw 2nd Ave,Suite,Miami,FL,33169
+8618,ESSENTIAL WELLNESS OF SOUTH FLORIDA INC,7975 Nw 155th St,Suite,Miami Lakes,FL,33016
+8619,CSI CATALANOS NURSES REGISTRY INC,10451 Nw 117th Ave,Suite,Medley,FL,33178
+8620,"PEDIATRIC RESPIRATORY CARE OF SOUTH FLORIDA,INC.
+JKARE",4101 Sw 73rd Ave,Suite,Miami,FL,33155
+8621,"ADVANCED CARE MEDICAL SUPPLIES, INC
+ADVANCE CARE MEDICAL SUPPLIES, INC",12821 Sw 134th Ct,Suite,Miami,FL,33186
+8622,"ALLIANCE HOMECARE SYSTEMS, INC.",13280 Sw 131st St,Suite,Miami,FL,33186
+8623,"TEBAR MEDICAL SUPPLIES & EQUIPMENT, INC",14341 Sw 120th St,Suite,Miami,FL,33186
+8627,AMERICARE HOME HEALTHCARE SERVICES INC,20 Nw 181st St,null,Miami,FL,33169
+8628,"BRIDGES BTC, INC",1694 Cedar St,null,Rockledge,FL,32955
+8629,"DEVELOPMENTAL SERVICE TRAINERS,INC",3602 Ne 20th Pl,null,Ocala,FL,34470
+8630,ADVANCES IN SUPPORT/ CAROL LOUIS,750 Ne 171st St,null,North Miami Beach,FL,33162
+8631,A1 MEDICAL SUPPLIES INC,7356 Lake Worth Rd,null,Lake Worth,FL,33467
+8632,ABLE LIFE CARE SERVICES,4728 Alora Isles Dr,Suite,West Palm Beach,FL,33417
+8633,"THOMAS FAMILY CARE SERVICES
+THOMAS FAMILY CARE SERVICES",13054 Sw 67th Ave,null,Ocala,FL,34473
+8634,"BETTER LIVING CONCEPTS, INC",1650 N Tremain St,null,Mount Dora,FL,32757
+8635,"SUNRISE ARC, INC.",35201 Radio Rd,null,Leesburg,FL,34788
+8636,CHASE CAPITAL INVESTMENTS,28502 Tall Grass Dr,null,Wesley Chapel,FL,33543
+8637,CECELIAS CARE LLC,3509 Sw 34th Ave Cir,null,Ocala,FL,34474
+8638,GOLDEN SUN EXPRESS LLC,5255 Nw South Lovett Cir,null,Port St. Lucie,FL,34986
+8639,"ULTIMATE CARE SUPPORT SERVICES LLC
+ZELPHA POWELL",11129 66th St N,null,West Palm Beach,FL,33412
+8640,"HOME OF STARS,LLC",1448 Sailboat Cir,null,Wellington,FL,33414
+8641,"CWW LIMITED LLC
+COASTAL LIVING OPTIONS",13052 Compton Rd,null,Loxahatchee,FL,33470
+8643,PATIENTLY CARING,2642 39th Ave N,null,St. Petersburg,FL,33714
+8648,DAINERYS GIL AGENCY LLC,8726 Mcadam Pl,null,Tampa,FL,33634
+8649,WELL LIVING GROUP HOME LLC,1425 S C Ter,null,Lake Worth,FL,33460
+8650,"EZY LIVING, LLC",14421 Swiss Bridge Dr,null,Lithia,FL,33547
+8651,STARR SUSIE M,515 Plaza Seville Ct,Suite,Treasure Island,FL,33706
+8652,GILLESPIE SERVICES,113 E Ave D,null,Melbourne,FL,32901
+8653,DREAM KEEPERS LLC,7937 Se Kingsway St,null,Hobe Sound,FL,33455
+8654,"KM HOME CARE, LLC
+KM HOMECARE",2100 W 76th St,Suite,Hialeah,FL,33016
+8655,FAMILY BEHAVIORAL SOLUTIONS LLC,10324 Sw 139th Pl,null,Miami,FL,33186
+8656,JEWEL SUPPORT SERVICES,18821 Nw 23rd Ct,null,Miami Gardens,FL,33056
+8658,"AN ANGELS VISION LLC
+AN ANGELS VISION",2775 W Okeechobee Rd Lot 68,null,Hialeah,FL,33010
+8659,"SUNSHINE PHARMACY & SUPPLIES, INC
+SUNSHINE MEDICAL",8159 Nw 66th St,null,Miami,FL,33166
+8660,ONE OF A KIND SUPPORT LLC,27490 Sw 167th Ave,null,Homestead,FL,33031
+8661,"PROXICARE, INC",731 Nw 132nd Ct,null,Miami,FL,33182
+8662,JOURNEY TO A NEW BEGINNING,1520 Mesa Dr,null,Jacksonville,FL,32221
+8664,"A WORLD AHEAD, INC.",2300 W 5th Way,Suite,Hialeah,FL,33010
+8665,WINGS OF AN ANGEL INC,3600 S State Rd 7,Suite,Miramar,FL,33023
+8668,CONTINUED HEALTH SERVICES,8724 N Edison Ave,null,Tampa,FL,33604
+8670,"BURROWES CURTIS
+BURROWES HOME AND COMMUNITY BASED SERVICES, LLC",9300 N 16th St Fl 2,null,Tampa,FL,33612
+8671,LOVE AND LOYALTY CARE SERVICE LLC,3501 E Frierson Ave,null,Tampa,FL,33610
+8672,"ADAPT & TRANSFORM BEHAVIOR, LLC",4518 3rd Ave S,null,St. Petersburg,FL,33711
+8673,"SUN STATE TRANSPORT & TOURS
+SUN STATE TRANSPORT  & TOURS",13206 Prestwick Creek Dr,null,Riverview,FL,33579
+8674,"CORVO ODALYS
+ALONDRA CARE HOME INC.",8012 Greenshire Dr,null,Tampa,FL,33634
+8675,"ONE QUEST LLC
+ONE QUEST",Po Box 82183,null,Tampa,FL,33682
+8677,"JOELE CARES, INC.",3808 Valley Tree Dr,null,Tampa,FL,33610
+8678,"TORIAS SUPPORT CARE SERVICES, INC
+TORIA'S ASSISTED LIVING FACILITY II",2073 Balfour Cir,null,Tampa,FL,33619
+8679,ANGIE'S HOME LLC,11713 Mango Cross Ct,null,Seffner,FL,33584
+8680,THE GOLDEN HORSE TRANSPORTATION LLC,2242 Bancroft Cir N,Suite,Palm Harbor,FL,34683
+8682,CREATIVE GROWTH GROUP INC,3908 Winston Dr,null,New Port Richey,FL,34652
+8683,"NEW HORIZON SUPPORT SERVICES INC
+NEW HORIZON SUPPORT SERVICES",12709 Charity Hill Ct,null,Riverview,FL,33569
+8684,HOME HEALTH HUB & TRANSPORT LLC,2221 Gordon St,null,Tampa,FL,33605
+8686,MEDISUPPORT SERVICES LLC,5118 N 56th St,null,Tampa,FL,33610
+8687,CARRIE'S CARE FAMILY HOME INC.,1106 E Richmere St,null,Tampa,FL,33612
+8688,"CANNEDY, RAINA
+RAIN OF LOVE LLC",5510 River Rd,Suite,New Port Richey,FL,34652
+8689,MERCED CARE HOME LLC,4701 N Habana Ave,null,Tampa,FL,33614
+8690,ADVANCED GROUP HOME INC,6704 Commodore Way,null,Tampa,FL,33615
+8691,"DAMARIS CARE, INC.",Po Box 1444,null,Lutz,FL,33548
+8693,RADIANT DEVELOPMENT CENTER,1702 Ne 3rd St,null,Okeechobee,FL,34972
+8694,"BROCKINGTON SUZETTE L
+SUZIE Q'S HOME CARE LLC.",7123 Glory Rd,null,Zephyrhills,FL,33540
+8697,ELITE ASSITED CARE SERVICES CORP,2725 W Osborne Ave,null,Tampa,FL,33614
+8698,A GUARDIANS HOPE INC,16306 Alladin Way,null,Tampa,FL,33624
+8699,"BURKE MARTARSHIA
+MARTARSHIA BURKE",3409 E Frierson Ave,null,Tampa,FL,33610
+8700,BURKE CARLOS A,9300 N 16th St,Suite,Tampa,FL,33612
+8701,"HITCHMAN KATRINA
+TRUSTY TRANSPORTATION LLC",13406 Roslyn Pl,null,Tampa,FL,33626
+8702,GLORY TO GLORY SUPPORT SERVICES,9978 E Broadway Ave,null,Tampa,FL,33619
+8703,ANCHORED BEHAVIOR SOLUTIONS LLC,12205 Wildbrook Dr,null,Riverview,FL,33569
+8704,HUNGER & ASSOCIATES INC,2815 Wallace Branch Rd,null,Plant City,FL,33565
+8705,BRIGHTER DAYS CARING HANDS LLC,8151 Redfield Dr,null,Port Richey,FL,34668
+8706,"MAXM SERVICES, INC.
+COMFORT ZONE SERVICES",307 W Ross Ave,null,Tampa,FL,33602
+8707,LITE HOME SOLUTIONS LLC,10810 Boyette Rd,Suite,Riverview,FL,33569
+8708,"ANNILETY CARE HOME, INC.",3906 Spence Ave,null,Tampa,FL,33614
+8709,ADVANCED LIVING LLC,10009 N 27th St,null,Tampa,FL,33612
+8710,"BETTER LIVING SUPPORT SOLUTIONS, INC.",2328 Pleasure Run Dr,null,Ruskin,FL,33570
+8711,"DIRECT QUALITY CARE LLC
+DIRECT QUALITY CARE",3707 E Hanna Ave,null,Tampa,FL,33610
+8712,HAWKESWORTH POINT,2336 Shirecrest Cove Way,null,Lutz,FL,33558
+8713,DONATO CHRISTOPHER,2509 W Crest Ave,null,Tampa,FL,33614
+8714,"A & J COMPASSIONATE CARE, LLC",8319 42nd Ave N,null,St. Petersburg,FL,33709
+8715,ALL NURSES ALF LLC,8701 N 34th St,null,Tampa,FL,33604
+8716,ABOUT YOU CARE HOME INC,2903 W Burke St,null,Tampa,FL,33614
+8718,DILIGENT TRANSPORTATION LLC,1719 W Saint Joseph St,null,Tampa,FL,33607
+8719,"ANGELS UNAWARE, INC.",4918 W. Linebaugh Ave,null,Tampa,FL,33688
+8720,"PEGGY JOYCE HARGROVE
+JOYCE LOVE & CARE HOME",3304 San Moise Pl,null,Plant City,FL,33567
+8721,"DELE, INC
+WESLEY HOUSE",1500 Maximilian Dr 1500 Maximilian Dr,null,Wesley Chapel,FL,33543
+8724,SOLUTION CARE LYNN LLC,6226 Carthage Cir N,null,Lake Worth,FL,33463
+8726,GULF CTY ARC INC.,122 Water Plant Rd,null,Port St Joe,FL,32456
+8727,BJK PROVIDER LLC,1007 W Wright St,null,Pensacola,FL,32501
+8728,TERRIS LOVING CARE,222 Bayou Blvd,null,Pensacola,FL,32503
+8729,"CAPSTONE ADAPTIVE LEARNING AND THERAPY CENTERS, IN","2912 North ""E"" St",null,Pensacola,FL,32501
+8730,"JACKSON COUNTY TRANSPORTATION, INC",3988 Old Cottondale Rd,null,Marianna,FL,32448
+8731,"MATHEWS MARY
+GENEIS GROUP HOME",182 Sparkleberry Blvd S,null,Quincy,FL,32351
+8732,"BIG BEND TRANSIT, INC",2201 Eisenhower St,null,Tallahassee,FL,32310
+8733,KNIGHT ANNIE L,2485 Havana Hwy,null,Quincy,FL,32352
+8734,"FIRST TRANSIT INC
+BAYWAY TRANSIT",919 Massalina Dr,null,Panama City,FL,32401
+8735,"KEEN MAXINE L
+KEEN GROUP HOME",4301 Shad Dr,null,Sebring,FL,33870
+8736,"DIGNIFYING SOLUTIONS LLC, DEAISA BOMORT Z",5271 Ariva Dr,Suite,Lakeland,FL,33812
+8737,BEE LOVED HOMES LLC,4520 Magnolia Preserve Ln,null,Winter Haven,FL,33880
+8739,"EDUCATION & EMPOWERMENT, INC.",2001 Bartow Rd,null,Lakeland,FL,33801
+8740,A HEATH'S HAVEN INC.,8018 Leafcrest Dr,null,Jacksonville,FL,32244
+8741,ELITE HEALTHCARE AGENCY,785 Oakleaf Plantation Pkwy,Suite,Orange Park,FL,32065
+8742,GRACEFUL HANDS TRANSPORTATION LLC,736 Arran Ct,null,Orange Park,FL,32073
+8743,EVANS QUALITY PROVIDER CARE SERVICES,1251 Woods St,null,Jacksonville,FL,32209
+8744,"BELL SUPPORT SERVICES LLC
+BELL SUPPORT SERVICE",5915 Cedar Hills Blvd,null,Jacksonville,FL,32210
+8745,"ANCIENT CITY GROUP HOME 1,LLC
+ANCIENT CITY GROUP HOME 1, LLC",281 Mystic Castle Dr,null,St. Augustine,FL,32086
+8746,CARE OPTIONS SUPPORT SERVICES LLC,7242 Merrill Rd,null,Jacksonville,FL,32277
+8747,JEFFERSON CASANDRA D,3452 Inwood Cir W,null,Jacksonville,FL,32207
+8748,LASHAWNS LOVING CARE LLC,12001 Alexandra Dr,null,Jacksonville,FL,32218
+8749,"AGAPE HOMECARE PLUS, INC",2142 Figaro Ln,null,Jacksonville,FL,32210
+8750,"BASCA, INC",352 Stowe Ave,null,Orange Park,FL,32073
+8751,A HEAVENLY TOUCH LLC,1643 W 19th St,null,Jacksonville,FL,32209
+8752,"BLOUNT SUPPORT SERVICES, INC",1728 Kingsley Ave,Suite,Orange Park,FL,32073
+8754,"L'ARCHE JACKSONVILLE, INC.",700 Arlington Rd North,null,Jacksonville,FL,32211
+8755,ASTAR CARE,9671 Kendall Pointe Dr,Suite,Jacksonville,FL,32225
+8756,ADAMS ACRES INC,1735 State Rd 16,Suite,St. Augustine,FL,32084
+8757,COMMUNITY HEALTHCARE ALLIANCE INC,3108 Litchfield Dr,null,Orange Park,FL,32065
+8758,ASHLEY PRECIOUS HANDS,11066 Traci Lynn Dr,null,Jacksonville,FL,32218
+8759,"DIVINE PURPOSE SUPPORT SERVICES
+DIVINE PURPOSES SUPPORT SERVICES",127 Tallulah Ave,null,Jacksonville,FL,32208
+8760,"ECO HOME & HEALTH SERVICES, LLC
+SHERMAN CARTER SDE MBR",2391 Anacostia Ave,null,Ocoee,FL,34761
+8762,"BRIGHTER LIVING GROUP HOME, INC
+GROUP HOME PROVIDER",23488 Avacado Ave,null,Port Charlotte,FL,33980
+8763,HILL FOSTER HOME LLC,4282 Cynthia Ter,null,North Port,FL,34286
+8764,"POWER OF LOVE FAMILY SERVICES, INC.",312 12th St W,null,Palmetto,FL,34221
+8765,HAPPY DAY NON MEDICAL TRANSPORTATION SWF CORP,7111 48th Ave E,null,Palmetto,FL,34221
+8766,JANET JONES GROUP HOME INC,1391 Capricorn Blvd,null,Punta Gorda,FL,33983
+8767,MANATEE CTY BCC,2411 Tallevast Rd,null,Sarasota,FL,34243
+8769,A SUCCESSFUL JOURNEY,3800 Inverrary Blvd,Suite,Lauderhill,FL,33319
+8773,"ALL IN 1 HANDS, INC.",2420 Bermuda Dr,null,Miramar,FL,33023
+8775,CARAMI HEALTHCARE LLC,20414 Nw 19th Ave,null,Miami Gardens,FL,33056
+8776,"A Y M CARE SERVICES INC
+A.Y.M. CARE SERVICES",805 Nw 198th St,null,Miami Gardens,FL,33169
+8777,"CONSTANT CARE INC
+CONSTANT CARE INC",3800 Inverrary Blvd,Suite,Lauderhill,FL,33319
+8778,"MOORE SERVICES 4 U, INC.",1430 Nw 33rd Ter,null,Lauderhill,FL,33311
+8779,PARAMOUNT PREFERRED SERVICES LLC,2904 Nw 60th Ter,Suite,Sunrise,FL,33313
+8781,"E&C PRECIOUS NEEDS, LLC",2712 Nw 3rd St,null,Pompano Beach,FL,33069
+8785,"JG SUPPORT, INC.",6320 Grant Ct,null,Hollywood,FL,33024
+8787,"CMA HEALTHCARE, INC",2645 Executive Park Dr,null,Weston,FL,33331
+8788,KDMS SERVICES INC,6412 N University Dr,Suite,Tamarac,FL,33321
+8790,EVERY STEP INC,1620 Orion Ln,null,Weston,FL,33327
+8792,SUPERIOR STORES DISCOUNT DISTRIBUTO,1751 Nw 68th Ave,null,Hollywood,FL,33024
+8819,"ABA Kids Connection, Inc - Tampa - 4236 W Linebaugh Ave",4236 W Linebaugh Ave,null,Tampa,FL,33624
+8820,"TOWE ERS OF LOVE
+ANGELA TOWE",8070 Allamanda Ct,null,Lehigh Acres,FL,33972
+8834,"MONEF HEALTH SERVICES, INC.",300 Nw 183rd St,Suite,Miami Gardens,FL,33169
+8840,BRIDGE TO HOPE HOME SERVICES LLC.,631 Nw 56th Ct,null,Ocala,FL,34482
+8842,"GAIN SERVICES, INC.",5399 Nw 56th Ter,null,Ocala,FL,34482
+8843,ONENESS 1 LLC,7501 Cypress Knee Dr,null,Hudson,FL,34667
+8847,MVP GROUP HOME 1,266 N Twin Maple Rd,null,St. Augustine,FL,32084
+8848,In Motion ABA,13 E Melbourne Ave,Suite,Melbourne,FL,32901
+8849,"MEDICAL DECISION, LLC",2890 Marina Mile Blvd,null,Ste102,FL,33312
+8850,"TRINITY HEALTH CARE SERVICES
+TRINITY HLTH CARE SVCS",6151 Miramar Pkwy,null,Miramar,FL,33023
+8858,PRO NURSING SOLUTIONS INC,110 Sw 12th St,Suite,Miami,FL,33130
+8860,SUNRISE COMMUNITY OF POLK CO. INC,5115 Wallace Ct,null,Lakeland,FL,33812
+8884,OLIVIER ROSAIRE,540 Nw 165th St Rd,Suite,North Miami Beach,FL,33169
+8890,"PURE HEARTS AND HANDS, INC.",12621 Green Meadow Dr,null,Jacksonville,FL,32218
+8895,"LR AGENCY 88, INC",4524 30th Pl Sw,null,Naples,FL,34116
+8896,KENZIE KARE GROUP HOME I & II LLC.,919 5th Ave,null,Lehigh Acres,FL,33972
+8897,"GILES KHADIJAH A
+LOVED ONES",4333 Bellaria Way,Suite,Fort Myers,FL,33916
+8899,"DAGNAN BEHAVIORAL CONSULTANTS, INC",13332 Queen Palm Run,null,North Fort Myers,FL,33903
+8903,"PETERSON FAMILY CARE, LLC",3507 Lee Blvd,Suite,Lehigh Acres,FL,33971
+8909,FAMILY LIFE CARE SERVICES,17680 Nw 78th Ave,Suite,Hialeah,FL,33015
+8910,"EP MEDCIAL EQUIPMENT, INC",6440 Sw 117th Ave,null,Miami,FL,33183
+8911,"ONE MEDICAL SUPPLIES INC.
+#1 MEDICAL SUPPLIES",4270 Sw 71st Ave,null,Miami,FL,33155
+8913,DOCTOR'S CHOICE MEDICAL RENTAL & SUPPLIES,7440 Sw 50th Ter,Suite,Miami,FL,33155
+8914,AMERICARE HOME & COMMUNITY SVCS,20805 Ne 30th Pl,null,Miami,FL,33180
+8915,MIA GLOBAL SOLUTIONS CORP,4925 Sw 75th Ave,null,Miami,FL,33155
+8916,TABRAUE ORTHOPEDIC & MEDICAL SUPPLY,106 Sw 16th Ave,null,Miami,FL,33135
+8917,PRIMARY MEDICAL STAFFING INC,14125 Nw 80th Ave,Suite,Miami Lakes,FL,33016
+8918,"DONMACAN, INC
+PROGRESS HOUSE",1097 Sandy Ln Ne 1097 Sandy Ln Ne,null,Palm Bay,FL,32905
+8920,NEW HOPE HOUSING LLC,1317 Edgewater Dr,Suite,Orlando,FL,32804
+8921,"SUNSHINE CARE SUPPORT SERVICES, INC",3669 Pelock Dr,null,Apopka,FL,32703
+8922,"INGRAM GREGORY O
+TRUVINE COMPANION AND HOMEMAKERS",432 Lincoln Ave,null,Titusville,FL,32796
+8925,EAGLES NEST FACILITY,3333 Fiddle Leaf Way,null,Lakeland,FL,33811
+8926,"GRINER MARKEISHA K
+GROWTH AND INDEPENDENCE",233 Gardenia Rd,null,Kissimmee,FL,34743
+8927,"MILLICENT PLACE, INC",2130 Columbus St Ne,null,Palm Bay,FL,32907
+8930,"GUIONS PROFESSIONAL SERVICES, LLC",721 Balmoral Cir,null,Leesburg,FL,34748
+8931,"2ND MILE MANOR
+QUALITY SERVICE INC",4354 19th St N,null,St. Petersburg,FL,33714
+8932,"ADA K DIXON
+TRINITI COMMUNITY CARE SERVICES",3434 Market St,null,Pensacola,FL,32505
+8935,BUILDING BLOCKS MINISTRIES INC,644 Gadson St,null,Groveland,FL,34736
+8942,M&M LOVING CARE SERVICES LLC,2905 Jefferson St W,null,Inverness,FL,34453
+8944,HOUSE OF HEARTS SUPPORT SERVICES LLC,7941 Sw 103rd Loop,null,Ocala,FL,34476
+8949,JAXSON'S HOUSE OF CARE,8112 Centralia Ct,Suite,Leesburg,FL,34788
+8956,Aba Star Therapy - Miramar,4400 W Hallandale Beach Blvd,null,Miramar,FL,33023
+8957,"RIDE SOLUTION, INC.",220 N 11th St,null,Palatka,FL,32177
+8958,"HOME AWAY FROM HOME OF PUTNAM CO INC
+TERESA JACKSON",3108 Saint Johns Ave,null,Palatka,FL,32177
+8961,Aba Therapy of Palm Beach - Palm Springs,1850 Forest Hill Blvd,null,Palm Springs,FL,33406
+8964,Advanced Behavioral Dimensions - ABA Therapy Company,1428 Nw 1st Ave,null,Lauderhill,FL,33311
+8965,Bless My Mind ABA Therapy - Hialeah,7900 Nw 155th St,null,Hialeah,FL,33016
+8968,Full Spectrum ABA - Melbourne,3790 Dairy Rd,null,Melbourne,FL,32904
+8977,B AND C CARE GIVERS LLC,712 Oak Ln,null,Groveland,FL,34736
+8979,ELQUANAH GROUP HOMES INC,10410 Westley Way,null,Orlando,FL,32825
+8981,HEALTH INSPIRATION INC,5015 Home,Suite,Orlando,FL,32808
+8983,PACHOT GROUP HOME INC,3905 Timber Trl,null,Orlando,FL,32808
+8985,"THE GOLDEN TOUCH OF CENTRAL FLORIDA, INC.",1083 Bluegrass Dr,null,Groveland,FL,34736
+8986,"SILC EXPRESS LLC
+OSCAR SILVA",520 Christina Dr,Suite,Royal Palm Beach,FL,33414
+8988,MVP SUPPORT SERVICES LLC,701 San Jose Rd,null,St. Augustine,FL,32086
+8989,PWT NURSE CONSULTANTS & HOME SERVICES INC,1746 E Silver Star Rd,Suite,Ocoee,FL,34761
+9004,CRYSTAL LAKE SUPPORTIVE ENVIRONMENT,2710 Staten,Suite,Orlando,FL,32804

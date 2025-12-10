@@ -1,0 +1,27 @@
+{
+  "code": "CGACS",
+  "name": "Church of God Accrediting Commission for Schools",
+  "description": "CGACS provides accreditation services for schools affiliated with the Church of God denomination, ensuring they meet high standards for academic excellence while integrating Pentecostal Christian values and doctrine.",
+  "recognition": "CGACS accreditation is recognized for scholarship eligibility in Florida.",
+  "benefits": [
+    "Church of God school network",
+    "Faith-integrated education",
+    "Scholarship program eligibility",
+    "Denominational support resources",
+    "Christian community connection"
+  ],
+  "requirements": [
+    "Church of God doctrinal alignment",
+    "Qualified teaching staff",
+    "Academic curriculum standards",
+    "Spiritual formation programs",
+    "Safe learning environment"
+  ],
+  "links": [
+    {
+      "label": "Church of God",
+      "url": "https://www.churchofgod.org/",
+      "description": "Church of God denomination"
+    }
+  ]
+}

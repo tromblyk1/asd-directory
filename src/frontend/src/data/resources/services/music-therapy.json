@@ -1,0 +1,34 @@
+{
+  "slug": "music-therapy",
+  "category": "services",
+  "title": "Music Therapy",
+  "shortDescription": "Uses music interventions to address communication, social, and emotional goals.",
+  "description": "Music therapy is an evidence-based therapeutic approach that uses music interventions to accomplish individualized goals. For children with autism, music therapy can be particularly effective because many individuals on the spectrum show enhanced musical abilities and strong responses to music. Board-certified music therapists use singing, instrument playing, songwriting, and movement to music to address communication skills, social interaction, emotional regulation, and motor coordination. Music provides a structured yet flexible medium that can reduce anxiety and increase engagement.",
+  "benefits": [
+    "Improves verbal and nonverbal communication",
+    "Enhances social interaction and turn-taking skills",
+    "Supports emotional expression and regulation",
+    "Provides sensory input in a structured way",
+    "Increases attention and engagement",
+    "Builds motor coordination through instrument play"
+  ],
+  "whoCanBenefit": [
+    "Children who respond positively to music",
+    "Those working on communication goals",
+    "Children needing support with emotional regulation",
+    "Those who struggle with traditional therapy approaches",
+    "Children working on social skills"
+  ],
+  "links": [
+    {
+      "label": "American Music Therapy Association (AMTA)",
+      "url": "https://www.musictherapy.org/",
+      "description": "National professional organization for music therapists"
+    },
+    {
+      "label": "Certification Board for Music Therapists (CBMT)",
+      "url": "https://www.cbmt.org/",
+      "description": "Board certification organization for music therapy professionals"
+    }
+  ]
+}

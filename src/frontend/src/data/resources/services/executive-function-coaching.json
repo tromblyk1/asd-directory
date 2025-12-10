@@ -1,0 +1,29 @@
+{
+  "slug": "executive-function-coaching",
+  "category": "services",
+  "title": "Executive Function Coaching",
+  "shortDescription": "Develops planning, organization, time management, and self-regulation skills.",
+  "description": "Executive function coaching helps individuals with autism develop the cognitive skills needed for planning, organization, time management, task initiation, and self-regulation. Many people with autism struggle with executive function despite having strong abilities in other areas. Coaches work one-on-one to build practical systems and strategies for managing daily responsibilities, schoolwork, and eventually workplace demands.",
+  "benefits": [
+    "Improves planning and organization",
+    "Develops time management skills",
+    "Builds task initiation strategies",
+    "Enhances working memory techniques",
+    "Teaches self-monitoring and regulation",
+    "Creates sustainable systems for daily life"
+  ],
+  "whoCanBenefit": [
+    "Students struggling with homework and projects",
+    "Teens preparing for college or work",
+    "Adults with organizational challenges",
+    "Those who struggle to start or finish tasks",
+    "Individuals needing help managing responsibilities"
+  ],
+  "links": [
+    {
+      "label": "CHADD (Children and Adults with ADHD)",
+      "url": "https://chadd.org/",
+      "description": "Resources on executive function (often co-occurring with autism)"
+    }
+  ]
+}

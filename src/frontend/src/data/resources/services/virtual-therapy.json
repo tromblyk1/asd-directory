@@ -1,0 +1,29 @@
+{
+  "slug": "virtual-therapy",
+  "category": "services",
+  "title": "Virtual Therapy / Telehealth",
+  "shortDescription": "Remote therapy sessions via secure video platforms for convenient home access.",
+  "description": "Virtual therapy, or telehealth, delivers therapeutic services remotely through secure video conferencing platforms. For families of children with autism, telehealth can increase access to specialists, eliminate travel time, and allow therapy in the comfort of home. Many therapy types can be effectively delivered virtually, including speech therapy, parent coaching, behavioral consultation, and mental health services. Telehealth expanded dramatically during COVID-19 and remains a valuable option for many families.",
+  "benefits": [
+    "Convenient access from home",
+    "Eliminates travel time and stress",
+    "Access to specialists regardless of location",
+    "Flexible scheduling options",
+    "Comfortable environment for the child",
+    "Parents can easily observe and participate"
+  ],
+  "whoCanBenefit": [
+    "Families in rural or underserved areas",
+    "Those with transportation challenges",
+    "Children who do better in home environment",
+    "Families with busy schedules",
+    "Those seeking specialist services not locally available"
+  ],
+  "links": [
+    {
+      "label": "American Telemedicine Association",
+      "url": "https://www.americantelemed.org/",
+      "description": "Resources on telehealth services and best practices"
+    }
+  ]
+}

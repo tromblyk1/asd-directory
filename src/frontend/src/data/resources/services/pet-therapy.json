@@ -1,0 +1,34 @@
+{
+  "slug": "pet-therapy",
+  "category": "services",
+  "title": "Pet Therapy / Animal-Assisted Therapy",
+  "shortDescription": "Therapeutic interventions using trained animals to support emotional and social development.",
+  "description": "Pet therapy, also known as animal-assisted therapy, involves interactions with trained animals to achieve therapeutic goals. For children with autism, animal-assisted interventions can reduce anxiety, increase motivation for therapy participation, improve social interaction, and provide sensory experiences. Therapy animals may include dogs, horses (hippotherapy), cats, rabbits, and other animals, depending on the program and the child's needs and preferences.",
+  "benefits": [
+    "Reduces anxiety and stress",
+    "Increases motivation and engagement",
+    "Improves social interaction skills",
+    "Provides calming sensory input",
+    "Builds empathy and emotional awareness",
+    "Creates non-judgmental interaction opportunities"
+  ],
+  "whoCanBenefit": [
+    "Children who connect well with animals",
+    "Those with anxiety around traditional therapy",
+    "Children working on social skills",
+    "Those needing calming sensory experiences",
+    "Kids motivated by animal interactions"
+  ],
+  "links": [
+    {
+      "label": "Pet Partners",
+      "url": "https://petpartners.org/",
+      "description": "Leading organization for animal-assisted therapy registration and resources"
+    },
+    {
+      "label": "Professional Association of Therapeutic Horsemanship (PATH)",
+      "url": "https://www.pathintl.org/",
+      "description": "Organization for equine-assisted therapy programs"
+    }
+  ]
+}

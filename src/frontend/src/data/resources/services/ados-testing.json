@@ -1,0 +1,29 @@
+{
+  "slug": "ados-testing",
+  "category": "services",
+  "title": "ADOS Testing",
+  "shortDescription": "Gold standard diagnostic assessment for autism spectrum disorder.",
+  "description": "The Autism Diagnostic Observation Schedule (ADOS-2) is considered the gold standard assessment tool for diagnosing autism spectrum disorder. Administered by trained clinicians, ADOS involves structured activities and conversations that allow the evaluator to observe social interaction, communication, play, and restricted/repetitive behaviors. ADOS is typically part of a comprehensive diagnostic evaluation that may also include developmental history, cognitive testing, and other assessments.",
+  "benefits": [
+    "Gold standard diagnostic accuracy",
+    "Standardized, research-validated assessment",
+    "Provides detailed behavioral observations",
+    "Helps determine appropriate interventions",
+    "Required for many services and funding",
+    "Administered by trained specialists"
+  ],
+  "whoCanBenefit": [
+    "Children with suspected autism",
+    "Those needing formal diagnosis for services",
+    "Families seeking clarity on diagnosis",
+    "Individuals needing documentation for school",
+    "Adults seeking late diagnosis"
+  ],
+  "links": [
+    {
+      "label": "Autism Speaks",
+      "url": "https://www.autismspeaks.org/",
+      "description": "Information on autism diagnosis and evaluation process"
+    }
+  ]
+}

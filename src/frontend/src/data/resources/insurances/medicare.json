@@ -2,15 +2,22 @@
   "slug": "medicare",
   "category": "insurances",
   "title": "Medicare",
-  "description": "Medicare provides health insurance coverage for individuals with autism who are 65 or older, or adults under 65 who qualify through Social Security Disability Insurance (SSDI) after receiving disability benefits for 24 months. While Medicare coverage for autism services is more limited than Medicaid or private insurance, it does cover certain medically necessary treatments and services. Medicare Part B (Medical Insurance) covers diagnostic evaluations, psychiatric services, medication management, and mental health counseling when provided by qualified healthcare professionals who accept Medicare. However, Medicare traditionally has not covered Applied Behavior Analysis (ABA) therapy, which is considered the gold standard treatment for autism, because ABA providers (BCBAs) are not currently recognized as Medicare-eligible providers under federal regulations. Medicare does cover speech-language pathology, occupational therapy, and physical therapy when these services are deemed medically necessary and are provided to help restore or improve function. Adults with autism who have Medicare may benefit from psychiatric care for co-occurring conditions like anxiety or depression, counseling services through licensed clinical social workers or psychologists, and medication management by physicians or nurse practitioners.",
+  "shortDescription": "Federal health insurance program for seniors and individuals with disabilities.",
+  "description": "Medicare is the federal health insurance program primarily serving Americans 65 and older, but also covering younger individuals with certain disabilities. For autistic adults who qualify through disability, Medicare can cover diagnostic services, therapy, mental health treatment, and medical care. Coverage varies by Medicare plan type (Original Medicare, Medicare Advantage) and may require supplemental coverage for comprehensive benefits.",
+  "benefits": [
+    "Federal program with nationwide coverage",
+    "Covers diagnostic and medical services",
+    "Mental health and therapy benefits",
+    "Various plan options available",
+    "Prescription drug coverage (Part D)",
+    "No pre-existing condition exclusions"
+  ],
+  "eligibility": "Generally available to adults 65+, or younger adults receiving Social Security Disability Insurance (SSDI) for 24 months, or those with End-Stage Renal Disease or ALS. Autistic adults may qualify through disability pathways.",
   "links": [
     {
-      "label": "Medicare Official Site",
-      "url": "https://www.medicare.gov"
-    },
-    {
-      "label": "Social Security Disability",
-      "url": "https://www.ssa.gov"
+      "label": "Medicare.gov",
+      "url": "https://www.medicare.gov/",
+      "description": "Official Medicare website - plan information and enrollment"
     }
   ]
 }

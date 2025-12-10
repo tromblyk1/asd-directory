@@ -1,46 +1,44 @@
-import * as React from "react";
+"use client"
 
-export type RadioGroupProps = {
-  value?: string;
-  onValueChange?: (value: string) => void;
-  className?: string;
-  children?: React.ReactNode;
-} & Omit<React.HTMLAttributes<HTMLDivElement>, "onChange">;
+import * as React from "react"
+import * as RadioGroupPrimitive from "@radix-ui/react-radio-group"
+import { Circle } from "lucide-react"
 
-export function RadioGroup({
-  value,
-  onValueChange,
-  className = "",
-  children,
-  ...props
-}: RadioGroupProps) {
+import { cn } from "@/lib/utils"
+
+const RadioGroup = React.forwardRef<
+  React.ElementRef<typeof RadioGroupPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root>
+>(({ className, ...props }, ref) => {
   return (
-    <div
-      role="radiogroup"
-      aria-activedescendant={value}
-      className={`grid gap-2 ${className}`}
+    <RadioGroupPrimitive.Root
+      className={cn("grid gap-2", className)}
+      {...props}
+      ref={ref}
+    />
+  )
+})
+RadioGroup.displayName = RadioGroupPrimitive.Root.displayName
+
+const RadioGroupItem = React.forwardRef<
+  React.ElementRef<typeof RadioGroupPrimitive.Item>,
+  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item>
+>(({ className, ...props }, ref) => {
+  return (
+    <RadioGroupPrimitive.Item
+      ref={ref}
+      className={cn(
+        "aspect-square h-4 w-4 rounded-full border border-primary text-primary shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
+        className
+      )}
       {...props}
     >
-      {React.Children.map(children, (child) => {
-        if (!React.isValidElement(child)) {
-          return child;
-        }
+      <RadioGroupPrimitive.Indicator className="flex items-center justify-center">
+        <Circle className="h-3.5 w-3.5 fill-primary" />
+      </RadioGroupPrimitive.Indicator>
+    </RadioGroupPrimitive.Item>
+  )
+})
+RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName
 
-        const isSelected =
-          typeof child.props.value === "string" && child.props.value === value;
-
-        return React.cloneElement(child, {
-          "data-state": isSelected ? "checked" : "unchecked",
-          onClick: (
-            event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-          ) => {
-            child.props.onClick?.(event);
-            if (!event.defaultPrevented && typeof child.props.value === "string") {
-              onValueChange?.(child.props.value);
-            }
-          },
-        });
-      })}
-    </div>
-  );
-}
+export { RadioGroup, RadioGroupItem }

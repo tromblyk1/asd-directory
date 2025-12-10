@@ -1,0 +1,27 @@
+{
+  "code": "ICAA",
+  "name": "International Christian Accrediting Association",
+  "description": "ICAA provides accreditation services for Christian schools internationally, ensuring member schools maintain high standards of academic excellence while integrating biblical principles. ICAA serves schools seeking both academic quality and faith-based educational integrity.",
+  "recognition": "ICAA is recognized for scholarship eligibility in Florida and is accepted by colleges and universities.",
+  "benefits": [
+    "International Christian school network",
+    "Faith-integrated education standards",
+    "Scholarship program eligibility",
+    "College acceptance support",
+    "Christian educator resources"
+  ],
+  "requirements": [
+    "Biblical worldview foundation",
+    "Qualified teaching staff",
+    "Academic excellence standards",
+    "Spiritual formation programs",
+    "Governance accountability"
+  ],
+  "links": [
+    {
+      "label": "ICAA",
+      "url": "https://www.icaaschools.org/",
+      "description": "International Christian Accrediting Association"
+    }
+  ]
+}

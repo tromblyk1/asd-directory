@@ -1,0 +1,27 @@
+{
+  "code": "FLOCS",
+  "name": "Florida League of Christian Schools",
+  "description": "FLOCS provides accreditation and support for Christian schools in Florida, focusing on maintaining high standards of academic excellence while preserving religious liberty and Christian educational values.",
+  "recognition": "FLOCS accreditation is recognized by the Florida Department of Education for scholarship program eligibility.",
+  "benefits": [
+    "Christian school accreditation",
+    "Florida DOE recognition",
+    "Scholarship program eligibility",
+    "Christian school networking",
+    "Educational resources and support"
+  ],
+  "requirements": [
+    "Christian educational philosophy",
+    "Qualified teaching staff",
+    "Academic curriculum standards",
+    "Safe learning environment",
+    "Governance accountability"
+  ],
+  "links": [
+    {
+      "label": "FLOCS",
+      "url": "https://www.flocs.org/",
+      "description": "Florida League of Christian Schools"
+    }
+  ]
+}

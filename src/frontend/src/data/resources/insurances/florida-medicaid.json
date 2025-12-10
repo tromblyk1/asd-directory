@@ -2,15 +2,34 @@
   "slug": "florida-medicaid",
   "category": "insurances",
   "title": "Florida Medicaid",
-  "description": "Florida Medicaid provides comprehensive autism coverage for eligible children and adults through various programs including Medicaid Managed Care plans and fee-for-service Medicaid. Children with autism in Florida can qualify for Medicaid through several pathways including family income eligibility, the Children's Medical Services (CMS) Network for children with special healthcare needs, or through SSI disability benefits. Florida Medicaid covers extensive autism services including ABA therapy with no annual dollar caps or visit limits when medically necessary, making it one of the most comprehensive coverage options available. Covered services include diagnostic evaluations by developmental pediatricians or psychologists, ongoing ABA therapy by BCBAs and RBTs, speech therapy, occupational therapy, physical therapy, behavioral health services, psychiatric care, and medication management. To access Medicaid in Florida, families can apply through ACCESS Florida (the state's online benefits portal), at local Department of Children and Families (DCF) offices, or through community partners. Eligibility is determined based on household income, family size, and disability status, with income limits varying by program. There are no copays, deductibles, or out-of-pocket costs for autism services covered under Florida Medicaid.",
+  "shortDescription": "Florida's state Medicaid program covering autism services for eligible children and families.",
+  "description": "Florida Medicaid provides comprehensive healthcare coverage for eligible low-income families, children, pregnant women, elderly individuals, and people with disabilities. For children with autism, Florida Medicaid covers essential services including Applied Behavior Analysis (ABA), speech therapy, occupational therapy, and other medically necessary treatments. The program is administered by the Florida Agency for Health Care Administration (AHCA) and offers coverage through various managed care plans across the state. Additionally, the iBudget waiver program, administered by the Agency for Persons with Disabilities (APD), provides home and community-based services for Floridians with developmental disabilities including autism.",
+  "benefits": [
+    "Covers Applied Behavior Analysis (ABA) therapy",
+    "Includes speech, occupational, and physical therapy",
+    "No or low-cost coverage for eligible families",
+    "Covers diagnostic evaluations and assessments",
+    "Includes prescription medications",
+    "Covers durable medical equipment when needed",
+    "iBudget waiver for additional home/community services"
+  ],
+  "eligibility": "Eligibility is based on income, family size, and other factors. Children may qualify through various pathways including family income limits, disability status, or foster care. Income limits vary by program category.",
+  "howToApply": "Apply online through the MyACCESS portal, in person at a local Department of Children and Families office, or by calling the Florida Medicaid hotline. You will need proof of income, identity, residency, and citizenship or immigration status.",
   "links": [
     {
-      "label": "Florida Medicaid - AHCA",
-      "url": "https://www.ahca.myflorida.com"
+      "label": "Florida Agency for Health Care Administration (AHCA)",
+      "url": "https://ahca.myflorida.com/",
+      "description": "Official Florida Medicaid administrator - information on covered services and policies"
     },
     {
-      "label": "ACCESS Florida - Apply",
-      "url": "https://www.myflorida.com/accessflorida"
+      "label": "Florida Department of Children and Families",
+      "url": "https://www.myflfamilies.com/",
+      "description": "Apply for Medicaid through MyACCESS portal"
+    },
+    {
+      "label": "Agency for Persons with Disabilities (APD)",
+      "url": "https://apd.myflorida.com/",
+      "description": "Administers iBudget waiver for home and community-based services"
     }
   ]
 }

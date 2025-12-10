@@ -1,0 +1,29 @@
+{
+  "slug": "parent-coaching",
+  "category": "services",
+  "title": "Parent Coaching",
+  "shortDescription": "Training for parents and caregivers in evidence-based strategies to support their child.",
+  "description": "Parent coaching empowers caregivers with the knowledge and skills to effectively support their child with autism at home and in the community. Trained professionals teach parents evidence-based strategies for communication, behavior management, skill-building, and creating supportive environments. Parent coaching recognizes that caregivers spend the most time with their children and can have tremendous impact when equipped with the right tools.",
+  "benefits": [
+    "Empowers parents with proven strategies",
+    "Extends therapy benefits to home environment",
+    "Builds caregiver confidence",
+    "Improves parent-child interactions",
+    "Creates consistency across settings",
+    "Cost-effective complement to direct therapy"
+  ],
+  "whoCanBenefit": [
+    "Parents of newly diagnosed children",
+    "Caregivers wanting to support therapy at home",
+    "Families on waitlists for direct services",
+    "Parents seeking behavior management strategies",
+    "Caregivers wanting to build communication skills"
+  ],
+  "links": [
+    {
+      "label": "Autism Speaks",
+      "url": "https://www.autismspeaks.org/",
+      "description": "Resources on parent training programs and strategies"
+    }
+  ]
+}

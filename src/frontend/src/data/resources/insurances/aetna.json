@@ -2,11 +2,27 @@
   "slug": "aetna",
   "category": "insurances",
   "title": "Aetna",
-  "description": "Aetna offers comprehensive autism coverage for children and adults through most of their health insurance plans, including coverage for Applied Behavior Analysis (ABA) therapy, speech therapy, occupational therapy, and other medically necessary autism treatments. Under Florida law and the federal Mental Health Parity Act, Aetna plans are required to cover autism services at the same level as other medical conditions. Most Aetna plans cover ABA therapy with varying session limits and may require prior authorization before treatment begins. Typical coverage includes diagnostic evaluations by qualified professionals, ongoing behavioral assessments, and treatment by Board Certified Behavior Analysts (BCBAs) and Registered Behavior Technicians (RBTs). Aetna members in Florida can access in-network ABA providers, developmental pediatricians, and autism specialists. Out-of-pocket costs vary by plan type, deductible, and coinsurance rates, with many families paying copays of $20-50 per therapy session after meeting their deductible. Some Aetna plans have annual therapy visit limits or dollar caps, so it's important to review your specific plan documents or contact member services to understand your exact benefits. To access autism services through Aetna, families typically need a formal autism diagnosis from a qualified healthcare provider, followed by a referral to an ABA provider who will conduct an initial assessment and submit a treatment plan for prior authorization. Aetna also covers related services such as psychiatric care, medication management, and social skills training when deemed medically necessary by a qualified provider.",
+  "shortDescription": "Major health insurer offering plans with autism and behavioral health coverage in Florida.",
+  "description": "Aetna is one of the nation's largest health insurers, offering a variety of health plans in Florida including employer-sponsored, individual, Medicare, and Medicaid managed care options. Aetna plans typically include coverage for autism spectrum disorder services, including Applied Behavior Analysis (ABA), speech therapy, occupational therapy, and mental health services. Coverage details vary by plan, so it's important to verify your specific benefits and any prior authorization requirements.",
+  "benefits": [
+    "Coverage for ABA therapy (varies by plan)",
+    "Speech, occupational, and physical therapy benefits",
+    "Behavioral health and mental health services",
+    "Wide network of providers in Florida",
+    "Online tools for finding in-network providers",
+    "Care management programs for complex conditions"
+  ],
+  "requirements": [
+    "Prior authorization often required for ABA and intensive services",
+    "Services must be deemed medically necessary",
+    "Provider must be in-network for full benefits (in most plans)",
+    "Diagnosis of autism spectrum disorder typically required"
+  ],
   "links": [
     {
-      "label": "Aetna Member Services",
-      "url": "https://www.aetna.com"
+      "label": "Aetna",
+      "url": "https://www.aetna.com/",
+      "description": "Official Aetna website - find providers, check benefits, and manage your plan"
     }
   ]
 }

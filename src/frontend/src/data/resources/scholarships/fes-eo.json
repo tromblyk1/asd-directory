@@ -1,0 +1,33 @@
+{
+  "slug": "fes-eo",
+  "category": "scholarships",
+  "title": "Family Empowerment Scholarship for Educational Options (FES-EO)",
+  "shortDescription": "Income-based Florida scholarship for private school tuition for K-12 students.",
+  "description": "The Family Empowerment Scholarship for Educational Options (FES-EO) provides scholarships for eligible Florida students to attend participating private schools. This income-based scholarship expands school choice for families who might not otherwise be able to afford private school tuition. While not specifically designed for students with disabilities, many families of children with autism use this scholarship to access private schools that better meet their child's needs.",
+  "benefits": [
+    "Covers private school tuition costs",
+    "Access to participating private schools statewide",
+    "No requirement for prior public school enrollment",
+    "Can be combined with other funding sources",
+    "Renewable annually while eligibility continues"
+  ],
+  "eligibility": "Student must be a Florida resident entering kindergarten through 12th grade. Family income must be at or below 400% of the federal poverty level. Students must not be enrolled in public school at time of application (with some exceptions).",
+  "howToApply": "Apply through Step Up For Students or AAA Scholarship Foundation, the approved scholarship funding organizations. Required documents include proof of income, Florida residency, and student age/grade eligibility.",
+  "links": [
+    {
+      "label": "Step Up For Students",
+      "url": "https://www.stepupforstudents.org/",
+      "description": "Primary scholarship funding organization - apply and manage your scholarship"
+    },
+    {
+      "label": "AAA Scholarship Foundation",
+      "url": "https://www.aaascholarships.org/",
+      "description": "Alternative scholarship funding organization for FES-EO"
+    },
+    {
+      "label": "Florida Department of Education",
+      "url": "https://www.fldoe.org/",
+      "description": "Official state education agency with scholarship program information"
+    }
+  ]
+}

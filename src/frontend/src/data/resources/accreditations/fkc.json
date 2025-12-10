@@ -1,0 +1,27 @@
+{
+  "code": "FKC",
+  "name": "Florida Kindergarten Council",
+  "description": "FKC provides accreditation specifically for early childhood education programs in Florida, ensuring kindergarten and preschool programs meet high standards for child development and school readiness. FKC accreditation is particularly valuable for families seeking quality early education.",
+  "recognition": "FKC accreditation is recognized by the Florida Department of Education for early childhood education quality assurance.",
+  "benefits": [
+    "Early childhood education focus",
+    "Developmentally appropriate practices",
+    "School readiness preparation",
+    "Florida DOE recognition",
+    "Early intervention support"
+  ],
+  "requirements": [
+    "Age-appropriate curriculum",
+    "Qualified early childhood educators",
+    "Safe learning environment",
+    "Developmental assessment practices",
+    "Family engagement programs"
+  ],
+  "links": [
+    {
+      "label": "Florida Kindergarten Council",
+      "url": "https://www.flkindergarten.org/",
+      "description": "Florida Kindergarten Council"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "fes-ua",
+  "category": "scholarships",
+  "title": "Family Empowerment Scholarship for Students with Unique Abilities (FES-UA)",
+  "shortDescription": "Florida scholarship providing funds for private school tuition and approved services for students with disabilities.",
+  "description": "The Family Empowerment Scholarship for Students with Unique Abilities (FES-UA), formerly known as the Gardiner Scholarship, provides eligible Florida students with disabilities an Education Savings Account (ESA) to pay for approved educational expenses. This includes private school tuition, therapy services, curriculum materials, and other approved expenses. The scholarship is designed to give families flexibility in customizing their child's education to meet their unique needs. Students with autism spectrum disorder are among those eligible for this scholarship.",
+  "benefits": [
+    "Flexible Education Savings Account for approved expenses",
+    "Covers private school tuition",
+    "Pays for therapy services (speech, OT, ABA, etc.)",
+    "Funds curriculum and instructional materials",
+    "Covers assistive technology devices",
+    "Can be used for transition services for older students"
+  ],
+  "eligibility": "Student must be a Florida resident, be eligible for kindergarten through 12th grade (age 3-22 for certain disabilities), and have a qualifying disability including autism spectrum disorder. Student must not have been enrolled in public school the prior year unless exceptions apply.",
+  "howToApply": "Apply through Step Up For Students, the scholarship funding organization. Applications require documentation of the student's disability (IEP, 504 plan, or medical diagnosis) and proof of Florida residency.",
+  "links": [
+    {
+      "label": "Step Up For Students",
+      "url": "https://www.stepupforstudents.org/",
+      "description": "Primary scholarship funding organization - apply here and manage your scholarship"
+    },
+    {
+      "label": "Florida Department of Education",
+      "url": "https://www.fldoe.org/",
+      "description": "Official state education agency with scholarship program information"
+    }
+  ]
+}

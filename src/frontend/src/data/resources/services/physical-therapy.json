@@ -1,0 +1,29 @@
+{
+  "slug": "physical-therapy",
+  "category": "services",
+  "title": "Physical Therapy",
+  "shortDescription": "Improves gross motor skills, strength, balance, and physical coordination.",
+  "description": "Physical therapy helps children with autism develop gross motor skills, improve balance and coordination, build strength, and increase physical mobility. Many children on the autism spectrum experience motor planning difficulties, low muscle tone, or delayed motor milestones. Physical therapists create individualized exercise programs and use play-based activities to help children achieve physical goals and participate more fully in daily activities and sports.",
+  "benefits": [
+    "Improves gross motor skills and coordination",
+    "Builds core strength and muscle tone",
+    "Enhances balance and stability",
+    "Develops motor planning abilities",
+    "Increases physical endurance",
+    "Supports participation in sports and recreation"
+  ],
+  "whoCanBenefit": [
+    "Children with delayed motor milestones",
+    "Those with low muscle tone (hypotonia)",
+    "Children with coordination difficulties",
+    "Those struggling with balance",
+    "Children needing support for physical activities"
+  ],
+  "links": [
+    {
+      "label": "American Physical Therapy Association (APTA)",
+      "url": "https://www.apta.org/",
+      "description": "National professional organization for physical therapists"
+    }
+  ]
+}

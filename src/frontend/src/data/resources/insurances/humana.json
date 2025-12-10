@@ -1,18 +1,28 @@
 {
+  "slug": "humana",
+  "category": "insurances",
   "title": "Humana",
-  "description": "Humana offers health insurance plans in Florida with coverage for autism spectrum disorder services including behavioral analysis therapy, speech and language therapy, and occupational therapy. Humana plans provide access to developmental and behavioral health specialists through their provider network. Coverage for autism services varies by plan type, with many offering comprehensive benefits when services are medically necessary and provided by qualified in-network professionals. Members should verify specific coverage details and authorization requirements with their plan.",
+  "shortDescription": "National health insurer offering various plan types with autism service coverage.",
+  "description": "Humana is a major national health insurance company offering plans through employers, Medicare Advantage, Medicaid managed care, and individual markets in Florida. Humana plans typically include coverage for autism spectrum disorder services including behavioral health, ABA therapy, speech therapy, and occupational therapy. Coverage specifics vary by plan type, so verifying your particular benefits is important.",
+  "benefits": [
+    "ABA therapy coverage (plan-dependent)",
+    "Speech and occupational therapy",
+    "Behavioral health services",
+    "Large provider network",
+    "Medicare Advantage options",
+    "Care coordination programs"
+  ],
+  "requirements": [
+    "Prior authorization typically required for ABA",
+    "Medical necessity documentation",
+    "In-network providers for best benefits",
+    "Autism diagnosis usually required"
+  ],
   "links": [
     {
-      "label": "Humana Member Resources",
-      "url": "https://www.humana.com"
-    },
-    {
-      "label": "Humana Find a Doctor",
-      "url": "https://www.humana.com/finder"
-    },
-    {
-      "label": "Humana Behavioral Health Services",
-      "url": "https://www.humana.com/provider/medical-resources/behavioral-health"
+      "label": "Humana",
+      "url": "https://www.humana.com/",
+      "description": "Official Humana website - find providers and manage your plan"
     }
   ]
 }

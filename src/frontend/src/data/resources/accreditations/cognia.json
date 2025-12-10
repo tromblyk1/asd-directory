@@ -1,0 +1,27 @@
+{
+  "code": "COGNIA",
+  "name": "Cognia (formerly AdvancED)",
+  "description": "Cognia is a global nonprofit organization that accredits primary and secondary schools, school systems, and education service providers. Cognia accreditation indicates that a school meets rigorous research-based standards, engages in continuous improvement, and has demonstrated quality in its educational programs. For families of children with autism, choosing a Cognia-accredited school provides assurance of institutional quality and accountability.",
+  "recognition": "Cognia is recognized worldwide and accepted by colleges, universities, and employers as a mark of educational quality. It is one of the largest accreditation agencies in the world.",
+  "benefits": [
+    "Globally recognized accreditation",
+    "Research-based quality standards",
+    "Commitment to continuous improvement",
+    "External validation of educational programs",
+    "Widely accepted by colleges and universities"
+  ],
+  "requirements": [
+    "Meet research-based standards for quality",
+    "Demonstrate a commitment to continuous improvement",
+    "Engage in regular self-assessment and external review",
+    "Maintain qualified leadership and staff",
+    "Provide evidence of student learning and growth"
+  ],
+  "links": [
+    {
+      "label": "Cognia",
+      "url": "https://www.cognia.org/",
+      "description": "Global school accreditation organization"
+    }
+  ]
+}

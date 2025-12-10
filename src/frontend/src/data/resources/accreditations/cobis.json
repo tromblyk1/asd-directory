@@ -1,0 +1,27 @@
+{
+  "code": "COBIS",
+  "name": "Council of British International Schools",
+  "description": "COBIS represents and supports British international schools worldwide, providing accreditation for schools that deliver British-style education. COBIS schools follow the British National Curriculum and prepare students for internationally recognized qualifications like IGCSEs and A-Levels.",
+  "recognition": "COBIS accreditation is recognized internationally, particularly in British and Commonwealth countries. Credentials are accepted by universities worldwide.",
+  "benefits": [
+    "British educational standards",
+    "Internationally recognized qualifications",
+    "Global school network",
+    "IGCSE and A-Level preparation",
+    "University acceptance worldwide"
+  ],
+  "requirements": [
+    "British National Curriculum delivery",
+    "Qualified British-trained teachers",
+    "International examination preparation",
+    "English-medium instruction",
+    "British educational ethos"
+  ],
+  "links": [
+    {
+      "label": "COBIS",
+      "url": "https://www.cobis.org.uk/",
+      "description": "Council of British International Schools"
+    }
+  ]
+}

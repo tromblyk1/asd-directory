@@ -1,0 +1,27 @@
+{
+  "code": "FCCAP",
+  "name": "Florida Coalition of Christian Private Schools Accreditation",
+  "description": "FCCAP provides accreditation services for Christian private schools in Florida, ensuring member schools maintain academic excellence while preserving their Christian educational mission and values.",
+  "recognition": "FCCAP accreditation is recognized by the Florida Department of Education for scholarship program eligibility.",
+  "benefits": [
+    "Florida-based Christian school accreditation",
+    "Florida DOE recognition",
+    "Scholarship program eligibility",
+    "Christian school networking",
+    "State-specific support resources"
+  ],
+  "requirements": [
+    "Christian educational philosophy",
+    "Qualified teaching staff",
+    "Academic standards compliance",
+    "Safe learning environment",
+    "Governance accountability"
+  ],
+  "links": [
+    {
+      "label": "FCCAP",
+      "url": "https://www.fccap.org/",
+      "description": "Florida Coalition of Christian Private Schools Accreditation"
+    }
+  ]
+}

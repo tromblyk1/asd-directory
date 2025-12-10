@@ -1,18 +1,28 @@
 {
-  "title": "PEP (Personalized Education Program)",
-  "description": "The Personalized Education Program (PEP) Scholarship provides Florida families with funds to customize their child's education through a combination of approved educational products and services. For families of children with autism, PEP funds can be used for specialized therapies, curriculum materials, educational technology, tutoring services, and enrollment in part-time private school classes. This flexible scholarship model allows parents to design an educational plan tailored to their child's unique needs. Students must be enrolled in public school for the previous year or be entering kindergarten to be eligible.",
+  "slug": "pep",
+  "category": "scholarships",
+  "title": "Personalized Education Program (PEP)",
+  "shortDescription": "Florida scholarship providing education savings accounts for eligible K-12 students.",
+  "description": "The Personalized Education Program (PEP) is one of Florida's newest school choice options, providing eligible students with an Education Savings Account to cover private school tuition and other approved educational expenses. The program offers families flexibility in how they use scholarship funds to customize their child's education. PEP is available to students who meet eligibility requirements and can be used at approved private schools and providers throughout Florida.",
+  "benefits": [
+    "Education Savings Account for flexible spending",
+    "Covers private school tuition",
+    "Can pay for tutoring services",
+    "Funds curriculum and instructional materials",
+    "Available for K-12 students"
+  ],
+  "eligibility": "Student must be a Florida resident and meet specific eligibility criteria established by the program. Income requirements and other criteria apply. Check with the funding organization for current eligibility guidelines.",
+  "howToApply": "Apply through Step Up For Students, the scholarship funding organization. Documentation requirements include proof of Florida residency and income verification.",
   "links": [
     {
-      "label": "Step Up For Students PEP Program",
-      "url": "https://www.stepupforstudents.org/scholarships/personalized-education-program-pep"
+      "label": "Step Up For Students",
+      "url": "https://www.stepupforstudents.org/",
+      "description": "Scholarship funding organization - apply and manage your scholarship"
     },
     {
-      "label": "Florida Department of Education PEP Information",
-      "url": "https://www.fldoe.org/schools/school-choice/k-12-scholarship-programs/pep"
-    },
-    {
-      "label": "PEP Approved Providers and Services",
-      "url": "https://www.stepupforstudents.org/pep-providers"
+      "label": "Florida Department of Education",
+      "url": "https://www.fldoe.org/",
+      "description": "Official state education agency with scholarship program information"
     }
   ]
 }

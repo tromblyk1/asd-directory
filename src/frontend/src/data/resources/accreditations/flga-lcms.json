@@ -1,0 +1,27 @@
+{
+  "code": "FLGA-LCMS",
+  "name": "Florida-Georgia District LCMS School Accreditation",
+  "description": "FLGA-LCMS provides accreditation for schools affiliated with the Lutheran Church-Missouri Synod in Florida and Georgia. These schools combine rigorous academic standards with Lutheran doctrine and values, preparing students spiritually and academically.",
+  "recognition": "FLGA-LCMS accreditation is recognized for scholarship eligibility in Florida and is accepted by Lutheran colleges and universities.",
+  "benefits": [
+    "Lutheran educational tradition",
+    "Faith-integrated academics",
+    "Scholarship program eligibility",
+    "Lutheran school network",
+    "College preparation focus"
+  ],
+  "requirements": [
+    "LCMS doctrinal alignment",
+    "Qualified Lutheran educators",
+    "Academic excellence standards",
+    "Religious instruction curriculum",
+    "Congregational partnership"
+  ],
+  "links": [
+    {
+      "label": "LCMS Florida-Georgia District",
+      "url": "https://flgadistrict.org/",
+      "description": "Florida-Georgia District Lutheran Church-Missouri Synod"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "code": "CSI",
+  "name": "Christian Schools International",
+  "description": "CSI is a network of Christian schools committed to providing excellent education from a Reformed Christian perspective. CSI-accredited schools emphasize the integration of faith and learning across all subject areas, preparing students to serve God in all aspects of life.",
+  "recognition": "CSI accreditation is recognized for scholarship eligibility in Florida and is accepted by colleges and universities nationwide.",
+  "benefits": [
+    "Reformed Christian educational tradition",
+    "Faith-learning integration",
+    "Scholarship program eligibility",
+    "International Christian school network",
+    "Professional development resources"
+  ],
+  "requirements": [
+    "Reformed Christian worldview",
+    "Qualified Christian educators",
+    "Academic excellence standards",
+    "Spiritual formation programs",
+    "Community service emphasis"
+  ],
+  "links": [
+    {
+      "label": "CSI",
+      "url": "https://www.csionline.org/",
+      "description": "Christian Schools International"
+    }
+  ]
+}

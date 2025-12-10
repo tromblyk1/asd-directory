@@ -1,0 +1,27 @@
+{
+  "code": "NIPSA",
+  "name": "National Independent Private Schools Association",
+  "description": "NIPSA provides accreditation services for independent private schools, ensuring member schools meet high standards for academic excellence, governance, and student welfare. NIPSA supports schools in maintaining educational quality while preserving their unique missions.",
+  "recognition": "NIPSA accreditation is recognized for scholarship eligibility in Florida and is accepted by colleges and universities.",
+  "benefits": [
+    "Independent school recognition",
+    "Scholarship program eligibility",
+    "Flexible accreditation standards",
+    "Support for unique school missions",
+    "College acceptance documentation"
+  ],
+  "requirements": [
+    "Academic excellence standards",
+    "Qualified teaching staff",
+    "Safe learning environment",
+    "Governance accountability",
+    "Financial sustainability"
+  ],
+  "links": [
+    {
+      "label": "NIPSA",
+      "url": "https://www.nipsaschools.org/",
+      "description": "National Independent Private Schools Association"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "slug": "aba-therapy",
+  "category": "services",
+  "title": "ABA Therapy",
+  "shortDescription": "Evidence-based therapy using behavioral principles to teach skills and reduce challenging behaviors.",
+  "description": "Applied Behavior Analysis (ABA) is the most widely researched and evidence-based treatment for autism spectrum disorder. ABA therapy uses principles of learning and behavior to increase helpful behaviors and decrease harmful ones. Therapists work one-on-one with children to teach communication, social skills, self-care, and academic skills while reducing problematic behaviors. Treatment is individualized based on comprehensive assessments and data-driven decision making.",
+  "benefits": [
+    "Evidence-based with decades of research support",
+    "Individualized treatment plans based on assessment",
+    "Teaches communication and language skills",
+    "Builds social interaction abilities",
+    "Develops self-care and daily living skills",
+    "Reduces challenging behaviors",
+    "Data-driven progress monitoring"
+  ],
+  "whoCanBenefit": [
+    "Children with autism spectrum disorder diagnosis",
+    "Those needing intensive skill-building support",
+    "Children with challenging behaviors",
+    "Early intervention candidates (ages 2-6)",
+    "Older children and teens needing continued support"
+  ],
+  "links": [
+    {
+      "label": "Behavior Analyst Certification Board (BACB)",
+      "url": "https://www.bacb.com/",
+      "description": "Credentialing organization for behavior analysts"
+    },
+    {
+      "label": "Association for Behavior Analysis International",
+      "url": "https://www.abainternational.org/",
+      "description": "Professional organization for behavior analysis"
+    }
+  ]
+}

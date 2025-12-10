@@ -2,11 +2,27 @@
   "slug": "cigna",
   "category": "insurances",
   "title": "Cigna",
-  "description": "Cigna provides extensive autism spectrum disorder coverage through their health insurance plans, including behavioral health services, ABA therapy, and related treatments for both children and adults. Florida residents with Cigna insurance can access comprehensive autism services including diagnostic evaluations, ABA therapy, speech-language therapy, occupational therapy, physical therapy, and developmental assessments. Cigna complies with Florida's autism insurance mandate, which requires coverage for autism-related services, and their plans typically include coverage for evidence-based interventions recommended by licensed healthcare providers. ABA therapy coverage through Cigna usually requires prior authorization, with treatment plans reviewed and approved by their behavioral health team before services begin. Most Cigna plans cover medically necessary ABA services provided by qualified BCBAs and supervised RBTs, with coverage varying based on your specific plan type (HMO, PPO, or EPO). Out-of-pocket costs depend on your deductible, coinsurance rate, and copayment structure, with typical copays ranging from $15-60 per therapy session. Some Cigna plans have annual visit limits or therapy caps, while others provide more extensive coverage based on medical necessity determinations. To begin services, families need an autism diagnosis from a qualified provider, followed by a referral to an in-network ABA provider who will complete an initial assessment and develop a comprehensive treatment plan for Cigna's review.",
+  "shortDescription": "National health insurer providing autism service coverage through various plan options.",
+  "description": "Cigna is a global health services company offering health insurance plans in Florida through employer groups, individual markets, and government programs. Cigna plans generally include benefits for autism spectrum disorder treatment, including behavioral health services, ABA therapy, and developmental therapies. The company has expanded its autism coverage in recent years and offers care management support for families navigating autism services. Coverage specifics depend on your particular plan.",
+  "benefits": [
+    "ABA therapy coverage (plan-dependent)",
+    "Speech-language pathology services",
+    "Occupational and physical therapy",
+    "Behavioral health services",
+    "Online provider directory",
+    "Autism care support programs"
+  ],
+  "requirements": [
+    "Prior authorization typically required for ABA",
+    "Medical necessity documentation needed",
+    "In-network providers recommended for maximum benefits",
+    "Treatment plans may require periodic review"
+  ],
   "links": [
     {
-      "label": "Cigna Member Portal",
-      "url": "https://www.cigna.com"
+      "label": "Cigna",
+      "url": "https://www.cigna.com/",
+      "description": "Official Cigna website - find providers, check coverage, and access member resources"
     }
   ]
 }

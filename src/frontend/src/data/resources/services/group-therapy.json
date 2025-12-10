@@ -1,0 +1,29 @@
+{
+  "slug": "group-therapy",
+  "category": "services",
+  "title": "Social Skills Groups / Group Therapy",
+  "shortDescription": "Structured peer groups for practicing social interactions and building friendships.",
+  "description": "Social skills groups bring together children or teens with autism in structured settings to practice social interactions with peers. Led by trained therapists, these groups teach skills like conversation, reading social cues, perspective-taking, cooperation, and friendship-building. Groups provide a safe space to practice with others who understand social challenges, with immediate feedback and coaching from professionals.",
+  "benefits": [
+    "Practice social skills with peers",
+    "Safe environment to make mistakes",
+    "Learn from observing others",
+    "Build friendships with similar kids",
+    "Immediate feedback from therapists",
+    "Generalize skills to real relationships"
+  ],
+  "whoCanBenefit": [
+    "Children wanting to make friends",
+    "Those struggling with social cues",
+    "Kids ready for peer interaction practice",
+    "Teens needing social support",
+    "Children who benefit from structured social time"
+  ],
+  "links": [
+    {
+      "label": "Autism Speaks",
+      "url": "https://www.autismspeaks.org/",
+      "description": "Resources on social skills programs and groups"
+    }
+  ]
+}

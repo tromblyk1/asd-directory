@@ -1,0 +1,27 @@
+{
+  "code": "ACSI",
+  "name": "Association of Christian Schools International",
+  "description": "ACSI is the largest Protestant educational organization in the world, serving over 24,000 schools in 108 countries. ACSI accreditation ensures that Christian schools meet high academic standards while maintaining their faith-based mission. Schools must demonstrate excellence in academics, spiritual formation, and operational practices.",
+  "recognition": "ACSI accreditation is recognized by the Florida Department of Education and accepted by colleges and universities nationwide. ACSI is a member of the National Council for Private School Accreditation (NCPSA).",
+  "benefits": [
+    "Faith-integrated academic excellence",
+    "Recognized by Florida DOE for scholarship eligibility",
+    "Network of Christian school resources",
+    "Professional development opportunities",
+    "College acceptance and transcript recognition"
+  ],
+  "requirements": [
+    "Commitment to Christian educational philosophy",
+    "Qualified and certified teaching staff",
+    "Comprehensive curriculum meeting academic standards",
+    "Governance and financial accountability",
+    "Safe and nurturing learning environment"
+  ],
+  "links": [
+    {
+      "label": "ACSI",
+      "url": "https://www.acsi.org/",
+      "description": "Association of Christian Schools International"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "code": "FCCPSA",
+  "name": "Florida Catholic Conference Provincial Schools Accreditation",
+  "description": "FCCPSA provides accreditation services for Catholic schools in Florida, ensuring they meet both academic excellence standards and the educational mission of the Catholic Church. Schools demonstrate commitment to faith formation, academic rigor, and service to the community.",
+  "recognition": "FCCPSA accreditation is recognized by the Florida Department of Education and the Catholic Church. Credits and diplomas are accepted by colleges and universities.",
+  "benefits": [
+    "Catholic educational mission alignment",
+    "Florida DOE recognition",
+    "Diocesan school network support",
+    "Faith and academic integration",
+    "College acceptance and recognition"
+  ],
+  "requirements": [
+    "Alignment with Catholic educational philosophy",
+    "Qualified and certified teachers",
+    "Religious education curriculum",
+    "Academic standards compliance",
+    "Safe and nurturing environment"
+  ],
+  "links": [
+    {
+      "label": "Florida Catholic Conference",
+      "url": "https://www.flcathconf.org/",
+      "description": "Florida Catholic Conference"
+    }
+  ]
+}

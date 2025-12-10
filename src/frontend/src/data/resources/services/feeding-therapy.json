@@ -1,0 +1,34 @@
+{
+  "slug": "feeding-therapy",
+  "category": "services",
+  "title": "Feeding Therapy",
+  "shortDescription": "Specialized therapy addressing eating difficulties, food aversions, and swallowing disorders.",
+  "description": "Feeding therapy helps children who struggle with eating due to sensory sensitivities, oral motor difficulties, or behavioral challenges. Many children with autism experience significant feeding issues, including extreme food selectivity, texture aversions, and difficulty with chewing or swallowing. Feeding therapists, typically speech-language pathologists or occupational therapists with specialized training, work to expand food acceptance, improve oral motor skills, and create positive mealtime experiences. Therapy may address sensory processing, muscle coordination, and anxiety around new foods.",
+  "benefits": [
+    "Expands variety of accepted foods and textures",
+    "Improves oral motor skills for safe chewing and swallowing",
+    "Reduces mealtime stress and anxiety for the whole family",
+    "Addresses sensory sensitivities related to food",
+    "Helps achieve adequate nutrition and healthy growth",
+    "Builds positive associations with mealtimes"
+  ],
+  "whoCanBenefit": [
+    "Children with extreme food selectivity or picky eating",
+    "Those with sensory aversions to food textures or temperatures",
+    "Children with oral motor or swallowing difficulties",
+    "Those who gag or vomit with new foods",
+    "Children with nutritional deficiencies due to limited diet"
+  ],
+  "links": [
+    {
+      "label": "American Speech-Language-Hearing Association (ASHA)",
+      "url": "https://www.asha.org/",
+      "description": "National professional organization for speech-language pathologists who provide feeding therapy"
+    },
+    {
+      "label": "Feeding Matters",
+      "url": "https://www.feedingmatters.org/",
+      "description": "National nonprofit dedicated to pediatric feeding disorder awareness and resources"
+    }
+  ]
+}

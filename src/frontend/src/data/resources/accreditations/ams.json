@@ -1,0 +1,27 @@
+{
+  "code": "AMS",
+  "name": "American Montessori Society",
+  "description": "AMS is the leading Montessori organization in the United States, providing accreditation for schools that implement authentic Montessori education. AMS accreditation ensures schools follow Dr. Maria Montessori's educational philosophy with fidelity while meeting high standards for student development.",
+  "recognition": "AMS accreditation is recognized nationwide as the gold standard for Montessori education. Many families seeking Montessori education for children with autism specifically seek AMS-accredited schools.",
+  "benefits": [
+    "Authentic Montessori methodology",
+    "Child-centered learning approach",
+    "Mixed-age classroom benefits",
+    "Individualized learning pace",
+    "Hands-on learning materials"
+  ],
+  "requirements": [
+    "AMS-credentialed teaching staff",
+    "Authentic Montessori materials",
+    "Mixed-age classrooms",
+    "Prepared learning environment",
+    "Alignment with Montessori philosophy"
+  ],
+  "links": [
+    {
+      "label": "American Montessori Society",
+      "url": "https://amshq.org/",
+      "description": "American Montessori Society"
+    }
+  ]
+}

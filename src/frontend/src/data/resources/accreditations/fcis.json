@@ -1,0 +1,27 @@
+{
+  "code": "FCIS",
+  "name": "Florida Council of Independent Schools",
+  "description": "FCIS is Florida's premier organization for independent schools, providing accreditation services that ensure member schools meet rigorous standards for academic excellence, governance, and student welfare. FCIS-accredited schools demonstrate commitment to continuous improvement and best practices in independent school education.",
+  "recognition": "FCIS accreditation is recognized by the Florida Department of Education and is accepted by colleges and universities. FCIS is a member of the National Association of Independent Schools (NAIS).",
+  "benefits": [
+    "Florida-specific accreditation standards",
+    "Recognition by Florida DOE",
+    "Network of independent school professionals",
+    "Access to professional development",
+    "College and university acceptance"
+  ],
+  "requirements": [
+    "Demonstrated academic excellence",
+    "Strong governance and financial stability",
+    "Qualified faculty and staff",
+    "Comprehensive student support services",
+    "Commitment to continuous improvement"
+  ],
+  "links": [
+    {
+      "label": "FCIS",
+      "url": "https://www.fcis.org/",
+      "description": "Florida Council of Independent Schools"
+    }
+  ]
+}

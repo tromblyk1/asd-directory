@@ -1,0 +1,29 @@
+{
+  "slug": "life-skills",
+  "category": "services",
+  "title": "Life Skills Training",
+  "shortDescription": "Teaches practical daily living skills for greater independence.",
+  "description": "Life skills training helps individuals with autism develop practical abilities needed for independent living. Programs focus on essential skills like personal hygiene, cooking, cleaning, money management, time management, using public transportation, and navigating community resources. Training is often hands-on and takes place in natural environments to promote generalization of skills to real-world situations.",
+  "benefits": [
+    "Builds independence in daily activities",
+    "Teaches personal hygiene and self-care",
+    "Develops cooking and meal preparation skills",
+    "Improves money management abilities",
+    "Enhances time management and organization",
+    "Prepares for independent or supported living"
+  ],
+  "whoCanBenefit": [
+    "Teens preparing for adulthood",
+    "Young adults seeking independence",
+    "Those transitioning out of school services",
+    "Individuals needing support with daily routines",
+    "Adults working toward independent living"
+  ],
+  "links": [
+    {
+      "label": "Autism Speaks",
+      "url": "https://www.autismspeaks.org/",
+      "description": "Resources on life skills and transition planning"
+    }
+  ]
+}

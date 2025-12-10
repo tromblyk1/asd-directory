@@ -3,15 +3,16 @@ import { createClient } from '@supabase/supabase-js';
 export interface Provider {
   id?: string;
   provider_id?: string | number | null;
-  provider_name?: string | null;
+  provider_name?: string | null;  // Database column name
+  name?: string | null;           // Alternative field name
   google_place_id?: string | null;
   verified?: boolean | null;
+  street?: string | null;         // Added for search functionality
+  address1?: string | null;
+  address2?: string | null;
   city?: string | null;
   state?: string | null;
   zip?: string | null;
-  street?: string | null;
-  address1?: string | null;
-  address2?: string | null;
   latitude?: number | null;
   longitude?: number | null;
   phone?: string | null;
@@ -20,6 +21,7 @@ export interface Provider {
   scraped_website?: string | null;
   service_type?: string | null;
   service_types?: string[] | null;
+  resource_type?: string | null;
   accepts_medicaid?: boolean | string | null;
   accepts_medicare?: boolean | string | null;
   accepts_florida_blue?: boolean | string | null;
@@ -42,6 +44,7 @@ export interface Provider {
   speech?: boolean | null;
   ot?: boolean | null;
   pt?: boolean | null;
+  feeding?: boolean | null;
   speech_therapy?: boolean | null;
   occupational_therapy?: boolean | null;
   physical_therapy?: boolean | null;
@@ -62,6 +65,10 @@ export interface Provider {
   parent_coaching?: boolean | null;
   tutoring?: boolean | null;
   group_therapy?: boolean | null;
+  music_therapy?: boolean | null;
+  dir_floortime?: boolean | null;
+  inpp?: boolean | null;
+  aac_speech?: boolean | null;
 }
 
 export interface Church {

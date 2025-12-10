@@ -1,0 +1,27 @@
+{
+  "code": "WELSSA",
+  "name": "Wisconsin Evangelical Lutheran Synod School Accreditation",
+  "description": "WELSSA provides accreditation for schools affiliated with the Wisconsin Evangelical Lutheran Synod (WELS), ensuring they maintain high academic standards while integrating Lutheran doctrine and values. WELSSA schools combine rigorous academics with faith formation.",
+  "recognition": "WELSSA accreditation is recognized for scholarship eligibility in Florida and is accepted by Lutheran colleges and universities.",
+  "benefits": [
+    "Lutheran educational tradition",
+    "Faith-integrated curriculum",
+    "Scholarship program eligibility",
+    "Lutheran school network",
+    "College preparation support"
+  ],
+  "requirements": [
+    "WELS doctrinal alignment",
+    "Qualified Lutheran educators",
+    "Academic excellence standards",
+    "Religious instruction curriculum",
+    "Congregational partnership"
+  ],
+  "links": [
+    {
+      "label": "WELS",
+      "url": "https://wels.net/",
+      "description": "Wisconsin Evangelical Lutheran Synod"
+    }
+  ]
+}

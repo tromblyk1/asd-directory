@@ -1,0 +1,29 @@
+{
+  "slug": "occupational-therapy",
+  "category": "services",
+  "title": "Occupational Therapy",
+  "shortDescription": "Helps children develop daily living skills, fine motor abilities, and sensory processing.",
+  "description": "Occupational therapy (OT) helps children with autism develop the skills needed for daily living and independence. OTs work on fine motor skills, sensory processing, self-care activities, handwriting, and adaptive behaviors. For children with autism, OT often addresses sensory integration challenges, helping them better process and respond to sensory information from their environment. Therapists use play-based activities and structured interventions to improve coordination, attention, and functional independence.",
+  "benefits": [
+    "Improves fine motor skills for writing, buttoning, and self-care tasks",
+    "Addresses sensory processing challenges common in autism",
+    "Develops self-regulation and coping strategies",
+    "Builds independence in daily living activities",
+    "Enhances play skills and social participation",
+    "Supports handwriting and school readiness"
+  ],
+  "whoCanBenefit": [
+    "Children with sensory processing difficulties",
+    "Those struggling with fine motor coordination",
+    "Children needing help with self-care skills",
+    "Students with handwriting challenges",
+    "Children with difficulty transitioning between activities"
+  ],
+  "links": [
+    {
+      "label": "American Occupational Therapy Association",
+      "url": "https://www.aota.org/",
+      "description": "National professional organization for occupational therapists"
+    }
+  ]
+}

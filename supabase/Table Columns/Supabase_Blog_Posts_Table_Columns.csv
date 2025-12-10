@@ -1,0 +1,13 @@
+column_name
+id
+created_at
+updated_at
+title
+content
+excerpt
+author
+category
+image_url
+published
+featured
+slug

@@ -1,0 +1,34 @@
+{
+  "slug": "support-groups",
+  "category": "services",
+  "title": "Support Groups",
+  "shortDescription": "Peer support meetings connecting families and individuals sharing similar experiences.",
+  "description": "Support groups bring together families, caregivers, and autistic individuals to share experiences, exchange information, and provide mutual emotional support. Groups may focus on parents of newly diagnosed children, siblings, autistic adults, or specific topics like transition planning or advocacy. Support groups offer a sense of community and understanding that can be invaluable for navigating the challenges and celebrating the joys of the autism journey.",
+  "benefits": [
+    "Connects with others who understand",
+    "Shares practical tips and resources",
+    "Reduces isolation and loneliness",
+    "Provides emotional support",
+    "Learns from others' experiences",
+    "Builds lasting community connections"
+  ],
+  "whoCanBenefit": [
+    "Parents of newly diagnosed children",
+    "Caregivers seeking community",
+    "Siblings of autistic individuals",
+    "Autistic adults wanting peer connection",
+    "Families feeling isolated"
+  ],
+  "links": [
+    {
+      "label": "Autism Society of America",
+      "url": "https://autismsociety.org/",
+      "description": "National organization with local affiliates offering support groups"
+    },
+    {
+      "label": "Autism Speaks",
+      "url": "https://www.autismspeaks.org/",
+      "description": "Resources for finding local support groups"
+    }
+  ]
+}

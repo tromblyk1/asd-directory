@@ -25,18 +25,18 @@ export const HallOfSupportersSection: React.FC = () => {
 
   return (
     <section className="max-w-6xl mx-auto">
-      <h2 className="text-3xl font-bold text-slate-800 dark:text-slate-100 text-center mb-4">Hall of Supporters</h2>
-      <p className="text-lg text-slate-600 dark:text-slate-400 text-center mb-8">
+      <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100 text-center mb-4">Hall of Supporters</h2>
+      <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 text-center mb-8">
         Thank you to our generous donors who make this work possible
       </p>
 
-      <div className="flex justify-center gap-2 mb-8 flex-wrap">
+      <div className="flex justify-center gap-2 mb-6 sm:mb-8 flex-wrap">
         <button
           onClick={() => setActiveTier('champion')}
           className={
             activeTier === 'champion'
-              ? 'px-6 py-3 bg-teal-500 text-white font-semibold rounded-lg'
-              : 'px-6 py-3 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-semibold rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors'
+              ? 'px-4 py-2 sm:px-6 sm:py-3 bg-teal-500 text-white font-semibold rounded-lg'
+              : 'px-4 py-2 sm:px-6 sm:py-3 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-semibold rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors'
           }
         >
           Champions
@@ -45,8 +45,8 @@ export const HallOfSupportersSection: React.FC = () => {
           onClick={() => setActiveTier('advocate')}
           className={
             activeTier === 'advocate'
-              ? 'px-6 py-3 bg-teal-500 text-white font-semibold rounded-lg'
-              : 'px-6 py-3 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-semibold rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors'
+              ? 'px-4 py-2 sm:px-6 sm:py-3 bg-teal-500 text-white font-semibold rounded-lg'
+              : 'px-4 py-2 sm:px-6 sm:py-3 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-semibold rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors'
           }
         >
           Advocates
@@ -55,8 +55,8 @@ export const HallOfSupportersSection: React.FC = () => {
           onClick={() => setActiveTier('supporter')}
           className={
             activeTier === 'supporter'
-              ? 'px-6 py-3 bg-teal-500 text-white font-semibold rounded-lg'
-              : 'px-6 py-3 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-semibold rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors'
+              ? 'px-4 py-2 sm:px-6 sm:py-3 bg-teal-500 text-white font-semibold rounded-lg'
+              : 'px-4 py-2 sm:px-6 sm:py-3 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-semibold rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors'
           }
         >
           Supporters
@@ -65,8 +65,8 @@ export const HallOfSupportersSection: React.FC = () => {
           onClick={() => setActiveTier('friend')}
           className={
             activeTier === 'friend'
-              ? 'px-6 py-3 bg-teal-500 text-white font-semibold rounded-lg'
-              : 'px-6 py-3 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-semibold rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors'
+              ? 'px-4 py-2 sm:px-6 sm:py-3 bg-teal-500 text-white font-semibold rounded-lg'
+              : 'px-4 py-2 sm:px-6 sm:py-3 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-semibold rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors'
           }
         >
           Friends
@@ -74,13 +74,13 @@ export const HallOfSupportersSection: React.FC = () => {
       </div>
 
       {filteredDonors.length === 0 && (
-        <div className="text-center py-12 bg-slate-50 dark:bg-slate-800/50 rounded-xl">
-          <p className="text-lg text-slate-600 dark:text-slate-400 mb-4">
+        <div className="text-center py-8 sm:py-12 bg-slate-50 dark:bg-slate-800/50 rounded-xl">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 mb-4">
             Be the first {getTierName(activeTier)}! Your support makes a difference.
           </p>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-lg transition-colors"
+            className="px-4 py-2 sm:px-6 sm:py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-lg transition-colors"
           >
             Donate Now
           </button>
@@ -88,11 +88,11 @@ export const HallOfSupportersSection: React.FC = () => {
       )}
 
       {activeTier === 'champion' && filteredDonors.length > 0 && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {filteredDonors.map((donor) => (
             <div
               key={donor.id}
-              className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-900/30 shadow-lg rounded-xl p-8 border-2 border-purple-200 dark:border-purple-800"
+              className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-900/30 shadow-lg rounded-xl p-4 sm:p-6 lg:p-8 border-2 border-purple-200 dark:border-purple-800"
             >
               <Trophy className="w-8 h-8 text-purple-600 dark:text-purple-400 mb-3" />
               <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-2">
@@ -121,11 +121,11 @@ export const HallOfSupportersSection: React.FC = () => {
       )}
 
       {activeTier === 'advocate' && filteredDonors.length > 0 && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {filteredDonors.map((donor) => (
             <div
               key={donor.id}
-              className="bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-900/30 shadow-md rounded-lg p-6 border-2 border-orange-200 dark:border-orange-800"
+              className="bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-900/30 shadow-md rounded-lg p-4 sm:p-6 border-2 border-orange-200 dark:border-orange-800"
             >
               <Award className="w-6 h-6 text-orange-600 dark:text-orange-400 mb-2" />
               <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-2">
@@ -158,7 +158,7 @@ export const HallOfSupportersSection: React.FC = () => {
           {filteredDonors.map((donor) => (
             <div
               key={donor.id}
-              className="bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-900/20 dark:to-teal-900/30 shadow rounded-lg p-4 border border-teal-200 dark:border-teal-800"
+              className="bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-900/20 dark:to-teal-900/30 shadow rounded-lg p-3 sm:p-4 border border-teal-200 dark:border-teal-800"
             >
               <Star className="w-5 h-5 text-teal-600 dark:text-teal-400 mb-2" />
               <h3 className="text-base font-bold text-slate-800 dark:text-slate-100 mb-1">

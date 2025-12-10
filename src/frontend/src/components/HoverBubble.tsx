@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Info } from 'lucide-react';
-import { useAccessibility } from '../contexts/AccessibilityContext';
 
 type HoverBubbleProps = {
   content: string;
@@ -10,7 +9,6 @@ type HoverBubbleProps = {
 
 export const HoverBubble: React.FC<HoverBubbleProps> = ({ content, children, position = 'top' }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const { lowSensoryMode } = useAccessibility();
 
   const positionClasses = {
     top: 'bottom-full left-1/2 -translate-x-1/2 mb-2',
@@ -26,8 +24,6 @@ export const HoverBubble: React.FC<HoverBubbleProps> = ({ content, children, pos
     right: 'right-full top-1/2 -translate-y-1/2 border-t-transparent border-b-transparent border-l-transparent',
   };
 
-  const isBubbleVisible = !lowSensoryMode && isVisible;
-
   return (
     <div
       className="relative inline-flex items-center"
@@ -41,7 +37,7 @@ export const HoverBubble: React.FC<HoverBubbleProps> = ({ content, children, pos
     >
       {children || <Info className="w-4 h-4 text-teal-600 dark:text-teal-400 cursor-help" />}
 
-      {isBubbleVisible && (
+      {isVisible && (
         <div
           className={`
             absolute ${positionClasses[position]}
@@ -52,7 +48,7 @@ export const HoverBubble: React.FC<HoverBubbleProps> = ({ content, children, pos
             leading-snug
             min-w-[18rem] sm:min-w-[20rem]
             max-w-[28rem]
-            break-normal`}
+            break-normal z-50`}
         >
           {content}
           <div

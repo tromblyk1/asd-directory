@@ -2,15 +2,27 @@
   "slug": "unitedhealthcare",
   "category": "insurances",
   "title": "UnitedHealthcare",
-  "description": "UnitedHealthcare offers comprehensive autism spectrum disorder coverage through their commercial health plans, including extensive benefits for ABA therapy, diagnostic services, and related treatments for individuals of all ages. As one of the largest health insurance providers in Florida, UnitedHealthcare complies with state and federal autism insurance mandates, ensuring coverage for medically necessary autism services across their various plan types including PPO, HMO, and POS plans. UnitedHealthcare covers diagnostic evaluations by qualified providers such as developmental pediatricians, child psychologists, and neurologists, as well as ongoing autism treatments including ABA therapy, speech therapy, occupational therapy, physical therapy, and mental health services. ABA therapy coverage through UnitedHealthcare requires prior authorization through their behavioral health division, Optum, with treatment plans typically reviewed every 6-12 months based on progress and continued medical necessity. Most UnitedHealthcare plans cover ABA services provided by Board Certified Behavior Analysts (BCBAs) and supervised Registered Behavior Technicians (RBTs) at in-network rates, with coverage amounts varying by specific plan design.",
+  "shortDescription": "Largest U.S. health insurer with extensive autism service coverage options.",
+  "description": "UnitedHealthcare is the largest health insurance company in the United States, offering plans through employers, individual markets, Medicare Advantage, and Medicaid managed care programs. UnitedHealthcare plans generally include autism benefits covering ABA therapy, speech therapy, occupational therapy, and behavioral health services. The company has dedicated autism support resources and care coordination programs for families navigating services.",
+  "benefits": [
+    "ABA therapy coverage in most plans",
+    "Speech, occupational, and physical therapy",
+    "Behavioral health services",
+    "Largest provider network in U.S.",
+    "Dedicated autism support resources",
+    "Care coordination assistance"
+  ],
+  "requirements": [
+    "Prior authorization required for most ABA services",
+    "Medical necessity must be documented",
+    "In-network providers for maximum benefits",
+    "Treatment plans may require periodic review"
+  ],
   "links": [
     {
-      "label": "UnitedHealthcare Member Portal",
-      "url": "https://www.uhc.com"
-    },
-    {
-      "label": "Optum Behavioral Health",
-      "url": "https://www.optum.com"
+      "label": "UnitedHealthcare",
+      "url": "https://www.uhc.com/",
+      "description": "Official UnitedHealthcare website - find providers and check benefits"
     }
   ]
 }

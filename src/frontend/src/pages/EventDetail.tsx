@@ -1,0 +1,628 @@
+import React from "react";
+import { useParams, Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+import { base44 } from "@/api/base44Client";
+import { useQuery } from "@tanstack/react-query";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import {
+    Calendar, MapPin, Clock, Users, ArrowLeft,
+    ExternalLink, Share2, CheckCircle, AlertCircle, Info
+} from "lucide-react";
+import { format } from "date-fns";
+import type { Event } from "@/types/Event.types";
+
+
+// Format registration text - remove "YES" prefix and clean up
+const formatRegistrationText = (text?: string | null): string => {
+    if (!text) return 'Registration information not available';
+    
+    // Remove "YES - " or "YES" prefix
+    let cleaned = text.replace(/^YES\s*-?\s*/i, '');
+    
+    // If it says "NO", make it clearer
+    if (text.toLowerCase().includes('no') && (text.toLowerCase().includes('walk-in') || text.toLowerCase().includes('registration'))) {
+        return cleaned || 'Walk-ins welcome - No registration required';
+    }
+    
+    return cleaned || text;
+};
+
+export default function EventDetail() {
+    const { slug } = useParams<{ slug: string }>();
+
+    const { data: event, isLoading } = useQuery<Event>({
+        queryKey: ['event', slug],
+        queryFn: async () => {
+            const events = await base44.entities.Event.filter({ slug });
+            return events[0];
+        },
+        enabled: !!slug,
+        staleTime: 0,
+        refetchOnMount: true,
+    });
+
+    if (isLoading) {
+        return (
+            <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600" />
+            </div>
+        );
+    }
+
+    if (!event) {
+        return (
+            <>
+                <Helmet>
+                    <title>Event Not Found | Florida Autism Services Directory</title>
+                    <meta name="robots" content="noindex" />
+                </Helmet>
+                <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+                    <Card className="max-w-2xl w-full">
+                        <CardContent className="p-6 sm:p-12 text-center">
+                            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Event not found</h2>
+                            <Link to="/events">
+                                <Button>Back to Events</Button>
+                            </Link>
+                        </CardContent>
+                    </Card>
+                </div>
+            </>
+        );
+    }
+
+    const today = new Date().toISOString().split('T')[0];
+    const isPast = event.date ? event.date < today : false;
+
+    const shareEvent = () => {
+        if (navigator.share) {
+            navigator.share({
+                title: event.title,
+                text: event.description || '',
+                url: window.location.href,
+            });
+        }
+    };
+
+    // Helper function to check if a URL is valid and non-empty
+    const isValidUrl = (url: string | null | undefined): boolean => {
+        if (!url) return false;
+        const trimmed = url.trim();
+        if (!trimmed) return false;
+        // Basic check - starts with http or is a relative URL
+        return trimmed.startsWith('http') || trimmed.startsWith('/');
+    };
+
+    // Determine which URL to use for "Event Website" button
+    const getEventWebsiteUrl = () => {
+        if (isValidUrl(event.website) && event.website !== event.registration_url) {
+            return event.website;
+        }
+        if (isValidUrl(event.registration_url)) {
+            return event.registration_url;
+        }
+        return null;
+    };
+
+    const eventWebsiteUrl = getEventWebsiteUrl();
+    const hasValidWebsite = isValidUrl(event.website) && event.website !== event.registration_url;
+
+    // SEO data
+    const canonicalUrl = `https://floridaautismservices.com/events/${slug}`;
+    const eventTitle = event.title || 'Autism-Friendly Event';
+    const eventDescription = event.description 
+        ? event.description.substring(0, 160) 
+        : `${eventTitle} - A sensory-friendly event in ${event.city || 'Florida'}. Find autism-friendly events and activities across Florida.`;
+    const eventDate = event.date ? new Date(event.date + 'T12:00:00') : new Date();
+    const formattedDate = format(eventDate, 'MMMM d, yyyy');
+
+    // Schema.org Event structured data
+    const eventSchema = {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": eventTitle,
+        "description": event.description || `Sensory-friendly event in ${event.city}, Florida`,
+        "startDate": event.date,
+        ...(event.time && { "doorTime": event.time }),
+        "eventStatus": isPast ? "https://schema.org/EventCancelled" : "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+            "@type": "Place",
+            "name": event.location || event.city,
+            "address": {
+                "@type": "PostalAddress",
+                ...(event.address && { "streetAddress": event.address }),
+                "addressLocality": event.city,
+                "addressRegion": event.state || "FL",
+                ...(event.zip_code && { "postalCode": event.zip_code }),
+                "addressCountry": "US"
+            }
+        },
+        ...(event.organizer && {
+            "organizer": {
+                "@type": "Organization",
+                "name": event.organizer
+            }
+        }),
+        ...(event.image_url && { "image": event.image_url }),
+        ...(event.registration_url && { "url": event.registration_url }),
+        ...(event.cost_info && {
+            "offers": {
+                "@type": "Offer",
+                "description": event.cost_info,
+                "url": event.registration_url || canonicalUrl
+            }
+        }),
+        "isAccessibleForFree": event.cost_info?.toLowerCase().includes('free') || false
+    };
+
+    // Breadcrumb schema
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://floridaautismservices.com"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Events",
+                "item": "https://floridaautismservices.com/events"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": eventTitle,
+                "item": canonicalUrl
+            }
+        ]
+    };
+
+    return (
+        <>
+            <Helmet>
+                <title>{eventTitle} | {formattedDate} | Florida Autism Services</title>
+                <meta name="description" content={eventDescription} />
+                <meta name="keywords" content={`${eventTitle}, autism event Florida, sensory-friendly event, ${event.city} autism, autism activities Florida`} />
+                <link rel="canonical" href={canonicalUrl} />
+                
+                {/* Open Graph */}
+                <meta property="og:title" content={`${eventTitle} | ${formattedDate}`} />
+                <meta property="og:description" content={eventDescription} />
+                <meta property="og:type" content="event" />
+                <meta property="og:url" content={canonicalUrl} />
+                <meta property="og:site_name" content="Florida Autism Services Directory" />
+                {event.image_url && <meta property="og:image" content={event.image_url} />}
+                
+                {/* Twitter Card */}
+                <meta name="twitter:card" content={event.image_url ? "summary_large_image" : "summary"} />
+                <meta name="twitter:title" content={`${eventTitle} | ${formattedDate}`} />
+                <meta name="twitter:description" content={eventDescription} />
+                {event.image_url && <meta name="twitter:image" content={event.image_url} />}
+                
+                {/* Event-specific meta */}
+                <meta property="event:start_time" content={event.date} />
+                {event.city && <meta name="geo.placename" content={`${event.city}, Florida`} />}
+                
+                {/* Structured Data */}
+                <script type="application/ld+json">
+                    {JSON.stringify(eventSchema)}
+                </script>
+                <script type="application/ld+json">
+                    {JSON.stringify(breadcrumbSchema)}
+                </script>
+            </Helmet>
+
+            <div className="min-h-screen bg-gradient-to-b from-green-50 to-white pb-8 sm:pb-12">
+                {/* Header - Mobile optimized */}
+                <header className="bg-gradient-to-r from-green-600 to-blue-600 text-white py-6 sm:py-8">
+                    <div className="max-w-5xl mx-auto px-4 sm:px-6">
+                        <Link to="/events">
+                            <Button variant="ghost" className="text-white hover:bg-white/20 mb-3 sm:mb-4 -ml-2 sm:ml-0">
+                                <ArrowLeft className="w-4 h-4 mr-1 sm:mr-2" aria-hidden="true" />
+                                <span className="hidden sm:inline">Back to Events</span>
+                                <span className="sm:hidden">Back</span>
+                            </Button>
+                        </Link>
+                        
+                        {/* Breadcrumb Navigation - Hidden on mobile */}
+                        <nav className="hidden sm:flex items-center gap-2 text-sm text-green-100 mb-2" aria-label="Breadcrumb">
+                            <Link to="/" className="hover:text-white">Home</Link>
+                            <span aria-hidden="true">/</span>
+                            <Link to="/events" className="hover:text-white">Events</Link>
+                            <span aria-hidden="true">/</span>
+                            <span className="text-white font-medium truncate max-w-[200px]">{eventTitle}</span>
+                        </nav>
+                    </div>
+                </header>
+
+                <main className="max-w-5xl mx-auto px-4 sm:px-6 -mt-4 sm:-mt-6">
+                    <article>
+                        <Card className="border-none shadow-xl">
+                            <CardContent className="p-4 sm:p-6 lg:p-8">
+                                {/* Header Section */}
+                                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-3 sm:gap-4 mb-4 sm:mb-6">
+                                    <div className="flex-1 min-w-0">
+                                        <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                                            <Badge className="bg-green-100 text-green-800 border-green-200 text-xs sm:text-sm">
+                                                {event.category?.replace(/_/g, ' ')}
+                                            </Badge>
+                                            {event.featured && (
+                                                <Badge className="bg-yellow-100 text-yellow-800 border-yellow-200 text-xs sm:text-sm">
+                                                    Featured
+                                                </Badge>
+                                            )}
+                                            {isPast && (
+                                                <Badge variant="outline" className="text-xs sm:text-sm">Past Event</Badge>
+                                            )}
+                                        </div>
+                                        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+                                            {eventTitle}
+                                        </h1>
+                                    </div>
+
+                                    <Button onClick={shareEvent} variant="outline" className="gap-2 self-start" aria-label="Share this event">
+                                        <Share2 className="w-4 h-4" aria-hidden="true" />
+                                        <span className="hidden sm:inline">Share</span>
+                                    </Button>
+                                </div>
+
+                                {/* Image */}
+                                {event.image_url && (
+                                    <div className="mb-6 sm:mb-8 rounded-lg overflow-hidden -mx-4 sm:mx-0">
+                                        <img
+                                            src={event.image_url}
+                                            alt={`${eventTitle} event`}
+                                            className="w-full h-48 sm:h-64 lg:h-96 object-cover"
+                                        />
+                                    </div>
+                                )}
+
+                                {/* Key Details */}
+                                <section className="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8 p-4 sm:p-6 bg-gradient-to-br from-green-50 to-blue-50 rounded-lg border border-green-100" aria-label="Event details">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-lg flex items-center justify-center shadow-sm flex-shrink-0" aria-hidden="true">
+                                            <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
+                                        </div>
+                                        <div className="min-w-0">
+                                            <p className="text-xs sm:text-sm text-gray-600 font-medium">Date</p>
+                                            <p className="text-base sm:text-lg font-bold text-gray-900">
+                                                <time dateTime={event.date}>
+                                                    <span className="hidden sm:inline">{format(new Date(event.date + 'T12:00:00'), 'EEEE, MMMM d, yyyy')}</span>
+                                                    <span className="sm:hidden">{format(new Date(event.date + 'T12:00:00'), 'EEE, MMM d, yyyy')}</span>
+                                                </time>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {event.time && (
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-lg flex items-center justify-center shadow-sm flex-shrink-0" aria-hidden="true">
+                                                <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
+                                            </div>
+                                            <div>
+                                                <p className="text-xs sm:text-sm text-gray-600 font-medium">Time</p>
+                                                <p className="text-base sm:text-lg font-bold text-gray-900">{event.time}</p>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    <div className="flex items-start gap-3 sm:col-span-2">
+                                        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-lg flex items-center justify-center shadow-sm flex-shrink-0" aria-hidden="true">
+                                            <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600" />
+                                        </div>
+                                        <address className="flex-1 not-italic min-w-0">
+                                            <p className="text-xs sm:text-sm text-gray-600 font-medium mb-1">Location</p>
+                                            <div className="text-gray-900 text-sm sm:text-base">
+                                                {event.location && <p className="font-semibold truncate">{event.location}</p>}
+                                                {event.address && <p className="truncate">{event.address}</p>}
+                                                <p>{event.city}, {event.state || 'FL'} {event.zip_code}</p>
+                                            </div>
+                                        </address>
+                                    </div>
+                                </section>
+
+
+                                {/* REGISTRATION INFORMATION */}
+                                {event.registration_required && (
+                                    <Alert className={`mb-6 sm:mb-8 ${
+                                        event.registration_required.toLowerCase().includes('no') 
+                                            ? 'bg-green-50 border-green-200' 
+                                            : 'bg-blue-50 border-blue-200'
+                                    }`}>
+                                        <Calendar className={`h-5 w-5 ${
+                                            event.registration_required.toLowerCase().includes('no')
+                                                ? 'text-green-600'
+                                                : 'text-blue-600'
+                                        }`} aria-hidden="true" />
+                                        <AlertDescription>
+                                            <div className="space-y-3">
+                                                <div>
+                                                    <p className={`font-bold text-base sm:text-lg ${
+                                                        event.registration_required.toLowerCase().includes('no')
+                                                            ? 'text-green-900'
+                                                            : 'text-blue-900'
+                                                    }`}>
+                                                        {formatRegistrationText(event.registration_required)}
+                                                    </p>
+                                                    {event.registration_method && (
+                                                        <p className="text-sm text-gray-700 mt-1">
+                                                            <strong>How to Register:</strong> {event.registration_method}
+                                                        </p>
+                                                    )}
+                                                </div>
+                                                
+                                                {event.registration_details && (
+                                                    <div className="p-3 bg-white/60 rounded border border-gray-200">
+                                                        <p className="text-sm text-gray-800">{event.registration_details}</p>
+                                                    </div>
+                                                )}
+                                                
+                                                {event.registration_deadline && (
+                                                    <p className="text-sm font-medium text-amber-700">
+                                                        <Clock className="w-4 h-4 inline mr-1" aria-hidden="true" />
+                                                        Deadline: {event.registration_deadline}
+                                                    </p>
+                                                )}
+                                                
+                                                {event.registration_url && !event.registration_required.toLowerCase().includes('no') && (
+                                                    <a
+                                                        href={event.registration_url}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="inline-block"
+                                                    >
+                                                        <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 h-10 sm:h-9">
+                                                            Register Now
+                                                            <ExternalLink className="w-4 h-4 ml-2" aria-hidden="true" />
+                                                        </Button>
+                                                    </a>
+                                                )}
+                                            </div>
+                                        </AlertDescription>
+                                    </Alert>
+                                )}
+
+                                {/* Description */}
+                                {event.description && (
+                                    <section className="mb-6 sm:mb-8" aria-labelledby="about-heading">
+                                        <h2 id="about-heading" className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">About This Event</h2>
+                                        <p className="text-gray-700 leading-relaxed whitespace-pre-wrap text-sm sm:text-base">
+                                            {event.description}
+                                        </p>
+                                    </section>
+                                )}
+
+                                {/* Sensory-Friendly Features */}
+                                {event.sensory_accommodations && (
+                                    <section className="mb-6 sm:mb-8" aria-labelledby="sensory-heading">
+                                        <h2 id="sensory-heading" className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Sensory-Friendly Features</h2>
+                                        <div className="p-3 sm:p-4 bg-purple-50 rounded-lg border border-purple-200">
+                                            <p className="text-gray-800 whitespace-pre-wrap text-sm sm:text-base">{event.sensory_accommodations}</p>
+                                        </div>
+                                    </section>
+                                )}
+
+                                {/* VERIFICATION ALERTS */}
+                                {event.verification_status === 'verified' && event.specific_accommodations_published && (
+                                    <Alert className="mb-6 sm:mb-8 bg-green-50 border-green-200">
+                                        <CheckCircle className="h-5 w-5 text-green-600" aria-hidden="true" />
+                                        <AlertDescription>
+                                            <div className="space-y-2">
+                                                <p className="font-semibold text-green-900 text-sm sm:text-base">
+                                                    Verified Accommodation Details
+                                                </p>
+                                                <p className="text-xs sm:text-sm text-green-800">
+                                                    The sensory-friendly accommodations listed above have been verified from official event documentation. 
+                                                    {event.verification_source && (
+                                                        <span className="ml-1">
+                                                            Source: <a 
+                                                                href={event.verification_source} 
+                                                                target="_blank" 
+                                                                rel="noopener noreferrer"
+                                                                className="underline hover:text-green-900 font-medium"
+                                                            >
+                                                                Official Event Page
+                                                            </a>
+                                                        </span>
+                                                    )}
+                                                </p>
+                                                {event.verification_notes && (
+                                                    <p className="text-xs sm:text-sm text-green-700 italic mt-2">
+                                                        Note: {event.verification_notes}
+                                                    </p>
+                                                )}
+                                            </div>
+                                        </AlertDescription>
+                                    </Alert>
+                                )}
+
+                                {(!event.specific_accommodations_published || event.verification_status !== 'verified') && (
+                                    <Alert className="mb-6 sm:mb-8 bg-amber-50 border-amber-200">
+                                        <AlertCircle className="h-5 w-5 text-amber-600" aria-hidden="true" />
+                                        <AlertDescription>
+                                            <div className="space-y-3">
+                                                <p className="font-semibold text-amber-900 text-sm sm:text-base">
+                                                    Accommodation Details Not Publicly Specified
+                                                </p>
+                                                <p className="text-xs sm:text-sm text-amber-800">
+                                                    While this event is advertised as sensory-friendly or autism-friendly, 
+                                                    specific accommodation details are not published in official event materials.
+                                                </p>
+                                                <div className="mt-3 p-2 sm:p-3 bg-white/60 rounded border border-amber-200">
+                                                    <p className="text-xs sm:text-sm font-medium text-amber-900 mb-2">
+                                                        <Info className="w-4 h-4 inline mr-1" aria-hidden="true" />
+                                                        Recommended Questions to Ask:
+                                                    </p>
+                                                    <ul className="text-xs sm:text-sm text-amber-800 space-y-1 ml-5 list-disc">
+                                                        <li>What specific sensory accommodations are available?</li>
+                                                        <li>Is there a quiet/calming space if my child becomes overwhelmed?</li>
+                                                        <li>Are noise-canceling headphones provided or should we bring our own?</li>
+                                                        <li className="hidden sm:list-item">Will there be reduced lighting or loud noises we should prepare for?</li>
+                                                        <li className="hidden sm:list-item">Are staff trained in autism awareness and support?</li>
+                                                        <li className="hidden sm:list-item">Can we arrive early for a quieter experience?</li>
+                                                    </ul>
+                                                </div>
+                                                {event.contact_email && (
+                                                    <p className="text-xs sm:text-sm text-amber-800 mt-2">
+                                                        Contact the organizers at{' '}
+                                                        <a 
+                                                            href={`mailto:${event.contact_email}`}
+                                                            className="underline hover:text-amber-900 font-medium break-all"
+                                                        >
+                                                            {event.contact_email}
+                                                        </a>
+                                                        {' '}to ask these questions before attending.
+                                                    </p>
+                                                )}
+                                            </div>
+                                        </AlertDescription>
+                                    </Alert>
+                                )}
+
+                                {/* Age Groups */}
+                                {event.age_groups && event.age_groups.length > 0 && (
+                                    <section className="mb-6 sm:mb-8" aria-labelledby="age-heading">
+                                        <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                                            <Users className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600" aria-hidden="true" />
+                                            <h2 id="age-heading" className="text-xl sm:text-2xl font-bold text-gray-900">Age Groups</h2>
+                                        </div>
+                                        <div className="flex flex-wrap gap-2">
+                                            {event.age_groups.map((age: string, idx: number) => (
+                                                <Badge key={idx} variant="outline" className="text-xs sm:text-sm py-1.5 sm:py-2 px-3 sm:px-4">
+                                                    {age.replace(/_/g, ' ')}
+                                                </Badge>
+                                            ))}
+                                        </div>
+                                    </section>
+                                )}
+
+                                {/* Action Buttons */}
+                                {!isPast && (
+                                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 p-4 sm:p-6 bg-gray-50 rounded-lg border border-gray-200">
+                                        {event.registration_url && (
+                                            <a
+                                                href={event.registration_url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex-1"
+                                            >
+                                                <Button className="w-full bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-base sm:text-lg py-5 sm:py-6 h-auto">
+                                                    Register Now
+                                                    <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 ml-2" aria-hidden="true" />
+                                                </Button>
+                                            </a>
+                                        )}
+
+                                        {eventWebsiteUrl && (
+                                            <a
+                                                href={eventWebsiteUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex-1"
+                                            >
+                                                <Button variant="outline" className="w-full text-base sm:text-lg py-5 sm:py-6 h-auto">
+                                                    <span className="hidden sm:inline">{hasValidWebsite ? 'Official Website' : 'Event Information'}</span>
+                                                    <span className="sm:hidden">{hasValidWebsite ? 'Website' : 'Event Info'}</span>
+                                                    <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 ml-2" aria-hidden="true" />
+                                                </Button>
+                                            </a>
+                                        )}
+                                    </div>
+                                )}
+
+                                {/* Contact & Links */}
+                                <section className="border-t pt-6 sm:pt-8" aria-labelledby="contact-heading">
+                                    <h2 id="contact-heading" className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Contact & Links</h2>
+                                    <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
+                                        <Card className="bg-gray-50 border-none">
+                                            <CardContent className="p-4 sm:p-6 space-y-3 sm:space-y-4">
+                                                {event.organizer && (
+                                                    <div>
+                                                        <p className="font-medium text-gray-900 mb-1 text-sm sm:text-base">Organizer</p>
+                                                        <p className="text-gray-700 text-sm sm:text-base">{event.organizer}</p>
+                                                    </div>
+                                                )}
+                                                {event.contact_email && (
+                                                    <div>
+                                                        <p className="font-medium text-gray-900 mb-1 text-sm sm:text-base">Email</p>
+                                                        <a
+                                                            href={`mailto:${event.contact_email}`}
+                                                            className="text-blue-600 hover:text-blue-700 break-all text-sm sm:text-base"
+                                                        >
+                                                            {event.contact_email}
+                                                        </a>
+                                                    </div>
+                                                )}
+                                                {event.contact_phone && (
+                                                    <div>
+                                                        <p className="font-medium text-gray-900 mb-1 text-sm sm:text-base">Phone</p>
+                                                        <a
+                                                            href={`tel:${event.contact_phone}`}
+                                                            className="text-blue-600 hover:text-blue-700 text-sm sm:text-base"
+                                                        >
+                                                            {event.contact_phone}
+                                                        </a>
+                                                    </div>
+                                                )}
+                                            </CardContent>
+                                        </Card>
+
+                                        <Card className="bg-gray-50 border-none">
+                                            <CardContent className="p-4 sm:p-6 space-y-3 sm:space-y-4">
+                                                {eventWebsiteUrl && (
+                                                    <div>
+                                                        <p className="font-medium text-gray-900 mb-2 text-sm sm:text-base">
+                                                            {hasValidWebsite ? 'Official Website' : 'Event Information'}
+                                                        </p>
+                                                        <a
+                                                            href={eventWebsiteUrl}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="text-blue-600 hover:text-blue-700 break-all inline-flex items-center gap-2 text-sm sm:text-base"
+                                                        >
+                                                            Visit Website
+                                                            <ExternalLink className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
+                                                        </a>
+                                                    </div>
+                                                )}
+                                                {event.registration_url && (
+                                                    <div>
+                                                        <p className="font-medium text-gray-900 mb-2 text-sm sm:text-base">Registration</p>
+                                                        <a
+                                                            href={event.registration_url}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="text-blue-600 hover:text-blue-700 break-all inline-flex items-center gap-2 text-sm sm:text-base"
+                                                        >
+                                                            Registration Link
+                                                            <ExternalLink className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
+                                                        </a>
+                                                    </div>
+                                                )}
+                                            </CardContent>
+                                        </Card>
+                                    </div>
+                                </section>
+
+                                {/* Cost Info */}
+                                {event.cost_info && (
+                                    <section className="border-t pt-6 sm:pt-8 mt-6 sm:mt-8" aria-labelledby="cost-heading">
+                                        <h2 id="cost-heading" className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Cost</h2>
+                                        <p className="text-gray-700 text-base sm:text-lg">{event.cost_info}</p>
+                                    </section>
+                                )}
+                            </CardContent>
+                        </Card>
+                    </article>
+                </main>
+            </div>
+        </>
+    );
+}

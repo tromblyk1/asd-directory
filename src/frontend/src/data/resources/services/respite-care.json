@@ -1,0 +1,29 @@
+{
+  "slug": "respite-care",
+  "category": "services",
+  "title": "Respite Care",
+  "shortDescription": "Temporary relief care for family caregivers of individuals with autism.",
+  "description": "Respite care provides temporary relief for family caregivers by offering short-term care for individuals with autism. Trained respite workers can provide care in the family home, at a respite facility, or in the community. This allows parents and caregivers to rest, attend to other responsibilities, or simply take a break while knowing their loved one is in capable hands. Respite care is essential for preventing caregiver burnout and maintaining family well-being.",
+  "benefits": [
+    "Provides caregivers with needed breaks",
+    "Prevents caregiver burnout",
+    "Offers safe, supervised care",
+    "Allows time for siblings and other family needs",
+    "Can be scheduled regularly or for emergencies",
+    "Supports overall family well-being"
+  ],
+  "whoCanBenefit": [
+    "Parents needing temporary relief",
+    "Families with high-support needs children",
+    "Caregivers at risk of burnout",
+    "Families needing emergency backup care",
+    "Those wanting regular scheduled breaks"
+  ],
+  "links": [
+    {
+      "label": "ARCH National Respite Network",
+      "url": "https://archrespite.org/",
+      "description": "National resource for respite care information and locators"
+    }
+  ]
+}

@@ -1,0 +1,492 @@
+id,name,address1,address2,city,state,zip_code
+5775,CHANGING HANDS HOME CARE,6966 Jack Horner Ln,null,Jacksonville,FL,32210
+5799,SISTERS HOME CARE SERVICES INC,4010 Highgate Dr,null,Valrico,FL,33594
+6081,"FAITH INDEPENDENCE LLC
+FAITH HEALTH SOLUTIONS",456 Canby Cir,null,Ocoee,FL,34761
+6103,SUPERIOR PRIVATE TRANSPORTATION OF SWFL,12914 3rd St 12914 3rd St,null,Fort Myers,FL,33905
+6139,FANTA VILLA CARE SERVICES LLC,19135 Us Hwy 19 N,Suite,Clearwater,FL,33764
+6158,KID CARE RESPIRATORY SERVICES CORP,9930 Nw 26th St,null,Doral,FL,33172
+6177,VINSONNA PHYSICAL THERAPY,5079 N Dixie Hwy,Suite,Oakland Park,FL,33334
+6206,"INDEPENDENCE CONNECTION, LLC",2473 9th Ave N,null,St. Petersburg,FL,33713
+6208,"RARE SOUL CARE SERVICES, LLC",7205 Bryan Dairy Rd,null,Largo,FL,33777
+6248,"COMMUNITY BEHAVIOR SUPPORTS, INC.",4717 66th St N,null,Kenneth City,FL,33709
+6250,SHELBEA HOUSTON LLC,1805 James L Redman Pkwy,Suite,Plant City,FL,33563
+6261,"D-TEC DEVELOPING THROUGH ENRICHED CURRICULUM, INC",10766 56th St N,null,Pinellas Park,FL,33782
+6262,A FOUNTAIN OF YOUTH HOME CARE,2229 Richwood Pike Dr,null,Ruskin,FL,33570
+6278,DANDRIDGE NOVELLA,2741 Talco Hills Dr,Suite,Tallahassee,FL,32303
+6291,FLEMING SUPPORT SERVICES,5991 Che,Suite,Jacksonville,FL,32217
+6368,ABACO CONSTRUCTION INC.,6800 Sw 27th St,null,Miami,FL,33155
+6405,GRACE IN MOTION LLC,2534 Ne 20th Pl,null,Cape Coral,FL,33909
+6421,JMB LOVING CARE LLC,1629 Gulf Rd,null,Tarpon Springs,FL,34689
+6438,YOUR CHOICE UNLIMITED INC,30221 Eastport Dr,null,Wesley Chapel,FL,33545
+6447,XTRA HELPING HANDS AND HEARTS LLC,1459 Bitterberry Dr,null,Orange Park,FL,32065
+6459,ALF PHILLIPPE RIDGE,1055 Phillippe Pkwy,null,Safety Harbor,FL,34695
+6466,TROWBRIDGE AG LLC,640 Villagrande Ave S,null,St. Petersburg,FL,33707
+6509,AMORE AT HOME LLC,6217 Colmar Pl,null,Apollo Beach,FL,33572
+6510,AUDUBON GARDENS GROUP LLC,1504 Bennett Rd,null,Orlando,FL,32803
+8648,DAINERYS GIL AGENCY LLC,8726 Mcadam Pl,null,Tampa,FL,33634
+8654,"KM HOME CARE, LLC
+KM HOMECARE",2100 W 76th St,Suite,Hialeah,FL,33016
+8661,"PROXICARE, INC",731 Nw 132nd Ct,null,Miami,FL,33182
+8714,"A & J COMPASSIONATE CARE, LLC",8319 42nd Ave N,null,St. Petersburg,FL,33709
+8757,COMMUNITY HEALTHCARE ALLIANCE INC,3108 Litchfield Dr,null,Orange Park,FL,32065
+8758,ASHLEY PRECIOUS HANDS,11066 Traci Lynn Dr,null,Jacksonville,FL,32218
+8986,"SILC EXPRESS LLC
+OSCAR SILVA",520 Christina Dr,Suite,Royal Palm Beach,FL,33414
+9157,AVACORP INC,15810 Fenton Pl,null,Tampa,FL,33618
+9778,24/7 Chiropractic Wellness & Rehab - 2631 Forest Rd,2631 Forest Rd,null,Spring Hill,FL,34606
+9779,ASR Sports Medicine Miami Beach,1825 West Ave,null,Miami Beach,FL,33139
+9780,Therapeutic Rehab Specialists,1826 N Crystal Lake Dr,null,Lakeland,FL,33801
+9783,Apollo Rehab Parkland,7635 N State Rd 7,null,Parkland,FL,33073
+9785,Baptist Health Physical Therapy & Rehabilitation | Miami Beach,709 Alton Rd,null,Miami Beach,FL,33139
+9786,"Behavior Basics, Inc., Brevard Office",2401 W Eau Gallie Blvd,null,Melbourne,FL,32935
+9787,"CARE Spine and Sports Health: Jean Guy-Yoma Souffrant, MD-MSPT",2795 W New Haven Ave,null,Melbourne,FL,32904
+9789,"Dr. Rob Poliszuk PT, DPT, CSCS (The Mobile Physical Therapist)",185 Se 14th Ter,null,Miami,FL,33131
+9790,Gold Coast Physical Therapy - Royal Palm Beach,11482 Okeechobee Blvd,Suite,Royal Palm Beach,FL,33411
+9793,FAME Speech and Myo,7807 Baymeadows Rd E,null,Jacksonville,FL,32256
+9794,Department of Communication Sciences and Disorders,Orlando,null,Fl 32816,FL,32816
+9795,Young Body Rehabilitation,4362 Northlake Blvd,Suite,Palm Beach Gardens,FL,33410
+9796,"Tampa Bay Speech, Language & Reading Clinic",5607 Skytop Dr,null,Lithia,FL,33547
+9797,3 C's Therapy Center,4019 W 1st St,null,Sanford,FL,32771
+9800,Physical Therapy,1865 Lpga Blvd,null,Holly Hill,FL,32117
+9801,Memorial Medical Fitness - West,703 N Flamingo Rd,null,Pembroke Pines,FL,33028
+9803,Physical Therapy Now Miramar,18600 Nw 87th Ave,null,Hialeah,FL,33015
+9804,Fox Physical Therapy-Brickell,175 Sw 7th St,Suite,Miami,FL,33130
+9807,Florida Strong Physical Therapy,5576 W Sample Rd,Suite,Margate,FL,33073
+9808,"Atlantic Rehabilitation Center - North Miami Beach, Florida",16249 Biscayne Blvd,null,North Miami Beach,FL,33160
+9809,Complete Therapy USA,2627 Ne 203rd St,null,Miami,FL,33180
+9810,Nicklaus Children's Nirvair Chowdhury Midtown Urgent Care Center,3915 Biscayne Blvd,null,Miami,FL,33137
+9812,CORA Physical Therapy Kendall,7762 N Kendall Dr,null,Miami,FL,33156
+9813,Physical Therapy NOW Bird Road,6840 Sw 40th St,Suite,Miami,FL,33155
+9815,Nicklaus Children’s Hospital,Medical Arts,null,Miami,FL,33155
+9816,CORA Physical Therapy Miami Beach,1040 71st St,null,Miami Beach,FL,33141
+9817,CORA Physical Therapy Melbourne,2200 W Eau Gallie Blvd,null,Melbourne,FL,32901
+9818,Premier Physical Therapy and Sports Medicine - Melbourne,2214 Bryan St,null,Melbourne,FL,32901
+9819,CORA Physical Therapy Palm Bay,4311 Norfolk Pkwy,null,West Melbourne,FL,32904
+9820,"Align Physical Therapy, Inc.",301 Ocean Ave,null,Melbourne Beach,FL,32951
+9821,Hop Skip and a Jump Pediatric Therapy - 886 S Dillard St,886 S Dillard St,null,Winter Garden,FL,34787
+9822,Rehability Prosthetics & Orthotics,11216 Spring Hill Dr,null,Spring Hill,FL,34609
+9823,CORA Physical Therapy Ormond Beach,1275 W Granada Blvd,Suite,Ormond Beach,FL,32174
+9824,FloRehab Center Physical and Aquatic Therapy Ormond Beach,739a S Nova Rd,null,Ormond Beach,FL,32174
+9825,Barr & Associates Physical Therapy,1425 Hand Ave,Suite,Ormond Beach,FL,32174
+9826,Premier Physical Therapy & Sports Medicine Inc - Ormond Beach,495 S Nova Rd,null,Ormond Beach,FL,32174
+9827,Ability Rehabilitation - Sanford,1200 Lexington Green Ln,null,Sanford,FL,32771
+9828,Ability Rehabilitation - Orlando - 11543 Lake Underhill Rd,11543 Lake Underhill Rd,null,Orlando,FL,32825
+9829,AdventHealth Sports Med & Rehab Lake Nona,9975 Tavistock Lakes Blvd,null,Orlando,FL,32827
+9831,CORA Physical Therapy West Palm Beach,8983 Okeechobee Blvd,null,Royal Palm Beach,FL,33411
+9832,CORA Physical Therapy Lake Worth,1736 S Congress Ave,null,Palm Springs,FL,33461
+9833,Be Bold Performance & Wellness,675 30th Ave N,null,St. Petersburg,FL,33704
+9834,AxisPro Physical Therapy. Hand & Lymphedema Clinic,405 N Wickham Rd,null,Melbourne,FL,32935
+9835,Back To You Chiropractic and Physical Therapy,4152 Okeechobee Rd,Suite,Fort Pierce,FL,34947
+9836,Back to You Chiropractic & Physical Therapy,3002 Sw Port St Lucie Blvd,null,Port St. Lucie,FL,34953
+9837,Premier Physical Therapy & Sports Medicine Inc - Port Saint Lucie - 519 Nw Lake Whitney Pl,519 Nw Lake Whitney Pl,null,Port St. Lucie,FL,34986
+9838,CORA Physical Therapy Stuart,2018 Se Federal Hwy,null,Stuart,FL,34994
+9839,Premier Physical Therapy & Sports Medicine Inc - Stuart,2010 Se Ocean Blvd,null,Stuart,FL,34996
+9840,PUPA Pediatric Care PPEC,303 Ne 167th St,null,North Miami Beach,FL,33162
+9841,Physical Therapy NOW Miami Lakes,15985 Nw 57th Ave,null,Miami Lakes,FL,33014
+9842,Nicklaus Children's Doral Outpatient Center,3601 Nw 107th Ave,null,Medley,FL,33178
+9843,Brighter Days PPEC of Palm Bay,1464 Troutman Blvd Ne,null,Palm Bay,FL,32905
+9844,Intuitive Therapies & Pelvic Health,10213 Wilsky Blvd,null,Tampa,FL,33625
+9845,CORA Physical Therapy South Tampa,3416 S Dale Mabry Hwy,null,Tampa,FL,33629
+9846,CORA Physical Therapy Carrollwood,3633 W Waters Ave,null,Tampa,FL,33614
+9847,Florida Orthopaedic Institute - Tampa,909 N Dale Mabry Hwy Side A,null,Tampa,FL,33609
+9848,Pro-Active Physical Therapy,13801 Bruce B Downs Blvd,Suite,Tampa,FL,33613
+9849,Physical Therapy NOW Tallahassee,2743 Capital Cir Ne,null,Tallahassee,FL,32308
+9850,"Weeks Wellness - Tallahassee, FL",3689 Coolidge Ct,null,Tallahassee,FL,32311
+9851,CORA Physical Therapy South Lakeland,3317 Us Hwy 98s,null,Lakeland,FL,33803
+9852,Florida Orthopaedic Institute - Lakeland,4725 Us Hwy 98 S,Suite,Lakeland,FL,33812
+9853,CORA Physical Therapy Winter Haven,1601 6th St Se,Suite,Winter Haven,FL,33880
+9854,CORA Physical Therapy Lakeland,3127 Us Hwy 98 N,null,Lakeland,FL,33805
+9855,Watson Clinic Physical Therapy & Sports Medicine,2190 E County Rd 540a,null,Lakeland,FL,33813
+9856,CITIMED Hollywood,6030 Hollywood Blvd,null,Hollywood,FL,33024
+9857,CORA Physical Therapy North Jacksonville,604 New Berlin Rd,null,Jacksonville,FL,32218
+9858,Jacksonville Orthopaedic Institute Rehabilitation - Second Floor,14534 Old Saint Augustine Rd,Suite,Second Floor,FL,32258
+9859,Jacksonville Orthopaedic Institute Rehabilitation - Jacksonville - 12276 San Jose Blvd,12276 San Jose Blvd,null,Jacksonville,FL,32223
+9860,Jacksonville Orthopaedic Institute- San Marco,1325 San Marco Blvd,null,Jacksonville,FL,32207
+9861,TherapyWorks,1819 Hendricks Ave,null,Jacksonville,FL,32207
+9862,CORA Physical Therapy Regency,9527 Regency Sq Blvd,null,Jacksonville,FL,32225
+9863,CORA Physical Therapy Riverside,1045 Riverside Ave,null,Jacksonville,FL,32204
+9864,SportsCare Physical Therapy - Jacksonville,3716 University Blvd S,null,Jacksonville,FL,32216
+9865,CORA Physical Therapy Kennerly,6100 Kennerly Rd,Suite,Jacksonville,FL,32216
+9866,Jacksonville Orthopaedic Institute Rehabilitation - Jacksonville - 12961 N Main St,12961 N Main St,Suite,Jacksonville,FL,32218
+9869,"Generations Rehab Services, Inc",10031 Pines Blvd,null,Hollywood,FL,33024
+9871,"Atlantic Rehabilitation Center - Pembroke Pines, Florida",17900 Nw 5th St,null,Pembroke Pines,FL,33029
+9872,Nicklaus Children's West Pines Pediatric Care Center,18503 Pines Blvd,Suite,Pembroke Pines,FL,33029
+9873,Nicklaus Children's Miramar Outpatient Center,12246 Miramar Pkwy Miramar Sq,null,Miramar,FL,33025
+9874,Oasis Specialized Therapy Care (Hollywood),7261 Sheridan St,null,Hollywood,FL,33024
+9875,Nicklaus Children's Miramar Urgent Care Center,12246 Miramar Pkwy,null,Miramar,FL,33025
+9876,HANDS REHAB /. Florida Hand Team & Associates Miramar LLC,11352 Miramar Pkwy,null,Miramar,FL,33025
+9879,CardioFlex Therapy,12585 Orange Dr,null,Southwest Ranches,FL,33330
+9880,CORA Physical Therapy Pompano Beach,1418 Powerline Rd,null,Pompano Beach,FL,33069
+9881,South Florida Orthopaedics & Sports Medicine Ortho Injury Walk-in Clinic,9401 Sw Discovery Wy,null,Port St. Lucie,FL,34987
+9885,Varsity Rehabilitation,495 S Nova Rd,null,Ormond Beach,FL,32174
+9886,Gold Coast Physical Therapy - Lake Worth,6169 Jog Rd,Suite,Lake Worth,FL,33467
+9891,Astro Health & Rehab Center,261 Westward Dr,Suite,Miami,FL,33166
+9892,Progressive Therapy - Pinecrest/Palmetto Bay,12651 S Dixie Hwy,null,Miami,FL,33156
+9893,Florida Occupational Healthcare - Miami,8585 Sunset Dr,Suite,Miami,FL,33143
+9894,Physical Therapy Now - Brickell,42 Sw 6th St,null,Miami,FL,33130
+9895,Oasis Specialized Therapy Care,15485 Eagle Nest Ln,Suite,Miami Lakes,FL,33014
+9896,CORA Physical Therapy North Dade,1893 Ne Miami Gardens Dr,null,North Miami Beach,FL,33179
+9897,Fox Physical Therapy,162 Ne 25th St,null,Miami,FL,33137
+9898,CORA Physical Therapy Miami Lakes,15150 Nw 79th Ct,null,Hialeah,FL,33016
+9899,Align Physical Therapy,2030 S Patrick Dr,null,Indian Harbour Beach,FL,32937
+9900,AxisPro Physical Therapy & Hand clinic - Palm Bay,5240 Babcock St Ne,Suite,Palm Bay,FL,32905
+9901,CORA Physical Therapy Satellite Beach,1024 Jimmy Buffett Mem Hwy,null,Satellite Beach,FL,32937
+9902,AdventHealth Pediatric Rehabilitation Ocala,1401 Se 30th Ave,null,Ocala,FL,34471
+9905,AdventHealth Sports Med & Rehab Port Orange,5821 S Williamson Blvd,null,Port Orange,FL,32128
+9906,Orthopedic Walk-In Clinic,1865 Lpga Blvd,null,Holly Hill,FL,32117
+9908,Premier Physical Therapy & Sports Medicine - Ormond Beach,196 And,null,Ormond Beach,FL,32176
+9909,Ability Rehabilitation - New Smyrna Beach,1413 S Dixie Fwy,null,New Smyrna Beach,FL,32168
+9910,CORA Physical Therapy Port Orange,1525 Herbert St,Suite,Port Orange,FL,32129
+9911,Ability Rehabilitation - South Daytona,401 Venture Dr,Suite,South Daytona,FL,32119
+9912,Ability Rehabilitation - Orange City,294 Treemonte Dr,null,Orange City,FL,32763
+9913,Ability Rehabilitation - Ormond Beach,290 Clyde Morris Blvd,Suite,Ormond Beach,FL,32174
+9914,Ability Rehabilitation - Orlando - 801 N Orange Ave,801 N Orange Ave,null,Orlando,FL,32801
+9915,CORA Physical Therapy South Semoran,5575 S Semoran Blvd,null,Orlando,FL,32822
+9916,CORA Physical Therapy Sand Lake,5787 Vineland Rd,null,Orlando,FL,32819
+9917,CORA Physical Therapy Waterford Lakes,12184 Lake Underhill Rd,null,Orlando,FL,32825
+9919,CORA Physical Therapy Orlando,3861 Oakwater Cir,null,Orlando,FL,32806
+9920,AdventHealth Sports Med & Rehab Dr. Phillips,5018 Dr Phillips Blvd,null,Orlando,FL,32819
+9921,CORA Physical Therapy Winter Park,811 S Orlando Ave H,null,Winter Park,FL,32789
+9922,Ability Rehabilitation - Winter Park,1870 Aloma Ave,null,Winter Park,FL,32789
+9923,AdventHealth Sports Med and Rehab Training Center,25 S Terry Ave,null,Orlando,FL,32805
+9924,AdventHealth Sports Med & Rehab Waterford Lakes,626 N Alafaya Trl,Suite,Orlando,FL,32828
+9925,Ability Rehabilitation - Orlando - 6068 S Apopka Vineland Rd,6068 S Apopka Vineland Rd,null,Orlando,FL,32819
+9926,Physical Therapy Now Orlando,500 N Semoran Blvd,null,Orlando,FL,32807
+9927,Ability Rehabilitation - Orlando - 5540 E Grant St,5540 E Grant St,Suite,Orlando,FL,32822
+9928,TLC Pediatric Therapies - 4705 S Apopka Vineland Rd,4705 S Apopka Vineland Rd,null,Orlando,FL,32819
+9929,AdventHealth Sports Med and Rehab Orlando Sportsplex,8701 Maitland Summit Blvd,null,Orlando,FL,32810
+9930,ApexNetwork Physical Therapy,2875 S Ocean Blvd,null,Palm Beach,FL,33480
+9931,Dynamic Duo Physical Therapy (PT) +,4065 N Haverhill Rd B4,null,West Palm Beach,FL,33417
+9932,Comprehensive Hand & Physical Therapy,1232 W Indiantown Rd,null,Jupiter,FL,33458
+9933,Pedikidz of Palm Beach,2311 10th Ave N,null,Palm Springs,FL,33461
+9934,CORA Physical Therapy Palm Beach Gardens,3450 Northlake Blvd,null,Palm Beach Gardens,FL,33403
+9935,Life In Motion Physical & Hand Therapy,9125 Us Hwy 19 N,null,Pinellas Park,FL,33782
+9938,CORA Physical Therapy Largo,2130 E Bay Dr,null,Largo,FL,33771
+9939,Physical Therapy Now Palm Harbor,33143 Us Hwy 19 N,null,Palm Harbor,FL,34684
+9941,CORA Physical Therapy Hollywood,5818 Hollywood Blvd,null,Hollywood,FL,33021
+9942,Physical Therapy Now Pembroke Pines,8150 Pines Blvd,null,Hollywood,FL,33024
+9943,Physical Therapy Now Cooper City,12165 Sheridan St,null,Hollywood,FL,33026
+9944,Elite PPEC (Pediatric Medical Daycare),411 S 21st Ave,null,Hollywood,FL,33020
+9945,Premier Physical Therapy & Sports Medicine Inc - Port Saint Lucie - 1400 Se,1400 Se,null,Port St. Lucie,FL,34952
+9946,South Florida Orthopaedics & Sports Medicine,9401 Sw Discovery Wy,null,Port St. Lucie,FL,34987
+9947,Premier Physical Therapy & Sports Medicine Inc - Port St. Lucie,10560 Sw Village Pkwy,null,Port St. Lucie,FL,34987
+9949,CORA Physical Therapy St. Lucie West,1707 St Lucie W Blvd,null,Port St. Lucie,FL,34986
+9951,CORA Physical Therapy Westchester,6790 Coral Wy,null,Miami,FL,33155
+9952,F.I.T. Therapy,7401 Miami Lakes Dr,null,Miami Lakes,FL,33014
+9953,Physical Therapy Now-Allapattah,2060 Nw 22nd Ave,Suite,Miami,FL,33142
+9954,Physical Therapy Now North Miami Beach,373 Ne 167th St,null,North Miami Beach,FL,33162
+9955,Defy Therapy and Wellness,15807 Biscayne Blvd,null,North Miami Beach,FL,33160
+9956,Potentia Therapeutics,2307 S Dale Mabry Hwy F,null,Tampa,FL,33629
+9957,Bloom Pelvic Floor Therapy,1211 N Westshore Blvd,null,Tampa,FL,33607
+9958,Fit 4 Life Physical Therapy,5338 Primrose Lake Cir,null,Tampa,FL,33647
+9959,Optimal Performance & Physical Therapy - OPPT University,3010 E 138th Ave,null,Tampa,FL,33613
+9960,Optimal Performance & PT,1812,null,Tampa,FL,33606
+9961,CORA Physical Therapy North Tampa,14462 Bruce B Downs Blvd,null,Tampa,FL,33613
+9962,Pelvic Solutions,307 S Blvd B,null,Tampa,FL,33606
+9963,CORA Physical Therapy Haines City,35910 Us-27,null,Haines City,FL,33844
+9964,Watson Clinic Highlands,2300 E County Rd 540a,null,Lakeland,FL,33813
+9965,Watson Clinic Center for Specialized Rehabilitation,2190 E County Rd 540a,null,Lakeland,FL,33813
+9966,Revive Rehab Inc.,4745 Sutton Park Ct,Suite,Jacksonville,FL,32224
+9967,Optimal Performance & Physical Therapies Lakeland,4525 Florida Ave S,Suite,Lakeland,FL,33813
+9968,OnSite Physio,7785 Baymeadows Way,null,Jacksonville,FL,32256
+9969,CORA Physical Therapy Tinseltown,9722 Touchton Rd,null,Jacksonville,FL,32246
+9970,Apex Rehabilitation and Training,8210 Cypress Plaza Dr,null,Jacksonville,FL,32256
+9971,Jacksonville Orthopaedic Institute Rehabilitation - Jacksonville - 7740 Point Meadows Dr,7740 Point Meadows Dr,null,Jacksonville,FL,32256
+9972,Reunion Rehabilitation Hospital Jacksonville,12645 Salina Dr,null,Jacksonville,FL,32246
+9975,CORA Physical Therapy East Pembroke Pines,881 Nw 99th Ave Bay 28,null,Hollywood,FL,33024
+9976,Sunrise Health & Rehabilitation Center,4800 N Nob Hill Rd,null,Sunrise,FL,33351
+9977,CORA Physical Therapy Lauderhill,4988 N University Dr,null,Sunrise,FL,33351
+9981,ReQuest Physical Therapy - Tioga,12830 Sw 1 Ln,null,Newberry,FL,32669
+9984,AdventHealth Sports Med & Rehab Winter Park,2005 Mizell Ave,null,Winter Park,FL,32792
+9985,AdventHealth Sports Med & Rehab Orlando (SODO),2519 S Orange Ave,null,Orlando,FL,32806
+9986,Premier Physical Therapy and Sports Medicine - Port St. Lucie,4007 Sw Port St Lucie Blvd,null,Port St. Lucie,FL,34953
+9991,"Dalton Lewis, PT, DPT",1430 Lakeland Hills Blvd,null,Lakeland,FL,33805
+9994,AdventHealth Sports Med and Rehab Innovation Tower,265 E Rollins St,null,Orlando,FL,32804
+9995,AdventHealth Sports Med and Rehab Pediatrics Mills Park,1724 N Mills Ave,null,Orlando,FL,32803
+9996,CORA Physical Therapy Westside,6248 103rd St,null,Jacksonville,FL,32210
+9997,FloRehab Center Physical and Aquatic Therapy Port Orange,1402 Dunlawton Ave,Suite,Port Orange,FL,32127
+9999,Hopeful Therapies,2019 E Edgewood Dr,null,Lakeland,FL,33803
+10000,Lemon City Collective,Yellow Door,null,Miami,FL,33138
+10006,Children's Rehab PPEC - Lehigh Acres,3020 Lee Blvd,null,Lehigh Acres,FL,33971
+10010,DREAM HOPE & BELIEVE THERAPY CORP,13155 Sw 134th St,Suite,Miami,FL,33186
+10011,My Big World Inc,8785 Sw 165th Ave,Suite,Miami,FL,33193
+10012,Excel Wellness & Rehab,10031 Pines Blvd,null,Hollywood,FL,33024
+10013,Kids Hope PPEC,1515 Nw 167th St,null,Miami Gardens,FL,33169
+10014,Essential Therapy Services Inc,15271 Nw 60th Ave,null,Miami Lakes,FL,33014
+10015,Libre Physical Therapy,11155 Sw 112th Ave,Building,Miami,FL,33176
+10016,Dazzling Kids Therapy & M M Therapy Services,8470 Sw 8th St,null,Miami,FL,33144
+10017,Specialized Nursing Services,190 Ne 199th St,null,North Miami Beach,FL,33179
+10018,FYZICAL Therapy & Balance Centers of Miami,3150 W 76th St,null,Hialeah,FL,33018
+10019,Happy Kids PPEC,4756 Nw 167th St,null,Miami Lakes,FL,33014
+10021,Mercy Outpatient Rehabilitation Clinic,16459 Ne 6th Ave,null,North Miami Beach,FL,33162
+10022,FYZICAL Therapy & Balance Centers - Melbourne,21 Suntree Pl,null,Melbourne,FL,32940
+10023,Beachside Physical Therapy - Melbourne,3680 N Wickham Rd,null,Melbourne,FL,32935
+10024,FYZICAL Therapy & Balance Centers - Indialantic,417 5th Ave,Suite,Indialantic,FL,32903
+10025,West Melbourne Health and Rehabilitation Center,2125 W New Haven Ave,null,West Melbourne,FL,32904
+10027,Beachside Physical Therapy - Indian Harbour Beach,660 E Eau Gallie Blvd,null,Melbourne,FL,32937
+10028,Life Care Center of Palm Bay,175 Ne Villa Nueva Ave,null,Palm Bay,FL,32907
+10029,FIRST STEP THERAPY-ORANGE CITY,2669 Enterprise Rd,null,Orange City,FL,32763
+10030,Care Options for Kids - Spring Hill,10487 Spring Hill Dr,null,Spring Hill,FL,34608
+10031,Beachside Physical Therapy - Palm Bay,4270 Minton Rd,Suite,West Melbourne,FL,32904
+10034,PT Solutions of Hernando Beach,1527 Commercial Way,null,Spring Hill,FL,34606
+10035,Halifax Health | Brooks Rehabilitation Outpatient Clinic - Port Orange,3863 S Nova Rd,null,Port Orange,FL,32127
+10036,Central Florida Therapy Solutions,2705 Rebecca Ln,Suite,Orange City,FL,32763
+10037,PT Solutions of Palm Coast,250 Palm Coast Pkwy Ne,null,Palm Coast,FL,32137
+10039,"Central Florida Therapy Solutions, Inc",455 W Warren Ave,Suite,Longwood,FL,32750
+10040,Bridging the Pieces Therapy LLC,300 Prosperity Farms Rd,Suite,North Palm Beach,FL,33408
+10041,Daily Miracles PPEC,3898 Via Poinciana,null,Lake Worth,FL,33467
+10042,"Little Champs Therapy & Yoga - Fort Lauderdale, FL",3001 Nw 49th Ave,null,Lauderhill,FL,33313
+10043,Children's Therapies Inc,935 Military Trl,Suite,Jupiter,FL,33458
+10044,"Heart 4 Kids Therapy, LLC",8817 Mitchell Blvd,null,Trinity,FL,34655
+10045,Heart 4 Kids Therapy LLC - Palm Harbor,31840 Us Hwy 19 N,null,Palm Harbor,FL,34684
+10046,Little Steps Florida,36430 Us Hwy 19 N,null,Palm Harbor,FL,34683
+10047,Lighthouse Pediatric Therapy Partners,412 12th Ave N,null,St. Petersburg,FL,33701
+10048,First Kid's PPEC - Miami,8681 Coral Wy,null,Miami,FL,33155
+10049,PT Solutions of Hudson,9318 State Rd 52,Suite,Hudson,FL,34669
+10050,Mease Countryside Hospital Palm Harbor Outpatient Rehabilitation,34718 Us Hwy 19 N,null,Palm Harbor,FL,34684
+10051,Joyful Motion,2150 Us-19 Alt,Suite,Palm Harbor,FL,34683
+10053,Sunshine Physical Therapy Clinic,1705 17th Ave,null,Vero Beach,FL,32960
+10054,Skill Builders For Kids,12380 Sw 82nd Ave,null,Pinecrest,FL,33156
+10055,Nicklaus Children's Miami Lakes Outpatient Center,15025 Nw 77th Ave,null,Miami Lakes,FL,33014
+10056,Enhanced Living Therapy - 15291 Nw 60th Ave,15291 Nw 60th Ave,null,Miami Lakes,FL,33014
+10057,Rainbow Kids PPEC,16931 Nw 67th Ave,null,Hialeah,FL,33015
+10058,Kind Kids Therapy Center,1601 N Palm Ave Office 300b,null,Hollywood,FL,33024
+10059,Big Bear Academy PPEC Miami - Medical Daycare,9035 Sw 72nd St,null,Miami,FL,33173
+10060,Loving Angels PPEC,13115 W Okeechobee Rd,null,Hialeah,FL,33018
+10061,Lotus Pediatric Day Care,7900 Nw 27th Ave D5-A,null,Miami,FL,33147
+10062,"Spark Pediatrics Medical Daycare (PPEC) - Palm Springs, FL",1720 S Congress Ave,null,Palm Springs,FL,33461
+10063,Back To Work Physical Therapy - Carrollwood,11809 N Dale Mabry Hwy,null,Tampa,FL,33618
+10064,Fyzical Westchase,7417 Monika Manor Dr,null,Tampa,FL,33625
+10065,Heart 4 Kids Therapy LLC - Tampa,12729 Race Track Rd,null,Tampa,FL,33626
+10066,PT Solutions of Temple Terrace,9311 N 56th St,null,Temple Terrace,FL,33617
+10067,PT Solutions of Brandon,10272 Causeway Blvd,null,Tampa,FL,33619
+10068,PT Solutions of Tampa Palms,16037 Tampa Palms Blvd W,null,Tampa,FL,33647
+10069,PT Solutions of Citrus Park,12891 Citrus Plaza Dr,null,Tampa,FL,33625
+10070,PT Solutions of Carrollwood,15205 N Dale Mabry Hwy,null,Tampa,FL,33618
+10073,Total Therapy,7243 Us-301 A,null,Riverview,FL,33578
+10074,Florida Rehabilitation Hospital at Tampa,6805 Woodstork Rd,null,Temple Terrace,FL,33637
+10075,Family First Therapy Inc,207 Crystal Grove Blvd,null,Lutz,FL,33548
+10076,PT Solutions of Town 'n' Country,8708 W Hillsborough Ave,null,Tampa,FL,33615
+10077,Thrive Therapy - Tallahassee,4500 W Shannon Lakes Apartment 14,null,Tallahassee,FL,32309
+10078,North Florida Therapy Services,Historic District,null,Quincy,FL,32351
+10079,Studer Family Children's Hospital Pediatric Rehabilitation - Pace,3754 Us-90,null,Pace,FL,32571
+10080,Studer Family Children's Hospital Pediatric Rehabilitation - Gulf Breeze - 15 Daniel St 2nd,15 Daniel St 2nd,Fl,Gulf Breeze,FL,32561
+10081,CenterWell Home Health - Tallahassee,1709 Hermitage Blvd,null,Tallahassee,FL,32308
+10082,Pediatrics Therapy Center,4624 Summerdale Blvd,null,Milton,FL,32571
+10083,CenterWell Home Health - Lakeland,3671 Innovation Dr,null,Lakeland,FL,33812
+10084,FIRST STEP THERAPY - Winter Haven,400 N Lake Howard Dr,null,Winter Haven,FL,33881
+10085,Precious Kiddos Medical Daycare (PPEC),7490 Cypress Gardens Blvd,null,Winter Haven,FL,33884
+10086,FYZICAL Therapy & Balance Centers - Jacksonville East,4776 Hodges Blvd,Suite,Jacksonville,FL,32224
+10087,"H2 Health- Jacksonville Beaches, FL",14444 Beach Blvd,null,Jacksonville,FL,32250
+10088,"H2 Health- Avenues Jacksonville, FL",12525 Philips Hwy,null,Jacksonville,FL,32256
+10089,"H2 Health- Mandarin Jacksonville, FL",9965 San Jose Blvd,null,Jacksonville,FL,32257
+10090,Wolfson Children's Rehabilitation - Baptist Medical Center South,14534 Old St. Augustine Rd,null,Jacksonville,FL,32258
+10091,Lively Therapy ST & OT,111 Nature Walk Pkwy,Suite,St. Augustine,FL,32092
+10092,Brooks Rehabilitation Outpatient Clinic - San Pablo,14286 Beach Blvd,Suite,Jacksonville,FL,32250
+10093,"H2 Health- Ortega Jacksonville, FL",4530 St Johns Ave,null,Jacksonville,FL,32210
+10094,FYZICAL Therapy & Balance Centers - Mandarin,14815 Mandarin Rd,null,Jacksonville,FL,32223
+10095,Brooks Rehabilitation Outpatient Clinic - Ortega,5539 Roosevelt Blvd,null,Jacksonville,FL,32244
+10096,Wolfson Children's Rehabilitation - Baptist Medical Center Beaches,Medical Office,Building,Jacksonville Beach,FL,32250
+10097,Baptist Rehabilitation (Adult) - Beaches Campus,1375 Roberts Dr,null,Jacksonville Beach,FL,32250
+10098,Bold Child Co.,13500 Sutton Park Dr S,Suite,Jacksonville,FL,32224
+10100,"H2 Health- Arlington Jacksonville, FL",6500 Fort Caroline Rd,null,Jacksonville,FL,32277
+10101,"H2 Health- Northside Jacksonville, FL",1215 Dunn Ave,null,Jacksonville,FL,32218
+10102,Brooks Rehabilitation Outpatient Clinic - Northside,1034 Dunn Ave,null,Jacksonville,FL,32218
+10103,Pelican Therapy Partners,463155 FL-200,null,Yulee,FL,32097
+10104,"H2 Health- Riverside Jacksonville, FL",484 Riverside Ave,null,Jacksonville,FL,32202
+10105,H2 Health,4820 W Deer Lake Dr D-9,null,Jacksonville,FL,32246
+10106,South Florida Rehab Center,10000 Stirling Rd,Suite,Hollywood,FL,33024
+10108,CORA Physical Therapy West Pembroke Pines,12315 Pembroke Rd,null,Miramar,FL,33025
+10112,KidsCare Home Health - Florida Region 10 - 8569 Pines Blvd,8569 Pines Blvd,Suite,Hollywood,FL,33024
+10113,"Little Explorers Therapy Services, PLLC - 4517 N Pine Island Rd",4517 N Pine Island Rd,null,Sunrise,FL,33351
+10115,Adults to Pediatrics Therapy,14201 W Sunrise Blvd,Suite,Sunrise,FL,33323
+10117,"Spark Pediatrics Medical Daycare (PPEC) - Stuart, FL",1788 Se Indian St,null,Stuart,FL,34997
+10118,"Speak Easy Solutions, LLC",901 Clark St,null,Oviedo,FL,32765
+10119,Bayside Therapy Specialists - Speech Therapy and Occupational Therapy - New Port Richey,5647 Gulf Dr,null,New Port Richey,FL,34652
+10129,FYZICAL Therapy & Balance Centers - North Fort Myers,16251 N Cleveland Ave,null,North Fort Myers,FL,33903
+10130,"Miami Physical Therapy Associates, Inc.",2931 Coral Wy,null,Miami,FL,33145
+10131,Miami Rehab & Wellness Center,7805 Coral Wy,null,Miami,FL,33155
+10132,Deià Pediatric Therapy,7900 Oak Ln 4th,Fl,Hialeah,FL,33016
+10133,"Ameri-Care Professional Service, Inc",5791 Nw 151st St B,null,Miami Lakes,FL,33014
+10134,Beachside Physical Therapy - Downtown Melbourne,13 E Melbourne Ave,Suite,Melbourne,FL,32901
+10135,CenterWell Home Health - Palm Bay,2475 Palm Bay Rd Ne,null,Palm Bay,FL,32905
+10136,Felice Center,331 N Maitland Ave,Suite,Maitland,FL,32751
+10139,PT Solutions of Mariner Square,13070 Cortez Blvd,null,Spring Hill,FL,34613
+10140,FYZICAL Therapy & Balance Center - Spring Hill,6119 Deltona Blvd,null,Spring Hill,FL,34606
+10142,PT Solutions of Spring Hill,3247 Commercial Way,null,Spring Hill,FL,34606
+10143,"Speech-Language and Feeding Services at Johns Hopkins All Children's Outpatient Care, Tampa - 12220 Bruce B Downs Blvd",12220 Bruce B Downs Blvd,null,Tampa,FL,33612
+10144,Trident Sports Medicine and Rehabilitation Inc.,873 Hull Rd,null,Ormond Beach,FL,32174
+10145,CenterWell Home Health - Holly Hill,1717 N Clyde Morris Blvd,null,Holly Hill,FL,32117
+10146,Brooks Rehabilitation Home Health - Daytona Beach,1673 Mason Ave,Suite,Holly Hill,FL,32117
+10147,FYZICAL Therapy & Balance Centers - Port Orange,3781 S Nova Rd,Suite,Port Orange,FL,32129
+10149,"H2 Health- New Smyrna Beach, FL",140 Wallace Rd,null,New Smyrna Beach,FL,32168
+10150,Wolfson Children's Specialty Center - Columbia County,3650 Nw Devane St,null,Lake City,FL,32055
+10151,Care Options for Kids - Jacksonville,4720 Salisbury Rd,null,Jacksonville,FL,32256
+10152,Halifax Health Brooks Rehabilitation Outpatient - Ormond Beach,1240 W Granada Blvd 1st,Fl,Ormond Beach,FL,32174
+10154,Azul Therapy Services Inc. - 2140 W Flagler St,2140 W Flagler St,null,Miami,FL,33135
+10155,The Therapy Place - Orlando,9468 E Colonial Dr,null,Orlando,FL,32817
+10156,AdventHealth Pelvic Health Rehab,265 E Rollins St,null,Orlando,FL,32804
+10159,Conway Lakes Health & Rehabilitation - 5201 Curry Ford Rd,5201 Curry Ford Rd,null,Orlando,FL,32812
+10160,Kids Place PPEC,7910 Us Hwy 98 N,null,Lakeland,FL,33809
+10162,TheraPlay,113 W Chapman Rd,null,Oviedo,FL,32765
+10163,Central Florida Therapy,3440 St Johns Pkwy,null,Sanford,FL,32771
+10164,Vissers Physical Therapy,7601 Della Dr,null,Orlando,FL,32819
+10165,Pediatric Therapy Services of Greater Orlando,301 W Crown Point Rd,null,Winter Garden,FL,34787
+10166,Kids First Therapy Center inc Orlando,13574 Village Park Dr,null,Orlando,FL,32837
+10168,Nicklaus Children's Palm Beach Gardens Outpatient Center,11310 Legacy Ave,null,Legacy Pl,FL,33410
+10170,Mountaineer's Therapeutic Center - 3151 N Military Trl,3151 N Military Trl,null,West Palm Beach,FL,33409
+10171,Active Home Health Care Services,5589 Okeechobee Blvd,null,West Palm Beach,FL,33417
+10174,Ability Learning Center Llc,13733 Office Park Ct,null,Hudson,FL,34667
+10175,FYZICAL Therapy & Balance Centers - Hudson,13826 Little Rd,null,Hudson,FL,34667
+10176,Restorative Solutions,2595 Tampa Rd,Suite,Palm Harbor,FL,34684
+10177,PT Solutions of Tampa Road,3297 Tampa Rd,null,Palm Harbor,FL,34684
+10178,Therapy Playhouse - 8673 15th Way N,8673 15th Way N,null,St. Petersburg,FL,33702
+10179,FYZICAL Therapy & Balance Centers - Largo East,13777 Belcher Rd,null,Largo,FL,33771
+10182,Early Steps - Saint Petersburg,480 7th Ave S,null,St. Petersburg,FL,33701
+10183,Johns Hopkins All Children’s Rehabilitation Center,603 7th St S,Suite,St. Petersburg,FL,33701
+10184,PT Solutions of East Lake,3450 E Lake Rd S,null,Palm Harbor,FL,34685
+10185,"Johns Hopkins All Children's Outpatient Care, East Lake",3850 Tampa Rd,null,Palm Harbor,FL,34684
+10186,"Johns Hopkins All Children's Outpatient Care, Pasco",4443 Rowan Rd,null,New Port Richey,FL,34653
+10187,TherHappy Therapy Services - Hudson - 11820 Denton Ave,11820 Denton Ave,null,Hudson,FL,34667
+10188,WonderKids PPEC | Prescribed Pediatric Extended Care,7100 W Commercial Blvd,Suite,Lauderhill,FL,33319
+10189,FYZICAL Therapy & Balance Centers - Beverly Park,785 S State Rd 7,null,Miramar,FL,33023
+10190,Bit-By-Bit Medical Therapeutic Riding Center - Southwest Ranches,3141 Sw 118th Ter,null,Southwest Ranches,FL,33330
+10191,CenterWell Home Health - Port Saint Lucie,525 Nw Lake Whitney Pl,Suite,Port St. Lucie,FL,34986
+10192,FYZICAL Therapy & Balance Centers - Stuart - 4287 Se Federal Hwy,4287 Se Federal Hwy,null,Stuart,FL,34997
+10193,FYZICAL Therapy & Balance Centers - Stuart - 1609 Nw Federal Hwy,1609 Nw Federal Hwy,null,Stuart,FL,34994
+10194,Martin County PPEC Services,310 Sw Ocean Blvd,null,Stuart,FL,34994
+10195,Life Care Center of Port St. Lucie,3720 Se Jennings Rd,null,Port St. Lucie,FL,34952
+10196,Behavioral for kids Corp,5729 Nw 151st St,Suite,Miami Lakes,FL,33014
+10197,Larroche Helping Hands LLC,3301 Sw 99th Ave,null,Miami,FL,33165
+10198,Step by Step Childrens Center,17601 Nw 78th Ave,null,Hialeah,FL,33015
+10199,Integrated Rehabilitation Center,5931 Nw 173rd Dr,null,Hialeah,FL,33015
+10200,PT Solutions of Fishhawk,13465 Fishhawk Blvd,null,Riverview,FL,33569
+10201,Back To Work Physical Therapy - South Tampa,4401 W Kennedy Blvd,null,Tampa,FL,33609
+10202,EARLY INTERVENTION SOLUTIONS LLC,5424 Land O' Lakes Blvd,null,Land O Lakes,FL,34639
+10203,PT Solutions of Race Track Road (formerly Westchase Physical Therapy),12705 Race Track Rd,null,Tampa,FL,33626
+10204,PT Solutions of North Westchase,11667 Countryway Blvd,null,Tampa,FL,33626
+10205,The Blue Door Holistic Therapy & Lactation,3030 Starkey Blvd,null,Trinity,FL,34655
+10206,"Tampa Choice Therapy, LLC",18946 N Dale Mabry Hwy,null,Lutz,FL,33548
+10207,PT Solutions of Carrollwood South,4551 Gunn Hwy,null,Tampa,FL,33624
+10208,True blue,2530 Ridge Top Way,null,Valrico,FL,33594
+10210,St. Joseph's Children's Pediatric Rehabilitation Services,3001 West Doctor Martin Luther King Junior Blvd 3rd,Fl,Tampa,FL,33607
+10211,"Johns Hopkins All Children's Outpatient Care, Tampa",12220 Bruce B Downs Blvd,null,Tampa,FL,33612
+10212,PT Solutions of Plant City,1902 James L Redman Pkwy,null,Plant City,FL,33563
+10214,PT Solutions of Zephyrhills,7403 Gall Blvd,null,Zephyrhills,FL,33541
+10215,PT Solutions of Oldsmar (formerly Westchase Physical Therapy),3953 Tampa Rd,null,Oldsmar,FL,34677
+10216,St. Joseph's Outpatient Rehabilitation Center,3003 West Doctor Martin Luther King Junior Blvd 2nd,Fl,Tampa,FL,33607
+10217,TheraKids Plus Inc.,16102 N Florida Ave,null,Lutz,FL,33549
+10218,Back To Work Physical Therapy - Westchase - 10960 Sheldon Rd,10960 Sheldon Rd,null,Tampa,FL,33626
+10219,HealthPRO Pediatrics North Tampa,1344 W Fletcher Ave,null,Tampa,FL,33612
+10220,Kids SPOT - Lutz,17718 Hunting Bow Cir,null,Lutz,FL,33558
+10221,Studer Family Children's Hospital Pediatric Rehabilitation - Port St. Joe - 3871 Us-98,3871 Us-98,Suite,Port St Joe,FL,32456
+10222,Be Strong Therapy Services - Cancer Rehab,1414 Piedmont Dr E,null,Tallahassee,FL,32308
+10223,Studer Family Children's Hospital Pediatric Rehabilitation - Santa Rosa Beach,179 Mack Byu Lp,null,Santa Rosa Beach,FL,32459
+10224,Ascension Sacred Heart Rehabilitation The Market Shops,9375 Emerald Coast Pkwy W A-1,null,Miramar Beach,FL,32550
+10225,Studer Family Children's Hospital Pediatric Rehabilitation,5151 N 9th Ave,null,Pensacola,FL,32504
+10226,Nicklaus Children's Dan Marino Outpatient Center,2900 S Commerce Pkwy,null,Weston,FL,33331
+10227,LifeCare Therapy,7777 N University Dr,Suite,Tamarac,FL,33321
+10228,Baptist Rehabilitation - Baptist South Campus,14546 Old St Augustine Rd,Suite,Jacksonville,FL,32258
+10229,Wolfson Children's Rehabilitation - HealthPlace at Nocatee,Intensive Therapy Center,null,Ponte Vedra,FL,32081
+10230,Brooks Rehabilitation Pediatric Clinic - St. Augustine,200 Southpark Blvd,null,St. Augustine,FL,32086
+10231,UF Health Rehabilitation - Emerson,4549 Emerson St,Building,Jacksonville,FL,32207
+10232,All Together Wellness,1157 Beach Blvd,null,Jacksonville Beach,FL,32250
+10233,Ascension St. Vincent's Southside - Inpatient Rehabilitation,4201 Belfort Rd,null,Jacksonville,FL,32216
+10234,Wildflower Pediatric Therapy,85313 Harts Rd,null,Yulee,FL,32097
+10236,Encompass Health Rehabilitation Hospital of Jacksonville - 11595 Burnt Mill Rd,11595 Burnt Mill Rd,null,Jacksonville,FL,32256
+10237,Jump Start pediatrics,3901 University Blvd S,null,Jacksonville,FL,32216
+10238,Angels of Care Pediatric Home Health,6621 Southpoint Dr N,null,Jacksonville,FL,32216
+10239,"H2 Health- Westside Jacksonville, FL",8087 Normandy Blvd,null,Jacksonville,FL,32221
+10240,Pediatric Therapy Solutions,5899 Whitfield Ave,Suite,Sarasota,FL,34243
+10241,Purposeful Play Pediatric Therapy,680 U.s. 41 Bypass N,Suite,Venice,FL,34285
+10243,Kids SPOT - Pompano Beach,1955 N Federal Hwy,null,Pompano Beach,FL,33062
+10245,Care Options for Kids - Room 204,3350 Sw 148th Ave,null,Room 204,FL,33027
+10248,AKL Pediatric Therapy - Longwood,1712 N Ronald Reagan Blvd,null,Longwood,FL,32750
+10249,AMP PEDIATRIC THERAPY,6900 Tavistock Lakes Blvd,null,Orlando,FL,32827
+10252,Advance Therapy Works,12060 Sw 129th Ct,null,Miami,FL,33186
+10253,"Great Strides Pediatric Rehabilitation- Bartram Park, FL",13241 Bartram Park Blvd,null,Jacksonville,FL,32258
+10256,Skill Point Therapy - Tampa,13907 N Dale Mabry Hwy,null,Tampa,FL,33618
+10258,"Speech and Feeding Therapy Services at Johns Hopkins All Children's Outpatient Care, Pasco",4439 Rowan Rd,null,New Port Richey,FL,34653
+10262,Daytona Beach Health and Rehabilitation Center - Holly Hill,1055 3rd St,null,Holly Hill,FL,32117
+10263,Achieve Pediatric Therapy,11602 Lake Underhill Rd,Suite,Orlando,FL,32825
+10264,FUSSION THERAPY INC. - Hialeah,8040 Nw 95th St,null,Hialeah,FL,33016
+10265,Beckman & Associates,620 Wymore Rd,null,Maitland,FL,32751
+10266,PT Solutions of Largo,10500 Ulmerton Rd,null,Largo,FL,33771
+10268,"Encompass Health Rehabilitation Hospital, an affiliate of Martin Health",5850 Se Comm,Suite,Stuart,FL,34997
+10269,HealthPRO Pediatrics Riverview,4015 Crescent Park Dr,null,Riverview,FL,33578
+10270,PT Solutions of South Tampa,2221 S Dale Mabry Hwy,null,Tampa,FL,33629
+10271,Therapy Care - Port Charlotte,992 S Tamiami Trl,Suite,Port Charlotte,FL,33953
+10272,From the Heart Therapy,6941 Sw 196th Ave,Suite,Southwest Ranches,FL,33332
+10273,Therapist To You,4501 N Wickham Rd,null,Melbourne,FL,32935
+10279,FYZICAL Therapy & Balance Centers - Largo,14280 Walsingham Rd,null,Largo,FL,33774
+10280,"Cornerstone Therapy Services, Inc",1333 Gateway Dr,null,Melbourne,FL,32901
+10296,Azul Therapy Services - Hialeah,4236 W 16th Ave,null,Hialeah,FL,33012
+10298,B & V Thera-Pro Associates Corporation - South Kendall,14291 Sw 120th St,null,Miami,FL,33186
+10302,IMPACT Academy of Tallahassee,1717 Hermitage Blvd,null,Tallahassee,FL,32308
+10305,Little Star Therapy Services - Miami,1125 Ne 125th St,null,Miami,FL,33161
+10307,Ability Plus Therapy,4450 W Eau Gallie Blvd,Suite,Melbourne,FL,32934
+10308,"Advanced Health Physical Therapy, Inc.",7796 Nw 44th St,null,Sunrise,FL,33351
+10309,Beyond Therapy,14055 Town Loop Blvd,Suite,Orlando,FL,32837
+10313,FYZICAL Therapy & Balance Centers - Tallahassee,1660 N Monroe St,null,Tallahassee,FL,32303
+10314,First Kid's PPEC - Hollywood,6515 Taft St,null,Hollywood,FL,33024
+10315,First Step Therapy-Longwood,2639 W State Rd 434,null,Longwood,FL,32779
+10316,Fyzical Therapy & Balance Centers,7924 Ne 2nd Ave,null,Miami,FL,33138
+10317,Fyzical Therapy and Balance Centers - formerly Physical Therapy Associates PA,6280 Sunset Dr,Suite,South Miami,FL,33143
+10320,Kids In Care PPEC - Prescribed Pediatric Extended Care,3032 Jog Rd,null,Lake Worth,FL,33467
+10321,Lampert's Therapy Group,8254 118th Ave N,null,Largo,FL,33773
+10322,Lighting Behavior Services - Miami Lakes,4800 Nw 167th St,null,Miami Lakes,FL,33014
+10323,MELBOURNE TERRACE REHABILITATION CENTER,251 E Florida Ave,null,Melbourne,FL,32901
+10324,Navigate Home Health Care,1222 Se 47th St,Suite,Cape Coral,FL,33904
+10327,In Your Hands Behavior. Corp ABA Therapy,3351 Marinatown Ln,Suite,North Fort Myers,FL,33903
+10328,"COMMUNITY RESOURCE NETWORK OF FLORIDA, LLC",12751 World Plaza Ln,null,Fort Myers,FL,33907
+10330,"GLORIA LONGO, INC.",2680 6th St Nw,null,Naples,FL,34120
+10333,NEXT LEVEL SUPPORTS LLC,405 Se 6th Ter,null,Cape Coral,FL,33990
+10334,FRESH OASIS INC.,1901 40th Ter Sw,null,Naples,FL,34116
+10337,"ERMAS CARE, INC",2513 Northway Dr,null,Venice,FL,34292
+10338,CARE HAVEN LLC,14466 Mooring Dr,null,Seminole,FL,33776
+10339,"ROSEMARIES SUPPORT SERV, INC.",16841 67th Ct N,null,Loxahatchee,FL,33470
+10341,INFINITE HEART SUPPORT CARE SERVICES LLC,9340 N 56th St,Suite,Temple Terrace,FL,33617
+10348,A KIND LOVING HAND LLC,2107 Hollywood Dr,null,Leesburg,FL,34748
+10352,"PAPITO GROUP HOME, INC.",4481 Nw 198th St,null,Miami Gardens,FL,33055
+10353,"H2T PT, LLC - West Palm Beach",1683 Forum Pl,null,West Palm Beach,FL,33401
+10354,Path Medical - Hollywood,2544 FL-7,null,Hollywood,FL,33024
+10357,Miami Autism Recovery Preschool - North Miami Beach,1245 Ne 201st Ter,null,North Miami Beach,FL,33179
+10358,My Favorite Therapists - Royal Palm Beach,2050 Vista Pkwy,null,Royal Palm Beach,FL,33411
+10360,Quest Kids Therapy - Winter Garden,1200 E Plant St,null,Winter Garden,FL,34787
+10362,ADULT CARE HOUSING INC,5700 92nd Ave N,null,Pinellas Park,FL,33782
+10364,Arc Broward WorkBar,3415 N Dixie Hwy,null,Oakland Park,FL,33334
+10365,TOGETHER WE CARE LLC,6578 Willow St,null,Mount Dora,FL,32757
+10367,FLOW SUPPORT,7040 Land O Lakes Blvd,Suite,Land O Lakes,FL,34638
+10369,Harmony United Psychiatric Care,966 S Wickham Rd,null,West Melbourne,FL,32904
+10377,Symmetry Physical Therapy,28 W Flagler St,null,Miami,FL,33130
+10378,Give Me 5 Therapy and PPEC Center,4180 Sw 74th Ct,Suite,Miami,FL,33155
+10379,Sports Chiropractic Health & Rehab,280 Corporate Wy Se,null,Palm Bay,FL,32909
+10380,"Kelly L Rain, Ph.D.",1507 Riverview Dr,null,Melbourne,FL,32901
+10381,Path Medical - Palm Beach Lakes,2001 Palm Beach Lakes Blvd,Suite,West Palm Beach,FL,33409
+10382,Pediatric Therapy Connections,886 Ne Jensen Beach Blvd,null,Jensen Beach,FL,34957
+10383,Children's Premier Therapy,10689 N Kendall Dr,null,Miami,FL,33176
+10385,Tallahassee Orthopedic & Sports Physical Therapy - Collegiate Village,2121 W Tennessee St,null,Tallahassee,FL,32304
+10394,BASS ABA Therapy - Ormond Beach,485 S Nova Rd,null,Ormond Beach,FL,32174
+10395,"EDUMATICS, INC.",7649 W Colonial Dr,Suite,Orlando,FL,32818
+10396,"Small Steps Pediatric Therapy, Inc",505 W Oak St,Suite,Kissimmee,FL,34741
+10398,Beyond Speaking Rehab Specialists,3485 W Vine St,Suite,Kissimmee,FL,34741
+10399,Tampa Therapy,720 E Henderson Ave,null,Tampa,FL,33602
+10400,PhysioCare Spine & Sport,4019 Henderson Blvd,null,Tampa,FL,33629
+10401,Early Steps - Jacksonville,910 N Jefferson St,null,Jacksonville,FL,32209
+10402,In Balance Mental Wellness llc,10151 Deerwood Park Blvd,Suite,Jacksonville,FL,32256
+10403,In Motion Physical Therapy,1103 N Thornton Ave,null,Orlando,FL,32803
+10406,Always Keep Progressing - Miami Shores,11601 Biscayne Blvd,null,North Miami,FL,33181
+10407,Kernaghan & Moore Speech Therapy,6245 FL-54,null,New Port Richey,FL,34653
+10408,One on One Behavioral Services,12973 Sw 112th St,null,Miami,FL,33186
+10410,November & Associates Therapy Center - Port Saint Lucie,1701 Se Hillmoor Dr A1,null,Port St. Lucie,FL,34952
+10411,Nicklaus Children's Hospital Orthopedic Institute,3100 Sw 62nd Ave,null,Miami,FL,33155
+10415,Campus Church,250 Brent Ln,null,Pensacola,FL,32503
+10416,Grace Church – Cape Coral Campus,13 Se 21st Pl,null,Cape Coral,FL,33990
+10417,Mosaic Church – Winter Garden Campus,14175 W Colonial Dr,null,Winter Garden,FL,34787
+10418,Idlewild Baptist Church,18333 Exciting Idlewild Blvd,null,Lutz,FL,33548
+10419,First Presbyterian Church of Lakeland,175 Lake Hollingsworth Dr,null,Lakeland,FL,33801
+10420,Mission Hill Church (Central Campus),10002 N. 56th St,null,Tampa,FL,33617
+10421,First Baptist Orlando,3000 S John Young Pkwy,null,Orlando,FL,32805
+10422,Bay Hope Church – Lakeshore Campus,17030 Lakeshore Rd,null,Lutz,FL,33558
+10424,Lakewood Ranch Baptist Church,5600 Deer Dr,null,Sarasota,FL,34240

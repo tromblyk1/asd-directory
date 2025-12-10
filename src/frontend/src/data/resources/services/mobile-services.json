@@ -1,0 +1,29 @@
+{
+  "slug": "mobile-services",
+  "category": "services",
+  "title": "Mobile Services",
+  "shortDescription": "Therapists travel to your home, school, or community location.",
+  "description": "Mobile services bring therapy directly to where the child lives, learns, or plays. Therapists travel to homes, schools, daycares, or community locations to provide services in natural environments. This approach can be especially beneficial for children with autism who struggle with transitions or perform differently in clinical settings. Mobile services allow therapists to address real-world challenges in the actual environments where skills need to be used.",
+  "benefits": [
+    "Therapy in natural environments",
+    "Eliminates stressful clinic visits",
+    "Addresses real-world situations directly",
+    "No transportation burden for families",
+    "Skills taught where they'll be used",
+    "Can include school and home coordination"
+  ],
+  "whoCanBenefit": [
+    "Children who struggle with transitions",
+    "Families without reliable transportation",
+    "Those wanting therapy in natural settings",
+    "Children who behave differently in clinics",
+    "Families needing home-based support"
+  ],
+  "links": [
+    {
+      "label": "Autism Speaks",
+      "url": "https://www.autismspeaks.org/",
+      "description": "Resources on in-home and community-based services"
+    }
+  ]
+}

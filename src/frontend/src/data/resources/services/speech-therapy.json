@@ -1,0 +1,29 @@
+{
+  "slug": "speech-therapy",
+  "category": "services",
+  "title": "Speech Therapy",
+  "shortDescription": "Addresses communication challenges including speech, language, and social communication.",
+  "description": "Speech-language therapy helps children with autism develop communication skills, including verbal speech, language comprehension, and social communication. Speech-language pathologists (SLPs) assess each child's unique communication profile and create individualized treatment plans. Therapy may focus on articulation, vocabulary, sentence structure, conversational skills, pragmatic language, and alternative communication methods for non-verbal children.",
+  "benefits": [
+    "Improves verbal communication and speech clarity",
+    "Builds vocabulary and language comprehension",
+    "Develops social communication skills",
+    "Teaches conversational turn-taking",
+    "Introduces alternative communication systems when needed",
+    "Addresses feeding and swallowing issues"
+  ],
+  "whoCanBenefit": [
+    "Children with delayed speech development",
+    "Non-verbal or minimally verbal children",
+    "Those with articulation difficulties",
+    "Children struggling with social communication",
+    "Those needing augmentative communication support"
+  ],
+  "links": [
+    {
+      "label": "American Speech-Language-Hearing Association (ASHA)",
+      "url": "https://www.asha.org/",
+      "description": "National professional organization for speech-language pathologists"
+    }
+  ]
+}

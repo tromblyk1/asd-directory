@@ -1,14 +1,28 @@
 {
+  "slug": "hope",
+  "category": "scholarships",
   "title": "HOPE Scholarship",
-  "description": "The Hope Scholarship Program provides Florida public school students who have been subjected to violence or harassment, including bullying, the opportunity to transfer to another public school or receive a scholarship to attend an eligible private school. This program can be particularly beneficial for students with autism who experience bullying or struggle in traditional public school environments. The scholarship covers tuition and fees at participating private schools or transportation costs for transfers to other public schools. Parents must report the incident according to their school district's policy to be eligible.",
+  "shortDescription": "Florida scholarship for public school students who experienced bullying or violence.",
+  "description": "The HOPE (Help Our Pupils Excel) Scholarship provides school choice options for Florida public school students who have been subjected to bullying, harassment, battery, kidnapping, assault, or other violent incidents at school. The scholarship allows affected students to transfer to another public school or receive a scholarship to attend an approved private school. For students with autism who may be particularly vulnerable to bullying, this scholarship offers an important safety net.",
+  "benefits": [
+    "Escape from unsafe school environment",
+    "Private school tuition coverage",
+    "Quick transfer process available",
+    "Public school transfer option also available",
+    "No income requirements"
+  ],
+  "eligibility": "Student must be enrolled in a Florida public school and have been subjected to an incident of battery, harassment, bullying, kidnapping, robbery, physical attack, sexual assault, or threat of such acts. The incident must be documented and reported to the school.",
+  "howToApply": "Report the incident to your public school. Once documented, apply through Step Up For Students for the private school scholarship option, or request a public school transfer through your school district.",
   "links": [
     {
-      "label": "Step Up For Students HOPE Scholarship",
-      "url": "https://www.stepupforstudents.org/scholarships/hope-scholarship"
+      "label": "Step Up For Students",
+      "url": "https://www.stepupforstudents.org/",
+      "description": "Scholarship funding organization for private school option"
     },
     {
-      "label": "Florida Department of Education HOPE Program",
-      "url": "https://www.fldoe.org/schools/school-choice/k-12-scholarship-programs/hope"
+      "label": "Florida Department of Education",
+      "url": "https://www.fldoe.org/",
+      "description": "Official state education agency with HOPE Scholarship program information"
     }
   ]
 }

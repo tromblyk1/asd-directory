@@ -2,20 +2,15 @@ import React from 'react';
 import { MapPin, Phone, Mail, ExternalLink, Church as ChurchIcon, Clock } from 'lucide-react';
 import { Church } from '../lib/supabase';
 import { HoverBubble } from './HoverBubble';
-import { useAccessibility } from '../contexts/AccessibilityContext';
 
 type ChurchCardProps = {
   church: Church;
 };
 
 export const ChurchCard: React.FC<ChurchCardProps> = ({ church }) => {
-  const { lowSensoryMode } = useAccessibility();
-
   return (
     <div
-      className={`bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6 shadow-sm hover:shadow-md ${
-        lowSensoryMode ? '' : 'transition-shadow duration-200'
-      }`}
+      className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow duration-200"
     >
       <div className="flex items-start justify-between mb-3">
         <div className="flex-1">

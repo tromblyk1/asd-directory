@@ -1,0 +1,23 @@
+{
+  "slug": "sunshine-health",
+  "category": "insurances",
+  "title": "Sunshine Health",
+  "shortDescription": "Florida Medicaid managed care plan with autism service coverage.",
+  "description": "Sunshine Health is a Medicaid managed care plan operating in Florida, serving members enrolled in Florida Medicaid. As a Medicaid plan, Sunshine Health covers essential autism services including Applied Behavior Analysis (ABA), speech therapy, occupational therapy, and other medically necessary treatments. Sunshine Health is part of Centene Corporation and focuses on serving Florida's Medicaid population with coordinated care and support services.",
+  "benefits": [
+    "ABA therapy coverage for eligible members",
+    "Speech and occupational therapy",
+    "Behavioral health services",
+    "Care coordination support",
+    "No cost or low cost for Medicaid members",
+    "Network of Florida providers"
+  ],
+  "eligibility": "Available to Florida residents enrolled in Medicaid who select Sunshine Health as their managed care plan during enrollment or open enrollment periods.",
+  "links": [
+    {
+      "label": "Sunshine Health",
+      "url": "https://www.sunshinehealth.com/",
+      "description": "Official Sunshine Health website - member resources and provider search"
+    }
+  ]
+}

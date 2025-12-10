@@ -1,0 +1,27 @@
+{
+  "code": "AISF",
+  "name": "Association of Independent Schools of Florida",
+  "description": "AISF promotes and supports independent schools throughout Florida, providing accreditation services that ensure member schools maintain high standards of educational excellence. AISF focuses on non-sectarian independent schools committed to academic rigor and innovative education.",
+  "recognition": "AISF accreditation is recognized by the Florida Department of Education and accepted by colleges and universities nationwide.",
+  "benefits": [
+    "Independent school community network",
+    "Florida DOE recognition",
+    "Professional development opportunities",
+    "College acceptance recognition",
+    "Advocacy for independent education"
+  ],
+  "requirements": [
+    "Academic excellence standards",
+    "Qualified faculty credentials",
+    "Strong governance structure",
+    "Financial sustainability",
+    "Student-centered educational philosophy"
+  ],
+  "links": [
+    {
+      "label": "AISF",
+      "url": "https://www.aisf.org/",
+      "description": "Association of Independent Schools of Florida"
+    }
+  ]
+}

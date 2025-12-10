@@ -1,0 +1,27 @@
+{
+  "code": "CITA",
+  "name": "Commission on International and Trans-Regional Accreditation",
+  "description": "CITA provides accreditation for international and American schools worldwide, ensuring they meet rigorous standards for academic excellence. CITA accreditation is particularly valuable for schools serving internationally mobile families and those seeking globally recognized credentials.",
+  "recognition": "CITA is recognized internationally and is a member of the National Council for Private School Accreditation (NCPSA). Credits are accepted by colleges and universities worldwide.",
+  "benefits": [
+    "International recognition",
+    "Globally accepted credentials",
+    "Support for internationally mobile students",
+    "Rigorous academic standards",
+    "College and university acceptance worldwide"
+  ],
+  "requirements": [
+    "International curriculum standards",
+    "Qualified international faculty",
+    "Global citizenship education",
+    "Language and cultural programs",
+    "Academic excellence documentation"
+  ],
+  "links": [
+    {
+      "label": "CITA",
+      "url": "https://www.citaschools.org/",
+      "description": "Commission on International and Trans-Regional Accreditation"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "code": "NCSA",
+  "name": "National Christian School Association",
+  "description": "NCSA provides accreditation services for Christian schools nationwide, ensuring member schools maintain high standards of academic excellence while integrating biblical principles throughout their educational programs.",
+  "recognition": "NCSA is a member of the National Council for Private School Accreditation (NCPSA) and is recognized for scholarship eligibility in Florida.",
+  "benefits": [
+    "National Christian school recognition",
+    "Scholarship program eligibility",
+    "Professional development resources",
+    "Christian educator network",
+    "College acceptance support"
+  ],
+  "requirements": [
+    "Biblical worldview integration",
+    "Qualified teaching staff",
+    "Academic excellence standards",
+    "Financial accountability",
+    "Safe campus environment"
+  ],
+  "links": [
+    {
+      "label": "NCSA",
+      "url": "https://www.nationalchristianschoolassociation.com/",
+      "description": "National Christian School Association"
+    }
+  ]
+}

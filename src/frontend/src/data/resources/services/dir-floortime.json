@@ -1,0 +1,29 @@
+{
+  "slug": "dir-floortime",
+  "category": "services",
+  "title": "DIR/Floortime",
+  "shortDescription": "Developmental relationship-based therapy focusing on emotional connections and child-led play.",
+  "description": "DIR/Floortime (Developmental, Individual-Difference, Relationship-based model) is a therapeutic approach that focuses on building emotional connections through child-led play. Therapists and parents literally get down on the floor to engage with children at their level, following the child's lead while gently challenging them to climb the developmental ladder. This approach emphasizes the importance of relationships and emotional development as the foundation for all learning.",
+  "benefits": [
+    "Builds emotional connections and relationships",
+    "Follows child's natural interests and motivations",
+    "Develops social-emotional skills",
+    "Encourages creative and symbolic thinking",
+    "Supports sensory processing differences",
+    "Empowers parents as therapy partners"
+  ],
+  "whoCanBenefit": [
+    "Children who respond well to play-based approaches",
+    "Those needing support with emotional regulation",
+    "Children working on relationship building",
+    "Families wanting to be actively involved in therapy",
+    "Children with sensory processing differences"
+  ],
+  "links": [
+    {
+      "label": "Interdisciplinary Council on Development and Learning (ICDL)",
+      "url": "https://www.icdl.com/",
+      "description": "Organization founded by DIR/Floortime creator Dr. Stanley Greenspan"
+    }
+  ]
+}

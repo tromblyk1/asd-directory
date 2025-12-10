@@ -1,18 +1,33 @@
 {
-  "title": "FTC (Florida Tax Credit)",
-  "description": "The Florida Tax Credit Scholarship (FTC) is a state-funded program that provides scholarships to low-income families enabling their children to attend private schools of choice. This program benefits families of children with autism by offering access to schools with specialized programs, smaller teacher-to-student ratios, and individualized instruction approaches. The FTC scholarship covers tuition and fees at participating private schools throughout Florida. Eligibility is determined by household income relative to the federal poverty level, and priority is given to students from families with the greatest financial need.",
+  "slug": "ftc",
+  "category": "scholarships",
+  "title": "Florida Tax Credit Scholarship (FTC)",
+  "shortDescription": "Corporate tax credit-funded scholarship providing private school tuition assistance.",
+  "description": "The Florida Tax Credit Scholarship (FTC) program provides scholarships to eligible low-income Florida students to attend participating private schools. Funded through corporate donations that receive tax credits, this program has helped hundreds of thousands of Florida students access private education. While not autism-specific, many families of children with autism utilize FTC scholarships to attend private schools that offer smaller class sizes, individualized attention, or specialized programs.",
+  "benefits": [
+    "Covers private school tuition",
+    "Transportation assistance available",
+    "Wide range of participating private schools",
+    "No prior public school enrollment required",
+    "Renewable annually"
+  ],
+  "eligibility": "Student must be a Florida resident entering kindergarten through 12th grade. Family income must meet program guidelines (generally at or below 400% of federal poverty level). Priority given to students with prior FTC scholarships and those from lowest income families.",
+  "howToApply": "Apply through Step Up For Students or AAA Scholarship Foundation. Applications require proof of household income, Florida residency, and student eligibility documentation.",
   "links": [
     {
-      "label": "Step Up For Students FTC Program",
-      "url": "https://www.stepupforstudents.org/scholarships/florida-tax-credit-scholarship"
-    },
-    {
-      "label": "Florida Department of Education Scholarship Information",
-      "url": "https://www.fldoe.org/schools/school-choice/k-12-scholarship-programs"
+      "label": "Step Up For Students",
+      "url": "https://www.stepupforstudents.org/",
+      "description": "Primary scholarship funding organization - apply and manage your scholarship"
     },
     {
       "label": "AAA Scholarship Foundation",
-      "url": "https://www.aaascholarships.org"
+      "url": "https://www.aaascholarships.org/",
+      "description": "Alternative scholarship funding organization for FTC"
+    },
+    {
+      "label": "Florida Department of Education",
+      "url": "https://www.fldoe.org/",
+      "description": "Official state education agency with scholarship program information"
     }
   ]
 }

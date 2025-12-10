@@ -1,0 +1,27 @@
+{
+  "code": "FACCS",
+  "name": "Florida Association of Christian Colleges and Schools",
+  "description": "FACCS is Florida's largest association of Christian schools, providing accreditation and support services to member institutions. FACCS accreditation ensures schools maintain high academic standards while integrating biblical principles throughout the educational experience.",
+  "recognition": "FACCS accreditation is recognized by the Florida Department of Education for scholarship program eligibility. FACCS is a member of the National Council for Private School Accreditation (NCPSA).",
+  "benefits": [
+    "Florida DOE recognized accreditation",
+    "Scholarship program eligibility",
+    "Christian school networking opportunities",
+    "Professional development resources",
+    "Legislative advocacy for Christian education"
+  ],
+  "requirements": [
+    "Statement of faith alignment",
+    "Qualified teaching staff",
+    "Biblical integration in curriculum",
+    "Financial accountability",
+    "Safe learning environment standards"
+  ],
+  "links": [
+    {
+      "label": "FACCS",
+      "url": "https://www.faccs.org/",
+      "description": "Florida Association of Christian Colleges and Schools"
+    }
+  ]
+}

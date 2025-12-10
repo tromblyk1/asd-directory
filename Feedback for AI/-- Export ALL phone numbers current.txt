@@ -1,0 +1,12 @@
+-- Export ALL phone numbers currently in Supabase
+COPY (
+  SELECT 
+    id,
+    provider_name,
+    phone,
+    normalized_phone,
+    city
+  FROM providers
+  ORDER BY id
+) TO STDOUT WITH CSV HEADER;
+
