@@ -166,6 +166,12 @@
       "url": "https://www.floridahealth.gov/programs-and-services/childrens-health/early-steps/"
     }
   ],
+  "insurances/childrens-medical-services": [
+    {
+      "label": "Florida CMS Program Information",
+      "url": "https://www.floridahealth.gov/programs-and-services/childrens-health/cms-plan/index.html"
+    }
+  ],
   "insurances/aetna": [
     {
       "label": "Aetna",
