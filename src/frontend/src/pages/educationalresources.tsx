@@ -5,37 +5,97 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { 
   BookOpen, Stethoscope, Shield, GraduationCap, 
-  ArrowRight, Heart, Users
+  ArrowRight, Heart, Users, Award, Church
 } from 'lucide-react';
 
+// Services - matches database services array values
 const servicesList = [
-  { slug: 'aba-therapy', name: 'ABA Therapy', description: 'Applied Behavior Analysis' },
+  { slug: 'aba', name: 'ABA Therapy', description: 'Applied Behavior Analysis' },
   { slug: 'speech-therapy', name: 'Speech Therapy', description: 'Communication and language' },
   { slug: 'occupational-therapy', name: 'Occupational Therapy', description: 'Daily living skills' },
   { slug: 'physical-therapy', name: 'Physical Therapy', description: 'Motor skill development' },
   { slug: 'feeding-therapy', name: 'Feeding Therapy', description: 'Eating and nutrition support' },
   { slug: 'music-therapy', name: 'Music Therapy', description: 'Therapeutic music interventions' },
+  { slug: 'pet-therapy', name: 'Pet Therapy', description: 'Animal-assisted therapy' },
+  { slug: 'dir-floortime', name: 'DIR / Floortime', description: 'Play-based developmental approach' },
   { slug: 'group-therapy', name: 'Social Skills Groups', description: 'Peer interaction and socialization' },
   { slug: 'ados-testing', name: 'ADOS Testing', description: 'Autism diagnostic assessment' },
+  { slug: 'life-skills', name: 'Life Skills', description: 'Daily living and independence' },
+  { slug: 'executive-function-coaching', name: 'Executive Function Coaching', description: 'Organization and planning skills' },
+  { slug: 'parent-coaching', name: 'Parent Coaching', description: 'Family training and support' },
+  { slug: 'respite-care', name: 'Respite Care', description: 'Caregiver relief services' },
+  { slug: 'residential-program', name: 'Residential Programs', description: 'Therapeutic living environments' },
+  { slug: 'support-groups', name: 'Support Groups', description: 'Community peer support' },
+  { slug: 'tutoring', name: 'Tutoring', description: 'Academic support services' },
+  { slug: 'virtual-therapy', name: 'Virtual Therapy', description: 'Telehealth services' },
+  { slug: 'mobile-services', name: 'Mobile Services', description: 'In-home therapy visits' },
+  { slug: 'autism-travel', name: 'Autism Travel', description: 'Travel planning support' },
 ];
 
+// Insurances - matches database insurances array values
 const insurancesList = [
   { slug: 'florida-medicaid', name: 'Florida Medicaid', description: 'State Medicaid program' },
+  { slug: 'medicare', name: 'Medicare', description: 'Federal health insurance' },
   { slug: 'aetna', name: 'Aetna', description: 'Private insurance' },
   { slug: 'cigna', name: 'Cigna', description: 'Private insurance' },
-  { slug: 'unitedhealthcare', name: 'United Healthcare', description: 'Private insurance' },
   { slug: 'florida-blue', name: 'Florida Blue', description: 'BCBS of Florida' },
+  { slug: 'humana', name: 'Humana', description: 'Private insurance' },
+  { slug: 'unitedhealthcare', name: 'UnitedHealthcare', description: 'Private insurance' },
   { slug: 'sunshine-health', name: 'Sunshine Health', description: 'Medicaid managed care' },
-  { slug: 'wellcare', name: 'WellCare', description: 'Medicaid and Medicare' },
-  { slug: 'medicare', name: 'Medicare', description: 'Federal health insurance' },
+  { slug: 'tricare', name: 'TRICARE', description: 'Military health insurance' },
+  { slug: 'early-steps', name: 'Early Steps', description: 'Early intervention (0-3 years)' },
 ];
 
+// Scholarships
 const scholarshipsList = [
   { slug: 'fes-ua', name: 'FES-UA', description: 'Unique Abilities scholarship' },
   { slug: 'fes-eo', name: 'FES-EO', description: 'Educational Opportunities' },
-  { slug: 'hope', name: 'HOPE Scholarship', description: 'For bullying situations' },
   { slug: 'ftc', name: 'FTC Scholarship', description: 'Florida Tax Credit' },
   { slug: 'pep', name: 'PEP', description: 'Personalized Education Program' },
+];
+
+// Accreditations - matches database accreditation values
+const accreditationsList = [
+  { slug: 'cognia', name: 'Cognia', description: 'Global accreditation leader' },
+  { slug: 'acsi', name: 'ACSI', description: 'Christian schools international' },
+  { slug: 'fcis', name: 'FCIS', description: 'Florida Council of Independent Schools' },
+  { slug: 'aisf', name: 'AISF', description: 'Association of Independent Schools' },
+  { slug: 'faccs', name: 'FACCS', description: 'Florida Christian schools' },
+  { slug: 'acts', name: 'ACTS', description: 'Christian teachers and schools' },
+  { slug: 'ams', name: 'AMS', description: 'American Montessori Society' },
+  { slug: 'fccap', name: 'FCCAP', description: 'Catholic accreditation' },
+  { slug: 'fccpsa', name: 'FCCPSA', description: 'Catholic secondary schools' },
+  { slug: 'nipsa', name: 'NIPSA', description: 'Non-public independent schools' },
+  { slug: 'cita', name: 'CITA', description: 'Commission international accreditation' },
+  { slug: 'cgacs', name: 'CGACS', description: 'Church of God accreditation' },
+  { slug: 'cobis', name: 'COBIS', description: 'British international schools' },
+  { slug: 'csf', name: 'CSF', description: 'Christian Schools of Florida' },
+  { slug: 'csi', name: 'CSI', description: 'Christian Schools International' },
+  { slug: 'flocs', name: 'FLOCS', description: 'Florida Lutheran schools' },
+  { slug: 'flga-lcms', name: 'FLGA-LCMS', description: 'Lutheran Church Missouri Synod' },
+  { slug: 'fkc', name: 'FKC', description: 'Florida Kindergarten Council' },
+  { slug: 'icaa', name: 'ICAA', description: 'International Christian accreditation' },
+  { slug: 'ncsa', name: 'NCSA', description: 'National Christian School Association' },
+  { slug: 'welssa', name: 'WELSSA', description: 'Wisconsin Lutheran schools' },
+];
+
+// Denominations - matches database denomination values (lowercase slugs)
+const denominationsList = [
+  { slug: 'catholic', name: 'Catholic', description: 'Catholic schools' },
+  { slug: 'baptist', name: 'Baptist', description: 'Baptist schools' },
+  { slug: 'lutheran', name: 'Lutheran', description: 'Lutheran schools' },
+  { slug: 'methodist', name: 'Methodist', description: 'Methodist schools' },
+  { slug: 'presbyterian', name: 'Presbyterian', description: 'Presbyterian schools' },
+  { slug: 'episcopalian', name: 'Episcopalian', description: 'Episcopal schools' },
+  { slug: 'jewish', name: 'Jewish', description: 'Jewish schools' },
+  { slug: 'islamic-muslim', name: 'Islamic / Muslim', description: 'Islamic schools' },
+  { slug: 'assemblies-of-god', name: 'Assemblies of God', description: 'AG affiliated schools' },
+  { slug: 'church-of-god', name: 'Church of God', description: 'Church of God schools' },
+  { slug: 'pentecostal', name: 'Pentecostal', description: 'Pentecostal schools' },
+  { slug: 'nazarene', name: 'Nazarene', description: 'Church of the Nazarene schools' },
+  { slug: 'seventh-day-adventist', name: 'Seventh Day Adventist', description: 'Adventist schools' },
+  { slug: 'non-denominational', name: 'Non-Denominational', description: 'Non-denominational Christian' },
+  { slug: 'other-religious', name: 'Other Religious', description: 'Other faith traditions' },
 ];
 
 export default function EducationalResources() {
@@ -50,7 +110,7 @@ export default function EducationalResources() {
       "@type": "ItemList",
       "name": "Autism Resources Guide",
       "description": "Educational content about autism therapies, insurance options, and financial assistance programs in Florida",
-      "numberOfItems": servicesList.length + insurancesList.length + scholarshipsList.length,
+      "numberOfItems": servicesList.length + insurancesList.length + scholarshipsList.length + accreditationsList.length + denominationsList.length,
       "itemListElement": [
         ...servicesList.map((service, index) => ({
           "@type": "ListItem",
@@ -207,8 +267,7 @@ export default function EducationalResources() {
               </div>
             </div>
 
-            {/* MOBILE: 2 cols, SM: 2 cols, MD: 2 cols, LG: 4 cols */}
-            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
               {servicesList.map((service) => (
                 <Link key={service.slug} to={`/resources/services/${service.slug}`}>
                   <article>
@@ -244,8 +303,7 @@ export default function EducationalResources() {
               </div>
             </div>
 
-            {/* MOBILE: 2 cols, SM: 2 cols, MD: 2 cols, LG: 4 cols */}
-            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
               {insurancesList.map((insurance) => (
                 <Link key={insurance.slug} to={`/resources/insurances/${insurance.slug}`}>
                   <article>
@@ -270,7 +328,7 @@ export default function EducationalResources() {
           </section>
 
           {/* Scholarships Section */}
-          <section aria-labelledby="scholarships-heading">
+          <section className="mb-10 sm:mb-12 lg:mb-16" aria-labelledby="scholarships-heading">
             <div className="flex items-start sm:items-center gap-2.5 sm:gap-3 mb-4 sm:mb-6">
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0" aria-hidden="true">
                 <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
@@ -281,7 +339,6 @@ export default function EducationalResources() {
               </div>
             </div>
 
-            {/* MOBILE: 2 cols (with last item full width if odd), SM: 2 cols, LG: 3 cols */}
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
               {scholarshipsList.map((scholarship, index) => (
                 <Link 
@@ -299,6 +356,78 @@ export default function EducationalResources() {
                           {scholarship.description}
                         </p>
                         <div className="flex items-center text-xs sm:text-sm text-green-600 font-medium">
+                          <span>Learn more</span>
+                          <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </article>
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          {/* Accreditations Section */}
+          <section className="mb-10 sm:mb-12 lg:mb-16" aria-labelledby="accreditations-heading">
+            <div className="flex items-start sm:items-center gap-2.5 sm:gap-3 mb-4 sm:mb-6">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                <Award className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+              </div>
+              <div>
+                <h2 id="accreditations-heading" className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900">School Accreditations</h2>
+                <p className="text-gray-600 text-sm sm:text-base">Understanding school accreditation organizations and what they mean</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+              {accreditationsList.map((accreditation) => (
+                <Link key={accreditation.slug} to={`/resources/accreditations/${accreditation.slug}`}>
+                  <article>
+                    <Card className="h-full hover:shadow-lg transition-all border-none group cursor-pointer">
+                      <CardContent className="p-3 sm:p-4 lg:p-5">
+                        <h3 className="font-bold text-gray-900 mb-1 group-hover:text-amber-600 transition-colors text-sm sm:text-base">
+                          {accreditation.name}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-gray-600 mb-2 sm:mb-3">
+                          {accreditation.description}
+                        </p>
+                        <div className="flex items-center text-xs sm:text-sm text-amber-600 font-medium">
+                          <span>Learn more</span>
+                          <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </article>
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          {/* Denominations Section */}
+          <section className="mb-10 sm:mb-12 lg:mb-16" aria-labelledby="denominations-heading">
+            <div className="flex items-start sm:items-center gap-2.5 sm:gap-3 mb-4 sm:mb-6">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                <Church className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+              </div>
+              <div>
+                <h2 id="denominations-heading" className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900">Religious Denominations</h2>
+                <p className="text-gray-600 text-sm sm:text-base">Learn about faith-based school options by denomination</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+              {denominationsList.map((denomination) => (
+                <Link key={denomination.slug} to={`/resources/denominations/${denomination.slug}`}>
+                  <article>
+                    <Card className="h-full hover:shadow-lg transition-all border-none group cursor-pointer">
+                      <CardContent className="p-3 sm:p-4 lg:p-5">
+                        <h3 className="font-bold text-gray-900 mb-1 group-hover:text-indigo-600 transition-colors text-sm sm:text-base">
+                          {denomination.name}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-gray-600 mb-2 sm:mb-3">
+                          {denomination.description}
+                        </p>
+                        <div className="flex items-center text-xs sm:text-sm text-indigo-600 font-medium">
                           <span>Learn more</span>
                           <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                         </div>

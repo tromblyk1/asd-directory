@@ -60,32 +60,18 @@
       "description": "Board certification organization for music therapy professionals"
     }
   ],
-  "services/mobile-services": [
+  "services/autism-travel": [
     {
-      "label": "Autism Speaks",
-      "url": "https://www.autismspeaks.org/",
-      "description": "Resources on in-home and community-based services"
-    }
-  ],
-  "services/life-skills": [
+      "label": "Autism on the Seas - Cruise Programs",
+      "url": "https://www.autismontheseas.com"
+    },
     {
-      "label": "Autism Speaks",
-      "url": "https://www.autismspeaks.org/",
-      "description": "Resources on life skills and transition planning"
-    }
-  ],
-  "services/group-therapy": [
+      "label": "TSA Cares - Airport Assistance",
+      "url": "https://www.tsa.gov/travel/passenger-support"
+    },
     {
-      "label": "Autism Speaks",
-      "url": "https://www.autismspeaks.org/",
-      "description": "Resources on social skills programs and groups"
-    }
-  ],
-  "services/ados-testing": [
-    {
-      "label": "Autism Speaks",
-      "url": "https://www.autismspeaks.org/",
-      "description": "Information on autism diagnosis and evaluation process"
+      "label": "Disney Disability Access Service",
+      "url": "https://disneyworld.disney.go.com/guest-services/disability-access-service"
     }
   ],
   "services/aba-therapy": [
@@ -105,13 +91,6 @@
       "label": "Florida Department of Education",
       "url": "https://www.fldoe.org/",
       "description": "Official state education agency with scholarship program information"
-    }
-  ],
-  "scholarships/hope": [
-    {
-      "label": "Florida Department of Education",
-      "url": "https://www.fldoe.org/",
-      "description": "Official state education agency with HOPE Scholarship program information"
     }
   ],
   "scholarships/ftc": [
@@ -145,42 +124,11 @@
       "description": "Official state education agency with scholarship program information"
     }
   ],
-  "insurances/wellcare": [
-    {
-      "label": "WellCare Florida Medicaid",
-      "url": "https://www.wellcare.com/Florida"
-    },
-    {
-      "label": "WellCare Member Portal",
-      "url": "https://www.wellcare.com"
-    }
-  ],
   "insurances/sunshine-health": [
     {
       "label": "Sunshine Health",
       "url": "https://www.sunshinehealth.com/",
       "description": "Official Sunshine Health website - member resources and provider search"
-    }
-  ],
-  "insurances/molina": [
-    {
-      "label": "Molina Healthcare Florida",
-      "url": "https://www.molinahealthcare.com/members/fl/en-us/hp/medicaid/medicaid.aspx"
-    },
-    {
-      "label": "Molina Member Services",
-      "url": "https://www.molinahealthcare.com"
-    },
-    {
-      "label": "Florida Medicaid Managed Care Plans",
-      "url": "https://www.flmedicaidmanagedcare.com"
-    }
-  ],
-  "insurances/ibudget-waiver": [
-    {
-      "label": "Agency for Persons with Disabilities (APD)",
-      "url": "https://apd.myflorida.com/",
-      "description": "Florida state agency that administers the iBudget waiver program"
     }
   ],
   "insurances/humana": [
@@ -197,22 +145,6 @@
       "description": "Administers iBudget waiver for home and community-based services"
     }
   ],
-  "insurances/florida-kidcare": [
-    {
-      "label": "Florida KidCare Official Website",
-      "url": "https://www.floridakidcare.org"
-    },
-    {
-      "label": "Florida Healthy Kids Corporation",
-      "url": "https://www.healthykids.org"
-    }
-  ],
-  "insurances/florida-healthcare-plans": [
-    {
-      "label": "Florida Medicaid Managed Care",
-      "url": "https://www.flmedicaidmanagedcare.com"
-    }
-  ],
   "insurances/florida-blue": [
     {
       "label": "Florida Blue",
@@ -220,17 +152,25 @@
       "description": "Official Florida Blue website - find doctors, check benefits, and manage your health plan"
     }
   ],
+  "insurances/early-steps": [
+    {
+      "label": "Florida Early Steps Official Website",
+      "url": "https://floridaearlysteps.com"
+    },
+    {
+      "label": "Find Your Local Early Steps Office",
+      "url": "https://floridaearlysteps.com/contact/"
+    },
+    {
+      "label": "Florida Department of Health - Early Steps",
+      "url": "https://www.floridahealth.gov/programs-and-services/childrens-health/early-steps/"
+    }
+  ],
   "insurances/aetna": [
     {
       "label": "Aetna",
       "url": "https://www.aetna.com/",
       "description": "Official Aetna website - find providers, check benefits, and manage your plan"
-    }
-  ],
-  "insurances/00-private-insurance-guide": [
-    {
-      "label": "Autism Speaks Insurance Guide",
-      "url": "https://www.autismspeaks.org"
     }
   ],
   "accreditations/flga-lcms": [

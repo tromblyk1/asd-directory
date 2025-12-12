@@ -105,6 +105,8 @@ const insuranceBadges: Record<string, { label: string; tooltip: string; link: st
   'kidcare': { label: 'Florida KidCare', tooltip: "Florida children's health insurance program", link: '/resources/insurances/florida-kidcare' },
   'florida-healthcare-plans': { label: 'FL Healthcare Plans', tooltip: 'Florida Healthcare Plans', link: '/resources/insurances/florida-healthcare-plans' },
   'floridahealthcareplans': { label: 'FL Healthcare Plans', tooltip: 'Florida Healthcare Plans', link: '/resources/insurances/florida-healthcare-plans' },
+  'early-steps': { label: 'Early Steps', tooltip: 'Florida early intervention program for infants and toddlers (birth to 36 months)', link: '/resources/insurances/early-steps' },
+  'earlysteps': { label: 'Early Steps', tooltip: 'Florida early intervention program for infants and toddlers (birth to 36 months)', link: '/resources/insurances/early-steps' },
 };
 
 // Scholarship badge definitions - GREEN colors
@@ -113,7 +115,6 @@ const scholarshipBadges: Record<string, { label: string; tooltip: string; link: 
   'fes-eo': { label: 'FES-EO', tooltip: 'Family Empowerment Scholarship for Educational Options - Income-based school choice', link: '/resources/scholarships/fes-eo' },
   'ftc': { label: 'FTC', tooltip: 'Florida Tax Credit Scholarship - For low-income families', link: '/resources/scholarships/ftc' },
   'pep': { label: 'PEP', tooltip: 'Personalized Education Program - Flexible funding for customized learning', link: '/resources/scholarships/pep' },
-  'hope': { label: 'HOPE', tooltip: 'Hope Scholarship - For students who experienced bullying or violence', link: '/resources/scholarships/hope' },
 };
 
 export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, rating }) => {
@@ -210,7 +211,7 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, rating }) 
                       </span>
                     </TooltipTrigger>
                     <TooltipContent side="top" className="max-w-xs">
-                      <p>Verified provider Ã¢â‚¬â€œ information confirmed by Florida Autism Services</p>
+                      <p>Verified provider - information confirmed by Florida Autism Services</p>
                     </TooltipContent>
                   </Tooltip>
                 )}

@@ -21,5 +21,4 @@ export const SCHOLARSHIP_SLUGS: Record<string, string> = {
   accepts_fes_eo: 'fes-eo',
   accepts_ftc: 'ftc',
   accepts_pep: 'pep',
-  accepts_hope_scholarship: 'hope',
 };

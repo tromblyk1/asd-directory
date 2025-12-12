@@ -73,6 +73,15 @@ const insuranceOptions = [
   { value: 'florida-blue', label: 'Florida Blue' },
   { value: 'unitedhealthcare', label: 'UnitedHealthcare' },
   { value: 'sunshine-health', label: 'Sunshine Health' },
+  { value: 'early-steps', label: 'Early Steps' },
+];
+
+// Scholarship options for filtering - ONLY values that exist in the database
+const scholarshipOptions = [
+  { value: 'fes-ua', label: 'FES-UA', tooltip: 'Family Empowerment Scholarship for Unique Abilities - For students with disabilities including autism' },
+  { value: 'fes-eo', label: 'FES-EO', tooltip: 'Family Empowerment Scholarship for Educational Options - Income-based school choice' },
+  { value: 'ftc', label: 'FTC', tooltip: 'Florida Tax Credit Scholarship - For low-income families' },
+  { value: 'pep', label: 'PEP', tooltip: 'Personalized Education Program - Flexible funding for customized learning' },
 ];
 
 // Service display info for map popup (slug -> { label, description, resourceSlug })
@@ -109,6 +118,7 @@ const insurancePopupInfo: Record<string, { label: string; description: string; s
   'florida-blue': { label: 'FL Blue', description: 'Florida Blue', slug: 'florida-blue' },
   'unitedhealthcare': { label: 'UHC', description: 'UnitedHealthcare', slug: 'unitedhealthcare' },
   'sunshine-health': { label: 'Sunshine', description: 'Sunshine Health', slug: 'sunshine-health' },
+  'early-steps': { label: 'Early Steps', description: 'Florida Early Intervention', slug: 'early-steps' },
 };
 
 export default function FindProviders() {
@@ -126,6 +136,10 @@ export default function FindProviders() {
   });
   const [selectedInsurances, setSelectedInsurances] = useState<string[]>(() => {
     const param = searchParams.get('insurance');
+    return param ? param.split(',') : [];
+  });
+  const [selectedScholarships, setSelectedScholarships] = useState<string[]>(() => {
+    const param = searchParams.get('scholarship');
     return param ? param.split(',') : [];
   });
   const [countySearchTerm, setCountySearchTerm] = useState('');
@@ -283,9 +297,13 @@ export default function FindProviders() {
       const matchesInsurance = selectedInsurances.length === 0 ||
         arrayContainsAny(provider.insurances, selectedInsurances);
       
-      return matchesSearch && matchesCounty && matchesService && matchesInsurance;
+      // Scholarship filter (array-based)
+      const matchesScholarship = selectedScholarships.length === 0 ||
+        arrayContainsAny(provider.scholarships, selectedScholarships);
+      
+      return matchesSearch && matchesCounty && matchesService && matchesInsurance && matchesScholarship;
     });
-  }, [providers, searchTerm, selectedCounties, selectedServices, selectedInsurances]);
+  }, [providers, searchTerm, selectedCounties, selectedServices, selectedInsurances, selectedScholarships]);
 
   // Request user's location
   const requestUserLocation = () => {
@@ -530,7 +548,13 @@ export default function FindProviders() {
     );
   };
 
-  const activeFiltersCount = selectedCounties.length + selectedServices.length + selectedInsurances.length;
+  const toggleScholarship = (scholarship: string) => {
+    setSelectedScholarships(prev =>
+      prev.includes(scholarship) ? prev.filter(s => s !== scholarship) : [...prev, scholarship]
+    );
+  };
+
+  const activeFiltersCount = selectedCounties.length + selectedServices.length + selectedInsurances.length + selectedScholarships.length;
 
   // Filter panel content (shared between mobile drawer and desktop sidebar)
   const FilterContent = () => (
@@ -612,6 +636,39 @@ export default function FindProviders() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Scholarship Filter */}
+        <div>
+          <h4 className="text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
+            Scholarships ({scholarshipOptions.length})
+          </h4>
+          <TooltipProvider delayDuration={200}>
+            <div className="space-y-2">
+              {scholarshipOptions.map(({ value, label, tooltip }) => (
+                <Tooltip key={value}>
+                  <TooltipTrigger asChild>
+                    <div className="flex items-center space-x-2 cursor-help">
+                      <Checkbox
+                        id={`scholarship-${value}`}
+                        checked={selectedScholarships.includes(value)}
+                        onCheckedChange={() => toggleScholarship(value)}
+                      />
+                      <Label
+                        htmlFor={`scholarship-${value}`}
+                        className="text-sm font-normal cursor-pointer flex-1"
+                      >
+                        {label}
+                      </Label>
+                    </div>
+                  </TooltipTrigger>
+                  <TooltipContent side="right" className="max-w-xs bg-green-600 text-white border-green-700 hidden lg:block">
+                    <p className="font-medium">{tooltip}</p>
+                  </TooltipContent>
+                </Tooltip>
+              ))}
+            </div>
+          </TooltipProvider>
         </div>
 
         {/* Counties Filter */}

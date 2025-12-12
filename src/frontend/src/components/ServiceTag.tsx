@@ -237,6 +237,12 @@ const SERVICE_METADATA: Record<string, {
     color: 'bg-purple-100 text-purple-800 border-purple-200 hover:bg-purple-200',
     type: 'insurance',
   },
+  'early-steps': {
+    name: 'Early Steps',
+    description: 'Florida early intervention program for infants and toddlers (birth to 36 months)',
+    color: 'bg-purple-100 text-purple-800 border-purple-200 hover:bg-purple-200',
+    type: 'insurance',
+  },
   'florida-kidcare': {
     name: 'Florida KidCare',
     description: "Children's health insurance",
@@ -278,18 +284,6 @@ const SERVICE_METADATA: Record<string, {
   'ftc-scholarship': {
     name: 'FTC Scholarship',
     description: 'Florida Tax Credit Scholarship',
-    color: 'bg-green-100 text-green-800 border-green-200 hover:bg-green-200',
-    type: 'scholarship',
-  },
-  'hope': {
-    name: 'Hope Scholarship',
-    description: 'School choice scholarship for bullied students',
-    color: 'bg-green-100 text-green-800 border-green-200 hover:bg-green-200',
-    type: 'scholarship',
-  },
-  'hope-scholarship': {
-    name: 'Hope Scholarship',
-    description: 'School choice scholarship for bullied students',
     color: 'bg-green-100 text-green-800 border-green-200 hover:bg-green-200',
     type: 'scholarship',
   },

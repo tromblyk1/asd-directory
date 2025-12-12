@@ -1,23 +1,22 @@
 {
-  "slug": "tricare",
-  "category": "insurances",
   "title": "TRICARE",
-  "shortDescription": "Health coverage for military service members, retirees, and their families.",
-  "description": "TRICARE is the health care program serving active duty service members, National Guard and Reserve members, retirees, their families, and survivors. TRICARE provides comprehensive coverage for autism services through the Autism Care Demonstration (ACD) program, which covers Applied Behavior Analysis and other evidence-based treatments. Military families in Florida can access TRICARE-authorized providers throughout the state.",
-  "benefits": [
-    "Comprehensive ABA coverage through Autism Care Demonstration",
-    "Speech and occupational therapy",
-    "Diagnostic evaluations covered",
-    "No annual dollar caps on ABA (age limits apply)",
-    "Access to network of authorized providers",
-    "Family training and support services"
-  ],
-  "eligibility": "Available to active duty service members, National Guard/Reserve, military retirees, and their eligible family members (dependents).",
+  "description": "TRICARE is the health care program for uniformed service members, retirees, and their families worldwide. It provides comprehensive coverage including autism-related services such as Applied Behavior Analysis (ABA), speech therapy, occupational therapy, and mental health services.\n\nTRICARE covers autism spectrum disorder diagnosis and treatment for beneficiaries. The Extended Care Health Option (ECHO) provides additional financial assistance for qualifying dependents with autism, covering services like ABA therapy, respite care, and specialized equipment beyond standard TRICARE benefits.\n\nFor military families in Florida, TRICARE offers several plan options including TRICARE Prime, TRICARE Select, and TRICARE For Life (for Medicare-eligible retirees). Coverage for autism services may require referrals or prior authorization depending on your plan type.\n\nFamilies should contact their regional TRICARE contractor or visit the TRICARE website to verify specific autism coverage details, find network providers, and understand authorization requirements for ABA and other therapies.",
   "links": [
     {
-      "label": "TRICARE",
-      "url": "https://www.tricare.mil/",
-      "description": "Official TRICARE website - benefits information and provider search"
+      "label": "TRICARE Official Website",
+      "url": "https://www.tricare.mil"
+    },
+    {
+      "label": "TRICARE Autism Services",
+      "url": "https://www.tricare.mil/autism"
+    },
+    {
+      "label": "Extended Care Health Option (ECHO)",
+      "url": "https://www.tricare.mil/echo"
+    },
+    {
+      "label": "Find a TRICARE Provider",
+      "url": "https://www.tricare.mil/FindDoctor"
     }
   ]
 }

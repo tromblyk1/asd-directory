@@ -1,0 +1,22 @@
+{
+  "title": "Autism Travel Services",
+  "description": "Autism travel advisors specialize in planning inclusive vacations for families with autistic members. These professionals understand the unique challenges of traveling with someone on the spectrum, including sensory sensitivities, dietary restrictions, routine disruptions, and the need for quiet spaces or accommodations. They can help identify autism-friendly destinations, resorts with sensory rooms, cruise lines with special needs programs, theme parks offering disability access services, and airlines with autism-friendly boarding procedures. In Florida, families have access to travel advisors who personally understand autism and can plan stress-free vacations tailored to your family's specific needs, whether it's an all-inclusive resort, a cruise adventure, or a theme park experience.",
+  "links": [
+    {
+      "label": "Autism on the Seas - Cruise Programs",
+      "url": "https://www.autismontheseas.com"
+    },
+    {
+      "label": "IBCCES Certified Autism Centers",
+      "url": "https://www.ibcces.org/certified-autism-center"
+    },
+    {
+      "label": "TSA Cares - Airport Assistance",
+      "url": "https://www.tsa.gov/travel/passenger-support"
+    },
+    {
+      "label": "Disney Disability Access Service",
+      "url": "https://disneyworld.disney.go.com/guest-services/disability-access-service"
+    }
+  ]
+}
