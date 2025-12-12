@@ -107,6 +107,8 @@ const insuranceBadges: Record<string, { label: string; tooltip: string; link: st
   'floridahealthcareplans': { label: 'FL Healthcare Plans', tooltip: 'Florida Healthcare Plans', link: '/resources/insurances/florida-healthcare-plans' },
   'early-steps': { label: 'Early Steps', tooltip: 'Florida early intervention program for infants and toddlers (birth to 36 months)', link: '/resources/insurances/early-steps' },
   'earlysteps': { label: 'Early Steps', tooltip: 'Florida early intervention program for infants and toddlers (birth to 36 months)', link: '/resources/insurances/early-steps' },
+  'childrens-medical-services': { label: 'CMS - Sunshine', tooltip: 'Children\'s Medical Services - Florida program for children with special healthcare needs, administered through Sunshine Health', link: '/resources/insurances/childrens-medical-services' },
+  'cms': { label: 'CMS - Sunshine', tooltip: 'Children\'s Medical Services - Florida program for children with special healthcare needs, administered through Sunshine Health', link: '/resources/insurances/childrens-medical-services' },
 };
 
 // Scholarship badge definitions - GREEN colors

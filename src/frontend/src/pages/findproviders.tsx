@@ -74,6 +74,7 @@ const insuranceOptions = [
   { value: 'unitedhealthcare', label: 'UnitedHealthcare' },
   { value: 'sunshine-health', label: 'Sunshine Health' },
   { value: 'early-steps', label: 'Early Steps' },
+  { value: 'childrens-medical-services', label: 'CMS - Sunshine' },
 ];
 
 // Scholarship options for filtering - ONLY values that exist in the database
@@ -119,6 +120,7 @@ const insurancePopupInfo: Record<string, { label: string; description: string; s
   'unitedhealthcare': { label: 'UHC', description: 'UnitedHealthcare', slug: 'unitedhealthcare' },
   'sunshine-health': { label: 'Sunshine', description: 'Sunshine Health', slug: 'sunshine-health' },
   'early-steps': { label: 'Early Steps', description: 'Florida Early Intervention', slug: 'early-steps' },
+  'childrens-medical-services': { label: 'CMS - Sunshine', description: 'Children\'s Medical Services', slug: 'childrens-medical-services' },
 };
 
 export default function FindProviders() {

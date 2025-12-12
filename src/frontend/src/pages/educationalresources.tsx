@@ -44,6 +44,7 @@ const insurancesList = [
   { slug: 'sunshine-health', name: 'Sunshine Health', description: 'Medicaid managed care' },
   { slug: 'tricare', name: 'TRICARE', description: 'Military health insurance' },
   { slug: 'early-steps', name: 'Early Steps', description: 'Early intervention (0-3 years)' },
+  { slug: 'childrens-medical-services', name: 'CMS - Sunshine', description: 'Children\'s Medical Services' },
 ];
 
 // Scholarships

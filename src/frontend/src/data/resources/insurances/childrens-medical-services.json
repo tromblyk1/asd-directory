@@ -1,0 +1,18 @@
+{
+  "title": "Children's Medical Services (CMS)",
+  "description": "Children's Medical Services (CMS) is a Florida Department of Health program that provides care coordination and specialty services for children with special healthcare needs. The program is administered through Sunshine Health's CMS Health Plan.\n\nCMS serves children from birth through age 20 who have chronic physical, developmental, behavioral, or emotional conditions requiring health and related services beyond what is typically needed. Qualifying conditions include autism spectrum disorder, cerebral palsy, Down syndrome, spina bifida, and many other chronic conditions.\n\nServices covered through CMS include care coordination, specialty medical care, early intervention services, therapies (speech, occupational, physical), mental health services, and family support services. The program helps families navigate the complex healthcare system and connects them with appropriate specialists and resources.\n\nTo qualify, children must be Florida residents, have a qualifying medical condition, and meet Medicaid eligibility requirements. Families can apply through their local CMS office or by contacting Sunshine Health directly.",
+  "links": [
+    {
+      "label": "Sunshine Health CMS Plan",
+      "url": "https://www.sunshinehealth.com/members/medicaid/cms.html"
+    },
+    {
+      "label": "Florida CMS Program Information",
+      "url": "https://www.floridahealth.gov/programs-and-services/childrens-health/cms-plan/index.html"
+    },
+    {
+      "label": "Find a CMS Provider",
+      "url": "https://www.sunshinehealth.com/find-a-doctor.html"
+    }
+  ]
+}

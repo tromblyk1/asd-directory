@@ -243,6 +243,12 @@ const SERVICE_METADATA: Record<string, {
     color: 'bg-purple-100 text-purple-800 border-purple-200 hover:bg-purple-200',
     type: 'insurance',
   },
+  'childrens-medical-services': {
+    name: 'CMS - Sunshine',
+    description: 'Children\'s Medical Services - Florida program for children with special healthcare needs, administered through Sunshine Health',
+    color: 'bg-purple-100 text-purple-800 border-purple-200 hover:bg-purple-200',
+    type: 'insurance',
+  },
   'florida-kidcare': {
     name: 'Florida KidCare',
     description: "Children's health insurance",
