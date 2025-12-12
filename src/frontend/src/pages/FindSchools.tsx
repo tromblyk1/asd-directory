@@ -95,10 +95,10 @@ const gradeOptions = [
 
 // Scholarship options with descriptions
 const scholarshipOptions = [
-  { value: 'fes_ua', label: 'FES-UA', description: 'Unique Abilities' },
-  { value: 'fes_eo', label: 'FES-EO', description: 'Educational Options' },
-  { value: 'ftc', label: 'FTC', description: 'Florida Tax Credit' },
-  { value: 'pep', label: 'PEP', description: 'Personalized Education' },
+  { value: 'fes_ua', label: 'FES-UA', description: 'Unique Abilities', tooltip: 'Family Empowerment Scholarship for Unique Abilities - For students with disabilities including autism' },
+  { value: 'fes_eo', label: 'FES-EO', description: 'Educational Options', tooltip: 'Family Empowerment Scholarship for Educational Options - Income-based school choice' },
+  { value: 'ftc', label: 'FTC', description: 'Florida Tax Credit', tooltip: 'Florida Tax Credit Scholarship - For low-income families' },
+  { value: 'pep', label: 'PEP', description: 'Personalized Education', tooltip: 'Personalized Education Program - Flexible funding for customized learning' },
 ];
 
 export default function FindSchools() {
@@ -578,24 +578,33 @@ export default function FindSchools() {
           <h4 className="text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
             Scholarships Accepted
           </h4>
-          <div className="space-y-2">
-            {scholarshipOptions.map(({ value, label, description }) => (
-              <div key={value} className="flex items-start space-x-2">
-                <Checkbox
-                  id={`scholarship-${value}`}
-                  checked={selectedScholarships.includes(value)}
-                  onCheckedChange={() => toggleScholarship(value)}
-                  className="mt-0.5"
-                />
-                <div>
-                  <Label htmlFor={`scholarship-${value}`} className="text-sm font-medium cursor-pointer">
-                    {label}
-                  </Label>
-                  <p className="text-xs text-gray-500">{description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <TooltipProvider delayDuration={200}>
+            <div className="space-y-2">
+              {scholarshipOptions.map(({ value, label, description, tooltip }) => (
+                <Tooltip key={value}>
+                  <TooltipTrigger asChild>
+                    <div className="flex items-start space-x-2 cursor-help">
+                      <Checkbox
+                        id={`scholarship-${value}`}
+                        checked={selectedScholarships.includes(value)}
+                        onCheckedChange={() => toggleScholarship(value)}
+                        className="mt-0.5"
+                      />
+                      <div>
+                        <Label htmlFor={`scholarship-${value}`} className="text-sm font-medium cursor-pointer">
+                          {label}
+                        </Label>
+                        <p className="text-xs text-gray-500">{description}</p>
+                      </div>
+                    </div>
+                  </TooltipTrigger>
+                  <TooltipContent side="right" className="max-w-xs bg-green-600 text-white border-green-700 hidden lg:block">
+                    <p className="font-medium">{tooltip}</p>
+                  </TooltipContent>
+                </Tooltip>
+              ))}
+            </div>
+          </TooltipProvider>
         </div>
 
         {/* Accreditation */}
