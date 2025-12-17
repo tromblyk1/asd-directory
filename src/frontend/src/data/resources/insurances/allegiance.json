@@ -1,0 +1,29 @@
+{
+  "slug": "allegiance",
+  "category": "insurances",
+  "title": "Allegiance Benefit Plan Management",
+  "shortDescription": "Third-party administrator for self-funded health plans, a Cigna subsidiary.",
+  "description": "Allegiance Benefit Plan Management is a third-party administrator (TPA) specializing in self-funded health plans. Founded in 1981 as Intermountain Administrators and rebranded in 2003, Allegiance has served the employee benefits industry for over 40 years, administering plans for over half a million members nationwide.\n\nIn 2008, Allegiance became a wholly-owned subsidiary of Connecticut General Life Insurance Company, itself a subsidiary of Cigna Corporation. This partnership allows Cigna to leverage Allegiance's expertise in self-funded plan administration to deliver TPA services to clients of all sizes.\n\nAs a TPA for self-funded employer health plans, coverage for autism services including ABA therapy depends on each employer's specific plan design. Self-funded plans are governed by federal ERISA law rather than state insurance mandates, so Florida's autism coverage requirements may not automatically apply. However, many self-funded plans voluntarily include autism benefits.\n\nMembers can access plan information, check claim status, review coverage, and verify dependents through Allegiance's member portal or mobile app available on Google Play and Apple App stores.",
+  "benefits": [
+    "Claims processing and administration for self-funded plans",
+    "24/7 online member portal access",
+    "Mobile app for claim status and plan information",
+    "Medical management and utilization review",
+    "Coverage depends on employer's specific plan design",
+    "Backed by Cigna's national network and resources"
+  ],
+  "requirements": [
+    "Coverage varies by employer plan - verify with HR department",
+    "Self-funded plans may not be subject to Florida's autism mandate",
+    "Prior authorization may be required depending on plan",
+    "Must use plan's designated provider network for full benefits",
+    "Autism diagnosis typically required for ASD-specific services"
+  ],
+  "links": [
+    {
+      "label": "Allegiance Member Portal",
+      "url": "https://www.askallegiance.com/",
+      "description": "Official Allegiance website - member login, find providers, and plan information"
+    }
+  ]
+}

@@ -9,23 +9,18 @@ import {
 } from '@/components/ui/tooltip';
 
 export interface EventVerificationBadgeProps {
-  status: 'verified' | 'unverified' | 'pending' | null;
-  source?: string | null;
-  specific_accommodations_published?: boolean | null;
+  accommodations_verified?: boolean | null;
 }
 
 export const EventVerificationBadge: React.FC<EventVerificationBadgeProps> = ({
-  status,
-  source,
-  specific_accommodations_published,
+  accommodations_verified,
 }) => {
-  const isVerified = status === 'verified';
+  const isVerified = accommodations_verified === true;
 
   const tooltipContent = isVerified ? (
     <div className="text-xs">
       <p className="font-semibold mb-1">✓ Verified Accommodations</p>
       <p>Specific sensory accommodations confirmed from official sources.</p>
-      {source && <p className="mt-1 text-green-100">Source: {source}</p>}
     </div>
   ) : (
     <div className="text-xs">

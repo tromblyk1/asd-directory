@@ -233,13 +233,37 @@ export default function SubmitEvent() {
         setFormData(prev => ({ ...prev, [field]: value }));
     };
 
+    // Individual age values (excluding all-ages)
+    const INDIVIDUAL_AGE_VALUES = AGE_GROUPS.filter(g => g.value !== 'all-ages').map(g => g.value);
+
     const handleCheckboxChange = (field: 'age_groups' | 'sensory_accommodations', value: string, checked: boolean) => {
-        setFormData(prev => ({
-            ...prev,
-            [field]: checked 
-                ? [...prev[field], value]
-                : prev[field].filter(v => v !== value)
-        }));
+        setFormData(prev => {
+            let newValues: string[];
+
+            if (checked) {
+                newValues = [...prev[field], value];
+            } else {
+                newValues = prev[field].filter(v => v !== value);
+            }
+
+            // Special logic for age_groups: if all individual ages are selected, replace with just "all-ages"
+            if (field === 'age_groups') {
+                const selectedIndividualAges = newValues.filter(v => v !== 'all-ages');
+                const allIndividualAgesSelected = INDIVIDUAL_AGE_VALUES.every(age =>
+                    selectedIndividualAges.includes(age)
+                );
+
+                if (allIndividualAgesSelected && !newValues.includes('all-ages')) {
+                    // All individual ages selected - replace with just "all-ages"
+                    newValues = ['all-ages'];
+                }
+            }
+
+            return {
+                ...prev,
+                [field]: newValues
+            };
+        });
     };
 
     if (submitted) {

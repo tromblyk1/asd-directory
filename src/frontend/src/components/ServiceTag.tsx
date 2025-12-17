@@ -249,6 +249,30 @@ const SERVICE_METADATA: Record<string, {
     color: 'bg-purple-100 text-purple-800 border-purple-200 hover:bg-purple-200',
     type: 'insurance',
   },
+  'avmed': {
+    name: 'AvMed',
+    description: 'Florida-based nonprofit health insurer offering Medicare, individual, and employer group plans with autism coverage',
+    color: 'bg-purple-100 text-purple-800 border-purple-200 hover:bg-purple-200',
+    type: 'insurance',
+  },
+  'oscar': {
+    name: 'Oscar Health',
+    description: 'Tech-forward health insurer offering individual and family plans with autism therapy coverage in Florida',
+    color: 'bg-purple-100 text-purple-800 border-purple-200 hover:bg-purple-200',
+    type: 'insurance',
+  },
+  'allegiance': {
+    name: 'Allegiance',
+    description: 'Third-party administrator for self-funded health plans, a Cigna subsidiary',
+    color: 'bg-purple-100 text-purple-800 border-purple-200 hover:bg-purple-200',
+    type: 'insurance',
+  },
+  'evernorth': {
+    name: 'Evernorth',
+    description: 'Cigna\'s behavioral health division offering autism and mental health services',
+    color: 'bg-purple-100 text-purple-800 border-purple-200 hover:bg-purple-200',
+    type: 'insurance',
+  },
   'florida-kidcare': {
     name: 'Florida KidCare',
     description: "Children's health insurance",

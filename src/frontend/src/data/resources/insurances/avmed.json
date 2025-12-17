@@ -1,0 +1,30 @@
+{
+  "slug": "avmed",
+  "category": "insurances",
+  "title": "AvMed",
+  "shortDescription": "Florida-based nonprofit health insurer offering comprehensive autism and behavioral health coverage.",
+  "description": "AvMed is a Florida-based nonprofit health insurance company headquartered in Miami, serving Floridians since 1969. Originally founded as Aviation Medicine to provide pilot physicals for the airline industry, AvMed has grown to serve over 382,000 members across the state with offices in every major metropolitan area.\n\nAvMed offers Medicare Advantage, individual and family, and employer group coverage throughout Florida. Their plans include coverage for autism spectrum disorder services as required by Florida law, including Applied Behavior Analysis (ABA) therapy, speech therapy, occupational therapy, and mental health services.\n\nIn December 2022, AvMed was acquired by Sentara Healthcare, bringing additional resources and expertise to their Florida operations. AvMed is recognized for its team-based, patient-centered care model and commitment to helping members achieve better health outcomes.\n\nUnder Florida law (sections 627.6686 and 641.31098, Florida Statutes), large group health plans must cover ABA therapy for individuals under 18 with an autism diagnosis, with annual limits of $36,000 and lifetime limits of $200,000.",
+  "benefits": [
+    "Coverage for ABA therapy as mandated by Florida law",
+    "Speech, occupational, and physical therapy benefits",
+    "Behavioral health and mental health services",
+    "Extensive provider network across Florida",
+    "Medicare Advantage, individual, and employer group plan options",
+    "Care coordination and wellness programs",
+    "50+ years of experience serving Florida families"
+  ],
+  "requirements": [
+    "Prior authorization typically required for ABA and intensive services",
+    "Services must be deemed medically necessary",
+    "Autism diagnosis required for ASD-specific coverage",
+    "Coverage limits may apply ($36,000 annual / $200,000 lifetime per Florida law)",
+    "Provider must be in-network for full benefits"
+  ],
+  "links": [
+    {
+      "label": "AvMed",
+      "url": "https://www.avmed.org/",
+      "description": "Official AvMed website - find providers, check benefits, and manage your plan"
+    }
+  ]
+}

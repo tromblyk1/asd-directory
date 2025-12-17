@@ -109,6 +109,10 @@ const insuranceBadges: Record<string, { label: string; tooltip: string; link: st
   'earlysteps': { label: 'Early Steps', tooltip: 'Florida early intervention program for infants and toddlers (birth to 36 months)', link: '/resources/insurances/early-steps' },
   'childrens-medical-services': { label: 'CMS - Sunshine', tooltip: 'Children\'s Medical Services - Florida program for children with special healthcare needs, administered through Sunshine Health', link: '/resources/insurances/childrens-medical-services' },
   'cms': { label: 'CMS - Sunshine', tooltip: 'Children\'s Medical Services - Florida program for children with special healthcare needs, administered through Sunshine Health', link: '/resources/insurances/childrens-medical-services' },
+  'avmed': { label: 'AvMed', tooltip: 'Florida-based nonprofit health insurer with autism coverage', link: '/resources/insurances/avmed' },
+  'oscar': { label: 'Oscar Health', tooltip: 'Tech-forward health insurer with autism therapy coverage in Florida', link: '/resources/insurances/oscar' },
+  'allegiance': { label: 'Allegiance', tooltip: 'Third-party administrator for self-funded health plans, a Cigna subsidiary', link: '/resources/insurances/allegiance' },
+  'evernorth': { label: 'Evernorth', tooltip: 'Cigna behavioral health division offering autism and mental health services', link: '/resources/insurances/evernorth' },
 };
 
 // Scholarship badge definitions - GREEN colors

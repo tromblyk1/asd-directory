@@ -28,6 +28,7 @@ export interface Event {
   verification_status?: 'verified' | 'unverified' | 'pending' | null;
   verification_source?: string | null;
   specific_accommodations_published?: boolean | null;
+  accommodations_verified?: boolean | null;
   verification_notes?: string | null;
   verified_by?: string | null;
   verified_date?: string | null;

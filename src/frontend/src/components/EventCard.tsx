@@ -45,6 +45,38 @@ const getCostBadgeColor = (cost?: string) => {
     return 'bg-amber-100 text-amber-700 border-amber-200';
 };
 
+// Helper to format category for display (capitalize properly)
+const formatCategory = (category: string | null | undefined): string => {
+    if (!category) return 'Other';
+    const categoryNames: Record<string, string> = {
+        sensory_friendly: "Sensory-Friendly",
+        support_group: "Support Groups",
+        educational: "Educational",
+        social: "Social",
+        fundraiser: "Fundraiser",
+        professional_development: "Professional Development",
+        recreational: "Recreational",
+        other: "Other"
+    };
+    if (categoryNames[category]) return categoryNames[category];
+    return category
+        .replace(/_/g, ' ')
+        .replace(/-/g, ' ')
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(' ');
+};
+
+// Helper to format age groups for display (capitalize, remove hyphens)
+const formatAgeGroup = (age: string): string => {
+    return age
+        .replace(/_/g, ' ')
+        .replace(/-/g, ' ')
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(' ');
+};
+
 // Format registration text - remove "YES" prefix and clean up
 const formatRegistrationText = (text?: string | null): { text: string; isRequired: boolean } => {
     if (!text) {
@@ -68,7 +100,7 @@ export const EventCard: React.FC<EventCardProps> = ({ event, isPast = false }) =
 
     return (
         <Card className="border-none shadow-lg hover:shadow-xl transition-shadow group h-full flex flex-col">
-            {event.image_url && (
+            {event.image_url && event.slug && (
                 <Link to={`/events/${event.slug}`}>
                     <div className="h-40 sm:h-48 overflow-hidden">
                         <img
@@ -79,13 +111,22 @@ export const EventCard: React.FC<EventCardProps> = ({ event, isPast = false }) =
                     </div>
                 </Link>
             )}
+            {event.image_url && !event.slug && (
+                <div className="h-40 sm:h-48 overflow-hidden">
+                    <img
+                        src={event.image_url}
+                        alt={event.title}
+                        className="w-full h-full object-cover"
+                    />
+                </div>
+            )}
 
             <CardContent className="p-4 sm:p-6 flex-1 flex flex-col">
                 {/* Badges Row */}
                 <div className="flex flex-wrap items-center gap-2 mb-3">
                     {event.category && (
                         <Badge className={`${categoryColor} border`}>
-                            {event.category.replace(/_/g, ' ')}
+                            {formatCategory(event.category)}
                         </Badge>
                     )}
                     {event.event_type && (
@@ -112,17 +153,22 @@ export const EventCard: React.FC<EventCardProps> = ({ event, isPast = false }) =
                         </Badge>
                     )}
                     <EventVerificationBadge
-                        status={event.verification_status || 'unverified'}
-                        source={event.verification_source}
+                        accommodations_verified={event.accommodations_verified}
                     />
                 </div>
 
-                {/* Title - Clickable */}
-                <Link to={`/events/${event.slug}`}>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors cursor-pointer">
+                {/* Title - Clickable only if slug exists */}
+                {event.slug ? (
+                    <Link to={`/events/${event.slug}`}>
+                        <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors cursor-pointer">
+                            {event.title}
+                        </h3>
+                    </Link>
+                ) : (
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">
                         {event.title}
                     </h3>
-                </Link>
+                )}
 
                 {/* Organizer */}
                 {event.organizer && (
@@ -163,20 +209,17 @@ export const EventCard: React.FC<EventCardProps> = ({ event, isPast = false }) =
                             {event.cost.length > 30 ? event.cost.substring(0, 30) + '...' : event.cost}
                         </Badge>
                     )}
-                    {(() => {
-                        const regInfo = formatRegistrationText(event.registration_required);
-                        return (
-                            <Badge 
-                                variant="outline" 
-                                className={regInfo.isRequired 
-                                    ? "bg-blue-50 text-blue-700 border-blue-200" 
-                                    : "bg-green-50 text-green-700 border-green-200"
-                                }
-                            >
-                                {regInfo.text}
-                            </Badge>
-                        );
-                    })()}
+                    {event.registration_required !== undefined && event.registration_required !== null && (
+                        <Badge 
+                            variant="outline" 
+                            className={event.registration_required
+                                ? "bg-blue-50 text-blue-700 border-blue-200" 
+                                : "bg-green-50 text-green-700 border-green-200"
+                            }
+                        >
+                            {event.registration_required ? 'Registration Required' : 'No Registration Required'}
+                        </Badge>
+                    )}
                 </div>
 
                 {/* Description */}
@@ -210,7 +253,7 @@ export const EventCard: React.FC<EventCardProps> = ({ event, isPast = false }) =
                         <div className="flex flex-wrap gap-1">
                             {event.age_groups.map((age, idx) => (
                                 <Badge key={idx} variant="secondary" className="text-xs">
-                                    {age.replace(/_/g, ' ')}
+                                    {formatAgeGroup(age)}
                                 </Badge>
                             ))}
                         </div>
@@ -225,13 +268,15 @@ export const EventCard: React.FC<EventCardProps> = ({ event, isPast = false }) =
                         </Badge>
                     ) : (
                         <>
-                            {/* View Details Button - Primary Action */}
-                            <Link to={`/events/${event.slug}`} className="block">
-                                <Button className="w-full bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700">
-                                    View Full Details
-                                    <ArrowRight className="w-4 h-4 ml-2" />
-                                </Button>
-                            </Link>
+                            {/* View Details Button - Primary Action (only if slug exists) */}
+                            {event.slug && (
+                                <Link to={`/events/${event.slug}`} className="block">
+                                    <Button className="w-full bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700">
+                                        View Full Details
+                                        <ArrowRight className="w-4 h-4 ml-2" />
+                                    </Button>
+                                </Link>
+                            )}
 
                             {/* Quick Actions */}
                             <div className="flex gap-2">

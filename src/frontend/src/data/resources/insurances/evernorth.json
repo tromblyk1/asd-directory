@@ -1,0 +1,29 @@
+{
+  "slug": "evernorth",
+  "category": "insurances",
+  "title": "Evernorth Behavioral Health",
+  "shortDescription": "Cigna's behavioral health division offering autism and mental health services.",
+  "description": "Evernorth Behavioral Health is the behavioral health division of The Cigna Group, operating one of the largest and fastest-growing behavioral health plans in the industry. Evernorth powers Cigna Healthcare's behavioral health offerings and has more than doubled its network of contracted providers over the past four years.\n\nEvernorth treats a wide range of conditions including depression, anxiety, substance use disorders, autism spectrum disorder, and eating disorders. Their approach to provider partnerships emphasizes simplification, transparency, and advocacy.\n\nFor autism services, Evernorth requires providers to be certified by a national governing agency or state licensing board (such as BCBA, BCBA-D, BCaBA, or licensed behavior analyst). As of December 2020, precertification is no longer required for ABA assessment codes (97151, 97152, 0362T) when the provider is independently licensed or a Board Certified Behavior Analyst and the member's policy covers ABA services.\n\nEvernorth has removed prior authorization requirements from most routine outpatient mental health and substance use disorder care, allowing members to visit any in-network behavioral health provider without pre-approval. Members can access care via chat, phone, or video through MDLIVE and other Evernorth platforms.",
+  "benefits": [
+    "Extensive behavioral health provider network",
+    "No prior authorization for most routine outpatient behavioral care",
+    "No precertification required for ABA assessments (since Dec 2020)",
+    "Virtual care access via chat, phone, or video",
+    "Specialized autism care coordination team",
+    "Coverage for ABA therapy, speech therapy, and related services"
+  ],
+  "requirements": [
+    "Verify ABA eligibility and benefits before assessment",
+    "ABA providers must be BCBA certified or state licensed",
+    "Coverage subject to member's specific plan benefits",
+    "Use in-network providers for maximum benefits",
+    "Autism diagnosis required for ASD-specific services"
+  ],
+  "links": [
+    {
+      "label": "Evernorth Behavioral Health",
+      "url": "https://www.evernorth.com/our-solutions/behavioral-health",
+      "description": "Official Evernorth behavioral health information and resources"
+    }
+  ]
+}

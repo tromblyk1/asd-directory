@@ -45,6 +45,10 @@ const insurancesList = [
   { slug: 'tricare', name: 'TRICARE', description: 'Military health insurance' },
   { slug: 'early-steps', name: 'Early Steps', description: 'Early intervention (0-3 years)' },
   { slug: 'childrens-medical-services', name: 'CMS - Sunshine', description: 'Children\'s Medical Services' },
+  { slug: 'avmed', name: 'AvMed', description: 'Florida nonprofit health insurer' },
+  { slug: 'oscar', name: 'Oscar Health', description: 'Tech-forward health insurer' },
+  { slug: 'allegiance', name: 'Allegiance', description: 'Self-funded plan TPA (Cigna)' },
+  { slug: 'evernorth', name: 'Evernorth', description: 'Cigna behavioral health' },
 ];
 
 // Scholarships

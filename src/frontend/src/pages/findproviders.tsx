@@ -75,6 +75,10 @@ const insuranceOptions = [
   { value: 'sunshine-health', label: 'Sunshine Health' },
   { value: 'early-steps', label: 'Early Steps' },
   { value: 'childrens-medical-services', label: 'CMS - Sunshine' },
+  { value: 'avmed', label: 'AvMed' },
+  { value: 'oscar', label: 'Oscar Health' },
+  { value: 'allegiance', label: 'Allegiance' },
+  { value: 'evernorth', label: 'Evernorth' },
 ];
 
 // Scholarship options for filtering - ONLY values that exist in the database
@@ -121,6 +125,10 @@ const insurancePopupInfo: Record<string, { label: string; description: string; s
   'sunshine-health': { label: 'Sunshine', description: 'Sunshine Health', slug: 'sunshine-health' },
   'early-steps': { label: 'Early Steps', description: 'Florida Early Intervention', slug: 'early-steps' },
   'childrens-medical-services': { label: 'CMS - Sunshine', description: 'Children\'s Medical Services', slug: 'childrens-medical-services' },
+  'avmed': { label: 'AvMed', description: 'AvMed Health Plans', slug: 'avmed' },
+  'oscar': { label: 'Oscar', description: 'Oscar Health Insurance', slug: 'oscar' },
+  'allegiance': { label: 'Allegiance', description: 'Allegiance Benefit Plan Management', slug: 'allegiance' },
+  'evernorth': { label: 'Evernorth', description: 'Evernorth Behavioral Health', slug: 'evernorth' },
 };
 
 export default function FindProviders() {

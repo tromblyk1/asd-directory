@@ -1,0 +1,79 @@
+{
+  "name": "Submission",
+  "type": "object",
+  "properties": {
+    "resource_name": {
+      "type": "string",
+      "description": "Name of resource being submitted"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "faith_based",
+        "healthcare",
+        "education",
+        "recreation",
+        "support_services",
+        "daily_living",
+        "employment"
+      ],
+      "description": "Resource category"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of resource and accommodations"
+    },
+    "address": {
+      "type": "string",
+      "description": "Full address"
+    },
+    "city": {
+      "type": "string",
+      "description": "City"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Contact phone"
+    },
+    "email": {
+      "type": "string",
+      "description": "Contact email"
+    },
+    "website": {
+      "type": "string",
+      "description": "Website URL"
+    },
+    "submitter_name": {
+      "type": "string",
+      "description": "Name of person submitting"
+    },
+    "submitter_email": {
+      "type": "string",
+      "description": "Submitter's email"
+    },
+    "submitter_relationship": {
+      "type": "string",
+      "description": "Relationship to resource (parent, provider, etc.)"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected"
+      ],
+      "default": "pending",
+      "description": "Review status"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Admin notes"
+    }
+  },
+  "required": [
+    "resource_name",
+    "category",
+    "city",
+    "submitter_email"
+  ]
+}

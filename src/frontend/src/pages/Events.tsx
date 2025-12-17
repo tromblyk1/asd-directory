@@ -44,6 +44,30 @@ const categoryNames: Record<string, string> = {
     other: "Other"
 };
 
+// Helper to format category for display (capitalize properly)
+const formatCategory = (category: string | null | undefined): string => {
+    if (!category) return 'Other';
+    // Check if we have a mapped name first
+    if (categoryNames[category]) return categoryNames[category];
+    // Otherwise, format the raw value: replace underscores, capitalize each word
+    return category
+        .replace(/_/g, ' ')
+        .replace(/-/g, ' ')
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(' ');
+};
+
+// Helper to format age groups for display (capitalize, remove hyphens)
+const formatAgeGroup = (age: string): string => {
+    return age
+        .replace(/_/g, ' ')
+        .replace(/-/g, ' ')
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(' ');
+};
+
 export default function Events() {
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("all");
@@ -99,7 +123,7 @@ export default function Events() {
     const groupedEvents = useMemo(() => {
         const groups: Record<string, typeof events> = {};
         filteredEvents.forEach(event => {
-            const monthKey = format(new Date(event.date), 'MMMM yyyy');
+            const monthKey = format(new Date(event.date + 'T12:00:00'), 'MMMM yyyy');
             if (!groups[monthKey]) {
                 groups[monthKey] = [];
             }
@@ -177,8 +201,8 @@ export default function Events() {
         ]
     };
 
-    // Filter panel content (reused for mobile and desktop)
-    const FilterContent = () => (
+    // Filter panel content - extracted as inline JSX to avoid focus issues
+    const filterContent = (
         <>
             <h2 className="text-lg font-bold text-gray-900 mb-4 hidden lg:block">Filter Events</h2>
 
@@ -363,7 +387,7 @@ export default function Events() {
                                             <X className="w-4 h-4" />
                                         </Button>
                                     </div>
-                                    <FilterContent />
+                                    {filterContent}
                                     <div className="mt-4 pt-4 border-t flex justify-between items-center">
                                         <p className="text-sm text-gray-600">
                                             <span className="font-semibold text-green-600">{filteredEvents.length}</span> events
@@ -385,7 +409,7 @@ export default function Events() {
                         <aside className="hidden lg:block w-64 flex-shrink-0" aria-label="Event filters">
                             <Card className="border-none shadow-lg sticky top-8">
                                 <CardContent className="p-6">
-                                    <FilterContent />
+                                    {filterContent}
                                 </CardContent>
                             </Card>
                         </aside>
@@ -427,10 +451,10 @@ export default function Events() {
                                                                     {/* Category & Registration badges */}
                                                                     <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-3">
                                                                         <Badge className={`${categoryColors[event.category as EventCategory] || categoryColors.other} border text-xs`}>
-                                                                            {event.category?.replace(/_/g, ' ')}
+                                                                            {formatCategory(event.category)}
                                                                         </Badge>
 
-                                                                        {event.verified && <EventVerificationBadge status="verified" />}
+                                                                        {event.verified === true && <EventVerificationBadge accommodations_verified={event.accommodations_verified} />}
 
                                                                         <Badge
                                                                             variant="outline"
@@ -456,11 +480,17 @@ export default function Events() {
                                                                         </Badge>
                                                                     </div>
 
-                                                                    <Link to={`/events/${event.slug}`}>
-                                                                        <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-green-600 transition-colors cursor-pointer line-clamp-2">
+                                                                    {event.slug ? (
+                                                                        <Link to={`/events/${event.slug}`}>
+                                                                            <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-green-600 transition-colors cursor-pointer line-clamp-2">
+                                                                                {event.title}
+                                                                            </h3>
+                                                                        </Link>
+                                                                    ) : (
+                                                                        <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-2 sm:mb-3 line-clamp-2">
                                                                             {event.title}
                                                                         </h3>
-                                                                    </Link>
+                                                                    )}
 
                                                                     <div className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-4 text-sm text-gray-600">
                                                                         <div className="flex items-center gap-2">
@@ -494,7 +524,7 @@ export default function Events() {
                                                                             <div className="flex flex-wrap gap-1">
                                                                                 {event.age_groups.map((age: string, idx: number) => (
                                                                                     <Badge key={idx} variant="secondary" className="text-xs">
-                                                                                        {age.replace(/_/g, ' ')}
+                                                                                        {formatAgeGroup(age)}
                                                                                     </Badge>
                                                                                 ))}
                                                                             </div>

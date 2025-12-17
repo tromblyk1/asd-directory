@@ -1,0 +1,8 @@
+_archive/
+node_modules/
+.git/
+supabase/
+troubleshooting/
+dist/
+*.csv
+*.log

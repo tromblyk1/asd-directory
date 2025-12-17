@@ -1,0 +1,815 @@
+=== insurances/aetna.json ===
+{
+  "title": "Aetna",
+  "description": "Aetna is a major health insurance provider offering coverage in Florida for autism-related services including ABA therapy, occupational therapy, speech therapy, and diagnostic evaluations. Many Aetna plans provide comprehensive coverage for medically necessary autism treatments for children and adults. Coverage details vary by specific plan type, so members should verify their benefits and obtain prior authorization when required for behavioral health services.",
+  "links": [
+    {
+      "label": "Aetna Behavioral Health Resources",
+      "url": "https://www.aetna.com/individuals-families/health-insurance-through-work/behavioral-health.html"
+    },
+    {
+      "label": "Aetna Find a Doctor",
+      "url": "https://www.aetna.com/find-a-doctor.html"
+    },
+    {
+      "label": "Autism Speaks Insurance Guide",
+      "url": "https://www.autismspeaks.org/insurance"
+    }
+  ]
+}
+
+
+=== insurances/cigna.json ===
+{
+  "title": "Cigna",
+  "description": "Cigna provides health insurance coverage in Florida with benefits for autism spectrum disorder treatment and support services. Cigna plans typically cover ABA therapy, speech therapy, occupational therapy, and psychological evaluations when medically necessary. Coverage includes both in-network and out-of-network providers, though benefits are maximized when using in-network specialists. Prior authorization may be required for certain therapies and services.",
+  "links": [
+    {
+      "label": "Cigna Behavioral Health Coverage",
+      "url": "https://www.cigna.com/individuals-families/member-resources/behavioral-mental-health"
+    },
+    {
+      "label": "Cigna Provider Directory",
+      "url": "https://www.cigna.com/individuals-families/member-resources/provider-directory"
+    },
+    {
+      "label": "Autism Speaks Insurance Resources",
+      "url": "https://www.autismspeaks.org/insurance"
+    }
+  ]
+}
+
+
+=== insurances/floridaBlue.json ===
+{
+  "title": "Florida Blue",
+  "description": "Florida Blue is the state's largest health insurer and a Blue Cross Blue Shield licensee, serving millions of Floridians with comprehensive autism coverage. Florida Blue plans cover medically necessary autism services including ABA therapy, diagnostic evaluations, speech therapy, occupational therapy, and mental health services. The company offers specialized behavioral health programs and maintains an extensive network of autism providers throughout Florida. Members benefit from care coordination services and access to autism-specific resources.",
+  "links": [
+    {
+      "label": "Florida Blue Member Services",
+      "url": "https://www.floridablue.com"
+    },
+    {
+      "label": "Florida Blue Find a Doctor",
+      "url": "https://www.floridablue.com/members/find-a-doctor"
+    },
+    {
+      "label": "Florida Autism Insurance Coverage Information",
+      "url": "https://www.floridahealth.gov/programs-and-services/childrens-health/index.html"
+    }
+  ]
+}
+
+
+=== insurances/floridaHealthcarePlans.json ===
+{
+  "title": "Florida Healthcare Plans",
+  "description": "Florida Healthcare Plans is a managed care organization providing health coverage to eligible Florida residents including those with autism spectrum disorder. The organization administers benefits for Medicaid and other state programs, offering comprehensive autism services such as behavioral therapy, diagnostic assessments, and therapeutic interventions. Florida Healthcare Plans coordinates care through a network of providers specializing in developmental disabilities and autism treatment across multiple Florida counties.",
+  "links": [
+    {
+      "label": "Florida Healthcare Plans Official Site",
+      "url": "https://www.fhcp.com"
+    },
+    {
+      "label": "Florida Medicaid Managed Care",
+      "url": "https://www.flmedicaidmanagedcare.com"
+    },
+    {
+      "label": "Florida Agency for Health Care Administration",
+      "url": "https://www.ahca.myflorida.com"
+    }
+  ]
+}
+
+
+=== insurances/floridaKidcare.json ===
+{
+  "title": "Florida KidCare",
+  "description": "Florida KidCare is the state's subsidized health insurance program for children from birth through age 18, providing comprehensive coverage including autism-related services. The program offers four different insurance options based on family income and includes coverage for behavioral health therapy, speech therapy, occupational therapy, and developmental screenings. Florida KidCare makes quality healthcare affordable for families who earn too much to qualify for Medicaid but cannot afford private insurance. Children with autism receive medically necessary treatments through participating providers across the state.",
+  "links": [
+    {
+      "label": "Florida KidCare Official Website",
+      "url": "https://www.floridakidcare.org"
+    },
+    {
+      "label": "Florida KidCare Enrollment",
+      "url": "https://www.floridakidcare.org/apply"
+    },
+    {
+      "label": "Florida Healthy Kids Corporation",
+      "url": "https://www.healthykids.org"
+    }
+  ]
+}
+
+
+=== insurances/humana.json ===
+{
+  "title": "Humana",
+  "description": "Humana offers health insurance plans in Florida with coverage for autism spectrum disorder services including behavioral analysis therapy, speech and language therapy, and occupational therapy. Humana plans provide access to developmental and behavioral health specialists through their provider network. Coverage for autism services varies by plan type, with many offering comprehensive benefits when services are medically necessary and provided by qualified in-network professionals. Members should verify specific coverage details and authorization requirements with their plan.",
+  "links": [
+    {
+      "label": "Humana Member Resources",
+      "url": "https://www.humana.com"
+    },
+    {
+      "label": "Humana Find a Doctor",
+      "url": "https://www.humana.com/finder"
+    },
+    {
+      "label": "Humana Behavioral Health Services",
+      "url": "https://www.humana.com/provider/medical-resources/behavioral-health"
+    }
+  ]
+}
+
+
+=== insurances/medicaid.json ===
+{
+  "title": "Florida Medicaid",
+  "description": "Florida Medicaid provides comprehensive health coverage for eligible low-income individuals and families, including extensive autism services. The program covers ABA therapy, speech therapy, occupational therapy, physical therapy, psychological evaluations, and diagnostic services for children and adults with autism spectrum disorder. Florida Medicaid operates through managed care plans that coordinate autism services and connect families with specialized providers. Eligibility is based on income, household size, and other qualifying criteria, with special provisions for children with disabilities.",
+  "links": [
+    {
+      "label": "Florida Medicaid Official Portal",
+      "url": "https://www.mymedicaid-florida.com"
+    },
+    {
+      "label": "Agency for Health Care Administration",
+      "url": "https://www.ahca.myflorida.com/medicaid"
+    },
+    {
+      "label": "Florida Medicaid Coverage and Benefits",
+      "url": "https://www.flmedicaidmanagedcare.com"
+    }
+  ]
+}
+
+
+=== insurances/medicare.json ===
+{
+  "title": "Medicare",
+  "description": "Medicare is the federal health insurance program primarily serving adults aged 65 and older, as well as younger individuals with qualifying disabilities including autism. Original Medicare (Parts A and B) provides limited autism coverage, primarily for diagnostic evaluations and medical services. Medicare Advantage plans (Part C) may offer additional behavioral health benefits including therapy services. Coverage varies significantly by plan type, and many individuals with autism who qualify for Medicare also have supplemental coverage through Medicaid or private insurance to access comprehensive autism services.",
+  "links": [
+    {
+      "label": "Medicare Official Website",
+      "url": "https://www.medicare.gov"
+    },
+    {
+      "label": "Medicare Plan Finder",
+      "url": "https://www.medicare.gov/plan-compare"
+    },
+    {
+      "label": "Medicare Behavioral Health Services",
+      "url": "https://www.medicare.gov/coverage/mental-health-care-outpatient"
+    }
+  ]
+}
+
+
+=== insurances/molina.json ===
+{
+  "title": "Molina Healthcare",
+  "description": "Molina Healthcare provides managed care services in Florida, primarily serving Medicaid and Medicare beneficiaries including individuals with autism spectrum disorder. Molina's Florida plans offer comprehensive autism coverage through their behavioral health programs, including ABA therapy, speech therapy, occupational therapy, and mental health services. The company focuses on coordinated care for members with complex needs and maintains provider networks experienced in autism treatment. Molina offers care management services to help families navigate autism services and connect with appropriate specialists.",
+  "links": [
+    {
+      "label": "Molina Healthcare Florida",
+      "url": "https://www.molinahealthcare.com/members/fl/en-us/hp/medicaid/medicaid.aspx"
+    },
+    {
+      "label": "Molina Member Services",
+      "url": "https://www.molinahealthcare.com"
+    },
+    {
+      "label": "Florida Medicaid Managed Care Plans",
+      "url": "https://www.flmedicaidmanagedcare.com"
+    }
+  ]
+}
+
+
+=== insurances/sunshineHealth.json ===
+{
+  "title": "Sunshine Health",
+  "description": "Sunshine Health is a Florida-based managed care plan serving Medicaid and Children's Health Insurance Program members throughout the state. The plan provides comprehensive autism services including ABA therapy, speech therapy, occupational therapy, behavioral health counseling, and developmental assessments. Sunshine Health operates an extensive network of autism specialists and therapy providers across Florida's counties. The organization emphasizes care coordination and family support, helping members access necessary autism treatments and navigate the healthcare system effectively.",
+  "links": [
+    {
+      "label": "Sunshine Health Official Website",
+      "url": "https://www.sunshinehealth.com"
+    },
+    {
+      "label": "Sunshine Health Member Portal",
+      "url": "https://www.sunshinehealth.com/members.html"
+    },
+    {
+      "label": "Florida Medicaid Information",
+      "url": "https://www.ahca.myflorida.com/medicaid"
+    }
+  ]
+}
+
+
+=== insurances/tricare.json ===
+{
+  "title": "TRICARE",
+  "description": "TRICARE is the healthcare program for active duty service members, retirees, and their families, providing comprehensive autism coverage in Florida and nationwide. TRICARE covers ABA therapy through the Applied Behavior Analysis for Autism Spectrum Disorder benefit, as well as speech therapy, occupational therapy, and diagnostic evaluations when medically necessary. The Extended Care Health Option provides additional support for eligible beneficiaries with autism. TRICARE beneficiaries in Florida can access care through network providers and military treatment facilities.",
+  "links": [
+    {
+      "label": "TRICARE Official Website",
+      "url": "https://www.tricare.mil"
+    },
+    {
+      "label": "TRICARE Autism Care Demonstration",
+      "url": "https://www.tricare.mil/CoveredServices/BehavioralHealth/ABAforASD"
+    },
+    {
+      "label": "TRICARE Find a Provider",
+      "url": "https://www.tricare.mil/FindDoctor"
+    }
+  ]
+}
+
+
+=== insurances/unitedHealthcare.json ===
+{
+  "title": "UnitedHealthcare",
+  "description": "UnitedHealthcare is one of the largest health insurers in the United States, offering extensive coverage in Florida for autism spectrum disorder services. UnitedHealthcare plans typically cover ABA therapy, speech therapy, occupational therapy, mental health services, and diagnostic evaluations when medically necessary. The company maintains a broad network of autism specialists and behavioral health providers throughout Florida. Coverage details vary by plan type including commercial plans, Medicare Advantage, and Medicaid managed care, with prior authorization often required for intensive therapies.",
+  "links": [
+    {
+      "label": "UnitedHealthcare Member Services",
+      "url": "https://www.uhc.com"
+    },
+    {
+      "label": "UnitedHealthcare Find a Provider",
+      "url": "https://www.uhc.com/find-a-physician"
+    },
+    {
+      "label": "UnitedHealthcare Behavioral Health",
+      "url": "https://www.uhc.com/health-and-wellness/behavioral-health"
+    }
+  ]
+}
+
+
+=== insurances/wellcare.json ===
+{
+  "title": "WellCare",
+  "description": "WellCare, now part of Centene Corporation, provides managed care services in Florida primarily for Medicaid and Medicare beneficiaries. WellCare plans offer comprehensive autism coverage including ABA therapy, speech therapy, occupational therapy, behavioral health services, and developmental assessments. The company specializes in serving individuals with complex healthcare needs and maintains networks of providers experienced in autism treatment across Florida. WellCare emphasizes care coordination and member support to help families access appropriate autism services and specialists.",
+  "links": [
+    {
+      "label": "WellCare Florida Medicaid",
+      "url": "https://www.wellcare.com/Florida"
+    },
+    {
+      "label": "WellCare Member Portal",
+      "url": "https://www.wellcare.com"
+    },
+    {
+      "label": "Florida Agency for Health Care Administration",
+      "url": "https://www.ahca.myflorida.com"
+    }
+  ]
+}
+
+
+=== scholarships/fesEo.json ===
+{
+  "title": "FES-EO (Educational Opportunities)",
+  "description": "The Florida Tax Credit Scholarship Program - Educational Opportunities (FES-EO) provides scholarships to eligible Florida students from low-income families to attend participating private schools. This program helps families of children with autism access educational environments that may better suit their needs, including schools with specialized autism programs or smaller class sizes. Scholarships cover tuition, fees, and may include funding for therapy services when provided as part of the educational program. Eligibility is based on household income and other qualifying criteria.",
+  "links": [
+    {
+      "label": "Step Up For Students FES-EO Information",
+      "url": "https://www.stepupforstudents.org/scholarships/florida-tax-credit-scholarship-fes-eo"
+    },
+    {
+      "label": "Florida Department of Education Scholarship Programs",
+      "url": "https://www.fldoe.org/schools/school-choice/k-12-scholarship-programs"
+    },
+    {
+      "label": "Step Up For Students Eligibility",
+      "url": "https://www.stepupforstudents.org/how-to-apply"
+    }
+  ]
+}
+
+
+=== scholarships/fesUa.json ===
+{
+  "title": "FES-UA (Unique Abilities)",
+  "description": "The Florida Tax Credit Scholarship Program - Unique Abilities (FES-UA) provides scholarships specifically for students with special needs, including autism spectrum disorder, to attend participating private schools or access specialized services. This scholarship helps families cover costs of private school tuition, therapies, and specialized instruction tailored to children with disabilities. FES-UA is particularly valuable for families seeking intensive autism support services or alternative educational settings. Students must have an active Individualized Education Plan or 504 Plan to qualify.",
+  "links": [
+    {
+      "label": "Step Up For Students FES-UA Program",
+      "url": "https://www.stepupforstudents.org/scholarships/florida-tax-credit-scholarship-fes-ua"
+    },
+    {
+      "label": "Florida Department of Education Special Needs Scholarships",
+      "url": "https://www.fldoe.org/schools/school-choice/k-12-scholarship-programs/ftc"
+    },
+    {
+      "label": "FES-UA Eligibility Requirements",
+      "url": "https://www.stepupforstudents.org/how-to-apply"
+    }
+  ]
+}
+
+
+=== scholarships/ftc.json ===
+{
+  "title": "FTC (Florida Tax Credit)",
+  "description": "The Florida Tax Credit Scholarship (FTC) is a state-funded program that provides scholarships to low-income families enabling their children to attend private schools of choice. This program benefits families of children with autism by offering access to schools with specialized programs, smaller teacher-to-student ratios, and individualized instruction approaches. The FTC scholarship covers tuition and fees at participating private schools throughout Florida. Eligibility is determined by household income relative to the federal poverty level, and priority is given to students from families with the greatest financial need.",
+  "links": [
+    {
+      "label": "Step Up For Students FTC Program",
+      "url": "https://www.stepupforstudents.org/scholarships/florida-tax-credit-scholarship"
+    },
+    {
+      "label": "Florida Department of Education Scholarship Information",
+      "url": "https://www.fldoe.org/schools/school-choice/k-12-scholarship-programs"
+    },
+    {
+      "label": "AAA Scholarship Foundation",
+      "url": "https://www.aaascholarships.org"
+    }
+  ]
+}
+
+
+=== scholarships/hope.json ===
+{
+  "title": "HOPE Scholarship",
+  "description": "The Hope Scholarship Program provides Florida public school students who have been subjected to violence or harassment, including bullying, the opportunity to transfer to another public school or receive a scholarship to attend an eligible private school. This program can be particularly beneficial for students with autism who experience bullying or struggle in traditional public school environments. The scholarship covers tuition and fees at participating private schools or transportation costs for transfers to other public schools. Parents must report the incident according to their school district's policy to be eligible.",
+  "links": [
+    {
+      "label": "Step Up For Students HOPE Scholarship",
+      "url": "https://www.stepupforstudents.org/scholarships/hope-scholarship"
+    },
+    {
+      "label": "Florida Department of Education HOPE Program",
+      "url": "https://www.fldoe.org/schools/school-choice/k-12-scholarship-programs/hope"
+    }
+  ]
+}
+
+
+=== scholarships/pep.json ===
+{
+  "title": "PEP (Personalized Education Program)",
+  "description": "The Personalized Education Program (PEP) Scholarship provides Florida families with funds to customize their child's education through a combination of approved educational products and services. For families of children with autism, PEP funds can be used for specialized therapies, curriculum materials, educational technology, tutoring services, and enrollment in part-time private school classes. This flexible scholarship model allows parents to design an educational plan tailored to their child's unique needs. Students must be enrolled in public school for the previous year or be entering kindergarten to be eligible.",
+  "links": [
+    {
+      "label": "Step Up For Students PEP Program",
+      "url": "https://www.stepupforstudents.org/scholarships/personalized-education-program-pep"
+    },
+    {
+      "label": "Florida Department of Education PEP Information",
+      "url": "https://www.fldoe.org/schools/school-choice/k-12-scholarship-programs/pep"
+    },
+    {
+      "label": "PEP Approved Providers and Services",
+      "url": "https://www.stepupforstudents.org/pep-providers"
+    }
+  ]
+}
+
+
+=== services/aac.json ===
+{
+  "title": "AAC (Augmentative and Alternative Communication)",
+  "description": "Augmentative and Alternative Communication (AAC) encompasses various methods and tools that help individuals with autism who have difficulty with verbal communication to express themselves effectively. AAC includes low-tech options like picture boards and high-tech solutions such as speech-generating devices and communication apps. Many individuals with autism benefit from AAC to reduce frustration, enhance social interactions, and support language development. AAC services in Florida are provided by speech-language pathologists and assistive technology specialists through schools, therapy centers, and private practice.",
+  "links": [
+    {
+      "label": "ASHA Augmentative and Alternative Communication",
+      "url": "https://www.asha.org/practice-portal/professional-issues/augmentative-and-alternative-communication"
+    },
+    {
+      "label": "Autism Speaks AAC Resources",
+      "url": "https://www.autismspeaks.org/assistive-technology-and-aac"
+    },
+    {
+      "label": "Florida Alliance for Assistive Services and Technology",
+      "url": "https://faast.org"
+    }
+  ]
+}
+
+
+=== services/abaTherapy.json ===
+{
+  "title": "ABA Therapy",
+  "description": "Applied Behavior Analysis (ABA) therapy is an evidence-based treatment approach for autism spectrum disorder that uses behavioral principles to teach skills and reduce challenging behaviors. ABA therapy is individualized to each person's needs and can address communication, social skills, daily living activities, and academic abilities. Therapy is delivered by Board Certified Behavior Analysts and trained therapists in various settings including homes, clinics, and schools. Florida has extensive ABA provider networks, and services are covered by most insurance plans including Medicaid when medically necessary.",
+  "links": [
+    {
+      "label": "Behavior Analyst Certification Board",
+      "url": "https://www.bacb.com"
+    },
+    {
+      "label": "Autism Speaks ABA Guide",
+      "url": "https://www.autismspeaks.org/applied-behavior-analysis"
+    },
+    {
+      "label": "Florida Association for Behavior Analysis",
+      "url": "https://www.fabaworld.org"
+    }
+  ]
+}
+
+
+=== services/adosTesting.json ===
+{
+  "title": "ADOS Testing",
+  "description": "The Autism Diagnostic Observation Schedule (ADOS) is a standardized assessment tool used to diagnose autism spectrum disorder across different ages and developmental levels. ADOS testing involves structured and semi-structured activities that allow trained clinicians to observe social interaction, communication, play, and repetitive behaviors. The assessment is considered the gold standard in autism diagnosis and is typically administered by psychologists, developmental pediatricians, or specially trained clinicians. In Florida, ADOS testing is available through university clinics, diagnostic centers, hospitals, and private practices, and is often covered by insurance as part of a comprehensive autism evaluation.",
+  "links": [
+    {
+      "label": "Autism Speaks Screening and Diagnosis",
+      "url": "https://www.autismspeaks.org/screening-and-diagnosis"
+    },
+    {
+      "label": "CDC Autism Screening and Diagnosis",
+      "url": "https://www.cdc.gov/autism/screening-testing"
+    },
+    {
+      "label": "Florida Department of Health Children's Medical Services",
+      "url": "https://www.floridahealth.gov/programs-and-services/childrens-health"
+    }
+  ]
+}
+
+
+=== services/autismTravel.json ===
+{
+  "title": "Autism-Friendly Travel",
+  "description": "Autism-friendly travel services and resources help families navigate the challenges of traveling with individuals on the autism spectrum by providing accommodations, planning assistance, and sensory-friendly experiences. Many theme parks, museums, and tourist attractions in Florida offer special accommodations such as quiet spaces, advance planning materials, and expedited access programs. Several organizations provide travel training, social stories for travel preparation, and coordination with hotels and transportation services. These services recognize the unique needs of travelers with autism including sensory sensitivities, routine requirements, and communication differences.",
+  "links": [
+    {
+      "label": "Autism Speaks Travel Resources",
+      "url": "https://www.autismspeaks.org/tool-kit/atnair-p-traveling-tips"
+    },
+    {
+      "label": "International Board of Credentialing and Continuing Education Standards",
+      "url": "https://ibcces.org/autism-travel"
+    },
+    {
+      "label": "TSA Disability Notification Card",
+      "url": "https://www.tsa.gov/travel/passenger-support"
+    }
+  ]
+}
+
+
+=== services/dirFloortime.json ===
+{
+  "title": "DIR/Floortime",
+  "description": "DIR/Floortime (Developmental, Individual-Difference, Relationship-Based model) is a therapeutic approach for children with autism that emphasizes emotional and relational development through child-led play interactions. This intervention focuses on building foundational capacities for relating, communicating, and thinking by meeting the child at their developmental level and following their interests. DIR/Floortime practitioners work with families to create engaging play experiences that promote emotional connections and developmental progress. The approach is available in Florida through trained occupational therapists, speech therapists, psychologists, and specialized DIR providers in clinical and home settings.",
+  "links": [
+    {
+      "label": "Interdisciplinary Council on Development and Learning",
+      "url": "https://www.icdl.com"
+    },
+    {
+      "label": "DIR/Floortime Coalition",
+      "url": "https://www.profectum.org"
+    },
+    {
+      "label": "Autism Speaks Intervention Guide",
+      "url": "https://www.autismspeaks.org/types-treatments"
+    }
+  ]
+}
+
+
+=== services/executiveFunctionCoaching.json ===
+{
+  "title": "Executive Function Coaching",
+  "description": "Executive function coaching helps individuals with autism develop skills in planning, organization, time management, task initiation, and self-regulation. Many people with autism experience challenges with executive functioning, which impacts academic performance, work productivity, and daily living independence. Coaches work one-on-one to teach strategies, create systems, and build habits that support executive function development. Services are provided by educational specialists, psychologists, occupational therapists, and trained executive function coaches through schools, private practices, and online platforms. Executive function coaching is particularly valuable for adolescents and adults with autism transitioning to increased independence.",
+  "links": [
+    {
+      "label": "CHADD Executive Function Resource",
+      "url": "https://chadd.org/about-adhd/executive-function-skills"
+    },
+    {
+      "label": "Understood Executive Function Information",
+      "url": "https://www.understood.org/articles/what-is-executive-function"
+    },
+    {
+      "label": "Center on the Developing Child at Harvard University",
+      "url": "https://developingchild.harvard.edu/science/key-concepts/executive-function"
+    }
+  ]
+}
+
+
+=== services/faithBased.json ===
+{
+  "title": "Faith-Based Support",
+  "description": "Faith-based autism support services include neurodivergent-friendly religious programs, spiritual counseling, special needs ministries, and inclusive worship experiences for individuals with autism and their families. Many churches, synagogues, and other religious organizations in Florida offer adapted religious education, sensory-friendly services, respite care during worship, and peer support groups. These programs provide spiritual community while accommodating sensory sensitivities, communication differences, and behavioral needs. Faith-based support complements therapeutic services by addressing the spiritual and social needs of families raising children with autism within their religious communities.",
+  "links": [
+    {
+      "label": "Autism Speaks Faith Community Resource",
+      "url": "https://www.autismspeaks.org/tool-kit/autism-and-faith-communities-tool-kit"
+    },
+    {
+      "label": "Autism Society Faith-Based Programs",
+      "url": "https://autismsociety.org/resources"
+    },
+    {
+      "label": "Friendship Ministries",
+      "url": "https://www.friendship.org"
+    }
+  ]
+}
+
+
+=== services/feedingTherapy.json ===
+{
+  "title": "Feeding Therapy",
+  "description": "Feeding therapy addresses eating difficulties commonly experienced by children with autism, including food selectivity, oral motor challenges, sensory sensitivities, and behavioral resistance to trying new foods. Therapists use evidence-based approaches to gradually expand food repertoires, improve oral motor skills, and reduce mealtime stress. Feeding therapy is typically provided by occupational therapists, speech-language pathologists, and registered dietitians who specialize in pediatric feeding disorders. Services are available throughout Florida in clinical settings, homes, and specialized feeding programs, with many insurance plans covering medically necessary feeding interventions.",
+  "links": [
+    {
+      "label": "American Speech-Language-Hearing Association Feeding Disorders",
+      "url": "https://www.asha.org/practice-portal/clinical-topics/pediatric-feeding-and-swallowing"
+    },
+    {
+      "label": "Autism Speaks Feeding Issues Resource",
+      "url": "https://www.autismspeaks.org/expert-opinion/seven-ways-help-picky-eater-autism"
+    },
+    {
+      "label": "Feeding Matters Organization",
+      "url": "https://www.feedingmatters.org"
+    }
+  ]
+}
+
+
+=== services/groupTherapy.json ===
+{
+  "title": "Social Skills Groups",
+  "description": "Social skills groups provide structured environments where individuals with autism can practice social interactions, communication, and relationship-building with peers under professional guidance. These therapeutic groups target specific skills such as conversation, perspective-taking, emotional regulation, and friendship development through activities, role-playing, and real-time coaching. Groups are typically organized by age and skill level and led by psychologists, social workers, speech-language pathologists, or behavior analysts. Social skills groups are widely available in Florida through therapy centers, schools, community organizations, and private practices, offering both in-person and virtual options.",
+  "links": [
+    {
+      "label": "Autism Speaks Social Skills Resources",
+      "url": "https://www.autismspeaks.org/social-skills-and-autism"
+    },
+    {
+      "label": "CDC Social Skills Development",
+      "url": "https://www.cdc.gov/autism/behavior-support"
+    },
+    {
+      "label": "American Psychological Association Autism Resources",
+      "url": "https://www.apa.org/topics/autism-spectrum-disorder"
+    }
+  ]
+}
+
+
+=== services/inpp.json ===
+{
+  "title": "INPP (Institute for Neuro-Physiological Psychology)",
+  "description": "The Institute for Neuro-Physiological Psychology method focuses on identifying and addressing retained primitive reflexes that may contribute to developmental challenges in children with autism and other neurodevelopmental conditions. INPP practitioners assess neurological development and provide specific movement exercises designed to integrate these reflexes, potentially improving motor coordination, attention, sensory processing, and learning abilities. While not exclusively an autism treatment, some families report benefits when INPP is used as part of a comprehensive intervention plan. INPP-trained practitioners in Florida offer assessments and individualized exercise programs through private practices and specialized clinics.",
+  "links": [
+    {
+      "label": "INPP Official Website",
+      "url": "https://www.inpp.org.uk"
+    },
+    {
+      "label": "INPP North America",
+      "url": "https://www.inpp.com"
+    },
+    {
+      "label": "CDC Developmental Milestones",
+      "url": "https://www.cdc.gov/child-development"
+    }
+  ]
+}
+
+
+=== services/lifeSkills.json ===
+{
+  "title": "Life Skills Training",
+  "description": "Life skills training teaches individuals with autism essential competencies for independent living including personal hygiene, cooking, money management, household tasks, transportation, and community navigation. These programs use systematic instruction, visual supports, and repeated practice to build functional skills necessary for adult independence. Life skills training is provided by occupational therapists, special education teachers, behavior analysts, and specialized programs through schools, community agencies, and residential facilities. Florida offers various life skills programs through the Agency for Persons with Disabilities, vocational rehabilitation services, and private providers, with services tailored to different age groups and ability levels.",
+  "links": [
+    {
+      "label": "Florida Agency for Persons with Disabilities",
+      "url": "https://apd.myflorida.com"
+    },
+    {
+      "label": "Autism Speaks Transition Tool Kit",
+      "url": "https://www.autismspeaks.org/tool-kit/transition-tool-kit"
+    },
+    {
+      "label": "Florida Division of Vocational Rehabilitation",
+      "url": "https://www.rehabworks.org"
+    }
+  ]
+}
+
+
+=== services/musicTherapy.json ===
+{
+  "title": "Music Therapy",
+  "description": "Music therapy uses clinical and evidence-based music interventions to address communication, social, emotional, and sensory needs of individuals with autism. Board-certified music therapists design individualized sessions that may include singing, instrument playing, songwriting, and music listening to work on goals such as verbal and nonverbal communication, social interaction, attention, and emotional regulation. Music therapy capitalizes on the affinity many individuals with autism have for music and sound patterns. Services are available throughout Florida in clinical settings, schools, community programs, and private practices, with some insurance plans covering music therapy as a related service.",
+  "links": [
+    {
+      "label": "American Music Therapy Association",
+      "url": "https://www.musictherapy.org"
+    },
+    {
+      "label": "American Music Therapy Association Autism Resources",
+      "url": "https://www.musictherapy.org/research/factsheets/autism_and_music_therapy_2020"
+    },
+    {
+      "label": "Autism Speaks Music Therapy Information",
+      "url": "https://www.autismspeaks.org/tool-kit/atnair-p-music-therapy"
+    }
+  ]
+}
+
+
+=== services/occupationalTherapy.json ===
+{
+  "title": "Occupational Therapy",
+  "description": "Occupational therapy helps individuals with autism develop, recover, or maintain skills needed for daily living and meaningful activities. OT practitioners address sensory processing differences, fine and gross motor skills, self-care abilities, handwriting, and social participation. Treatment often includes sensory integration therapy, adaptive strategies, and environmental modifications to support success at home, school, and in the community. Occupational therapists in Florida work in schools, clinics, hospitals, and private practices, with services covered by most insurance plans including Medicaid when medically necessary.",
+  "links": [
+    {
+      "label": "American Occupational Therapy Association",
+      "url": "https://www.aota.org"
+    },
+    {
+      "label": "AOTA Autism Resources",
+      "url": "https://www.aota.org/practice/children-youth/autism"
+    },
+    {
+      "label": "Autism Speaks Occupational Therapy Guide",
+      "url": "https://www.autismspeaks.org/occupational-therapy"
+    }
+  ]
+}
+
+
+=== services/parentCoaching.json ===
+{
+  "title": "Parent Coaching",
+  "description": "Parent coaching empowers caregivers with strategies, knowledge, and support to effectively teach skills and manage challenging behaviors in their children with autism. Coaches train parents in evidence-based techniques such as applied behavior analysis principles, visual supports, communication strategies, and positive behavior support. This collaborative approach helps families generalize therapeutic gains across settings and sustain progress between formal therapy sessions. Parent coaching is provided by behavior analysts, psychologists, and trained parent educators through agencies, private practices, and online platforms. Many autism service providers in Florida incorporate parent training as an essential component of comprehensive intervention.",
+  "links": [
+    {
+      "label": "Autism Speaks Parent Training Resources",
+      "url": "https://www.autismspeaks.org/family-services"
+    },
+    {
+      "label": "CDC Learn the Signs Act Early",
+      "url": "https://www.cdc.gov/child-development/parents"
+    },
+    {
+      "label": "Florida State University Autism Institute",
+      "url": "https://autism.fsu.edu"
+    }
+  ]
+}
+
+
+=== services/petTherapy.json ===
+{
+  "title": "Animal-Assisted Therapy",
+  "description": "Animal-assisted therapy incorporates trained animals, typically dogs or horses, into therapeutic interventions to support communication, social skills, emotional regulation, and sensory integration for individuals with autism. The presence of animals can reduce anxiety, motivate engagement, and provide non-judgmental companionship that facilitates therapeutic progress. Therapy animals work alongside licensed therapists in structured sessions targeting specific treatment goals. Services include equine-assisted therapy, canine-assisted therapy, and other animal interactions available through specialized programs and therapeutic facilities throughout Florida. Some families also pursue service dogs trained specifically for autism support.",
+  "links": [
+    {
+      "label": "Pet Partners Therapy Animal Program",
+      "url": "https://petpartners.org"
+    },
+    {
+      "label": "Professional Association of Therapeutic Horsemanship International",
+      "url": "https://www.pathintl.org"
+    },
+    {
+      "label": "Autism Service Dogs of America",
+      "url": "https://autismservicedogsofamerica.org"
+    }
+  ]
+}
+
+
+=== services/pharmacogeneticTesting.json ===
+{
+  "title": "Pharmacogenetic Testing",
+  "description": "Pharmacogenetic testing analyzes an individual's genetic makeup to predict how they will respond to specific medications, helping clinicians personalize psychiatric medication management for individuals with autism. This testing can identify genetic variants that affect medication metabolism, efficacy, and side effect risk, potentially reducing trial-and-error prescribing. For individuals with autism who may take medications for co-occurring conditions such as anxiety, ADHD, or aggression, pharmacogenetic testing can guide safer and more effective medication choices. Testing is available through specialized laboratories and medical providers in Florida, with coverage varying by insurance plan.",
+  "links": [
+    {
+      "label": "Clinical Pharmacogenetics Implementation Consortium",
+      "url": "https://cpicpgx.org"
+    },
+    {
+      "label": "FDA Pharmacogenomics Information",
+      "url": "https://www.fda.gov/drugs/science-research-drugs/pharmacogenomics"
+    },
+    {
+      "label": "National Institutes of Health Pharmacogenomics",
+      "url": "https://www.genome.gov/health/Pharmacogenomics"
+    }
+  ]
+}
+
+
+=== services/physicalTherapy.json ===
+{
+  "title": "Physical Therapy",
+  "description": "Physical therapy addresses gross motor skill development, strength, balance, coordination, and mobility for individuals with autism who experience motor delays or challenges. Physical therapists design individualized treatment plans to improve functional movement patterns, postural control, and participation in physical activities. Interventions may include therapeutic exercises, gait training, balance activities, and adaptive equipment recommendations. PT is particularly beneficial for children with autism who have low muscle tone, motor planning difficulties, or developmental coordination disorder. Services are available throughout Florida in schools, clinics, hospitals, and private practices, with coverage through most insurance plans including Medicaid.",
+  "links": [
+    {
+      "label": "American Physical Therapy Association",
+      "url": "https://www.apta.org"
+    },
+    {
+      "label": "APTA Pediatric Physical Therapy",
+      "url": "https://www.pediatricapta.org"
+    },
+    {
+      "label": "Autism Speaks Physical Therapy Information",
+      "url": "https://www.autismspeaks.org/physical-therapy"
+    }
+  ]
+}
+
+
+=== services/residentialProgram.json ===
+{
+  "title": "Residential Programs",
+  "description": "Residential programs provide 24-hour care and comprehensive services for individuals with autism who require intensive support or are transitioning toward greater independence. These programs range from therapeutic group homes offering structured support and skill-building to semi-independent living arrangements with varying levels of supervision. Residential facilities in Florida combine housing with behavioral support, life skills training, vocational services, and therapeutic interventions tailored to each resident's needs. Programs serve different age groups and ability levels, with some focusing on crisis stabilization and others on long-term supported living. Funding sources include Medicaid Home and Community-Based Services waivers, private pay, and state developmental disability services.",
+  "links": [
+    {
+      "label": "Florida Agency for Persons with Disabilities",
+      "url": "https://apd.myflorida.com"
+    },
+    {
+      "label": "APD Residential Services",
+      "url": "https://apd.myflorida.com/services/residential.htm"
+    },
+    {
+      "label": "Autism Society Housing Resources",
+      "url": "https://autismsociety.org/resources"
+    }
+  ]
+}
+
+
+=== services/respiteCare.json ===
+{
+  "title": "Respite Care",
+  "description": "Respite care provides temporary relief for family caregivers of individuals with autism, offering short-term care and supervision to prevent caregiver burnout and support family well-being. Respite services can be provided in-home, in community settings, or through overnight programs, allowing caregivers time for rest, appointments, work, or personal activities. Florida offers respite care through various sources including the Agency for Persons with Disabilities, Medicaid waivers, private agencies, and nonprofit organizations. Trained respite workers understand autism and can provide appropriate care, supervision, and engagement during respite periods, with services ranging from a few hours to multiple days.",
+  "links": [
+    {
+      "label": "Florida Agency for Persons with Disabilities Respite",
+      "url": "https://apd.myflorida.com/services/respite.htm"
+    },
+    {
+      "label": "ARCH National Respite Network",
+      "url": "https://archrespite.org"
+    },
+    {
+      "label": "Autism Speaks Respite Care Resources",
+      "url": "https://www.autismspeaks.org/respite-care"
+    }
+  ]
+}
+
+
+=== services/speechTherapy.json ===
+{
+  "title": "Speech Therapy",
+  "description": "Speech-language therapy addresses communication challenges experienced by many individuals with autism, including expressive and receptive language, articulation, pragmatic language, and social communication skills. Speech-language pathologists develop individualized treatment plans that may incorporate verbal speech, augmentative communication systems, visual supports, and social skills training. Therapy goals often include expanding vocabulary, improving conversation skills, understanding nonverbal communication, and developing functional communication abilities. Speech therapy is one of the most commonly utilized services for autism and is available throughout Florida in schools, clinics, hospitals, and private practices, with coverage through most insurance plans including Medicaid.",
+  "links": [
+    {
+      "label": "American Speech-Language-Hearing Association",
+      "url": "https://www.asha.org"
+    },
+    {
+      "label": "ASHA Autism Resources",
+      "url": "https://www.asha.org/practice-portal/clinical-topics/autism"
+    },
+    {
+      "label": "Autism Speaks Speech Therapy Guide",
+      "url": "https://www.autismspeaks.org/speech-therapy"
+    }
+  ]
+}
+
+
+=== services/tutoring.json ===
+{
+  "title": "Educational Tutoring",
+  "description": "Specialized tutoring provides individualized academic instruction for students with autism, addressing learning challenges, building on strengths, and supporting success in school subjects. Tutors experienced in autism use multisensory teaching methods, visual supports, structured approaches, and accommodations tailored to each student's learning style and needs. Tutoring can target specific academic skills, homework completion, organization, test preparation, or compensatory strategies for learning differences. Services are available through private tutors, learning centers, school-based programs, and online platforms throughout Florida. Some families access tutoring through educational scholarships or as a related service in Individualized Education Programs.",
+  "links": [
+    {
+      "label": "Understood Learning Differences Resources",
+      "url": "https://www.understood.org"
+    },
+    {
+      "label": "Learning Disabilities Association of America",
+      "url": "https://ldaamerica.org"
+    },
+    {
+      "label": "Florida Department of Education Exceptional Student Education",
+      "url": "https://www.fldoe.org/academics/exceptional-student-edu"
+    }
+  ]
+}
+
+

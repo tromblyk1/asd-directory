@@ -14,6 +14,10 @@ export const INSURANCE_SLUGS: Record<string, string> = {
   accepts_wellcare: 'wellcare',
   accepts_florida_kidcare: 'florida-kidcare',
   accepts_florida_healthcare_plans: 'florida-healthcare-plans',
+  accepts_avmed: 'avmed',
+  accepts_oscar: 'oscar',
+  accepts_allegiance: 'allegiance',
+  accepts_evernorth: 'evernorth',
 };
 
 export const SCHOLARSHIP_SLUGS: Record<string, string> = {

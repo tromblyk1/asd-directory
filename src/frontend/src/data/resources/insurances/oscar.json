@@ -1,0 +1,31 @@
+{
+  "slug": "oscar",
+  "category": "insurances",
+  "title": "Oscar Health",
+  "shortDescription": "Tech-forward health insurer offering individual and family plans with autism coverage in Florida.",
+  "description": "Oscar Health is a technology-focused health insurance company that has been serving Florida for over seven years. Plans in Florida are underwritten by Oscar Insurance Company of Florida, with HMO products offered through Oscar Managed Care of South Florida, Inc.\n\nOscar offers individual, family, and small business health plans through the Health Insurance Marketplace, with coverage available in multiple Florida regions including South Florida (Miami-Dade, Broward, Palm Beach, Martin, St. Lucie counties) and Central Florida/Greater Orlando (Orange, Osceola, Seminole, Lake, Polk, Brevard, Volusia, Flagler, Marion, Citrus, Hernando counties).\n\nOscar plans include comprehensive mental health benefits and coverage for autism therapy services, including personalized autism therapy and diagnosis services. They offer virtual care options, allowing members to access specialized support from home. Plans are available in Bronze, Silver, Gold, and Platinum tiers.\n\nOscar's Florida network includes major health systems such as Baptist Health, HCA Healthcare, Jackson Health System, AdventHealth, and Orlando Health, providing broad access to autism and behavioral health specialists.",
+  "benefits": [
+    "Coverage for autism therapy and diagnostic services",
+    "ABA therapy coverage as required by Florida law",
+    "Speech, occupational, and physical therapy benefits",
+    "Virtual care options for mental health services",
+    "User-friendly mobile app for managing care",
+    "24/7 access to virtual urgent care",
+    "Broad network including major Florida health systems",
+    "Multiple plan tiers (Bronze, Silver, Gold, Platinum)"
+  ],
+  "requirements": [
+    "Prior authorization may be required for ABA and intensive services",
+    "Services must be deemed medically necessary",
+    "Autism diagnosis required for ASD-specific coverage",
+    "Coverage limits may apply per Florida state law",
+    "Must reside in Oscar's Florida service area"
+  ],
+  "links": [
+    {
+      "label": "Oscar Health",
+      "url": "https://www.hioscar.com/",
+      "description": "Official Oscar Health website - explore plans, find providers, and manage your coverage"
+    }
+  ]
+}

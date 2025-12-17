@@ -15,19 +15,64 @@ import { format } from "date-fns";
 import type { Event } from "@/types/Event.types";
 
 
-// Format registration text - remove "YES" prefix and clean up
+// Format registration text - handle YES/NO and provide context
 const formatRegistrationText = (text?: string | null): string => {
     if (!text) return 'Registration information not available';
-    
-    // Remove "YES - " or "YES" prefix
-    let cleaned = text.replace(/^YES\s*-?\s*/i, '');
-    
+
+    const trimmed = text.trim();
+    const lowerText = trimmed.toLowerCase();
+
+    // Handle bare "YES" - provide meaningful context
+    if (lowerText === 'yes') {
+        return 'Registration is required for this event';
+    }
+
+    // Handle bare "NO"
+    if (lowerText === 'no') {
+        return 'No registration required - walk-ins welcome';
+    }
+
+    // Remove "YES - " or "YES" prefix if there's more text after
+    let cleaned = trimmed.replace(/^YES\s*-?\s*/i, '');
+
     // If it says "NO", make it clearer
-    if (text.toLowerCase().includes('no') && (text.toLowerCase().includes('walk-in') || text.toLowerCase().includes('registration'))) {
+    if (lowerText.includes('no') && (lowerText.includes('walk-in') || lowerText.includes('registration'))) {
         return cleaned || 'Walk-ins welcome - No registration required';
     }
-    
-    return cleaned || text;
+
+    return cleaned || trimmed;
+};
+
+// Helper to format category for display (capitalize properly)
+const formatCategory = (category: string | null | undefined): string => {
+    if (!category) return 'Other';
+    const categoryNames: Record<string, string> = {
+        sensory_friendly: "Sensory-Friendly",
+        support_group: "Support Groups",
+        educational: "Educational",
+        social: "Social",
+        fundraiser: "Fundraiser",
+        professional_development: "Professional Development",
+        recreational: "Recreational",
+        other: "Other"
+    };
+    if (categoryNames[category]) return categoryNames[category];
+    return category
+        .replace(/_/g, ' ')
+        .replace(/-/g, ' ')
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(' ');
+};
+
+// Helper to format age groups for display (capitalize, remove hyphens)
+const formatAgeGroup = (age: string): string => {
+    return age
+        .replace(/_/g, ' ')
+        .replace(/-/g, ' ')
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(' ');
 };
 
 export default function EventDetail() {
@@ -251,7 +296,7 @@ export default function EventDetail() {
                                     <div className="flex-1 min-w-0">
                                         <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
                                             <Badge className="bg-green-100 text-green-800 border-green-200 text-xs sm:text-sm">
-                                                {event.category?.replace(/_/g, ' ')}
+                                                {formatCategory(event.category)}
                                             </Badge>
                                             {event.featured && (
                                                 <Badge className="bg-yellow-100 text-yellow-800 border-yellow-200 text-xs sm:text-sm">
@@ -410,7 +455,7 @@ export default function EventDetail() {
                                 )}
 
                                 {/* VERIFICATION ALERTS */}
-                                {event.verification_status === 'verified' && event.specific_accommodations_published && (
+                                {event.accommodations_verified && (
                                     <Alert className="mb-6 sm:mb-8 bg-green-50 border-green-200">
                                         <CheckCircle className="h-5 w-5 text-green-600" aria-hidden="true" />
                                         <AlertDescription>
@@ -419,31 +464,14 @@ export default function EventDetail() {
                                                     Verified Accommodation Details
                                                 </p>
                                                 <p className="text-xs sm:text-sm text-green-800">
-                                                    The sensory-friendly accommodations listed above have been verified from official event documentation. 
-                                                    {event.verification_source && (
-                                                        <span className="ml-1">
-                                                            Source: <a 
-                                                                href={event.verification_source} 
-                                                                target="_blank" 
-                                                                rel="noopener noreferrer"
-                                                                className="underline hover:text-green-900 font-medium"
-                                                            >
-                                                                Official Event Page
-                                                            </a>
-                                                        </span>
-                                                    )}
+                                                    The sensory-friendly accommodations listed above have been verified from official event documentation.
                                                 </p>
-                                                {event.verification_notes && (
-                                                    <p className="text-xs sm:text-sm text-green-700 italic mt-2">
-                                                        Note: {event.verification_notes}
-                                                    </p>
-                                                )}
                                             </div>
                                         </AlertDescription>
                                     </Alert>
                                 )}
 
-                                {(!event.specific_accommodations_published || event.verification_status !== 'verified') && (
+                                {!event.accommodations_verified && event.sensory_accommodations && (
                                     <Alert className="mb-6 sm:mb-8 bg-amber-50 border-amber-200">
                                         <AlertCircle className="h-5 w-5 text-amber-600" aria-hidden="true" />
                                         <AlertDescription>
@@ -496,7 +524,7 @@ export default function EventDetail() {
                                         <div className="flex flex-wrap gap-2">
                                             {event.age_groups.map((age: string, idx: number) => (
                                                 <Badge key={idx} variant="outline" className="text-xs sm:text-sm py-1.5 sm:py-2 px-3 sm:px-4">
-                                                    {age.replace(/_/g, ' ')}
+                                                    {formatAgeGroup(age)}
                                                 </Badge>
                                             ))}
                                         </div>

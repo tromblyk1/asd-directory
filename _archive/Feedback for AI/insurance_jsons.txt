@@ -1,0 +1,76 @@
+{
+  "slug": "00-private-insurance-guide",
+  "category": "insurances",
+  "title": "Private Insurance Guide for Autism",
+  "description": "Private health insurance has become an essential resource for families seeking autism services in Florida, thanks to state and federal laws that mandate coverage for autism spectrum disorder treatments. Florida's autism insurance law, along with the federal Mental Health Parity and Addiction Equity Act, requires most private insurance plans to cover autism services at the same level as other medical conditions, eliminating many of the historical barriers to accessing ABA therapy and related treatments. When evaluating private insurance options for autism coverage, families should carefully review several key factors including whether ABA therapy is covered, annual or lifetime caps on therapy services, prior authorization requirements, in-network provider availability, out-of-pocket costs (deductibles, copays, coinsurance), and coverage for diagnostic evaluations and related services. Most private insurance plans in Florida now cover Applied Behavior Analysis (ABA) therapy, speech therapy, occupational therapy, physical therapy, diagnostic evaluations, and mental health services for autism, though the specifics vary significantly by insurance carrier and plan type. Prior authorization is typically required before beginning ABA therapy, involving submission of a comprehensive treatment plan by a Board Certified Behavior Analyst (BCBA) that demonstrates medical necessity and outlines treatment goals.",
+  "links": [
+    {
+      "label": "Healthcare.gov Marketplace",
+      "url": "https://www.healthcare.gov"
+    },
+    {
+      "label": "Autism Speaks Insurance Guide",
+      "url": "https://www.autismspeaks.org"
+    }
+  ]
+}
+
+
+{
+  "slug": "aetna",
+  "category": "insurances",
+  "title": "Aetna",
+  "description": "Aetna offers comprehensive autism coverage for children and adults through most of their health insurance plans, including coverage for Applied Behavior Analysis (ABA) therapy, speech therapy, occupational therapy, and other medically necessary autism treatments. Under Florida law and the federal Mental Health Parity Act, Aetna plans are required to cover autism services at the same level as other medical conditions. Most Aetna plans cover ABA therapy with varying session limits and may require prior authorization before treatment begins. Typical coverage includes diagnostic evaluations by qualified professionals, ongoing behavioral assessments, and treatment by Board Certified Behavior Analysts (BCBAs) and Registered Behavior Technicians (RBTs). Aetna members in Florida can access in-network ABA providers, developmental pediatricians, and autism specialists. Out-of-pocket costs vary by plan type, deductible, and coinsurance rates, with many families paying copays of $20-50 per therapy session after meeting their deductible. Some Aetna plans have annual therapy visit limits or dollar caps, so it's important to review your specific plan documents or contact member services to understand your exact benefits. To access autism services through Aetna, families typically need a formal autism diagnosis from a qualified healthcare provider, followed by a referral to an ABA provider who will conduct an initial assessment and submit a treatment plan for prior authorization. Aetna also covers related services such as psychiatric care, medication management, and social skills training when deemed medically necessary by a qualified provider.",
+  "links": [
+    {
+      "label": "Aetna Member Services",
+      "url": "https://www.aetna.com"
+    }
+  ]
+}
+
+
+{
+  "slug": "cigna",
+  "category": "insurances",
+  "title": "Cigna",
+  "description": "Cigna provides extensive autism spectrum disorder coverage through their health insurance plans, including behavioral health services, ABA therapy, and related treatments for both children and adults. Florida residents with Cigna insurance can access comprehensive autism services including diagnostic evaluations, ABA therapy, speech-language therapy, occupational therapy, physical therapy, and developmental assessments. Cigna complies with Florida's autism insurance mandate, which requires coverage for autism-related services, and their plans typically include coverage for evidence-based interventions recommended by licensed healthcare providers. ABA therapy coverage through Cigna usually requires prior authorization, with treatment plans reviewed and approved by their behavioral health team before services begin. Most Cigna plans cover medically necessary ABA services provided by qualified BCBAs and supervised RBTs, with coverage varying based on your specific plan type (HMO, PPO, or EPO). Out-of-pocket costs depend on your deductible, coinsurance rate, and copayment structure, with typical copays ranging from $15-60 per therapy session. Some Cigna plans have annual visit limits or therapy caps, while others provide more extensive coverage based on medical necessity determinations. To begin services, families need an autism diagnosis from a qualified provider, followed by a referral to an in-network ABA provider who will complete an initial assessment and develop a comprehensive treatment plan for Cigna's review.",
+  "links": [
+    {
+      "label": "Cigna Member Portal",
+      "url": "https://www.cigna.com"
+    }
+  ]
+}
+
+
+{
+  "slug": "florida-medicaid",
+  "category": "insurances",
+  "title": "Florida Medicaid",
+  "description": "Florida Medicaid provides comprehensive autism coverage for eligible children and adults through various programs including Medicaid Managed Care plans and fee-for-service Medicaid. Children with autism in Florida can qualify for Medicaid through several pathways including family income eligibility, the Children's Medical Services (CMS) Network for children with special healthcare needs, or through SSI disability benefits. Florida Medicaid covers extensive autism services including ABA therapy with no annual dollar caps or visit limits when medically necessary, making it one of the most comprehensive coverage options available. Covered services include diagnostic evaluations by developmental pediatricians or psychologists, ongoing ABA therapy by BCBAs and RBTs, speech therapy, occupational therapy, physical therapy, behavioral health services, psychiatric care, and medication management. To access Medicaid in Florida, families can apply through ACCESS Florida (the state's online benefits portal), at local Department of Children and Families (DCF) offices, or through community partners. Eligibility is determined based on household income, family size, and disability status, with income limits varying by program. There are no copays, deductibles, or out-of-pocket costs for autism services covered under Florida Medicaid.",
+  "links": [
+    {
+      "label": "Florida Medicaid - AHCA",
+      "url": "https://www.ahca.myflorida.com"
+    },
+    {
+      "label": "ACCESS Florida - Apply",
+      "url": "https://www.myflorida.com/accessflorida"
+    }
+  ]
+}
+
+
+{
+  "slug": "ibudget-waiver",
+  "category": "insurances",
+  "title": "iBudget Waiver Program",
+  "description": "The iBudget Waiver is Florida's Medicaid Home and Community-Based Services waiver program specifically designed for individuals with developmental disabilities, including autism spectrum disorder, who require substantial support services. Administered by the Agency for Persons with Disabilities (APD), the iBudget provides funding for services and supports that help individuals with autism live in their communities rather than in institutional settings. The program offers a wide range of services including personal care assistance, respite care for family caregivers, residential habilitation, behavioral analysis services, therapy services, supported employment, transportation, assistive technology, home modifications, and specialized medical equipment. Unlike traditional Medicaid, the iBudget operates on an individualized budget system where each participant receives a specific funding allocation based on their assessed needs and tier level, with budgets typically ranging from $15,000 to over $140,000 annually depending on support needs. To qualify for the iBudget Waiver, individuals must be Florida residents, have a qualifying developmental disability diagnosis (including autism), meet financial eligibility requirements for Medicaid, and demonstrate the need for services that would otherwise require institutional level care.",
+  "links": [
+    {
+      "label": "Agency for Persons with Disabilities",
+      "url": "https://apd.myflorida.com"
+    }
+  ]
+}

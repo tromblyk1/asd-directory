@@ -60,6 +60,20 @@
       "description": "Board certification organization for music therapy professionals"
     }
   ],
+  "services/mobile-services": [
+    {
+      "label": "Autism Speaks",
+      "url": "https://www.autismspeaks.org/",
+      "description": "Resources on in-home and community-based services"
+    }
+  ],
+  "services/life-skills": [
+    {
+      "label": "Autism Speaks",
+      "url": "https://www.autismspeaks.org/",
+      "description": "Resources on life skills and transition planning"
+    }
+  ],
   "services/autism-travel": [
     {
       "label": "Autism on the Seas - Cruise Programs",
@@ -170,6 +184,20 @@
     {
       "label": "Florida CMS Program Information",
       "url": "https://www.floridahealth.gov/programs-and-services/childrens-health/cms-plan/index.html"
+    }
+  ],
+  "insurances/avmed": [
+    {
+      "label": "AvMed",
+      "url": "https://www.avmed.org/",
+      "description": "Official AvMed website - find providers, check benefits, and manage your plan"
+    }
+  ],
+  "insurances/allegiance": [
+    {
+      "label": "Allegiance Member Portal",
+      "url": "https://www.askallegiance.com/",
+      "description": "Official Allegiance website - member login, find providers, and plan information"
     }
   ],
   "insurances/aetna": [

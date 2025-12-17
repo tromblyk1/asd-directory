@@ -1,0 +1,130 @@
+{
+  "name": "Resource",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Organization or business name"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "faith_based",
+        "healthcare",
+        "education",
+        "recreation",
+        "support_services",
+        "daily_living",
+        "employment"
+      ],
+      "description": "Primary resource category"
+    },
+    "subcategory": {
+      "type": "string",
+      "description": "Specific type within category (e.g., Church, Pediatrician, Camp)"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of services and accommodations"
+    },
+    "accommodations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Specific neurodivergent-friendly features"
+    },
+    "age_groups": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "children",
+          "teens",
+          "adults",
+          "all_ages"
+        ]
+      },
+      "description": "Age groups served"
+    },
+    "address": {
+      "type": "string",
+      "description": "Full street address"
+    },
+    "city": {
+      "type": "string",
+      "description": "City"
+    },
+    "county": {
+      "type": "string",
+      "description": "Florida county"
+    },
+    "zip_code": {
+      "type": "string",
+      "description": "ZIP code"
+    },
+    "latitude": {
+      "type": "number",
+      "description": "Latitude for mapping"
+    },
+    "longitude": {
+      "type": "number",
+      "description": "Longitude for mapping"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Contact phone number"
+    },
+    "email": {
+      "type": "string",
+      "description": "Contact email"
+    },
+    "website": {
+      "type": "string",
+      "description": "Website URL"
+    },
+    "hours": {
+      "type": "string",
+      "description": "Hours of operation"
+    },
+    "programs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Specific programs offered"
+    },
+    "denomination": {
+      "type": "string",
+      "description": "Religious denomination (for faith-based resources)"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Photo of facility"
+    },
+    "verified": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether resource has been verified"
+    },
+    "last_verified_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of last verification"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false,
+      "description": "Featured on homepage"
+    },
+    "accessibility_info": {
+      "type": "string",
+      "description": "Parking, transportation, physical accessibility details"
+    }
+  },
+  "required": [
+    "name",
+    "category",
+    "city"
+  ]
+}
