@@ -53,7 +53,7 @@ function App() {
         <Route path="/providers" element={<FindProviders />} />
         <Route path="/providers/:slug" element={<ProviderDetail />} />
         <Route path="/schools" element={<FindSchools />} />
-        <Route path="/schools/:id" element={<SchoolDetail />} />
+        <Route path="/schools/:slug" element={<SchoolDetail />} />
 
         {/* Educational Resources Routes */}
         <Route path="/resources" element={<EducationalResources />} />

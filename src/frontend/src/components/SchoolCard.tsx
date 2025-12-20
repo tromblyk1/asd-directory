@@ -13,6 +13,7 @@ import {
 
 export interface School {
   id: string;
+  slug: string | null;
   name: string;
   school_code: string | null;
   district: string | null;
@@ -302,7 +303,7 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ school }) => {
           {/* Header: Name + Type Badges */}
           <div className="flex flex-wrap items-start justify-between gap-2">
             <div className="flex-1 min-w-0">
-              <Link to={`/schools/${school.id}`}>
+              <Link to={`/schools/${school.slug}`}>
                 <h3 className="text-lg font-semibold text-gray-900 leading-tight hover:text-purple-600 transition-colors cursor-pointer">
                   {school.name}
                 </h3>
@@ -507,7 +508,7 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ school }) => {
           )}
           {/* View Details Button */}
           <div className="flex justify-end pt-3 mt-3 border-t border-gray-100">
-            <Link to={`/schools/${school.id}`}>
+            <Link to={`/schools/${school.slug}`}>
               <Button variant="outline" size="sm" className="text-sm text-purple-600 border-purple-600 hover:bg-purple-50">
                 View Details
               </Button>

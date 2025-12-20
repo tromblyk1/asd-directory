@@ -36,7 +36,7 @@ const scholarshipNames: Record<string, string> = {
 };
 
 export default function SchoolDetail() {
-  const { id } = useParams<{ id: string }>();
+  const { slug } = useParams<{ slug: string }>();
   const [MapComponent, setMapComponent] = useState<any>(null);
   const [emailCopied, setEmailCopied] = useState(false);
 
@@ -60,18 +60,18 @@ export default function SchoolDetail() {
   }, []);
 
   const { data: school, isLoading, error } = useQuery({
-    queryKey: ['school', id],
+    queryKey: ['school', slug],
     queryFn: async () => {
       const { data, error } = await supabase
         .from('schools')
         .select('*')
-        .eq('id', id)
+        .eq('slug', slug)
         .single();
-      
+
       if (error) throw error;
       return data as School;
     },
-    enabled: !!id,
+    enabled: !!slug,
   });
 
   const copyEmail = async (email: string) => {
@@ -159,7 +159,7 @@ export default function SchoolDetail() {
   
   const pageTitle = `${schoolName} | Private School in ${cityName}, FL`;
   const pageDescription = `${schoolName} is a private school in ${cityName}, Florida${school.denomination ? ` (${school.denomination})` : ''}. ${scholarshipText} ${school.grade_levels ? `Grades: ${school.grade_levels}.` : ''} Find contact info, location, and enrollment details.`;
-  const canonicalUrl = `https://floridaautismservices.com/schools/${id}`;
+  const canonicalUrl = `https://floridaautismservices.com/schools/${slug}`;
 
   // Schema.org EducationalOrganization structured data
   const schoolSchema = {
