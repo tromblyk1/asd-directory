@@ -29,6 +29,7 @@ import { StarRating } from '@/components/StarRating';
 // Provider type matching resources table structure
 interface ProviderResource {
   id: string;
+  slug: string | null;
   name: string | null;
   city: string | null;
   county: string | null;
@@ -102,7 +103,7 @@ const scholarshipDisplayInfo: Record<string, { title: string; slug: string; desc
 };
 
 export default function ProviderDetail() {
-  const { id } = useParams<{ id: string }>();
+  const { slug } = useParams<{ slug: string }>();
   const [MapComponent, setMapComponent] = useState<any>(null);
   const [emailCopied, setEmailCopied] = useState(false);
 
@@ -126,19 +127,19 @@ export default function ProviderDetail() {
   }, []);
 
   const { data: provider, isLoading, error } = useQuery({
-    queryKey: ['provider', id],
+    queryKey: ['provider', slug],
     queryFn: async () => {
       const { data, error } = await supabase
         .from('resources')
         .select('*')
-        .eq('id', id)
+        .eq('slug', slug)
         .eq('resource_type', 'provider')
         .single();
-      
+
       if (error) throw error;
       return data as ProviderResource;
     },
-    enabled: !!id,
+    enabled: !!slug,
   });
 
   // Fetch Google rating for this provider
@@ -216,11 +217,11 @@ export default function ProviderDetail() {
       <Helmet>
         <title>{provider?.name ? `${provider.name} | Florida Autism Services` : 'Provider Details | Florida Autism Services'}</title>
         <meta name="description" content={provider?.name ? `${provider.name} in ${provider.city || 'Florida'}. ${services.length > 0 ? `Services: ${services.slice(0, 3).map(s => serviceDisplayInfo[s]?.title || s).join(', ')}.` : ''} Find contact info, location, and accepted insurance.` : 'View provider details on Florida Autism Services Directory.'} />
-        <link rel="canonical" href={`https://floridaautismservices.com/providers/${id}`} />
+        <link rel="canonical" href={`https://floridaautismservices.com/providers/${slug}`} />
         <meta property="og:title" content={provider?.name || 'Provider Details'} />
         <meta property="og:description" content={provider?.name ? `${provider.name} - Autism services provider in ${provider.city || 'Florida'}` : 'View provider details'} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://floridaautismservices.com/providers/${id}`} />
+        <meta property="og:url" content={`https://floridaautismservices.com/providers/${slug}`} />
         <meta property="og:site_name" content="Florida Autism Services Directory" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={provider?.name || 'Provider Details'} />
@@ -231,7 +232,7 @@ export default function ProviderDetail() {
             "name": provider?.name || '',
             "address": { "@type": "PostalAddress", "addressLocality": provider?.city || '', "addressRegion": "FL", "addressCountry": "US" },
             "telephone": provider?.phone || undefined,
-            "url": provider?.website || `https://floridaautismservices.com/providers/${id}`,
+            "url": provider?.website || `https://floridaautismservices.com/providers/${slug}`,
             "geo": provider?.latitude && provider?.longitude ? { "@type": "GeoCoordinates", "latitude": provider.latitude, "longitude": provider.longitude } : undefined
           })}
         </script>

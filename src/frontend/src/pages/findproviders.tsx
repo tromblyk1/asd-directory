@@ -1047,7 +1047,7 @@ export default function FindProviders() {
                           </MapComponent.Tooltip>
                           <MapComponent.Popup>
                             <div className="p-2 min-w-[200px] sm:min-w-[240px]">
-                              <Link to={`/providers/${provider.id}`} className="hover:text-teal-600 transition-colors">
+                              <Link to={`/providers/${provider.slug}`} className="hover:text-teal-600 transition-colors">
                                 <h3 className="font-bold text-sm mb-1 hover:underline">{provider.name}</h3>
                               </Link>
                               <p className="text-xs text-gray-600 mb-2">

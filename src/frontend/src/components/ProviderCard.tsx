@@ -16,6 +16,7 @@ import type { ProviderRating } from '@/hooks/useProviderRatings';
 // Provider type matching resources table structure
 export interface ProviderResource {
   id: string | number;
+  slug: string | null;
   name: string | null;
   city: string | null;
   county: string | null;
@@ -181,7 +182,7 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, rating }) 
           <div className="flex flex-col gap-3">
             <div className="flex flex-wrap items-start justify-between gap-2">
               <div className="flex-1 min-w-0">
-                <Link to={`/providers/${provider.id}`}>
+                <Link to={`/providers/${provider.slug}`}>
                   <h3 className="text-lg font-semibold text-gray-900 leading-tight hover:text-teal-600 transition-colors cursor-pointer">
                     {provider.name || 'Unknown Provider'}
                   </h3>
@@ -417,7 +418,7 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, rating }) 
             </div>
 
             <div className="flex justify-end pt-3 mt-3 border-t border-gray-100">
-              <Link to={`/providers/${provider.id}`}>
+              <Link to={`/providers/${provider.slug}`}>
                 <Button variant="outline" size="sm" className="text-sm text-teal-600 border-teal-600 hover:bg-teal-50">
                   View Details
                 </Button>
