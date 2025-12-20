@@ -54,11 +54,7 @@ interface ChurchData {
 
 const toTitleCase = (str: string): string => {
   if (!str) return '';
-  return str
-    .toLowerCase()
-    .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
+  return str.replace(/-/g, ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
 };
 
 // Tooltip definitions for church tags
