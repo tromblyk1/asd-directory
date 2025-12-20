@@ -74,6 +74,19 @@
       "description": "Resources on life skills and transition planning"
     }
   ],
+  "services/group-therapy": [
+    {
+      "label": "Autism Speaks",
+      "url": "https://www.autismspeaks.org/",
+      "description": "Resources on social skills programs and groups"
+    }
+  ],
+  "services/floor-time": [
+    {
+      "label": "Autism Speaks Intervention Guide",
+      "url": "https://www.autismspeaks.org/types-treatments"
+    }
+  ],
   "services/autism-travel": [
     {
       "label": "Autism on the Seas - Cruise Programs",
@@ -86,6 +99,13 @@
     {
       "label": "Disney Disability Access Service",
       "url": "https://disneyworld.disney.go.com/guest-services/disability-access-service"
+    }
+  ],
+  "services/ados-testing": [
+    {
+      "label": "Autism Speaks",
+      "url": "https://www.autismspeaks.org/",
+      "description": "Information on autism diagnosis and evaluation process"
     }
   ],
   "services/aba-therapy": [

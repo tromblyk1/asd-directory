@@ -26,8 +26,9 @@ import {
 } from "@/components/ui/tooltip";
 
 // Church table structure from Supabase
-interface Church {
+interface ChurchData {
     id: string | number;
+    slug: string | null;
     ChurchName: string;
     Denomination: string | null;
     Website: string | null;
@@ -54,6 +55,7 @@ interface Church {
 // Mapped resource for display
 interface Resource {
     id: string | number;
+    slug: string | null;
     name: string;
     city?: string;
     address?: string;
@@ -144,11 +146,11 @@ export default function FaithResources() {
     const [selectedDenomination, setSelectedDenomination] = useState("all");
 
     // Helper to map church data to display resource
-    const mapChurchToResource = (church: Church): Resource => {
-        // Parse AccommodationTags (comma-separated string)
+    const mapChurchToResource = (church: ChurchData): Resource => {
+        // Parse AccommodationTags (pipe-delimited string)
         const accommodations: string[] = [];
         if (church.AccommodationTags) {
-            accommodations.push(...church.AccommodationTags.split(',').map(t => t.trim()).filter(Boolean));
+            accommodations.push(...church.AccommodationTags.split('|').map(t => t.trim()).filter(Boolean));
         }
         if (church.SensoryRoom) accommodations.push('Sensory Room');
         if (church.AlternativeService) accommodations.push('Alternative Service');
@@ -160,6 +162,7 @@ export default function FaithResources() {
 
         return {
             id: church.id,
+            slug: church.slug,
             name: church.ChurchName,
             city: church.City || undefined,
             address: church.Street || undefined,
@@ -182,7 +185,7 @@ export default function FaithResources() {
                 .order('ChurchName', { ascending: true });
 
             if (error) throw error;
-            return (data as Church[]).map(mapChurchToResource);
+            return (data as ChurchData[]).map(mapChurchToResource);
         },
         initialData: [],
         staleTime: 0,
@@ -437,7 +440,7 @@ export default function FaithResources() {
                                                                 </div>
                                                                 <div className="min-w-0 flex-1">
                                                                     {/* CLICKABLE CHURCH NAME */}
-                                                                    <Link to={`/resource/${resource.id}`}>
+                                                                    <Link to={`/churches/${resource.slug}`}>
                                                                         <h3 className="text-base sm:text-lg font-bold text-gray-900 group-hover:text-rose-600 transition-colors cursor-pointer hover:underline line-clamp-2">
                                                                             {resource.name}
                                                                         </h3>
@@ -552,7 +555,7 @@ export default function FaithResources() {
                                                         </address>
 
                                                         <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t">
-                                                            <Link to={`/resource/${resource.id}`}>
+                                                            <Link to={`/churches/${resource.slug}`}>
                                                                 <Button className="w-full h-11 sm:h-10 bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700">
                                                                     View Full Details
                                                                 </Button>
