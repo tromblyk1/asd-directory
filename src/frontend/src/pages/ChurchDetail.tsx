@@ -61,6 +61,24 @@ const toTitleCase = (str: string): string => {
     .join(' ');
 };
 
+// Tooltip definitions for church tags
+const tagTooltips: Record<string, string> = {
+  'sensory friendly': 'Environment designed to minimize sensory overload with reduced noise, lighting adjustments, and calm spaces',
+  'sensory room': 'Dedicated space with sensory equipment for decompression and regulation',
+  'quiet space': 'Designated quiet area available for those who need a break',
+  'buddy system': 'Trained volunteers paired one-on-one with individuals who need extra support',
+  'alternative service': 'Modified worship service with sensory accommodations',
+  'children\'s program': 'Special needs programming available for children',
+  'adult program': 'Special needs programming available for adults',
+  'community events': 'Church participates in community disability/autism events',
+  'adult bible study': 'Bible study group specifically for adults with special needs',
+};
+
+const getTagTooltip = (tag: string): string => {
+  const normalizedTag = tag.toLowerCase().trim();
+  return tagTooltips[normalizedTag] || 'Accommodation provided to support accessibility needs';
+};
+
 export default function ChurchDetail() {
   const { slug } = useParams<{ slug: string }>();
   const [MapComponent, setMapComponent] = useState<any>(null);
@@ -468,51 +486,85 @@ export default function ChurchDetail() {
                     Programs & Features
                   </h2>
 
-                  {/* Boolean indicators */}
-                  <div className="grid grid-cols-2 gap-3 mb-4">
-                    {church.SensoryRoom && (
-                      <div className="flex items-center gap-2 p-3 bg-rose-50 rounded-lg">
-                        <Heart className="w-5 h-5 text-rose-600" />
-                        <span className="text-sm font-medium text-gray-700">Sensory Room</span>
+                  <TooltipProvider delayDuration={200}>
+                    {/* Program Tags */}
+                    {(church.ChildrenProgram || church.AdultProgram) && (
+                      <div className="mb-4">
+                        <p className="text-sm font-semibold text-gray-700 mb-2">Programs:</p>
+                        <div className="flex flex-wrap gap-2">
+                          {church.ChildrenProgram && (
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <span className="bg-green-50 text-green-700 border border-green-200 rounded-full px-3 py-1 text-sm cursor-help">
+                                  Children's Program
+                                </span>
+                              </TooltipTrigger>
+                              <TooltipContent className="max-w-xs">
+                                <p>{getTagTooltip("children's program")}</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          )}
+                          {church.AdultProgram && (
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <span className="bg-green-50 text-green-700 border border-green-200 rounded-full px-3 py-1 text-sm cursor-help">
+                                  Adult Program
+                                </span>
+                              </TooltipTrigger>
+                              <TooltipContent className="max-w-xs">
+                                <p>{getTagTooltip("adult program")}</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          )}
+                        </div>
                       </div>
                     )}
-                    {church.AlternativeService && (
-                      <div className="flex items-center gap-2 p-3 bg-rose-50 rounded-lg">
-                        <Clock className="w-5 h-5 text-rose-600" />
-                        <span className="text-sm font-medium text-gray-700">Alternative Service</span>
-                      </div>
-                    )}
-                    {church.ChildrenProgram && (
-                      <div className="flex items-center gap-2 p-3 bg-blue-50 rounded-lg">
-                        <Baby className="w-5 h-5 text-blue-600" />
-                        <span className="text-sm font-medium text-gray-700">Children's Program</span>
-                      </div>
-                    )}
-                    {church.AdultProgram && (
-                      <div className="flex items-center gap-2 p-3 bg-blue-50 rounded-lg">
-                        <User className="w-5 h-5 text-blue-600" />
-                        <span className="text-sm font-medium text-gray-700">Adult Program</span>
-                      </div>
-                    )}
-                  </div>
 
-                  {/* Accommodation Tags */}
-                  {accommodationTags.length > 0 && (
-                    <div>
-                      <p className="text-sm font-semibold text-gray-700 mb-2">Accommodations:</p>
-                      <div className="flex flex-wrap gap-2">
-                        {accommodationTags.map((tag, idx) => (
-                          <Badge
-                            key={idx}
-                            variant="secondary"
-                            className="text-xs bg-rose-100 text-rose-800 border-rose-200"
-                          >
-                            {toTitleCase(tag)}
-                          </Badge>
-                        ))}
+                    {/* Accommodation Tags */}
+                    {(church.SensoryRoom || church.AlternativeService || accommodationTags.length > 0) && (
+                      <div>
+                        <p className="text-sm font-semibold text-gray-700 mb-2">Accommodations:</p>
+                        <div className="flex flex-wrap gap-2">
+                          {church.SensoryRoom && (
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <span className="bg-pink-50 text-pink-700 border border-pink-200 rounded-full px-3 py-1 text-sm cursor-help">
+                                  Sensory Room
+                                </span>
+                              </TooltipTrigger>
+                              <TooltipContent className="max-w-xs">
+                                <p>{getTagTooltip("sensory room")}</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          )}
+                          {church.AlternativeService && (
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <span className="bg-pink-50 text-pink-700 border border-pink-200 rounded-full px-3 py-1 text-sm cursor-help">
+                                  Alternative Service
+                                </span>
+                              </TooltipTrigger>
+                              <TooltipContent className="max-w-xs">
+                                <p>{getTagTooltip("alternative service")}</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          )}
+                          {accommodationTags.map((tag, idx) => (
+                            <Tooltip key={idx}>
+                              <TooltipTrigger asChild>
+                                <span className="bg-pink-50 text-pink-700 border border-pink-200 rounded-full px-3 py-1 text-sm cursor-help">
+                                  {toTitleCase(tag)}
+                                </span>
+                              </TooltipTrigger>
+                              <TooltipContent className="max-w-xs">
+                                <p>{getTagTooltip(tag)}</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    )}
+                  </TooltipProvider>
 
                   {!church.SensoryRoom && !church.AlternativeService && !church.ChildrenProgram && !church.AdultProgram && accommodationTags.length === 0 && (
                     <p className="text-gray-500 text-sm">No specific programs or accommodations listed. Contact the church for more information.</p>

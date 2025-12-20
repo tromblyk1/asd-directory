@@ -72,72 +72,22 @@ const toTitleCase = (str: string): string => {
     return str.replace(/-/g, ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
 };
 
-const getAccommodationTooltip = (accommodation: string): string => {
-    const a = accommodation.toLowerCase().replace(/-/g, ' ');
-    if (a.includes('sensory room') || a === 'sensory room') return 'Dedicated quiet space with calming activities for sensory regulation';
-    if (a.includes('visual schedule')) return 'Picture-based schedules to help individuals understand what will happen next';
-    if (a.includes('modified curriculum')) return 'Teaching materials adapted for different learning styles and needs';
-    if (a.includes('specialized adult class')) return 'Classes specifically designed for adults with developmental disabilities';
-    if (a.includes('softer acoustic') || a.includes('dimmed light')) return 'Reduced sensory stimulation during services';
-    if (a.includes('flexible seating')) return 'Options to move, stand, or sit in different positions during service';
-    if (a.includes('sensory bag')) return 'Bags with fidget tools, headphones, and other sensory supports';
-    if (a.includes('sensory friendly environment')) return 'Overall environment designed to reduce sensory overload';
-    if (a.includes('special needs ministry')) return 'Dedicated ministry team trained in autism and disability support';
-    if (a.includes('multiple campus')) return 'Accommodations available across multiple church locations';
-    if (a.includes('visual learning')) return 'Teaching methods using pictures, videos, and visual aids';
-    if (a.includes('autism friendly worship')) return 'Worship services designed with autism needs in mind';
-    if (a.includes('cognitive disability')) return 'Support for individuals with intellectual and developmental disabilities';
-    if (a.includes('individualized care')) return 'One-on-one attention and personalized support';
-    if (a.includes('trained volunteer')) return 'Volunteers trained in autism awareness and support techniques';
-    if (a.includes('special needs room')) return 'Dedicated space for individuals who need extra support or breaks';
-    if (a.includes('adapted curriculum')) return 'Lesson materials modified for different learning abilities';
-    if (a.includes('special needs support')) return 'Ongoing support and resources for families affected by special needs';
-    if (a.includes('neurodiversity acceptance')) return 'Culture of understanding and celebrating neurological differences';
-    if (a.includes('accessible faith')) return 'Religious education and services made accessible to all abilities';
-    if (a.includes('autism faith network')) return 'Partnership with network providing autism ministry resources and training';
-    if (a === 'buddy' || a === 'buddy system') return 'One-on-one companion providing support during activities';
-    if (a === 'buddy break') return 'Respite program providing breaks for caregivers with trained companion support';
-    if (a === 'adaptive classroom') return 'Classroom environment modified for different learning styles and sensory needs';
-    if (a === 'small ratio') return 'Small student-to-teacher ratio for individualized attention';
-    if (a === 'sensory outlets') return 'Designated areas or items for sensory regulation (fidgets, movement spaces)';
-    if (a === 'compression blanket') return 'Weighted blankets available for sensory regulation and calming';
-    if (a === 'swing') return 'Therapeutic swings for sensory input and regulation';
-    if (a === 'trampoline') return 'Trampolines for sensory movement and regulation';
-    if (a === 'quiet space') return 'Designated quiet area for breaks from sensory stimulation';
-    if (a === 'respite' || a === 'respite care') return 'Temporary care giving families a break from caregiving responsibilities';
-    if (a === 'respite night') return 'Evening respite program allowing caregivers time for themselves';
-    if (a === 'adult respite') return 'Respite services specifically for adults with disabilities';
-    if (a === 'adult class' || a === 'adult program') return 'Classes and programs specifically for adults with autism';
-    if (a === 'camps') return 'Special needs camps providing recreational activities and socialization';
-    if (a === 'adaptive sports') return 'Sports activities adapted for individuals with disabilities';
-    if (a === 'creative arts') return 'Art programs adapted for different abilities and sensory needs';
-    if (a === 'job skills program') return 'Program teaching vocational and employment skills';
-    if (a === 'special worship service') return 'Worship services specifically designed for individuals with special needs';
-    if (a === 'alternative service times') return 'Worship times specifically designed to be sensory-friendly or less crowded';
-    if (a === 'inclusive' || a === 'inclusive children') return 'Fully inclusive environment welcoming all abilities';
-    if (a === 'trained volunteers') return 'Volunteers trained in autism awareness and support techniques';
-    if (a === 'autism friendly') return 'Worship services designed with autism needs in mind';
-    if (a === 'sensory friendly') return 'Overall environment designed to reduce sensory overload';
-    if (a === 'individualized support') return 'One-on-one attention and personalized support';
-    return 'Accommodation provided to support sensory and accessibility needs';
+// Tooltip definitions for church tags
+const tagTooltips: Record<string, string> = {
+    'sensory friendly': 'Environment designed to minimize sensory overload with reduced noise, lighting adjustments, and calm spaces',
+    'sensory room': 'Dedicated space with sensory equipment for decompression and regulation',
+    'quiet space': 'Designated quiet area available for those who need a break',
+    'buddy system': 'Trained volunteers paired one-on-one with individuals who need extra support',
+    'alternative service': 'Modified worship service with sensory accommodations',
+    'children\'s program': 'Special needs programming available for children',
+    'adult program': 'Special needs programming available for adults',
+    'community events': 'Church participates in community disability/autism events',
+    'adult bible study': 'Bible study group specifically for adults with special needs',
 };
 
-const getProgramTooltip = (program: string): string => {
-    const p = program.toLowerCase().replace(/-/g, ' ');
-    if (p.includes('champions room')) return 'Specialized care room with trained volunteers for children with special needs';
-    if (p.includes('special needs care')) return 'Individualized care and support for individuals with special needs';
-    if (p.includes('kids in action')) return 'Active program for children with sensory-friendly activities';
-    if (p.includes('jesus cares')) return 'Ministry specifically designed for adults with intellectual disabilities';
-    if (p.includes('adult program')) return 'Programs and activities designed for adults with autism';
-    if (p.includes('children') && p.includes('program')) return 'Programming designed for children with autism and special needs';
-    if (p.includes('children') && p.includes('ministry')) return 'Ministry focused on children with special needs';
-    if (p.includes('sensory friendly')) return 'Services and activities with reduced sensory stimulation';
-    if (p.includes('special worship')) return 'Worship services adapted for individuals with autism and cognitive disabilities';
-    if (p.includes('visual support')) return 'Visual aids and schedules to support understanding';
-    if (p.includes('autism awareness')) return 'Education and training on autism acceptance and support';
-    if (p.includes('adapted')) return 'Modified programming to meet individual needs';
-    if (p.includes('special needs ministry')) return 'Dedicated ministry serving individuals and families affected by special needs';
-    return 'Special program offered by this faith community';
+const getTagTooltip = (tag: string): string => {
+    const normalizedTag = tag.toLowerCase().trim();
+    return tagTooltips[normalizedTag] || 'Accommodation provided to support accessibility needs';
 };
 
 export default function FaithResources() {
@@ -474,51 +424,49 @@ export default function FaithResources() {
                                                             <p className="text-gray-700 mb-3 sm:mb-4 line-clamp-3 text-sm sm:text-base">{resource.description}</p>
                                                         )}
 
-                                                        {/* Accommodations with Tooltips */}
-                                                        {accommodations.length > 0 && (
-                                                            <div className="mb-3 sm:mb-4 p-2 sm:p-3 bg-rose-50 rounded-lg border border-rose-100">
-                                                                <p className="text-xs font-semibold text-rose-900 mb-2">Neurodivergent-Friendly Features:</p>
-                                                                <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                                                                    {accommodations.slice(0, 4).map((acc: string, idx: number) => (
-                                                                        <Tooltip key={idx}>
-                                                                            <TooltipTrigger asChild>
-                                                                                <div className="inline-flex">
-                                                                                    <Badge variant="secondary" className="text-xs bg-white cursor-help">
-                                                                                        {toTitleCase(acc)}
-                                                                                    </Badge>
-                                                                                </div>
-                                                                            </TooltipTrigger>
-                                                                            <TooltipContent className="bg-rose-800 text-white border-rose-700 max-w-xs">
-                                                                                <p className="text-xs">{getAccommodationTooltip(acc)}</p>
-                                                                            </TooltipContent>
-                                                                        </Tooltip>
-                                                                    ))}
-                                                                    {accommodations.length > 4 && (
-                                                                        <Badge variant="secondary" className="text-xs bg-white">+{accommodations.length - 4} more</Badge>
-                                                                    )}
-                                                                </div>
-                                                            </div>
-                                                        )}
-
                                                         {/* Programs with Tooltips */}
                                                         {programs.length > 0 && (
                                                             <div className="mb-3 sm:mb-4">
                                                                 <p className="text-xs font-semibold text-gray-700 mb-2">Programs:</p>
-                                                                <div className="flex flex-wrap gap-1">
-                                                                    {programs.slice(0, 3).map((program: string, idx: number) => (
+                                                                <div className="flex flex-wrap gap-2">
+                                                                    {programs.map((program: string, idx: number) => (
                                                                         <Tooltip key={idx}>
                                                                             <TooltipTrigger asChild>
-                                                                                <div className="inline-flex">
-                                                                                    <Badge className="bg-blue-100 text-blue-800 border-blue-200 text-xs cursor-help">
-                                                                                        {toTitleCase(program)}
-                                                                                    </Badge>
-                                                                                </div>
+                                                                                <span className="bg-green-50 text-green-700 border border-green-200 rounded-full px-3 py-1 text-sm cursor-help">
+                                                                                    {toTitleCase(program)}
+                                                                                </span>
                                                                             </TooltipTrigger>
-                                                                            <TooltipContent className="bg-blue-800 text-white border-blue-700 max-w-xs">
-                                                                                <p className="text-xs">{getProgramTooltip(program)}</p>
+                                                                            <TooltipContent className="max-w-xs">
+                                                                                <p>{getTagTooltip(program)}</p>
                                                                             </TooltipContent>
                                                                         </Tooltip>
                                                                     ))}
+                                                                </div>
+                                                            </div>
+                                                        )}
+
+                                                        {/* Accommodations with Tooltips */}
+                                                        {accommodations.length > 0 && (
+                                                            <div className="mb-3 sm:mb-4">
+                                                                <p className="text-xs font-semibold text-gray-700 mb-2">Accommodations:</p>
+                                                                <div className="flex flex-wrap gap-2">
+                                                                    {accommodations.slice(0, 4).map((acc: string, idx: number) => (
+                                                                        <Tooltip key={idx}>
+                                                                            <TooltipTrigger asChild>
+                                                                                <span className="bg-pink-50 text-pink-700 border border-pink-200 rounded-full px-3 py-1 text-sm cursor-help">
+                                                                                    {toTitleCase(acc)}
+                                                                                </span>
+                                                                            </TooltipTrigger>
+                                                                            <TooltipContent className="max-w-xs">
+                                                                                <p>{getTagTooltip(acc)}</p>
+                                                                            </TooltipContent>
+                                                                        </Tooltip>
+                                                                    ))}
+                                                                    {accommodations.length > 4 && (
+                                                                        <span className="bg-pink-50 text-pink-700 border border-pink-200 rounded-full px-3 py-1 text-sm">
+                                                                            +{accommodations.length - 4} more
+                                                                        </span>
+                                                                    )}
                                                                 </div>
                                                             </div>
                                                         )}
