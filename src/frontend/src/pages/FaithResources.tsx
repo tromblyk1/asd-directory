@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { base44 } from "@/api/base44Client";
+import { supabase } from "@/lib/supabase";
 import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -25,34 +25,46 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip";
 
+// Church table structure from Supabase
+interface Church {
+    id: string | number;
+    ChurchName: string;
+    Denomination: string | null;
+    Website: string | null;
+    AccommodationSnippet: string | null;
+    AccommodationTags: string | null;
+    SensoryRoom: boolean | null;
+    AlternativeService: boolean | null;
+    ChildrenProgram: boolean | null;
+    AdultProgram: boolean | null;
+    ContactEmail: string | null;
+    Phone: string | null;
+    Street: string | null;
+    City: string | null;
+    County: string | null;
+    State: string | null;
+    ZIP: string | null;
+    Lat: number | null;
+    Lon: number | null;
+    LastVerifiedDate: string | null;
+    SourceURL: string | null;
+    created_at: string | null;
+}
+
+// Mapped resource for display
 interface Resource {
     id: string | number;
     name: string;
-    category?: string;
     city?: string;
     address?: string;
     denomination?: string;
     description?: string;
-    accommodations?: string[] | string;
-    programs?: string[] | string;
+    accommodations?: string[];
+    programs?: string[];
     phone?: string;
     website?: string;
     verified?: boolean;
 }
-
-const parseArrayField = (field: string[] | string | undefined | null): string[] => {
-    if (!field) return [];
-    if (Array.isArray(field)) return field;
-    if (typeof field === 'string') {
-        try {
-            const parsed = JSON.parse(field);
-            return Array.isArray(parsed) ? parsed : [];
-        } catch {
-            return [];
-        }
-    }
-    return [];
-};
 
 const toTitleCase = (str: string): string => {
     return str.replace(/-/g, ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
@@ -131,11 +143,46 @@ export default function FaithResources() {
     const [selectedCity, setSelectedCity] = useState("all");
     const [selectedDenomination, setSelectedDenomination] = useState("all");
 
+    // Helper to map church data to display resource
+    const mapChurchToResource = (church: Church): Resource => {
+        // Parse AccommodationTags (comma-separated string)
+        const accommodations: string[] = [];
+        if (church.AccommodationTags) {
+            accommodations.push(...church.AccommodationTags.split(',').map(t => t.trim()).filter(Boolean));
+        }
+        if (church.SensoryRoom) accommodations.push('Sensory Room');
+        if (church.AlternativeService) accommodations.push('Alternative Service');
+
+        // Build programs array from boolean fields
+        const programs: string[] = [];
+        if (church.ChildrenProgram) programs.push('Children\'s Program');
+        if (church.AdultProgram) programs.push('Adult Program');
+
+        return {
+            id: church.id,
+            name: church.ChurchName,
+            city: church.City || undefined,
+            address: church.Street || undefined,
+            denomination: church.Denomination || undefined,
+            description: church.AccommodationSnippet || undefined,
+            accommodations,
+            programs,
+            phone: church.Phone || undefined,
+            website: church.Website || undefined,
+            verified: !!church.LastVerifiedDate,
+        };
+    };
+
     const { data: resources = [], isLoading, error, refetch } = useQuery({
-        queryKey: ['faith-resources', 'v2'],
+        queryKey: ['faith-resources', 'churches'],
         queryFn: async () => {
-            const result = await base44.entities.Resource.filter({ category: 'faith_based' }, '-created_date', 500);
-            return (result as Resource[]) ?? [];
+            const { data, error } = await supabase
+                .from('churches')
+                .select('*')
+                .order('ChurchName', { ascending: true });
+
+            if (error) throw error;
+            return (data as Church[]).map(mapChurchToResource);
         },
         initialData: [],
         staleTime: 0,
@@ -375,8 +422,8 @@ export default function FaithResources() {
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                                 <TooltipProvider delayDuration={200}>
                                     {filteredResources.map((resource: Resource) => {
-                                        const accommodations = parseArrayField(resource.accommodations);
-                                        const programs = parseArrayField(resource.programs);
+                                        const accommodations = resource.accommodations || [];
+                                        const programs = resource.programs || [];
 
                                         return (
                                             <article key={resource.id}>
