@@ -578,6 +578,7 @@ export default function FaithResources() {
                                     </CardContent>
                                 </Card>
                             ) : viewMode === 'list' ? (
+                                <div className="max-h-[calc(100vh-280px)] overflow-y-auto pr-2">
                                 <TooltipProvider delayDuration={200}>
                                     <div className="space-y-4">
                                         {filteredResources.map((resource) => {
@@ -705,6 +706,7 @@ export default function FaithResources() {
                                         })}
                                     </div>
                                 </TooltipProvider>
+                                </div>
                             ) : (
                                 /* Map View */
                                 <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] rounded-lg overflow-hidden shadow-lg">
