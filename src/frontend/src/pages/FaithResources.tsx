@@ -1,23 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Helmet } from "react-helmet-async";
 import { supabase } from "@/lib/supabase";
 import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 import {
     Church, Search, MapPin, Phone, Globe, Heart,
-    Users, CalendarDays, CheckCircle
+    Users, CalendarDays, CheckCircle, Filter, Map, List,
+    X, ChevronDown, ChevronUp, Navigation
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select";
 import {
     Tooltip,
     TooltipContent,
@@ -58,6 +53,7 @@ interface Resource {
     slug: string | null;
     name: string;
     city?: string;
+    county?: string;
     address?: string;
     denomination?: string;
     description?: string;
@@ -66,23 +62,51 @@ interface Resource {
     phone?: string;
     website?: string;
     verified?: boolean;
+    lat?: number | null;
+    lon?: number | null;
 }
 
 const toTitleCase = (str: string): string => {
     return str.replace(/-/g, ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
 };
 
-// Tooltip definitions for church tags
+// Normalize string for comparison (lowercase, remove hyphens/spaces)
+const normalizeForComparison = (str: string): string => {
+    return str.toLowerCase().replace(/[-_\s]+/g, '');
+};
+
+// Accommodation filter options with tooltips
+const accommodationOptions = [
+    { value: 'sensory-friendly', label: 'Sensory Friendly', tooltip: 'Environment designed to minimize sensory overload' },
+    { value: 'sensory-room', label: 'Sensory Room', tooltip: 'Dedicated space with sensory equipment for decompression' },
+    { value: 'quiet-space', label: 'Quiet Space', tooltip: 'Designated quiet area for those who need a break' },
+    { value: 'buddy-system', label: 'Buddy System', tooltip: 'Trained volunteers paired one-on-one with individuals' },
+    { value: 'respite-care', label: 'Respite Care', tooltip: 'Temporary care program giving caregivers a break' },
+    { value: 'alternative-service', label: 'Alternative Service', tooltip: 'Modified worship service with sensory accommodations' },
+    { value: 'adapted-curriculum', label: 'Adapted Curriculum', tooltip: 'Modified teaching materials for different learning needs' },
+    { value: 'adult-program', label: 'Adult Program', tooltip: 'Special needs programming for adults' },
+    { value: 'children-program', label: "Children's Program", tooltip: 'Special needs programming for children' },
+    { value: 'special-needs-ministry', label: 'Special Needs Ministry', tooltip: 'Dedicated ministry serving individuals with disabilities' },
+    { value: 'trained-volunteers', label: 'Trained Volunteers', tooltip: 'Staff trained to support individuals with special needs' },
+    { value: 'asl-interpretation', label: 'ASL Interpretation', tooltip: 'Sign language interpretation available' },
+    { value: 'visual-supports', label: 'Visual Supports', tooltip: 'Visual schedules and aids to support understanding' },
+];
+
+// Tooltip definitions for card display
 const tagTooltips: Record<string, string> = {
-    'sensory friendly': 'Environment designed to minimize sensory overload with reduced noise, lighting adjustments, and calm spaces',
-    'sensory room': 'Dedicated space with sensory equipment for decompression and regulation',
-    'quiet space': 'Designated quiet area available for those who need a break',
-    'buddy system': 'Trained volunteers paired one-on-one with individuals who need extra support',
+    'sensory friendly': 'Environment designed to minimize sensory overload',
+    'sensory room': 'Dedicated space with sensory equipment for decompression',
+    'quiet space': 'Designated quiet area for those who need a break',
+    'buddy system': 'Trained volunteers paired one-on-one with individuals',
     'alternative service': 'Modified worship service with sensory accommodations',
-    'children\'s program': 'Special needs programming available for children',
-    'adult program': 'Special needs programming available for adults',
-    'community events': 'Church participates in community disability/autism events',
-    'adult bible study': 'Bible study group specifically for adults with special needs',
+    'respite care': 'Temporary care program giving caregivers a break',
+    'adapted curriculum': 'Modified teaching materials for different learning needs',
+    'adult program': 'Special needs programming for adults',
+    "children's program": 'Special needs programming for children',
+    'special needs ministry': 'Dedicated ministry serving individuals with disabilities',
+    'trained volunteers': 'Staff trained to support individuals with special needs',
+    'asl interpretation': 'Sign language interpretation available',
+    'visual supports': 'Visual schedules and aids to support understanding',
 };
 
 const getTagTooltip = (tag: string): string => {
@@ -92,8 +116,37 @@ const getTagTooltip = (tag: string): string => {
 
 export default function FaithResources() {
     const [searchTerm, setSearchTerm] = useState("");
-    const [selectedCity, setSelectedCity] = useState("all");
-    const [selectedDenomination, setSelectedDenomination] = useState("all");
+    const [selectedCities, setSelectedCities] = useState<string[]>([]);
+    const [selectedDenominations, setSelectedDenominations] = useState<string[]>([]);
+    const [selectedAccommodations, setSelectedAccommodations] = useState<string[]>([]);
+    const [citySearchTerm, setCitySearchTerm] = useState("");
+    const [viewMode, setViewMode] = useState<'list' | 'map'>('list');
+    const [MapComponent, setMapComponent] = useState<any>(null);
+    const [showFilters, setShowFilters] = useState(false);
+
+    // Load map dynamically when needed
+    useEffect(() => {
+        if (viewMode === 'map' && typeof window !== 'undefined' && !MapComponent) {
+            const existingLink = document.querySelector('link[href*="leaflet.css"]');
+            if (!existingLink) {
+                const link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+                link.integrity = 'sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=';
+                link.crossOrigin = '';
+                document.head.appendChild(link);
+            }
+
+            import('react-leaflet').then((module) => {
+                setMapComponent(() => module);
+            });
+        }
+    }, [viewMode, MapComponent]);
+
+    // Scroll to top on mount
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     // Helper to map church data to display resource
     const mapChurchToResource = (church: ChurchData): Resource => {
@@ -107,7 +160,7 @@ export default function FaithResources() {
 
         // Build programs array from boolean fields
         const programs: string[] = [];
-        if (church.ChildrenProgram) programs.push('Children\'s Program');
+        if (church.ChildrenProgram) programs.push("Children's Program");
         if (church.AdultProgram) programs.push('Adult Program');
 
         return {
@@ -115,6 +168,7 @@ export default function FaithResources() {
             slug: church.slug,
             name: church.ChurchName,
             city: church.City || undefined,
+            county: church.County || undefined,
             address: church.Street || undefined,
             denomination: church.Denomination || undefined,
             description: church.AccommodationSnippet || undefined,
@@ -123,6 +177,8 @@ export default function FaithResources() {
             phone: church.Phone || undefined,
             website: church.Website || undefined,
             verified: !!church.LastVerifiedDate,
+            lat: church.Lat,
+            lon: church.Lon,
         };
     };
 
@@ -142,297 +198,440 @@ export default function FaithResources() {
         refetchOnMount: true,
     });
 
-    const cities: string[] = [...new Set(resources.map((r: Resource) => r.city).filter((city: string | undefined): city is string => Boolean(city)))].sort();
-    const denominations: string[] = [...new Set(resources.map((r: Resource) => r.denomination).filter((denom: string | undefined): denom is string => Boolean(denom)))].sort();
+    // Memoize cities
+    const cities = useMemo(() => {
+        return [...new Set(
+            resources
+                .map(r => r.city)
+                .filter((city): city is string => Boolean(city))
+        )].sort();
+    }, [resources]);
 
-    const filteredResources = resources.filter((resource: Resource) => {
-        const matchesSearch = !searchTerm ||
-            resource.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            resource.city?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            resource.denomination?.toLowerCase().includes(searchTerm.toLowerCase());
-        const matchesCity = selectedCity === "all" || resource.city === selectedCity;
-        const matchesDenomination = selectedDenomination === "all" || resource.denomination === selectedDenomination;
-        return matchesSearch && matchesCity && matchesDenomination;
-    });
+    // Filtered cities for search
+    const filteredCities = useMemo(() => {
+        return cities.filter(city =>
+            city.toLowerCase().includes(citySearchTerm.toLowerCase())
+        );
+    }, [cities, citySearchTerm]);
+
+    // Memoize denominations
+    const denominations = useMemo(() => {
+        return [...new Set(
+            resources
+                .map(r => r.denomination)
+                .filter((denom): denom is string => Boolean(denom))
+        )].sort();
+    }, [resources]);
+
+    // Check if resource has accommodation (case-insensitive, normalized comparison)
+    const hasAccommodation = (resource: Resource, accommodationValue: string): boolean => {
+        const allAccommodations = [...(resource.accommodations || []), ...(resource.programs || [])];
+        const normalizedFilter = normalizeForComparison(accommodationValue);
+
+        return allAccommodations.some(acc => {
+            const normalizedAcc = normalizeForComparison(acc);
+            return normalizedAcc.includes(normalizedFilter) || normalizedFilter.includes(normalizedAcc);
+        });
+    };
+
+    // Filter resources
+    const filteredResources = useMemo(() => {
+        return resources.filter(resource => {
+            // Search filter
+            const matchesSearch = !searchTerm ||
+                resource.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                resource.city?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                resource.denomination?.toLowerCase().includes(searchTerm.toLowerCase());
+
+            // City filter
+            const matchesCity = selectedCities.length === 0 ||
+                selectedCities.includes(resource.city || '');
+
+            // Denomination filter
+            const matchesDenomination = selectedDenominations.length === 0 ||
+                selectedDenominations.includes(resource.denomination || '');
+
+            // Accommodation filter (must have ALL selected accommodations)
+            const matchesAccommodation = selectedAccommodations.length === 0 ||
+                selectedAccommodations.every(acc => hasAccommodation(resource, acc));
+
+            return matchesSearch && matchesCity && matchesDenomination && matchesAccommodation;
+        });
+    }, [resources, searchTerm, selectedCities, selectedDenominations, selectedAccommodations]);
+
+    // Mappable resources (have coordinates)
+    const mappableResources = useMemo(() => {
+        return filteredResources.filter(r => r.lat && r.lon);
+    }, [filteredResources]);
+
+    const clearFilters = () => {
+        setSelectedCities([]);
+        setSelectedDenominations([]);
+        setSelectedAccommodations([]);
+        setSearchTerm('');
+        setCitySearchTerm('');
+    };
+
+    const toggleCity = (city: string) => {
+        setSelectedCities(prev =>
+            prev.includes(city) ? prev.filter(c => c !== city) : [...prev, city]
+        );
+    };
+
+    const toggleDenomination = (denom: string) => {
+        setSelectedDenominations(prev =>
+            prev.includes(denom) ? prev.filter(d => d !== denom) : [...prev, denom]
+        );
+    };
+
+    const toggleAccommodation = (accommodation: string) => {
+        setSelectedAccommodations(prev =>
+            prev.includes(accommodation) ? prev.filter(a => a !== accommodation) : [...prev, accommodation]
+        );
+    };
+
+    const activeFiltersCount = selectedCities.length + selectedDenominations.length + selectedAccommodations.length;
+
+    // Filter panel content
+    const FilterContent = () => (
+        <>
+            <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
+                    <Filter className="w-5 h-5" />
+                    Filters
+                </h3>
+                {activeFiltersCount > 0 && (
+                    <Button variant="ghost" size="sm" onClick={clearFilters}>
+                        <X className="w-4 h-4 mr-2" />
+                        Clear All
+                    </Button>
+                )}
+            </div>
+
+            {activeFiltersCount > 0 && (
+                <div className="mb-4 p-3 bg-rose-50 rounded-lg">
+                    <p className="text-sm font-medium text-rose-900">
+                        {activeFiltersCount} filter{activeFiltersCount !== 1 ? 's' : ''} active
+                    </p>
+                </div>
+            )}
+
+            <div className="space-y-6">
+                {/* Accommodations Filter */}
+                <div>
+                    <h4 className="text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
+                        Accommodations ({accommodationOptions.length})
+                    </h4>
+                    <TooltipProvider delayDuration={200}>
+                        <div className="space-y-2">
+                            {accommodationOptions.map(({ value, label, tooltip }) => (
+                                <Tooltip key={value}>
+                                    <TooltipTrigger asChild>
+                                        <div className="flex items-center space-x-2 cursor-help">
+                                            <Checkbox
+                                                id={`accommodation-${value}`}
+                                                checked={selectedAccommodations.includes(value)}
+                                                onCheckedChange={() => toggleAccommodation(value)}
+                                            />
+                                            <Label
+                                                htmlFor={`accommodation-${value}`}
+                                                className="text-sm font-normal cursor-pointer flex-1"
+                                            >
+                                                {label}
+                                            </Label>
+                                        </div>
+                                    </TooltipTrigger>
+                                    <TooltipContent side="right" className="max-w-xs bg-rose-600 text-white border-rose-700 hidden lg:block">
+                                        <p className="font-medium">{tooltip}</p>
+                                    </TooltipContent>
+                                </Tooltip>
+                            ))}
+                        </div>
+                    </TooltipProvider>
+                </div>
+
+                {/* Denominations Filter */}
+                <div>
+                    <h4 className="text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
+                        Denominations ({denominations.length})
+                    </h4>
+                    <div className="space-y-2 max-h-48 lg:max-h-64 overflow-y-auto">
+                        {denominations.map((denom) => (
+                            <div key={denom} className="flex items-center space-x-2">
+                                <Checkbox
+                                    id={`denom-${denom}`}
+                                    checked={selectedDenominations.includes(denom)}
+                                    onCheckedChange={() => toggleDenomination(denom)}
+                                />
+                                <Label
+                                    htmlFor={`denom-${denom}`}
+                                    className="text-sm font-normal cursor-pointer flex-1"
+                                >
+                                    {denom}
+                                </Label>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Cities Filter */}
+                <div>
+                    <h4 className="text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
+                        Cities ({cities.length})
+                    </h4>
+                    <div className="relative mb-3">
+                        <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 w-3 h-3 text-gray-400" />
+                        <Input
+                            type="text"
+                            placeholder="Search cities..."
+                            value={citySearchTerm}
+                            onChange={(e) => setCitySearchTerm(e.target.value)}
+                            className="pl-8 py-1 text-sm"
+                        />
+                    </div>
+                    <div className="space-y-2 max-h-48 lg:max-h-64 overflow-y-auto">
+                        {filteredCities.map((city) => (
+                            <div key={city} className="flex items-center space-x-2">
+                                <Checkbox
+                                    id={`city-${city}`}
+                                    checked={selectedCities.includes(city)}
+                                    onCheckedChange={() => toggleCity(city)}
+                                />
+                                <Label
+                                    htmlFor={`city-${city}`}
+                                    className="text-sm font-normal cursor-pointer flex-1"
+                                >
+                                    {city}
+                                </Label>
+                            </div>
+                        ))}
+                        {filteredCities.length === 0 && (
+                            <p className="text-sm text-gray-500 italic">No cities found</p>
+                        )}
+                    </div>
+                </div>
+            </div>
+        </>
+    );
 
     // SEO structured data
     const faithSchema = {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
         "name": "Autism-Friendly Faith Communities in Florida",
-        "description": "Find churches, synagogues, and worship spaces in Florida that welcome neurodivergent individuals with sensory-friendly accommodations, trained staff, and inclusive programs.",
+        "description": "Find churches and worship spaces in Florida that welcome neurodivergent individuals.",
         "url": "https://floridaautismservices.com/faith",
-        "mainEntity": {
-            "@type": "ItemList",
-            "name": "Welcoming Faith Communities",
-            "description": "Churches and religious organizations in Florida with autism-friendly programs and accommodations",
-            "numberOfItems": resources.length,
-            "itemListElement": resources.slice(0, 10).map((resource, index) => ({
-                "@type": "ListItem",
-                "position": index + 1,
-                "item": {
-                    "@type": "PlaceOfWorship",
-                    "name": resource.name,
-                    ...(resource.description && { "description": resource.description }),
-                    ...(resource.city && {
-                        "address": {
-                            "@type": "PostalAddress",
-                            "addressLocality": resource.city,
-                            "addressRegion": "FL",
-                            "addressCountry": "US"
-                        }
-                    }),
-                    ...(resource.phone && { "telephone": resource.phone }),
-                    ...(resource.website && { "url": resource.website }),
-                    ...(resource.denomination && { "additionalType": resource.denomination })
-                }
-            }))
-        },
-        "provider": {
-            "@type": "Organization",
-            "name": "Florida Autism Services Directory",
-            "url": "https://floridaautismservices.com"
-        }
-    };
-
-    const breadcrumbSchema = {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://floridaautismservices.com"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Faith Communities",
-                "item": "https://floridaautismservices.com/faith"
-            }
-        ]
+        "numberOfItems": resources.length,
     };
 
     return (
         <>
             <Helmet>
                 <title>Autism-Friendly Churches & Faith Communities | Florida</title>
-                <meta name="description" content={`Find ${resources.length}+ autism-friendly churches and faith communities across Florida. Sensory-friendly worship, trained volunteers, special needs ministries, and inclusive programs welcoming neurodivergent individuals.`} />
-                <meta name="keywords" content="autism friendly church Florida, sensory friendly church, special needs ministry, autism church program, neurodivergent worship, inclusive church, autism faith community, sensory friendly worship" />
+                <meta name="description" content={`Find ${resources.length}+ autism-friendly churches and faith communities across Florida.`} />
                 <link rel="canonical" href="https://floridaautismservices.com/faith" />
-                
-                {/* Open Graph */}
-                <meta property="og:title" content="Autism-Friendly Faith Communities | Florida" />
-                <meta property="og:description" content={`Discover ${resources.length}+ welcoming churches and faith communities in Florida with sensory-friendly accommodations and special needs programs.`} />
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://floridaautismservices.com/faith" />
-                <meta property="og:site_name" content="Florida Autism Services Directory" />
-                
-                {/* Twitter */}
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Autism-Friendly Churches in Florida" />
-                <meta name="twitter:description" content={`Find ${resources.length}+ autism-friendly churches and faith communities across Florida.`} />
-                
-                {/* Structured Data */}
-                <script type="application/ld+json">
-                    {JSON.stringify(faithSchema)}
-                </script>
-                <script type="application/ld+json">
-                    {JSON.stringify(breadcrumbSchema)}
-                </script>
+                <script type="application/ld+json">{JSON.stringify(faithSchema)}</script>
             </Helmet>
 
-            <div className="min-h-screen bg-gradient-to-b from-rose-50 to-white pb-12">
-                {/* Hero Section - MOBILE OPTIMIZED */}
-                <header className="bg-gradient-to-r from-rose-500 to-pink-600 text-white py-8 sm:py-10 lg:py-12">
+            <div className="min-h-screen bg-gray-50">
+                {/* Header */}
+                <div className="bg-gradient-to-r from-rose-500 to-pink-600 text-white py-8 sm:py-10 lg:py-12">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6">
-                        {/* Mobile: stacked layout, Desktop: side-by-side */}
-                        <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                            <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-white/20 rounded-xl sm:rounded-2xl flex items-center justify-center flex-shrink-0" role="img" aria-label="Church icon">
-                                <Church className="w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10" />
-                            </div>
-                            <div>
-                                <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-1 sm:mb-2">Welcoming Faith Communities</h1>
-                                <p className="text-base sm:text-lg lg:text-xl text-rose-100">Find churches, synagogues, and worship spaces that embrace neurodiversity</p>
-                            </div>
+                        <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                            <Church className="w-8 h-8 sm:w-10 sm:h-10" />
+                            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold">Welcoming Faith Communities</h1>
                         </div>
-                        {/* Feature cards - MOBILE: horizontal scroll or stacked */}
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mt-6 sm:mt-8">
-                            <Card className="bg-white/10 backdrop-blur-sm border-white/20">
-                                <CardContent className="p-3 sm:p-4 flex items-center gap-3">
-                                    <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-white flex-shrink-0" aria-hidden="true" />
-                                    <div>
-                                        <p className="text-white font-semibold text-sm sm:text-base">Sensory-Friendly</p>
-                                        <p className="text-rose-100 text-xs sm:text-sm">Accommodating spaces</p>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                            <Card className="bg-white/10 backdrop-blur-sm border-white/20">
-                                <CardContent className="p-3 sm:p-4 flex items-center gap-3">
-                                    <Users className="w-6 h-6 sm:w-8 sm:h-8 text-white flex-shrink-0" aria-hidden="true" />
-                                    <div>
-                                        <p className="text-white font-semibold text-sm sm:text-base">Trained Staff</p>
-                                        <p className="text-rose-100 text-xs sm:text-sm">Understanding volunteers</p>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                            <Card className="bg-white/10 backdrop-blur-sm border-white/20">
-                                <CardContent className="p-3 sm:p-4 flex items-center gap-3">
-                                    <CalendarDays className="w-6 h-6 sm:w-8 sm:h-8 text-white flex-shrink-0" aria-hidden="true" />
-                                    <div>
-                                        <p className="text-white font-semibold text-sm sm:text-base">Special Programs</p>
-                                        <p className="text-rose-100 text-xs sm:text-sm">Inclusive ministries</p>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        </div>
-                    </div>
-                </header>
-
-                <main className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
-                    {/* Search and Filters - MOBILE OPTIMIZED */}
-                    <Card className="border-none shadow-lg mb-6 sm:mb-8">
-                        <CardContent className="p-4 sm:p-6">
-                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-                                <div className="sm:col-span-1">
-                                    <div className="relative">
-                                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" aria-hidden="true" />
-                                        <Input 
-                                            type="text" 
-                                            placeholder="Search communities..." 
-                                            value={searchTerm} 
-                                            onChange={(e) => setSearchTerm(e.target.value)} 
-                                            className="pl-10 h-11 sm:h-10"
-                                            aria-label="Search faith communities"
-                                        />
-                                    </div>
-                                </div>
-                                <div>
-                                    <Select value={selectedCity} onValueChange={setSelectedCity}>
-                                        <SelectTrigger aria-label="Filter by city" className="h-11 sm:h-10">
-                                            <SelectValue placeholder="All Cities" />
-                                        </SelectTrigger>
-                                        <SelectContent>
-                                            <SelectItem value="all">All Cities</SelectItem>
-                                            {cities.map((city: string) => (
-                                                <SelectItem key={city} value={city}>{city}</SelectItem>
-                                            ))}
-                                        </SelectContent>
-                                    </Select>
-                                </div>
-                                <div>
-                                    <Select value={selectedDenomination} onValueChange={setSelectedDenomination}>
-                                        <SelectTrigger aria-label="Filter by denomination" className="h-11 sm:h-10">
-                                            <SelectValue placeholder="All Denominations" />
-                                        </SelectTrigger>
-                                        <SelectContent>
-                                            <SelectItem value="all">All Denominations</SelectItem>
-                                            {denominations.map((denom: string) => (
-                                                <SelectItem key={denom} value={denom}>{denom}</SelectItem>
-                                            ))}
-                                        </SelectContent>
-                                    </Select>
-                                </div>
-                            </div>
-                        </CardContent>
-                    </Card>
-
-                    {/* Results count */}
-                    <div className="mb-4 sm:mb-6">
-                        <p className="text-gray-600 text-sm sm:text-base">
-                            <span className="font-semibold text-gray-900">{filteredResources.length}</span> welcoming faith communities
+                        <p className="text-base sm:text-lg lg:text-xl text-rose-100">
+                            Find churches and worship spaces that embrace neurodiversity across Florida
                         </p>
+                        <div className="mt-3 sm:mt-4 flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm">
+                            <span className="bg-white/20 px-2 sm:px-3 py-1 rounded-full">
+                                <Heart className="w-3 h-3 inline mr-1" />
+                                Sensory-Friendly
+                            </span>
+                            <span className="bg-white/20 px-2 sm:px-3 py-1 rounded-full">
+                                <Users className="w-3 h-3 inline mr-1" />
+                                Trained Staff
+                            </span>
+                            <span className="bg-white/20 px-2 sm:px-3 py-1 rounded-full">
+                                <CalendarDays className="w-3 h-3 inline mr-1" />
+                                Special Programs
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6 lg:py-8">
+                    {/* Search and View Toggle */}
+                    <div className="mb-4 sm:mb-6 flex flex-col gap-3 sm:gap-4">
+                        <div className="relative flex-1">
+                            <Search className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
+                            <Input
+                                type="text"
+                                placeholder="Search by name, city, or denomination..."
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                                className="pl-10 sm:pl-12 py-5 sm:py-6 text-base sm:text-lg shadow-sm"
+                            />
+                        </div>
+                        <div className="flex gap-2 justify-between sm:justify-start">
+                            {/* Mobile Filter Toggle */}
+                            <Button
+                                variant="outline"
+                                onClick={() => setShowFilters(!showFilters)}
+                                className="lg:hidden flex-1 sm:flex-none"
+                            >
+                                <Filter className="w-4 h-4 mr-2" />
+                                Filters
+                                {activeFiltersCount > 0 && (
+                                    <span className="ml-2 bg-rose-600 text-white text-xs px-2 py-0.5 rounded-full">
+                                        {activeFiltersCount}
+                                    </span>
+                                )}
+                                {showFilters ? <ChevronUp className="w-4 h-4 ml-2" /> : <ChevronDown className="w-4 h-4 ml-2" />}
+                            </Button>
+
+                            <div className="flex gap-2">
+                                <Button
+                                    variant={viewMode === 'list' ? 'default' : 'outline'}
+                                    onClick={() => setViewMode('list')}
+                                    className={viewMode === 'list' ? 'bg-rose-600 hover:bg-rose-700' : ''}
+                                    size="default"
+                                >
+                                    <List className="w-4 h-4 sm:mr-2" />
+                                    <span className="hidden sm:inline">List</span>
+                                </Button>
+                                <Button
+                                    variant={viewMode === 'map' ? 'default' : 'outline'}
+                                    onClick={() => setViewMode('map')}
+                                    className={viewMode === 'map' ? 'bg-rose-600 hover:bg-rose-700' : ''}
+                                    size="default"
+                                >
+                                    <Map className="w-4 h-4 sm:mr-2" />
+                                    <span className="hidden sm:inline">Map</span>
+                                </Button>
+                            </div>
+                        </div>
                     </div>
 
-                    {isLoading ? (
-                        <div className="text-center py-8 sm:py-12">
-                            <div className="animate-spin rounded-full h-10 w-10 sm:h-12 sm:w-12 border-b-2 border-rose-600 mx-auto" />
-                            <p className="mt-4 text-gray-600 text-sm sm:text-base">Loading faith communities...</p>
+                    {/* Mobile Filter Panel */}
+                    {showFilters && (
+                        <div className="lg:hidden mb-4 sm:mb-6">
+                            <Card className="border-none shadow-lg">
+                                <CardContent className="p-4 sm:p-6">
+                                    <FilterContent />
+                                </CardContent>
+                            </Card>
                         </div>
-                    ) : error ? (
-                        <Card className="border-none shadow-lg">
-                            <CardContent className="py-8 sm:py-12 text-center px-4">
-                                <div className="text-red-500 mb-4 text-2xl" aria-hidden="true">⚠️</div>
-                                <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Error Loading Communities</h2>
-                                <p className="text-gray-600 mb-4 text-sm sm:text-base">{error instanceof Error ? error.message : 'Unknown error'}</p>
-                                <Button onClick={() => refetch()} className="h-11 sm:h-10">Try Again</Button>
-                            </CardContent>
-                        </Card>
-                    ) : filteredResources.length === 0 ? (
-                        <Card className="border-none shadow-lg">
-                            <CardContent className="py-8 sm:py-12 text-center px-4">
-                                <Church className="w-12 h-12 sm:w-16 sm:h-16 text-gray-300 mx-auto mb-4" aria-hidden="true" />
-                                <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">No faith communities found</h2>
-                                <p className="text-gray-600 mb-4 text-sm sm:text-base">
-                                    {resources.length === 0 ? "No faith communities loaded from database" : "Try adjusting your filters"}
-                                </p>
-                            </CardContent>
-                        </Card>
-                    ) : (
-                        <section aria-label="Faith communities listing">
-                            {/* MOBILE: single column, SM+: 2 columns */}
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                                <TooltipProvider delayDuration={200}>
-                                    {filteredResources.map((resource: Resource) => {
-                                        const accommodations = resource.accommodations || [];
-                                        const programs = resource.programs || [];
+                    )}
 
-                                        return (
-                                            <article key={resource.id}>
-                                                <Card className="border-none shadow-lg hover:shadow-xl transition-shadow group h-full">
+                    <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
+                        {/* Desktop Filters Sidebar */}
+                        <div className="hidden lg:block w-80 flex-shrink-0">
+                            <Card className="border-none shadow-lg sticky top-6">
+                                <CardContent className="p-6">
+                                    <div className="max-h-[calc(100vh-300px)] overflow-y-auto pr-2">
+                                        <FilterContent />
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </div>
+
+                        {/* Main Content */}
+                        <div className="flex-1 min-w-0">
+                            {/* Results Count */}
+                            <div className="mb-4 sm:mb-6 flex items-center justify-between">
+                                <p className="text-sm sm:text-base text-gray-600">
+                                    Showing{' '}
+                                    <span className="font-semibold text-gray-900">
+                                        {viewMode === 'list' ? filteredResources.length : mappableResources.length}
+                                    </span>{' '}
+                                    of{' '}
+                                    <span className="font-semibold text-gray-900">
+                                        {resources.length}
+                                    </span>{' '}
+                                    faith communities
+                                </p>
+                            </div>
+
+                            {isLoading ? (
+                                <div className="text-center py-12">
+                                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-rose-600 mx-auto" />
+                                    <p className="mt-4 text-gray-600">Loading faith communities...</p>
+                                </div>
+                            ) : error ? (
+                                <Card className="border-none shadow-lg">
+                                    <CardContent className="py-12 text-center">
+                                        <div className="text-red-500 mb-4 text-2xl">⚠️</div>
+                                        <h3 className="text-xl font-semibold text-gray-900 mb-2">Error Loading Communities</h3>
+                                        <p className="text-gray-600 mb-4">{error instanceof Error ? error.message : 'Unknown error'}</p>
+                                        <Button onClick={() => refetch()}>Try Again</Button>
+                                    </CardContent>
+                                </Card>
+                            ) : filteredResources.length === 0 ? (
+                                <Card className="border-none shadow-lg">
+                                    <CardContent className="py-12 text-center">
+                                        <Church className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+                                        <h3 className="text-xl font-semibold text-gray-900 mb-2">No faith communities found</h3>
+                                        <p className="text-gray-600 mb-4">Try adjusting your filters or search terms</p>
+                                        <Button onClick={clearFilters}>Clear Filters</Button>
+                                    </CardContent>
+                                </Card>
+                            ) : viewMode === 'list' ? (
+                                <TooltipProvider delayDuration={200}>
+                                    <div className="space-y-4">
+                                        {filteredResources.map((resource) => {
+                                            const accommodations = resource.accommodations || [];
+                                            const programs = resource.programs || [];
+
+                                            return (
+                                                <Card key={resource.id} className="border-none shadow-lg hover:shadow-xl transition-shadow">
                                                     <CardContent className="p-4 sm:p-6">
-                                                        {/* Card header - responsive layout */}
-                                                        <div className="flex items-start justify-between gap-2 mb-3 sm:mb-4">
-                                                            <div className="flex items-start gap-2 sm:gap-3 min-w-0 flex-1">
-                                                                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-rose-500 to-pink-500 rounded-lg flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                                                        {/* Card header */}
+                                                        <div className="flex items-start justify-between gap-2 mb-3">
+                                                            <div className="flex items-start gap-3 min-w-0 flex-1">
+                                                                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-rose-500 to-pink-500 rounded-lg flex items-center justify-center flex-shrink-0">
                                                                     <Church className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                                                                 </div>
                                                                 <div className="min-w-0 flex-1">
-                                                                    {/* CLICKABLE CHURCH NAME */}
                                                                     <Link to={`/churches/${resource.slug}`}>
-                                                                        <h3 className="text-base sm:text-lg font-bold text-gray-900 group-hover:text-rose-600 transition-colors cursor-pointer hover:underline line-clamp-2">
+                                                                        <h3 className="text-base sm:text-lg font-bold text-gray-900 hover:text-rose-600 transition-colors cursor-pointer line-clamp-2">
                                                                             {resource.name}
                                                                         </h3>
                                                                     </Link>
                                                                     {resource.denomination && (
-                                                                        <p className="text-xs sm:text-sm text-gray-600 truncate">{resource.denomination}</p>
+                                                                        <p className="text-xs sm:text-sm text-gray-600">{resource.denomination}</p>
                                                                     )}
                                                                 </div>
                                                             </div>
-                                                            {/* VERIFIED BADGE WITH TOOLTIP */}
                                                             {resource.verified && (
                                                                 <Tooltip>
                                                                     <TooltipTrigger asChild>
-                                                                        <div className="inline-flex flex-shrink-0">
-                                                                            <Badge className="bg-green-100 text-green-800 border-green-200 cursor-help text-xs">
-                                                                                <CheckCircle className="w-3 h-3 mr-1" aria-hidden="true" />
-                                                                                <span className="hidden sm:inline">Verified</span>
-                                                                                <span className="sm:hidden">✓</span>
-                                                                            </Badge>
-                                                                        </div>
+                                                                        <span className="inline-flex items-center bg-green-100 text-green-800 border border-green-200 rounded-full px-2 py-0.5 text-xs cursor-help flex-shrink-0">
+                                                                            <CheckCircle className="w-3 h-3 mr-1" />
+                                                                            <span className="hidden sm:inline">Verified</span>
+                                                                            <span className="sm:hidden">✓</span>
+                                                                        </span>
                                                                     </TooltipTrigger>
-                                                                    <TooltipContent className="bg-green-800 text-white border-green-700 max-w-xs">
-                                                                        <p className="text-xs font-semibold mb-1">✓ Verified Community</p>
-                                                                        <p className="text-xs">This faith community has been verified by Florida Autism Services. Their autism-friendly programs and accommodations have been confirmed through direct contact or official documentation.</p>
+                                                                    <TooltipContent className="max-w-xs">
+                                                                        <p>Verified by Florida Autism Services</p>
                                                                     </TooltipContent>
                                                                 </Tooltip>
                                                             )}
                                                         </div>
 
                                                         {resource.description && (
-                                                            <p className="text-gray-700 mb-3 sm:mb-4 line-clamp-3 text-sm sm:text-base">{resource.description}</p>
+                                                            <p className="text-gray-700 mb-3 line-clamp-2 text-sm">{resource.description}</p>
                                                         )}
 
-                                                        {/* Programs with Tooltips */}
+                                                        {/* Programs */}
                                                         {programs.length > 0 && (
-                                                            <div className="mb-3 sm:mb-4">
-                                                                <p className="text-xs font-semibold text-gray-700 mb-2">Programs:</p>
-                                                                <div className="flex flex-wrap gap-2">
-                                                                    {programs.map((program: string, idx: number) => (
+                                                            <div className="mb-3">
+                                                                <div className="flex flex-wrap gap-1.5">
+                                                                    {programs.map((program, idx) => (
                                                                         <Tooltip key={idx}>
                                                                             <TooltipTrigger asChild>
-                                                                                <span className="bg-green-50 text-green-700 border border-green-200 rounded-full px-3 py-1 text-sm cursor-help">
+                                                                                <span className="bg-green-50 text-green-700 border border-green-200 rounded-full px-2.5 py-0.5 text-xs cursor-help">
                                                                                     {toTitleCase(program)}
                                                                                 </span>
                                                                             </TooltipTrigger>
@@ -445,15 +644,14 @@ export default function FaithResources() {
                                                             </div>
                                                         )}
 
-                                                        {/* Accommodations with Tooltips */}
+                                                        {/* Accommodations */}
                                                         {accommodations.length > 0 && (
-                                                            <div className="mb-3 sm:mb-4">
-                                                                <p className="text-xs font-semibold text-gray-700 mb-2">Accommodations:</p>
-                                                                <div className="flex flex-wrap gap-2">
-                                                                    {accommodations.slice(0, 4).map((acc: string, idx: number) => (
+                                                            <div className="mb-3">
+                                                                <div className="flex flex-wrap gap-1.5">
+                                                                    {accommodations.slice(0, 4).map((acc, idx) => (
                                                                         <Tooltip key={idx}>
                                                                             <TooltipTrigger asChild>
-                                                                                <span className="bg-pink-50 text-pink-700 border border-pink-200 rounded-full px-3 py-1 text-sm cursor-help">
+                                                                                <span className="bg-pink-50 text-pink-700 border border-pink-200 rounded-full px-2.5 py-0.5 text-xs cursor-help">
                                                                                     {toTitleCase(acc)}
                                                                                 </span>
                                                                             </TooltipTrigger>
@@ -463,7 +661,7 @@ export default function FaithResources() {
                                                                         </Tooltip>
                                                                     ))}
                                                                     {accommodations.length > 4 && (
-                                                                        <span className="bg-pink-50 text-pink-700 border border-pink-200 rounded-full px-3 py-1 text-sm">
+                                                                        <span className="bg-pink-50 text-pink-700 border border-pink-200 rounded-full px-2.5 py-0.5 text-xs">
                                                                             +{accommodations.length - 4} more
                                                                         </span>
                                                                     )}
@@ -472,53 +670,134 @@ export default function FaithResources() {
                                                         )}
 
                                                         {/* Contact Info */}
-                                                        <address className="space-y-1.5 sm:space-y-2 border-t pt-3 sm:pt-4 not-italic">
-                                                            {resource.address && (
-                                                                <div className="flex items-start gap-2 text-xs sm:text-sm text-gray-600">
-                                                                    <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" aria-hidden="true" />
-                                                                    <div>
-                                                                        <p>{resource.address}</p>
-                                                                        <p>{resource.city}, FL</p>
-                                                                    </div>
-                                                                </div>
-                                                            )}
-                                                            {!resource.address && resource.city && (
-                                                                <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-600">
-                                                                    <MapPin className="w-4 h-4" aria-hidden="true" />
-                                                                    <span>{resource.city}, FL</span>
-                                                                </div>
+                                                        <div className="flex flex-wrap gap-3 text-xs text-gray-600 border-t pt-3">
+                                                            {resource.city && (
+                                                                <span className="flex items-center gap-1">
+                                                                    <MapPin className="w-3 h-3" />
+                                                                    {resource.city}, FL
+                                                                </span>
                                                             )}
                                                             {resource.phone && (
-                                                                <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-600">
-                                                                    <Phone className="w-4 h-4" aria-hidden="true" />
-                                                                    <a href={`tel:${resource.phone}`} className="hover:text-rose-600">{resource.phone}</a>
-                                                                </div>
+                                                                <a href={`tel:${resource.phone}`} className="flex items-center gap-1 hover:text-rose-600">
+                                                                    <Phone className="w-3 h-3" />
+                                                                    {resource.phone}
+                                                                </a>
                                                             )}
                                                             {resource.website && (
-                                                                <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-600">
-                                                                    <Globe className="w-4 h-4" aria-hidden="true" />
-                                                                    <a href={resource.website} target="_blank" rel="noopener noreferrer" className="hover:text-rose-600 truncate">Visit Website</a>
-                                                                </div>
+                                                                <a href={resource.website.startsWith('http') ? resource.website : `https://${resource.website}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-rose-600">
+                                                                    <Globe className="w-3 h-3" />
+                                                                    Website
+                                                                </a>
                                                             )}
-                                                        </address>
+                                                        </div>
 
-                                                        <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t">
+                                                        {/* View Details Button */}
+                                                        <div className="flex justify-end pt-3 mt-3 border-t border-gray-100">
                                                             <Link to={`/churches/${resource.slug}`}>
-                                                                <Button className="w-full h-11 sm:h-10 bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700">
-                                                                    View Full Details
+                                                                <Button variant="outline" size="sm" className="text-sm text-rose-600 border-rose-600 hover:bg-rose-50">
+                                                                    View Details
                                                                 </Button>
                                                             </Link>
                                                         </div>
                                                     </CardContent>
                                                 </Card>
-                                            </article>
-                                        );
-                                    })}
+                                            );
+                                        })}
+                                    </div>
                                 </TooltipProvider>
-                            </div>
-                        </section>
-                    )}
-                </main>
+                            ) : (
+                                /* Map View */
+                                <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] rounded-lg overflow-hidden shadow-lg">
+                                    {!MapComponent ? (
+                                        <div className="h-full flex items-center justify-center bg-gray-100">
+                                            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-rose-600" />
+                                        </div>
+                                    ) : (
+                                        <>
+                                            <MapComponent.MapContainer
+                                                center={[27.9944024, -81.7602544]}
+                                                zoom={7}
+                                                className="h-full w-full"
+                                            >
+                                                <MapComponent.TileLayer
+                                                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                                                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                                />
+
+                                                {/* Church markers */}
+                                                {mappableResources.map((resource) => (
+                                                    <MapComponent.Marker
+                                                        key={resource.id}
+                                                        position={[Number(resource.lat), Number(resource.lon)]}
+                                                    >
+                                                        <MapComponent.Tooltip
+                                                            direction="top"
+                                                            offset={[0, -20]}
+                                                            opacity={0.95}
+                                                        >
+                                                            <div className="text-center">
+                                                                <p className="font-bold text-sm">{resource.name}</p>
+                                                                <p className="text-xs text-gray-600">{resource.city}, FL</p>
+                                                                {resource.denomination && (
+                                                                    <p className="text-xs text-rose-600">{resource.denomination}</p>
+                                                                )}
+                                                            </div>
+                                                        </MapComponent.Tooltip>
+                                                        <MapComponent.Popup>
+                                                            <div className="p-2 min-w-[200px]">
+                                                                <Link to={`/churches/${resource.slug}`} className="hover:text-rose-600 transition-colors">
+                                                                    <h3 className="font-bold text-sm mb-1 hover:underline">{resource.name}</h3>
+                                                                </Link>
+                                                                {resource.denomination && (
+                                                                    <p className="text-xs text-gray-600 mb-1">{resource.denomination}</p>
+                                                                )}
+                                                                <p className="text-xs text-gray-600 mb-2">
+                                                                    {resource.city}, FL
+                                                                </p>
+
+                                                                <div className="flex gap-2">
+                                                                    {resource.phone && (
+                                                                        <a href={`tel:${resource.phone.replace(/[^0-9]/g, '')}`}>
+                                                                            <Button size="sm" variant="outline" className="text-xs">
+                                                                                <Phone className="w-3 h-3 mr-1" />
+                                                                                Call
+                                                                            </Button>
+                                                                        </a>
+                                                                    )}
+                                                                    <a
+                                                                        href={`https://www.google.com/maps/dir/?api=1&destination=${resource.lat},${resource.lon}`}
+                                                                        target="_blank"
+                                                                        rel="noopener noreferrer"
+                                                                    >
+                                                                        <Button size="sm" variant="outline" className="text-xs">
+                                                                            <Navigation className="w-3 h-3 mr-1" />
+                                                                            Directions
+                                                                        </Button>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </MapComponent.Popup>
+                                                    </MapComponent.Marker>
+                                                ))}
+                                            </MapComponent.MapContainer>
+
+                                            {/* Map Stats Overlay */}
+                                            <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 z-[1000]">
+                                                <Card className="shadow-lg border-none">
+                                                    <CardContent className="p-2 sm:p-3">
+                                                        <p className="text-xs sm:text-sm font-medium">
+                                                            <span className="text-rose-600 font-bold">{mappableResources.length}</span> on map
+                                                        </p>
+                                                    </CardContent>
+                                                </Card>
+                                            </div>
+                                        </>
+                                    )}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
             </div>
         </>
     );

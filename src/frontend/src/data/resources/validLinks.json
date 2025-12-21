@@ -101,6 +101,13 @@
       "url": "https://disneyworld.disney.go.com/guest-services/disability-access-service"
     }
   ],
+  "services/ados-testing": [
+    {
+      "label": "Autism Speaks",
+      "url": "https://www.autismspeaks.org/",
+      "description": "Information on autism diagnosis and evaluation process"
+    }
+  ],
   "services/aba-therapy": [
     {
       "label": "Behavior Analyst Certification Board (BACB)",
