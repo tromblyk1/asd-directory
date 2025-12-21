@@ -1,6 +1,8 @@
+# robots.txt for Florida Autism Services Directory
+# https://floridaautismservices.com
+
 User-agent: *
 Allow: /
-Sitemap: https://floridaautismservices.com/sitemap.xml
 
-# Block admin or internal pages if needed
-# Disallow: /admin/
+# Sitemap location
+Sitemap: https://floridaautismservices.com/sitemap.xml
