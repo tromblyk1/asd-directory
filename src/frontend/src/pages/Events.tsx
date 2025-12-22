@@ -364,40 +364,50 @@ export default function Events() {
                 </header>
 
                 <main className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
-                    {/* Mobile Filter Toggle */}
-                    <div className="lg:hidden mb-4">
+                    {/* Mobile Filter Toggle & View Toggle */}
+                    <div className="mb-4 sm:mb-6 flex gap-2 justify-between sm:justify-start">
                         <Button
                             variant="outline"
                             onClick={() => setShowFilters(!showFilters)}
-                            className="w-full justify-between h-11"
+                            className="lg:hidden flex-1 sm:flex-none"
                         >
-                            <span className="flex items-center gap-2">
-                                <Filter className="w-4 h-4" />
-                                Filter Events
-                                {activeFilterCount > 0 && (
-                                    <Badge className="bg-green-600 text-white text-xs px-1.5 py-0.5 min-w-[20px]">
-                                        {activeFilterCount}
-                                    </Badge>
-                                )}
-                            </span>
-                            <ChevronDown className={`w-4 h-4 transition-transform ${showFilters ? 'rotate-180' : ''}`} />
+                            <Filter className="w-4 h-4 mr-2" />
+                            Filters
+                            {activeFilterCount > 0 && (
+                                <span className="ml-2 bg-teal-600 text-white text-xs px-2 py-0.5 rounded-full">
+                                    {activeFilterCount}
+                                </span>
+                            )}
+                            <ChevronDown className={`w-4 h-4 ml-2 transition-transform ${showFilters ? 'rotate-180' : ''}`} />
                         </Button>
-                        
-                        {/* Mobile Filter Panel */}
-                        {showFilters && (
-                            <Card className="mt-2 border-none shadow-lg">
-                                <CardContent className="p-4">
-                                    <div className="flex justify-between items-center mb-4">
-                                        <h2 className="font-bold text-gray-900">Filters</h2>
-                                        <Button
-                                            variant="ghost"
-                                            size="sm"
-                                            onClick={() => setShowFilters(false)}
-                                            className="h-8 w-8 p-0"
-                                        >
-                                            <X className="w-4 h-4" />
-                                        </Button>
-                                    </div>
+
+                        <div className="flex gap-2">
+                            <Button
+                                variant={viewMode === 'list' ? 'default' : 'outline'}
+                                onClick={() => setViewMode('list')}
+                                className={viewMode === 'list' ? 'bg-teal-600 hover:bg-teal-700' : ''}
+                                size="default"
+                            >
+                                <List className="w-4 h-4 sm:mr-2" />
+                                <span className="hidden sm:inline">List</span>
+                            </Button>
+                            <Button
+                                variant={viewMode === 'map' ? 'default' : 'outline'}
+                                onClick={() => setViewMode('map')}
+                                className={viewMode === 'map' ? 'bg-teal-600 hover:bg-teal-700' : ''}
+                                size="default"
+                            >
+                                <Map className="w-4 h-4 sm:mr-2" />
+                                <span className="hidden sm:inline">Map</span>
+                            </Button>
+                        </div>
+                    </div>
+
+                    {/* Mobile Filter Panel */}
+                    {showFilters && (
+                        <div className="lg:hidden mb-4 sm:mb-6">
+                            <Card className="border-none shadow-lg">
+                                <CardContent className="p-4 sm:p-6">
                                     {filterContent}
                                     <div className="mt-4 pt-4 border-t flex justify-between items-center">
                                         <p className="text-sm text-gray-600">
@@ -412,35 +422,8 @@ export default function Events() {
                                     </div>
                                 </CardContent>
                             </Card>
-                        )}
-                    </div>
-
-                    {/* View Toggle & Results Count */}
-                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4 sm:mb-6">
-                        <p className="text-sm text-gray-600 order-2 sm:order-1">
-                            Showing <span className="font-semibold text-green-600">{filteredEvents.length}</span> events
-                        </p>
-                        <div className="flex gap-2 order-1 sm:order-2">
-                            <Button
-                                variant={viewMode === 'list' ? 'default' : 'outline'}
-                                size="sm"
-                                onClick={() => setViewMode('list')}
-                                className={viewMode === 'list' ? 'bg-green-600 hover:bg-green-700' : ''}
-                            >
-                                <List className="w-4 h-4 sm:mr-2" />
-                                <span className="hidden sm:inline">List</span>
-                            </Button>
-                            <Button
-                                variant={viewMode === 'map' ? 'default' : 'outline'}
-                                size="sm"
-                                onClick={() => setViewMode('map')}
-                                className={viewMode === 'map' ? 'bg-green-600 hover:bg-green-700' : ''}
-                            >
-                                <Map className="w-4 h-4 sm:mr-2" />
-                                <span className="hidden sm:inline">Map</span>
-                            </Button>
                         </div>
-                    </div>
+                    )}
 
                     <div className="flex gap-6 lg:gap-8">
                         {/* LEFT SIDEBAR FILTERS - Desktop only */}
