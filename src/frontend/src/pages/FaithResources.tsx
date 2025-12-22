@@ -19,6 +19,7 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { SocialLinksDisplay } from "@/components/SocialLinksDisplay";
 
 // Church table structure from Supabase
 interface ChurchData {
@@ -45,6 +46,7 @@ interface ChurchData {
     LastVerifiedDate: string | null;
     SourceURL: string | null;
     created_at: string | null;
+    social_links?: Record<string, string> | null;
 }
 
 // Mapped resource for display
@@ -64,6 +66,7 @@ interface Resource {
     verified?: boolean;
     lat?: number | null;
     lon?: number | null;
+    social_links?: Record<string, string> | null;
 }
 
 const toTitleCase = (str: string): string => {
@@ -179,6 +182,7 @@ export default function FaithResources() {
             verified: !!church.LastVerifiedDate,
             lat: church.Lat,
             lon: church.Lon,
+            social_links: church.social_links,
         };
     };
 
@@ -688,6 +692,9 @@ export default function FaithResources() {
                                                                     <Globe className="w-3 h-3" />
                                                                     Website
                                                                 </a>
+                                                            )}
+                                                            {resource.social_links && Object.keys(resource.social_links).length > 0 && (
+                                                                <SocialLinksDisplay socialLinks={resource.social_links} size="sm" />
                                                             )}
                                                         </div>
 

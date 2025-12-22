@@ -11,6 +11,7 @@ import {
   TooltipProvider,
 } from '@/components/ui/tooltip';
 import { StarRating } from '@/components/StarRating';
+import { SocialLinksDisplay } from '@/components/SocialLinksDisplay';
 import type { ProviderRating } from '@/hooks/useProviderRatings';
 
 // Provider type matching resources table structure
@@ -37,6 +38,7 @@ export interface ProviderResource {
   description: string | null;
   resource_type: string | null;
   google_place_id?: string | null;
+  social_links?: Record<string, string> | null;
 }
 
 interface ProviderCardProps {
@@ -413,6 +415,12 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, rating }) 
                       <p>{emailCopied ? 'Copied!' : 'Copy email'}</p>
                     </TooltipContent>
                   </Tooltip>
+                </div>
+              )}
+
+              {provider.social_links && Object.keys(provider.social_links).length > 0 && (
+                <div className="flex items-center text-gray-600 sm:col-span-2">
+                  <SocialLinksDisplay socialLinks={provider.social_links} size="sm" />
                 </div>
               )}
             </div>

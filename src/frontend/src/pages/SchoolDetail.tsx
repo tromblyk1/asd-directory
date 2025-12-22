@@ -25,6 +25,7 @@ import {
 import { School } from '../components/SchoolCard';
 import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 import ServiceTag from '@/components/ServiceTag';
+import { SocialLinksDisplay } from '@/components/SocialLinksDisplay';
 
 // Scholarship name mapping for SEO
 const scholarshipNames: Record<string, string> = {
@@ -450,7 +451,7 @@ export default function SchoolDetail() {
                         <Globe className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
                         <div className="min-w-0 flex-1">
                           <p className="font-medium text-gray-900">Website</p>
-                          <a 
+                          <a
                             href={school.website.startsWith('http') ? school.website : `https://${school.website}`}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -460,6 +461,19 @@ export default function SchoolDetail() {
                             <span className="hidden sm:inline">{school.website.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
                             <ExternalLink className="w-3 h-3 flex-shrink-0" />
                           </a>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Social Media Links */}
+                    {school.social_links && Object.keys(school.social_links).length > 0 && (
+                      <div className="flex items-start gap-3">
+                        <Globe className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="font-medium text-gray-900">Social Media</p>
+                          <TooltipProvider delayDuration={200}>
+                            <SocialLinksDisplay socialLinks={school.social_links} />
+                          </TooltipProvider>
                         </div>
                       </div>
                     )}

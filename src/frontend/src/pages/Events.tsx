@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
     Calendar, MapPin, Clock, Users, Search,
-    ExternalLink, Star, Filter, X, ChevronDown
+    ExternalLink, Star, Filter, X, ChevronDown, Map, List
 } from "lucide-react";
 import {
     Tooltip,
@@ -74,6 +74,8 @@ export default function Events() {
     const [selectedCity, setSelectedCity] = useState("all");
     const [timeFilter, setTimeFilter] = useState("upcoming");
     const [showFilters, setShowFilters] = useState(false);
+    const [viewMode, setViewMode] = useState<'list' | 'map'>('list');
+    const [MapComponent, setMapComponent] = useState<any>(null);
 
     const { data: events = [], isLoading } = useQuery({
         queryKey: ['events'],
@@ -91,6 +93,15 @@ export default function Events() {
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, [searchTerm, selectedCategory, selectedCity, timeFilter]);
+
+    // Dynamic leaflet import for map view
+    useEffect(() => {
+        if (viewMode === 'map' && !MapComponent) {
+            import('react-leaflet').then((module) => {
+                setMapComponent(() => module);
+            });
+        }
+    }, [viewMode, MapComponent]);
 
     const filteredEvents = useMemo(() => {
         const maxDate = new Date();
@@ -404,6 +415,33 @@ export default function Events() {
                         )}
                     </div>
 
+                    {/* View Toggle & Results Count */}
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4 sm:mb-6">
+                        <p className="text-sm text-gray-600 order-2 sm:order-1">
+                            Showing <span className="font-semibold text-green-600">{filteredEvents.length}</span> events
+                        </p>
+                        <div className="flex gap-2 order-1 sm:order-2">
+                            <Button
+                                variant={viewMode === 'list' ? 'default' : 'outline'}
+                                size="sm"
+                                onClick={() => setViewMode('list')}
+                                className={viewMode === 'list' ? 'bg-green-600 hover:bg-green-700' : ''}
+                            >
+                                <List className="w-4 h-4 sm:mr-2" />
+                                <span className="hidden sm:inline">List</span>
+                            </Button>
+                            <Button
+                                variant={viewMode === 'map' ? 'default' : 'outline'}
+                                size="sm"
+                                onClick={() => setViewMode('map')}
+                                className={viewMode === 'map' ? 'bg-green-600 hover:bg-green-700' : ''}
+                            >
+                                <Map className="w-4 h-4 sm:mr-2" />
+                                <span className="hidden sm:inline">Map</span>
+                            </Button>
+                        </div>
+                    </div>
+
                     <div className="flex gap-6 lg:gap-8">
                         {/* LEFT SIDEBAR FILTERS - Desktop only */}
                         <aside className="hidden lg:block w-64 flex-shrink-0" aria-label="Event filters">
@@ -433,7 +471,102 @@ export default function Events() {
                                         </p>
                                     </CardContent>
                                 </Card>
+                            ) : viewMode === 'map' ? (
+                                // MAP VIEW
+                                <div className="space-y-4">
+                                    {MapComponent ? (
+                                        <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] rounded-lg overflow-hidden shadow-lg">
+                                            <MapComponent.MapContainer
+                                                center={[27.9944024, -81.7602544]}
+                                                zoom={7}
+                                                className="h-full w-full"
+                                            >
+                                                <MapComponent.TileLayer
+                                                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                                                />
+                                                {filteredEvents
+                                                    .filter(event => event.latitude && event.longitude)
+                                                    .map((event) => {
+                                                        const isPast = event.date < today;
+                                                        return (
+                                                            <MapComponent.Marker
+                                                                key={event.id}
+                                                                position={[event.latitude!, event.longitude!]}
+                                                            >
+                                                                <MapComponent.Popup>
+                                                                    <div className="min-w-[200px] max-w-[280px]">
+                                                                        <Badge className={`${categoryColors[event.category as EventCategory] || categoryColors.other} border text-xs mb-2`}>
+                                                                            {formatCategory(event.category)}
+                                                                        </Badge>
+                                                                        {event.slug ? (
+                                                                            <Link to={`/events/${event.slug}`} className="block">
+                                                                                <h3 className="font-bold text-gray-900 hover:text-green-600 mb-1">
+                                                                                    {event.title}
+                                                                                </h3>
+                                                                            </Link>
+                                                                        ) : (
+                                                                            <h3 className="font-bold text-gray-900 mb-1">
+                                                                                {event.title}
+                                                                            </h3>
+                                                                        )}
+                                                                        <p className="text-sm text-gray-600 mb-1">
+                                                                            <Calendar className="w-3 h-3 inline mr-1" />
+                                                                            {format(new Date(event.date + 'T12:00:00'), 'MMM d, yyyy')}
+                                                                            {event.time && ` at ${event.time}`}
+                                                                        </p>
+                                                                        {event.location && (
+                                                                            <p className="text-sm text-gray-600 mb-2">
+                                                                                <MapPin className="w-3 h-3 inline mr-1" />
+                                                                                {event.location}, {event.city}
+                                                                            </p>
+                                                                        )}
+                                                                        {isPast ? (
+                                                                            <Badge variant="outline" className="text-xs">Past Event</Badge>
+                                                                        ) : event.registration_url ? (
+                                                                            <a
+                                                                                href={event.registration_url}
+                                                                                target="_blank"
+                                                                                rel="noopener noreferrer"
+                                                                                className="inline-block text-sm text-green-600 hover:text-green-700 font-medium"
+                                                                            >
+                                                                                View Details →
+                                                                            </a>
+                                                                        ) : null}
+                                                                    </div>
+                                                                </MapComponent.Popup>
+                                                            </MapComponent.Marker>
+                                                        );
+                                                    })}
+                                            </MapComponent.MapContainer>
+                                        </div>
+                                    ) : (
+                                        <div className="flex items-center justify-center h-[400px] bg-gray-100 rounded-lg">
+                                            <div className="text-center">
+                                                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-600 mx-auto mb-2" />
+                                                <p className="text-gray-600">Loading map...</p>
+                                            </div>
+                                        </div>
+                                    )}
+                                    {filteredEvents.filter(e => e.latitude && e.longitude).length === 0 && (
+                                        <Card className="border-none shadow-lg">
+                                            <CardContent className="py-6 text-center">
+                                                <MapPin className="w-10 h-10 text-gray-300 mx-auto mb-2" />
+                                                <p className="text-gray-600">No events with location data available for map view.</p>
+                                                <Button
+                                                    variant="outline"
+                                                    size="sm"
+                                                    onClick={() => setViewMode('list')}
+                                                    className="mt-3"
+                                                >
+                                                    Switch to List View
+                                                </Button>
+                                            </CardContent>
+                                        </Card>
+                                    )}
+                                </div>
                             ) : (
+                                // LIST VIEW
                                 <div className="space-y-6 sm:space-y-10">
                                     {Object.entries(groupedEvents).map(([month, monthEvents]) => (
                                         <div key={month}>

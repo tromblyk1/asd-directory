@@ -25,6 +25,7 @@ import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from '@/comp
 import ServiceTag from '@/components/ServiceTag';
 import { useProviderRating } from '@/hooks/useProviderRatings';
 import { StarRating } from '@/components/StarRating';
+import { SocialLinksDisplay } from '@/components/SocialLinksDisplay';
 
 // Provider type matching resources table structure
 interface ProviderResource {
@@ -48,6 +49,7 @@ interface ProviderResource {
   description: string | null;
   resource_type: string | null;
   google_place_id: string | null;
+  social_links?: Record<string, string> | null;
 }
 
 // Service slug mapping (database slug -> display info)
@@ -393,7 +395,7 @@ export default function ProviderDetail() {
                       <Globe className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
                       <div>
                         <p className="font-medium text-gray-900">Website</p>
-                        <a 
+                        <a
                           href={provider.website.startsWith('http') ? provider.website : `https://${provider.website}`}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -402,6 +404,19 @@ export default function ProviderDetail() {
                           Visit Website
                           <ExternalLink className="w-3 h-3" />
                         </a>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Social Media Links */}
+                  {provider.social_links && Object.keys(provider.social_links).length > 0 && (
+                    <div className="flex items-start gap-3">
+                      <Globe className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                      <div>
+                        <p className="font-medium text-gray-900">Social Media</p>
+                        <TooltipProvider delayDuration={200}>
+                          <SocialLinksDisplay socialLinks={provider.social_links} />
+                        </TooltipProvider>
                       </div>
                     </div>
                   )}

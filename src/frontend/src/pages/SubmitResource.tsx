@@ -153,6 +153,13 @@ export default function SubmitResource() {
         programs: [] as string[],
         accommodations_other: "",
         programs_other: "",
+        // Social media links (all optional)
+        social_facebook: "",
+        social_instagram: "",
+        social_linkedin: "",
+        social_youtube: "",
+        social_tiktok: "",
+        social_twitter: "",
     });
 
     const [submitted, setSubmitted] = useState(false);
@@ -225,9 +232,20 @@ export default function SubmitResource() {
             accommodations: formData.accommodations.length > 0 
                 ? [...formData.accommodations, formData.accommodations_other].filter(Boolean) 
                 : (formData.accommodations_other ? [formData.accommodations_other] : null),
-            programs: formData.programs.length > 0 
-                ? [...formData.programs, formData.programs_other].filter(Boolean) 
+            programs: formData.programs.length > 0
+                ? [...formData.programs, formData.programs_other].filter(Boolean)
                 : (formData.programs_other ? [formData.programs_other] : null),
+            // Build social_links object from non-empty values only
+            social_links: (() => {
+                const links: Record<string, string> = {};
+                if (formData.social_facebook.trim()) links.facebook = formData.social_facebook.trim();
+                if (formData.social_instagram.trim()) links.instagram = formData.social_instagram.trim();
+                if (formData.social_linkedin.trim()) links.linkedin = formData.social_linkedin.trim();
+                if (formData.social_youtube.trim()) links.youtube = formData.social_youtube.trim();
+                if (formData.social_tiktok.trim()) links.tiktok = formData.social_tiktok.trim();
+                if (formData.social_twitter.trim()) links.twitter = formData.social_twitter.trim();
+                return Object.keys(links).length > 0 ? links : null;
+            })(),
         };
 
         try {
@@ -271,6 +289,12 @@ export default function SubmitResource() {
                 programs: [],
                 accommodations_other: "",
                 programs_other: "",
+                social_facebook: "",
+                social_instagram: "",
+                social_linkedin: "",
+                social_youtube: "",
+                social_tiktok: "",
+                social_twitter: "",
             });
         } catch (err) {
             console.error('Error submitting resource:', err);
@@ -309,6 +333,12 @@ export default function SubmitResource() {
             programs: [],
             accommodations_other: "",
             programs_other: "",
+            social_facebook: "",
+            social_instagram: "",
+            social_linkedin: "",
+            social_youtube: "",
+            social_tiktok: "",
+            social_twitter: "",
         }));
     };
 
@@ -813,6 +843,76 @@ export default function SubmitResource() {
                                     <p className="text-xs text-gray-500 mt-1">
                                         Just type the domain - we'll add https:// automatically
                                     </p>
+                                </div>
+                            </div>
+
+                            {/* Social Media Links (Optional) */}
+                            <div className="space-y-4 pt-4 border-t">
+                                <h3 className="font-semibold text-lg text-gray-900">Social Media Links (Optional)</h3>
+                                <p className="text-sm text-gray-600">
+                                    Add any social media profiles for this resource
+                                </p>
+
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <Label htmlFor="social_facebook">Facebook URL</Label>
+                                        <Input
+                                            id="social_facebook"
+                                            value={formData.social_facebook}
+                                            onChange={(e) => handleChange("social_facebook", e.target.value)}
+                                            placeholder="https://facebook.com/..."
+                                        />
+                                    </div>
+
+                                    <div>
+                                        <Label htmlFor="social_instagram">Instagram URL</Label>
+                                        <Input
+                                            id="social_instagram"
+                                            value={formData.social_instagram}
+                                            onChange={(e) => handleChange("social_instagram", e.target.value)}
+                                            placeholder="https://instagram.com/..."
+                                        />
+                                    </div>
+
+                                    <div>
+                                        <Label htmlFor="social_linkedin">LinkedIn URL</Label>
+                                        <Input
+                                            id="social_linkedin"
+                                            value={formData.social_linkedin}
+                                            onChange={(e) => handleChange("social_linkedin", e.target.value)}
+                                            placeholder="https://linkedin.com/..."
+                                        />
+                                    </div>
+
+                                    <div>
+                                        <Label htmlFor="social_youtube">YouTube URL</Label>
+                                        <Input
+                                            id="social_youtube"
+                                            value={formData.social_youtube}
+                                            onChange={(e) => handleChange("social_youtube", e.target.value)}
+                                            placeholder="https://youtube.com/..."
+                                        />
+                                    </div>
+
+                                    <div>
+                                        <Label htmlFor="social_tiktok">TikTok URL</Label>
+                                        <Input
+                                            id="social_tiktok"
+                                            value={formData.social_tiktok}
+                                            onChange={(e) => handleChange("social_tiktok", e.target.value)}
+                                            placeholder="https://tiktok.com/..."
+                                        />
+                                    </div>
+
+                                    <div>
+                                        <Label htmlFor="social_twitter">Twitter/X URL</Label>
+                                        <Input
+                                            id="social_twitter"
+                                            value={formData.social_twitter}
+                                            onChange={(e) => handleChange("social_twitter", e.target.value)}
+                                            placeholder="https://twitter.com/..."
+                                        />
+                                    </div>
                                 </div>
                             </div>
 

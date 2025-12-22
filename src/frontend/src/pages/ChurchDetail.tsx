@@ -24,6 +24,7 @@ import {
   Clock
 } from 'lucide-react';
 import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
+import { SocialLinksDisplay } from '@/components/SocialLinksDisplay';
 
 // Church table structure from Supabase
 interface ChurchData {
@@ -50,6 +51,7 @@ interface ChurchData {
   LastVerifiedDate: string | null;
   SourceURL: string | null;
   created_at: string | null;
+  social_links?: Record<string, string> | null;
 }
 
 const toTitleCase = (str: string): string => {
@@ -460,6 +462,19 @@ export default function ChurchDetail() {
                             <span className="hidden sm:inline">{church.Website.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
                             <ExternalLink className="w-3 h-3 flex-shrink-0" />
                           </a>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Social Media Links */}
+                    {church.social_links && Object.keys(church.social_links).length > 0 && (
+                      <div className="flex items-start gap-3">
+                        <Globe className="w-5 h-5 text-rose-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="font-medium text-gray-900">Social Media</p>
+                          <TooltipProvider delayDuration={200}>
+                            <SocialLinksDisplay socialLinks={church.social_links} />
+                          </TooltipProvider>
                         </div>
                       </div>
                     )}

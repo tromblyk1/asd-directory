@@ -45,4 +45,8 @@ export interface Event {
   recurring?: string | null;
   region?: string | null;
   cost?: string | null;
+
+  // Location coordinates for map
+  latitude?: number | null;
+  longitude?: number | null;
 }

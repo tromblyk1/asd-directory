@@ -10,6 +10,7 @@ import {
   TooltipTrigger,
   TooltipProvider,
 } from '@/components/ui/tooltip';
+import { SocialLinksDisplay } from '@/components/SocialLinksDisplay';
 
 export interface School {
   id: string;
@@ -37,6 +38,7 @@ export interface School {
   accreditation: string | null;
   latitude: number | null;
   longitude: number | null;
+  social_links?: Record<string, string> | null;
 }
 
 interface SchoolCardProps {
@@ -462,6 +464,12 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ school }) => {
                     <p>{emailCopied ? 'Copied!' : 'Copy email'}</p>
                   </TooltipContent>
                 </Tooltip>
+              </div>
+            )}
+
+            {school.social_links && Object.keys(school.social_links).length > 0 && (
+              <div className="flex items-center text-gray-600 sm:col-span-2">
+                <SocialLinksDisplay socialLinks={school.social_links} size="sm" />
               </div>
             )}
           </div>
