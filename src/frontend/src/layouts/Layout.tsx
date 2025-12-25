@@ -213,9 +213,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <Phone className="w-4 h-4 flex-shrink-0" />
                   <span>(321) 300-3447</span>
                 </a>
-                <a href="mailto:floridaautismservices@gmail.com" className="flex items-center gap-2 text-blue-100 hover:text-white transition-colors text-sm sm:text-base">
+                <a href="mailto:info@floridaautismservices.com" className="flex items-center gap-2 text-blue-100 hover:text-white transition-colors text-sm sm:text-base">
                   <Mail className="w-4 h-4 flex-shrink-0" />
-                  <span className="break-all">floridaautismservices@gmail.com</span>
+                  <span className="break-all">info@floridaautismservices.com</span>
                 </a>
               </div>
             </div>

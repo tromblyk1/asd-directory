@@ -23,7 +23,7 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoLink = `mailto:floridaautismservices@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
+    const mailtoLink = `mailto:info@floridaautismservices.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
     window.location.href = mailtoLink;
     setSubmitted(true);
   };
@@ -43,12 +43,12 @@ export default function Contact() {
       "name": "Florida Autism Services Directory",
       "url": "https://floridaautismservices.com",
       "telephone": "+1-321-300-3447",
-      "email": "floridaautismservices@gmail.com",
+      "email": "info@floridaautismservices.com",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+1-321-300-3447",
         "contactType": "customer service",
-        "email": "floridaautismservices@gmail.com",
+        "email": "info@floridaautismservices.com",
         "areaServed": "US-FL",
         "availableLanguage": "English",
         "hoursAvailable": {
@@ -78,7 +78,7 @@ export default function Contact() {
     "description": "Comprehensive directory connecting Florida families with autism-friendly resources, providers, and schools statewide.",
     "url": "https://floridaautismservices.com",
     "telephone": "+1-321-300-3447",
-    "email": "floridaautismservices@gmail.com",
+    "email": "info@floridaautismservices.com",
     "areaServed": { "@type": "State", "name": "Florida" },
     "priceRange": "Free",
     "openingHoursSpecification": {
@@ -267,11 +267,11 @@ export default function Contact() {
                       <div>
                         <h3 className="font-medium text-gray-900 text-sm sm:text-base">Email</h3>
                         <a 
-                          href="mailto:floridaautismservices@gmail.com" 
+                          href="mailto:info@floridaautismservices.com" 
                           className="text-blue-600 hover:text-blue-700 break-all text-xs sm:text-sm"
                           aria-label="Email Florida Autism Services"
                         >
-                          floridaautismservices@gmail.com
+                          info@floridaautismservices.com
                         </a>
                       </div>
                     </div>

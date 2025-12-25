@@ -36,7 +36,7 @@ export default function About() {
     "description": "Comprehensive directory connecting Florida families with 7,000+ autism-friendly resources including healthcare providers, schools, and faith communities.",
     "founder": { "@type": "Person", "name": "Keith", "jobTitle": "Registered Nurse" },
     "areaServed": { "@type": "State", "name": "Florida" },
-    "contactPoint": { "@type": "ContactPoint", "contactType": "customer service", "email": "floridaautismservices@gmail.com" },
+    "contactPoint": { "@type": "ContactPoint", "contactType": "customer service", "email": "info@floridaautismservices.com" },
     "sameAs": []
   };
 

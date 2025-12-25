@@ -197,7 +197,7 @@ $headers .= "From: Florida Autism Services <noreply@floridaautismservices.com>\r
 $headers .= "Reply-To: $submitter_email\r\n";
 
 // Send to admin
-$admin_email = "floridaautismservices@gmail.com";
+$admin_email = "info@floridaautismservices.com";
 $admin_sent = mail($admin_email, $admin_subject, $admin_message, $headers);
 
 // Send confirmation to submitter

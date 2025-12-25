@@ -63,7 +63,7 @@ $date_display = $date ? date('F j, Y', strtotime($date)) : 'TBD';
 $deadline_display = $registration_deadline ? date('F j, Y', strtotime($registration_deadline)) : '';
 
 // Admin notification email
-$admin_email = 'floridaautismservices@gmail.com';
+$admin_email = 'info@floridaautismservices.com';
 $admin_subject = "New Event Submission: $title";
 
 $admin_message = "
