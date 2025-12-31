@@ -141,6 +141,12 @@ export default function EventDetail() {
     const today = new Date().toISOString().split('T')[0];
     const isPast = event.date ? event.date < today : false;
 
+    // Check if event is sold out by looking for "SOLD OUT" in title or description
+    const isSoldOut =
+        event.title?.toUpperCase().includes('SOLD OUT') ||
+        event.description?.toUpperCase().includes('SOLD OUT') ||
+        false;
+
     const shareEvent = () => {
         if (navigator.share) {
             navigator.share({
@@ -440,17 +446,23 @@ export default function EventDetail() {
                                                 )}
                                                 
                                                 {event.registration_url && !event.registration_required.toLowerCase().includes('no') && (
-                                                    <a
-                                                        href={event.registration_url}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="inline-block"
-                                                    >
-                                                        <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 h-10 sm:h-9">
-                                                            Register Now
-                                                            <ExternalLink className="w-4 h-4 ml-2" aria-hidden="true" />
+                                                    isSoldOut ? (
+                                                        <Button disabled className="bg-gray-400 text-gray-200 cursor-not-allowed h-10 sm:h-9">
+                                                            SOLD OUT
                                                         </Button>
-                                                    </a>
+                                                    ) : (
+                                                        <a
+                                                            href={event.registration_url}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="inline-block"
+                                                        >
+                                                            <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 h-10 sm:h-9">
+                                                                Register Now
+                                                                <ExternalLink className="w-4 h-4 ml-2" aria-hidden="true" />
+                                                            </Button>
+                                                        </a>
+                                                    )
                                                 )}
                                             </div>
                                         </AlertDescription>
@@ -558,17 +570,25 @@ export default function EventDetail() {
                                 {!isPast && (
                                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 p-4 sm:p-6 bg-gray-50 rounded-lg border border-gray-200">
                                         {event.registration_url && (
-                                            <a
-                                                href={event.registration_url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="flex-1"
-                                            >
-                                                <Button className="w-full bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-base sm:text-lg py-5 sm:py-6 h-auto">
-                                                    Register Now
-                                                    <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 ml-2" aria-hidden="true" />
-                                                </Button>
-                                            </a>
+                                            isSoldOut ? (
+                                                <div className="flex-1">
+                                                    <Button disabled className="w-full bg-gray-400 text-gray-200 cursor-not-allowed text-base sm:text-lg py-5 sm:py-6 h-auto">
+                                                        SOLD OUT
+                                                    </Button>
+                                                </div>
+                                            ) : (
+                                                <a
+                                                    href={event.registration_url}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="flex-1"
+                                                >
+                                                    <Button className="w-full bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-base sm:text-lg py-5 sm:py-6 h-auto">
+                                                        Register Now
+                                                        <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 ml-2" aria-hidden="true" />
+                                                    </Button>
+                                                </a>
+                                            )
                                         )}
 
                                         {eventWebsiteUrl && (
@@ -727,17 +747,24 @@ export default function EventDetail() {
                                     <h3 className="font-semibold text-gray-900 mb-3 sm:mb-4">Quick Actions</h3>
                                     <div className="space-y-2 sm:space-y-3">
                                         {event.registration_url && !isPast && (
-                                            <a
-                                                href={event.registration_url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="block"
-                                            >
-                                                <Button className="w-full justify-start bg-green-600 hover:bg-green-700">
+                                            isSoldOut ? (
+                                                <Button disabled className="w-full justify-start bg-gray-400 text-gray-200 cursor-not-allowed">
                                                     <Calendar className="w-4 h-4 mr-2" />
-                                                    Register Now
+                                                    SOLD OUT
                                                 </Button>
-                                            </a>
+                                            ) : (
+                                                <a
+                                                    href={event.registration_url}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="block"
+                                                >
+                                                    <Button className="w-full justify-start bg-green-600 hover:bg-green-700">
+                                                        <Calendar className="w-4 h-4 mr-2" />
+                                                        Register Now
+                                                    </Button>
+                                                </a>
+                                            )
                                         )}
                                         {event.website && (
                                             <a
