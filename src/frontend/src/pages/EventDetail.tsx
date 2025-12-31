@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import {
     Calendar, MapPin, Clock, Users, ArrowLeft,
-    ExternalLink, Share2, CheckCircle, AlertCircle, Info, Navigation
+    ExternalLink, Share2, CheckCircle, AlertCircle, Info, Navigation, Globe, Mail
 } from "lucide-react";
 import { format } from "date-fns";
 import type { Event } from "@/types/Event.types";
@@ -308,9 +308,12 @@ export default function EventDetail() {
                 </header>
 
                 <main className="max-w-5xl mx-auto px-4 sm:px-6 -mt-4 sm:-mt-6">
-                    <article>
-                        <Card className="border-none shadow-xl">
-                            <CardContent className="p-4 sm:p-6 lg:p-8">
+                    <div className="grid lg:grid-cols-3 gap-4 sm:gap-6">
+                        {/* Main Content */}
+                        <div className="lg:col-span-2">
+                            <article>
+                                <Card className="border-none shadow-xl">
+                                    <CardContent className="p-4 sm:p-6 lg:p-8">
                                 {/* Header Section */}
                                 <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-3 sm:gap-4 mb-4 sm:mb-6">
                                     <div className="flex-1 min-w-0">
@@ -666,58 +669,113 @@ export default function EventDetail() {
                                         <p className="text-gray-700 text-base sm:text-lg">{event.cost_info}</p>
                                     </section>
                                 )}
+                                    </CardContent>
+                                </Card>
+                            </article>
+                        </div>
 
-                                {/* Map */}
-                                {event.latitude && event.longitude && (
-                                    <section className="border-t pt-6 sm:pt-8 mt-6 sm:mt-8" aria-labelledby="map-heading">
-                                        <h2 id="map-heading" className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Location Map</h2>
-                                        <Card className="border-none shadow-lg overflow-hidden">
-                                            <div className="h-[250px] sm:h-[300px] relative">
-                                                {!MapComponent ? (
-                                                    <div className="h-full flex items-center justify-center bg-gray-100">
-                                                        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-600" />
-                                                    </div>
-                                                ) : (
-                                                    <MapComponent.MapContainer
-                                                        center={[event.latitude, event.longitude]}
-                                                        zoom={14}
-                                                        className="h-full w-full"
-                                                        scrollWheelZoom={false}
-                                                    >
-                                                        <MapComponent.TileLayer
-                                                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                                                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                                                        />
-                                                        <MapComponent.Marker position={[event.latitude, event.longitude]}>
-                                                            <MapComponent.Popup>
-                                                                <div className="text-center">
-                                                                    <p className="font-bold text-sm">{event.title}</p>
-                                                                    <p className="text-xs text-gray-600">{event.location || event.city}, FL</p>
-                                                                </div>
-                                                            </MapComponent.Popup>
-                                                        </MapComponent.Marker>
-                                                    </MapComponent.MapContainer>
-                                                )}
+                        {/* Sidebar - Map & Quick Actions */}
+                        <div className="space-y-4 sm:space-y-6">
+                            {event.latitude && event.longitude && (
+                                <Card className="border-none shadow-xl overflow-hidden">
+                                    <div className="h-[250px] sm:h-[300px] relative">
+                                        {!MapComponent ? (
+                                            <div className="h-full flex items-center justify-center bg-gray-100">
+                                                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-600" />
                                             </div>
-                                            <CardContent className="p-3 sm:p-4">
-                                                <a
-                                                    href={`https://www.google.com/maps/dir/?api=1&destination=${event.latitude},${event.longitude}`}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="w-full block"
-                                                >
-                                                    <Button className="w-full bg-green-600 hover:bg-green-700">
-                                                        <Navigation className="w-4 h-4 mr-2" />
-                                                        Get Directions
-                                                    </Button>
-                                                </a>
-                                            </CardContent>
-                                        </Card>
-                                    </section>
-                                )}
-                            </CardContent>
-                        </Card>
-                    </article>
+                                        ) : (
+                                            <MapComponent.MapContainer
+                                                center={[event.latitude, event.longitude]}
+                                                zoom={14}
+                                                className="h-full w-full"
+                                                scrollWheelZoom={false}
+                                            >
+                                                <MapComponent.TileLayer
+                                                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                                                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                                />
+                                                <MapComponent.Marker position={[event.latitude, event.longitude]}>
+                                                    <MapComponent.Popup>
+                                                        <div className="text-center">
+                                                            <p className="font-bold text-sm">{event.title}</p>
+                                                            <p className="text-xs text-gray-600">{event.location || event.city}, FL</p>
+                                                        </div>
+                                                    </MapComponent.Popup>
+                                                </MapComponent.Marker>
+                                            </MapComponent.MapContainer>
+                                        )}
+                                    </div>
+                                    <CardContent className="p-3 sm:p-4">
+                                        <a
+                                            href={`https://www.google.com/maps/dir/?api=1&destination=${event.latitude},${event.longitude}`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="w-full block"
+                                        >
+                                            <Button className="w-full bg-green-600 hover:bg-green-700">
+                                                <Navigation className="w-4 h-4 mr-2" />
+                                                Get Directions
+                                            </Button>
+                                        </a>
+                                    </CardContent>
+                                </Card>
+                            )}
+
+                            {/* Quick Actions */}
+                            <Card className="border-none shadow-xl">
+                                <CardContent className="p-4 sm:p-6">
+                                    <h3 className="font-semibold text-gray-900 mb-3 sm:mb-4">Quick Actions</h3>
+                                    <div className="space-y-2 sm:space-y-3">
+                                        {event.registration_url && !isPast && (
+                                            <a
+                                                href={event.registration_url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="block"
+                                            >
+                                                <Button className="w-full justify-start bg-green-600 hover:bg-green-700">
+                                                    <Calendar className="w-4 h-4 mr-2" />
+                                                    Register Now
+                                                </Button>
+                                            </a>
+                                        )}
+                                        {event.website && (
+                                            <a
+                                                href={event.website.startsWith('http') ? event.website : `https://${event.website}`}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="block"
+                                            >
+                                                <Button variant="outline" className="w-full justify-start">
+                                                    <Globe className="w-4 h-4 mr-2" />
+                                                    Visit Website
+                                                </Button>
+                                            </a>
+                                        )}
+                                        {event.contact_email && (
+                                            <a
+                                                href={`mailto:${event.contact_email}`}
+                                                className="block"
+                                            >
+                                                <Button variant="outline" className="w-full justify-start">
+                                                    <Mail className="w-4 h-4 mr-2" />
+                                                    Contact Organizer
+                                                </Button>
+                                            </a>
+                                        )}
+                                        <Button
+                                            variant="outline"
+                                            className="w-full justify-start"
+                                            onClick={shareEvent}
+                                        >
+                                            <Share2 className="w-4 h-4 mr-2" />
+                                            Share Event
+                                        </Button>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </div>
+                    </div>
                 </main>
             </div>
         </>
