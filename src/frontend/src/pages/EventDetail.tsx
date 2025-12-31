@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { base44 } from "@/api/base44Client";
@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import {
     Calendar, MapPin, Clock, Users, ArrowLeft,
-    ExternalLink, Share2, CheckCircle, AlertCircle, Info
+    ExternalLink, Share2, CheckCircle, AlertCircle, Info, Navigation
 } from "lucide-react";
 import { format } from "date-fns";
 import type { Event } from "@/types/Event.types";
@@ -77,6 +77,26 @@ const formatAgeGroup = (age: string): string => {
 
 export default function EventDetail() {
     const { slug } = useParams<{ slug: string }>();
+    const [MapComponent, setMapComponent] = useState<any>(null);
+
+    // Load map dynamically
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const existingLink = document.querySelector('link[href*="leaflet.css"]');
+            if (!existingLink) {
+                const link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+                link.integrity = 'sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=';
+                link.crossOrigin = '';
+                document.head.appendChild(link);
+            }
+
+            import('react-leaflet').then((module) => {
+                setMapComponent(() => module);
+            });
+        }
+    }, []);
 
     const { data: event, isLoading } = useQuery<Event>({
         queryKey: ['event', slug],
@@ -644,6 +664,55 @@ export default function EventDetail() {
                                     <section className="border-t pt-6 sm:pt-8 mt-6 sm:mt-8" aria-labelledby="cost-heading">
                                         <h2 id="cost-heading" className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Cost</h2>
                                         <p className="text-gray-700 text-base sm:text-lg">{event.cost_info}</p>
+                                    </section>
+                                )}
+
+                                {/* Map */}
+                                {event.latitude && event.longitude && (
+                                    <section className="border-t pt-6 sm:pt-8 mt-6 sm:mt-8" aria-labelledby="map-heading">
+                                        <h2 id="map-heading" className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Location Map</h2>
+                                        <Card className="border-none shadow-lg overflow-hidden">
+                                            <div className="h-[250px] sm:h-[300px] relative">
+                                                {!MapComponent ? (
+                                                    <div className="h-full flex items-center justify-center bg-gray-100">
+                                                        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-600" />
+                                                    </div>
+                                                ) : (
+                                                    <MapComponent.MapContainer
+                                                        center={[event.latitude, event.longitude]}
+                                                        zoom={14}
+                                                        className="h-full w-full"
+                                                        scrollWheelZoom={false}
+                                                    >
+                                                        <MapComponent.TileLayer
+                                                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                                                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                                        />
+                                                        <MapComponent.Marker position={[event.latitude, event.longitude]}>
+                                                            <MapComponent.Popup>
+                                                                <div className="text-center">
+                                                                    <p className="font-bold text-sm">{event.title}</p>
+                                                                    <p className="text-xs text-gray-600">{event.location || event.city}, FL</p>
+                                                                </div>
+                                                            </MapComponent.Popup>
+                                                        </MapComponent.Marker>
+                                                    </MapComponent.MapContainer>
+                                                )}
+                                            </div>
+                                            <CardContent className="p-3 sm:p-4">
+                                                <a
+                                                    href={`https://www.google.com/maps/dir/?api=1&destination=${event.latitude},${event.longitude}`}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="w-full block"
+                                                >
+                                                    <Button className="w-full bg-green-600 hover:bg-green-700">
+                                                        <Navigation className="w-4 h-4 mr-2" />
+                                                        Get Directions
+                                                    </Button>
+                                                </a>
+                                            </CardContent>
+                                        </Card>
                                     </section>
                                 )}
                             </CardContent>

@@ -96,7 +96,18 @@ export default function Events() {
 
     // Dynamic leaflet import for map view
     useEffect(() => {
-        if (viewMode === 'map' && !MapComponent) {
+        if (viewMode === 'map' && typeof window !== 'undefined' && !MapComponent) {
+            // Load Leaflet CSS
+            const existingLink = document.querySelector('link[href*="leaflet.css"]');
+            if (!existingLink) {
+                const link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+                link.integrity = 'sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=';
+                link.crossOrigin = '';
+                document.head.appendChild(link);
+            }
+
             import('react-leaflet').then((module) => {
                 setMapComponent(() => module);
             });
