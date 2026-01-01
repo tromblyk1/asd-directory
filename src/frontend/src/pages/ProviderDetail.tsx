@@ -49,7 +49,12 @@ interface ProviderResource {
   description: string | null;
   resource_type: string | null;
   google_place_id: string | null;
-  social_links?: Record<string, string> | null;
+  // Social media links
+  facebook_url?: string | null;
+  instagram_url?: string | null;
+  twitter_url?: string | null;
+  youtube_url?: string | null;
+  linkedin_url?: string | null;
 }
 
 // Service slug mapping (database slug -> display info)
@@ -409,13 +414,19 @@ export default function ProviderDetail() {
                   )}
 
                   {/* Social Media Links */}
-                  {provider.social_links && Object.keys(provider.social_links).length > 0 && (
+                  {(provider.facebook_url || provider.instagram_url || provider.twitter_url || provider.youtube_url || provider.linkedin_url) && (
                     <div className="flex items-start gap-3">
                       <Globe className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
                       <div>
                         <p className="font-medium text-gray-900">Social Media</p>
                         <TooltipProvider delayDuration={200}>
-                          <SocialLinksDisplay socialLinks={provider.social_links} />
+                          <SocialLinksDisplay socialLinks={{
+                            ...(provider.facebook_url && { facebook: provider.facebook_url }),
+                            ...(provider.instagram_url && { instagram: provider.instagram_url }),
+                            ...(provider.twitter_url && { twitter: provider.twitter_url }),
+                            ...(provider.youtube_url && { youtube: provider.youtube_url }),
+                            ...(provider.linkedin_url && { linkedin: provider.linkedin_url }),
+                          }} />
                         </TooltipProvider>
                       </div>
                     </div>
