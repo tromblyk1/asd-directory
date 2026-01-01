@@ -146,6 +146,13 @@ export const SERVICE_DEFINITIONS: Record<string, ServiceDefinition> = {
     long:
       "Mobile Services bring clinicians directly to homes, schools, or community locations, reducing transportation barriers. Teams collaborate with caregivers and educators to generalize skills across environments where they matter most.",
   },
+  transportation: {
+    title: "Transportation",
+    slug: "transportation",
+    short: "Transportation assistance for individuals with disabilities.",
+    long:
+      "Transportation services help individuals with autism and developmental disabilities travel to appointments, programs, work, and community activities. Providers specialize in accommodating sensory sensitivities and behavioral support during transit. Many accept APD Medicaid waiver funding.",
+  },
   executive_function_coaching: {
     title: "Executive Function Coaching",
     slug: "executive-function-coaching",

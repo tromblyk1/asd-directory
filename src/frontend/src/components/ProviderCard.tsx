@@ -76,6 +76,7 @@ const serviceBadges: Record<string, { label: string; tooltip: string; link: stri
   'support-groups': { label: 'Support Groups', tooltip: 'Peer support meetings for families', link: '/resources/services/support-groups' },
   'virtual-therapy': { label: 'Virtual Therapy', tooltip: 'Telehealth and online therapy services', link: '/resources/services/virtual-therapy' },
   'mobile-services': { label: 'Mobile Services', tooltip: 'In-home or on-site therapy services', link: '/resources/services/mobile-services' },
+  'transportation': { label: 'Transportation', tooltip: 'Transportation assistance for individuals with disabilities', link: '/resources/services/transportation' },
 };
 
 // Insurance badge definitions - PURPLE colors

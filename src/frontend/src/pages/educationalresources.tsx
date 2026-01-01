@@ -30,6 +30,7 @@ const servicesList = [
   { slug: 'virtual-therapy', name: 'Virtual Therapy', description: 'Telehealth services' },
   { slug: 'mobile-services', name: 'Mobile Services', description: 'In-home therapy visits' },
   { slug: 'autism-travel', name: 'Autism Travel', description: 'Travel planning support' },
+  { slug: 'transportation', name: 'Transportation', description: 'Disability transportation services' },
 ];
 
 // Insurances - matches database insurances array values

@@ -163,6 +163,12 @@ const SERVICE_METADATA: Record<string, {
     color: 'bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-200',
     type: 'service',
   },
+  'transportation': {
+    name: 'Transportation',
+    description: 'Transportation assistance for individuals with disabilities',
+    color: 'bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-200',
+    type: 'service',
+  },
 
   // Insurance (Purple - matches education page)
   'florida-medicaid': {

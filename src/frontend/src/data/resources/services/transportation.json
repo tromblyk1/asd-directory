@@ -1,0 +1,21 @@
+{
+  "slug": "transportation",
+  "name": "Transportation",
+  "shortDescription": "Transportation assistance for individuals with disabilities",
+  "fullDescription": "Transportation services help individuals with autism and developmental disabilities travel to appointments, programs, work, and community activities. These providers specialize in accommodating the unique needs of passengers with disabilities, including sensory sensitivities and behavioral support during transit. Many accept APD (Agency for Persons with Disabilities) Medicaid waiver funding.",
+  "commonQuestions": [
+    {
+      "question": "What is disability transportation?",
+      "answer": "Disability transportation services provide specialized transit for individuals who cannot use standard public transportation. Drivers are trained to work with passengers who have developmental disabilities, including autism, and vehicles may be equipped with accessibility features."
+    },
+    {
+      "question": "How is this different from regular rideshare?",
+      "answer": "Unlike standard rideshare services, disability transportation providers understand the needs of individuals with autism and developmental disabilities. They offer consistent drivers when possible, allow extra time for boarding, and can accommodate sensory needs or behavioral considerations during transit."
+    },
+    {
+      "question": "How do I pay for disability transportation?",
+      "answer": "Many transportation providers accept Medicaid waiver funding through APD (Agency for Persons with Disabilities). Some also accept private pay or other funding sources. Contact providers directly to verify accepted payment methods."
+    }
+  ],
+  "relatedServices": ["life-skills", "residential-program", "respite-care"]
+}

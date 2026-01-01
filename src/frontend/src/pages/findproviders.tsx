@@ -60,6 +60,7 @@ const serviceOptions = [
   { value: 'support-groups', label: 'Support Groups', description: 'Peer support meetings', tooltip: 'Connects families and self-advocates sharing lived experiences for mutual support' },
   { value: 'virtual-therapy', label: 'Virtual Therapy', description: 'Telehealth services', tooltip: 'Remote therapy sessions via secure video platforms for convenient access from home' },
   { value: 'mobile-services', label: 'Mobile Services', description: 'In-home or on-site services', tooltip: 'Therapists travel to your home, school, or community location' },
+  { value: 'transportation', label: 'Transportation', description: 'Disability transportation', tooltip: 'Transportation assistance for individuals with disabilities to appointments, programs, and activities' },
 ];
 
 // Insurance options for filtering - ONLY values that exist in the database
@@ -110,6 +111,7 @@ const servicePopupInfo: Record<string, { label: string; description: string; slu
   'virtual-therapy': { label: 'Virtual', description: 'Virtual/telehealth therapy', slug: 'virtual-therapy' },
   'mobile-services': { label: 'Mobile', description: 'Mobile services', slug: 'mobile-services' },
   'support-groups': { label: 'Support', description: 'Support groups', slug: 'support-groups' },
+  'transportation': { label: 'Transport', description: 'Transportation services', slug: 'transportation' },
 };
 
 // Insurance display info for map popup
