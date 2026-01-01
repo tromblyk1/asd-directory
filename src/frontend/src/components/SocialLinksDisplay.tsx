@@ -12,13 +12,13 @@ export interface SocialLinksDisplayProps {
   className?: string;
 }
 
-const platformConfig: Record<string, { icon: React.ElementType; label: string; color: string }> = {
-  facebook: { icon: Facebook, label: 'Facebook', color: 'hover:text-blue-600' },
-  instagram: { icon: Instagram, label: 'Instagram', color: 'hover:text-pink-600' },
-  linkedin: { icon: Linkedin, label: 'LinkedIn', color: 'hover:text-blue-700' },
-  youtube: { icon: Youtube, label: 'YouTube', color: 'hover:text-red-600' },
-  twitter: { icon: Twitter, label: 'Twitter/X', color: 'hover:text-sky-500' },
-  tiktok: { icon: Music, label: 'TikTok', color: 'hover:text-gray-900' },
+const platformConfig: Record<string, { icon: React.ElementType; label: string; bgColor: string; textColor: string }> = {
+  facebook: { icon: Facebook, label: 'Facebook', bgColor: 'bg-blue-100 hover:bg-blue-200', textColor: 'text-blue-600' },
+  instagram: { icon: Instagram, label: 'Instagram', bgColor: 'bg-pink-100 hover:bg-pink-200', textColor: 'text-pink-600' },
+  linkedin: { icon: Linkedin, label: 'LinkedIn', bgColor: 'bg-blue-100 hover:bg-blue-200', textColor: 'text-blue-700' },
+  youtube: { icon: Youtube, label: 'YouTube', bgColor: 'bg-red-100 hover:bg-red-200', textColor: 'text-red-600' },
+  twitter: { icon: Twitter, label: 'Twitter/X', bgColor: 'bg-gray-100 hover:bg-gray-200', textColor: 'text-gray-700' },
+  tiktok: { icon: Music, label: 'TikTok', bgColor: 'bg-gray-100 hover:bg-gray-200', textColor: 'text-gray-900' },
 };
 
 export const SocialLinksDisplay: React.FC<SocialLinksDisplayProps> = ({
@@ -40,11 +40,11 @@ export const SocialLinksDisplay: React.FC<SocialLinksDisplayProps> = ({
     return null;
   }
 
-  const iconSize = size === 'sm' ? 'w-4 h-4' : 'w-5 h-5';
-  const buttonPadding = size === 'sm' ? 'p-1' : 'p-1.5';
+  const iconSize = size === 'sm' ? 'w-4 h-4' : 'w-4 h-4';
+  const buttonSize = size === 'sm' ? 'w-8 h-8' : 'w-9 h-9';
 
   return (
-    <div className={`flex items-center gap-1 ${className}`}>
+    <div className={`flex items-center gap-2 ${className}`}>
       {validLinks.map(([platform, url]) => {
         const config = platformConfig[platform];
         if (!config) return null;
@@ -59,7 +59,7 @@ export const SocialLinksDisplay: React.FC<SocialLinksDisplayProps> = ({
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${buttonPadding} rounded-md text-gray-400 ${config.color} transition-colors`}
+                className={`${buttonSize} rounded-full ${config.bgColor} ${config.textColor} flex items-center justify-center transition-colors`}
                 aria-label={`Visit ${config.label}`}
               >
                 <Icon className={iconSize} />
