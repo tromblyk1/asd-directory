@@ -9,7 +9,8 @@ import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import {
     Calendar, MapPin, Clock, Users, ArrowLeft,
-    ExternalLink, Share2, CheckCircle, AlertCircle, Info, Navigation, Globe, Mail
+    ExternalLink, Share2, CheckCircle, AlertCircle, Info, Navigation, Globe, Mail,
+    Facebook, Instagram, Twitter, Youtube, Linkedin
 } from "lucide-react";
 import { format } from "date-fns";
 import type { Event } from "@/types/Event.types";
@@ -798,6 +799,70 @@ export default function EventDetail() {
                                             <Share2 className="w-4 h-4 mr-2" />
                                             Share Event
                                         </Button>
+
+                                        {/* Follow the Organizer - Social Media Links */}
+                                        {(event.facebook_url || event.instagram_url || event.twitter_url || event.youtube_url || event.linkedin_url) && (
+                                            <div className="pt-3 sm:pt-4 border-t mt-3 sm:mt-4">
+                                                <p className="text-sm font-medium text-gray-700 mb-2 sm:mb-3">Follow the Organizer</p>
+                                                <div className="flex gap-2 flex-wrap">
+                                                    {event.facebook_url && (
+                                                        <a
+                                                            href={event.facebook_url}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="w-10 h-10 rounded-full bg-[#1877F2] hover:bg-[#166FE5] flex items-center justify-center transition-colors"
+                                                            aria-label="Facebook"
+                                                        >
+                                                            <Facebook className="w-5 h-5 text-white" />
+                                                        </a>
+                                                    )}
+                                                    {event.instagram_url && (
+                                                        <a
+                                                            href={event.instagram_url}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="w-10 h-10 rounded-full bg-gradient-to-br from-[#F58529] via-[#DD2A7B] to-[#8134AF] hover:opacity-90 flex items-center justify-center transition-opacity"
+                                                            aria-label="Instagram"
+                                                        >
+                                                            <Instagram className="w-5 h-5 text-white" />
+                                                        </a>
+                                                    )}
+                                                    {event.twitter_url && (
+                                                        <a
+                                                            href={event.twitter_url}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="w-10 h-10 rounded-full bg-black hover:bg-gray-800 flex items-center justify-center transition-colors"
+                                                            aria-label="X (Twitter)"
+                                                        >
+                                                            <Twitter className="w-5 h-5 text-white" />
+                                                        </a>
+                                                    )}
+                                                    {event.youtube_url && (
+                                                        <a
+                                                            href={event.youtube_url}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="w-10 h-10 rounded-full bg-[#FF0000] hover:bg-[#CC0000] flex items-center justify-center transition-colors"
+                                                            aria-label="YouTube"
+                                                        >
+                                                            <Youtube className="w-5 h-5 text-white" />
+                                                        </a>
+                                                    )}
+                                                    {event.linkedin_url && (
+                                                        <a
+                                                            href={event.linkedin_url}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="w-10 h-10 rounded-full bg-[#0A66C2] hover:bg-[#004182] flex items-center justify-center transition-colors"
+                                                            aria-label="LinkedIn"
+                                                        >
+                                                            <Linkedin className="w-5 h-5 text-white" />
+                                                        </a>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        )}
                                     </div>
                                 </CardContent>
                             </Card>
