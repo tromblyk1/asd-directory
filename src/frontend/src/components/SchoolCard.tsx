@@ -38,7 +38,12 @@ export interface School {
   accreditation: string | null;
   latitude: number | null;
   longitude: number | null;
-  social_links?: Record<string, string> | null;
+  // Social media links
+  facebook_url?: string | null;
+  instagram_url?: string | null;
+  twitter_url?: string | null;
+  youtube_url?: string | null;
+  linkedin_url?: string | null;
 }
 
 interface SchoolCardProps {

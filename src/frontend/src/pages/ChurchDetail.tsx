@@ -51,7 +51,12 @@ interface ChurchData {
   LastVerifiedDate: string | null;
   SourceURL: string | null;
   created_at: string | null;
-  social_links?: Record<string, string> | null;
+  // Social media links
+  facebook_url?: string | null;
+  instagram_url?: string | null;
+  twitter_url?: string | null;
+  youtube_url?: string | null;
+  linkedin_url?: string | null;
 }
 
 const toTitleCase = (str: string): string => {
@@ -467,13 +472,19 @@ export default function ChurchDetail() {
                     )}
 
                     {/* Social Media Links */}
-                    {church.social_links && Object.keys(church.social_links).length > 0 && (
+                    {(church.facebook_url || church.instagram_url || church.twitter_url || church.youtube_url || church.linkedin_url) && (
                       <div className="flex items-start gap-3">
                         <Globe className="w-5 h-5 text-rose-600 mt-0.5 flex-shrink-0" />
                         <div>
                           <p className="font-medium text-gray-900">Social Media</p>
                           <TooltipProvider delayDuration={200}>
-                            <SocialLinksDisplay socialLinks={church.social_links} />
+                            <SocialLinksDisplay socialLinks={{
+                              ...(church.facebook_url && { facebook: church.facebook_url }),
+                              ...(church.instagram_url && { instagram: church.instagram_url }),
+                              ...(church.twitter_url && { twitter: church.twitter_url }),
+                              ...(church.youtube_url && { youtube: church.youtube_url }),
+                              ...(church.linkedin_url && { linkedin: church.linkedin_url }),
+                            }} />
                           </TooltipProvider>
                         </div>
                       </div>

@@ -466,13 +466,19 @@ export default function SchoolDetail() {
                     )}
 
                     {/* Social Media Links */}
-                    {school.social_links && Object.keys(school.social_links).length > 0 && (
+                    {(school.facebook_url || school.instagram_url || school.twitter_url || school.youtube_url || school.linkedin_url) && (
                       <div className="flex items-start gap-3">
                         <Globe className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
                         <div>
                           <p className="font-medium text-gray-900">Social Media</p>
                           <TooltipProvider delayDuration={200}>
-                            <SocialLinksDisplay socialLinks={school.social_links} />
+                            <SocialLinksDisplay socialLinks={{
+                              ...(school.facebook_url && { facebook: school.facebook_url }),
+                              ...(school.instagram_url && { instagram: school.instagram_url }),
+                              ...(school.twitter_url && { twitter: school.twitter_url }),
+                              ...(school.youtube_url && { youtube: school.youtube_url }),
+                              ...(school.linkedin_url && { linkedin: school.linkedin_url }),
+                            }} />
                           </TooltipProvider>
                         </div>
                       </div>
