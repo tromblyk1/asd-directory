@@ -6,15 +6,18 @@ export interface Event {
   category?: 'sensory_friendly' | 'support_group' | 'educational' | 'social' | 'fundraiser' | 'professional_development' | 'recreational' | 'other' | null;
   date: string;
   time?: string | null;
-  location?: string | null;
+  venue_name?: string | null;
   address?: string | null;
   city?: string | null;
   state?: string | null;
   zip_code?: string | null;
-  organizer?: string | null;
-  contact_email?: string | null;
-  contact_phone?: string | null;
-  website?: string | null;
+  county?: string | null;
+  organizer_name?: string | null;
+  organizer_email?: string | null;
+  organizer_phone?: string | null;
+  website_url?: string | null;
+  end_date?: string | null;
+  is_free?: boolean | null;
   registration_url?: string | null;
   cost_info?: string | null;
   age_groups?: string[] | null;
@@ -42,8 +45,6 @@ export interface Event {
   // Additional EventCard fields
   event_type?: string | null;
   ceu_available?: boolean | null;
-  recurring?: string | null;
-  region?: string | null;
   cost?: string | null;
 
   // Location coordinates for map

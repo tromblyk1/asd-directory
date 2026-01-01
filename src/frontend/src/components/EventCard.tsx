@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
     Calendar, Clock, MapPin, Users, DollarSign,
-    ExternalLink, Mail, Star, Award, RefreshCw,
+    ExternalLink, Mail, Star, Award,
     Accessibility, Building2, ArrowRight
 } from 'lucide-react';
 import { format } from 'date-fns';
@@ -146,12 +146,6 @@ export const EventCard: React.FC<EventCardProps> = ({ event, isPast = false }) =
                             CEU
                         </Badge>
                     )}
-                    {event.recurring && (
-                        <Badge variant="outline" className="bg-slate-50 text-slate-700">
-                            <RefreshCw className="w-3 h-3 mr-1" />
-                            {event.recurring}
-                        </Badge>
-                    )}
                     <EventVerificationBadge
                         accommodations_verified={event.accommodations_verified}
                     />
@@ -171,10 +165,10 @@ export const EventCard: React.FC<EventCardProps> = ({ event, isPast = false }) =
                 )}
 
                 {/* Organizer */}
-                {event.organizer && (
+                {event.organizer_name && (
                     <div className="flex items-center gap-2 text-sm text-gray-600 mb-3">
                         <Building2 className="w-4 h-4 flex-shrink-0" />
-                        <span className="font-medium">{event.organizer}</span>
+                        <span className="font-medium">{event.organizer_name}</span>
                     </div>
                 )}
 
@@ -195,8 +189,8 @@ export const EventCard: React.FC<EventCardProps> = ({ event, isPast = false }) =
                     <div className="flex items-center gap-2">
                         <MapPin className="w-4 h-4 flex-shrink-0" />
                         <span className="truncate">
-                            {event.location && `${event.location}, `}{event.city}
-                            {event.region && `, ${event.region}`}
+                            {event.venue_name && `${event.venue_name}, `}{event.city}
+                            {event.county && `, ${event.county}`}
                         </span>
                     </div>
                 </div>
@@ -295,9 +289,9 @@ export const EventCard: React.FC<EventCardProps> = ({ event, isPast = false }) =
                                     </a>
                                 )}
 
-                                {event.website && event.website !== event.registration_url && (
+                                {event.website_url && event.website_url !== event.registration_url && (
                                     <a
-                                        href={event.website}
+                                        href={event.website_url}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex-1"
@@ -310,9 +304,9 @@ export const EventCard: React.FC<EventCardProps> = ({ event, isPast = false }) =
                                     </a>
                                 )}
 
-                                {event.contact_email && (
+                                {event.organizer_email && (
                                     <a
-                                        href={`mailto:${event.contact_email}`}
+                                        href={`mailto:${event.organizer_email}`}
                                         className="flex-1"
                                         onClick={(e) => e.stopPropagation()}
                                     >

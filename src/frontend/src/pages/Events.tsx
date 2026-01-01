@@ -184,7 +184,7 @@ export default function Events() {
                     "startDate": event.date,
                     "location": {
                         "@type": "Place",
-                        "name": event.location,
+                        "name": event.venue_name,
                         "address": {
                             "@type": "PostalAddress",
                             "addressLocality": event.city,
@@ -509,10 +509,10 @@ export default function Events() {
                                                                             {format(new Date(event.date + 'T12:00:00'), 'MMM d, yyyy')}
                                                                             {event.time && ` at ${event.time}`}
                                                                         </p>
-                                                                        {event.location && (
+                                                                        {event.venue_name && (
                                                                             <p className="text-sm text-gray-600 mb-2">
                                                                                 <MapPin className="w-3 h-3 inline mr-1" />
-                                                                                {event.location}, {event.city}
+                                                                                {event.venue_name}, {event.city}
                                                                             </p>
                                                                         )}
                                                                         {isPast ? (
@@ -635,7 +635,7 @@ export default function Events() {
                                                                         )}
                                                                         <div className="flex items-center gap-2">
                                                                             <MapPin className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
-                                                                            <span className="truncate">{event.location}, {event.city}</span>
+                                                                            <span className="truncate">{event.venue_name}, {event.city}</span>
                                                                         </div>
                                                                     </div>
 
@@ -692,8 +692,8 @@ export default function Events() {
                                                                                     <ExternalLink className="w-4 h-4 ml-2" />
                                                                                 </Button>
                                                                             </a>
-                                                                        ) : event.contact_email ? (
-                                                                            <a href={`mailto:${event.contact_email}`}>
+                                                                        ) : event.organizer_email ? (
+                                                                            <a href={`mailto:${event.organizer_email}`}>
                                                                                 <Button variant="outline" className="w-full h-10 sm:h-9">
                                                                                     Contact for Info
                                                                                 </Button>

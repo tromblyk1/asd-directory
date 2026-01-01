@@ -169,8 +169,8 @@ export default function EventDetail() {
 
     // Determine which URL to use for "Event Website" button
     const getEventWebsiteUrl = () => {
-        if (isValidUrl(event.website) && event.website !== event.registration_url) {
-            return event.website;
+        if (isValidUrl(event.website_url) && event.website_url !== event.registration_url) {
+            return event.website_url;
         }
         if (isValidUrl(event.registration_url)) {
             return event.registration_url;
@@ -179,7 +179,18 @@ export default function EventDetail() {
     };
 
     const eventWebsiteUrl = getEventWebsiteUrl();
-    const hasValidWebsite = isValidUrl(event.website) && event.website !== event.registration_url;
+    const hasValidWebsite = isValidUrl(event.website_url) && event.website_url !== event.registration_url;
+
+    // Check if event only has social media as its source
+    const hasSocialOnly = !event.website_url && !event.registration_url &&
+        (event.facebook_url || event.instagram_url || event.twitter_url || event.youtube_url || event.linkedin_url);
+
+    const primarySocial = event.facebook_url ? { name: 'Facebook', url: event.facebook_url, icon: Facebook, bgColor: 'bg-blue-50', borderColor: 'border-blue-200', textColor: 'text-blue-800', brandColor: '#1877F2' }
+        : event.instagram_url ? { name: 'Instagram', url: event.instagram_url, icon: Instagram, bgColor: 'bg-pink-50', borderColor: 'border-pink-200', textColor: 'text-pink-800', brandColor: '#E4405F' }
+        : event.twitter_url ? { name: 'X (Twitter)', url: event.twitter_url, icon: Twitter, bgColor: 'bg-gray-100', borderColor: 'border-gray-300', textColor: 'text-gray-800', brandColor: '#000000' }
+        : event.youtube_url ? { name: 'YouTube', url: event.youtube_url, icon: Youtube, bgColor: 'bg-red-50', borderColor: 'border-red-200', textColor: 'text-red-800', brandColor: '#FF0000' }
+        : event.linkedin_url ? { name: 'LinkedIn', url: event.linkedin_url, icon: Linkedin, bgColor: 'bg-sky-50', borderColor: 'border-sky-200', textColor: 'text-sky-800', brandColor: '#0A66C2' }
+        : null;
 
     // SEO data
     const canonicalUrl = `https://floridaautismservices.com/events/${slug}`;
@@ -202,7 +213,7 @@ export default function EventDetail() {
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
         "location": {
             "@type": "Place",
-            "name": event.location || event.city,
+            "name": event.venue_name || event.city,
             "address": {
                 "@type": "PostalAddress",
                 ...(event.address && { "streetAddress": event.address }),
@@ -212,10 +223,10 @@ export default function EventDetail() {
                 "addressCountry": "US"
             }
         },
-        ...(event.organizer && {
+        ...(event.organizer_name && {
             "organizer": {
                 "@type": "Organization",
-                "name": event.organizer
+                "name": event.organizer_name
             }
         }),
         ...(event.image_url && { "image": event.image_url }),
@@ -395,7 +406,7 @@ export default function EventDetail() {
                                         <address className="flex-1 not-italic min-w-0">
                                             <p className="text-xs sm:text-sm text-gray-600 font-medium mb-1">Location</p>
                                             <div className="text-gray-900 text-sm sm:text-base">
-                                                {event.location && <p className="font-semibold truncate">{event.location}</p>}
+                                                {event.venue_name && <p className="font-semibold truncate">{event.venue_name}</p>}
                                                 {event.address && <p className="truncate">{event.address}</p>}
                                                 <p>{event.city}, {event.state || 'FL'} {event.zip_code}</p>
                                             </div>
@@ -403,6 +414,36 @@ export default function EventDetail() {
                                     </div>
                                 </section>
 
+                                {/* Social-Only Event Callout */}
+                                {hasSocialOnly && primarySocial && (
+                                    <Alert className={`mb-6 sm:mb-8 ${primarySocial.bgColor} ${primarySocial.borderColor}`}>
+                                        <primarySocial.icon className={`h-5 w-5 ${primarySocial.textColor}`} aria-hidden="true" />
+                                        <AlertDescription>
+                                            <div className="space-y-3">
+                                                <p className={`font-semibold ${primarySocial.textColor} text-sm sm:text-base`}>
+                                                    This event is only listed on {primarySocial.name}
+                                                </p>
+                                                <p className="text-gray-700 text-sm">
+                                                    Visit the event page for the latest details, updates, and to connect with the organizer.
+                                                </p>
+                                                <a
+                                                    href={primarySocial.url}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    <Button
+                                                        className="text-white hover:opacity-90"
+                                                        style={{ backgroundColor: primarySocial.brandColor }}
+                                                    >
+                                                        <primarySocial.icon className="w-4 h-4 mr-2" />
+                                                        View on {primarySocial.name}
+                                                        <ExternalLink className="w-4 h-4 ml-2" />
+                                                    </Button>
+                                                </a>
+                                            </div>
+                                        </AlertDescription>
+                                    </Alert>
+                                )}
 
                                 {/* REGISTRATION INFORMATION */}
                                 {event.registration_required && (
@@ -533,14 +574,14 @@ export default function EventDetail() {
                                                         <li className="hidden sm:list-item">Can we arrive early for a quieter experience?</li>
                                                     </ul>
                                                 </div>
-                                                {event.contact_email && (
+                                                {event.organizer_email && (
                                                     <p className="text-xs sm:text-sm text-amber-800 mt-2">
                                                         Contact the organizers at{' '}
-                                                        <a 
-                                                            href={`mailto:${event.contact_email}`}
+                                                        <a
+                                                            href={`mailto:${event.organizer_email}`}
                                                             className="underline hover:text-amber-900 font-medium break-all"
                                                         >
-                                                            {event.contact_email}
+                                                            {event.organizer_email}
                                                         </a>
                                                         {' '}to ask these questions before attending.
                                                     </p>
@@ -615,31 +656,31 @@ export default function EventDetail() {
                                     <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                                         <Card className="bg-gray-50 border-none">
                                             <CardContent className="p-4 sm:p-6 space-y-3 sm:space-y-4">
-                                                {event.organizer && (
+                                                {event.organizer_name && (
                                                     <div>
                                                         <p className="font-medium text-gray-900 mb-1 text-sm sm:text-base">Organizer</p>
-                                                        <p className="text-gray-700 text-sm sm:text-base">{event.organizer}</p>
+                                                        <p className="text-gray-700 text-sm sm:text-base">{event.organizer_name}</p>
                                                     </div>
                                                 )}
-                                                {event.contact_email && (
+                                                {event.organizer_email && (
                                                     <div>
                                                         <p className="font-medium text-gray-900 mb-1 text-sm sm:text-base">Email</p>
                                                         <a
-                                                            href={`mailto:${event.contact_email}`}
+                                                            href={`mailto:${event.organizer_email}`}
                                                             className="text-blue-600 hover:text-blue-700 break-all text-sm sm:text-base"
                                                         >
-                                                            {event.contact_email}
+                                                            {event.organizer_email}
                                                         </a>
                                                     </div>
                                                 )}
-                                                {event.contact_phone && (
+                                                {event.organizer_phone && (
                                                     <div>
                                                         <p className="font-medium text-gray-900 mb-1 text-sm sm:text-base">Phone</p>
                                                         <a
-                                                            href={`tel:${event.contact_phone}`}
+                                                            href={`tel:${event.organizer_phone}`}
                                                             className="text-blue-600 hover:text-blue-700 text-sm sm:text-base"
                                                         >
-                                                            {event.contact_phone}
+                                                            {event.organizer_phone}
                                                         </a>
                                                     </div>
                                                 )}
@@ -719,7 +760,7 @@ export default function EventDetail() {
                                                     <MapComponent.Popup>
                                                         <div className="text-center">
                                                             <p className="font-bold text-sm">{event.title}</p>
-                                                            <p className="text-xs text-gray-600">{event.location || event.city}, FL</p>
+                                                            <p className="text-xs text-gray-600">{event.venue_name || event.city}, FL</p>
                                                         </div>
                                                     </MapComponent.Popup>
                                                 </MapComponent.Marker>
@@ -767,9 +808,9 @@ export default function EventDetail() {
                                                 </a>
                                             )
                                         )}
-                                        {event.website && (
+                                        {event.website_url && (
                                             <a
-                                                href={event.website.startsWith('http') ? event.website : `https://${event.website}`}
+                                                href={event.website_url.startsWith('http') ? event.website_url : `https://${event.website_url}`}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="block"
@@ -780,9 +821,9 @@ export default function EventDetail() {
                                                 </Button>
                                             </a>
                                         )}
-                                        {event.contact_email && (
+                                        {event.organizer_email && (
                                             <a
-                                                href={`mailto:${event.contact_email}`}
+                                                href={`mailto:${event.organizer_email}`}
                                                 className="block"
                                             >
                                                 <Button variant="outline" className="w-full justify-start">
