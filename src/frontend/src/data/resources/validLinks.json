@@ -120,6 +120,13 @@
       "description": "Professional organization for behavior analysis"
     }
   ],
+  "services/aac": [
+    {
+      "label": "PrAACtical AAC",
+      "url": "https://praacticalaac.org/",
+      "description": "Free resources and strategies for AAC implementation"
+    }
+  ],
   "scholarships/pep": [
     {
       "label": "Florida Department of Education",
@@ -188,10 +195,6 @@
   ],
   "insurances/early-steps": [
     {
-      "label": "Florida Early Steps Official Website",
-      "url": "https://floridaearlysteps.com"
-    },
-    {
       "label": "Find Your Local Early Steps Office",
       "url": "https://floridaearlysteps.com/contact/"
     },
@@ -204,13 +207,6 @@
     {
       "label": "Florida CMS Program Information",
       "url": "https://www.floridahealth.gov/programs-and-services/childrens-health/cms-plan/index.html"
-    }
-  ],
-  "insurances/avmed": [
-    {
-      "label": "AvMed",
-      "url": "https://www.avmed.org/",
-      "description": "Official AvMed website - find providers, check benefits, and manage your plan"
     }
   ],
   "insurances/allegiance": [
@@ -260,6 +256,13 @@
       "label": "ACTS",
       "url": "https://www.actschools.org/",
       "description": "Association of Christian Teachers and Schools"
+    }
+  ],
+  "accreditations/acsi": [
+    {
+      "label": "ACSI",
+      "url": "https://www.acsi.org/",
+      "description": "Association of Christian Schools International"
     }
   ]
 }

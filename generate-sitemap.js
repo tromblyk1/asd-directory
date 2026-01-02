@@ -8,6 +8,9 @@
 const fs = require('fs');
 const path = require('path');
 
+// Resource JSON directories
+const RESOURCES_DIR = path.join(__dirname, 'src', 'frontend', 'src', 'data', 'resources');
+
 // Supabase credentials (from .env.local)
 const SUPABASE_URL = 'https://twcofgyxiitfvoedftik.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR3Y29mZ3l4aWl0ZnZvZWRmdGlrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAxNzAyNzUsImV4cCI6MjA3NTc0NjI3NX0.pkxp6DBSgQykenv2UZIILZhUY9P6xp-lBNs6Z8NNmdI';
@@ -31,6 +34,29 @@ const STATIC_PAGES = [
     { path: '/submit-resource', priority: '0.4', changefreq: 'monthly' },
     { path: '/submit-event', priority: '0.4', changefreq: 'monthly' },
 ];
+
+/**
+ * Get slugs from local JSON files in a resource folder
+ */
+function getLocalResourceSlugs(folderName) {
+    const folderPath = path.join(RESOURCES_DIR, folderName);
+    const slugs = [];
+
+    if (!fs.existsSync(folderPath)) {
+        console.log(`  Folder not found: ${folderPath}`);
+        return slugs;
+    }
+
+    const files = fs.readdirSync(folderPath);
+    for (const file of files) {
+        if (file.endsWith('.json')) {
+            const slug = file.replace('.json', '');
+            slugs.push(slug);
+        }
+    }
+
+    return slugs;
+}
 
 /**
  * Fetch all rows from a Supabase table with pagination
@@ -138,6 +164,45 @@ async function main() {
     }
     console.log(`  Added ${STATIC_PAGES.length} static pages\n`);
 
+    // Add service detail pages from local JSON files
+    console.log('Adding service detail pages...');
+    const serviceSlugs = getLocalResourceSlugs('services');
+    for (const slug of serviceSlugs) {
+        urls.push(generateUrlEntry(
+            `${BASE_URL}/resources/services/${slug}`,
+            today,
+            'monthly',
+            '0.6'
+        ));
+    }
+    console.log(`  Added ${serviceSlugs.length} service pages\n`);
+
+    // Add insurance detail pages from local JSON files
+    console.log('Adding insurance detail pages...');
+    const insuranceSlugs = getLocalResourceSlugs('insurances');
+    for (const slug of insuranceSlugs) {
+        urls.push(generateUrlEntry(
+            `${BASE_URL}/resources/insurances/${slug}`,
+            today,
+            'monthly',
+            '0.6'
+        ));
+    }
+    console.log(`  Added ${insuranceSlugs.length} insurance pages\n`);
+
+    // Add scholarship detail pages from local JSON files
+    console.log('Adding scholarship detail pages...');
+    const scholarshipSlugs = getLocalResourceSlugs('scholarships');
+    for (const slug of scholarshipSlugs) {
+        urls.push(generateUrlEntry(
+            `${BASE_URL}/resources/scholarships/${slug}`,
+            today,
+            'monthly',
+            '0.6'
+        ));
+    }
+    console.log(`  Added ${scholarshipSlugs.length} scholarship pages\n`);
+
     // Fetch and add provider pages
     const providerSlugs = await fetchAllSlugs('resources', 'slug');
     for (const slug of providerSlugs) {
@@ -223,6 +288,9 @@ async function main() {
     console.log('\n=== Summary ===');
     console.log(`Total URLs in sitemap: ${urls.length}`);
     console.log(`  - Static pages: ${STATIC_PAGES.length}`);
+    console.log(`  - Service pages: ${serviceSlugs.length}`);
+    console.log(`  - Insurance pages: ${insuranceSlugs.length}`);
+    console.log(`  - Scholarship pages: ${scholarshipSlugs.length}`);
     console.log(`  - Provider pages: ${providerSlugs.length}`);
     console.log(`  - School pages: ${schoolSlugs.length}`);
     console.log(`  - Church pages: ${churchSlugs.length}`);
