@@ -51,6 +51,7 @@ const slugToServiceFilter: Record<string, string> = {
   'support-groups': 'support-groups',
   'virtual-therapy': 'virtual-therapy',
   'mobile-services': 'mobile-services',
+  'transportation': 'transportation',
 };
 
 export default function ServiceDetail() {
