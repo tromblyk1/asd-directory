@@ -5,9 +5,10 @@ import { createPageUrl } from "@/utils";
 import { useQuery } from "@tanstack/react-query";
 import { base44 } from "@/api/base44Client";
 import { 
-  Search, Church, Heart, Stethoscope, 
+  Search, Church, Heart, Stethoscope,
   GraduationCap, ArrowRight, MapPin,
-  Calendar, Shield, BookOpen, School, FileText
+  Calendar, Shield, BookOpen, School, FileText,
+  Sparkles
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -195,10 +196,28 @@ export default function Home() {
               </h1>
               
               <p className="text-base sm:text-lg lg:text-xl text-blue-50 leading-relaxed">
-                Your trusted guide to neurodivergent-friendly resources across Florida. 
-                Connecting families with welcoming faith communities, understanding healthcare providers, 
+                Your trusted guide to neurodivergent-friendly resources across Florida.
+                Connecting families with welcoming faith communities, understanding healthcare providers,
                 inclusive programs, and supportive services.
               </p>
+
+              {/* New Guide Announcement */}
+              <Link to="/blog/speech-therapy-autism-guide" className="inline-block mt-6 sm:mt-8">
+                <div className="group flex items-center gap-3 bg-white/15 backdrop-blur-sm border border-white/30 rounded-xl px-4 py-3 hover:bg-white/25 transition-all duration-300 cursor-pointer">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-amber-400 to-orange-500 flex-shrink-0">
+                    <Sparkles className="w-5 h-5 text-white" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-2 mb-0.5">
+                      <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-amber-300">New Guide</span>
+                    </div>
+                    <p className="text-sm sm:text-base font-semibold text-white group-hover:text-blue-100 transition-colors">
+                      Speech Therapy for Autism: What to Expect
+                    </p>
+                  </div>
+                  <ArrowRight className="w-5 h-5 text-white/70 group-hover:text-white group-hover:translate-x-1 transition-all flex-shrink-0" />
+                </div>
+              </Link>
             </div>
           </div>
           

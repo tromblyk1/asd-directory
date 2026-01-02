@@ -12,6 +12,7 @@ import {
 const servicesList = [
   { slug: 'aba', name: 'ABA Therapy', description: 'Applied Behavior Analysis' },
   { slug: 'speech-therapy', name: 'Speech Therapy', description: 'Communication and language' },
+  { slug: 'aac', name: 'AAC (Augmentative & Alternative Communication)', description: 'Communication devices and systems' },
   { slug: 'occupational-therapy', name: 'Occupational Therapy', description: 'Daily living skills' },
   { slug: 'physical-therapy', name: 'Physical Therapy', description: 'Motor skill development' },
   { slug: 'feeding-therapy', name: 'Feeding Therapy', description: 'Eating and nutrition support' },

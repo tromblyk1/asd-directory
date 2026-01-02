@@ -62,6 +62,13 @@ export const SERVICE_DEFINITIONS: Record<string, ServiceDefinition> = {
     long:
       "AAC (Augmentative and Alternative Communication) services introduce tools such as speech-generating devices, picture systems, or communication apps. Specialists customize vocabularies, train caregivers, and empower users to communicate more independently.",
   },
+  aac: {
+    title: "AAC (Augmentative & Alternative Communication)",
+    slug: "aac",
+    short: "Communication systems and devices for individuals who are nonverbal or have limited speech.",
+    long:
+      "Augmentative and Alternative Communication (AAC) encompasses all forms of communication outside of oral speech. For individuals with autism who are nonverbal or have limited verbal abilities, AAC provides a way to express needs, share thoughts, and connect with others. AAC ranges from low-tech options like picture boards to high-tech speech-generating devices and tablet apps.",
+  },
   dir_floortime: {
     title: "DIR / Floortime",
     slug: "dir-floortime",

@@ -1,0 +1,39 @@
+{
+  "slug": "aac",
+  "category": "services",
+  "title": "AAC (Augmentative & Alternative Communication)",
+  "shortDescription": "Communication systems and devices for individuals who are nonverbal or have limited speech.",
+  "description": "Augmentative and Alternative Communication (AAC) encompasses all forms of communication outside of oral speech. For individuals with autism who are nonverbal or have limited verbal abilities, AAC provides a way to express needs, share thoughts, and connect with others. AAC ranges from low-tech options like picture boards and communication books to high-tech speech-generating devices and tablet apps. Research consistently shows that AAC does not prevent speech development—in fact, it often encourages spoken language by reducing frustration and modeling how communication works.",
+  "benefits": [
+    "Provides a voice for nonverbal individuals",
+    "Reduces frustration and challenging behaviors",
+    "Often increases spoken language development",
+    "Builds social connection and relationships",
+    "Supports participation in school and community",
+    "Offers independence in daily communication"
+  ],
+  "whoCanBenefit": [
+    "Nonverbal children and adults with autism",
+    "Individuals with limited or unclear speech",
+    "Those with motor planning difficulties affecting speech",
+    "Children not yet developing verbal language",
+    "Anyone needing communication support in specific settings"
+  ],
+  "links": [
+    {
+      "label": "AssistiveWare - AAC Resources",
+      "url": "https://www.assistiveware.com/learn-aac",
+      "description": "Comprehensive guides for families new to AAC"
+    },
+    {
+      "label": "PrAACtical AAC",
+      "url": "https://praacticalaac.org/",
+      "description": "Free resources and strategies for AAC implementation"
+    },
+    {
+      "label": "ASHA - AAC Overview",
+      "url": "https://www.asha.org/public/speech/disorders/aac/",
+      "description": "Professional guidance on augmentative communication"
+    }
+  ]
+}
