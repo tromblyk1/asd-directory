@@ -183,6 +183,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1200')] bg-cover bg-center opacity-10" />
           
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 lg:py-24">
+            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between lg:gap-8">
             <div className="max-w-3xl">
               <Badge className="mb-4 sm:mb-6 bg-white/20 text-white border-white/30 text-xs sm:text-sm px-3 sm:px-4 py-1">
                 <Heart className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" aria-hidden="true" />
@@ -218,6 +219,20 @@ export default function Home() {
                   <ArrowRight className="w-5 h-5 text-white/70 group-hover:text-white group-hover:translate-x-1 transition-all flex-shrink-0" />
                 </div>
               </Link>
+            </div>
+
+              {/* Help Us Improve Notice - hidden on mobile */}
+              <div className="hidden lg:block max-w-[340px] mt-8 lg:mt-0 flex-shrink-0">
+                <div className="bg-[#FEF9C3] border border-yellow-300 rounded-xl px-4 py-4">
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    <span className="font-semibold">⚠️ Help Us Improve</span> — We're enhancing our directory data. If you notice outdated or erroneous info, please{' '}
+                    <Link to="/contact" className="text-blue-600 hover:text-blue-800 underline font-medium">
+                      report it here
+                    </Link>
+                    ! Include the provider name and as much detail as possible so we can quickly identify and fix the listing.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
           

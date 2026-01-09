@@ -1,11 +1,4 @@
 {
-  "services/tutoring": [
-    {
-      "label": "Learning Disabilities Association of Florida",
-      "url": "https://lda-florida.org/",
-      "description": "Florida resources on learning support and educational advocacy"
-    }
-  ],
   "services/support-groups": [
     {
       "label": "Autism Speaks",
@@ -195,6 +188,10 @@
   ],
   "insurances/early-steps": [
     {
+      "label": "Florida Early Steps Official Website",
+      "url": "https://floridaearlysteps.com"
+    },
+    {
       "label": "Find Your Local Early Steps Office",
       "url": "https://floridaearlysteps.com/contact/"
     },
@@ -214,13 +211,6 @@
       "label": "Allegiance Member Portal",
       "url": "https://www.askallegiance.com/",
       "description": "Official Allegiance website - member login, find providers, and plan information"
-    }
-  ],
-  "insurances/aetna": [
-    {
-      "label": "Aetna",
-      "url": "https://www.aetna.com/",
-      "description": "Official Aetna website - find providers, check benefits, and manage your plan"
     }
   ],
   "accreditations/flga-lcms": [
