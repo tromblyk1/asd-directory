@@ -30,6 +30,7 @@ import DenominationDetail from './pages/DenominationDetail';
 import SchoolTypeDetail from './pages/SchoolTypeDetail';
 import AccreditationDetail from './pages/AccreditationDetail';
 import ChurchDetail from './pages/ChurchDetail';
+import FeaturedListings from './pages/FeaturedListings';
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
         <Route path="/schools" element={<FindSchools />} />
         <Route path="/schools/:slug" element={<SchoolDetail />} />
         <Route path="/churches/:slug" element={<ChurchDetail />} />
+        <Route path="/featured" element={<FeaturedListings />} />
 
         {/* Educational Resources Routes */}
         <Route path="/resources" element={<EducationalResources />} />

@@ -207,6 +207,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <li><Link to="/submit" className="text-blue-100 hover:text-white transition-colors">Submit Resource</Link></li>
                 <li><Link to="/submit-event" className="text-blue-100 hover:text-white transition-colors">Submit Event</Link></li>
                 <li><Link to="/contact" className="text-blue-100 hover:text-white transition-colors">Contact</Link></li>
+                <li><Link to="/featured" className="text-blue-100 hover:text-white transition-colors">For Providers</Link></li>
               </ul>
               <div className="mt-4 sm:mt-6 space-y-2">
                 <a href="tel:3213003447" className="flex items-center gap-2 text-blue-100 hover:text-white transition-colors text-sm sm:text-base">
