@@ -65,6 +65,7 @@ const serviceOptions = [
 
 // Insurance options for filtering - ONLY values that exist in the database
 const insuranceOptions = [
+  { value: 'accepts-most-insurances', label: 'Accepts Most Insurances' },
   { value: 'florida-medicaid', label: 'Florida Medicaid' },
   { value: 'medicare', label: 'Medicare' },
   { value: 'aetna', label: 'Aetna' },
@@ -116,6 +117,7 @@ const servicePopupInfo: Record<string, { label: string; description: string; slu
 
 // Insurance display info for map popup
 const insurancePopupInfo: Record<string, { label: string; description: string; slug: string }> = {
+  'accepts-most-insurances': { label: 'Most Insurances', description: 'Accepts most major insurance plans', slug: 'accepts-most-insurances' },
   'florida-medicaid': { label: 'Medicaid', description: 'Florida Medicaid', slug: 'florida-medicaid' },
   'medicare': { label: 'Medicare', description: 'Medicare', slug: 'medicare' },
   'aetna': { label: 'Aetna', description: 'Aetna Insurance', slug: 'aetna' },

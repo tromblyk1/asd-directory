@@ -1,0 +1,20 @@
+{
+  "slug": "accepts-most-insurances",
+  "category": "insurances",
+  "title": "Accepts Most Insurances",
+  "shortDescription": "Provider accepts most major insurance plans — contact them directly to verify your specific coverage.",
+  "description": "Some providers accept a wide range of insurance plans rather than listing each one individually. When you see this tag on a provider's listing, it means they have indicated that they work with most major insurance carriers. However, coverage can vary depending on your specific plan, deductibles, and authorization requirements. Always contact the provider directly to confirm they accept your particular insurance plan and to understand any out-of-pocket costs before scheduling services. This tag is informational and does not guarantee coverage under any specific plan.",
+  "benefits": [
+    "Broad insurance acceptance — likely works with your plan",
+    "Reduces the guesswork when searching for in-network providers",
+    "Provider is experienced billing multiple insurance carriers",
+    "May accept both commercial and government-sponsored plans"
+  ],
+  "requirements": [
+    "Always call the provider to verify your specific plan is accepted",
+    "Ask about prior authorization requirements for your insurance",
+    "Confirm co-pays, deductibles, and any out-of-pocket costs",
+    "Request the provider's NPI number for your insurance company if needed"
+  ],
+  "links": []
+}

@@ -81,6 +81,7 @@ const serviceBadges: Record<string, { label: string; tooltip: string; link: stri
 
 // Insurance badge definitions - PURPLE colors
 const insuranceBadges: Record<string, { label: string; tooltip: string; link: string }> = {
+  'accepts-most-insurances': { label: 'Accepts Most Insurances', tooltip: 'This provider accepts most major insurance plans — contact them to verify your specific coverage', link: '/resources/insurances/accepts-most-insurances' },
   'florida-medicaid': { label: 'Florida Medicaid', tooltip: 'Florida Medicaid health coverage program', link: '/resources/insurances/florida-medicaid' },
   'floridamedicaid': { label: 'Florida Medicaid', tooltip: 'Florida Medicaid health coverage program', link: '/resources/insurances/florida-medicaid' },
   'medicaid': { label: 'Florida Medicaid', tooltip: 'Florida Medicaid health coverage program', link: '/resources/insurances/florida-medicaid' },
@@ -270,11 +271,18 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, rating }) 
                 <div className="flex flex-wrap gap-1.5">
                   {insurances.map((insurance) => {
                     const info = findBadgeInfo(insurance, insuranceBadges);
+                    const isAcceptsMost = insurance === 'accepts-most-insurances';
+                    const badgeClass = isAcceptsMost
+                      ? 'text-xs font-medium bg-white text-purple-700 border-2 border-purple-300'
+                      : 'text-xs font-medium bg-purple-100 text-purple-800 border-purple-200';
+                    const badgeHoverClass = isAcceptsMost
+                      ? 'text-xs font-medium cursor-pointer transition-colors bg-white text-purple-700 border-2 border-purple-300 hover:bg-purple-50'
+                      : 'text-xs font-medium cursor-pointer transition-colors bg-purple-100 text-purple-800 border-purple-200 hover:bg-purple-200';
                     if (!info) return (
-                      <Badge 
+                      <Badge
                         key={insurance}
-                        variant="outline" 
-                        className="text-xs font-medium bg-purple-100 text-purple-800 border-purple-200"
+                        variant="outline"
+                        className={badgeClass}
                       >
                         {insurance}
                       </Badge>
@@ -283,9 +291,9 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, rating }) 
                       <Tooltip key={insurance}>
                         <TooltipTrigger asChild>
                           <Link to={info.link}>
-                            <Badge 
-                              variant="outline" 
-                              className="text-xs font-medium cursor-pointer transition-colors bg-purple-100 text-purple-800 border-purple-200 hover:bg-purple-200"
+                            <Badge
+                              variant="outline"
+                              className={badgeHoverClass}
                             >
                               {info.label}
                             </Badge>

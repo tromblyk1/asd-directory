@@ -36,6 +36,7 @@ const servicesList = [
 
 // Insurances - matches database insurances array values
 const insurancesList = [
+  { slug: 'accepts-most-insurances', name: 'Accepts Most Insurances', description: 'Broad insurance acceptance' },
   { slug: 'florida-medicaid', name: 'Florida Medicaid', description: 'State Medicaid program' },
   { slug: 'medicare', name: 'Medicare', description: 'Federal health insurance' },
   { slug: 'aetna', name: 'Aetna', description: 'Private insurance' },

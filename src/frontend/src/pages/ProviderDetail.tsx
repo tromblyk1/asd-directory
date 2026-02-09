@@ -86,6 +86,7 @@ const serviceDisplayInfo: Record<string, { title: string; slug: string }> = {
 
 // Insurance slug mapping
 const insuranceDisplayInfo: Record<string, { title: string; slug: string }> = {
+  'accepts-most-insurances': { title: 'Accepts Most Insurances', slug: 'accepts-most-insurances' },
   'florida-medicaid': { title: 'Florida Medicaid', slug: 'florida-medicaid' },
   'medicare': { title: 'Medicare', slug: 'medicare' },
   'aetna': { title: 'Aetna', slug: 'aetna' },

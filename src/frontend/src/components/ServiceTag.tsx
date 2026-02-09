@@ -171,6 +171,12 @@ const SERVICE_METADATA: Record<string, {
   },
 
   // Insurance (Purple - matches education page)
+  'accepts-most-insurances': {
+    name: 'Accepts Most Insurances',
+    description: 'This provider accepts most major insurance plans — contact them to verify your specific coverage',
+    color: 'bg-white text-purple-700 border-2 border-purple-300 hover:bg-purple-50',
+    type: 'insurance',
+  },
   'florida-medicaid': {
     name: 'Florida Medicaid',
     description: 'State healthcare coverage program',

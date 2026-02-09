@@ -230,6 +230,13 @@ export const SERVICE_DEFINITIONS: Record<string, ServiceDefinition> = {
     long:
       "Florida KidCare is the state's affordable health insurance program for infants through age 18. It connects families with subsidized coverage options that include medical, dental, vision, and behavioral health services.",
   },
+  accepts_most_insurances: {
+    title: "Accepts Most Insurances",
+    slug: "accepts-most-insurances",
+    short: "Provider accepts most major insurance plans — contact to verify your specific coverage.",
+    long:
+      "Some providers work with a wide range of insurance carriers rather than listing each one individually. This tag indicates broad insurance acceptance, but coverage varies by plan. Always contact the provider directly to confirm they accept your specific insurance, and ask about co-pays, deductibles, and prior authorization requirements.",
+  },
   medicaid_waiver: {
     title: "Medicaid Waiver",
     slug: "medicaid-waiver",
