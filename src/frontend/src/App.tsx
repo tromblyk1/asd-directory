@@ -31,6 +31,7 @@ import SchoolTypeDetail from './pages/SchoolTypeDetail';
 import AccreditationDetail from './pages/AccreditationDetail';
 import ChurchDetail from './pages/ChurchDetail';
 import FeaturedListings from './pages/FeaturedListings';
+import FeaturedSelectPT from './pages/FeaturedSelectPT';
 
 function App() {
   return (
@@ -58,6 +59,7 @@ function App() {
         <Route path="/schools/:slug" element={<SchoolDetail />} />
         <Route path="/churches/:slug" element={<ChurchDetail />} />
         <Route path="/featured" element={<FeaturedListings />} />
+        <Route path="/featured/select-physical-therapy" element={<FeaturedSelectPT />} />
 
         {/* Educational Resources Routes */}
         <Route path="/resources" element={<EducationalResources />} />
