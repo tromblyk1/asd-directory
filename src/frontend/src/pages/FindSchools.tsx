@@ -671,6 +671,32 @@ export default function FindSchools() {
           </div>
         </div>
       </div>
+
+      {/* Clear All Filters */}
+      {(searchTerm || selectedDistricts.length > 0 || selectedScholarships.length > 0 || selectedGrades.length > 0 || selectedDenominations.length > 0 || selectedAccreditations.length > 0 || userLocation) && (
+        <button
+          onClick={() => {
+            setSearchTerm('');
+            setSelectedDistricts([]);
+            setSelectedScholarships([]);
+            setSelectedGrades([]);
+            setSelectedDenominations([]);
+            setSelectedAccreditations([]);
+            setDistrictSearchTerm('');
+            setUserLocation(null);
+            setLocationStatus('idle');
+            setSearchCenter(null);
+            setSearchRadius(DEFAULT_SEARCH_RADIUS);
+            setMapCenter(null);
+            setShowSearchAreaButton(false);
+            setVisibleCount(SCHOOLS_PER_PAGE);
+          }}
+          className="mt-4 text-sm text-gray-500 hover:text-gray-700 flex items-center gap-1"
+        >
+          <X className="w-3 h-3" />
+          Clear All Filters
+        </button>
+      )}
     </>
   );
 

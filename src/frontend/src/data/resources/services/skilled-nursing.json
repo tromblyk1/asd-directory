@@ -1,0 +1,35 @@
+{
+  "slug": "skilled-nursing",
+  "category": "services",
+  "title": "Skilled Nursing",
+  "shortDescription": "Licensed nursing care including medication administration, tube feeding, tracheostomy care, and medical monitoring.",
+  "description": "Skilled Nursing services provide licensed nursing care for children and individuals with complex medical needs. Services include medication administration, tube feeding (G-tube and NG-tube), tracheostomy care, wound care, seizure monitoring, and ongoing medical assessment. These services are commonly offered at Prescribed Pediatric Extended Care (PPEC) centers, in-home nursing programs, and specialized pediatric facilities. Skilled nurses work closely with physicians, therapists, and families to ensure safe, coordinated care throughout the day.",
+  "benefits": [
+    "Licensed nurses providing direct medical care",
+    "Medication administration and monitoring",
+    "Tube feeding and nutritional support",
+    "Tracheostomy and respiratory device management",
+    "Seizure monitoring and emergency response",
+    "Coordination with physicians and therapy teams",
+    "Allows medically complex children to receive care outside the hospital"
+  ],
+  "whoCanBenefit": [
+    "Children with complex medical needs",
+    "Individuals requiring tube feeding or tracheostomy care",
+    "Those needing daily medication administration and monitoring",
+    "Children attending PPEC centers",
+    "Families seeking skilled in-home nursing support"
+  ],
+  "links": [
+    {
+      "label": "Florida Agency for Health Care Administration (AHCA)",
+      "url": "https://ahca.myflorida.com/",
+      "description": "State agency overseeing healthcare facilities and licensure in Florida"
+    },
+    {
+      "label": "Florida Board of Nursing",
+      "url": "https://floridasnursing.gov/",
+      "description": "Licensing and regulation of nurses in Florida"
+    }
+  ]
+}

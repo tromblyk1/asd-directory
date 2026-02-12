@@ -1,0 +1,35 @@
+{
+  "slug": "respiratory-care",
+  "category": "services",
+  "title": "Respiratory Care",
+  "shortDescription": "Respiratory therapy and support including oxygen management, ventilator care, and breathing treatments.",
+  "description": "Respiratory Care services provide specialized respiratory therapy and support for children and individuals with breathing difficulties or chronic respiratory conditions. Licensed respiratory therapists manage oxygen therapy, ventilator care, nebulizer treatments, airway suctioning, and breathing exercises. These services are commonly available at PPEC centers, pediatric specialty clinics, and through in-home care programs. Respiratory therapists work alongside nurses, physicians, and other care team members to monitor lung function and ensure optimal respiratory health.",
+  "benefits": [
+    "Licensed respiratory therapists providing specialized care",
+    "Oxygen therapy management and monitoring",
+    "Ventilator care and weaning support",
+    "Nebulizer and breathing treatments",
+    "Airway suctioning and tracheostomy support",
+    "Ongoing respiratory assessment and monitoring",
+    "Coordination with medical teams for comprehensive care"
+  ],
+  "whoCanBenefit": [
+    "Children with chronic respiratory conditions",
+    "Individuals requiring oxygen therapy or ventilator support",
+    "Those with tracheostomies needing airway management",
+    "Children attending PPEC centers with respiratory needs",
+    "Families seeking respiratory therapy support at home or in facilities"
+  ],
+  "links": [
+    {
+      "label": "American Association for Respiratory Care (AARC)",
+      "url": "https://www.aarc.org/",
+      "description": "Professional organization for respiratory therapists"
+    },
+    {
+      "label": "Florida Society for Respiratory Care",
+      "url": "https://www.fsrc.org/",
+      "description": "Florida state society supporting respiratory care professionals"
+    }
+  ]
+}

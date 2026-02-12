@@ -160,6 +160,20 @@ export const SERVICE_DEFINITIONS: Record<string, ServiceDefinition> = {
     long:
       "Transportation services help individuals with autism and developmental disabilities travel to appointments, programs, work, and community activities. Providers specialize in accommodating sensory sensitivities and behavioral support during transit. Many accept APD Medicaid waiver funding.",
   },
+  skilled_nursing: {
+    title: "Skilled Nursing",
+    slug: "skilled-nursing",
+    short: "Licensed nursing care including medication administration and medical monitoring.",
+    long:
+      "Skilled Nursing services provide licensed nursing care including medication administration, tube feeding, tracheostomy care, and medical monitoring. These services are commonly offered at PPEC centers and other pediatric facilities to support children with complex medical needs.",
+  },
+  respiratory_care: {
+    title: "Respiratory Care",
+    slug: "respiratory-care",
+    short: "Respiratory therapy and support including oxygen management and breathing treatments.",
+    long:
+      "Respiratory Care services provide respiratory therapy and support including oxygen management, ventilator care, and breathing treatments. Licensed respiratory therapists monitor and manage airway conditions to ensure safe and effective breathing for children with complex needs.",
+  },
   executive_function_coaching: {
     title: "Executive Function Coaching",
     slug: "executive-function-coaching",

@@ -465,6 +465,30 @@ export default function FindDaycares() {
           </div>
         </div>
       </div>
+
+      {/* Clear All Filters */}
+      {(searchTerm || selectedCounties.length > 0 || selectedProfitStatus.length > 0 || citySearchTerm || userLocation) && (
+        <button
+          onClick={() => {
+            setSearchTerm('');
+            setSelectedCounties([]);
+            setSelectedProfitStatus([]);
+            setCitySearchTerm('');
+            setCountySearchTerm('');
+            setUserLocation(null);
+            setLocationStatus('idle');
+            setSearchCenter(null);
+            setSearchRadius(DEFAULT_SEARCH_RADIUS);
+            setMapCenter(null);
+            setShowSearchAreaButton(false);
+            setVisibleCount(DAYCARES_PER_PAGE);
+          }}
+          className="mt-4 text-sm text-gray-500 hover:text-gray-700 flex items-center gap-1"
+        >
+          <X className="w-3 h-3" />
+          Clear All Filters
+        </button>
+      )}
     </>
   );
 

@@ -141,6 +141,11 @@ export interface PPECCenter {
   description: string | null;
   verified: boolean | null;
   featured: boolean | null;
+  facebook_url?: string | null;
+  instagram_url?: string | null;
+  linkedin_url?: string | null;
+  youtube_url?: string | null;
+  tiktok_url?: string | null;
 }
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;

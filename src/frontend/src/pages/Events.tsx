@@ -228,6 +228,22 @@ export default function Events() {
         <>
             <h2 className="text-lg font-bold text-gray-900 mb-4 hidden lg:block">Filter Events</h2>
 
+            {/* Clear All Filters */}
+            {(searchTerm || selectedCategory !== 'all' || selectedCity !== 'all' || timeFilter !== 'upcoming') && (
+                <button
+                    onClick={() => {
+                        setSearchTerm('');
+                        setSelectedCategory('all');
+                        setSelectedCity('all');
+                        setTimeFilter('upcoming');
+                    }}
+                    className="mb-4 text-sm text-gray-500 hover:text-gray-700 flex items-center gap-1"
+                >
+                    <X className="w-3 h-3" />
+                    Clear All Filters
+                </button>
+            )}
+
             {/* Search */}
             <div className="mb-4 lg:mb-6">
                 <label htmlFor="event-search" className="text-sm font-medium text-gray-700 mb-2 block">Search</label>
