@@ -112,6 +112,37 @@ export interface Resource {
   created_at?: string;
 }
 
+export interface PPECCenter {
+  id: string | number;
+  created_at?: string | null;
+  updated_at?: string | null;
+  name: string | null;
+  slug: string | null;
+  ahca_number: string | null;
+  license_number: string | null;
+  license_status: string | null;
+  license_effective_date: string | null;
+  license_expiration_date: string | null;
+  licensed_beds: number | null;
+  address: string | null;
+  address2: string | null;
+  city: string | null;
+  county: string | null;
+  state: string | null;
+  zip_code: string | null;
+  phone: string | null;
+  normalized_phone: string | null;
+  website: string | null;
+  owner: string | null;
+  admin_ceo: string | null;
+  profit_status: string | null;
+  latitude: number | null;
+  longitude: number | null;
+  description: string | null;
+  verified: boolean | null;
+  featured: boolean | null;
+}
+
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 

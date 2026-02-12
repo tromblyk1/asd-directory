@@ -8,7 +8,7 @@ import {
   Search, Church, Heart, Stethoscope,
   GraduationCap, ArrowRight, MapPin,
   Calendar, Shield, BookOpen, School, FileText,
-  Sparkles
+  Sparkles, Baby
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -29,6 +29,13 @@ const categories = [
     color: "from-purple-500 to-indigo-600",
     description: "Private schools statewide",
     link: "/schools",
+  },
+  {
+    title: "Find Daycares",
+    icon: Baby,
+    color: "from-orange-500 to-amber-600",
+    description: "Medical daycare centers",
+    link: "/find-daycares",
   },
   {
     title: "Faith Communities",
@@ -302,9 +309,9 @@ export default function Home() {
             </p>
           </div>
 
-          {/* First row - 3 items */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-4 sm:mb-6">
-            {categories.slice(0, 3).map((category) => (
+          {/* First row - 4 items */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-4 sm:mb-6">
+            {categories.slice(0, 4).map((category) => (
               <Link key={category.title} to={category.link}>
                 <Card className="group hover:shadow-2xl transition-all duration-300 border-none h-full cursor-pointer overflow-hidden">
                   <div className={`h-2 bg-gradient-to-r ${category.color}`} />
@@ -326,9 +333,9 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Second row - 3 items (shows remaining on mobile as single column) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-            {categories.slice(3, 6).map((category) => (
+          {/* Second row - 4 items */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+            {categories.slice(4, 8).map((category) => (
               <Link key={category.title} to={category.link}>
                 <Card className="group hover:shadow-2xl transition-all duration-300 border-none h-full cursor-pointer overflow-hidden">
                   <div className={`h-2 bg-gradient-to-r ${category.color}`} />

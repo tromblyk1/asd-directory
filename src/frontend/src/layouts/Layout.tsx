@@ -3,70 +3,51 @@ import { Link, useLocation } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { 
   Heart, Home, Church, Calendar, BookOpen, FileText,
-  Plus, DollarSign, Menu, X, Search, Phone, Mail, GraduationCap, Info, MessageSquare, School, CalendarPlus
+  Plus, DollarSign, Menu, X, Search, Phone, Mail, GraduationCap, Info, MessageSquare, School, CalendarPlus, Baby
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+// All nav items in flat list (used by mobile menu)
 const navigationItems = [
+  { title: "Home", url: createPageUrl("Home"), icon: Home },
+  { title: "Find Providers", url: "/providers", icon: Search },
+  { title: "Find Schools", url: "/schools", icon: School },
+  { title: "Find Daycares", url: "/find-daycares", icon: Baby },
+  { title: "Faith Communities", url: createPageUrl("FaithResources"), icon: Church },
+  { title: "Educational Resources", url: "/resources", icon: GraduationCap },
+  { title: "Guides", url: "/guides", icon: FileText },
+  { title: "Stories & News", url: createPageUrl("Blog"), icon: BookOpen },
+  { title: "Events Calendar", url: createPageUrl("Events"), icon: Calendar },
+  { title: "About", url: "/about", icon: Info },
+  { title: "Submit Resource", url: "/submit", icon: Plus },
+  { title: "Submit Event", url: "/submit-event", icon: CalendarPlus },
+  { title: "Submit Daycare", url: "/submit-daycare", icon: Baby },
+  { title: "Donate", url: createPageUrl("Donate"), icon: DollarSign },
+];
+
+// Desktop nav grouped into 2 rows
+const navGroups = [
   {
-    title: "Home",
-    url: createPageUrl("Home"),
-    icon: Home,
+    items: [
+      { title: "Home", url: createPageUrl("Home"), icon: Home },
+      { title: "Find Providers", url: "/providers", icon: Search },
+      { title: "Find Schools", url: "/schools", icon: School },
+      { title: "Find Daycares", url: "/find-daycares", icon: Baby },
+      { title: "Faith Communities", url: createPageUrl("FaithResources"), icon: Church },
+      { title: "Resources", url: "/resources", icon: GraduationCap },
+      { title: "Guides", url: "/guides", icon: FileText },
+    ],
   },
   {
-    title: "Find Providers",
-    url: "/providers",
-    icon: Search,
-  },
-  {
-    title: "Find Schools",
-    url: "/schools",
-    icon: School,
-  },
-  {
-    title: "Faith Communities",
-    url: createPageUrl("FaithResources"),
-    icon: Church,
-  },
-  {
-    title: "Educational Resources",
-    url: "/resources",
-    icon: GraduationCap,
-  },
-  {
-    title: "Guides",
-    url: "/guides",
-    icon: FileText,
-  },
-  {
-    title: "Stories & News",
-    url: createPageUrl("Blog"),
-    icon: BookOpen,
-  },
-  {
-    title: "Events Calendar",
-    url: createPageUrl("Events"),
-    icon: Calendar,
-  },
-  {
-    title: "About",
-    url: "/about",
-    icon: Info,
-  },
-  {
-    title: "Submit Resource",
-    url: "/submit",
-    icon: Plus,
-  },
-  {
-    title: "Submit Event",
-    url: "/submit-event",
-    icon: CalendarPlus,
-  },
-  {
-    title: "Donate",
-    url: createPageUrl("Donate"),
-    icon: DollarSign,
+    items: [
+      { title: "Stories & News", url: createPageUrl("Blog"), icon: BookOpen },
+      { title: "Events", url: createPageUrl("Events"), icon: Calendar },
+      { title: "About", url: "/about", icon: Info },
+      { title: "Submit Resource", url: "/submit", icon: Plus },
+      { title: "Submit Event", url: "/submit-event", icon: CalendarPlus },
+      { title: "Submit Daycare", url: "/submit-daycare", icon: Baby },
+      { title: "Donate", url: createPageUrl("Donate"), icon: DollarSign },
+    ],
   },
 ];
 
@@ -78,13 +59,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-green-50">
       {/* Desktop Header */}
       <header className="hidden lg:block bg-white/95 backdrop-blur-sm border-b border-blue-100 sticky top-0 z-[1100] shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 py-2">
-          <div className="flex items-center justify-between gap-4">
-            {/* Logo - Left Side */}
+        <div className="px-6 py-2">
+          <div className="flex items-start gap-4">
+            {/* Logo */}
             <Link to={createPageUrl("Home")} className="flex items-center gap-3 group flex-shrink-0">
-              <img 
-                src="/logo.png" 
-                alt="Florida Autism Services" 
+              <img
+                src="/logo.png"
+                alt="Florida Autism Services"
                 className="h-12 w-auto"
               />
               <div className="hidden xl:block">
@@ -92,22 +73,26 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <p className="text-xs text-gray-600">Your guide to neurodivergent-friendly resources</p>
               </div>
             </Link>
-            
-            {/* Navigation - Right Side */}
-            <nav className="flex flex-wrap items-center justify-end gap-1.5">
-              {navigationItems.map((item) => (
-                <Link
-                  key={item.title}
-                  to={item.url}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition-all ${
-                    location.pathname === item.url
-                      ? "bg-blue-700 text-white shadow-md"
-                      : "bg-blue-600 text-white hover:bg-blue-700"
-                  }`}
-                >
-                  <item.icon className="w-3.5 h-3.5" />
-                  <span>{item.title}</span>
-                </Link>
+
+            {/* Navigation */}
+            <nav className="flex-1 flex flex-col gap-1.5">
+              {navGroups.map((group, gi) => (
+                <div key={gi} className="flex flex-wrap gap-1.5">
+                  {group.items.map((item) => (
+                    <Link
+                      key={item.title}
+                      to={item.url}
+                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition-all ${
+                        location.pathname === item.url
+                          ? "bg-blue-700 text-white shadow-md"
+                          : "bg-blue-600 text-white hover:bg-blue-700"
+                      }`}
+                    >
+                      <item.icon className="w-3.5 h-3.5" />
+                      <span>{item.title}</span>
+                    </Link>
+                  ))}
+                </div>
               ))}
             </nav>
           </div>
@@ -191,6 +176,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <ul className="space-y-1.5 sm:space-y-2 text-sm sm:text-base">
                 <li><Link to="/providers" className="text-blue-100 hover:text-white transition-colors">Find Providers</Link></li>
                 <li><Link to="/schools" className="text-blue-100 hover:text-white transition-colors">Find Schools</Link></li>
+                <li><Link to="/find-daycares" className="text-blue-100 hover:text-white transition-colors">Find Daycares</Link></li>
                 <li><Link to={createPageUrl("FaithResources")} className="text-blue-100 hover:text-white transition-colors">Faith Communities</Link></li>
                 <li><Link to="/resources" className="text-blue-100 hover:text-white transition-colors">Educational Resources</Link></li>
                 <li><Link to="/guides" className="text-blue-100 hover:text-white transition-colors">Guides</Link></li>
@@ -206,6 +192,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <li><Link to={createPageUrl("Donate")} className="text-blue-100 hover:text-white transition-colors">Support Our Mission</Link></li>
                 <li><Link to="/submit" className="text-blue-100 hover:text-white transition-colors">Submit Resource</Link></li>
                 <li><Link to="/submit-event" className="text-blue-100 hover:text-white transition-colors">Submit Event</Link></li>
+                <li><Link to="/submit-daycare" className="text-blue-100 hover:text-white transition-colors">Submit Daycare</Link></li>
                 <li><Link to="/contact" className="text-blue-100 hover:text-white transition-colors">Contact</Link></li>
                 <li><Link to="/featured" className="text-blue-100 hover:text-white transition-colors">For Providers</Link></li>
               </ul>

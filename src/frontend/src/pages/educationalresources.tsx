@@ -10,7 +10,7 @@ import {
 
 // Services - matches database services array values
 const servicesList = [
-  { slug: 'aba', name: 'ABA Therapy', description: 'Applied Behavior Analysis' },
+  { slug: 'aba-therapy', name: 'ABA Therapy', description: 'Applied Behavior Analysis' },
   { slug: 'speech-therapy', name: 'Speech Therapy', description: 'Communication and language' },
   { slug: 'aac', name: 'AAC (Augmentative & Alternative Communication)', description: 'Communication devices and systems' },
   { slug: 'occupational-therapy', name: 'Occupational Therapy', description: 'Daily living skills' },
@@ -444,6 +444,40 @@ export default function EducationalResources() {
                   </article>
                 </Link>
               ))}
+            </div>
+          </section>
+
+          {/* Guides Section */}
+          <section className="mb-10 sm:mb-12 lg:mb-16" aria-labelledby="guides-heading">
+            <div className="flex items-start sm:items-center gap-2.5 sm:gap-3 mb-4 sm:mb-6">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                <BookOpen className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+              </div>
+              <div>
+                <h2 id="guides-heading" className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900">Guides</h2>
+                <p className="text-gray-600 text-sm sm:text-base">In-depth guides for Florida autism families</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+              <Link to="/guides/childcare-options-autism-florida">
+                <article>
+                  <Card className="h-full hover:shadow-lg transition-all border-none group cursor-pointer">
+                    <CardContent className="p-3 sm:p-4 lg:p-5">
+                      <h3 className="font-bold text-gray-900 mb-1 group-hover:text-orange-600 transition-colors text-sm sm:text-base">
+                        Childcare Options for Children with Autism in Florida
+                      </h3>
+                      <p className="text-xs sm:text-sm text-gray-600 mb-2 sm:mb-3">
+                        PPEC centers, Gardiner Scholarship options, inclusive daycares, Head Start, and more—plus what questions to ask providers.
+                      </p>
+                      <div className="flex items-center text-xs sm:text-sm text-orange-600 font-medium">
+                        <span>Read guide</span>
+                        <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                      </div>
+                    </CardContent>
+                  </Card>
+                </article>
+              </Link>
             </div>
           </section>
 

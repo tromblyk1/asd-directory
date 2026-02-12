@@ -44,7 +44,7 @@ export default function FeaturedSelectPT() {
           <p className="text-lg sm:text-xl text-teal-100 max-w-3xl mx-auto mb-6">
             Connecting Your <span className="font-bold text-white">55 Florida Locations</span> with Families Searching for Autism Services
           </p>
-          <div className="inline-flex items-center px-6 py-3 rounded-full bg-white/15 backdrop-blur-sm border-2 border-white/30 text-white text-lg sm:text-xl font-bold mb-10 shadow-lg">
+          <div className="inline-flex items-center px-4 sm:px-6 py-3 rounded-full bg-white/15 backdrop-blur-sm border-2 border-white/30 text-white text-base sm:text-xl font-bold mb-10 shadow-lg">
             <svg className="w-6 h-6 mr-3 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd" /></svg>
             300% traffic growth in the last month
           </div>
@@ -79,6 +79,71 @@ export default function FeaturedSelectPT() {
             <div className="bg-white rounded-xl shadow-md p-8 text-center">
               <div className="text-4xl font-extrabold text-teal-700 mb-2">100%</div>
               <div className="text-gray-600 font-medium">Autism-Focused Traffic</div>
+            </div>
+          </div>
+
+          {/* Traffic Growth Chart — visual proof */}
+          <div className="mt-14 text-center">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Our Growth Speaks for Itself</h3>
+            <p className="text-gray-500 mb-8 text-base max-w-2xl mx-auto">Real data from Google Search Console — families are finding us, and the numbers are accelerating every month.</p>
+            <div className="bg-white rounded-xl shadow-md border border-gray-100 p-6 sm:p-8 max-w-2xl mx-auto">
+              <h4 className="text-base font-semibold text-gray-700 mb-1">FloridaAutismServices.com — Search Impressions</h4>
+              <p className="text-sm text-gray-400 mb-6">Google Search Console · Last 5 Months</p>
+              <svg viewBox="0 0 500 260" className="w-full" aria-label="Growth chart showing monthly search impressions from October 2025 to February 2026">
+                {/* Grid lines */}
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <line key={i} x1="60" y1={40 + i * 45} x2="470" y2={40 + i * 45} stroke="#e5e7eb" strokeWidth="1" />
+                ))}
+                {/* Y-axis labels */}
+                <text x="55" y="44" textAnchor="end" className="text-[11px]" fill="#9ca3af">80K</text>
+                <text x="55" y="89" textAnchor="end" className="text-[11px]" fill="#9ca3af">60K</text>
+                <text x="55" y="134" textAnchor="end" className="text-[11px]" fill="#9ca3af">40K</text>
+                <text x="55" y="179" textAnchor="end" className="text-[11px]" fill="#9ca3af">20K</text>
+                <text x="55" y="224" textAnchor="end" className="text-[11px]" fill="#9ca3af">0</text>
+                {/* Area fill */}
+                <defs>
+                  <linearGradient id="selectPtTealGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#14b8a6" stopOpacity="0.3" />
+                    <stop offset="100%" stopColor="#14b8a6" stopOpacity="0.05" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M 162.5 219.5 L 265 216.6 L 367.5 118.8 L 470 40 L 470 220 L 162.5 220 Z"
+                  fill="url(#selectPtTealGrad)"
+                />
+                {/* Solid line */}
+                <polyline
+                  points="60,219.9 162.5,219.5 265,216.6 367.5,118.8 470,40"
+                  fill="none"
+                  stroke="#14b8a6"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                {/* Data points */}
+                {[
+                  [60, 219.9],
+                  [162.5, 219.5],
+                  [265, 216.6],
+                  [367.5, 118.8],
+                  [470, 40],
+                ].map(([cx, cy], i) => (
+                  <circle key={i} cx={cx} cy={cy} r={i === 4 ? 6 : 4} fill={i === 4 ? "white" : "#14b8a6"} stroke="#14b8a6" strokeWidth="2" />
+                ))}
+                {/* Latest month annotation */}
+                <text x="470" y="30" textAnchor="middle" fill="#0d9488" className="text-[11px]" fontWeight="600">Feb 2026</text>
+                {/* X-axis labels */}
+                <text x="60" y="242" textAnchor="middle" className="text-[11px]" fill="#6b7280">Oct</text>
+                <text x="162.5" y="242" textAnchor="middle" className="text-[11px]" fill="#6b7280">Nov</text>
+                <text x="265" y="242" textAnchor="middle" className="text-[11px]" fill="#6b7280">Dec</text>
+                <text x="367.5" y="242" textAnchor="middle" className="text-[11px]" fill="#6b7280">Jan</text>
+                <text x="470" y="242" textAnchor="middle" className="text-[11px]" fill="#6b7280">Feb</text>
+              </svg>
+              <div className="mt-6 bg-white shadow-md rounded-lg border-l-4 border-teal-500 px-5 py-4 text-left">
+                <div className="text-lg font-bold text-gray-900">300% Traffic Growth</div>
+                <div className="text-sm text-gray-500 mt-1">130K total impressions in the last 90 days</div>
+              </div>
+              <p className="text-xs text-gray-400 mt-4">Source: Google Search Console — FloridaAutismServices.com</p>
             </div>
           </div>
         </div>
@@ -123,7 +188,7 @@ export default function FeaturedSelectPT() {
               VIP Exclusive
             </div>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-center mb-5 tracking-tight">Exclusive 1-Year Founding Partner Rate for Select Physical Therapy</h2>
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-center mb-5 tracking-tight">Exclusive 1-Year Founding Partner Rate for Select Physical Therapy</h2>
           <p className="text-teal-100 text-center mb-12 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed">
             Given your 55 locations across Florida, we're extending our Founding Partner rate (50% off) for a <span className="font-bold text-white">full year</span>—while everyone else only gets 6 months. You're among the first major providers we're launching Featured Listings with, and this extended offer gives you time to see the full value of enhanced visibility across all your locations.
           </p>
@@ -414,6 +479,117 @@ export default function FeaturedSelectPT() {
         </div>
       </section>
 
+      {/* PRICING SECTION 4: Annual Billing Discount */}
+      <section className="py-16 sm:py-20 px-4 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center px-6 sm:px-10 py-3 sm:py-4 rounded-full bg-green-100 text-green-700 text-lg sm:text-2xl lg:text-3xl font-extrabold mb-6 shadow-sm">15% Annual Billing Discount</div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3">Save 15% with Annual Billing</h2>
+            <p className="text-gray-500 text-lg">Pay annually and save 15% across all tiers. Same features, lower cost.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Basic Annual */}
+            <div className="bg-white rounded-xl border border-gray-200 shadow-xl overflow-hidden flex flex-col">
+              <div className="p-5 sm:p-8 flex-1">
+                <h3 className="text-xl font-bold text-gray-900 mb-1">Basic Featured</h3>
+                <p className="text-gray-500 text-sm mb-6">Annual billing</p>
+
+                <div className="mb-6">
+                  <div className="text-xs font-bold text-teal-600 uppercase tracking-wider mb-2">Year 1 — Founding Partner</div>
+                  <div className="text-3xl font-extrabold text-gray-900">$5,610<span className="text-base font-medium text-gray-500">/year</span></div>
+                  <div className="text-sm text-gray-500 mt-1">That's just <span className="font-semibold text-gray-700">$467.50/mo</span></div>
+                  <div className="text-sm text-gray-400 mt-1 line-through">$550/mo billed monthly</div>
+                  <div className="inline-flex items-center mt-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold">Save $990/year</div>
+                </div>
+
+                <div className="border-t border-gray-100 pt-5">
+                  <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Year 2+ — VIP Rate</div>
+                  <div className="text-2xl font-extrabold text-gray-900">$10,098<span className="text-base font-medium text-gray-500">/year</span></div>
+                  <div className="text-sm text-gray-500 mt-1">That's just <span className="font-semibold text-gray-700">$841.50/mo</span></div>
+                  <div className="text-sm text-gray-400 mt-1 line-through">$990/mo billed monthly</div>
+                  <div className="inline-flex items-center mt-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold">Save $1,782/year</div>
+                </div>
+              </div>
+              <div className="p-5 sm:p-8 pt-0">
+                <a
+                  href="mailto:contact@floridaautismservices.com?subject=Select%20PT%20Partnership%20Inquiry%20-%20Basic%20Featured%20Annual"
+                  className="block w-full text-center px-6 py-3 rounded-lg font-semibold text-teal-700 bg-teal-50 border-2 border-teal-200 hover:bg-teal-100 hover:border-teal-300 transition-colors"
+                >
+                  Select This Tier
+                </a>
+              </div>
+            </div>
+
+            {/* Enhanced Annual */}
+            <div className="bg-white rounded-xl border-2 border-amber-400 shadow-xl overflow-hidden flex flex-col relative">
+              <div className="bg-gradient-to-r from-teal-600 to-cyan-600 text-white text-center text-xs font-bold uppercase tracking-wider py-2">
+                Best Value
+              </div>
+              <div className="p-5 sm:p-8 flex-1">
+                <h3 className="text-xl font-bold text-gray-900 mb-1">Enhanced Featured</h3>
+                <p className="text-gray-500 text-sm mb-6">Annual billing</p>
+
+                <div className="mb-6">
+                  <div className="text-xs font-bold text-teal-600 uppercase tracking-wider mb-2">Year 1 — Founding Partner</div>
+                  <div className="text-3xl font-extrabold text-gray-900">$11,506<span className="text-base font-medium text-gray-500">/year</span></div>
+                  <div className="text-sm text-gray-500 mt-1">That's just <span className="font-semibold text-gray-700">$958.83/mo</span></div>
+                  <div className="text-sm text-gray-400 mt-1 line-through">$1,128/mo billed monthly</div>
+                  <div className="inline-flex items-center mt-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold">Save $2,030/year</div>
+                </div>
+
+                <div className="border-t border-gray-100 pt-5">
+                  <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Year 2+ — VIP Rate</div>
+                  <div className="text-2xl font-extrabold text-gray-900">$20,696<span className="text-base font-medium text-gray-500">/year</span></div>
+                  <div className="text-sm text-gray-500 mt-1">That's just <span className="font-semibold text-gray-700">$1,724.67/mo</span></div>
+                  <div className="text-sm text-gray-400 mt-1 line-through">$2,029/mo billed monthly</div>
+                  <div className="inline-flex items-center mt-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold">Save $3,652/year</div>
+                </div>
+              </div>
+              <div className="p-5 sm:p-8 pt-0">
+                <a
+                  href="mailto:contact@floridaautismservices.com?subject=Select%20PT%20Partnership%20Inquiry%20-%20Enhanced%20Featured%20Annual"
+                  className="block w-full text-center px-6 py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 transition-colors shadow-md"
+                >
+                  Select This Tier
+                </a>
+              </div>
+            </div>
+
+            {/* Premium Annual */}
+            <div className="bg-white rounded-xl border border-gray-200 shadow-xl overflow-hidden flex flex-col">
+              <div className="p-5 sm:p-8 flex-1">
+                <h3 className="text-xl font-bold text-gray-900 mb-1">Premium Partner</h3>
+                <p className="text-gray-500 text-sm mb-6">Annual billing</p>
+
+                <div className="mb-6">
+                  <div className="text-xs font-bold text-teal-600 uppercase tracking-wider mb-2">Year 1 — Founding Partner</div>
+                  <div className="text-3xl font-extrabold text-gray-900">$19,360<span className="text-base font-medium text-gray-500">/year</span></div>
+                  <div className="text-sm text-gray-500 mt-1">That's just <span className="font-semibold text-gray-700">$1,613.33/mo</span></div>
+                  <div className="text-sm text-gray-400 mt-1 line-through">$1,898/mo billed monthly</div>
+                  <div className="inline-flex items-center mt-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold">Save $3,416/year</div>
+                </div>
+
+                <div className="border-t border-gray-100 pt-5">
+                  <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Year 2+ — VIP Rate</div>
+                  <div className="text-2xl font-extrabold text-gray-900">$34,843<span className="text-base font-medium text-gray-500">/year</span></div>
+                  <div className="text-sm text-gray-500 mt-1">That's just <span className="font-semibold text-gray-700">$2,903.58/mo</span></div>
+                  <div className="text-sm text-gray-400 mt-1 line-through">$3,416/mo billed monthly</div>
+                  <div className="inline-flex items-center mt-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold">Save $6,149/year</div>
+                </div>
+              </div>
+              <div className="p-5 sm:p-8 pt-0">
+                <a
+                  href="mailto:contact@floridaautismservices.com?subject=Select%20PT%20Partnership%20Inquiry%20-%20Premium%20Partner%20Annual"
+                  className="block w-full text-center px-6 py-3 rounded-lg font-semibold text-teal-700 bg-teal-50 border-2 border-teal-200 hover:bg-teal-100 hover:border-teal-300 transition-colors"
+                >
+                  Select This Tier
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 7: What You Get */}
       <section className="py-16 sm:py-20 px-4 bg-gray-50">
         <div className="max-w-5xl mx-auto">
@@ -421,7 +597,7 @@ export default function FeaturedSelectPT() {
           <p className="text-gray-500 text-center mb-12 text-lg">Each of your <span className="font-semibold text-gray-700">55 locations</span> gets priority placement in their local market</p>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-sm border-collapse">
+            <table className="w-full min-w-[600px] text-sm border-collapse">
               <thead>
                 <tr className="border-b-2 border-gray-200">
                   <th className="text-left py-3 px-4 text-gray-600 font-semibold">Feature</th>
@@ -466,6 +642,120 @@ export default function FeaturedSelectPT() {
         </div>
       </section>
 
+      {/* SECTION: ROI */}
+      <style>{`
+        @keyframes roiGlow {
+          0%, 100% { box-shadow: 0 0 40px rgba(20,184,166,0.3), 0 0 80px rgba(20,184,166,0.15); }
+          50% { box-shadow: 0 0 60px rgba(20,184,166,0.5), 0 0 120px rgba(20,184,166,0.3); }
+        }
+        @keyframes roiStatPulse {
+          0%, 100% { text-shadow: 0 0 30px rgba(13,148,136,0.3); }
+          50% { text-shadow: 0 0 60px rgba(13,148,136,0.5), 0 0 100px rgba(13,148,136,0.25); }
+        }
+        @keyframes roiBadgeGlow {
+          0%, 100% { box-shadow: 0 0 12px rgba(34,211,238,0.2), 0 0 24px rgba(34,211,238,0.1); }
+          50% { box-shadow: 0 0 24px rgba(34,211,238,0.4), 0 0 48px rgba(34,211,238,0.2); }
+        }
+      `}</style>
+      <section className="relative py-24 sm:py-32 lg:py-40 px-4 bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900 text-white overflow-hidden">
+        {/* Top accent line */}
+        <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400" />
+
+        {/* Dot pattern */}
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
+
+        {/* Radial glow */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
+          <div className="w-[900px] h-[900px] rounded-full bg-teal-500/8 blur-3xl" />
+        </div>
+
+        <div className="relative max-w-5xl mx-auto text-center">
+          {/* Pill badge */}
+          <div className="inline-flex items-center px-8 py-3 rounded-full bg-white/10 border border-white/20 text-cyan-300 text-lg font-bold uppercase tracking-widest mb-12 backdrop-blur-sm" style={{ animation: 'roiBadgeGlow 3s ease-in-out infinite' }}>
+            <span className="mr-3 text-2xl">&#128202;</span>
+            Backed by Research
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-8" style={{ textShadow: '0 4px 16px rgba(0,0,0,0.4), 0 2px 6px rgba(0,0,0,0.3)' }}>What's the Real ROI?</h2>
+
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-16 leading-relaxed">
+            Children with autism use PT, OT, and speech therapy at <span className="font-bold text-white">11–16&#215; the rate</span> of non-ASD peers — and they stay in therapy for years, not weeks. Here's what peer-reviewed research says about the value of every new family that finds you.
+          </p>
+
+          {/* 4 stat cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-20 max-w-5xl mx-auto">
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 sm:p-8 text-center hover:scale-[1.03] hover:border-white/25 transition-all duration-200">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-teal-400 mb-2">$10,279</div>
+              <div className="text-xs sm:text-sm font-bold tracking-wider text-teal-300 uppercase mb-3">per child per year</div>
+              <p className="text-sm text-gray-400 leading-relaxed">Average annual outpatient spending per child with treated ASD</p>
+              <span className="text-xs text-gray-500 mt-2 inline-block">AHRQ MEPS, 2025 &#179;</span>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 sm:p-8 text-center hover:scale-[1.03] hover:border-white/25 transition-all duration-200">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cyan-400 mb-2">11–16&#215;</div>
+              <div className="text-xs sm:text-sm font-bold tracking-wider text-teal-300 uppercase mb-3">higher utilization</div>
+              <p className="text-sm text-gray-400 leading-relaxed">ASD children use PT, OT, and speech services at 11–16&#215; the rate of non-ASD peers ages 3–9</p>
+              <span className="text-xs text-gray-500 mt-2 inline-block">Cummings et al., JADD 2016 &#178;</span>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 sm:p-8 text-center hover:scale-[1.03] hover:border-white/25 transition-all duration-200">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-emerald-400 mb-2">$33</div>
+              <div className="text-xs sm:text-sm font-bold tracking-wider text-teal-300 uppercase mb-3">per Google Ads lead</div>
+              <p className="text-sm text-gray-400 leading-relaxed">Average cost per lead for PT keywords on Google Ads — and that's just for the lead, not the patient</p>
+              <span className="text-xs text-gray-500 mt-2 inline-block">LocaliQ Healthcare Benchmarks, 2026 &#8308;</span>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 sm:p-8 text-center hover:scale-[1.03] hover:border-white/25 transition-all duration-200">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-amber-400 mb-2">$21</div>
+              <div className="text-xs sm:text-sm font-bold tracking-wider text-teal-300 uppercase mb-3">per month, per location</div>
+              <p className="text-sm text-gray-400 leading-relaxed">Your Founding Partner Enhanced Featured Listing on FloridaAutismServices.com — running 24/7/365</p>
+            </div>
+          </div>
+
+          {/* Giant stat callout */}
+          <div className="relative mx-auto max-w-3xl rounded-2xl hover:scale-[1.02] transition-transform duration-300" style={{ animation: 'roiGlow 3s ease-in-out infinite' }}>
+            <div className="bg-white rounded-2xl shadow-2xl p-10 sm:p-12 lg:p-14 text-gray-900 text-center">
+              <div className="text-[6rem] sm:text-[8rem] lg:text-[10rem] font-extrabold text-teal-600 leading-none mb-4" style={{ animation: 'roiStatPulse 4s ease-in-out infinite' }}>1–2</div>
+              <div className="text-2xl sm:text-3xl font-bold text-gray-800 mb-8">new families</div>
+              <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                As few as <strong className="text-gray-900">1–2 new families</strong> finding Select Physical Therapy through FloridaAutismServices.com could potentially cover your <strong className="text-gray-900">entire Featured Listing investment</strong> — across all <strong className="text-gray-900">55 Florida locations</strong> — for the full year.
+              </p>
+            </div>
+          </div>
+
+          {/* "That's not a typo" callout */}
+          <div className="mt-14 mx-auto max-w-3xl border-l-4 border-teal-400 bg-white/5 rounded-r-xl p-6 sm:p-8 text-left">
+            <div className="text-xl sm:text-2xl font-bold text-white mb-3">That's not a typo.</div>
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-3">
+              The math works because pediatric ASD patients have exceptionally high lifetime value — and 82% of patients use online directories and reviews when choosing a provider.
+            </p>
+            <p className="text-base sm:text-lg font-bold text-teal-400">
+              Your Featured Listing works 24/7, 365&nbsp;days&nbsp;a&nbsp;year.
+            </p>
+          </div>
+
+          {/* Download ROI Brief */}
+          <div className="mt-14 text-center">
+            <a
+              href="/select-pt-roi-brief.pdf"
+              target="_blank"
+              className="inline-flex items-center px-5 sm:px-8 py-4 bg-white text-slate-800 text-base sm:text-lg font-semibold rounded-xl border border-white/20 hover:bg-teal-50 hover:scale-105 transition-all duration-200 shadow-lg"
+            >
+              <span className="mr-3 text-xl">&#128196;</span>
+              View the Full ROI Brief
+            </a>
+            <p className="text-sm text-gray-400 mt-3">Peer-reviewed research, federal health data, and the complete ROI analysis</p>
+          </div>
+
+          {/* Citations */}
+          <div className="mt-12 mx-auto max-w-4xl border-t border-white/10 pt-8 text-left">
+            <p className="text-xs text-gray-500 leading-relaxed">
+              <span className="block mb-1">&#185; Cidav et al., <em>Journal of Autism and Developmental Disorders</em> (2013). Medicaid FFS claims analysis, 45,948 children with ASD. PMC4771520</span>
+              <span className="block mb-1">&#178; Cummings et al., <em>Journal of Autism and Developmental Disorders</em> (2016). 8,325 ASD cases vs 83,195 matched controls, five major health systems. PMC4747787</span>
+              <span className="block mb-1">&#179; AHRQ Medical Expenditure Panel Survey, Statistical Brief #565 (Monnet &amp; Zuvekas, 2025). National health expenditures for children with treated ASD, 2018–2022.</span>
+              <span className="block">&#8308; LocaliQ Healthcare Search Advertising Benchmarks (2026). Aggregated U.S. healthcare search campaign data across 16 specialties.</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 8: CTA */}
       <section className="py-16 sm:py-20 px-4 bg-gradient-to-br from-teal-600 to-cyan-700 text-white">
         <div className="max-w-3xl mx-auto text-center">
@@ -477,7 +767,7 @@ export default function FeaturedSelectPT() {
           </p>
           <a
             href="mailto:contact@floridaautismservices.com?subject=Select%20PT%20Partnership%20Inquiry"
-            className="inline-flex items-center px-10 py-4 text-lg font-semibold rounded-lg bg-white text-teal-700 hover:bg-teal-50 transition-colors shadow-lg"
+            className="inline-flex items-center px-6 sm:px-10 py-4 text-base sm:text-lg font-semibold rounded-lg bg-white text-teal-700 hover:bg-teal-50 transition-colors shadow-lg"
           >
             Schedule a Partnership Discussion
           </a>

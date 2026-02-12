@@ -32,6 +32,9 @@ import AccreditationDetail from './pages/AccreditationDetail';
 import ChurchDetail from './pages/ChurchDetail';
 import FeaturedListings from './pages/FeaturedListings';
 import FeaturedSelectPT from './pages/FeaturedSelectPT';
+import FindDaycares from './pages/FindDaycares';
+import DaycareDetail from './pages/DaycareDetail';
+import SubmitDaycare from './pages/SubmitDaycare';
 
 function App() {
   return (
@@ -47,8 +50,10 @@ function App() {
         <Route path="/blog/:id" element={<BlogPost />} />
         <Route path="/submit" element={<SubmitResource />} />
         <Route path="/submit-event" element={<SubmitEvent />} />
+        <Route path="/submit-daycare" element={<SubmitDaycare />} />
         <Route path="/donate" element={<Donate />} />
         <Route path="/guides" element={<Guides />} />
+        <Route path="/guides/:id" element={<BlogPost />} />
 
         {/* New Routes */}
         <Route path="/about" element={<About />} />
@@ -57,6 +62,8 @@ function App() {
         <Route path="/providers/:slug" element={<ProviderDetail />} />
         <Route path="/schools" element={<FindSchools />} />
         <Route path="/schools/:slug" element={<SchoolDetail />} />
+        <Route path="/find-daycares" element={<FindDaycares />} />
+        <Route path="/daycare/:slug" element={<DaycareDetail />} />
         <Route path="/churches/:slug" element={<ChurchDetail />} />
         <Route path="/featured" element={<FeaturedListings />} />
         <Route path="/featured/select-physical-therapy" element={<FeaturedSelectPT />} />
