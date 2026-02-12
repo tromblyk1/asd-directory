@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { 
-  BookOpen, Stethoscope, Shield, GraduationCap, 
-  ArrowRight, Heart, Users, Award, Church
+import {
+  BookOpen, Stethoscope, Shield, GraduationCap,
+  ArrowRight, Heart, Users, Award, Church, Baby
 } from 'lucide-react';
 
 // Services - matches database services array values
@@ -32,6 +32,9 @@ const servicesList = [
   { slug: 'mobile-services', name: 'Mobile Services', description: 'In-home therapy visits' },
   { slug: 'autism-travel', name: 'Autism Travel', description: 'Travel planning support' },
   { slug: 'transportation', name: 'Transportation', description: 'Disability transportation services' },
+  { slug: 'respiratory-care', name: 'Respiratory Care', description: 'Breathing treatments and airway support' },
+  { slug: 'art-therapy', name: 'Art Therapy', description: 'Creative arts for emotional growth' },
+  { slug: 'afterschool-program', name: 'Afterschool Program', description: 'Structured afternoon programming' },
 ];
 
 // Insurances - matches database insurances array values
@@ -60,6 +63,12 @@ const scholarshipsList = [
   { slug: 'fes-eo', name: 'FES-EO', description: 'Educational Opportunities' },
   { slug: 'ftc', name: 'FTC Scholarship', description: 'Florida Tax Credit' },
   { slug: 'pep', name: 'PEP', description: 'Personalized Education Program' },
+];
+
+// Daycares / Childcare resources
+const daycaresList = [
+  { slug: 'ppec', name: 'PPEC Centers', description: 'Prescribed Pediatric Extended Care' },
+  { slug: 'afterschool-program', name: 'Afterschool Programs', description: 'Structured afternoon programming' },
 ];
 
 // Accreditations - matches database accreditation values
@@ -364,6 +373,42 @@ export default function EducationalResources() {
                           {scholarship.description}
                         </p>
                         <div className="flex items-center text-xs sm:text-sm text-green-600 font-medium">
+                          <span>Learn more</span>
+                          <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </article>
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          {/* Daycares / Childcare Section */}
+          <section className="mb-10 sm:mb-12 lg:mb-16" aria-labelledby="daycares-heading">
+            <div className="flex items-start sm:items-center gap-2.5 sm:gap-3 mb-4 sm:mb-6">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-orange-500 to-amber-500 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                <Baby className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+              </div>
+              <div>
+                <h2 id="daycares-heading" className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900">Childcare & Daycares</h2>
+                <p className="text-gray-600 text-sm sm:text-base">Learn about childcare options for children with special needs in Florida</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+              {daycaresList.map((daycare) => (
+                <Link key={daycare.slug} to={`/resources/daycares/${daycare.slug}`}>
+                  <article>
+                    <Card className="h-full hover:shadow-lg transition-all border-none group cursor-pointer">
+                      <CardContent className="p-3 sm:p-4 lg:p-5">
+                        <h3 className="font-bold text-gray-900 mb-1 group-hover:text-orange-600 transition-colors text-sm sm:text-base">
+                          {daycare.name}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-gray-600 mb-2 sm:mb-3">
+                          {daycare.description}
+                        </p>
+                        <div className="flex items-center text-xs sm:text-sm text-orange-600 font-medium">
                           <span>Learn more</span>
                           <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                         </div>

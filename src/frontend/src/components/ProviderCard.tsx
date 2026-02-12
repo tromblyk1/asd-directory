@@ -77,6 +77,8 @@ const serviceBadges: Record<string, { label: string; tooltip: string; link: stri
   'virtual-therapy': { label: 'Virtual Therapy', tooltip: 'Telehealth and online therapy services', link: '/resources/services/virtual-therapy' },
   'mobile-services': { label: 'Mobile Services', tooltip: 'In-home or on-site therapy services', link: '/resources/services/mobile-services' },
   'transportation': { label: 'Transportation', tooltip: 'Transportation assistance for individuals with disabilities', link: '/resources/services/transportation' },
+  'art-therapy': { label: 'Art Therapy', tooltip: 'Creative expression through visual arts for emotional and developmental growth', link: '/resources/services/art-therapy' },
+  'afterschool-program': { label: 'Afterschool Program', tooltip: 'Structured afternoon programming with social, academic, and recreational support', link: '/resources/services/afterschool-program' },
 };
 
 // Insurance badge definitions - PURPLE colors

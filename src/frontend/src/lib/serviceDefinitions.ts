@@ -174,6 +174,20 @@ export const SERVICE_DEFINITIONS: Record<string, ServiceDefinition> = {
     long:
       "Respiratory Care services provide respiratory therapy and support including oxygen management, ventilator care, and breathing treatments. Licensed respiratory therapists monitor and manage airway conditions to ensure safe and effective breathing for children with complex needs.",
   },
+  art_therapy: {
+    title: "Art Therapy",
+    slug: "art-therapy",
+    short: "Creative expression through visual arts to support emotional and developmental growth.",
+    long:
+      "Art Therapy uses drawing, painting, sculpting, and other visual media as therapeutic tools to help individuals express emotions, process experiences, and develop coping skills. Board-certified art therapists tailor sessions to address communication, sensory integration, fine-motor coordination, and self-regulation goals.",
+  },
+  afterschool_program: {
+    title: "Afterschool Program",
+    slug: "afterschool-program",
+    short: "Structured afternoon programming providing social, academic, and recreational support.",
+    long:
+      "Afterschool Programs offer supervised activities after school hours that combine academic support, social skills practice, and recreational opportunities. Programs are designed to accommodate neurodiverse learners with structured routines, sensory-friendly environments, and trained staff who support individual needs.",
+  },
   executive_function_coaching: {
     title: "Executive Function Coaching",
     slug: "executive-function-coaching",

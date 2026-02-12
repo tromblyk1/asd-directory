@@ -41,6 +41,8 @@ const serviceDisplayInfo: Record<string, { slug: string }> = {
   'skilled-nursing': { slug: 'skilled-nursing' },
   'respiratory-care': { slug: 'respiratory-care' },
   'transportation': { slug: 'transportation' },
+  'art-therapy': { slug: 'art-therapy' },
+  'afterschool-program': { slug: 'afterschool-program' },
   'respite-care': { slug: 'respite-care' },
   'life-skills': { slug: 'life-skills' },
   'pet-therapy': { slug: 'pet-therapy' },

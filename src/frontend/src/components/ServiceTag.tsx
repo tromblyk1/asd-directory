@@ -169,6 +169,18 @@ const SERVICE_METADATA: Record<string, {
     color: 'bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-200',
     type: 'service',
   },
+  'art-therapy': {
+    name: 'Art Therapy',
+    description: 'Creative expression through visual arts to support emotional and developmental growth',
+    color: 'bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-200',
+    type: 'service',
+  },
+  'afterschool-program': {
+    name: 'Afterschool Program',
+    description: 'Structured afternoon programming providing social, academic, and recreational support',
+    color: 'bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-200',
+    type: 'service',
+  },
 
   // Insurance (Purple - matches education page)
   'accepts-most-insurances': {

@@ -61,6 +61,8 @@ const serviceOptions = [
   { value: 'virtual-therapy', label: 'Virtual Therapy', description: 'Telehealth services', tooltip: 'Remote therapy sessions via secure video platforms for convenient access from home' },
   { value: 'mobile-services', label: 'Mobile Services', description: 'In-home or on-site services', tooltip: 'Therapists travel to your home, school, or community location' },
   { value: 'transportation', label: 'Transportation', description: 'Disability transportation', tooltip: 'Transportation assistance for individuals with disabilities to appointments, programs, and activities' },
+  { value: 'art-therapy', label: 'Art Therapy', description: 'Creative arts therapy', tooltip: 'Creative expression through visual arts to support emotional and developmental growth' },
+  { value: 'afterschool-program', label: 'Afterschool Program', description: 'After school care', tooltip: 'Structured afternoon programming providing social, academic, and recreational support' },
 ];
 
 // Insurance options for filtering - ONLY values that exist in the database
@@ -113,6 +115,8 @@ const servicePopupInfo: Record<string, { label: string; description: string; slu
   'mobile-services': { label: 'Mobile', description: 'Mobile services', slug: 'mobile-services' },
   'support-groups': { label: 'Support', description: 'Support groups', slug: 'support-groups' },
   'transportation': { label: 'Transport', description: 'Transportation services', slug: 'transportation' },
+  'art-therapy': { label: 'Art', description: 'Art therapy', slug: 'art-therapy' },
+  'afterschool-program': { label: 'Afterschool', description: 'Afterschool program', slug: 'afterschool-program' },
 };
 
 // Insurance display info for map popup

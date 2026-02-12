@@ -1,6 +1,6 @@
 {
   "slug": "ppec",
-  "category": "services",
+  "category": "daycares",
   "title": "PPEC Centers (Prescribed Pediatric Extended Care)",
   "shortDescription": "Medical daycare facilities providing skilled nursing, therapy, and developmental services for medically complex children.",
   "description": "Prescribed Pediatric Extended Care (PPEC) centers are licensed medical daycare facilities that provide comprehensive care for children with complex medical needs. Unlike traditional daycares, PPECs are staffed with registered nurses, licensed practical nurses, and certified nursing assistants who can administer medications, manage feeding tubes, provide respiratory support, and monitor medical conditions. Many PPECs also offer on-site therapy services including physical therapy, occupational therapy, and speech therapy. PPEC care is typically covered 100% by Florida Medicaid for eligible children, with no copays or out-of-pocket costs for families.",
@@ -22,7 +22,7 @@
     "Children needing respiratory support or oxygen",
     "Those with seizure disorders requiring monitoring",
     "Children with multiple disabilities requiring medical oversight",
-    "Families eligible for Florida Medicaid (including Katie Beckett/TEFRA waiver)"
+    "Families eligible for Florida Medicaid"
   ],
   "whatToExpect": [
     "Initial assessment by nursing staff to develop care plan",
@@ -37,19 +37,13 @@
     "Child must be Florida Medicaid eligible",
     "Must have a 'medically complex' or 'medically fragile' designation",
     "Requires physician prescription for PPEC services",
-    "Autism alone may not qualify—typically requires additional medical needs",
-    "Katie Beckett/TEFRA waiver may help families over Medicaid income limits qualify based on child's medical needs"
+    "Autism alone may not qualify—typically requires additional medical needs"
   ],
   "links": [
     {
-      "label": "Florida AHCA PPEC Information",
-      "url": "https://ahca.myflorida.com/health-care-regulation/facility-regulation/prescribed-pediatric-extended-care",
-      "description": "Official Florida Agency for Health Care Administration PPEC page"
-    },
-    {
-      "label": "Find PPEC Centers in Florida",
-      "url": "/find-daycares",
-      "description": "Search our directory of licensed PPEC centers"
+      "label": "Florida Medicaid PPEC Services",
+      "url": "https://ahca.myflorida.com/medicaid/child-health-services/prescribed-pediatric-extended-care-ppec",
+      "description": "Official Florida Medicaid information on PPEC coverage and services"
     },
     {
       "label": "Florida Medicaid Application",
@@ -57,9 +51,9 @@
       "description": "Apply for Florida Medicaid through ACCESS Florida"
     },
     {
-      "label": "Katie Beckett/TEFRA Information",
-      "url": "https://www.cms.gov/medicaid/eligibility/tefra",
-      "description": "Learn about the TEFRA option for children with disabilities"
+      "label": "Kids' Waivers - Florida",
+      "url": "https://kidswaivers.org/fl/",
+      "description": "Florida Medicaid waivers and programs for children with disabilities"
     }
   ]
 }

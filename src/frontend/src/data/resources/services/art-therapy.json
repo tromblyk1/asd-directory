@@ -1,0 +1,38 @@
+{
+  "slug": "art-therapy",
+  "category": "services",
+  "title": "Art Therapy",
+  "shortDescription": "Creative therapeutic approach using art activities to support emotional expression, motor skills, and cognitive development.",
+  "description": "Art therapy uses creative processes like painting, drawing, sculpting, and other art forms as therapeutic tools to help children express emotions, develop fine motor skills, and improve cognitive abilities. For children with autism and other developmental differences, art therapy provides a non-verbal outlet for communication and self-expression. Guided by trained therapists, children explore different materials and techniques at their own pace, building confidence while developing sensory processing skills, hand-eye coordination, and social interaction abilities in a supportive environment.",
+  "benefits": [
+    "Non-verbal emotional expression",
+    "Fine motor skill development",
+    "Sensory exploration and integration",
+    "Improved focus and attention",
+    "Self-esteem and confidence building",
+    "Stress and anxiety reduction",
+    "Social skills through group activities",
+    "Cognitive and problem-solving development"
+  ],
+  "whoCanBenefit": [
+    "Children with autism spectrum disorder",
+    "Those with developmental delays",
+    "Children with emotional or behavioral challenges",
+    "Those with sensory processing differences",
+    "Children with limited verbal communication",
+    "Those recovering from trauma",
+    "Children with fine motor difficulties"
+  ],
+  "links": [
+    {
+      "label": "American Art Therapy Association",
+      "url": "https://arttherapy.org/",
+      "description": "Professional organization for art therapists"
+    },
+    {
+      "label": "Art Therapy Credentials Board",
+      "url": "https://www.atcb.org/",
+      "description": "Credentialing for art therapy professionals"
+    }
+  ]
+}
