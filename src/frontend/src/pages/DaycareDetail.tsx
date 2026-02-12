@@ -22,7 +22,8 @@ import {
   Shield,
   Users,
   FileText,
-  Stethoscope
+  Stethoscope,
+  Languages
 } from 'lucide-react';
 import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 import { SocialLinksDisplay } from '@/components/SocialLinksDisplay';
@@ -141,6 +142,7 @@ export default function DaycareDetail() {
 
   const hasCoordinates = daycare.latitude && daycare.longitude;
   const services = daycare.services || [];
+  const languages = daycare.languages || [];
 
   const getServiceSlug = (service: string): string => {
     const info = serviceDisplayInfo[service];
@@ -340,6 +342,19 @@ export default function DaycareDetail() {
                         ))}
                       </div>
                     </TooltipProvider>
+                  </CardContent>
+                </Card>
+              )}
+
+              {/* Languages Card */}
+              {languages.length > 0 && (
+                <Card className="border-none shadow-xl">
+                  <CardContent className="p-4 sm:p-6 lg:p-8">
+                    <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                      <Languages className="w-5 h-5 text-orange-600" />
+                      Languages Accommodated
+                    </h2>
+                    <p className="text-gray-700 text-sm sm:text-base">{languages.join(', ')}</p>
                   </CardContent>
                 </Card>
               )}

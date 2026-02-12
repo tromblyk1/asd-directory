@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { MapPin, Phone, Globe, Users, CheckCircle } from 'lucide-react';
+import { MapPin, Phone, Globe, Users, CheckCircle, Languages } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import type { PPECCenter } from '@/lib/supabase';
 
@@ -74,6 +74,13 @@ export const DaycareCard: React.FC<DaycareCardProps> = ({ daycare, distance }) =
                 <Users className="w-3 h-3 mr-1" />
                 {daycare.licensed_beds} Licensed Beds
               </Badge>
+            </div>
+          )}
+
+          {daycare.languages && daycare.languages.length > 0 && (
+            <div className="flex items-center text-sm text-gray-500">
+              <Languages className="w-4 h-4 mr-1.5 text-gray-400 flex-shrink-0" />
+              {daycare.languages.join(', ')}
             </div>
           )}
 

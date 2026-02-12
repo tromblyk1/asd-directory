@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import {
   BookOpen, Stethoscope, Shield, GraduationCap,
-  ArrowRight, Heart, Users, Award, Church, Baby
+  ArrowRight, Heart, Users, Award, Church, Baby, ExternalLink
 } from 'lucide-react';
 
 // Services - matches database services array values
@@ -488,6 +488,47 @@ export default function EducationalResources() {
                     </Card>
                   </article>
                 </Link>
+              ))}
+            </div>
+          </section>
+
+          {/* Advocacy Organizations Section */}
+          <section className="mb-10 sm:mb-12 lg:mb-16" aria-labelledby="advocacy-heading">
+            <div className="flex items-start sm:items-center gap-2.5 sm:gap-3 mb-4 sm:mb-6">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-rose-500 to-pink-500 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                <Heart className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+              </div>
+              <div>
+                <h2 id="advocacy-heading" className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900">Advocacy & Support Organizations</h2>
+                <p className="text-gray-600 text-sm sm:text-base">Florida organizations advocating for individuals with disabilities and their families</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+              {[
+                { name: 'Family Network on Disabilities (FND)', url: 'https://fndusa.org/', description: 'Parent training and support navigating disability services' },
+                { name: 'The Arc of Florida', url: 'https://arcflorida.org/', description: 'Advocacy for individuals with intellectual and developmental disabilities' },
+                { name: 'Disability Rights Florida', url: 'https://disabilityrightsflorida.org/', description: 'Legal advocacy and civil rights protection for people with disabilities' },
+                { name: 'Family Care Council Florida', url: 'https://fccflorida.org/', description: 'Family empowerment partnering with the Agency for Persons with Disabilities' },
+              ].map((org) => (
+                <a key={org.name} href={org.url} target="_blank" rel="noopener noreferrer">
+                  <article>
+                    <Card className="h-full hover:shadow-lg transition-all border-none group cursor-pointer">
+                      <CardContent className="p-3 sm:p-4 lg:p-5">
+                        <h3 className="font-bold text-gray-900 mb-1 group-hover:text-rose-600 transition-colors text-sm sm:text-base">
+                          {org.name}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-gray-600 mb-2 sm:mb-3">
+                          {org.description}
+                        </p>
+                        <div className="flex items-center text-xs sm:text-sm text-rose-600 font-medium">
+                          <span>Visit website</span>
+                          <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 ml-1 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </article>
+                </a>
               ))}
             </div>
           </section>

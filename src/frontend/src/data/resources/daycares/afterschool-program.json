@@ -1,6 +1,6 @@
 {
   "slug": "afterschool-program",
-  "category": "services",
+  "category": "daycares",
   "title": "Afterschool Program",
   "shortDescription": "Structured afterschool care combining academic support, recreational activities, and specialized services for children with special needs.",
   "description": "Afterschool programs at PPEC centers and specialized care facilities provide a safe, structured environment for children with medical complexities and special needs after the school day ends. These programs combine academic support (homework help, tutoring) with recreational and therapeutic activities tailored to each child's abilities. Staff trained in special needs care ensure children receive appropriate medical attention while engaging in social activities, educational enrichment, and skill-building exercises. For working families, afterschool programs provide essential extended care with the specialized support their children require.",
@@ -22,11 +22,5 @@
     "Those needing structured activities and social opportunities",
     "Working parents of children with special needs"
   ],
-  "links": [
-    {
-      "label": "Find PPEC Centers with Afterschool Programs",
-      "url": "/find-daycares",
-      "description": "Search our directory of medical daycares"
-    }
-  ]
+  "links": []
 }
