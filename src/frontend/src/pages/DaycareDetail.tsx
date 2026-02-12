@@ -21,11 +21,38 @@ import {
   Building2,
   Shield,
   Users,
-  FileText
+  FileText,
+  Stethoscope
 } from 'lucide-react';
 import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 import { SocialLinksDisplay } from '@/components/SocialLinksDisplay';
+import ServiceTag from '@/components/ServiceTag';
 import type { PPECCenter } from '@/lib/supabase';
+
+// Service slug mapping (database slug -> display slug for ServiceTag)
+const serviceDisplayInfo: Record<string, { slug: string }> = {
+  'aba': { slug: 'aba-therapy' },
+  'speech-therapy': { slug: 'speech-therapy' },
+  'occupational-therapy': { slug: 'occupational-therapy' },
+  'physical-therapy': { slug: 'physical-therapy' },
+  'feeding-therapy': { slug: 'feeding-therapy' },
+  'music-therapy': { slug: 'music-therapy' },
+  'dir-floortime': { slug: 'dir-floortime' },
+  'skilled-nursing': { slug: 'skilled-nursing' },
+  'respiratory-care': { slug: 'respiratory-care' },
+  'transportation': { slug: 'transportation' },
+  'respite-care': { slug: 'respite-care' },
+  'life-skills': { slug: 'life-skills' },
+  'pet-therapy': { slug: 'pet-therapy' },
+  'group-therapy': { slug: 'group-therapy' },
+  'virtual-therapy': { slug: 'virtual-therapy' },
+  'mobile-services': { slug: 'mobile-services' },
+  'parent-coaching': { slug: 'parent-coaching' },
+  'tutoring': { slug: 'tutoring' },
+  'support-groups': { slug: 'support-groups' },
+  'ados-testing': { slug: 'ados-testing' },
+  'executive-function-coaching': { slug: 'executive-function-coaching' },
+};
 
 export default function DaycareDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -111,6 +138,12 @@ export default function DaycareDetail() {
   }
 
   const hasCoordinates = daycare.latitude && daycare.longitude;
+  const services = daycare.services || [];
+
+  const getServiceSlug = (service: string): string => {
+    const info = serviceDisplayInfo[service];
+    return info?.slug || service;
+  };
 
   return (
     <>
@@ -167,7 +200,7 @@ export default function DaycareDetail() {
 
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 flex items-start sm:items-center gap-2 sm:gap-3">
               <span className="flex-1">{daycare.name}</span>
-              {daycare.verified && (
+              {daycare.verified === true && (
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger>
@@ -285,6 +318,29 @@ export default function DaycareDetail() {
                   </div>
                 </CardContent>
               </Card>
+
+              {/* Services Card */}
+              {services.length > 0 && (
+                <Card className="border-none shadow-xl">
+                  <CardContent className="p-4 sm:p-6 lg:p-8">
+                    <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                      <Stethoscope className="w-5 h-5 text-orange-600" />
+                      Services Offered
+                    </h2>
+                    <TooltipProvider delayDuration={200}>
+                      <div className="flex flex-wrap gap-2">
+                        {services.map((service) => (
+                          <ServiceTag
+                            key={service}
+                            slug={getServiceSlug(service)}
+                            type="service"
+                          />
+                        ))}
+                      </div>
+                    </TooltipProvider>
+                  </CardContent>
+                </Card>
+              )}
 
               {/* Center Details Card */}
               <Card className="border-none shadow-xl">

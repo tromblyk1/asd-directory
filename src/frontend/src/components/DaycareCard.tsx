@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { MapPin, Phone, Globe, Users } from 'lucide-react';
+import { MapPin, Phone, Globe, Users, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import type { PPECCenter } from '@/lib/supabase';
 
@@ -47,6 +47,12 @@ export const DaycareCard: React.FC<DaycareCardProps> = ({ daycare, distance }) =
               )}
             </div>
             <div className="flex items-center gap-1.5 flex-shrink-0">
+              {daycare.verified === true && (
+                <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-50 text-green-700 border border-green-100" title="Verified center - information confirmed by Florida Autism Services">
+                  <CheckCircle className="w-3 h-3 mr-1" />
+                  Verified
+                </span>
+              )}
               {daycare.profit_status && (
                 <Badge
                   variant="outline"

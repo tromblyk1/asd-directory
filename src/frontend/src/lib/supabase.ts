@@ -139,6 +139,7 @@ export interface PPECCenter {
   latitude: number | null;
   longitude: number | null;
   description: string | null;
+  services: string[] | null;
   verified: boolean | null;
   featured: boolean | null;
   facebook_url?: string | null;

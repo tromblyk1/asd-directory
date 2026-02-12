@@ -1,4 +1,4 @@
-type ResourceFolder = "services" | "insurances" | "scholarships";
+type ResourceFolder = "services" | "insurances" | "scholarships" | "daycares";
 
 function extractModuleData(module: unknown) {
   if (module && typeof module === "object" && "default" in module) {
@@ -59,6 +59,7 @@ const lazyModules: Record<ResourceFolder, Record<string, () => Promise<unknown>>
   services: normalizeLazyModules(import.meta.glob("../data/resources/services/*.json")),
   insurances: normalizeLazyModules(import.meta.glob("../data/resources/insurances/*.json")),
   scholarships: normalizeLazyModules(import.meta.glob("../data/resources/scholarships/*.json")),
+  daycares: normalizeLazyModules(import.meta.glob("../data/resources/daycares/*.json")),
 };
 
 export async function loadResource(category: ResourceFolder, slug: string) {

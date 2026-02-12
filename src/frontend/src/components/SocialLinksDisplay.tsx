@@ -1,5 +1,11 @@
 import React from 'react';
-import { Facebook, Instagram, Linkedin, Youtube, Twitter, Music } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Youtube, Twitter } from 'lucide-react';
+
+const TikTokIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.73a8.19 8.19 0 0 0 4.76 1.52v-3.4a4.85 4.85 0 0 1-1-.16z"/>
+  </svg>
+);
 import {
   Tooltip,
   TooltipContent,
@@ -16,9 +22,9 @@ const platformConfig: Record<string, { icon: React.ElementType; label: string; b
   facebook: { icon: Facebook, label: 'Facebook', bgColor: 'bg-blue-100 hover:bg-blue-200', textColor: 'text-blue-600' },
   instagram: { icon: Instagram, label: 'Instagram', bgColor: 'bg-pink-100 hover:bg-pink-200', textColor: 'text-pink-600' },
   linkedin: { icon: Linkedin, label: 'LinkedIn', bgColor: 'bg-blue-100 hover:bg-blue-200', textColor: 'text-blue-700' },
-  youtube: { icon: Youtube, label: 'YouTube', bgColor: 'bg-red-100 hover:bg-red-200', textColor: 'text-red-600' },
+  youtube: { icon: Youtube, label: 'YouTube', bgColor: 'bg-red-600 hover:bg-red-700', textColor: 'text-white' },
   twitter: { icon: Twitter, label: 'Twitter/X', bgColor: 'bg-gray-100 hover:bg-gray-200', textColor: 'text-gray-700' },
-  tiktok: { icon: Music, label: 'TikTok', bgColor: 'bg-gray-100 hover:bg-gray-200', textColor: 'text-gray-900' },
+  tiktok: { icon: TikTokIcon, label: 'TikTok', bgColor: 'bg-gray-900 hover:bg-black', textColor: 'text-white' },
 };
 
 export const SocialLinksDisplay: React.FC<SocialLinksDisplayProps> = ({
