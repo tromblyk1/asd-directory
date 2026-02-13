@@ -148,6 +148,7 @@ export interface PPECCenter {
   linkedin_url?: string | null;
   youtube_url?: string | null;
   tiktok_url?: string | null;
+  x_url?: string | null;
 }
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;

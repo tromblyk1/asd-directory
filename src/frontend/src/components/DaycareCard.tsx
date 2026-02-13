@@ -4,7 +4,13 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { MapPin, Phone, Globe, Users, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { TooltipProvider } from '@/components/ui/tooltip';
+import ServiceTag from '@/components/ServiceTag';
 import type { PPECCenter } from '@/lib/supabase';
+
+const serviceSlugMap: Record<string, string> = {
+  'aba': 'aba-therapy',
+};
 
 interface DaycareCardProps {
   daycare: PPECCenter;
@@ -72,6 +78,20 @@ export const DaycareCard: React.FC<DaycareCardProps> = ({ daycare, distance }) =
                 {daycare.licensed_beds} Licensed Beds
               </Badge>
             </div>
+          )}
+
+          {daycare.services && daycare.services.length > 0 && (
+            <TooltipProvider delayDuration={200}>
+              <div className="flex flex-wrap gap-1.5">
+                {daycare.services.map((service) => (
+                  <ServiceTag
+                    key={service}
+                    slug={serviceSlugMap[service] || service}
+                    type="service"
+                  />
+                ))}
+              </div>
+            </TooltipProvider>
           )}
 
           {distance != null && (

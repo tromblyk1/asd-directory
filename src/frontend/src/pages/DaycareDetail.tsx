@@ -296,7 +296,7 @@ export default function DaycareDetail() {
                     )}
 
                     {/* Social Media Links - Featured only */}
-                    {daycare.featured && (daycare.facebook_url || daycare.instagram_url || daycare.linkedin_url || daycare.youtube_url || daycare.tiktok_url) && (
+                    {daycare.featured && (daycare.facebook_url || daycare.instagram_url || daycare.linkedin_url || daycare.youtube_url || daycare.tiktok_url || daycare.x_url) && (
                       <div className="flex items-start gap-3">
                         <Globe className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
                         <div>
@@ -308,6 +308,7 @@ export default function DaycareDetail() {
                               ...(daycare.linkedin_url && { linkedin: daycare.linkedin_url }),
                               ...(daycare.youtube_url && { youtube: daycare.youtube_url }),
                               ...(daycare.tiktok_url && { tiktok: daycare.tiktok_url }),
+                              ...(daycare.x_url && { twitter: daycare.x_url }),
                             }} />
                           </TooltipProvider>
                         </div>
