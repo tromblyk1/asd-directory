@@ -29,6 +29,7 @@ import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from '@/comp
 import { SocialLinksDisplay } from '@/components/SocialLinksDisplay';
 import ServiceTag from '@/components/ServiceTag';
 import type { PPECCenter } from '@/lib/supabase';
+import { SERVICE_DEFINITIONS } from '@/lib/serviceDefinitions';
 
 // Service slug mapping (database slug -> display slug for ServiceTag)
 const serviceDisplayInfo: Record<string, { slug: string }> = {
@@ -524,6 +525,33 @@ export default function DaycareDetail() {
                   </div>
                 </CardContent>
               </Card>
+
+              {/* Find Similar Daycares */}
+              {services.length > 0 && (
+                <Card className="border-none shadow-xl">
+                  <CardContent className="p-4 sm:p-6">
+                    <h3 className="font-semibold text-gray-900 mb-3 sm:mb-4">Find Similar Daycares</h3>
+                    <div className="space-y-2">
+                      {services.slice(0, 3).map((service) => {
+                        const def = Object.values(SERVICE_DEFINITIONS).find(d => d.slug === service || d.slug === getServiceSlug(service));
+                        const title = def?.title || service.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+                        return (
+                          <Link
+                            key={service}
+                            to={`/find-daycares?service=${service}${daycare.county ? `&county=${daycare.county}` : ''}`}
+                            className="block"
+                          >
+                            <Button variant="outline" className="w-full justify-start text-left">
+                              <Stethoscope className="w-4 h-4 mr-2 flex-shrink-0" />
+                              <span className="truncate">More {title} daycares</span>
+                            </Button>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
             </div>
           </div>
         </div>

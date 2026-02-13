@@ -169,6 +169,18 @@ const SERVICE_METADATA: Record<string, {
     color: 'bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-200',
     type: 'service',
   },
+  'skilled-nursing': {
+    name: 'Skilled Nursing',
+    description: 'Licensed nursing care including medication administration and medical monitoring',
+    color: 'bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-200',
+    type: 'service',
+  },
+  'respiratory-care': {
+    name: 'Respiratory Care',
+    description: 'Respiratory therapy including oxygen management and breathing treatments',
+    color: 'bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-200',
+    type: 'service',
+  },
   'art-therapy': {
     name: 'Art Therapy',
     description: 'Creative expression through visual arts to support emotional and developmental growth',
