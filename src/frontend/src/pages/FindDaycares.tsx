@@ -6,11 +6,12 @@ import { useQuery } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
-import { Search, X, ChevronDown, Filter, Map, List, Navigation, Phone, MapPin, Crosshair, RefreshCw, Baby, ChevronUp } from 'lucide-react';
+import { Search, X, ChevronDown, Filter, Map, List, Navigation, Phone, MapPin, Crosshair, RefreshCw, Baby, ChevronUp, HeartPulse } from 'lucide-react';
 import { DaycareCard } from '@/components/DaycareCard';
+import type { DaycareListItem } from '@/components/DaycareCard';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
-import type { PPECCenter } from '@/lib/supabase';
+import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 
 const DAYCARES_PER_PAGE = 50;
 const DEFAULT_SEARCH_RADIUS = 25; // miles
@@ -38,18 +39,24 @@ const toTitleCase = (str: string): string => {
     .join(' ');
 };
 
-// Profit status options for filtering
-const profitStatusOptions = [
-  { value: 'For-Profit', label: 'For-Profit' },
-  { value: 'Not-For-Profit', label: 'Not-For-Profit' },
+// Feature filter options (boolean fields from daycares table)
+const featureFilterOptions = [
+  { value: 'on_site_therapy', label: 'On-Site Therapy' },
+  { value: 'aba_on_site', label: 'ABA on Site' },
+  { value: 'accepts_scholarships', label: 'Accepts Scholarships' },
+  { value: 'accepts_medicaid', label: 'Accepts Medicaid' },
+  { value: 'vpk_provider', label: 'VPK Provider' },
+  { value: 'inclusive_classroom', label: 'Inclusive Classroom' },
+  { value: 'autism_specific', label: 'Autism Specific' },
 ];
 
 export default function FindDaycares() {
   // State
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCounties, setSelectedCounties] = useState<string[]>([]);
-  const [selectedProfitStatus, setSelectedProfitStatus] = useState<string[]>([]);
-  const [citySearchTerm, setCitySearchTerm] = useState('');
+  const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
+  const [agesServedSearch, setAgesServedSearch] = useState('');
+  const [recordTypeFilter, setRecordTypeFilter] = useState<'all' | 'daycare' | 'ppec'>('all');
   const [countySearchTerm, setCountySearchTerm] = useState('');
   const [visibleCount, setVisibleCount] = useState(DAYCARES_PER_PAGE);
   const [viewMode, setViewMode] = useState<'list' | 'map'>('list');
@@ -78,7 +85,16 @@ export default function FindDaycares() {
         document.head.appendChild(link);
       }
 
-      import('react-leaflet').then((module) => {
+      Promise.all([
+        import('react-leaflet'),
+        import('leaflet'),
+      ]).then(([module, L]) => {
+        delete (L.default.Icon.Default.prototype as any)._getIconUrl;
+        L.default.Icon.Default.mergeOptions({
+          iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+          iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+          shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+        });
         setMapComponent(() => module);
       });
     }
@@ -92,35 +108,79 @@ export default function FindDaycares() {
   // Reset visible count when filters change
   useEffect(() => {
     setVisibleCount(DAYCARES_PER_PAGE);
-  }, [searchTerm, selectedCounties, selectedProfitStatus, citySearchTerm]);
+  }, [searchTerm, selectedCounties, selectedFeatures, agesServedSearch, recordTypeFilter]);
 
-  // Query the ppec_centers table
-  const { data: daycares = [], isLoading } = useQuery({
-    queryKey: ['ppec-centers'],
+  // Fetch from BOTH daycares and ppec_centers tables
+  const { data: allDaycares = [], isLoading } = useQuery({
+    queryKey: ['daycares-and-ppec'],
     queryFn: async () => {
-      const { data, error } = await supabase
+      // Fetch daycares table (paginated for large datasets)
+      let daycareRecords: DaycareListItem[] = [];
+      let from = 0;
+      const pageSize = 1000;
+
+      while (true) {
+        const { data, error } = await supabase
+          .from('daycares')
+          .select('*')
+          .order('name', { ascending: true })
+          .range(from, from + pageSize - 1);
+
+        if (error) {
+          console.error('Error fetching daycares:', error);
+          throw error;
+        }
+
+        if (!data || data.length === 0) break;
+
+        daycareRecords = [
+          ...daycareRecords,
+          ...data.map((d: any) => ({ ...d, record_type: 'daycare' as const })),
+        ];
+
+        if (data.length < pageSize) break;
+        from += pageSize;
+      }
+
+      // Fetch ppec_centers table
+      const { data: ppecData, error: ppecError } = await supabase
         .from('ppec_centers')
         .select('*')
         .order('name', { ascending: true });
 
-      if (error) {
-        console.error('Error fetching daycares:', error);
-        throw error;
+      if (ppecError) {
+        console.error('Error fetching PPEC centers:', ppecError);
+        throw ppecError;
       }
 
-      return (data || []) as PPECCenter[];
+      const ppecRecords: DaycareListItem[] = (ppecData || []).map((p: any) => ({
+        ...p,
+        record_type: 'ppec' as const,
+      }));
+
+      // Merge and sort by name
+      const merged = [...daycareRecords, ...ppecRecords].sort((a, b) =>
+        (a.name || '').localeCompare(b.name || '')
+      );
+
+      console.log(`✅ Loaded ${daycareRecords.length} daycares + ${ppecRecords.length} PPEC centers = ${merged.length} total`);
+      return merged;
     },
   });
+
+  // Stats
+  const daycareCount = useMemo(() => allDaycares.filter(d => d.record_type === 'daycare').length, [allDaycares]);
+  const ppecCount = useMemo(() => allDaycares.filter(d => d.record_type === 'ppec').length, [allDaycares]);
 
   // Memoize counties
   const counties = useMemo(() => {
     return [...new Set(
-      daycares
+      allDaycares
         .map(d => d.county)
         .filter(Boolean)
         .map(county => toTitleCase(county as string))
     )].sort();
-  }, [daycares]);
+  }, [allDaycares]);
 
   // Memoize filtered counties
   const filteredCounties = useMemo(() => {
@@ -131,7 +191,11 @@ export default function FindDaycares() {
 
   // Filter daycares
   const filteredDaycares = useMemo(() => {
-    return daycares.filter(daycare => {
+    return allDaycares.filter(daycare => {
+      // Record type filter
+      if (recordTypeFilter === 'daycare' && daycare.record_type !== 'daycare') return false;
+      if (recordTypeFilter === 'ppec' && daycare.record_type !== 'ppec') return false;
+
       // Search filter
       const matchesSearch = !searchTerm ||
         daycare.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -144,17 +208,19 @@ export default function FindDaycares() {
           toTitleCase(daycare.county || '').includes(county)
         );
 
-      // City filter
-      const matchesCity = !citySearchTerm ||
-        daycare.city?.toLowerCase().includes(citySearchTerm.toLowerCase());
+      // Ages served filter (text search)
+      const matchesAges = !agesServedSearch ||
+        daycare.ages_served?.toLowerCase().includes(agesServedSearch.toLowerCase());
 
-      // Profit status filter
-      const matchesProfitStatus = selectedProfitStatus.length === 0 ||
-        selectedProfitStatus.includes(daycare.profit_status || '');
+      // Feature filters (boolean AND - must have ALL selected features)
+      const matchesFeatures = selectedFeatures.length === 0 ||
+        selectedFeatures.every(feature =>
+          (daycare as any)[feature] === true
+        );
 
-      return matchesSearch && matchesCounty && matchesCity && matchesProfitStatus;
+      return matchesSearch && matchesCounty && matchesAges && matchesFeatures;
     });
-  }, [daycares, searchTerm, selectedCounties, citySearchTerm, selectedProfitStatus]);
+  }, [allDaycares, searchTerm, selectedCounties, agesServedSearch, selectedFeatures, recordTypeFilter]);
 
   // Request user's location
   const requestUserLocation = () => {
@@ -243,7 +309,7 @@ export default function FindDaycares() {
     hasCountyFilters,
     hasOtherFilters
   }: {
-    daycares: PPECCenter[];
+    daycares: DaycareListItem[];
     hasCountyFilters: boolean;
     hasOtherFilters: boolean;
   }) => {
@@ -306,14 +372,15 @@ export default function FindDaycares() {
     }
 
     const hasOnlyCountyFilters = selectedCounties.length > 0 &&
-      selectedProfitStatus.length === 0;
+      selectedFeatures.length === 0 &&
+      !agesServedSearch;
 
     if (hasOnlyCountyFilters) {
       return filteredDaycares.length <= 1500;
     }
 
     return filteredDaycares.length <= MAX_MAP_DAYCARES;
-  }, [filteredDaycares, locationFilteredDaycares, searchCenter, selectedCounties, selectedProfitStatus]);
+  }, [filteredDaycares, locationFilteredDaycares, searchCenter, selectedCounties, selectedFeatures, agesServedSearch]);
 
   // Visible daycares with pagination
   const visibleDaycares = useMemo(() => {
@@ -323,10 +390,10 @@ export default function FindDaycares() {
   // Distance calculations for visible daycares
   const daycareDistances = useMemo(() => {
     if (!userLocation) return {};
-    const distances: Record<string | number, number> = {};
+    const distances: Record<string, number> = {};
     visibleDaycares.forEach(d => {
       if (d.latitude && d.longitude) {
-        distances[d.id] = calculateDistance(
+        distances[`${d.record_type}-${d.id}`] = calculateDistance(
           userLocation[0], userLocation[1],
           Number(d.latitude), Number(d.longitude)
         );
@@ -344,9 +411,10 @@ export default function FindDaycares() {
 
   const clearFilters = () => {
     setSelectedCounties([]);
-    setSelectedProfitStatus([]);
+    setSelectedFeatures([]);
+    setAgesServedSearch('');
+    setRecordTypeFilter('all');
     setSearchTerm('');
-    setCitySearchTerm('');
     setCountySearchTerm('');
     setVisibleCount(DAYCARES_PER_PAGE);
   };
@@ -357,13 +425,14 @@ export default function FindDaycares() {
     );
   };
 
-  const toggleProfitStatus = (status: string) => {
-    setSelectedProfitStatus(prev =>
-      prev.includes(status) ? prev.filter(s => s !== status) : [...prev, status]
+  const toggleFeature = (feature: string) => {
+    setSelectedFeatures(prev =>
+      prev.includes(feature) ? prev.filter(f => f !== feature) : [...prev, feature]
     );
   };
 
-  const activeFiltersCount = selectedCounties.length + selectedProfitStatus.length + (citySearchTerm ? 1 : 0);
+  const activeFiltersCount = selectedCounties.length + selectedFeatures.length +
+    (agesServedSearch ? 1 : 0) + (recordTypeFilter !== 'all' ? 1 : 0);
 
   // Filter panel content (shared between mobile drawer and desktop sidebar)
   const FilterContent = () => (
@@ -390,35 +459,74 @@ export default function FindDaycares() {
       )}
 
       <div className="space-y-6">
-        {/* City Filter */}
+        {/* 3-Way Type Toggle */}
         <div>
           <h4 className="text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
-            City
+            Type
+          </h4>
+          <div className="flex rounded-lg overflow-hidden border border-gray-200">
+            <button
+              onClick={() => setRecordTypeFilter('all')}
+              className={`flex-1 px-3 py-2 text-xs sm:text-sm font-medium transition-colors ${
+                recordTypeFilter === 'all'
+                  ? 'bg-orange-600 text-white'
+                  : 'bg-white text-gray-700 hover:bg-gray-50'
+              }`}
+            >
+              Show All
+            </button>
+            <button
+              onClick={() => setRecordTypeFilter('daycare')}
+              className={`flex-1 px-3 py-2 text-xs sm:text-sm font-medium border-x border-gray-200 transition-colors ${
+                recordTypeFilter === 'daycare'
+                  ? 'bg-orange-600 text-white'
+                  : 'bg-white text-gray-700 hover:bg-gray-50'
+              }`}
+            >
+              Daycares
+            </button>
+            <button
+              onClick={() => setRecordTypeFilter('ppec')}
+              className={`flex-1 px-3 py-2 text-xs sm:text-sm font-medium transition-colors ${
+                recordTypeFilter === 'ppec'
+                  ? 'bg-orange-600 text-white'
+                  : 'bg-white text-gray-700 hover:bg-gray-50'
+              }`}
+            >
+              PPEC
+            </button>
+          </div>
+        </div>
+
+        {/* Ages Served */}
+        <div>
+          <h4 className="text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
+            Ages Served
           </h4>
           <Input
             type="text"
-            placeholder="Filter by city..."
-            value={citySearchTerm}
-            onChange={(e) => setCitySearchTerm(e.target.value)}
+            placeholder="e.g., infant, toddler, 3-5..."
+            value={agesServedSearch}
+            onChange={(e) => setAgesServedSearch(e.target.value)}
             className="text-sm"
           />
         </div>
 
-        {/* Profit Status Filter */}
+        {/* Feature Filters */}
         <div>
           <h4 className="text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
-            Profit Status
+            Features
           </h4>
           <div className="space-y-2">
-            {profitStatusOptions.map(({ value, label }) => (
+            {featureFilterOptions.map(({ value, label }) => (
               <div key={value} className="flex items-center space-x-2">
                 <Checkbox
-                  id={`profit-${value}`}
-                  checked={selectedProfitStatus.includes(value)}
-                  onCheckedChange={() => toggleProfitStatus(value)}
+                  id={`feature-${value}`}
+                  checked={selectedFeatures.includes(value)}
+                  onCheckedChange={() => toggleFeature(value)}
                 />
                 <Label
-                  htmlFor={`profit-${value}`}
+                  htmlFor={`feature-${value}`}
                   className="text-sm font-normal cursor-pointer flex-1"
                 >
                   {label}
@@ -467,13 +575,14 @@ export default function FindDaycares() {
       </div>
 
       {/* Clear All Filters */}
-      {(searchTerm || selectedCounties.length > 0 || selectedProfitStatus.length > 0 || citySearchTerm || userLocation) && (
+      {(searchTerm || selectedCounties.length > 0 || selectedFeatures.length > 0 || agesServedSearch || recordTypeFilter !== 'all' || userLocation) && (
         <button
           onClick={() => {
             setSearchTerm('');
             setSelectedCounties([]);
-            setSelectedProfitStatus([]);
-            setCitySearchTerm('');
+            setSelectedFeatures([]);
+            setAgesServedSearch('');
+            setRecordTypeFilter('all');
             setCountySearchTerm('');
             setUserLocation(null);
             setLocationStatus('idle');
@@ -496,14 +605,28 @@ export default function FindDaycares() {
     <>
       <Helmet>
         <title>Find Daycares & PPEC Centers in Florida | Florida Autism Services</title>
-        <meta name="description" content="Search autism-friendly daycares and Prescribed Pediatric Extended Care (PPEC) centers across Florida. Find licensed childcare facilities near you." />
-        <meta name="keywords" content="PPEC centers Florida, autism daycare Florida, pediatric extended care, special needs daycare, childcare autism Florida" />
+        <meta name="description" content="Search autism-friendly daycares and Prescribed Pediatric Extended Care (PPEC) centers across Florida. Filter by inclusive classrooms, on-site therapy, ABA, Medicaid, VPK, and more." />
+        <meta name="keywords" content="autism daycare Florida, PPEC centers Florida, inclusive daycare autism, ABA daycare, special needs childcare Florida, VPK provider autism" />
         <link rel="canonical" href="https://floridaautismservices.com/find-daycares" />
         <meta property="og:title" content="Find Daycares & PPEC Centers in Florida" />
-        <meta property="og:description" content="Search autism-friendly daycares and PPEC centers across Florida." />
+        <meta property="og:description" content="Search autism-friendly daycares and PPEC centers across Florida. Filter by inclusive classrooms, therapy, Medicaid, and more." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://floridaautismservices.com/find-daycares" />
         <meta property="og:site_name" content="Florida Autism Services Directory" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "Find Daycares & PPEC Centers in Florida",
+            "description": "Search autism-friendly daycares and PPEC centers across Florida",
+            "url": "https://floridaautismservices.com/find-daycares",
+            "isPartOf": { "@type": "WebSite", "name": "Florida Autism Services Directory", "url": "https://floridaautismservices.com" },
+            "breadcrumb": { "@type": "BreadcrumbList", "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://floridaautismservices.com" },
+              { "@type": "ListItem", "position": 2, "name": "Find Daycares", "item": "https://floridaautismservices.com/find-daycares" }
+            ]}
+          })}
+        </script>
       </Helmet>
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -514,13 +637,36 @@ export default function FindDaycares() {
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold">Find Daycares</h1>
           </div>
           <p className="text-base sm:text-lg lg:text-xl text-orange-50">
-            Search licensed childcare and PPEC centers across Florida
+            Search autism-friendly daycares and PPEC centers across Florida
           </p>
-          <div className="mt-3 sm:mt-4 flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm">
-            <span className="bg-white/20 px-2 sm:px-3 py-1 rounded-full">
-              {daycares.length} Centers
-            </span>
-          </div>
+          <TooltipProvider delayDuration={200}>
+            <div className="mt-3 sm:mt-4 flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm">
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <span className="bg-white/20 hover:bg-white/30 px-2 sm:px-3 py-1 rounded-full cursor-help transition-colors">
+                    {daycareCount.toLocaleString()} Daycares
+                  </span>
+                </TooltipTrigger>
+                <TooltipContent side="bottom" className="max-w-xs hidden sm:block">
+                  <p>Licensed childcare centers across Florida</p>
+                </TooltipContent>
+              </Tooltip>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Link to="/guides/childcare-options-autism-florida" className="bg-white/20 hover:bg-white/30 px-2 sm:px-3 py-1 rounded-full cursor-pointer transition-colors">
+                    {ppecCount.toLocaleString()} PPEC Centers
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent side="bottom" className="max-w-xs hidden sm:block">
+                  <p>Prescribed Pediatric Extended Care centers for medically complex children</p>
+                  <p className="text-xs text-gray-400 mt-1">Click to learn more</p>
+                </TooltipContent>
+              </Tooltip>
+              <span className="bg-white/30 px-2 sm:px-3 py-1 rounded-full font-medium">
+                {allDaycares.length.toLocaleString()} Total
+              </span>
+            </div>
+          </TooltipProvider>
         </div>
       </div>
 
@@ -611,11 +757,11 @@ export default function FindDaycares() {
                 </span>{' '}
                 of{' '}
                 <span className="font-semibold text-gray-900">
-                  {filteredDaycares.length}
+                  {filteredDaycares.length.toLocaleString()}
                 </span>{' '}
-                daycares
-                {daycares.length > 0 && filteredDaycares.length !== daycares.length && (
-                  <span className="text-xs sm:text-sm ml-2">({daycares.length} total)</span>
+                results
+                {allDaycares.length > 0 && filteredDaycares.length !== allDaycares.length && (
+                  <span className="text-xs sm:text-sm ml-2">({allDaycares.length.toLocaleString()} total)</span>
                 )}
               </p>
             </div>
@@ -629,20 +775,22 @@ export default function FindDaycares() {
               <Card className="border-none shadow-lg">
                 <CardContent className="py-12 text-center">
                   <Search className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">No daycares found</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">No results found</h3>
                   <p className="text-gray-600 mb-4">Try adjusting your filters or search terms</p>
                   <Button onClick={clearFilters}>Clear Filters</Button>
                 </CardContent>
               </Card>
             ) : viewMode === 'list' ? (
-              <div className="space-y-3 sm:space-y-4">
-                {visibleDaycares.map((daycare) => (
-                  <DaycareCard
-                    key={daycare.id}
-                    daycare={daycare}
-                    distance={daycareDistances[daycare.id] ?? null}
-                  />
-                ))}
+              <TooltipProvider delayDuration={200}>
+                <div className="space-y-3 sm:space-y-4">
+                  {visibleDaycares.map((daycare) => (
+                    <DaycareCard
+                      key={`${daycare.record_type}-${daycare.id}`}
+                      daycare={daycare}
+                      distance={daycareDistances[`${daycare.record_type}-${daycare.id}`] ?? null}
+                    />
+                  ))}
+                </div>
                 {hasMoreDaycares && (
                   <div className="mt-6 sm:mt-8 text-center">
                     <Button
@@ -653,16 +801,16 @@ export default function FindDaycares() {
                     >
                       <ChevronDown className="w-5 h-5 mr-2" />
                       Load {Math.min(DAYCARES_PER_PAGE, remainingCount)} More
-                      <span className="ml-2 text-gray-500">({remainingCount} remaining)</span>
+                      <span className="ml-2 text-gray-500">({remainingCount.toLocaleString()} remaining)</span>
                     </Button>
                   </div>
                 )}
                 {!hasMoreDaycares && filteredDaycares.length > DAYCARES_PER_PAGE && (
                   <div className="mt-6 sm:mt-8 text-center text-gray-500">
-                    <p>Showing all {filteredDaycares.length} daycares</p>
+                    <p>Showing all {filteredDaycares.length.toLocaleString()} results</p>
                   </div>
                 )}
-              </div>
+              </TooltipProvider>
             ) : (
               /* Map View */
               <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] rounded-lg overflow-hidden shadow-lg">
@@ -673,9 +821,9 @@ export default function FindDaycares() {
                 ) : !shouldRenderMap ? (
                   <div className="h-full flex flex-col items-center justify-center bg-gray-100 p-6 sm:p-8 text-center">
                     <MapPin className="w-12 h-12 sm:w-16 sm:h-16 text-gray-400 mb-4" />
-                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Too many daycares to display</h3>
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Too many results to display</h3>
                     <p className="text-sm sm:text-base text-gray-600 mb-4">
-                      Use your location or filters to narrow down results to {MAX_MAP_DAYCARES} or fewer daycares.
+                      Use your location or filters to narrow down results to {MAX_MAP_DAYCARES} or fewer.
                     </p>
                     <Button onClick={requestUserLocation} disabled={locationStatus === 'loading'}>
                       <Crosshair className="w-4 h-4 mr-2" />
@@ -699,7 +847,7 @@ export default function FindDaycares() {
                       <MapBoundsUpdater
                         daycares={mappableDaycares}
                         hasCountyFilters={selectedCounties.length > 0}
-                        hasOtherFilters={selectedProfitStatus.length > 0}
+                        hasOtherFilters={selectedFeatures.length > 0 || !!agesServedSearch}
                       />
 
                       {/* User location marker */}
@@ -736,7 +884,7 @@ export default function FindDaycares() {
                       {/* Daycare markers */}
                       {mappableDaycares.map((daycare) => (
                         <MapComponent.Marker
-                          key={daycare.id}
+                          key={`${daycare.record_type}-${daycare.id}`}
                           position={[Number(daycare.latitude), Number(daycare.longitude)]}
                         >
                           <MapComponent.Tooltip
@@ -747,10 +895,8 @@ export default function FindDaycares() {
                             <div className="text-center">
                               <p className="font-bold text-sm">{daycare.name}</p>
                               <p className="text-xs text-gray-600">{daycare.city}, FL</p>
-                              {daycare.licensed_beds && (
-                                <p className="text-xs text-orange-600 mt-1">
-                                  {daycare.licensed_beds} beds
-                                </p>
+                              {daycare.record_type === 'ppec' && (
+                                <p className="text-xs text-rose-600 font-semibold mt-1">PPEC Center</p>
                               )}
                             </div>
                           </MapComponent.Tooltip>
@@ -762,6 +908,18 @@ export default function FindDaycares() {
                               <p className="text-xs text-gray-600 mb-2">
                                 {daycare.city}, {daycare.state || 'FL'}
                               </p>
+                              {daycare.record_type === 'ppec' && (
+                                <Link
+                                  to="/guides/childcare-options-autism-florida"
+                                  className="inline-flex items-center text-xs bg-rose-100 text-rose-800 hover:bg-rose-200 px-1.5 py-0.5 rounded mb-2 transition-colors font-semibold"
+                                >
+                                  <HeartPulse className="w-3 h-3 mr-1" />
+                                  PPEC Center
+                                </Link>
+                              )}
+                              {daycare.ages_served && (
+                                <p className="text-xs text-blue-600 mb-2">Ages: {daycare.ages_served}</p>
+                              )}
                               {daycare.licensed_beds && (
                                 <p className="text-xs text-orange-600 mb-2">
                                   {daycare.licensed_beds} Licensed Beds

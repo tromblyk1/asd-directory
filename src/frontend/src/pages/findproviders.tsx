@@ -188,7 +188,16 @@ export default function FindProviders() {
         document.head.appendChild(link);
       }
 
-      import('react-leaflet').then((module) => {
+      Promise.all([
+        import('react-leaflet'),
+        import('leaflet'),
+      ]).then(([module, L]) => {
+        delete (L.default.Icon.Default.prototype as any)._getIconUrl;
+        L.default.Icon.Default.mergeOptions({
+          iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+          iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+          shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+        });
         setMapComponent(() => module);
       });
     }
