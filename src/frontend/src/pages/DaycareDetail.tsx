@@ -85,14 +85,25 @@ export default function DaycareDetail() {
   const { data: daycare, isLoading, error } = useQuery({
     queryKey: ['daycare', slug],
     queryFn: async () => {
-      const { data, error } = await supabase
+      // Try ppec_centers first
+      const { data: ppecData } = await supabase
         .from('ppec_centers')
         .select('*')
         .eq('slug', slug)
-        .single();
+        .maybeSingle();
+
+      if (ppecData) return ppecData as PPECCenter;
+
+      // Fall back to daycares table
+      const { data: daycareData, error } = await supabase
+        .from('daycares')
+        .select('*')
+        .eq('slug', slug)
+        .maybeSingle();
 
       if (error) throw error;
-      return data as PPECCenter;
+      if (!daycareData) throw new Error('Not found');
+      return daycareData as PPECCenter;
     },
     enabled: !!slug,
   });

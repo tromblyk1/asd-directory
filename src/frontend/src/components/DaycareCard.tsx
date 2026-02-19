@@ -71,6 +71,44 @@ interface DaycareCardProps {
   distance?: number | null;
 }
 
+// Service badge definitions - BLUE colors (matches ProviderCard pattern)
+const serviceBadges: Record<string, { label: string; tooltip: string; link: string }> = {
+  'aba': { label: 'ABA Therapy', tooltip: 'Applied Behavior Analysis - Evidence-based therapy for autism', link: '/resources/services/aba-therapy' },
+  'aba-therapy': { label: 'ABA Therapy', tooltip: 'Applied Behavior Analysis - Evidence-based therapy for autism', link: '/resources/services/aba-therapy' },
+  'speech-therapy': { label: 'Speech Therapy', tooltip: 'Speech-language pathology for communication skills', link: '/resources/services/speech-therapy' },
+  'occupational-therapy': { label: 'Occupational Therapy', tooltip: 'Daily living skills and sensory processing therapy', link: '/resources/services/occupational-therapy' },
+  'physical-therapy': { label: 'Physical Therapy', tooltip: 'Motor skills and movement therapy', link: '/resources/services/physical-therapy' },
+  'feeding-therapy': { label: 'Feeding Therapy', tooltip: 'Help with eating difficulties and food aversions', link: '/resources/services/feeding-therapy' },
+  'music-therapy': { label: 'Music Therapy', tooltip: 'Therapeutic music interventions for development', link: '/resources/services/music-therapy' },
+  'dir-floortime': { label: 'DIR/Floortime', tooltip: 'Developmental, Individual Difference, Relationship-based therapy', link: '/resources/services/floor-time' },
+  'skilled-nursing': { label: 'Skilled Nursing', tooltip: 'Licensed nursing care including medication administration and medical monitoring', link: '/resources/services/skilled-nursing' },
+  'respiratory-care': { label: 'Respiratory Care', tooltip: 'Respiratory therapy including oxygen management and breathing treatments', link: '/resources/services/respiratory-care' },
+  'respite-care': { label: 'Respite Care', tooltip: 'Temporary caregiver relief services', link: '/resources/services/respite-care' },
+  'life-skills': { label: 'Life Skills', tooltip: 'Daily living and independence training', link: '/resources/services/life-skills' },
+  'pet-therapy': { label: 'Pet Therapy', tooltip: 'Animal-assisted therapeutic interventions', link: '/resources/services/pet-therapy' },
+  'group-therapy': { label: 'Group Therapy', tooltip: 'Social skills groups and peer interaction therapy', link: '/resources/services/group-therapy' },
+  'virtual-therapy': { label: 'Virtual Therapy', tooltip: 'Telehealth and online therapy services', link: '/resources/services/virtual-therapy' },
+  'mobile-services': { label: 'Mobile Services', tooltip: 'In-home or on-site therapy services', link: '/resources/services/mobile-services' },
+  'transportation': { label: 'Transportation', tooltip: 'Transportation assistance for individuals with disabilities', link: '/resources/services/transportation' },
+  'art-therapy': { label: 'Art Therapy', tooltip: 'Creative expression through visual arts for emotional and developmental growth', link: '/resources/services/art-therapy' },
+  'afterschool-program': { label: 'Afterschool Program', tooltip: 'Structured afternoon programming with social, academic, and recreational support', link: '/resources/services/afterschool-program' },
+  'parent-coaching': { label: 'Parent Coaching', tooltip: 'Training and support for parents and caregivers', link: '/resources/services/parent-coaching' },
+  'tutoring': { label: 'Tutoring', tooltip: 'Academic support and educational assistance', link: '/resources/services/tutoring' },
+  'support-groups': { label: 'Support Groups', tooltip: 'Peer support meetings for families', link: '/resources/services/support-groups' },
+  'ados-testing': { label: 'ADOS Testing', tooltip: 'Autism Diagnostic Observation Schedule evaluation', link: '/resources/services/ados-testing' },
+  'executive-function-coaching': { label: 'Executive Function', tooltip: 'Coaching for planning, organization, and self-regulation', link: '/resources/services/executive-function-coaching' },
+};
+
+const findServiceBadgeInfo = (value: string): { label: string; tooltip: string; link: string } | null => {
+  if (serviceBadges[value]) return serviceBadges[value];
+  if (serviceBadges[value.toLowerCase()]) return serviceBadges[value.toLowerCase()];
+  const normalized = value.toLowerCase().replace(/[-_\s]+/g, '');
+  for (const [key, info] of Object.entries(serviceBadges)) {
+    if (key.toLowerCase().replace(/[-_\s]+/g, '') === normalized) return info;
+  }
+  return null;
+};
+
 // Feature badge definitions
 const featureBadgeDefs: { key: keyof DaycareListItem; label: string; tooltip: string }[] = [
   { key: 'autism_specific', label: 'Autism Specific', tooltip: 'Specialized program designed specifically for children on the autism spectrum' },
@@ -176,6 +214,41 @@ export const DaycareCard: React.FC<DaycareCardProps> = ({ daycare, distance }) =
                   </TooltipContent>
                 </Tooltip>
               ))}
+            </div>
+          )}
+
+          {/* PPEC Service Tags */}
+          {daycare.record_type === 'ppec' && daycare.services && daycare.services.length > 0 && (
+            <div className="flex flex-wrap gap-1.5">
+              {daycare.services.map((service) => {
+                const info = findServiceBadgeInfo(service);
+                if (!info) return (
+                  <Badge
+                    key={service}
+                    variant="outline"
+                    className="text-xs font-medium bg-blue-100 text-blue-800 border-blue-200"
+                  >
+                    {service}
+                  </Badge>
+                );
+                return (
+                  <Tooltip key={service}>
+                    <TooltipTrigger asChild>
+                      <Link to={info.link}>
+                        <Badge
+                          variant="outline"
+                          className="text-xs font-medium cursor-pointer transition-colors bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-200"
+                        >
+                          {info.label}
+                        </Badge>
+                      </Link>
+                    </TooltipTrigger>
+                    <TooltipContent side="top" className="max-w-xs">
+                      <p>{info.tooltip}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                );
+              })}
             </div>
           )}
 
