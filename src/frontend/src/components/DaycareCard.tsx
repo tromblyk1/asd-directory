@@ -110,11 +110,11 @@ const findServiceBadgeInfo = (value: string): { label: string; tooltip: string; 
 };
 
 // Feature badge definitions
-const featureBadgeDefs: { key: keyof DaycareListItem; label: string; tooltip: string }[] = [
+const featureBadgeDefs: { key: keyof DaycareListItem; label: string; tooltip: string; link?: string }[] = [
   { key: 'autism_specific', label: 'Autism Specific', tooltip: 'Specialized program designed specifically for children on the autism spectrum' },
   { key: 'inclusive_classroom', label: 'Inclusive Classroom', tooltip: 'Inclusive classroom environment for children with and without special needs' },
   { key: 'on_site_therapy', label: 'On-Site Therapy', tooltip: 'Therapy services (speech, OT, etc.) available on-site' },
-  { key: 'aba_on_site', label: 'ABA on Site', tooltip: 'Applied Behavior Analysis therapy provided on-site' },
+  { key: 'aba_on_site', label: 'ABA on Site', tooltip: 'Applied Behavior Analysis therapy provided on-site', link: '/resources/services/aba-therapy' },
   { key: 'sensory_room', label: 'Sensory Room', tooltip: 'Dedicated sensory room for sensory processing support' },
   { key: 'accepts_medicaid', label: 'Accepts Medicaid', tooltip: 'Accepts Florida Medicaid for payment' },
   { key: 'accepts_scholarships', label: 'Accepts Scholarships', tooltip: 'Accepts Florida scholarship programs (e.g., Gardiner) for tuition' },
@@ -199,16 +199,31 @@ export const DaycareCard: React.FC<DaycareCardProps> = ({ daycare, distance }) =
           {/* Feature Badges */}
           {activeFeatures.length > 0 && (
             <div className="flex flex-wrap gap-1.5">
-              {activeFeatures.map(({ key, label, tooltip }) => (
+              {activeFeatures.map(({ key, label, tooltip, link }) => (
                 <Tooltip key={key}>
-                  <TooltipTrigger asChild>
-                    <Badge
-                      variant="outline"
-                      className="text-xs font-medium cursor-help bg-amber-50 text-amber-700 border-amber-200"
-                    >
-                      {label}
-                    </Badge>
-                  </TooltipTrigger>
+                  {link ? (
+                    <TooltipTrigger asChild>
+                      <Link to={link}>
+                        <Badge
+                          variant="outline"
+                          className="text-xs font-medium cursor-pointer transition-colors bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-200"
+                        >
+                          {label}
+                        </Badge>
+                      </Link>
+                    </TooltipTrigger>
+                  ) : (
+                    <TooltipTrigger asChild>
+                      <span>
+                        <Badge
+                          variant="outline"
+                          className="text-xs font-medium cursor-help bg-blue-100 text-blue-800 border-blue-200"
+                        >
+                          {label}
+                        </Badge>
+                      </span>
+                    </TooltipTrigger>
+                  )}
                   <TooltipContent side="top" className="max-w-xs">
                     <p>{tooltip}</p>
                   </TooltipContent>

@@ -23,7 +23,8 @@ import {
   Users,
   FileText,
   Stethoscope,
-  Languages
+  Languages,
+  Star
 } from 'lucide-react';
 import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 import { SocialLinksDisplay } from '@/components/SocialLinksDisplay';
@@ -57,6 +58,22 @@ const serviceDisplayInfo: Record<string, { slug: string }> = {
   'ados-testing': { slug: 'ados-testing' },
   'executive-function-coaching': { slug: 'executive-function-coaching' },
 };
+
+// Feature badge definitions (matches DaycareCard.tsx)
+const featureBadgeDefs: { key: string; label: string; tooltip: string; link?: string }[] = [
+  { key: 'autism_specific', label: 'Autism Specific', tooltip: 'Specialized program designed specifically for children on the autism spectrum' },
+  { key: 'inclusive_classroom', label: 'Inclusive Classroom', tooltip: 'Inclusive classroom environment for children with and without special needs' },
+  { key: 'on_site_therapy', label: 'On-Site Therapy', tooltip: 'Therapy services (speech, OT, etc.) available on-site' },
+  { key: 'aba_on_site', label: 'ABA on Site', tooltip: 'Applied Behavior Analysis therapy provided on-site', link: '/resources/services/aba-therapy' },
+  { key: 'sensory_room', label: 'Sensory Room', tooltip: 'Dedicated sensory room for sensory processing support' },
+  { key: 'accepts_medicaid', label: 'Accepts Medicaid', tooltip: 'Accepts Florida Medicaid for payment' },
+  { key: 'accepts_scholarships', label: 'Accepts Scholarships', tooltip: 'Accepts Florida scholarship programs (e.g., Gardiner) for tuition' },
+  { key: 'vpk_provider', label: 'VPK Provider', tooltip: 'Voluntary Prekindergarten Education Program provider — free pre-K for 4-year-olds' },
+  { key: 'early_intervention', label: 'Early Intervention', tooltip: 'Participates in early intervention programs for infants and toddlers' },
+  { key: 'head_start', label: 'Head Start', tooltip: 'Federally-funded Head Start program for low-income families' },
+  { key: 'transportation_provided', label: 'Transportation', tooltip: 'Transportation services available for enrolled children' },
+  { key: 'sliding_scale_fees', label: 'Sliding Scale', tooltip: 'Offers sliding scale fees based on family income' },
+];
 
 export default function DaycareDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -155,6 +172,7 @@ export default function DaycareDetail() {
   const hasCoordinates = daycare.latitude && daycare.longitude;
   const services = daycare.services || [];
   const languages = daycare.languages || [];
+  const activeFeatures = featureBadgeDefs.filter(f => (daycare as any)[f.key] === true);
 
   const getServiceSlug = (service: string): string => {
     const info = serviceDisplayInfo[service];
@@ -335,6 +353,52 @@ export default function DaycareDetail() {
                   </div>
                 </CardContent>
               </Card>
+
+              {/* Feature Badges Card */}
+              {activeFeatures.length > 0 && (
+                <Card className="border-none shadow-xl">
+                  <CardContent className="p-4 sm:p-6 lg:p-8">
+                    <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                      <Star className="w-5 h-5 text-orange-600" />
+                      Program Features
+                    </h2>
+                    <TooltipProvider delayDuration={200}>
+                      <div className="flex flex-wrap gap-2">
+                        {activeFeatures.map(({ key, label, tooltip, link }) => (
+                          <Tooltip key={key}>
+                            {link ? (
+                              <TooltipTrigger asChild>
+                                <Link to={link}>
+                                  <Badge
+                                    variant="outline"
+                                    className="text-xs font-medium cursor-pointer transition-colors bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-200"
+                                  >
+                                    {label}
+                                  </Badge>
+                                </Link>
+                              </TooltipTrigger>
+                            ) : (
+                              <TooltipTrigger asChild>
+                                <span>
+                                  <Badge
+                                    variant="outline"
+                                    className="text-xs font-medium cursor-help bg-blue-100 text-blue-800 border-blue-200"
+                                  >
+                                    {label}
+                                  </Badge>
+                                </span>
+                              </TooltipTrigger>
+                            )}
+                            <TooltipContent side="top" className="max-w-xs">
+                              <p>{tooltip}</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        ))}
+                      </div>
+                    </TooltipProvider>
+                  </CardContent>
+                </Card>
+              )}
 
               {/* Services Card */}
               {services.length > 0 && (
