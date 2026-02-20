@@ -40,6 +40,12 @@ export interface ProviderResource {
   google_place_id?: string | null;
   social_links?: Record<string, string> | null;
   featured?: boolean | null;
+  facebook_url?: string | null;
+  instagram_url?: string | null;
+  youtube_url?: string | null;
+  linkedin_url?: string | null;
+  twitter_url?: string | null;
+  tiktok_url?: string | null;
 }
 
 interface ProviderCardProps {
@@ -432,9 +438,16 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, rating }) 
                 </div>
               )}
 
-              {provider.featured && provider.social_links && Object.keys(provider.social_links).length > 0 && (
+              {provider.featured && (provider.facebook_url || provider.instagram_url || provider.youtube_url || provider.linkedin_url || provider.twitter_url || provider.tiktok_url) && (
                 <div className="flex items-center text-gray-600 sm:col-span-2">
-                  <SocialLinksDisplay socialLinks={provider.social_links} size="sm" />
+                  <SocialLinksDisplay socialLinks={{
+                    ...(provider.facebook_url && { facebook: provider.facebook_url }),
+                    ...(provider.instagram_url && { instagram: provider.instagram_url }),
+                    ...(provider.youtube_url && { youtube: provider.youtube_url }),
+                    ...(provider.linkedin_url && { linkedin: provider.linkedin_url }),
+                    ...(provider.twitter_url && { twitter: provider.twitter_url }),
+                    ...(provider.tiktok_url && { tiktok: provider.tiktok_url }),
+                  }} size="sm" />
                 </div>
               )}
             </div>

@@ -346,9 +346,9 @@ export const DaycareCard: React.FC<DaycareCardProps> = ({ daycare, distance }) =
               <SocialLinksDisplay socialLinks={{
                 ...(daycare.facebook_url && { facebook: daycare.facebook_url }),
                 ...(daycare.instagram_url && { instagram: daycare.instagram_url }),
-                ...(daycare.x_url && { twitter: daycare.x_url }),
                 ...(daycare.youtube_url && { youtube: daycare.youtube_url }),
                 ...(daycare.linkedin_url && { linkedin: daycare.linkedin_url }),
+                ...(daycare.x_url && { twitter: daycare.x_url }),
                 ...(daycare.tiktok_url && { tiktok: daycare.tiktok_url }),
               }} size="sm" />
             </div>
