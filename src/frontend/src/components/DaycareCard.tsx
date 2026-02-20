@@ -9,6 +9,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
+import { SocialLinksDisplay } from '@/components/SocialLinksDisplay';
 
 // Unified type for merged daycares + ppec_centers records
 export interface DaycareListItem {
@@ -64,6 +65,7 @@ export interface DaycareListItem {
   youtube_url?: string | null;
   linkedin_url?: string | null;
   tiktok_url?: string | null;
+  featured?: boolean | null;
 }
 
 interface DaycareCardProps {
@@ -337,6 +339,20 @@ export const DaycareCard: React.FC<DaycareCardProps> = ({ daycare, distance }) =
               </div>
             )}
           </div>
+
+          {/* Social Links - featured only */}
+          {daycare.featured && (daycare.facebook_url || daycare.instagram_url || daycare.x_url || daycare.youtube_url || daycare.linkedin_url || daycare.tiktok_url) && (
+            <div className="flex items-center text-gray-600">
+              <SocialLinksDisplay socialLinks={{
+                ...(daycare.facebook_url && { facebook: daycare.facebook_url }),
+                ...(daycare.instagram_url && { instagram: daycare.instagram_url }),
+                ...(daycare.x_url && { twitter: daycare.x_url }),
+                ...(daycare.youtube_url && { youtube: daycare.youtube_url }),
+                ...(daycare.linkedin_url && { linkedin: daycare.linkedin_url }),
+                ...(daycare.tiktok_url && { tiktok: daycare.tiktok_url }),
+              }} size="sm" />
+            </div>
+          )}
 
           {/* View Details */}
           <div className="flex justify-end pt-3 mt-3 border-t border-gray-100">

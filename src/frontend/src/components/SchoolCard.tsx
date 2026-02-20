@@ -44,6 +44,8 @@ export interface School {
   twitter_url?: string | null;
   youtube_url?: string | null;
   linkedin_url?: string | null;
+  featured?: boolean | null;
+  social_links?: Record<string, string> | null;
 }
 
 interface SchoolCardProps {
@@ -472,7 +474,7 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ school }) => {
               </div>
             )}
 
-            {school.social_links && Object.keys(school.social_links).length > 0 && (
+            {school.featured && school.social_links && Object.keys(school.social_links).length > 0 && (
               <div className="flex items-center text-gray-600 sm:col-span-2">
                 <SocialLinksDisplay socialLinks={school.social_links} size="sm" />
               </div>

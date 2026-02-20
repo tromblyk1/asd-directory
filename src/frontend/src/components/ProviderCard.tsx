@@ -39,6 +39,7 @@ export interface ProviderResource {
   resource_type: string | null;
   google_place_id?: string | null;
   social_links?: Record<string, string> | null;
+  featured?: boolean | null;
 }
 
 interface ProviderCardProps {
@@ -431,7 +432,7 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, rating }) 
                 </div>
               )}
 
-              {provider.social_links && Object.keys(provider.social_links).length > 0 && (
+              {provider.featured && provider.social_links && Object.keys(provider.social_links).length > 0 && (
                 <div className="flex items-center text-gray-600 sm:col-span-2">
                   <SocialLinksDisplay socialLinks={provider.social_links} size="sm" />
                 </div>
