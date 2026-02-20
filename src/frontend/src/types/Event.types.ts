@@ -54,7 +54,8 @@ export interface Event {
   // Social media links
   facebook_url?: string | null;
   instagram_url?: string | null;
-  twitter_url?: string | null;
+  x_url?: string | null;
   youtube_url?: string | null;
   linkedin_url?: string | null;
+  tiktok_url?: string | null;
 }

@@ -183,11 +183,11 @@ export default function EventDetail() {
 
     // Check if event only has social media as its source
     const hasSocialOnly = !event.website_url && !event.registration_url &&
-        (event.facebook_url || event.instagram_url || event.twitter_url || event.youtube_url || event.linkedin_url);
+        (event.facebook_url || event.instagram_url || event.x_url || event.youtube_url || event.linkedin_url || event.tiktok_url);
 
     const primarySocial = event.facebook_url ? { name: 'Facebook', url: event.facebook_url, icon: Facebook, bgColor: 'bg-blue-50', borderColor: 'border-blue-200', textColor: 'text-blue-800', brandColor: '#1877F2' }
         : event.instagram_url ? { name: 'Instagram', url: event.instagram_url, icon: Instagram, bgColor: 'bg-pink-50', borderColor: 'border-pink-200', textColor: 'text-pink-800', brandColor: '#E4405F' }
-        : event.twitter_url ? { name: 'X (Twitter)', url: event.twitter_url, icon: Twitter, bgColor: 'bg-gray-100', borderColor: 'border-gray-300', textColor: 'text-gray-800', brandColor: '#000000' }
+        : event.x_url ? { name: 'X (Twitter)', url: event.x_url, icon: Twitter, bgColor: 'bg-gray-100', borderColor: 'border-gray-300', textColor: 'text-gray-800', brandColor: '#000000' }
         : event.youtube_url ? { name: 'YouTube', url: event.youtube_url, icon: Youtube, bgColor: 'bg-red-50', borderColor: 'border-red-200', textColor: 'text-red-800', brandColor: '#FF0000' }
         : event.linkedin_url ? { name: 'LinkedIn', url: event.linkedin_url, icon: Linkedin, bgColor: 'bg-sky-50', borderColor: 'border-sky-200', textColor: 'text-sky-800', brandColor: '#0A66C2' }
         : null;
@@ -842,7 +842,7 @@ export default function EventDetail() {
                                         </Button>
 
                                         {/* Follow the Organizer - Social Media Links */}
-                                        {(event.facebook_url || event.instagram_url || event.twitter_url || event.youtube_url || event.linkedin_url) && (
+                                        {(event.facebook_url || event.instagram_url || event.x_url || event.youtube_url || event.linkedin_url || event.tiktok_url) && (
                                             <div className="pt-3 sm:pt-4 border-t mt-3 sm:mt-4">
                                                 <p className="text-sm font-medium text-gray-700 mb-2 sm:mb-3">Follow the Organizer</p>
                                                 <div className="flex gap-2 flex-wrap">
@@ -868,9 +868,9 @@ export default function EventDetail() {
                                                             <Instagram className="w-5 h-5 text-white" />
                                                         </a>
                                                     )}
-                                                    {event.twitter_url && (
+                                                    {event.x_url && (
                                                         <a
-                                                            href={event.twitter_url}
+                                                            href={event.x_url}
                                                             target="_blank"
                                                             rel="noopener noreferrer"
                                                             className="w-10 h-10 rounded-full bg-black hover:bg-gray-800 flex items-center justify-center transition-colors"
@@ -899,6 +899,19 @@ export default function EventDetail() {
                                                             aria-label="LinkedIn"
                                                         >
                                                             <Linkedin className="w-5 h-5 text-white" />
+                                                        </a>
+                                                    )}
+                                                    {event.tiktok_url && (
+                                                        <a
+                                                            href={event.tiktok_url}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="w-10 h-10 rounded-full bg-black hover:bg-gray-800 flex items-center justify-center transition-colors"
+                                                            aria-label="TikTok"
+                                                        >
+                                                            <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+                                                                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.73a8.19 8.19 0 0 0 4.76 1.52v-3.4a4.85 4.85 0 0 1-1-.16z"/>
+                                                            </svg>
                                                         </a>
                                                     )}
                                                 </div>
