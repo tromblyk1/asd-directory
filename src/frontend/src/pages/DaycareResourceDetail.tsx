@@ -13,7 +13,9 @@ import { loadResource } from '@/lib/loadResource';
 interface DaycareResourceData {
   title: string;
   category?: string;
+  shortDescription?: string;
   description: string;
+  importantNote?: string;
   whoProvides?: string;
   whatToExpect?: string | string[];
   benefits?: string[];
@@ -46,7 +48,9 @@ export default function DaycareResourceDetail() {
           setResource({
             title: data.title as string,
             category: (data as any).category,
+            shortDescription: (data as any).shortDescription,
             description: data.description as string,
+            importantNote: (data as any).importantNote,
             whoProvides: (data as any).whoProvides,
             whatToExpect: (data as any).whatToExpect,
             benefits: (data as any).benefits,
@@ -140,6 +144,9 @@ export default function DaycareResourceDetail() {
                   Childcare Resource
                 </Badge>
                 <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold">{resource.title}</h1>
+                {resource.shortDescription && (
+                  <p className="text-orange-100 mt-1 sm:mt-2 text-sm sm:text-base lg:text-lg">{resource.shortDescription}</p>
+                )}
               </div>
             </div>
           </div>
@@ -160,6 +167,16 @@ export default function DaycareResourceDetail() {
                   </p>
                 </div>
               </section>
+
+              {/* Important Note */}
+              {resource.importantNote && (
+                <section className="mb-6 sm:mb-8 p-4 sm:p-6 bg-amber-50 rounded-lg border-l-4 border-amber-500">
+                  <div className="flex items-start gap-2 sm:gap-3">
+                    <AlertCircle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+                    <p className="text-gray-800 text-sm sm:text-base leading-relaxed">{resource.importantNote}</p>
+                  </div>
+                </section>
+              )}
 
               {/* What to Expect */}
               {resource.whatToExpect && (
