@@ -33,6 +33,8 @@ const STATIC_PAGES = [
     { path: '/donate', priority: '0.6', changefreq: 'monthly' },
     { path: '/submit-resource', priority: '0.4', changefreq: 'monthly' },
     { path: '/submit-event', priority: '0.4', changefreq: 'monthly' },
+    { path: '/find-daycares', priority: '0.9', changefreq: 'daily' },
+    { path: '/submit-daycare', priority: '0.4', changefreq: 'monthly' },
 ];
 
 /**
@@ -101,6 +103,51 @@ async function fetchAllSlugs(tableName, slugColumn = 'slug') {
 
     console.log(`  Total: ${slugs.length} ${tableName} slugs`);
     return slugs;
+}
+
+/**
+ * Fetch blog_posts with slug and category for routing
+ */
+async function fetchBlogPostSlugs() {
+    const posts = [];
+    let from = 0;
+    const pageSize = 1000;
+
+    console.log(`Fetching blog_posts...`);
+
+    while (true) {
+        const url = `${SUPABASE_URL}/rest/v1/blog_posts?select=slug,category&slug=not.is.null&order=slug&offset=${from}&limit=${pageSize}`;
+
+        const response = await fetch(url, {
+            headers: {
+                'apikey': SUPABASE_ANON_KEY,
+                'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            }
+        });
+
+        if (!response.ok) {
+            console.error(`Error fetching blog_posts: ${response.status} ${response.statusText}`);
+            break;
+        }
+
+        const data = await response.json();
+
+        if (!data || data.length === 0) break;
+
+        for (const row of data) {
+            if (row.slug) {
+                posts.push({ slug: row.slug, category: row.category || '' });
+            }
+        }
+
+        console.log(`  Fetched ${posts.length} blog_posts slugs so far...`);
+
+        if (data.length < pageSize) break;
+        from += pageSize;
+    }
+
+    console.log(`  Total: ${posts.length} blog_posts slugs`);
+    return posts;
 }
 
 /**
@@ -203,6 +250,19 @@ async function main() {
     }
     console.log(`  Added ${scholarshipSlugs.length} scholarship pages\n`);
 
+    // Add daycare resource detail pages from local JSON files
+    console.log('Adding daycare resource detail pages...');
+    const daycareResourceSlugs = getLocalResourceSlugs('daycares');
+    for (const slug of daycareResourceSlugs) {
+        urls.push(generateUrlEntry(
+            `${BASE_URL}/resources/daycares/${slug}`,
+            today,
+            'monthly',
+            '0.6'
+        ));
+    }
+    console.log(`  Added ${daycareResourceSlugs.length} daycare resource pages\n`);
+
     // Fetch and add provider pages
     const providerSlugs = await fetchAllSlugs('resources', 'slug');
     for (const slug of providerSlugs) {
@@ -239,15 +299,28 @@ async function main() {
     }
     console.log('');
 
-    // Fetch and add blog post pages
-    const blogSlugs = await fetchAllSlugs('blog_posts', 'slug');
-    for (const slug of blogSlugs) {
-        urls.push(generateUrlEntry(
-            `${BASE_URL}/blog/${slug}`,
-            today,
-            'monthly',
-            '0.6'
-        ));
+    // Fetch and add blog/guide pages (routed by category)
+    const blogPosts = await fetchBlogPostSlugs();
+    let blogCount = 0;
+    let guideCount = 0;
+    for (const post of blogPosts) {
+        if (post.category === 'guide') {
+            urls.push(generateUrlEntry(
+                `${BASE_URL}/guides/${post.slug}`,
+                today,
+                'monthly',
+                '0.6'
+            ));
+            guideCount++;
+        } else {
+            urls.push(generateUrlEntry(
+                `${BASE_URL}/blog/${post.slug}`,
+                today,
+                'monthly',
+                '0.6'
+            ));
+            blogCount++;
+        }
     }
     console.log('');
 
@@ -259,6 +332,30 @@ async function main() {
             today,
             'weekly',
             '0.5'
+        ));
+    }
+    console.log('');
+
+    // Fetch and add daycare pages
+    const daycareSlugs = await fetchAllSlugs('daycares', 'slug');
+    for (const slug of daycareSlugs) {
+        urls.push(generateUrlEntry(
+            `${BASE_URL}/daycare/${slug}`,
+            today,
+            'weekly',
+            '0.7'
+        ));
+    }
+    console.log('');
+
+    // Fetch and add PPEC center pages
+    const ppecSlugs = await fetchAllSlugs('ppec_centers', 'slug');
+    for (const slug of ppecSlugs) {
+        urls.push(generateUrlEntry(
+            `${BASE_URL}/daycare/${slug}`,
+            today,
+            'weekly',
+            '0.7'
         ));
     }
     console.log('');
@@ -291,11 +388,15 @@ async function main() {
     console.log(`  - Service pages: ${serviceSlugs.length}`);
     console.log(`  - Insurance pages: ${insuranceSlugs.length}`);
     console.log(`  - Scholarship pages: ${scholarshipSlugs.length}`);
+    console.log(`  - Daycare resource pages: ${daycareResourceSlugs.length}`);
     console.log(`  - Provider pages: ${providerSlugs.length}`);
     console.log(`  - School pages: ${schoolSlugs.length}`);
     console.log(`  - Church pages: ${churchSlugs.length}`);
-    console.log(`  - Blog pages: ${blogSlugs.length}`);
+    console.log(`  - Blog pages: ${blogCount}`);
+    console.log(`  - Guide pages: ${guideCount}`);
     console.log(`  - Event pages: ${eventSlugs.length}`);
+    console.log(`  - Daycare pages: ${daycareSlugs.length}`);
+    console.log(`  - PPEC center pages: ${ppecSlugs.length}`);
     console.log('\nDone!');
 }
 

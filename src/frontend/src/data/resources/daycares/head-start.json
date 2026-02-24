@@ -1,0 +1,41 @@
+{
+  "slug": "head-start",
+  "category": "programs",
+  "title": "Head Start & Early Head Start",
+  "shortDescription": "Federally funded early childhood programs that reserve at least 10% of enrollment for children with disabilities.",
+  "description": "Head Start and Early Head Start are free, federally funded programs that promote school readiness for children from low-income families. While not autism-specific, federal law requires every Head Start program to reserve at least 10% of its enrollment for children with disabilities, including autism spectrum disorder. Many Head Start centers provide developmental screenings, individualized education plans, on-site therapy referrals, and inclusive classroom environments. For families in rural or underserved areas where specialized autism programs may not exist, Head Start can be a critical bridge to early intervention and support services.",
+  "benefits": [
+    "Free to qualifying families (income-based eligibility)",
+    "Federal mandate to reserve 10% of slots for children with disabilities",
+    "Developmental screenings and referrals to early intervention",
+    "Inclusive classrooms with trained staff",
+    "Family support services including parent education",
+    "Nutrition services and health screenings",
+    "Transition planning to kindergarten and school-based services"
+  ],
+  "whoCanBenefit": [
+    "Children ages birth to 5 from low-income families",
+    "Children with autism or developmental delays who need inclusive childcare",
+    "Families in rural areas with limited access to specialized autism programs",
+    "Families seeking free early childhood education with disability accommodations",
+    "Pregnant women (Early Head Start prenatal services)"
+  ],
+  "importantNote": "Head Start is not an autism-specific program. Services and accommodations for children with disabilities vary by location. Families should contact individual centers to discuss their child's specific needs and what supports are available.",
+  "links": [
+    {
+      "label": "Office of Head Start (OHS)",
+      "url": "https://headstart.gov/",
+      "description": "Official federal Head Start website with resources and policy guidance"
+    },
+    {
+      "label": "Head Start Center Locator",
+      "url": "https://headstart.gov/center-locator",
+      "description": "Find Head Start programs near you by zip code, city, or state"
+    },
+    {
+      "label": "Florida Head Start Association",
+      "url": "https://www.flheadstart.org/",
+      "description": "Florida state advocacy and support organization for Head Start programs"
+    }
+  ]
+}

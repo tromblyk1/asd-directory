@@ -6,7 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
-import { Search, X, ChevronDown, Filter, Map, List, Navigation, Phone, MapPin, Crosshair, RefreshCw, Baby, ChevronUp, HeartPulse } from 'lucide-react';
+import { Search, X, ChevronDown, Filter, Map, List, Navigation, Phone, MapPin, Crosshair, RefreshCw, Baby, ChevronUp, HeartPulse, GraduationCap, ArrowRight } from 'lucide-react';
 import { DaycareCard } from '@/components/DaycareCard';
 import type { DaycareListItem } from '@/components/DaycareCard';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -668,6 +668,29 @@ export default function FindDaycares() {
             </div>
           </TooltipProvider>
         </div>
+      </div>
+
+      {/* ESE Pre-K Informational Banner */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 mt-4 sm:mt-6">
+        <Link to="/guides/childcare-options-autism-florida" className="block group">
+          <div className="bg-gradient-to-r from-orange-500 to-amber-500 rounded-xl shadow-md p-4 sm:p-6 text-white hover:shadow-lg transition-shadow">
+            <div className="flex items-start gap-3 sm:gap-4">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <h2 className="text-base sm:text-lg font-bold mb-1 sm:mb-2">Most Florida Families Use Free Public ESE Pre-K</h2>
+                <p className="text-orange-100 text-xs sm:text-sm leading-relaxed">
+                  Florida's public school system offers free Exceptional Student Education (ESE) Pre-K classrooms for children ages 3–5 with autism and developmental delays — available in every county through your local school district. Because of this statewide program, private inclusive daycare options are very limited. Learn about all your childcare options including ESE Pre-K, PPEC centers, Head Start, and scholarship-funded programs.
+                </p>
+                <span className="inline-flex items-center gap-1 mt-2 sm:mt-3 text-sm font-semibold text-white group-hover:gap-2 transition-all">
+                  Read Our Childcare Guide
+                  <ArrowRight className="w-4 h-4" />
+                </span>
+              </div>
+            </div>
+          </div>
+        </Link>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6 lg:py-8">
