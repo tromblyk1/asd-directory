@@ -433,6 +433,12 @@ export default function Home() {
                       Submit a Resource
                     </Button>
                   </Link>
+                  <Link to="/submit-daycare">
+                    <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50 px-6 sm:px-8 shadow-xl w-full sm:w-auto text-sm sm:text-base">
+                      <Baby className="w-4 h-4 sm:w-5 sm:h-5 mr-2" aria-hidden="true" />
+                      Submit a Daycare
+                    </Button>
+                  </Link>
                   <Link to="/submit-event">
                     <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50 px-6 sm:px-8 shadow-xl w-full sm:w-auto text-sm sm:text-base">
                       <Calendar className="w-4 h-4 sm:w-5 sm:h-5 mr-2" aria-hidden="true" />

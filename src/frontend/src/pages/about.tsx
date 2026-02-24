@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { createPageUrl } from "@/utils";
 import { 
-  Heart, ArrowRight, MapPin, Calendar, Shield, 
-  CheckCircle, Target, Eye, Users, Sparkles
+  Heart, ArrowRight, MapPin, Calendar, Shield,
+  CheckCircle, Target, Eye, Users, Sparkles, Baby
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -274,6 +274,12 @@ export default function About() {
                       <Button size="lg" className="w-full sm:w-auto bg-white text-blue-600 hover:bg-blue-50 px-6 sm:px-8 shadow-xl h-12 sm:h-11">
                         <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 mr-2" aria-hidden="true" />
                         Submit a Resource
+                      </Button>
+                    </Link>
+                    <Link to="/submit-daycare">
+                      <Button size="lg" className="w-full sm:w-auto bg-white text-blue-600 hover:bg-blue-50 px-6 sm:px-8 shadow-xl h-12 sm:h-11">
+                        <Baby className="w-4 h-4 sm:w-5 sm:h-5 mr-2" aria-hidden="true" />
+                        Submit a Daycare
                       </Button>
                     </Link>
                     <Link to="/submit-event">

@@ -1,0 +1,47 @@
+{
+  "slug": "ese-prek",
+  "category": "daycares",
+  "title": "ESE Pre-K (Exceptional Student Education Preschool)",
+  "shortDescription": "Free public preschool for children ages 3-5 with disabilities, available in every Florida school district.",
+  "description": "Florida's ESE Pre-K program provides free, specialized preschool education for children ages 3-5 who have been identified with a disability — including autism spectrum disorder, developmental delays, and speech-language impairments. These classrooms are located inside regular public elementary schools and are staffed by certified ESE teachers. Children receive an Individualized Education Program (IEP) with built-in therapies such as speech, occupational therapy, and behavioral support during the school day. Every one of Florida's 67 school districts operates ESE Pre-K classrooms, making this the most widely available and affordable childcare option for families of children with autism.",
+  "benefits": [
+    "100% free — no tuition, no copays, no fees",
+    "Available in every Florida county through local school districts",
+    "IEP-driven instruction tailored to each child's needs",
+    "On-site therapies (speech, OT, behavioral) included at no cost",
+    "Classroom models range from inclusive to self-contained based on needs",
+    "Smooth transition into kindergarten ESE services",
+    "Staff are certified ESE teachers with specialized training"
+  ],
+  "whoCanBenefit": [
+    "Children ages 3-5 with an autism diagnosis",
+    "Children with developmental delays, speech impairments, or other qualifying disabilities",
+    "Families who cannot afford private preschool or therapy",
+    "Children transitioning out of Early Steps (birth-to-3) services",
+    "Any Florida resident child with a qualifying IEP"
+  ],
+  "howToQualify": [
+    "Contact your local school district's Child Find office",
+    "Request a free evaluation for your child",
+    "If eligible, the school develops an IEP with your input",
+    "Placement begins — typically within 30 days of IEP completion",
+    "Children under 3 can be referred through Early Steps, which transitions to ESE Pre-K at age 3"
+  ],
+  "links": [
+    {
+      "label": "Florida Department of Education — ESE",
+      "url": "https://www.fldoe.org/academics/exceptional-student-edu/",
+      "description": "State resource for Exceptional Student Education programs and guidance"
+    },
+    {
+      "label": "Find Your Early Learning Coalition",
+      "url": "https://www.fldoe.org/schools/early-learning/directory/",
+      "description": "Directory of all 30 Early Learning Coalitions by county"
+    },
+    {
+      "label": "Family Network on Disabilities",
+      "url": "https://fndusa.org/",
+      "description": "Florida's Parent Training and Information Center for IEP support"
+    }
+  ]
+}

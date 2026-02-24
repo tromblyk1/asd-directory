@@ -672,7 +672,7 @@ export default function FindDaycares() {
 
       {/* ESE Pre-K Informational Banner */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 mt-4 sm:mt-6">
-        <Link to="/guides/childcare-options-autism-florida" className="block group">
+        <Link to="/blog/florida-ese-prek-guide" className="block group">
           <div className="bg-gradient-to-r from-orange-500 to-amber-500 rounded-xl shadow-md p-4 sm:p-6 text-white hover:shadow-lg transition-shadow">
             <div className="flex items-start gap-3 sm:gap-4">
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">

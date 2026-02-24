@@ -20,6 +20,7 @@ interface DaycareResourceData {
   whatToExpect?: string | string[];
   benefits?: string[];
   whoCanBenefit?: string[];
+  howToQualify?: string[];
   eligibility?: string[];
   links?: Array<{
     label: string;
@@ -55,6 +56,7 @@ export default function DaycareResourceDetail() {
             whatToExpect: (data as any).whatToExpect,
             benefits: (data as any).benefits,
             whoCanBenefit: (data as any).whoCanBenefit,
+            howToQualify: (data as any).howToQualify,
             eligibility: (data as any).eligibility,
             links: (data as any).links || []
           });
@@ -223,6 +225,21 @@ export default function DaycareResourceDetail() {
                       <div key={idx} className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-purple-50 rounded-lg border border-purple-200">
                         <div className="w-2 h-2 bg-purple-600 rounded-full flex-shrink-0" />
                         <span className="text-gray-800 text-sm sm:text-base">{person}</span>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {/* How to Qualify */}
+              {resource.howToQualify && resource.howToQualify.length > 0 && (
+                <section className="mb-6 sm:mb-8">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">How to Qualify</h3>
+                  <div className="space-y-2">
+                    {resource.howToQualify.map((step, idx) => (
+                      <div key={idx} className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 bg-blue-50 rounded-lg border border-blue-200">
+                        <span className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">{idx + 1}</span>
+                        <span className="text-gray-800 text-sm sm:text-base">{step}</span>
                       </div>
                     ))}
                   </div>

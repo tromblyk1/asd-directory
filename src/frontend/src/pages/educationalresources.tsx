@@ -68,6 +68,7 @@ const scholarshipsList = [
 // Daycares / Childcare resources
 const daycaresList = [
   { slug: 'ppec', name: 'PPEC Centers', description: 'Prescribed Pediatric Extended Care' },
+  { slug: 'ese-prek', name: 'ESE Pre-K', description: 'Free public preschool for children with disabilities' },
   { slug: 'afterschool-program', name: 'Afterschool Programs', description: 'Structured afternoon programming' },
 ];
 
@@ -578,19 +579,34 @@ export default function EducationalResources() {
                 <div className="relative z-10">
                   <Heart className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 mx-auto mb-4 sm:mb-6 opacity-80" aria-hidden="true" />
                   <h2 id="cta-heading" className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4">
-                    Ready to Find Providers?
+                    Ready to Start Searching?
                   </h2>
                   <p className="text-base sm:text-lg lg:text-xl text-orange-100 mb-6 sm:mb-8 max-w-2xl mx-auto">
-                    Now that you know about services, insurance, and scholarships, 
-                    search our directory to find providers in your area.
+                    Now that you know about services, insurance, and scholarships, search our directory to find what you need.
                   </p>
-                  <Link to="/providers">
-                    <button className="bg-white text-orange-600 hover:bg-orange-50 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg inline-flex items-center gap-2 shadow-xl transition-all h-12 sm:h-auto">
-                      <Users className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
-                      Find Providers
-                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
-                    </button>
-                  </Link>
+                  <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center">
+                    <Link to="/providers">
+                      <button className="bg-white text-orange-600 hover:bg-orange-50 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg inline-flex items-center gap-2 shadow-xl transition-all h-12 sm:h-auto w-full sm:w-auto justify-center">
+                        <Users className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
+                        Find Providers
+                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
+                      </button>
+                    </Link>
+                    <Link to="/schools">
+                      <button className="bg-white text-orange-600 hover:bg-orange-50 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg inline-flex items-center gap-2 shadow-xl transition-all h-12 sm:h-auto w-full sm:w-auto justify-center">
+                        <GraduationCap className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
+                        Find Schools
+                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
+                      </button>
+                    </Link>
+                    <Link to="/find-daycares">
+                      <button className="bg-white text-orange-600 hover:bg-orange-50 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg inline-flex items-center gap-2 shadow-xl transition-all h-12 sm:h-auto w-full sm:w-auto justify-center">
+                        <Baby className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
+                        Find Daycares
+                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </CardContent>
             </Card>
