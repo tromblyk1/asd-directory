@@ -235,7 +235,7 @@ export default function SubmitDaycare() {
 
             {/* Featured Listing Promo Banner */}
             <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-8">
-                <a href="/featured" className="block bg-gradient-to-r from-amber-50 to-yellow-50 border border-amber-200 border-l-4 border-l-amber-500 rounded-lg p-5 sm:p-6 shadow-md hover:shadow-lg transition-shadow">
+                <a href="/featured-daycares" className="block bg-gradient-to-r from-amber-50 to-yellow-50 border border-amber-200 border-l-4 border-l-amber-500 rounded-lg p-5 sm:p-6 shadow-md hover:shadow-lg transition-shadow">
                     <h2 className="text-lg sm:text-xl font-bold text-amber-900 mb-2">⭐ Want to Stand Out? Get Featured!</h2>
                     <p className="text-amber-800 text-sm sm:text-base mb-4">
                         Featured providers get priority placement at the top of search results, clinic photos on their listing, and up to 5x more visibility. Founding Partner spots are limited — lock in half-price rates now.
