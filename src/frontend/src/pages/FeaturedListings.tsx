@@ -189,6 +189,7 @@ function EnhancedSearchCard() {
             <div className="flex items-center text-gray-600">{phoneSvg}(407) 555-0142</div>
             <div className="flex items-start text-gray-600">{mapPinSvg}1234 Therapy Lane, Orlando, FL 32801</div>
           </div>
+          <SocialIcons />
           <a href="#" className="inline-flex items-center justify-center w-full px-4 py-2.5 text-sm font-semibold rounded-md bg-teal-600 text-white hover:bg-teal-700 transition-colors">
             <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
             Visit Website
@@ -345,6 +346,10 @@ function EnhancedDetailCard() {
         <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm border-t border-gray-100 pt-4 mt-4 mb-4">
           <div className="flex items-center text-gray-600">{phoneSvg}(407) 555-0142</div>
           <div className="flex items-center text-gray-600">{emailSvg}info@sunshineaba.com</div>
+        </div>
+        <div className="flex items-center gap-3 mb-4">
+          <span className="text-xs font-semibold uppercase tracking-wide text-gray-500">Follow Us</span>
+          <SocialIcons />
         </div>
         <a href="#" className="inline-flex items-center justify-center w-full px-4 py-2.5 text-sm font-semibold rounded-md bg-teal-600 text-white hover:bg-teal-700 transition-colors">
           <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
@@ -875,6 +880,7 @@ export default function FeaturedListings() {
                   <li className="flex items-start gap-2">{pricingCheck}<span><strong>Logo or photo</strong> on your search card <em>and</em> detail page</span></li>
                   <li className="flex items-start gap-2">{pricingCheck}<span><strong>"Why Choose Us"</strong> highlighted section on your detail page</span></li>
                   <li className="flex items-start gap-2">{pricingCheck}<span>Prominent <strong>"Visit Website"</strong> button driving direct traffic</span></li>
+                  <li className="flex items-start gap-2">{pricingCheck}<span><strong>Social media links</strong> (Facebook, Instagram, etc.)</span></li>
                   <li className="flex items-start gap-2">{pricingCheck}<span>Up to <strong>1,000 character</strong> description</span></li>
                 </ul>
               </div>
@@ -903,7 +909,6 @@ export default function FeaturedListings() {
                 <ul className="space-y-3 text-sm text-gray-700">
                   <li className="flex items-start gap-2">{pricingCheck}<span>Everything in Enhanced, <strong>plus:</strong></span></li>
                   <li className="flex items-start gap-2">{pricingCheck}<span><strong>Full photo showcase</strong> on search results <em>and</em> detail page</span></li>
-                  <li className="flex items-start gap-2">{pricingCheck}<span><strong>Social media links</strong> (Facebook, Instagram, etc.)</span></li>
                   <li className="flex items-start gap-2">{pricingCheck}<span><strong>&#11088; Premium Partner</strong> badge + gold gradient border</span></li>
                   <li className="flex items-start gap-2">{pricingCheck}<span><strong>Unlimited</strong> description length</span></li>
                 </ul>
@@ -1083,10 +1088,11 @@ export default function FeaturedListings() {
           <p className="text-gray-500 text-center mb-12 text-lg">Compare features across all Featured Listing tiers</p>
 
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[600px] text-sm border-collapse">
+            <table className="w-full min-w-[700px] text-sm border-collapse">
               <thead>
                 <tr className="border-b-2 border-gray-200">
                   <th className="text-left py-3 px-4 text-gray-600 font-semibold">Feature</th>
+                  <th className="text-center py-3 px-4 text-gray-400 font-semibold">Free</th>
                   <th className="text-center py-3 px-4 text-gray-600 font-semibold">Basic</th>
                   <th className="text-center py-3 px-4 text-teal-700 font-bold bg-teal-50 rounded-t-lg">Enhanced</th>
                   <th className="text-center py-3 px-4 text-gray-600 font-semibold">Premium</th>
@@ -1094,23 +1100,25 @@ export default function FeaturedListings() {
               </thead>
               <tbody>
                 {[
-                  { feature: "Search result position", basic: "#4-6", enhanced: "#2-3", premium: "#1" },
-                  { feature: "Gold border & Featured badge", basic: true, enhanced: true, premium: true },
-                  { feature: "County search visibility", basic: true, enhanced: true, premium: true },
-                  { feature: "Monthly performance reports", basic: true, enhanced: true, premium: true },
-                  { feature: "Description limit", basic: "500 chars", enhanced: "1,000 chars", premium: "Unlimited" },
-                  { feature: "Clinic photos on listings", basic: false, enhanced: true, premium: true },
-                  { feature: '"Why Choose Us" section', basic: false, enhanced: true, premium: true },
-                  { feature: '"Visit Website" button', basic: false, enhanced: true, premium: true },
-                  { feature: "Social media links", basic: false, enhanced: true, premium: true },
-                  { feature: "Pinned to #1", basic: false, enhanced: false, premium: true },
-                  { feature: "Video testimonials", basic: false, enhanced: false, premium: true },
-                  { feature: "Extended descriptions (unlimited)", basic: false, enhanced: false, premium: true },
-                  { feature: "Priority support", basic: false, enhanced: false, premium: true },
-                  { feature: "Custom branding options", basic: false, enhanced: false, premium: true },
+                  { feature: "County search visibility", free: true, basic: true, enhanced: true, premium: true },
+                  { feature: "Search result position", free: "Alphabetical", basic: "#4-6", enhanced: "#2-3", premium: "#1" },
+                  { feature: "Description limit", free: "250 chars", basic: "500 chars", enhanced: "1,000 chars", premium: "Unlimited" },
+                  { feature: "Gold border & Featured badge", free: false, basic: true, enhanced: true, premium: true },
+                  { feature: "Monthly performance reports", free: false, basic: true, enhanced: true, premium: true },
+                  { feature: "Clinic photos on listings", free: false, basic: false, enhanced: true, premium: true },
+                  { feature: '"Why Choose Us" section', free: false, basic: false, enhanced: true, premium: true },
+                  { feature: '"Visit Website" button', free: false, basic: false, enhanced: true, premium: true },
+                  { feature: "Social media links", free: false, basic: false, enhanced: true, premium: true },
+                  { feature: "Pinned to #1", free: false, basic: false, enhanced: false, premium: true },
+                  { feature: "Video testimonials", free: false, basic: false, enhanced: false, premium: true },
+                  { feature: "Priority support", free: false, basic: false, enhanced: false, premium: true },
+                  { feature: "Custom branding options", free: false, basic: false, enhanced: false, premium: true },
                 ].map((row, i) => (
                   <tr key={i} className={i % 2 === 0 ? "bg-gray-50" : ""}>
                     <td className="py-3 px-4 text-gray-700">{row.feature}</td>
+                    <td className="py-3 px-4 text-center">
+                      {typeof row.free === 'string' ? <span className="font-semibold text-gray-500">{row.free}</span> : row.free ? <Check className="w-5 h-5 text-teal-600 mx-auto" /> : <span className="text-gray-300">&mdash;</span>}
+                    </td>
                     <td className="py-3 px-4 text-center">
                       {typeof row.basic === 'string' ? <span className="font-semibold text-gray-700">{row.basic}</span> : row.basic ? <Check className="w-5 h-5 text-teal-600 mx-auto" /> : <span className="text-gray-300">&mdash;</span>}
                     </td>
@@ -1125,7 +1133,6 @@ export default function FeaturedListings() {
               </tbody>
             </table>
           </div>
-          <p className="text-center text-sm text-gray-400 mt-6">Free listings have a 200 character description limit and appear in standard search order.</p>
         </div>
       </section>
 
