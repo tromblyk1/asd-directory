@@ -35,6 +35,9 @@ const STATIC_PAGES = [
     { path: '/submit-event', priority: '0.4', changefreq: 'monthly' },
     { path: '/find-daycares', priority: '0.9', changefreq: 'daily' },
     { path: '/submit-daycare', priority: '0.4', changefreq: 'monthly' },
+    { path: '/featured', priority: '0.7', changefreq: 'monthly' },
+    { path: '/featured-daycares', priority: '0.7', changefreq: 'monthly' },
+    { path: '/featured/select-physical-therapy', priority: '0.6', changefreq: 'monthly' },
 ];
 
 /**
