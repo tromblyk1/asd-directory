@@ -1109,7 +1109,7 @@ export default function FeaturedListings() {
                   { feature: "Gold border & Featured badge", free: false, basic: true, enhanced: true, premium: true },
                   { feature: "Clinic photos on listings", free: false, basic: false, enhanced: true, premium: true },
                   { feature: '"Why Choose Us" section', free: false, basic: false, enhanced: true, premium: true },
-                  { feature: '"Visit Website" button', free: false, basic: false, enhanced: true, premium: true },
+                  { feature: 'Prominent "Visit Website" button', free: false, basic: false, enhanced: true, premium: true },
                   { feature: "Social media links", free: false, basic: false, enhanced: true, premium: true },
                   { feature: "Pinned to #1", free: false, basic: false, enhanced: false, premium: true },
                   { feature: "Video testimonials", free: false, basic: false, enhanced: false, premium: true },
