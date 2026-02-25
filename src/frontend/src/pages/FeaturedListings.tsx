@@ -846,7 +846,6 @@ export default function FeaturedListings() {
                   <li className="flex items-start gap-2">{pricingCheck}<span>Gold border and <strong>&#11088; Featured</strong> badge on search card <em>and</em> detail page</span></li>
                   <li className="flex items-start gap-2">{pricingCheck}<span>Sorted <strong>above all standard results</strong> in search</span></li>
                   <li className="flex items-start gap-2">{pricingCheck}<span>Priority visibility in county and service searches</span></li>
-                  <li className="flex items-start gap-2">{pricingCheck}<span>Monthly performance email with view counts</span></li>
                   <li className="flex items-start gap-2">{pricingCheck}<span>Up to <strong>500 character</strong> description</span></li>
                 </ul>
               </div>
@@ -909,8 +908,12 @@ export default function FeaturedListings() {
                 <ul className="space-y-3 text-sm text-gray-700">
                   <li className="flex items-start gap-2">{pricingCheck}<span>Everything in Enhanced, <strong>plus:</strong></span></li>
                   <li className="flex items-start gap-2">{pricingCheck}<span><strong>Full photo showcase</strong> on search results <em>and</em> detail page</span></li>
+                  <li className="flex items-start gap-2">{pricingCheck}<span><strong>Pinned to #1</strong> in all search results</span></li>
                   <li className="flex items-start gap-2">{pricingCheck}<span><strong>&#11088; Premium Partner</strong> badge + gold gradient border</span></li>
+                  <li className="flex items-start gap-2">{pricingCheck}<span><strong>Video testimonials</strong> on detail page</span></li>
                   <li className="flex items-start gap-2">{pricingCheck}<span><strong>Unlimited</strong> description length</span></li>
+                  <li className="flex items-start gap-2">{pricingCheck}<span>Priority support</span></li>
+                  <li className="flex items-start gap-2">{pricingCheck}<span>Custom branding options</span></li>
                 </ul>
               </div>
               <div className="p-8 pt-0">
@@ -1104,7 +1107,6 @@ export default function FeaturedListings() {
                   { feature: "Search result position", free: "Alphabetical", basic: "#4-6", enhanced: "#2-3", premium: "#1" },
                   { feature: "Description limit", free: "250 chars", basic: "500 chars", enhanced: "1,000 chars", premium: "Unlimited" },
                   { feature: "Gold border & Featured badge", free: false, basic: true, enhanced: true, premium: true },
-                  { feature: "Monthly performance reports", free: false, basic: true, enhanced: true, premium: true },
                   { feature: "Clinic photos on listings", free: false, basic: false, enhanced: true, premium: true },
                   { feature: '"Why Choose Us" section', free: false, basic: false, enhanced: true, premium: true },
                   { feature: '"Visit Website" button', free: false, basic: false, enhanced: true, premium: true },
