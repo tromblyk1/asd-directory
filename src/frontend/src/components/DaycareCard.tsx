@@ -87,7 +87,7 @@ const serviceBadges: Record<string, { label: string; tooltip: string; link: stri
   'respiratory-care': { label: 'Respiratory Care', tooltip: 'Respiratory therapy including oxygen management and breathing treatments', link: '/resources/services/respiratory-care' },
   'respite-care': { label: 'Respite Care', tooltip: 'Temporary caregiver relief services', link: '/resources/services/respite-care' },
   'life-skills': { label: 'Life Skills', tooltip: 'Daily living and independence training', link: '/resources/services/life-skills' },
-  'pet-therapy': { label: 'Pet Therapy', tooltip: 'Animal-assisted therapeutic interventions', link: '/resources/services/pet-therapy' },
+  'animal-therapy': { label: 'Animal Therapy', tooltip: 'Animal-assisted therapeutic interventions', link: '/resources/services/animal-therapy' },
   'group-therapy': { label: 'Group Therapy', tooltip: 'Social skills groups and peer interaction therapy', link: '/resources/services/group-therapy' },
   'virtual-therapy': { label: 'Virtual Therapy', tooltip: 'Telehealth and online therapy services', link: '/resources/services/virtual-therapy' },
   'mobile-services': { label: 'Mobile Services', tooltip: 'In-home or on-site therapy services', link: '/resources/services/mobile-services' },

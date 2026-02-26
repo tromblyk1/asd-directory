@@ -1,9 +1,9 @@
 {
-  "slug": "pet-therapy",
+  "slug": "animal-therapy",
   "category": "services",
-  "title": "Pet Therapy / Animal-Assisted Therapy",
+  "title": "Animal Therapy / Animal-Assisted Therapy",
   "shortDescription": "Therapeutic interventions using trained animals to support emotional and social development.",
-  "description": "Pet therapy, also known as animal-assisted therapy, involves interactions with trained animals to achieve therapeutic goals. For children with autism, animal-assisted interventions can reduce anxiety, increase motivation for therapy participation, improve social interaction, and provide sensory experiences. Therapy animals may include dogs, horses (hippotherapy), cats, rabbits, and other animals, depending on the program and the child's needs and preferences.",
+  "description": "Animal therapy, also known as animal-assisted therapy, involves interactions with trained animals to achieve therapeutic goals. For children with autism, animal-assisted interventions can reduce anxiety, increase motivation for therapy participation, improve social interaction, and provide sensory experiences. Therapy animals may include dogs, horses (hippotherapy), cats, rabbits, and other animals, depending on the program and the child's needs and preferences.",
   "benefits": [
     "Reduces anxiety and stress",
     "Increases motivation and engagement",

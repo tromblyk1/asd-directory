@@ -17,7 +17,7 @@ const servicesList = [
   { slug: 'physical-therapy', name: 'Physical Therapy', description: 'Motor skill development' },
   { slug: 'feeding-therapy', name: 'Feeding Therapy', description: 'Eating and nutrition support' },
   { slug: 'music-therapy', name: 'Music Therapy', description: 'Therapeutic music interventions' },
-  { slug: 'pet-therapy', name: 'Pet Therapy', description: 'Animal-assisted therapy' },
+  { slug: 'animal-therapy', name: 'Animal Therapy', description: 'Animal-assisted therapy' },
   { slug: 'dir-floortime', name: 'DIR / Floortime', description: 'Play-based developmental approach' },
   { slug: 'group-therapy', name: 'Social Skills Groups', description: 'Peer interaction and socialization' },
   { slug: 'ados-testing', name: 'ADOS Testing', description: 'Autism diagnostic assessment' },

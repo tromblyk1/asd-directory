@@ -40,7 +40,7 @@ const slugToServiceFilter: Record<string, string> = {
   'respite-care': 'respite-care',
   'life-skills': 'life-skills',
   'residential-program': 'residential-program',
-  'pet-therapy': 'pet-therapy',
+  'animal-therapy': 'animal-therapy',
   'pharmacogenetic-testing': 'pharmacogenetic-testing',
   'autism-travel': 'autism-travel',
   'executive-function-coaching': 'executive-function-coaching',

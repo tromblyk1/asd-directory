@@ -72,7 +72,7 @@ const serviceBadges: Record<string, { label: string; tooltip: string; link: stri
   'respite-care': { label: 'Respite Care', tooltip: 'Temporary caregiver relief services', link: '/resources/services/respite-care' },
   'life-skills': { label: 'Life Skills', tooltip: 'Daily living and independence training', link: '/resources/services/life-skills' },
   'residential-program': { label: 'Residential Program', tooltip: 'Full-time residential care and support', link: '/resources/services/residential-program' },
-  'pet-therapy': { label: 'Pet Therapy', tooltip: 'Animal-assisted therapeutic interventions', link: '/resources/services/pet-therapy' },
+  'animal-therapy': { label: 'Animal Therapy', tooltip: 'Animal-assisted therapeutic interventions', link: '/resources/services/animal-therapy' },
   'pharmacogenetic-testing': { label: 'Pharmacogenetic Testing', tooltip: 'Genetic testing for medication response', link: '/resources/services/pharmacogenetic-testing' },
   'autism-travel': { label: 'Autism Travel', tooltip: 'Travel assistance and autism-friendly trip planning', link: '/resources/services/autism-travel' },
   'executive-function-coaching': { label: 'Executive Function', tooltip: 'Coaching for planning, organization, and self-regulation', link: '/resources/services/executive-function-coaching' },

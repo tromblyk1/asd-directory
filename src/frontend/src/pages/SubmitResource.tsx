@@ -26,7 +26,7 @@ const HEALTHCARE_SERVICES = [
     { value: 'physical-therapy', label: 'Physical Therapy' },
     { value: 'feeding-therapy', label: 'Feeding Therapy' },
     { value: 'music-therapy', label: 'Music Therapy' },
-    { value: 'pet-therapy', label: 'Pet/Animal Therapy' },
+    { value: 'animal-therapy', label: 'Animal Therapy' },
     { value: 'ados-testing', label: 'ADOS Testing / Diagnostics' },
     { value: 'dir-floortime', label: 'DIR/Floortime' },
     { value: 'group-therapy', label: 'Group Therapy' },

@@ -105,11 +105,11 @@ export const SERVICE_DEFINITIONS: Record<string, ServiceDefinition> = {
       "Support Groups connect families, self-advocates, and caregivers who share lived experiences. Facilitated meetings provide a space to exchange resources, celebrate milestones, problem-solve challenges, and foster a sense of community belonging.",
   },
   pet_therapy: {
-    title: "Pet Therapy",
-    slug: "pet-therapy",
+    title: "Animal Therapy",
+    slug: "animal-therapy",
     short: "Animal-assisted sessions promoting calm, motivation, and social engagement.",
     long:
-      "Pet Therapy introduces specially trained animals into therapeutic sessions to reduce anxiety, encourage communication, and increase motivation. Interacting with animals can improve mood regulation, empathy, and willingness to participate in other therapies.",
+      "Animal Therapy introduces specially trained animals into therapeutic sessions to reduce anxiety, encourage communication, and increase motivation. Interacting with animals can improve mood regulation, empathy, and willingness to participate in other therapies.",
   },
   church_support: {
     title: "Faith-Based / Church Support",

@@ -48,7 +48,7 @@ const serviceDisplayInfo: Record<string, { slug: string }> = {
   'afterschool-program': { slug: 'afterschool-program' },
   'respite-care': { slug: 'respite-care' },
   'life-skills': { slug: 'life-skills' },
-  'pet-therapy': { slug: 'pet-therapy' },
+  'animal-therapy': { slug: 'animal-therapy' },
   'group-therapy': { slug: 'group-therapy' },
   'virtual-therapy': { slug: 'virtual-therapy' },
   'mobile-services': { slug: 'mobile-services' },

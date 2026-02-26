@@ -71,7 +71,7 @@ const serviceDisplayInfo: Record<string, { title: string; slug: string }> = {
   'respite-care': { title: 'Respite Care', slug: 'respite-care' },
   'life-skills': { title: 'Life Skills', slug: 'life-skills' },
   'residential-program': { title: 'Residential Program', slug: 'residential-program' },
-  'pet-therapy': { title: 'Pet/Animal Therapy', slug: 'pet-therapy' },
+  'animal-therapy': { title: 'Animal Therapy', slug: 'animal-therapy' },
   'pharmacogenetic-testing': { title: 'Pharmacogenetic Testing', slug: 'pharmacogenetic-testing' },
   'autism-travel': { title: 'Autism Travel', slug: 'autism-travel' },
   'executive-function-coaching': { title: 'Executive Function Coaching', slug: 'executive-function-coaching' },
