@@ -49,6 +49,7 @@ const slugToServiceFilter: Record<string, string> = {
   'group-therapy': 'group-therapy',
   'ados-testing': 'ados-testing',
   'support-groups': 'support-groups',
+  'financial-planning': 'financial-planning',
   'virtual-therapy': 'virtual-therapy',
   'mobile-services': 'mobile-services',
   'transportation': 'transportation',

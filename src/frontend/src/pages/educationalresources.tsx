@@ -35,6 +35,7 @@ const servicesList = [
   { slug: 'respiratory-care', name: 'Respiratory Care', description: 'Breathing treatments and airway support' },
   { slug: 'art-therapy', name: 'Art Therapy', description: 'Creative arts for emotional growth' },
   { slug: 'afterschool-program', name: 'Afterschool Program', description: 'Structured afternoon programming' },
+  { slug: 'financial-planning', name: 'Financial Planning', description: 'Special needs financial planning' },
 ];
 
 // Insurances - matches database insurances array values

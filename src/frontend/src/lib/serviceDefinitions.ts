@@ -111,6 +111,13 @@ export const SERVICE_DEFINITIONS: Record<string, ServiceDefinition> = {
     long:
       "Animal Therapy introduces specially trained animals into therapeutic sessions to reduce anxiety, encourage communication, and increase motivation. Interacting with animals can improve mood regulation, empathy, and willingness to participate in other therapies.",
   },
+  financial_planning: {
+    title: "Financial Planning",
+    slug: "financial-planning",
+    short: "Special needs financial planning including ABLE accounts, trusts, and benefits preservation.",
+    long:
+      "Special needs financial planning helps families secure their financial future while preserving eligibility for vital government benefits. Planners assist with ABLE accounts, special needs trusts, guardianship, Medicaid planning, estate planning, and coordinating government benefits with private resources.",
+  },
   church_support: {
     title: "Faith-Based / Church Support",
     slug: "faith-based-support",

@@ -80,6 +80,7 @@ const serviceDisplayInfo: Record<string, { title: string; slug: string }> = {
   'group-therapy': { title: 'Group Therapy', slug: 'group-therapy' },
   'ados-testing': { title: 'ADOS Testing', slug: 'ados-testing' },
   'support-groups': { title: 'Support Groups', slug: 'support-groups' },
+  'financial-planning': { title: 'Financial Planning', slug: 'financial-planning' },
   'virtual-therapy': { title: 'Virtual Therapy', slug: 'virtual-therapy' },
   'mobile-services': { title: 'Mobile Services', slug: 'mobile-services' },
 };

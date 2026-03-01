@@ -97,6 +97,12 @@ const SERVICE_METADATA: Record<string, {
     color: 'bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-200',
     type: 'service',
   },
+  'financial-planning': {
+    name: 'Financial Planning',
+    description: 'Special needs financial planning including ABLE accounts, trusts, and benefits preservation',
+    color: 'bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-200',
+    type: 'service',
+  },
   'pharmacogenetic-testing': {
     name: 'Pharmacogenetic Testing',
     description: 'Genetic testing for medication response',

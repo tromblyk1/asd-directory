@@ -63,6 +63,7 @@ const serviceOptions = [
   { value: 'transportation', label: 'Transportation', description: 'Disability transportation', tooltip: 'Transportation assistance for individuals with disabilities to appointments, programs, and activities' },
   { value: 'art-therapy', label: 'Art Therapy', description: 'Creative arts therapy', tooltip: 'Creative expression through visual arts to support emotional and developmental growth' },
   { value: 'afterschool-program', label: 'Afterschool Program', description: 'After school care', tooltip: 'Structured afternoon programming providing social, academic, and recreational support' },
+  { value: 'financial-planning', label: 'Financial Planning', description: 'Special needs planning', tooltip: 'Financial planners specializing in ABLE accounts, special needs trusts, guardianship, and benefits preservation' },
 ];
 
 // Insurance options for filtering - ONLY values that exist in the database
@@ -114,6 +115,7 @@ const servicePopupInfo: Record<string, { label: string; description: string; slu
   'virtual-therapy': { label: 'Virtual', description: 'Virtual/telehealth therapy', slug: 'virtual-therapy' },
   'mobile-services': { label: 'Mobile', description: 'Mobile services', slug: 'mobile-services' },
   'support-groups': { label: 'Support', description: 'Support groups', slug: 'support-groups' },
+  'financial-planning': { label: 'Financial', description: 'Financial planning', slug: 'financial-planning' },
   'transportation': { label: 'Transport', description: 'Transportation services', slug: 'transportation' },
   'art-therapy': { label: 'Art', description: 'Art therapy', slug: 'art-therapy' },
   'afterschool-program': { label: 'Afterschool', description: 'Afterschool program', slug: 'afterschool-program' },

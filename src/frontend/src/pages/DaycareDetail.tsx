@@ -55,6 +55,7 @@ const serviceDisplayInfo: Record<string, { slug: string }> = {
   'parent-coaching': { slug: 'parent-coaching' },
   'tutoring': { slug: 'tutoring' },
   'support-groups': { slug: 'support-groups' },
+  'financial-planning': { slug: 'financial-planning' },
   'ados-testing': { slug: 'ados-testing' },
   'executive-function-coaching': { slug: 'executive-function-coaching' },
 };

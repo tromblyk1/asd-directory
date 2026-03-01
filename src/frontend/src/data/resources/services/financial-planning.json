@@ -1,0 +1,41 @@
+{
+  "slug": "financial-planning",
+  "category": "services",
+  "title": "Special Needs Financial Planning Services in Florida",
+  "shortDescription": "Financial planners specializing in special needs planning including ABLE accounts, special needs trusts, guardianship, Medicaid planning, estate planning, and benefits preservation for families of children with disabilities.",
+  "seoDescription": "Find financial planners in Florida who specialize in special needs planning — ABLE accounts, special needs trusts, guardianship, Medicaid planning, estate planning, and benefits preservation for families of children with autism and disabilities.",
+  "description": "Special needs financial planning helps families of children with autism and disabilities secure their financial future while preserving eligibility for vital government benefits. Specialized financial planners understand the complex intersection of disability benefits, tax law, estate planning, and guardianship. They can help families establish ABLE accounts for tax-advantaged savings, create special needs trusts that protect assets without jeopardizing Medicaid or SSI eligibility, navigate guardianship and conservatorship options, and develop comprehensive estate plans that ensure lifelong care for their loved ones.",
+  "benefits": [
+    "Preserves eligibility for Medicaid, SSI, and other benefits",
+    "Creates tax-advantaged savings through ABLE accounts",
+    "Establishes special needs trusts for long-term financial security",
+    "Navigates guardianship and conservatorship options",
+    "Develops estate plans ensuring lifelong care",
+    "Coordinates government benefits with private resources"
+  ],
+  "whoCanBenefit": [
+    "Families of children with autism or developmental disabilities",
+    "Parents planning for their child's long-term financial future",
+    "Families navigating Medicaid or SSI eligibility",
+    "Those needing guidance on special needs trusts or ABLE accounts",
+    "Families considering guardianship options",
+    "Caregivers planning estate transitions"
+  ],
+  "links": [
+    {
+      "label": "ABLE National Resource Center",
+      "url": "https://www.ablenrc.org/",
+      "description": "Information on ABLE accounts and state programs for tax-advantaged disability savings"
+    },
+    {
+      "label": "Special Needs Alliance",
+      "url": "https://www.specialneedsalliance.org/",
+      "description": "National network of attorneys and financial planners specializing in disability planning"
+    },
+    {
+      "label": "Florida ABLE (ABLE United)",
+      "url": "https://www.ableunited.com/",
+      "description": "Florida's ABLE savings program for individuals with disabilities"
+    }
+  ]
+}
