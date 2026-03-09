@@ -67,6 +67,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://floridaautismservices.com/privacy-policy</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://floridaautismservices.com/submit-resource</loc>
     <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>

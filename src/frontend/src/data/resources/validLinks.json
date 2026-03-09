@@ -20,6 +20,13 @@
       "description": "National resource for respite care information and locators"
     }
   ],
+  "services/respiratory-care": [
+    {
+      "label": "Florida Society for Respiratory Care",
+      "url": "https://www.fsrc.org/",
+      "description": "Florida state society supporting respiratory care professionals"
+    }
+  ],
   "services/residential-program": [
     {
       "label": "Autism Speaks",
@@ -81,10 +88,16 @@
       "description": "Resources on social skills programs and groups"
     }
   ],
-  "services/floor-time": [
+  "services/financial-planning": [
     {
-      "label": "Autism Speaks Intervention Guide",
-      "url": "https://www.autismspeaks.org/types-treatments"
+      "label": "ABLE National Resource Center",
+      "url": "https://www.ablenrc.org/",
+      "description": "Information on ABLE accounts and state programs for tax-advantaged disability savings"
+    },
+    {
+      "label": "Florida ABLE (ABLE United)",
+      "url": "https://www.ableunited.com/",
+      "description": "Florida's ABLE savings program for individuals with disabilities"
     }
   ],
   "services/autism-travel": [
@@ -99,13 +112,6 @@
     {
       "label": "Disney Disability Access Service",
       "url": "https://disneyworld.disney.go.com/guest-services/disability-access-service"
-    }
-  ],
-  "services/ados-testing": [
-    {
-      "label": "Autism Speaks",
-      "url": "https://www.autismspeaks.org/",
-      "description": "Information on autism diagnosis and evaluation process"
     }
   ],
   "services/aba-therapy": [
@@ -197,14 +203,6 @@
     {
       "label": "Florida Early Steps Official Website",
       "url": "https://floridaearlysteps.com"
-    },
-    {
-      "label": "Find Your Local Early Steps Office",
-      "url": "https://floridaearlysteps.com/contact/"
-    },
-    {
-      "label": "Florida Department of Health - Early Steps",
-      "url": "https://www.floridahealth.gov/programs-and-services/childrens-health/early-steps/"
     }
   ],
   "insurances/allegiance": [
@@ -219,6 +217,27 @@
       "label": "Aetna",
       "url": "https://www.aetna.com/",
       "description": "Official Aetna website - find providers, check benefits, and manage your plan"
+    }
+  ],
+  "daycares/ppec": [
+    {
+      "label": "Kids' Waivers - Florida",
+      "url": "https://kidswaivers.org/fl/",
+      "description": "Florida Medicaid waivers and programs for children with disabilities"
+    }
+  ],
+  "daycares/head-start": [
+    {
+      "label": "Florida Head Start Association",
+      "url": "https://www.flheadstart.org/",
+      "description": "Florida state advocacy and support organization for Head Start programs"
+    }
+  ],
+  "daycares/ese-prek": [
+    {
+      "label": "Florida Department of Education — ESE",
+      "url": "https://www.fldoe.org/academics/exceptional-student-edu/",
+      "description": "State resource for Exceptional Student Education programs and guidance"
     }
   ],
   "accreditations/flga-lcms": [

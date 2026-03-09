@@ -1,0 +1,30 @@
+column_name,data_type,is_nullable,column_default
+id,bigint,NO,nextval('churches_id_seq'::regclass)
+ChurchName,text,YES,null
+Denomination,text,YES,null
+Website,text,YES,null
+AccommodationSnippet,text,YES,null
+AccommodationTags,text,YES,null
+SensoryRoom,text,YES,null
+AlternativeService,text,YES,null
+ChildrenProgram,text,YES,null
+AdultProgram,text,YES,null
+ContactEmail,text,YES,null
+Phone,text,YES,null
+Street,text,YES,null
+City,text,YES,null
+County,text,YES,null
+State,text,YES,null
+ZIP,integer,YES,null
+Lat,double precision,YES,null
+Lon,double precision,YES,null
+LastVerifiedDate,text,YES,null
+SourceURL,text,YES,null
+created_at,timestamp without time zone,YES,now()
+slug,text,YES,null
+facebook_url,text,YES,null
+instagram_url,text,YES,null
+x_url,text,YES,null
+youtube_url,text,YES,null
+linkedin_url,text,YES,null
+tiktok_url,text,YES,null

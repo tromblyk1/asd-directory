@@ -1,0 +1,60 @@
+column_name,data_type,is_nullable,column_default
+id,bigint,NO,null
+created_at,timestamp with time zone,YES,now()
+updated_at,timestamp with time zone,YES,now()
+name,text,NO,null
+slug,text,YES,null
+description,text,YES,null
+address,text,YES,null
+city,text,YES,null
+county,text,YES,null
+state,text,YES,'FL'::text
+zip_code,text,YES,null
+latitude,double precision,YES,null
+longitude,double precision,YES,null
+phone,text,YES,null
+normalized_phone,text,YES,null
+email,text,YES,null
+website,text,YES,null
+facebook_url,text,YES,null
+instagram_url,text,YES,null
+x_url,text,YES,null
+youtube_url,text,YES,null
+linkedin_url,text,YES,null
+tiktok_url,text,YES,null
+ages_served,text,YES,null
+hours,text,YES,null
+capacity,integer,YES,null
+is_nonprofit,boolean,YES,false
+denomination,text,YES,null
+license_number,text,YES,null
+owner_director,text,YES,null
+languages,text,YES,null
+google_place_id,text,YES,null
+rating,double precision,YES,null
+user_ratings_total,integer,YES,null
+image_url,text,YES,null
+inclusive_classroom,boolean,YES,false
+autism_specific,boolean,YES,false
+sensory_room,boolean,YES,false
+on_site_therapy,boolean,YES,false
+aba_on_site,boolean,YES,false
+allows_outside_therapists,boolean,YES,false
+early_intervention,boolean,YES,false
+vpk_provider,boolean,YES,false
+head_start,boolean,YES,false
+accepts_scholarships,boolean,YES,false
+accepts_medicaid,boolean,YES,false
+sliding_scale_fees,boolean,YES,false
+transportation_provided,boolean,YES,false
+before_after_care,boolean,YES,false
+summer_camp,boolean,YES,false
+parent_training,boolean,YES,false
+verified,boolean,YES,false
+last_verified_date,text,YES,null
+featured,boolean,YES,false
+needs_review,boolean,YES,false
+review_reason,text,YES,null
+notes,text,YES,null
+source,text,YES,null
+search_vector,tsvector,YES,null

@@ -522,11 +522,15 @@ export default function EventDetail() {
                                 )}
 
                                 {/* Sensory-Friendly Features */}
-                                {event.sensory_accommodations && (
+                                {event.sensory_accommodations && event.sensory_accommodations.trim() && (
                                     <section className="mb-6 sm:mb-8" aria-labelledby="sensory-heading">
                                         <h2 id="sensory-heading" className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Sensory-Friendly Features</h2>
                                         <div className="p-3 sm:p-4 bg-purple-50 rounded-lg border border-purple-200">
-                                            <p className="text-gray-800 whitespace-pre-wrap text-sm sm:text-base">{event.sensory_accommodations}</p>
+                                            <p className="text-gray-800 whitespace-pre-wrap text-sm sm:text-base">
+                                                {event.sensory_accommodations.split(',').map(item =>
+                                                    item.trim().replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
+                                                ).join(', ')}
+                                            </p>
                                         </div>
                                     </section>
                                 )}
@@ -548,7 +552,7 @@ export default function EventDetail() {
                                     </Alert>
                                 )}
 
-                                {!event.accommodations_verified && event.sensory_accommodations && (
+                                {!event.accommodations_verified && (!event.sensory_accommodations || !event.sensory_accommodations.trim()) && (
                                     <Alert className="mb-6 sm:mb-8 bg-amber-50 border-amber-200">
                                         <AlertCircle className="h-5 w-5 text-amber-600" aria-hidden="true" />
                                         <AlertDescription>

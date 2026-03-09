@@ -1,0 +1,13 @@
+column_name,data_type,is_nullable,column_default
+id,bigint,NO,nextval('blog_posts_id_seq'::regclass)
+created_at,timestamp with time zone,YES,now()
+updated_at,timestamp with time zone,YES,now()
+title,text,NO,null
+content,text,NO,null
+excerpt,text,YES,null
+author,text,NO,null
+category,text,YES,null
+image_url,text,YES,null
+published,boolean,YES,false
+featured,boolean,YES,false
+slug,text,YES,null

@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#060a13"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="north" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#0d9488"/>
+    </linearGradient>
+    <linearGradient id="r1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0d9488"/>
+      <stop offset="40%" stop-color="#14b8a6"/>
+      <stop offset="70%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#0891b2"/>
+    </linearGradient>
+    <linearGradient id="r2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0891b2"/>
+      <stop offset="35%" stop-color="#2dd4bf"/>
+      <stop offset="65%" stop-color="#0d9488"/>
+      <stop offset="100%" stop-color="#14b8a6"/>
+    </linearGradient>
+    <linearGradient id="r3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#14b8a6"/>
+      <stop offset="45%" stop-color="#0891b2"/>
+      <stop offset="55%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#0d9488"/>
+    </linearGradient>
+    <linearGradient id="r4" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2dd4bf"/>
+      <stop offset="50%" stop-color="#0d9488"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="r5" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="50%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#0891b2"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="10"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="ribbonGlow">
+      <feGaussianBlur stdDeviation="5"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="800" fill="url(#bg)"/>
+
+  <!-- Pulse rings emanating from compass center -->
+  <circle cx="400" cy="275" r="80" fill="none" stroke="#0d9488" stroke-width="1" opacity="0.1"/>
+  <circle cx="400" cy="275" r="125" fill="none" stroke="#0d9488" stroke-width="0.75" opacity="0.06"/>
+  <circle cx="400" cy="275" r="170" fill="none" stroke="#0d9488" stroke-width="0.5" opacity="0.03"/>
+
+  <!-- Compass cross lines (S, E, W) -->
+  <line x1="400" y1="283" x2="400" y2="335" stroke="#1e293b" stroke-width="1.5"/>
+  <line x1="342" y1="275" x2="458" y2="275" stroke="#1e293b" stroke-width="1.5"/>
+
+  <!-- North pointer — glow layer -->
+  <g filter="url(#glow)" opacity="0.35">
+    <polygon points="400,185 413,268 387,268" fill="#0d9488"/>
+  </g>
+
+  <!-- North pointer — solid -->
+  <polygon points="400,185 413,268 400,255 387,268" fill="url(#north)"/>
+
+  <!-- Compass center dot -->
+  <circle cx="400" cy="275" r="5" fill="#0f172a" stroke="#0d9488" stroke-width="2"/>
+  <circle cx="400" cy="275" r="2" fill="#2dd4bf"/>
+
+  <!-- Cardinal end-dots (S, E, W) -->
+  <circle cx="400" cy="335" r="2.5" fill="#1e293b"/>
+  <circle cx="342" cy="275" r="2.5" fill="#1e293b"/>
+  <circle cx="458" cy="275" r="2.5" fill="#1e293b"/>
+
+  <!--
+    Infinity ribbon — FAS multi-strand flowing ribbon in teal/cyan.
+    Left loop larger than right. Extended flowing tails.
+    Under/over groups create the weave at center crossing.
+  -->
+
+  <!-- Soft glow -->
+  <g filter="url(#ribbonGlow)" opacity="0.14">
+    <path d="M270,356 C282,332 310,316 348,316 C386,316 395,338 400,356
+             C405,374 416,390 450,390 C484,390 510,374 528,362"
+          fill="none" stroke="#14b8a6" stroke-width="18" stroke-linecap="round"/>
+    <path d="M270,362 C282,386 310,402 348,402 C386,402 395,378 400,360
+             C405,342 416,328 450,328 C484,328 510,342 528,354"
+          fill="none" stroke="#14b8a6" stroke-width="18" stroke-linecap="round"/>
+  </g>
+
+  <!-- === UNDER STRANDS (behind at center) === -->
+  <!-- Left-loop TOP arch → S-curve through center → right-loop BOTTOM arch → right tail -->
+
+  <!-- Under wide -->
+  <path d="M270,356 C282,332 310,316 348,316 C386,316 395,338 400,356
+           C405,374 416,390 450,390 C484,390 510,374 528,362"
+        fill="none" stroke="url(#r1)" stroke-width="7" stroke-linecap="round" opacity="0.78"/>
+
+  <!-- Under medium -->
+  <path d="M275,352 C286,328 314,312 350,312 C386,312 396,336 400,354
+           C404,372 418,392 452,392 C486,392 512,378 530,366"
+        fill="none" stroke="url(#r3)" stroke-width="4.5" stroke-linecap="round" opacity="0.60"/>
+
+  <!-- Under thin -->
+  <path d="M282,348 C292,326 318,308 354,308 C390,308 397,332 400,350
+           C403,368 420,394 456,394 C492,394 514,382 532,372"
+        fill="none" stroke="url(#r5)" stroke-width="2.5" stroke-linecap="round" opacity="0.44"/>
+
+  <!-- === OVER STRANDS (in front at center) === -->
+  <!-- Left-loop BOTTOM arch → S-curve through center → right-loop TOP arch → right tail -->
+
+  <!-- Over wide -->
+  <path d="M270,362 C282,386 310,402 348,402 C386,402 395,378 400,360
+           C405,342 416,328 450,328 C484,328 510,342 528,354"
+        fill="none" stroke="url(#r2)" stroke-width="7" stroke-linecap="round" opacity="0.78"/>
+
+  <!-- Over medium -->
+  <path d="M275,366 C286,390 314,406 350,406 C386,406 396,380 400,362
+           C404,344 418,326 452,326 C486,326 512,338 530,350"
+        fill="none" stroke="url(#r1)" stroke-width="4.5" stroke-linecap="round" opacity="0.60"/>
+
+  <!-- Over thin -->
+  <path d="M282,370 C292,392 318,410 354,410 C390,410 397,384 400,366
+           C403,348 420,322 456,322 C492,322 514,334 532,344"
+        fill="none" stroke="url(#r3)" stroke-width="2.5" stroke-linecap="round" opacity="0.44"/>
+
+  <!-- Wispy outer (over direction) -->
+  <path d="M264,366 C276,392 306,410 346,410 C386,410 394,382 400,362
+           C406,342 414,322 448,320 C482,318 512,336 534,350"
+        fill="none" stroke="url(#r4)" stroke-width="1.5" stroke-linecap="round" opacity="0.26"/>
+
+  <!-- Wispy outer (under direction) -->
+  <path d="M264,352 C276,326 306,306 346,306 C386,306 394,334 400,354
+           C406,374 414,396 448,398 C482,400 512,382 534,368"
+        fill="none" stroke="url(#r2)" stroke-width="1.5" stroke-linecap="round" opacity="0.26"/>
+
+  <!-- Main wordmark -->
+  <text x="400" y="450"
+        text-anchor="middle"
+        font-family="'Helvetica Neue','Segoe UI',Helvetica,Arial,sans-serif"
+        font-size="108"
+        letter-spacing="2">
+    <tspan font-weight="900" fill="#0d9488">FLAS</tspan><tspan font-weight="200" fill="#2dd4bf">point</tspan>
+  </text>
+
+  <!-- Accent rule -->
+  <line x1="255" y1="475" x2="545" y2="475" stroke="#0d9488" stroke-width="0.75" opacity="0.2"/>
+
+  <!-- Descriptor -->
+  <text x="400" y="512"
+        text-anchor="middle"
+        font-family="'Helvetica Neue','Segoe UI',Helvetica,Arial,sans-serif"
+        font-size="18"
+        font-weight="300"
+        fill="#475569"
+        letter-spacing="10">NEWSLETTER</text>
+</svg>

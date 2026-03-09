@@ -183,6 +183,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <li><Link to={createPageUrl("Events")} className="text-blue-100 hover:text-white transition-colors">Events</Link></li>
                 <li><Link to={createPageUrl("Blog")} className="text-blue-100 hover:text-white transition-colors">Stories & News</Link></li>
                 <li><Link to="/about" className="text-blue-100 hover:text-white transition-colors">About</Link></li>
+                <li><Link to="/privacy-policy" className="text-blue-100 hover:text-white transition-colors">Privacy Policy</Link></li>
               </ul>
             </div>
             
