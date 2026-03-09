@@ -33,6 +33,9 @@ desktop.ini
 .idea/
 *.code-workspace
 
+# === Claude Code settings with secrets ===
+src/frontend/.claude/settings.local.json
+
 # === OS cruft ===
 *.bak
 *.tmp
