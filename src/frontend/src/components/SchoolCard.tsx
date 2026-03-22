@@ -47,6 +47,7 @@ export interface School {
   tiktok_url?: string | null;
   featured?: boolean | null;
   social_links?: Record<string, string> | null;
+  description?: string | null;
 }
 
 interface SchoolCardProps {

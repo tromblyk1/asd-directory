@@ -520,6 +520,16 @@ export default function SchoolDetail() {
                 </CardContent>
               </Card>
 
+              {/* About This School */}
+              {school.description && (
+                <Card className="border-none shadow-xl">
+                  <CardContent className="p-4 sm:p-6 lg:p-8">
+                    <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6">About This School</h2>
+                    <p className="text-gray-600 leading-relaxed whitespace-pre-line">{school.description}</p>
+                  </CardContent>
+                </Card>
+              )}
+
               {/* Scholarships Card - Using ServiceTag for consistent styling */}
               <Card className="border-none shadow-xl">
                 <CardContent className="p-4 sm:p-6 lg:p-8">
