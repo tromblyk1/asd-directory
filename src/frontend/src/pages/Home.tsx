@@ -228,16 +228,28 @@ export default function Home() {
               </Link>
             </div>
 
-              {/* Help Us Improve Notice - hidden on mobile */}
-              <div className="hidden lg:block max-w-[340px] mt-8 lg:mt-0 flex-shrink-0">
-                <div className="bg-[#FEF9C3] border border-yellow-300 rounded-xl px-4 py-4">
-                  <p className="text-sm text-gray-700 leading-relaxed">
-                    <span className="font-semibold">⚠️ Help Us Improve</span> — We're enhancing our directory data. If you notice outdated or erroneous info, please{' '}
-                    <Link to="/contact" className="text-blue-600 hover:text-blue-800 underline font-medium">
-                      report it here
-                    </Link>
-                    ! Include the provider name and as much detail as possible so we can quickly identify and fix the listing.
-                  </p>
+              {/* FLASpoint Newsletter CTA - hidden on mobile */}
+              <div className="hidden lg:block max-w-[400px] mt-8 lg:mt-0 flex-shrink-0">
+                <div className="bg-[#0B1426] border border-[#0D9488]/40 rounded-xl px-5 py-8 shadow-lg">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="bg-[#0D9488] text-white text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded">New</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2">FLASpoint Newsletter</h3>
+                  <p className="text-sm text-gray-400 mb-4">Stay ahead of the news that matters to Florida autism families.</p>
+                  <p className="text-xs font-semibold text-[#0D9488] uppercase tracking-wide mb-2">In Issue #2:</p>
+                  <ul className="text-sm text-gray-300 space-y-1.5 mb-5">
+                    <li className="flex items-start gap-2"><span className="text-[#0D9488] mt-0.5">&#9679;</span>Florida's "Blue Card" law clears the Legislature (HB 365)</li>
+                    <li className="flex items-start gap-2"><span className="text-[#0D9488] mt-0.5">&#9679;</span>Independent autism research committee launched to counter federal cuts</li>
+                    <li className="flex items-start gap-2"><span className="text-[#0D9488] mt-0.5">&#9679;</span>Autism Acceptance Month: find events and providers near you</li>
+                  </ul>
+                  <a
+                    href="https://flaspoint.beehiiv.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full text-center bg-[#0D9488] hover:bg-[#0B8278] text-white font-semibold py-2.5 rounded-lg transition-colors"
+                  >
+                    Subscribe Free &rarr;
+                  </a>
                 </div>
               </div>
             </div>
