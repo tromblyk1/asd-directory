@@ -81,13 +81,6 @@
       "description": "Resources on life skills and transition planning"
     }
   ],
-  "services/group-therapy": [
-    {
-      "label": "Autism Speaks",
-      "url": "https://www.autismspeaks.org/",
-      "description": "Resources on social skills programs and groups"
-    }
-  ],
   "services/financial-planning": [
     {
       "label": "ABLE National Resource Center",
@@ -203,6 +196,14 @@
     {
       "label": "Florida Early Steps Official Website",
       "url": "https://floridaearlysteps.com"
+    },
+    {
+      "label": "Find Your Local Early Steps Office",
+      "url": "https://floridaearlysteps.com/contact/"
+    },
+    {
+      "label": "Florida Department of Health - Early Steps",
+      "url": "https://www.floridahealth.gov/programs-and-services/childrens-health/early-steps/"
     }
   ],
   "insurances/allegiance": [
@@ -266,6 +267,13 @@
       "label": "AISF",
       "url": "https://www.aisf.org/",
       "description": "Association of Independent Schools of Florida"
+    }
+  ],
+  "accreditations/acts": [
+    {
+      "label": "ACTS",
+      "url": "https://www.actschools.org/",
+      "description": "Association of Christian Teachers and Schools"
     }
   ],
   "accreditations/acsi": [
