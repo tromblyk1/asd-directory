@@ -577,8 +577,8 @@ export default function FeaturedDaycares() {
               <p className="text-teal-100 text-sm">Childcare Facilities Listed</p>
             </div>
             <div className="px-6 sm:border-r sm:border-white/30">
-              <p className="text-2xl font-bold">80%</p>
-              <p className="text-teal-100 text-sm">Parents Start Online</p>
+              <p className="text-2xl font-bold">2.3%</p>
+              <p className="text-teal-100 text-sm">Click-Through Rate</p>
             </div>
             <div className="px-6">
               <p className="text-2xl font-bold">100%</p>
@@ -616,40 +616,53 @@ export default function FeaturedDaycares() {
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Our Growth Speaks for Itself</h2>
           <p className="text-gray-500 mb-8 text-base max-w-2xl mx-auto">Real data from Google Search Console — families are finding us, and the numbers are accelerating every month.</p>
-          <div className="bg-white rounded-xl shadow-md border border-gray-100 p-6 sm:p-8 max-w-2xl mx-auto">
-            <h3 className="text-base font-semibold text-gray-700 mb-4">Monthly Search Impressions</h3>
-            <svg viewBox="0 0 500 260" className="w-full" aria-label="Growth chart showing monthly search impressions from October 2025 to February 2026">
-              {[0, 1, 2, 3, 4].map((i) => (
-                <line key={i} x1="60" y1={40 + i * 45} x2="470" y2={40 + i * 45} stroke="#e5e7eb" strokeWidth="1" />
-              ))}
-              <text x="55" y="44" textAnchor="end" className="text-[11px]" fill="#9ca3af">80K</text>
-              <text x="55" y="89" textAnchor="end" className="text-[11px]" fill="#9ca3af">60K</text>
-              <text x="55" y="134" textAnchor="end" className="text-[11px]" fill="#9ca3af">40K</text>
-              <text x="55" y="179" textAnchor="end" className="text-[11px]" fill="#9ca3af">20K</text>
-              <text x="55" y="224" textAnchor="end" className="text-[11px]" fill="#9ca3af">0</text>
-              <defs>
-                <linearGradient id="daycaresTealGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#14b8a6" stopOpacity="0.3" />
-                  <stop offset="100%" stopColor="#14b8a6" stopOpacity="0.05" />
-                </linearGradient>
-              </defs>
-              <path d="M 162.5 219.5 L 265 216.6 L 367.5 118.8 L 470 40 L 470 220 L 162.5 220 Z" fill="url(#daycaresTealGrad)" />
-              <polyline points="60,219.9 162.5,219.5 265,216.6 367.5,118.8 470,40" fill="none" stroke="#14b8a6" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-              {[[60, 219.9], [162.5, 219.5], [265, 216.6], [367.5, 118.8], [470, 40]].map(([cx, cy], i) => (
-                <circle key={i} cx={cx} cy={cy} r={i === 4 ? 6 : 4} fill={i === 4 ? "white" : "#14b8a6"} stroke="#14b8a6" strokeWidth="2" />
-              ))}
-              <text x="470" y="30" textAnchor="middle" fill="#0d9488" className="text-[11px]" fontWeight="600">Feb 2026</text>
-              <text x="60" y="242" textAnchor="middle" className="text-[11px]" fill="#6b7280">Oct</text>
-              <text x="162.5" y="242" textAnchor="middle" className="text-[11px]" fill="#6b7280">Nov</text>
-              <text x="265" y="242" textAnchor="middle" className="text-[11px]" fill="#6b7280">Dec</text>
-              <text x="367.5" y="242" textAnchor="middle" className="text-[11px]" fill="#6b7280">Jan</text>
-              <text x="470" y="242" textAnchor="middle" className="text-[11px]" fill="#6b7280">Feb</text>
-            </svg>
-            <div className="mt-6 bg-white shadow-md rounded-lg border-l-4 border-teal-500 px-5 py-4 text-left">
-              <div className="text-lg font-bold text-gray-900">300% Traffic Growth</div>
-              <div className="text-sm text-gray-500 mt-1">130K total impressions in the last 90 days</div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto">
+            <div className="bg-white rounded-xl shadow-md border border-gray-100 p-6 text-center">
+              <div className="text-3xl sm:text-4xl font-bold text-teal-600">244K+</div>
+              <div className="text-sm text-gray-500 mt-2">Search Impressions &bull; 3 Months</div>
             </div>
-            <p className="text-xs text-gray-400 mt-3 text-center">Source: Google Search Console — FloridaAutismServices.com</p>
+            <div className="bg-white rounded-xl shadow-md border border-gray-100 p-6 text-center">
+              <div className="text-3xl sm:text-4xl font-bold text-teal-600">3,500+</div>
+              <div className="text-sm text-gray-500 mt-2">Clicks to Listings &bull; 3 Months</div>
+            </div>
+            <div className="bg-white rounded-xl shadow-md border border-gray-100 p-6 text-center">
+              <div className="text-3xl sm:text-4xl font-bold text-teal-600">10,000+</div>
+              <div className="text-sm text-gray-500 mt-2">Families Served Monthly</div>
+            </div>
+          </div>
+          <div className="mt-6 max-w-3xl mx-auto bg-white shadow-md rounded-lg border-l-4 border-teal-500 px-6 py-6">
+            <div className="flex items-center justify-center gap-6 sm:gap-10">
+              <div className="text-center">
+                <div className="text-3xl sm:text-4xl font-bold text-gray-700">3,500+</div>
+                <div className="text-sm text-gray-500 mt-1">Clicks to Listings — 90 Days</div>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="text-xs font-medium text-teal-600 mb-1">Trending up</div>
+                <div className="text-3xl sm:text-4xl text-teal-500 font-light">→</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl sm:text-5xl font-extrabold text-gray-900">~5,000</div>
+                <div className="text-sm text-gray-500 mt-1">Clicks — Last 28 Days Pace</div>
+              </div>
+            </div>
+            <p className="text-xs text-gray-400 mt-4 text-center">Click volume accelerating — source: Google Search Console</p>
+          </div>
+          <div className="mt-4 max-w-3xl mx-auto bg-white shadow-md rounded-lg border-l-4 border-teal-500 px-6 py-6">
+            <div className="flex items-center justify-center gap-6 sm:gap-10">
+              <div className="text-center">
+                <div className="text-3xl sm:text-4xl font-bold text-gray-700">1.5%</div>
+                <div className="text-sm text-gray-500 mt-1">Avg CTR — 90 Days</div>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="text-xs font-medium text-teal-600 mb-1">Trending up</div>
+                <div className="text-3xl sm:text-4xl text-teal-500 font-light">→</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl sm:text-5xl font-extrabold text-gray-900">2.3%</div>
+                <div className="text-sm text-gray-500 mt-1">Avg CTR — Last 28 Days</div>
+              </div>
+            </div>
+            <p className="text-xs text-gray-400 mt-4 text-center">Click-through rate accelerating — source: Google Search Console</p>
           </div>
         </div>
       </section>

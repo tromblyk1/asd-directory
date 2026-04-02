@@ -577,7 +577,7 @@ export default function FeaturedListings() {
               <p className="text-teal-100 text-sm">Providers Listed</p>
             </div>
             <div className="px-6 sm:border-r sm:border-white/30">
-              <p className="text-2xl font-bold">2.1%</p>
+              <p className="text-2xl font-bold">2.3%</p>
               <p className="text-teal-100 text-sm">Click-Through Rate</p>
             </div>
             <div className="px-6">
@@ -618,11 +618,11 @@ export default function FeaturedListings() {
           <p className="text-gray-500 mb-8 text-base max-w-2xl mx-auto">Real data from Google Search Console — families are finding us, and the numbers are accelerating every month.</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto">
             <div className="bg-white rounded-xl shadow-md border border-gray-100 p-6 text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-teal-600">229K+</div>
+              <div className="text-3xl sm:text-4xl font-bold text-teal-600">244K+</div>
               <div className="text-sm text-gray-500 mt-2">Search Impressions &bull; 3 Months</div>
             </div>
             <div className="bg-white rounded-xl shadow-md border border-gray-100 p-6 text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-teal-600">3,000+</div>
+              <div className="text-3xl sm:text-4xl font-bold text-teal-600">3,500+</div>
               <div className="text-sm text-gray-500 mt-2">Clicks to Listings &bull; 3 Months</div>
             </div>
             <div className="bg-white rounded-xl shadow-md border border-gray-100 p-6 text-center">
@@ -630,11 +630,40 @@ export default function FeaturedListings() {
               <div className="text-sm text-gray-500 mt-2">Families Served Monthly</div>
             </div>
           </div>
-          <div className="mt-6 max-w-3xl mx-auto bg-white shadow-md rounded-lg border-l-4 border-teal-500 px-5 py-4 text-center">
-            <div className="text-lg font-bold text-gray-900">2.1% CTR</div>
-            <div className="text-sm text-gray-500 mt-1">Nearly double the previous period — and still climbing</div>
+          <div className="mt-6 max-w-3xl mx-auto bg-white shadow-md rounded-lg border-l-4 border-teal-500 px-6 py-6">
+            <div className="flex items-center justify-center gap-6 sm:gap-10">
+              <div className="text-center">
+                <div className="text-3xl sm:text-4xl font-bold text-gray-700">3,500+</div>
+                <div className="text-sm text-gray-500 mt-1">Clicks to Listings — 90 Days</div>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="text-xs font-medium text-teal-600 mb-1">Trending up</div>
+                <div className="text-3xl sm:text-4xl text-teal-500 font-light">→</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl sm:text-5xl font-extrabold text-gray-900">~5,000</div>
+                <div className="text-sm text-gray-500 mt-1">Clicks — Last 28 Days Pace</div>
+              </div>
+            </div>
+            <p className="text-xs text-gray-400 mt-4 text-center">Click volume accelerating — source: Google Search Console</p>
           </div>
-          <p className="text-xs text-gray-400 mt-3 text-center">Source: Google Search Console — FloridaAutismServices.com</p>
+          <div className="mt-4 max-w-3xl mx-auto bg-white shadow-md rounded-lg border-l-4 border-teal-500 px-6 py-6">
+            <div className="flex items-center justify-center gap-6 sm:gap-10">
+              <div className="text-center">
+                <div className="text-3xl sm:text-4xl font-bold text-gray-700">1.5%</div>
+                <div className="text-sm text-gray-500 mt-1">Avg CTR — 90 Days</div>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="text-xs font-medium text-teal-600 mb-1">Trending up</div>
+                <div className="text-3xl sm:text-4xl text-teal-500 font-light">→</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl sm:text-5xl font-extrabold text-gray-900">2.3%</div>
+                <div className="text-sm text-gray-500 mt-1">Avg CTR — Last 28 Days</div>
+              </div>
+            </div>
+            <p className="text-xs text-gray-400 mt-4 text-center">Click-through rate accelerating — source: Google Search Console</p>
+          </div>
         </div>
       </section>
 
