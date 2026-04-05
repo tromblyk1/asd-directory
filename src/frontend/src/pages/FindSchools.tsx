@@ -254,7 +254,7 @@ export default function FindSchools() {
 
   // Filter schools
   const filteredSchools = useMemo(() => {
-    return schools.filter(school => {
+    const filtered = schools.filter(school => {
       // Search filter
       const matchesSearch = !searchTerm ||
         school.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -296,6 +296,26 @@ export default function FindSchools() {
 
       return matchesSearch && matchesDistrict && matchesScholarship && matchesGrade && matchesDenomination && matchesAccreditation;
     });
+
+    // Sort: featured first, then daily-seeded shuffle for non-featured
+    const featured = filtered.filter(s => (s as any).featured);
+    const nonFeatured = filtered.filter(s => !(s as any).featured);
+
+    const dateStr = new Date().toISOString().slice(0, 10);
+    let seed = 0;
+    for (let i = 0; i < dateStr.length; i++) {
+      seed = ((seed << 5) - seed + dateStr.charCodeAt(i)) | 0;
+    }
+    const seededRandom = () => {
+      seed = (seed * 16807 + 0) % 2147483647;
+      return (seed & 0x7fffffff) / 2147483647;
+    };
+    for (let i = nonFeatured.length - 1; i > 0; i--) {
+      const j = Math.floor(seededRandom() * (i + 1));
+      [nonFeatured[i], nonFeatured[j]] = [nonFeatured[j], nonFeatured[i]];
+    }
+
+    return [...featured, ...nonFeatured];
   }, [schools, searchTerm, selectedDistricts, selectedScholarships, selectedGrades, selectedDenominations, selectedAccreditations]);
 
   // Request user's location

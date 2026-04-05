@@ -305,33 +305,53 @@ export default function FindProviders() {
 
   // Filter providers
   const filteredProviders = useMemo(() => {
-    return providers.filter(provider => {
+    const filtered = providers.filter(provider => {
       // Search filter
-      const matchesSearch = !searchTerm || 
+      const matchesSearch = !searchTerm ||
         provider.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
         provider.city?.toLowerCase().includes(searchTerm.toLowerCase()) ||
         provider.county?.toLowerCase().includes(searchTerm.toLowerCase());
-      
+
       // County filter
       const matchesCounty = selectedCounties.length === 0 ||
-        selectedCounties.some(county => 
+        selectedCounties.some(county =>
           toTitleCase(provider.county || '').includes(county)
         );
-      
+
       // Service filter (array-based)
       const matchesService = selectedServices.length === 0 ||
         arrayContainsAny(provider.services, selectedServices);
-      
+
       // Insurance filter (array-based)
       const matchesInsurance = selectedInsurances.length === 0 ||
         arrayContainsAny(provider.insurances, selectedInsurances);
-      
+
       // Scholarship filter (array-based)
       const matchesScholarship = selectedScholarships.length === 0 ||
         arrayContainsAny(provider.scholarships, selectedScholarships);
-      
+
       return matchesSearch && matchesCounty && matchesService && matchesInsurance && matchesScholarship;
     });
+
+    // Sort: featured first, then daily-seeded shuffle for non-featured
+    const featured = filtered.filter(p => p.featured);
+    const nonFeatured = filtered.filter(p => !p.featured);
+
+    const dateStr = new Date().toISOString().slice(0, 10);
+    let seed = 0;
+    for (let i = 0; i < dateStr.length; i++) {
+      seed = ((seed << 5) - seed + dateStr.charCodeAt(i)) | 0;
+    }
+    const seededRandom = () => {
+      seed = (seed * 16807 + 0) % 2147483647;
+      return (seed & 0x7fffffff) / 2147483647;
+    };
+    for (let i = nonFeatured.length - 1; i > 0; i--) {
+      const j = Math.floor(seededRandom() * (i + 1));
+      [nonFeatured[i], nonFeatured[j]] = [nonFeatured[j], nonFeatured[i]];
+    }
+
+    return [...featured, ...nonFeatured];
   }, [providers, searchTerm, selectedCounties, selectedServices, selectedInsurances, selectedScholarships]);
 
   // Request user's location

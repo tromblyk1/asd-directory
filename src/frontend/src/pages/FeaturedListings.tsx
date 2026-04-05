@@ -1117,7 +1117,7 @@ export default function FeaturedListings() {
               <tbody>
                 {[
                   { feature: "County search visibility", free: true, basic: true, enhanced: true, premium: true },
-                  { feature: "Search result position", free: "Alphabetical", basic: "#4-6", enhanced: "#2-3", premium: "#1" },
+                  { feature: "Search result position", free: "Random", basic: "#4-6", enhanced: "#2-3", premium: "#1" },
                   { feature: "Description limit", free: "250 chars", basic: "500 chars", enhanced: "1,000 chars", premium: "Unlimited" },
                   { feature: "Gold border & Featured badge", free: false, basic: true, enhanced: true, premium: true },
                   { feature: "Clinic photos on listings", free: false, basic: false, enhanced: true, premium: true },

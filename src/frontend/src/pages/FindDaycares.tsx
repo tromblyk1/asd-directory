@@ -191,7 +191,7 @@ export default function FindDaycares() {
 
   // Filter daycares
   const filteredDaycares = useMemo(() => {
-    return allDaycares.filter(daycare => {
+    const filtered = allDaycares.filter(daycare => {
       // Record type filter
       if (recordTypeFilter === 'daycare' && daycare.record_type !== 'daycare') return false;
       if (recordTypeFilter === 'ppec' && daycare.record_type !== 'ppec') return false;
@@ -220,6 +220,26 @@ export default function FindDaycares() {
 
       return matchesSearch && matchesCounty && matchesAges && matchesFeatures;
     });
+
+    // Sort: featured first, then daily-seeded shuffle for non-featured
+    const featured = filtered.filter(d => (d as any).featured);
+    const nonFeatured = filtered.filter(d => !(d as any).featured);
+
+    const dateStr = new Date().toISOString().slice(0, 10);
+    let seed = 0;
+    for (let i = 0; i < dateStr.length; i++) {
+      seed = ((seed << 5) - seed + dateStr.charCodeAt(i)) | 0;
+    }
+    const seededRandom = () => {
+      seed = (seed * 16807 + 0) % 2147483647;
+      return (seed & 0x7fffffff) / 2147483647;
+    };
+    for (let i = nonFeatured.length - 1; i > 0; i--) {
+      const j = Math.floor(seededRandom() * (i + 1));
+      [nonFeatured[i], nonFeatured[j]] = [nonFeatured[j], nonFeatured[i]];
+    }
+
+    return [...featured, ...nonFeatured];
   }, [allDaycares, searchTerm, selectedCounties, agesServedSearch, selectedFeatures, recordTypeFilter]);
 
   // Request user's location

@@ -240,7 +240,7 @@ export default function FaithResources() {
 
     // Filter resources
     const filteredResources = useMemo(() => {
-        return resources.filter(resource => {
+        const filtered = resources.filter(resource => {
             // Search filter
             const matchesSearch = !searchTerm ||
                 resource.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -261,6 +261,26 @@ export default function FaithResources() {
 
             return matchesSearch && matchesCity && matchesDenomination && matchesAccommodation;
         });
+
+        // Sort: featured first, then daily-seeded shuffle for non-featured
+        const featured = filtered.filter(r => (r as any).featured);
+        const nonFeatured = filtered.filter(r => !(r as any).featured);
+
+        const dateStr = new Date().toISOString().slice(0, 10);
+        let seed = 0;
+        for (let i = 0; i < dateStr.length; i++) {
+            seed = ((seed << 5) - seed + dateStr.charCodeAt(i)) | 0;
+        }
+        const seededRandom = () => {
+            seed = (seed * 16807 + 0) % 2147483647;
+            return (seed & 0x7fffffff) / 2147483647;
+        };
+        for (let i = nonFeatured.length - 1; i > 0; i--) {
+            const j = Math.floor(seededRandom() * (i + 1));
+            [nonFeatured[i], nonFeatured[j]] = [nonFeatured[j], nonFeatured[i]];
+        }
+
+        return [...featured, ...nonFeatured];
     }, [resources, searchTerm, selectedCities, selectedDenominations, selectedAccommodations]);
 
     // Mappable resources (have coordinates)
