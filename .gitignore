@@ -39,3 +39,11 @@ src/frontend/.claude/settings.local.json
 # === OS cruft ===
 *.bak
 *.tmp
+
+# === Local-only scripts & generated content ===
+/drive-upload-server.js
+/generate-docx.js
+/generate-guides-docx.js
+/newsletter_flaspoint/
+/src/frontend/research/
+/src/frontend/src/data/resources/docx-output/

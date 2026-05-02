@@ -236,11 +236,11 @@ export default function Home() {
                   </div>
                   <h3 className="text-xl font-bold text-white mb-2">FLASpoint Newsletter</h3>
                   <p className="text-sm text-gray-400 mb-4">Stay ahead of the news that matters to Florida autism families.</p>
-                  <p className="text-xs font-semibold text-[#0D9488] uppercase tracking-wide mb-2">In Issue #2:</p>
+                  <p className="text-xs font-semibold text-[#0D9488] uppercase tracking-wide mb-2">In Issue #3:</p>
                   <ul className="text-sm text-gray-300 space-y-1.5 mb-5">
-                    <li className="flex items-start gap-2"><span className="text-[#0D9488] mt-0.5">&#9679;</span>Florida's "Blue Card" law clears the Legislature (HB 365)</li>
-                    <li className="flex items-start gap-2"><span className="text-[#0D9488] mt-0.5">&#9679;</span>Independent autism research committee launched to counter federal cuts</li>
-                    <li className="flex items-start gap-2"><span className="text-[#0D9488] mt-0.5">&#9679;</span>Autism Acceptance Month: find events and providers near you</li>
+                    <li className="flex items-start gap-2"><span className="text-[#0D9488] mt-0.5">&#9679;</span>Florida's Blue Card law is headed to the Governor &mdash; effective July 1</li>
+                    <li className="flex items-start gap-2"><span className="text-[#0D9488] mt-0.5">&#9679;</span>Federal autism committee met for the first time in 19 months &mdash; here's what happened</li>
+                    <li className="flex items-start gap-2"><span className="text-[#0D9488] mt-0.5">&#9679;</span>$77M in special ed research funding at risk of lapsing by September 30</li>
                   </ul>
                   <a
                     href="https://flaspoint.beehiiv.com"

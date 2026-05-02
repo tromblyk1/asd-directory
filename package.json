@@ -1,5 +1,6 @@
 {
   "devDependencies": {
-    "basic-ftp": "^5.1.0"
+    "basic-ftp": "^5.1.0",
+    "docx": "^9.6.1"
   }
 }

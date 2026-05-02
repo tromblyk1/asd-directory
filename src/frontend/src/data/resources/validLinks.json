@@ -6,13 +6,6 @@
       "description": "Florida resources on learning support and educational advocacy"
     }
   ],
-  "services/support-groups": [
-    {
-      "label": "Autism Speaks",
-      "url": "https://www.autismspeaks.org/",
-      "description": "Resources for finding local support groups"
-    }
-  ],
   "services/respite-care": [
     {
       "label": "ARCH National Respite Network",
@@ -27,25 +20,11 @@
       "description": "Florida state society supporting respiratory care professionals"
     }
   ],
-  "services/residential-program": [
-    {
-      "label": "Autism Speaks",
-      "url": "https://www.autismspeaks.org/",
-      "description": "Resources on residential options and housing"
-    }
-  ],
   "services/physical-therapy": [
     {
       "label": "American Physical Therapy Association (APTA)",
       "url": "https://www.apta.org/",
       "description": "National professional organization for physical therapists"
-    }
-  ],
-  "services/parent-coaching": [
-    {
-      "label": "Autism Speaks",
-      "url": "https://www.autismspeaks.org/",
-      "description": "Resources on parent training programs and strategies"
     }
   ],
   "services/occupational-therapy": [
@@ -81,6 +60,19 @@
       "description": "Resources on life skills and transition planning"
     }
   ],
+  "services/group-therapy": [
+    {
+      "label": "Autism Speaks",
+      "url": "https://www.autismspeaks.org/",
+      "description": "Resources on social skills programs and groups"
+    }
+  ],
+  "services/floor-time": [
+    {
+      "label": "Autism Speaks Intervention Guide",
+      "url": "https://www.autismspeaks.org/types-treatments"
+    }
+  ],
   "services/financial-planning": [
     {
       "label": "ABLE National Resource Center",
@@ -105,6 +97,13 @@
     {
       "label": "Disney Disability Access Service",
       "url": "https://disneyworld.disney.go.com/guest-services/disability-access-service"
+    }
+  ],
+  "services/ados-testing": [
+    {
+      "label": "Autism Speaks",
+      "url": "https://www.autismspeaks.org/",
+      "description": "Information on autism diagnosis and evaluation process"
     }
   ],
   "services/aba-therapy": [
@@ -180,6 +179,11 @@
   ],
   "insurances/florida-medicaid": [
     {
+      "label": "Florida Department of Children and Families",
+      "url": "https://www.myflfamilies.com/",
+      "description": "Apply for Medicaid through MyACCESS portal"
+    },
+    {
       "label": "Agency for Persons with Disabilities (APD)",
       "url": "https://apd.myflorida.com/",
       "description": "Administers iBudget waiver for home and community-based services"
@@ -190,6 +194,13 @@
       "label": "Florida Blue",
       "url": "https://www.floridablue.com/",
       "description": "Official Florida Blue website - find doctors, check benefits, and manage your health plan"
+    }
+  ],
+  "insurances/evernorth": [
+    {
+      "label": "Evernorth Behavioral Health",
+      "url": "https://www.evernorth.com/our-solutions/behavioral-health",
+      "description": "Official Evernorth behavioral health information and resources"
     }
   ],
   "insurances/early-steps": [
@@ -222,6 +233,11 @@
   ],
   "daycares/ppec": [
     {
+      "label": "Florida Medicaid Application",
+      "url": "https://www.myflfamilies.com/services/public-assistance",
+      "description": "Apply for Florida Medicaid through ACCESS Florida"
+    },
+    {
       "label": "Kids' Waivers - Florida",
       "url": "https://kidswaivers.org/fl/",
       "description": "Florida Medicaid waivers and programs for children with disabilities"
@@ -232,13 +248,6 @@
       "label": "Florida Head Start Association",
       "url": "https://www.flheadstart.org/",
       "description": "Florida state advocacy and support organization for Head Start programs"
-    }
-  ],
-  "daycares/ese-prek": [
-    {
-      "label": "Florida Department of Education — ESE",
-      "url": "https://www.fldoe.org/academics/exceptional-student-edu/",
-      "description": "State resource for Exceptional Student Education programs and guidance"
     }
   ],
   "accreditations/flga-lcms": [
