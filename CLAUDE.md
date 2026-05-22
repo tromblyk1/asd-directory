@@ -185,6 +185,20 @@ If asked to add one thing, add ONLY that one thing. Touch nothing else.
 - category = 'guide' → displays on /guides page
 - Other categories → displays on /blog page
 
+### `site_stats` table
+Editable key/value pairs surfaced on the Featured pages — lets us update headline numbers (impressions, CTR, provider counts) without rebuilding/redeploying.
+
+- **Columns:** `key` (text, PK), `value` (text), `updated_at` (timestamptz, auto-maintained by trigger)
+- **RLS:** public SELECT only; writes via SQL editor / service role / MCP
+- **Read path:** `src/frontend/src/hooks/useSiteStats.ts` (TanStack Query, **5-min `staleTime`**) — `DEFAULT_STATS` in that file is the instant-render fallback; keep it in sync as a backup
+- **Consumers:** `FeaturedListings.tsx`, `FeaturedDaycares.tsx`
+- **Current keys:** `featured_impressions_3mo`, `featured_clicks_3mo`, `featured_ctr_3mo`, `featured_impressions_per_month`, `featured_clicks_per_month`, `featured_audience_focus`, `hero_providers_count`, `hero_daycares_count`
+- **Update a stat:**
+  ```sql
+  UPDATE site_stats SET value = '5,100' WHERE key = 'featured_clicks_3mo';
+  ```
+  `updated_at` auto-stamps via the `site_stats_set_updated_at` trigger. Live site reflects the change once TanStack's 5-min cache expires (or immediately in a fresh tab/incognito).
+
 ## Database Operations
 **Claude can run SQL directly against Supabase via the Supabase MCP server (configured for this project).** Use it for reads (SELECT, table inspection), seed/update statements, and migrations. Rules:
 
