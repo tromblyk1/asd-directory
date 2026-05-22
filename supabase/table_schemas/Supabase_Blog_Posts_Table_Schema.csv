@@ -11,3 +11,6 @@ image_url,text,YES,null
 published,boolean,YES,false
 featured,boolean,YES,false
 slug,text,YES,null
+is_sponsored,boolean,YES,false
+sponsor_name,text,YES,null
+sponsor_url,text,YES,null

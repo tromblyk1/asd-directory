@@ -28,3 +28,4 @@ x_url,text,YES,null
 youtube_url,text,YES,null
 linkedin_url,text,YES,null
 tiktok_url,text,YES,null
+featured,boolean,YES,false

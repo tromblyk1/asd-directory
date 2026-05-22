@@ -32,3 +32,4 @@ youtube_url,text,YES,null
 linkedin_url,text,YES,null
 featured,boolean,YES,false
 tiktok_url,text,YES,null
+description,text,YES,null
