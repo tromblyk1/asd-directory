@@ -186,7 +186,12 @@ If asked to add one thing, add ONLY that one thing. Touch nothing else.
 - Other categories → displays on /blog page
 
 ## Database Operations
-**User runs SQL directly in Supabase. Provide SQL queries but do NOT attempt to execute database operations.**
+**Claude can run SQL directly against Supabase via the Supabase MCP server (configured for this project).** Use it for reads (SELECT, table inspection), seed/update statements, and migrations. Rules:
+
+- **Always show the SQL first** before executing — the user wants to see what's about to run.
+- **For destructive statements** (DROP, TRUNCATE, DELETE without WHERE, ALTER that removes columns, DROP POLICY): explicitly ask for confirmation before executing, even on this project.
+- **Migrations:** also save the SQL to `supabase/migrations/<descriptive_name>.sql` so the change is captured in git, even after running it via MCP.
+- If the MCP server is unavailable, fall back to providing SQL for the user to paste into the Supabase SQL editor.
 
 ## Array Filtering (Supabase/PostgreSQL)
 ```sql
@@ -382,11 +387,17 @@ npm run dev      # Local development
 npm run build    # Production build (creates dist/)
 ```
 
-**Deploy to Hostinger:**
-1. Run `npm run build` from `src/frontend/`
-2. Delete contents of `public_html/assets/` on Hostinger
-3. Upload `dist/assets/` folder contents to `public_html/assets/`
-4. Overwrite `public_html/index.html` with `dist/index.html`
+**Deploy to Hostinger (automated via deploy script):**
+```bash
+cd src/frontend && npm run build
+cd ../../deploy && npm run deploy
+```
+
+The `deploy/` folder contains a standalone Node SFTP script. It reads creds from `deploy/.env` (gitignored) and uploads `src/frontend/dist/` to the Hostinger web root. See `deploy/README.md` for one-time setup.
+
+**Trap to remember:** Hostinger has TWO `public_html` folders per account. The live web root is `/home/<user>/domains/floridaautismservices.com/public_html/`, NOT `/home/<user>/public_html/`. The `.env.example` documents this — don't bypass it. If a deploy looks successful but the live site doesn't update, run `npm run probe` in the deploy folder to confirm where files actually landed.
+
+**Note:** the deploy script overwrites but never deletes — old hashed bundles linger on the server. Safe but consumes disk; clean via hPanel File Manager periodically.
 
 ---
 

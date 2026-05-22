@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronDown, ArrowUp, Eye, Shield, Check } from "lucide-react";
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
+import { useSiteStats } from "@/hooks/useSiteStats";
 
 const starSvg = (
   <svg className="w-3.5 h-3.5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
@@ -560,6 +561,8 @@ const pricingCheck = (
 // ─── Main Page Component ───────────────────────────────────────────────
 
 export default function FeaturedListings() {
+  const stats = useSiteStats();
+
   return (
     <div>
       {/* SECTION 1: Hero */}
@@ -573,15 +576,15 @@ export default function FeaturedListings() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-0 mb-10">
             <div className="px-6 sm:border-r sm:border-white/30">
-              <p className="text-2xl font-bold">3,300+</p>
+              <p className="text-2xl font-bold">{stats.hero_providers_count}</p>
               <p className="text-teal-100 text-sm">Providers Listed</p>
             </div>
             <div className="px-6 sm:border-r sm:border-white/30">
-              <p className="text-2xl font-bold">2.3%</p>
+              <p className="text-2xl font-bold">{stats.featured_ctr_3mo}</p>
               <p className="text-teal-100 text-sm">Click-Through Rate</p>
             </div>
             <div className="px-6">
-              <p className="text-2xl font-bold">100%</p>
+              <p className="text-2xl font-bold">{stats.featured_audience_focus}</p>
               <p className="text-teal-100 text-sm">Autism-Focused Traffic</p>
             </div>
           </div>
@@ -615,54 +618,40 @@ export default function FeaturedListings() {
       <section className="bg-gray-50 py-16 px-4">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Our Growth Speaks for Itself</h2>
-          <p className="text-gray-500 mb-8 text-base max-w-2xl mx-auto">Real data from Google Search Console — families are finding us, and the numbers are accelerating every month.</p>
+          <p className="text-gray-500 mb-8 text-base max-w-2xl mx-auto">Real data from Google Search Console — families are finding us, every single day.</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto">
             <div className="bg-white rounded-xl shadow-md border border-gray-100 p-6 text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-teal-600">244K+</div>
+              <div className="text-3xl sm:text-4xl font-bold text-teal-600">{stats.featured_impressions_3mo}</div>
               <div className="text-sm text-gray-500 mt-2">Search Impressions &bull; 3 Months</div>
             </div>
             <div className="bg-white rounded-xl shadow-md border border-gray-100 p-6 text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-teal-600">3,500+</div>
+              <div className="text-3xl sm:text-4xl font-bold text-teal-600">{stats.featured_clicks_3mo}</div>
               <div className="text-sm text-gray-500 mt-2">Clicks to Listings &bull; 3 Months</div>
             </div>
             <div className="bg-white rounded-xl shadow-md border border-gray-100 p-6 text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-teal-600">10,000+</div>
-              <div className="text-sm text-gray-500 mt-2">Families Served Monthly</div>
+              <div className="text-3xl sm:text-4xl font-bold text-teal-600">{stats.featured_ctr_3mo}</div>
+              <div className="text-sm text-gray-500 mt-2">Click-Through Rate &bull; 3 Months</div>
             </div>
           </div>
           <div className="mt-6 max-w-3xl mx-auto bg-white shadow-md rounded-lg border-l-4 border-teal-500 px-6 py-6">
-            <div className="flex items-center justify-center gap-6 sm:gap-10">
+            <p className="text-xs uppercase tracking-wider text-teal-700 font-semibold text-center mb-4">Consistent Monthly Performance</p>
+            <div className="flex items-center justify-center gap-8 sm:gap-12">
               <div className="text-center">
-                <div className="text-3xl sm:text-4xl font-bold text-gray-700">3,500+</div>
-                <div className="text-sm text-gray-500 mt-1">Clicks to Listings — 90 Days</div>
+                <div className="text-3xl sm:text-4xl font-extrabold text-gray-900">{stats.featured_impressions_per_month}</div>
+                <div className="text-sm text-gray-500 mt-1">Impressions / Month</div>
               </div>
-              <div className="flex flex-col items-center">
-                <div className="text-xs font-medium text-teal-600 mb-1">Trending up</div>
-                <div className="text-3xl sm:text-4xl text-teal-500 font-light">→</div>
-              </div>
+              <div className="text-3xl sm:text-4xl text-gray-300 font-light">•</div>
               <div className="text-center">
-                <div className="text-4xl sm:text-5xl font-extrabold text-gray-900">~5,000</div>
-                <div className="text-sm text-gray-500 mt-1">Clicks — Last 28 Days Pace</div>
+                <div className="text-3xl sm:text-4xl font-extrabold text-gray-900">{stats.featured_clicks_per_month}</div>
+                <div className="text-sm text-gray-500 mt-1">Clicks / Month</div>
+              </div>
+              <div className="text-3xl sm:text-4xl text-gray-300 font-light">•</div>
+              <div className="text-center">
+                <div className="text-3xl sm:text-4xl font-extrabold text-gray-900">{stats.featured_audience_focus}</div>
+                <div className="text-sm text-gray-500 mt-1">FL Autism Audience</div>
               </div>
             </div>
-            <p className="text-xs text-gray-400 mt-4 text-center">Click volume accelerating — source: Google Search Console</p>
-          </div>
-          <div className="mt-4 max-w-3xl mx-auto bg-white shadow-md rounded-lg border-l-4 border-teal-500 px-6 py-6">
-            <div className="flex items-center justify-center gap-6 sm:gap-10">
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl font-bold text-gray-700">1.5%</div>
-                <div className="text-sm text-gray-500 mt-1">Avg CTR — 90 Days</div>
-              </div>
-              <div className="flex flex-col items-center">
-                <div className="text-xs font-medium text-teal-600 mb-1">Trending up</div>
-                <div className="text-3xl sm:text-4xl text-teal-500 font-light">→</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl sm:text-5xl font-extrabold text-gray-900">2.3%</div>
-                <div className="text-sm text-gray-500 mt-1">Avg CTR — Last 28 Days</div>
-              </div>
-            </div>
-            <p className="text-xs text-gray-400 mt-4 text-center">Click-through rate accelerating — source: Google Search Console</p>
+            <p className="text-xs text-gray-400 mt-4 text-center">Source: Google Search Console &bull; 90-day average</p>
           </div>
         </div>
       </section>
