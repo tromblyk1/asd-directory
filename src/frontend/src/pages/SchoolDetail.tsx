@@ -179,7 +179,7 @@ export default function SchoolDetail() {
       ...(school.zip && { "postalCode": school.zip })
     },
     ...(school.phone && { "telephone": school.phone }),
-    ...(school.director_email && { "email": school.director_email }),
+    ...((school.email || school.director_email) && { "email": (school.email || school.director_email) }),
     ...(hasCoordinates && {
       "geo": {
         "@type": "GeoCoordinates",
@@ -409,23 +409,23 @@ export default function SchoolDetail() {
                     )}
 
                     {/* Email */}
-                    {school.director_email && (
+                    {(school.email || school.director_email) && (
                       <div className="flex items-start gap-3">
                         <Mail className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
                         <div className="min-w-0 flex-1">
                           <p className="font-medium text-gray-900">Email</p>
                           <div className="flex items-center gap-2">
                             <a 
-                              href={`mailto:${school.director_email}`}
+                              href={`mailto:${(school.email || school.director_email)}`}
                               className="text-purple-600 hover:text-purple-700 break-all"
                             >
-                              {school.director_email}
+                              {(school.email || school.director_email)}
                             </a>
                             <TooltipProvider>
                               <Tooltip>
                                 <TooltipTrigger asChild>
                                   <button
-                                    onClick={() => copyEmail(school.director_email!)}
+                                    onClick={() => copyEmail((school.email || school.director_email)!)}
                                     className="p-1.5 hover:bg-gray-100 rounded flex-shrink-0"
                                   >
                                     {emailCopied ? (
@@ -626,11 +626,11 @@ export default function SchoolDetail() {
                         </Button>
                       </a>
                     )}
-                    {school.director_email && (
+                    {(school.email || school.director_email) && (
                       <Button 
                         variant="outline" 
                         className="w-full justify-start h-11 sm:h-10"
-                        onClick={() => copyEmail(school.director_email!)}
+                        onClick={() => copyEmail((school.email || school.director_email)!)}
                       >
                         {emailCopied ? (
                           <>
