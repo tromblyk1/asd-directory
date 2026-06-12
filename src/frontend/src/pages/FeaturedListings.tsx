@@ -488,7 +488,7 @@ function SearchPositionVisual() {
       <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6">
         <div className="space-y-2">
           {data.bars.map((bar, i) => (
-            <div key={i} className={`h-4 rounded-full ${bar.w} ${bar.cls} relative transition-all duration-300`}>
+            <div key={i} className={`h-4 rounded-full ${bar.w} ${bar.cls} relative`}>
               {bar.you && (
                 <span className="absolute -right-2 top-1/2 -translate-y-1/2 translate-x-full text-xs font-bold text-amber-700 whitespace-nowrap ml-2">
                   &larr; {bar.youLabel || "You"}
