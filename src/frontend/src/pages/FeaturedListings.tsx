@@ -430,8 +430,8 @@ const positionData = [
     bars: [
       { cls: "bg-gradient-to-r from-amber-200 to-yellow-100 border border-amber-300 opacity-50", w: "w-full" },
       { cls: "bg-gradient-to-r from-amber-100 to-yellow-50 border border-amber-200 opacity-50", w: "w-11/12" },
-      { cls: "bg-amber-100 border border-amber-300", w: "w-full", you: true },
-      { cls: "bg-gray-200", w: "w-11/12" },
+      { cls: "bg-gradient-to-r from-amber-100 to-yellow-50 border border-amber-200 opacity-50", w: "w-full" },
+      { cls: "bg-amber-100 border border-amber-300", w: "w-11/12", you: true },
       { cls: "bg-gray-200", w: "w-full" },
       { cls: "bg-gray-200", w: "w-10/12" },
     ],

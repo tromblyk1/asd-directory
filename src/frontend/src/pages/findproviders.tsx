@@ -333,9 +333,24 @@ export default function FindProviders() {
       return matchesSearch && matchesCounty && matchesService && matchesInsurance && matchesScholarship;
     });
 
-    // Sort: featured first, then daily-seeded shuffle for non-featured
+    // Sort: featured by tier (premium → enhanced → basic → other featured), then daily-seeded shuffle for non-featured.
+    // Every paying tier ranks above all non-featured listings — Basic providers are paying for "above all
+    // standard results" placement, so they always outrank free listings. Differentiation between tiers only
+    // applies when higher tiers are present in the same result set: Premium beats Enhanced beats Basic.
     const featured = filtered.filter(p => p.featured);
     const nonFeatured = filtered.filter(p => !p.featured);
+
+    const tierOf = (p: ProviderResource): 'premium' | 'enhanced' | 'basic' | 'other' => {
+      const t = (p.featured_tier || '').toLowerCase();
+      if (t === 'premium') return 'premium';
+      if (t === 'enhanced') return 'enhanced';
+      if (t === 'basic') return 'basic';
+      return 'other';
+    };
+    const premiumFeatured = featured.filter(p => tierOf(p) === 'premium');
+    const enhancedFeatured = featured.filter(p => tierOf(p) === 'enhanced');
+    const basicFeatured = featured.filter(p => tierOf(p) === 'basic');
+    const otherFeatured = featured.filter(p => tierOf(p) === 'other');
 
     const dateStr = new Date().toISOString().slice(0, 10);
     let seed = 0;
@@ -351,7 +366,7 @@ export default function FindProviders() {
       [nonFeatured[i], nonFeatured[j]] = [nonFeatured[j], nonFeatured[i]];
     }
 
-    return [...featured, ...nonFeatured];
+    return [...premiumFeatured, ...enhancedFeatured, ...basicFeatured, ...otherFeatured, ...nonFeatured];
   }, [providers, searchTerm, selectedCounties, selectedServices, selectedInsurances, selectedScholarships]);
 
   // Request user's location

@@ -49,6 +49,9 @@ interface ProviderResource {
   description: string | null;
   resource_type: string | null;
   google_place_id: string | null;
+  featured?: boolean | null;
+  featured_tier?: string | null;
+  image_url?: string | null;
   // Social media links
   facebook_url?: string | null;
   instagram_url?: string | null;
@@ -203,6 +206,38 @@ export default function ProviderDetail() {
   const insurances = provider.insurances || [];
   const scholarships = provider.scholarships || [];
 
+  // Featured tier presentation (matches /featured sales page comparison table).
+  const tierRaw = (provider.featured_tier || '').toLowerCase();
+  const featuredTier: 'basic' | 'enhanced' | 'premium' | null =
+    provider.featured && (tierRaw === 'basic' || tierRaw === 'enhanced' || tierRaw === 'premium')
+      ? tierRaw
+      : null;
+  const isBasic = featuredTier === 'basic';
+  const isEnhanced = featuredTier === 'enhanced';
+  const isPremium = featuredTier === 'premium';
+  const isFeaturedAny = !!featuredTier;
+  const descLimit = isPremium ? Infinity : isEnhanced ? 1000 : isBasic ? 500 : Infinity;
+  const descRaw = provider.description || '';
+  const limitedDescription = descRaw.length > descLimit ? descRaw.slice(0, descLimit) + '…' : descRaw;
+
+  const infoCardClassName = isPremium
+    ? 'shadow-xl overflow-hidden'
+    : (isBasic || isEnhanced)
+      ? 'shadow-xl'
+      : 'border-none shadow-xl';
+
+  const infoCardStyle: React.CSSProperties | undefined = isPremium
+    ? {
+        border: '3px solid transparent',
+        backgroundImage:
+          'linear-gradient(to bottom, #fffbeb, #ffffff 40%, #fffbeb), linear-gradient(135deg, #f59e0b, #d97706, #b45309, #d97706, #f59e0b)',
+        backgroundOrigin: 'border-box',
+        backgroundClip: 'padding-box, border-box',
+      }
+    : (isBasic || isEnhanced)
+      ? { border: '2px solid #d97706' }
+      : undefined;
+
   // Get the ServiceTag slug for a service
   const getServiceSlug = (service: string): string => {
     const info = serviceDisplayInfo[service];
@@ -278,6 +313,17 @@ export default function ProviderDetail() {
           
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 flex items-start sm:items-center gap-2 sm:gap-3">
             <span className="flex-1">{provider.name}</span>
+            {isFeaturedAny && (
+              isPremium ? (
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs sm:text-sm font-bold bg-gradient-to-r from-amber-200 to-yellow-100 text-amber-800 border border-amber-400 shadow-md flex-shrink-0 mt-1 sm:mt-0">
+                  &#11088; Premium Partner
+                </span>
+              ) : (
+                <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs sm:text-sm font-bold bg-amber-100 text-amber-700 border border-amber-300 shadow-sm flex-shrink-0 mt-1 sm:mt-0">
+                  &#11088; Featured
+                </span>
+              )
+            )}
             {provider.verified && (
               <TooltipProvider>
                 <Tooltip>
@@ -317,7 +363,14 @@ export default function ProviderDetail() {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-4 sm:space-y-6">
             {/* Contact & Details Card */}
-            <Card className="border-none shadow-xl">
+            <Card className={infoCardClassName} style={infoCardStyle}>
+              {(isEnhanced || isPremium) && provider.image_url && (
+                <img
+                  src={provider.image_url}
+                  alt={provider.name || 'Provider'}
+                  className={`w-full ${isPremium ? 'h-56' : 'h-48'} object-cover`}
+                />
+              )}
               <CardContent className="p-4 sm:p-6 lg:p-8">
                 <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6">Provider Information</h2>
                 
@@ -437,7 +490,7 @@ export default function ProviderDetail() {
                   {/* Description */}
                   {provider.description && (
                     <div className="pt-4 border-t border-gray-100">
-                      <p className="text-gray-600 leading-relaxed text-sm sm:text-base">{provider.description}</p>
+                      <p className="text-gray-600 leading-relaxed text-sm sm:text-base">{isFeaturedAny ? limitedDescription : provider.description}</p>
                     </div>
                   )}
                 </div>

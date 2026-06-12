@@ -40,6 +40,8 @@ export interface ProviderResource {
   google_place_id?: string | null;
   social_links?: Record<string, string> | null;
   featured?: boolean | null;
+  featured_tier?: string | null;
+  image_url?: string | null;
   facebook_url?: string | null;
   instagram_url?: string | null;
   youtube_url?: string | null;
@@ -192,14 +194,53 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, rating }) 
   const insurances = provider.insurances || [];
   const scholarships = provider.scholarships || [];
 
+  // Featured tier presentation (matches /featured sales page comparison table).
+  const tierRaw = (provider.featured_tier || '').toLowerCase();
+  const featuredTier: 'basic' | 'enhanced' | 'premium' | null =
+    provider.featured && (tierRaw === 'basic' || tierRaw === 'enhanced' || tierRaw === 'premium')
+      ? tierRaw
+      : null;
+  const isBasic = featuredTier === 'basic';
+  const isEnhanced = featuredTier === 'enhanced';
+  const isPremium = featuredTier === 'premium';
+  const isFeaturedAny = !!featuredTier;
+  const descLimit = isPremium ? Infinity : isEnhanced ? 1000 : isBasic ? 500 : Infinity;
+  const descRaw = provider.description || '';
+  const limitedDescription = descRaw.length > descLimit ? descRaw.slice(0, descLimit) + '…' : descRaw;
+
+  const cardClassName = isPremium
+    ? 'shadow-lg hover:shadow-xl transition-shadow duration-200 overflow-hidden'
+    : (isBasic || isEnhanced)
+      ? 'shadow-md hover:shadow-lg transition-shadow duration-200'
+      : 'border-none shadow-md hover:shadow-lg transition-shadow duration-200';
+
+  const cardStyle: React.CSSProperties | undefined = isPremium
+    ? {
+        border: '3px solid transparent',
+        backgroundImage:
+          'linear-gradient(to bottom, #fffbeb, #ffffff 40%, #fffbeb), linear-gradient(135deg, #f59e0b, #d97706, #b45309, #d97706, #f59e0b)',
+        backgroundOrigin: 'border-box',
+        backgroundClip: 'padding-box, border-box',
+      }
+    : (isBasic || isEnhanced)
+      ? { border: '2px solid #d97706' }
+      : undefined;
+
   return (
-    <Card className="border-none shadow-md hover:shadow-lg transition-shadow duration-200">
+    <Card className={cardClassName} style={cardStyle}>
         <CardContent className="p-5">
           <div className="flex flex-col gap-3">
+            {(isEnhanced || isPremium) && provider.image_url && (
+              <img
+                src={provider.image_url}
+                alt={provider.name || 'Provider'}
+                className={`w-full ${isPremium ? 'h-44' : 'h-36'} object-cover rounded-lg`}
+              />
+            )}
             <div className="flex flex-wrap items-start justify-between gap-2">
               <div className="flex-1 min-w-0">
                 <Link to={`/providers/${provider.slug}`}>
-                  <h3 className="text-lg font-semibold text-gray-900 leading-tight hover:text-teal-600 transition-colors cursor-pointer">
+                  <h3 className={`${isPremium ? 'text-xl font-bold' : 'text-lg font-semibold'} text-gray-900 leading-tight hover:text-teal-600 transition-colors cursor-pointer`}>
                     {provider.name || 'Unknown Provider'}
                   </h3>
                 </Link>
@@ -224,7 +265,18 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, rating }) 
                   </div>
                 )}
               </div>
-              <div className="flex items-center gap-1.5 flex-shrink-0">
+              <div className="flex items-center gap-1.5 flex-shrink-0 flex-wrap justify-end">
+                {isFeaturedAny && (
+                  isPremium ? (
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-gradient-to-r from-amber-200 to-yellow-100 text-amber-800 border border-amber-400 shadow-md">
+                      &#11088; Premium Partner
+                    </span>
+                  ) : (
+                    <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-700 border border-amber-300 shadow-sm">
+                      &#11088; Featured
+                    </span>
+                  )
+                )}
                 {provider.verified && (
                   <Tooltip>
                     <TooltipTrigger asChild>
@@ -240,6 +292,12 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, rating }) 
                 )}
               </div>
             </div>
+
+            {(isEnhanced || isPremium) && limitedDescription && (
+              <p className={`text-sm text-gray-600 leading-relaxed ${isEnhanced ? 'line-clamp-3' : ''}`}>
+                {limitedDescription}
+              </p>
+            )}
 
             {services.length > 0 && (
               <div className="flex flex-wrap gap-1.5">
@@ -373,7 +431,7 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, rating }) 
                 </div>
               )}
 
-              {provider.website && (
+              {provider.website && !(isEnhanced || isPremium) && (
                 <div className="flex items-center text-gray-600">
                   <Globe className="w-4 h-4 mr-2 text-gray-400 flex-shrink-0" />
                   <a
@@ -439,7 +497,7 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, rating }) 
                 </div>
               )}
 
-              {provider.featured && (provider.facebook_url || provider.instagram_url || provider.youtube_url || provider.linkedin_url || provider.twitter_url || provider.tiktok_url) && (
+              {(isEnhanced || isPremium) && (provider.facebook_url || provider.instagram_url || provider.youtube_url || provider.linkedin_url || provider.twitter_url || provider.tiktok_url) && (
                 <div className="flex items-center text-gray-600 sm:col-span-2">
                   <SocialLinksDisplay socialLinks={{
                     ...(provider.facebook_url && { facebook: provider.facebook_url }),
@@ -452,6 +510,18 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, rating }) 
                 </div>
               )}
             </div>
+
+            {(isEnhanced || isPremium) && provider.website && (
+              <a
+                href={provider.website.startsWith('http') ? provider.website : `https://${provider.website}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-full px-4 py-2.5 text-sm font-semibold rounded-md bg-teal-600 text-white hover:bg-teal-700 transition-colors"
+              >
+                <Globe className="w-4 h-4 mr-2" />
+                Visit Website
+              </a>
+            )}
 
             <div className="flex justify-end pt-3 mt-3 border-t border-gray-100">
               <Link to={`/providers/${provider.slug}`}>
