@@ -305,12 +305,22 @@ export default function FindProviders() {
 
   // Filter providers
   const filteredProviders = useMemo(() => {
+    // Normalize spaces and hyphens so "speech therapy" matches the "speech-therapy" slug, etc.
+    const normalize = (s: string | null | undefined) => (s || '').toLowerCase().replace(/[\s-]+/g, '');
+    const searchTermNorm = normalize(searchTerm);
+    const matchField = (field: string | null | undefined) => normalize(field).includes(searchTermNorm);
+    const matchArray = (arr: string[] | null | undefined) => arr?.some(s => normalize(s).includes(searchTermNorm)) ?? false;
+
     const filtered = providers.filter(provider => {
-      // Search filter
+      // Search filter: name, city, county, ZIP, services, insurances, scholarships (all normalized)
       const matchesSearch = !searchTerm ||
-        provider.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        provider.city?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        provider.county?.toLowerCase().includes(searchTerm.toLowerCase());
+        matchField(provider.name) ||
+        matchField(provider.city) ||
+        matchField(provider.county) ||
+        matchField(provider.zip_code) ||
+        matchArray(provider.services) ||
+        matchArray(provider.insurances) ||
+        matchArray(provider.scholarships);
 
       // County filter
       const matchesCounty = selectedCounties.length === 0 ||
@@ -899,7 +909,7 @@ export default function FindProviders() {
             <Search className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
             <Input
               type="text"
-              placeholder="Search by name, city, or county..."
+              placeholder="Search by name, city, county, ZIP, service, insurance, or scholarship..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="pl-10 sm:pl-12 py-5 sm:py-6 text-base sm:text-lg shadow-sm"

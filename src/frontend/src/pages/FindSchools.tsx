@@ -254,13 +254,20 @@ export default function FindSchools() {
 
   // Filter schools
   const filteredSchools = useMemo(() => {
+    // Normalize spaces and hyphens so "miami dade" matches "Miami-Dade", etc.
+    const normalize = (s: string | null | undefined) => (s || '').toLowerCase().replace(/[\s-]+/g, '');
+    const searchTermNorm = normalize(searchTerm);
+    const matchField = (field: string | null | undefined) => normalize(field).includes(searchTermNorm);
+
     const filtered = schools.filter(school => {
-      // Search filter
+      // Search filter: name, city, district, denomination, ZIP (all normalized so
+      // "miami dade" matches "Miami-Dade", etc.)
       const matchesSearch = !searchTerm ||
-        school.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        school.city?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        school.district?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        school.denomination?.toLowerCase().includes(searchTerm.toLowerCase());
+        matchField(school.name) ||
+        matchField(school.city) ||
+        matchField(school.district) ||
+        matchField(school.denomination) ||
+        matchField(school.zip);
 
       // District filter (displayed as counties)
       const matchesDistrict = selectedDistricts.length === 0 ||
@@ -827,7 +834,7 @@ export default function FindSchools() {
               <Search className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
               <Input
                 type="text"
-                placeholder="Search by school name, city, county..."
+                placeholder="Search by school name, city, county, or ZIP..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-10 sm:pl-12 py-5 sm:py-6 text-base sm:text-lg shadow-sm"
