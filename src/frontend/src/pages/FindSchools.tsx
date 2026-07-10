@@ -740,13 +740,13 @@ export default function FindSchools() {
     <>
       <Helmet>
         <title>Find Private Schools for Autism in Florida | Florida Autism Services</title>
-        <meta 
-          name="description" 
-          content="Search 3,600+ Florida private schools accepting autism scholarships. Filter by FES-UA, FES-EO, FTC, and PEP scholarship programs." 
+        <meta
+          name="description"
+          content="Search 2,500+ Florida private schools accepting autism scholarships. Filter by FES-UA, FES-EO, FTC, and PEP scholarship programs."
         />
         <meta name="keywords" content="Florida private schools autism, FES-UA schools, autism scholarships Florida, special needs schools Florida, FES-EO schools, FTC scholarship schools" />
         <meta property="og:title" content="Find Private Schools for Autism in Florida" />
-        <meta property="og:description" content="Search 3,600+ Florida private schools accepting autism scholarships. Filter by scholarship programs." />
+        <meta property="og:description" content="Search 2,500+ Florida private schools accepting autism scholarships. Filter by scholarship programs." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://floridaautismservices.com/schools" />
         <link rel="canonical" href="https://floridaautismservices.com/schools" />

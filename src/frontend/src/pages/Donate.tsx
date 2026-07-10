@@ -64,11 +64,11 @@ export default function Donate() {
         <>
             <Helmet>
                 <title>Donate | Support Florida Autism Services Directory</title>
-                <meta name="description" content="Support the Florida Autism Services Directory with a donation. 100% of contributions help maintain and expand our free resource connecting 7,000+ autism-friendly providers, schools, and services for Florida families." />
+                <meta name="description" content="Support the Florida Autism Services Directory with a donation. 100% of contributions help maintain and expand our free resource connecting 5,000+ autism-friendly providers, schools, and services for Florida families." />
                 <meta name="keywords" content="donate autism Florida, support autism families, autism charity Florida, autism nonprofit donation, help autism community" />
                 <link rel="canonical" href="https://floridaautismservices.com/donate" />
                 <meta property="og:title" content="Support Florida Autism Services Directory" />
-                <meta property="og:description" content="Your donation helps maintain a free resource connecting Florida families with 7,000+ autism-friendly providers, schools, and services." />
+                <meta property="og:description" content="Your donation helps maintain a free resource connecting Florida families with 5,000+ autism-friendly providers, schools, and services." />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://floridaautismservices.com/donate" />
                 <meta property="og:site_name" content="Florida Autism Services Directory" />
@@ -104,7 +104,7 @@ export default function Donate() {
                             <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3" aria-hidden="true">
                                 <FolderOpen className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
                             </div>
-                            <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-800 mb-0.5 sm:mb-1">7,000+</p>
+                            <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-800 mb-0.5 sm:mb-1">5,000+</p>
                             <p className="text-xs sm:text-sm text-slate-600">Resources Listed</p>
                         </div>
                         <div className="bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 lg:p-6 shadow-lg text-center">

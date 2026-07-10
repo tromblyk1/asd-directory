@@ -65,11 +65,11 @@ export default function FeaturedSelectPT() {
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 text-center mb-4">Why Florida Autism Services?</h2>
           <p className="text-gray-600 text-center max-w-3xl mx-auto mb-12 text-lg">
-            Families across Florida rely on FloridaAutismServices.com not only to find autism therapy providers, but also for our extensive educational resources, school listings, faith-based community resources, and event calendar. Your impressive pediatric therapy services are already listed in our directory. Now let's make sure families can actually find you among the 3,700+ providers — and growing — competing for their attention.
+            Families across Florida rely on FloridaAutismServices.com not only to find autism therapy providers, but also for our extensive educational resources, school listings, faith-based community resources, and event calendar. Your impressive pediatric therapy services are already listed in our directory. Now let's make sure families can actually find you among the 3,300+ providers — and growing — competing for their attention.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div className="bg-white rounded-xl shadow-md p-8 text-center">
-              <div className="text-4xl font-extrabold text-teal-700 mb-2">3,700+</div>
+              <div className="text-4xl font-extrabold text-teal-700 mb-2">3,300+</div>
               <div className="text-gray-600 font-medium">Providers Listed</div>
             </div>
             <div className="bg-white rounded-xl shadow-md p-8 text-center">

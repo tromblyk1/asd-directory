@@ -248,7 +248,7 @@ export default function Home() {
                     <MapPin className="w-5 h-5 sm:w-7 sm:h-7 text-blue-600" aria-hidden="true" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-2xl sm:text-3xl font-bold text-gray-900">7,000+</p>
+                    <p className="text-2xl sm:text-3xl font-bold text-gray-900">5,000+</p>
                     <p className="text-sm sm:text-base text-gray-600">Resources Statewide</p>
                   </div>
                 </div>

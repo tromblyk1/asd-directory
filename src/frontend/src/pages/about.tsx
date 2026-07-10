@@ -33,7 +33,7 @@ export default function About() {
     "@type": "Organization",
     "name": "Florida Autism Services Directory",
     "url": "https://floridaautismservices.com",
-    "description": "Comprehensive directory connecting Florida families with 7,000+ autism-friendly resources including healthcare providers, schools, and faith communities.",
+    "description": "Comprehensive directory connecting Florida families with 5,000+ autism-friendly resources including healthcare providers, schools, and faith communities.",
     "founder": { "@type": "Person", "name": "Keith", "jobTitle": "Registered Nurse" },
     "areaServed": { "@type": "State", "name": "Florida" },
     "contactPoint": { "@type": "ContactPoint", "contactType": "customer service", "email": "info@floridaautismservices.com" },
@@ -53,17 +53,17 @@ export default function About() {
     <>
       <Helmet>
         <title>About Us | Florida Autism Services Directory</title>
-        <meta name="description" content="Learn about Florida Autism Services Directory - connecting families with 7,000+ autism-friendly providers, schools, faith communities, and resources across Florida. Free, verified, and always accessible." />
+        <meta name="description" content="Learn about Florida Autism Services Directory - connecting families with 5,000+ autism-friendly providers, schools, faith communities, and resources across Florida. Free, verified, and always accessible." />
         <meta name="keywords" content="about Florida autism services, autism directory Florida, autism resources Florida, autism support Florida, neurodivergent resources, autism community Florida" />
         <link rel="canonical" href="https://floridaautismservices.com/about" />
         <meta property="og:title" content="About Florida Autism Services Directory" />
-        <meta property="og:description" content="Florida's premier resource hub connecting neurodivergent families with 7,000+ autism-friendly providers, schools, and services." />
+        <meta property="og:description" content="Florida's premier resource hub connecting neurodivergent families with 5,000+ autism-friendly providers, schools, and services." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://floridaautismservices.com/about" />
         <meta property="og:site_name" content="Florida Autism Services Directory" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="About Florida Autism Services" />
-        <meta name="twitter:description" content="Connecting Florida families with 7,000+ autism-friendly resources statewide." />
+        <meta name="twitter:description" content="Connecting Florida families with 5,000+ autism-friendly resources statewide." />
         <script type="application/ld+json">{JSON.stringify(aboutSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
@@ -137,7 +137,7 @@ export default function About() {
                 <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <div>
                   <h3 className="font-bold text-gray-900 mb-1 text-sm sm:text-base">Comprehensive</h3>
-                  <p className="text-gray-700 text-sm sm:text-base">We don't just list a handful of providers. With over 7,000 resources including therapy providers, private schools, faith communities, and support services, this is the most complete autism resource directory in Florida.</p>
+                  <p className="text-gray-700 text-sm sm:text-base">We don't just list a handful of providers. With over 5,000 resources including therapy providers, private schools, faith communities, and support services, this is the most complete autism resource directory in Florida.</p>
                 </div>
               </div>
               <div className="flex gap-3 sm:gap-4">
@@ -181,7 +181,7 @@ export default function About() {
                       <MapPin className="w-5 h-5 sm:w-7 sm:h-7 text-blue-600" aria-hidden="true" />
                     </div>
                     <div>
-                      <p className="text-2xl sm:text-3xl font-bold text-gray-900">7,000+</p>
+                      <p className="text-2xl sm:text-3xl font-bold text-gray-900">5,000+</p>
                       <p className="text-gray-600 text-sm sm:text-base">Resources Statewide</p>
                     </div>
                   </div>

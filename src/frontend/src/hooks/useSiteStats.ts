@@ -11,7 +11,7 @@ const DEFAULT_STATS: Record<string, string> = {
   featured_clicks_per_month: "1,425+",
   featured_audience_focus: "100%",
   hero_providers_count: "3,300+",
-  hero_daycares_count: "250+",
+  hero_daycares_count: "300+",
 };
 
 export function useSiteStats() {

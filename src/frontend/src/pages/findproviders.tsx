@@ -814,17 +814,17 @@ export default function FindProviders() {
     <>
       <Helmet>
         <title>Find Autism Healthcare Providers in Florida | Florida Autism Services</title>
-        <meta name="description" content="Search 3,700+ autism-friendly healthcare providers across Florida. Find ABA therapists, speech therapists, occupational therapists, and specialists who accept Medicaid, insurance, and scholarships." />
+        <meta name="description" content="Search 3,300+ autism-friendly healthcare providers across Florida. Find ABA therapists, speech therapists, occupational therapists, and specialists who accept Medicaid, insurance, and scholarships." />
         <meta name="keywords" content="autism providers Florida, ABA therapy near me, autism therapists Florida, speech therapy autism, occupational therapy autism, Florida Medicaid autism, autism specialists" />
         <link rel="canonical" href="https://floridaautismservices.com/providers" />
         <meta property="og:title" content="Find Autism Healthcare Providers in Florida" />
-        <meta property="og:description" content="Search 3,700+ autism-friendly healthcare providers across Florida. Find therapists and specialists accepting Medicaid and insurance." />
+        <meta property="og:description" content="Search 3,300+ autism-friendly healthcare providers across Florida. Find therapists and specialists accepting Medicaid and insurance." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://floridaautismservices.com/providers" />
         <meta property="og:site_name" content="Florida Autism Services Directory" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Find Autism Healthcare Providers in Florida" />
-        <meta name="twitter:description" content="Search 3,700+ autism-friendly healthcare providers across Florida." />
+        <meta name="twitter:description" content="Search 3,300+ autism-friendly healthcare providers across Florida." />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
