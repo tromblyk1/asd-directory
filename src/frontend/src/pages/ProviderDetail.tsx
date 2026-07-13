@@ -26,6 +26,7 @@ import ServiceTag from '@/components/ServiceTag';
 import { useProviderRating } from '@/hooks/useProviderRatings';
 import { StarRating } from '@/components/StarRating';
 import { SocialLinksDisplay } from '@/components/SocialLinksDisplay';
+import { trackListingEvent, appendFeaturedUtm } from '@/lib/trackListing';
 
 // Provider type matching resources table structure
 interface ProviderResource {
@@ -157,6 +158,14 @@ export default function ProviderDetail() {
   // Fetch Google rating for this provider
   const { rating: providerRating } = useProviderRating(provider?.google_place_id || null);
 
+  useEffect(() => {
+    if (!provider) return;
+    const tier = (provider.featured_tier || '').toLowerCase();
+    if (provider.featured && (tier === 'basic' || tier === 'enhanced' || tier === 'premium')) {
+      trackListingEvent(provider.id, 'detail_view', 'detail_page');
+    }
+  }, [provider]);
+
   const copyEmail = async (email: string) => {
     try {
       await navigator.clipboard.writeText(email);
@@ -216,6 +225,15 @@ export default function ProviderDetail() {
   const isEnhanced = featuredTier === 'enhanced';
   const isPremium = featuredTier === 'premium';
   const isFeaturedAny = !!featuredTier;
+
+  const websiteHrefRaw = provider.website
+    ? (provider.website.startsWith('http') ? provider.website : `https://${provider.website}`)
+    : null;
+  const websiteHref = websiteHrefRaw && isFeaturedAny ? appendFeaturedUtm(websiteHrefRaw) : websiteHrefRaw;
+  const trackClick = (eventType: string) => {
+    if (isFeaturedAny) trackListingEvent(provider.id, eventType, 'detail_page');
+  };
+
   const descLimit = isPremium ? Infinity : isEnhanced ? 1000 : isBasic ? 500 : Infinity;
   const descRaw = provider.description || '';
   const limitedDescription = descRaw.length > descLimit ? descRaw.slice(0, descLimit) + '…' : descRaw;
@@ -406,9 +424,10 @@ export default function ProviderDetail() {
                       <Phone className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
                       <div>
                         <p className="font-medium text-gray-900">Phone</p>
-                        <a 
+                        <a
                           href={`tel:${formatPhone(provider.phone)}`}
                           className="text-teal-600 hover:text-teal-700"
+                          onClick={() => trackClick('click_phone')}
                         >
                           {provider.phone}
                         </a>
@@ -428,7 +447,7 @@ export default function ProviderDetail() {
                             <Tooltip>
                               <TooltipTrigger asChild>
                                 <button
-                                  onClick={() => copyEmail(provider.email!)}
+                                  onClick={() => { copyEmail(provider.email!); trackClick('click_email'); }}
                                   className="p-1 rounded hover:bg-gray-100 transition-colors flex-shrink-0"
                                   aria-label="Copy email"
                                 >
@@ -456,10 +475,11 @@ export default function ProviderDetail() {
                       <div>
                         <p className="font-medium text-gray-900">Website</p>
                         <a
-                          href={provider.website.startsWith('http') ? provider.website : `https://${provider.website}`}
+                          href={websiteHref!}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-teal-600 hover:text-teal-700 inline-flex items-center gap-1"
+                          onClick={() => trackClick('click_website')}
                         >
                           Visit Website
                           <ExternalLink className="w-3 h-3" />
@@ -620,7 +640,7 @@ export default function ProviderDetail() {
                 <h3 className="font-semibold text-gray-900 mb-3 sm:mb-4">Quick Actions</h3>
                 <div className="space-y-2 sm:space-y-3">
                   {provider.phone && (
-                    <a href={`tel:${formatPhone(provider.phone)}`} className="block">
+                    <a href={`tel:${formatPhone(provider.phone)}`} className="block" onClick={() => trackClick('click_phone')}>
                       <Button variant="outline" className="w-full justify-start">
                         <Phone className="w-4 h-4 mr-2" />
                         Call Provider
@@ -628,10 +648,10 @@ export default function ProviderDetail() {
                     </a>
                   )}
                   {provider.email && (
-                    <Button 
-                      variant="outline" 
+                    <Button
+                      variant="outline"
                       className="w-full justify-start"
-                      onClick={() => copyEmail(provider.email!)}
+                      onClick={() => { copyEmail(provider.email!); trackClick('click_email'); }}
                     >
                       {emailCopied ? (
                         <>
@@ -647,11 +667,12 @@ export default function ProviderDetail() {
                     </Button>
                   )}
                   {provider.website && (
-                    <a 
-                      href={provider.website.startsWith('http') ? provider.website : `https://${provider.website}`}
+                    <a
+                      href={websiteHref!}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block"
+                      onClick={() => trackClick('click_website')}
                     >
                       <Button variant="outline" className="w-full justify-start">
                         <Globe className="w-4 h-4 mr-2" />

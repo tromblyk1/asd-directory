@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -13,6 +13,7 @@ import {
 import { StarRating } from '@/components/StarRating';
 import { SocialLinksDisplay } from '@/components/SocialLinksDisplay';
 import type { ProviderRating } from '@/hooks/useProviderRatings';
+import { trackListingEvent, appendFeaturedUtm } from '@/lib/trackListing';
 
 // Provider type matching resources table structure
 export interface ProviderResource {
@@ -204,6 +205,18 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, rating }) 
   const isEnhanced = featuredTier === 'enhanced';
   const isPremium = featuredTier === 'premium';
   const isFeaturedAny = !!featuredTier;
+
+  useEffect(() => {
+    if (featuredTier) {
+      trackListingEvent(provider.id, 'impression', 'search_results');
+    }
+  }, [provider.id, featuredTier]);
+
+  const websiteHrefRaw = provider.website
+    ? (provider.website.startsWith('http') ? provider.website : `https://${provider.website}`)
+    : null;
+  const websiteHref = websiteHrefRaw && isFeaturedAny ? appendFeaturedUtm(websiteHrefRaw) : websiteHrefRaw;
+
   const descLimit = isPremium ? Infinity : isEnhanced ? 1000 : isBasic ? 500 : Infinity;
   const descRaw = provider.description || '';
   const limitedDescription = descRaw.length > descLimit ? descRaw.slice(0, descLimit) + '…' : descRaw;
@@ -435,7 +448,7 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, rating }) 
                 <div className="flex items-center text-gray-600">
                   <Globe className="w-4 h-4 mr-2 text-gray-400 flex-shrink-0" />
                   <a
-                    href={provider.website.startsWith('http') ? provider.website : `https://${provider.website}`}
+                    href={websiteHref!}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-teal-600 transition-colors truncate"
@@ -513,7 +526,7 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, rating }) 
 
             {(isEnhanced || isPremium) && provider.website && (
               <a
-                href={provider.website.startsWith('http') ? provider.website : `https://${provider.website}`}
+                href={websiteHref!}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center w-full px-4 py-2.5 text-sm font-semibold rounded-md bg-teal-600 text-white hover:bg-teal-700 transition-colors"
