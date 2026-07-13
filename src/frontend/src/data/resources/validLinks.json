@@ -1,9 +1,16 @@
 {
-  "services/tutoring": [
+  "services/support-groups": [
     {
-      "label": "Learning Disabilities Association of Florida",
-      "url": "https://lda-florida.org/",
-      "description": "Florida resources on learning support and educational advocacy"
+      "label": "Autism Speaks",
+      "url": "https://www.autismspeaks.org/",
+      "description": "Resources for finding local support groups"
+    }
+  ],
+  "services/skilled-nursing": [
+    {
+      "label": "Florida Agency for Health Care Administration (AHCA)",
+      "url": "https://ahca.myflorida.com/",
+      "description": "State agency overseeing healthcare facilities and licensure in Florida"
     }
   ],
   "services/respite-care": [
@@ -20,11 +27,25 @@
       "description": "Florida state society supporting respiratory care professionals"
     }
   ],
+  "services/residential-program": [
+    {
+      "label": "Autism Speaks",
+      "url": "https://www.autismspeaks.org/",
+      "description": "Resources on residential options and housing"
+    }
+  ],
   "services/physical-therapy": [
     {
       "label": "American Physical Therapy Association (APTA)",
       "url": "https://www.apta.org/",
       "description": "National professional organization for physical therapists"
+    }
+  ],
+  "services/parent-coaching": [
+    {
+      "label": "Autism Speaks",
+      "url": "https://www.autismspeaks.org/",
+      "description": "Resources on parent training programs and strategies"
     }
   ],
   "services/occupational-therapy": [
@@ -69,8 +90,8 @@
   ],
   "services/floor-time": [
     {
-      "label": "Autism Speaks Intervention Guide",
-      "url": "https://www.autismspeaks.org/types-treatments"
+      "label": "Interdisciplinary Council on Development and Learning",
+      "url": "https://www.icdl.com"
     }
   ],
   "services/financial-planning": [
@@ -85,6 +106,13 @@
       "description": "Florida's ABLE savings program for individuals with disabilities"
     }
   ],
+  "services/dir-floortime": [
+    {
+      "label": "Interdisciplinary Council on Development and Learning (ICDL)",
+      "url": "https://www.icdl.com/",
+      "description": "Organization founded by DIR/Floortime creator Dr. Stanley Greenspan"
+    }
+  ],
   "services/autism-travel": [
     {
       "label": "Autism on the Seas - Cruise Programs",
@@ -97,13 +125,6 @@
     {
       "label": "Disney Disability Access Service",
       "url": "https://disneyworld.disney.go.com/guest-services/disability-access-service"
-    }
-  ],
-  "services/ados-testing": [
-    {
-      "label": "Autism Speaks",
-      "url": "https://www.autismspeaks.org/",
-      "description": "Information on autism diagnosis and evaluation process"
     }
   ],
   "services/aba-therapy": [
@@ -125,30 +146,11 @@
       "description": "Free resources and strategies for AAC implementation"
     }
   ],
-  "scholarships/pep": [
-    {
-      "label": "Florida Department of Education",
-      "url": "https://www.fldoe.org/",
-      "description": "Official state education agency with scholarship program information"
-    }
-  ],
   "scholarships/ftc": [
     {
       "label": "AAA Scholarship Foundation",
       "url": "https://www.aaascholarships.org/",
       "description": "Alternative scholarship funding organization for FTC"
-    },
-    {
-      "label": "Florida Department of Education",
-      "url": "https://www.fldoe.org/",
-      "description": "Official state education agency with scholarship program information"
-    }
-  ],
-  "scholarships/fes-ua": [
-    {
-      "label": "Florida Department of Education",
-      "url": "https://www.fldoe.org/",
-      "description": "Official state education agency with scholarship program information"
     }
   ],
   "scholarships/fes-eo": [
@@ -156,11 +158,13 @@
       "label": "AAA Scholarship Foundation",
       "url": "https://www.aaascholarships.org/",
       "description": "Alternative scholarship funding organization for FES-EO"
-    },
+    }
+  ],
+  "legal-advocacy/driving-with-autism": [
     {
-      "label": "Florida Department of Education",
-      "url": "https://www.fldoe.org/",
-      "description": "Official state education agency with scholarship program information"
+      "label": "Florida HSMV — Teen Driver Safety Center",
+      "url": "https://www.flhsmv.gov/safety-center/teen-driver/",
+      "description": "Florida Highway Safety and Motor Vehicles teen driver resources, including learner permit rules and graduated licensing."
     }
   ],
   "insurances/sunshine-health": [
@@ -178,6 +182,11 @@
     }
   ],
   "insurances/florida-medicaid": [
+    {
+      "label": "Florida Agency for Health Care Administration (AHCA)",
+      "url": "https://ahca.myflorida.com/",
+      "description": "Official Florida Medicaid administrator - information on covered services and policies"
+    },
     {
       "label": "Florida Department of Children and Families",
       "url": "https://www.myflfamilies.com/",

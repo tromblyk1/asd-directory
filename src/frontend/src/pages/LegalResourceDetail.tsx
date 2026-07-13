@@ -18,6 +18,8 @@ interface SponsoredResource {
   guideTitle?: string;
   guideUrl?: string;
   websiteUrl?: string;
+  logoUrl?: string;
+  logoDarkBg?: boolean;
 }
 
 interface LegalResourceData {
@@ -240,13 +242,20 @@ export default function LegalResourceDetail() {
                       <Card key={idx} className="border-amber-200 bg-amber-50/40">
                         <CardContent className="p-4 sm:p-5">
                           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-2">
-                            <div>
-                              <div className="flex items-center gap-2 flex-wrap">
-                                <h4 className="text-base sm:text-lg font-bold text-gray-900">{firm.name}</h4>
-                                <Badge className="bg-amber-100 text-amber-800 border-amber-300 text-[10px] uppercase tracking-wide">Sponsored</Badge>
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+                              {firm.logoUrl && (
+                                <div className={`rounded-lg px-3 py-2.5 flex items-center self-start flex-shrink-0 ${firm.logoDarkBg ? 'bg-slate-800' : 'bg-white border border-gray-200'}`}>
+                                  <img src={firm.logoUrl} alt={`${firm.name} logo`} className="h-8 sm:h-9 w-auto" loading="lazy" />
+                                </div>
+                              )}
+                              <div>
+                                <div className="flex items-center gap-2 flex-wrap">
+                                  <h4 className="text-base sm:text-lg font-bold text-gray-900">{firm.name}</h4>
+                                  <Badge className="bg-amber-100 text-amber-800 border-amber-300 text-[10px] uppercase tracking-wide">Sponsored</Badge>
+                                </div>
+                                {firm.tagline && <p className="text-sm text-gray-600 mt-0.5">{firm.tagline}</p>}
+                                {firm.city && <p className="text-xs text-gray-500 mt-0.5">{firm.city}</p>}
                               </div>
-                              {firm.tagline && <p className="text-sm text-gray-600 mt-0.5">{firm.tagline}</p>}
-                              {firm.city && <p className="text-xs text-gray-500 mt-0.5">{firm.city}</p>}
                             </div>
                           </div>
                           {firm.blurb && (
