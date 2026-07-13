@@ -6,7 +6,9 @@
   "description": "SFTP deploy script for syncing src/frontend/dist/ to Hostinger web root",
   "scripts": {
     "deploy": "node deploy.mjs",
-    "probe": "node probe.mjs"
+    "probe": "node probe.mjs",
+    "clean": "node clean.mjs",
+    "clean:force": "node clean.mjs --delete"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
