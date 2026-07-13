@@ -411,7 +411,7 @@ The `deploy/` folder contains a standalone Node SFTP script. It reads creds from
 
 **Trap to remember:** Hostinger has TWO `public_html` folders per account. The live web root is `/home/<user>/domains/floridaautismservices.com/public_html/`, NOT `/home/<user>/public_html/`. The `.env.example` documents this — don't bypass it. If a deploy looks successful but the live site doesn't update, run `npm run probe` in the deploy folder to confirm where files actually landed.
 
-**Note:** the deploy script overwrites but never deletes — old hashed bundles linger on the server. Safe but consumes disk; clean via hPanel File Manager periodically.
+**Note:** the deploy script overwrites but never deletes — old hashed bundles linger on the server. Run `npm run clean` from `deploy/` to list stale remote files (dry run), then `npm run clean:force` to actually delete them.
 
 ---
 
