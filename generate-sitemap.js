@@ -266,6 +266,19 @@ async function main() {
     }
     console.log(`  Added ${daycareResourceSlugs.length} daycare resource pages\n`);
 
+    // Add legal & advocacy resource detail pages from local JSON files
+    console.log('Adding legal & advocacy resource detail pages...');
+    const legalSlugs = getLocalResourceSlugs('legal-advocacy');
+    for (const slug of legalSlugs) {
+        urls.push(generateUrlEntry(
+            `${BASE_URL}/resources/legal-advocacy/${slug}`,
+            today,
+            'monthly',
+            '0.7'
+        ));
+    }
+    console.log(`  Added ${legalSlugs.length} legal & advocacy resource pages\n`);
+
     // Fetch and add provider pages
     const providerSlugs = await fetchAllSlugs('resources', 'slug');
     for (const slug of providerSlugs) {

@@ -1,0 +1,48 @@
+{
+  "slug": "driving-with-autism",
+  "category": "legal-advocacy",
+  "title": "Driving with Autism: Safety, Rights & Legal Resources",
+  "shortDescription": "What Florida families need to know about autistic drivers — sensory considerations, communication during traffic stops, accident response, and legal rights.",
+  "seoDescription": "Driving with autism in Florida: practical safety considerations for autistic drivers, communication tips for traffic stops, accident response, and legal resources for families.",
+  "description": "Many autistic teens and adults drive — and drive well. The same attention to detail, strong rule-following, and respect for routine that come with autism can make for careful, predictable drivers. At the same time, sensory sensitivities, communication differences, and the high cognitive load of busy roads can create real challenges that families benefit from planning for in advance. This page collects the safety considerations, legal rights, and resource links that come up most often for Florida autism families navigating driving — whether you're preparing a teen for their permit, planning how to communicate during a traffic stop, or responding after an accident.",
+  "topics": [
+    "Sensory considerations: glare, siren noise, dashboard light overload, and how to minimize them",
+    "Communication differences during traffic stops — what officers may misread and how to prepare",
+    "Choosing a driving instructor experienced with neurodivergent learners",
+    "Insurance disclosures and what is (and isn't) required",
+    "After an accident: documentation, medical attention, and legal next steps",
+    "Personal injury claims when an autistic driver or passenger is involved"
+  ],
+  "benefits": [
+    "Reduces risk during routine traffic stops by preparing communication in advance",
+    "Helps families choose driving instruction that fits the learner's needs",
+    "Clarifies legal rights and disclosure requirements in Florida",
+    "Provides a roadmap for accident response when autism is part of the picture",
+    "Connects families to attorneys experienced with neurodivergent clients"
+  ],
+  "whoCanBenefit": [
+    "Parents preparing an autistic teen for a learner's permit or driver's license",
+    "Adult autistic drivers navigating Florida roads",
+    "Caregivers of autistic adults who drive",
+    "Families involved in an auto accident where autism is a factor",
+    "Driving instructors working with neurodivergent learners"
+  ],
+  "links": [
+    {
+      "label": "Florida HSMV — Teen Driver Safety Center",
+      "url": "https://www.flhsmv.gov/safety-center/teen-driver/",
+      "description": "Florida Highway Safety and Motor Vehicles teen driver resources, including learner permit rules and graduated licensing."
+    },
+    {
+      "label": "Autism Society — Driving Safety Tips",
+      "url": "https://autismsociety.org/resources/",
+      "description": "Resources for autistic drivers and their families on preparing for the road."
+    },
+    {
+      "label": "NHTSA — Driver Education",
+      "url": "https://www.nhtsa.gov/road-safety/teen-driving",
+      "description": "Federal teen-driving safety resources applicable to all new drivers."
+    }
+  ],
+  "sponsoredResources": []
+}

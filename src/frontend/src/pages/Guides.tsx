@@ -30,6 +30,9 @@ interface BlogPost {
   featured: boolean;
   created_at: string;
   updated_at: string;
+  is_sponsored?: boolean | null;
+  sponsor_name?: string | null;
+  sponsor_url?: string | null;
 }
 
 export default function Guides() {
@@ -50,12 +53,20 @@ export default function Guides() {
     },
   });
 
-  const filteredGuides = guides.filter((guide: BlogPost) => {
-    const matchesSearch = !searchTerm ||
-      guide.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      guide.excerpt?.toLowerCase().includes(searchTerm.toLowerCase());
-    return matchesSearch;
-  });
+  const filteredGuides = guides
+    .filter((guide: BlogPost) => {
+      const matchesSearch = !searchTerm ||
+        guide.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        guide.excerpt?.toLowerCase().includes(searchTerm.toLowerCase());
+      return matchesSearch;
+    })
+    .sort((a, b) => {
+      // Organic guides always first; sponsored partner guides after.
+      const aSp = !!a.is_sponsored;
+      const bSp = !!b.is_sponsored;
+      if (aSp === bSp) return 0;
+      return aSp ? 1 : -1;
+    });
 
   return (
     <>
@@ -136,9 +147,11 @@ export default function Guides() {
         ) : (
           <TooltipProvider delayDuration={200}>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-              {filteredGuides.map((guide: BlogPost) => (
+              {filteredGuides.map((guide: BlogPost) => {
+                const sponsored = !!guide.is_sponsored;
+                return (
                 <Link key={guide.id} to={`/blog/${guide.slug}`}>
-                  <Card className="h-full border-none shadow-lg hover:shadow-xl transition-shadow group cursor-pointer">
+                  <Card className={`h-full shadow-lg hover:shadow-xl transition-shadow group cursor-pointer ${sponsored ? 'border-2 border-amber-300 bg-amber-50/30' : 'border-none'}`}>
                     {guide.image_url && (
                       <div className="h-48 overflow-hidden">
                         <img
@@ -151,16 +164,22 @@ export default function Guides() {
                     <CardContent className="p-4 sm:p-6">
                       <Tooltip>
                         <TooltipTrigger asChild>
-                          <Badge className="bg-blue-100 text-blue-800 border-blue-200 border mb-3 cursor-help">
-                            Guide
-                          </Badge>
+                          {sponsored ? (
+                            <Badge className="bg-amber-100 text-amber-800 border-amber-300 border mb-3 cursor-help">
+                              Partner Guide
+                            </Badge>
+                          ) : (
+                            <Badge className="bg-blue-100 text-blue-800 border-blue-200 border mb-3 cursor-help">
+                              Guide
+                            </Badge>
+                          )}
                         </TooltipTrigger>
                         <TooltipContent>
-                          <p>In-depth educational resource</p>
+                          <p>{sponsored ? 'Sponsored guide produced by a partner organization' : 'In-depth educational resource'}</p>
                         </TooltipContent>
                       </Tooltip>
 
-                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-blue-600 transition-colors">
+                      <h3 className={`text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 transition-colors ${sponsored ? 'group-hover:text-amber-700' : 'group-hover:text-blue-600'}`}>
                         {guide.title}
                       </h3>
 
@@ -168,6 +187,10 @@ export default function Guides() {
                         <p className="text-gray-700 mb-4 line-clamp-3">
                           {guide.excerpt}
                         </p>
+                      )}
+
+                      {sponsored && guide.sponsor_name && (
+                        <p className="text-xs text-amber-800 mb-3 italic">Produced by {guide.sponsor_name}</p>
                       )}
 
                       <div className="flex items-center gap-4 text-xs text-gray-600 pt-4 border-t">
@@ -185,7 +208,8 @@ export default function Guides() {
                     </CardContent>
                   </Card>
                 </Link>
-              ))}
+                );
+              })}
             </div>
           </TooltipProvider>
         )}

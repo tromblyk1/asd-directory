@@ -24,6 +24,9 @@ interface BlogPost {
   featured: boolean;
   created_at: string;
   updated_at: string;
+  is_sponsored?: boolean | null;
+  sponsor_name?: string | null;
+  sponsor_url?: string | null;
 }
 
 const categoryColors: Record<string, string> = {
@@ -258,14 +261,32 @@ export default function BlogPostPage() {
             <CardContent className="p-4 sm:p-6 lg:p-4 sm:p-6 lg:p-8 xl:p-12">
               {/* Category and Share */}
               <div className="flex items-center justify-between mb-6">
-                <Badge className={`${getCategoryColor(post.category)} border text-sm`}>
-                  {getCategoryLabel(post.category)}
+                <Badge className={post.is_sponsored ? 'bg-amber-100 text-amber-800 border-amber-300 border text-sm' : `${getCategoryColor(post.category)} border text-sm`}>
+                  {post.is_sponsored ? 'Partner Guide' : getCategoryLabel(post.category)}
                 </Badge>
                 <Button variant="ghost" size="sm" onClick={sharePost}>
                   <Share2 className="w-4 h-4 mr-2" />
                   Share
                 </Button>
               </div>
+
+              {/* Sponsor disclosure banner */}
+              {post.is_sponsored && post.sponsor_name && (
+                <div className="mb-6 p-4 rounded-lg border border-amber-300 bg-amber-50">
+                  <p className="text-sm text-amber-900 leading-relaxed">
+                    <span className="font-semibold uppercase tracking-wide text-[11px] mr-2">Partner Guide</span>
+                    This guide was produced and provided by{' '}
+                    {post.sponsor_url ? (
+                      <a href={post.sponsor_url} target="_blank" rel="sponsored noopener noreferrer" className="font-semibold underline hover:text-amber-700">
+                        {post.sponsor_name}
+                      </a>
+                    ) : (
+                      <span className="font-semibold">{post.sponsor_name}</span>
+                    )}{' '}
+                    as a sponsored partner resource. Florida Autism Services Directory did not author this content and does not specifically endorse the partner — verify independently before retaining services.
+                  </p>
+                </div>
+              )}
 
               {/* Title */}
               <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-6 leading-tight">
@@ -311,7 +332,7 @@ export default function BlogPostPage() {
                       </blockquote>
                     ),
                     a: ({ children, href }) => (
-                      <a href={href} className="text-blue-600 hover:text-blue-700 underline" target="_blank" rel="noopener noreferrer">
+                      <a href={href} className="text-blue-600 hover:text-blue-700 underline" target="_blank" rel={post.is_sponsored ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}>
                         {children}
                       </a>
                     ),

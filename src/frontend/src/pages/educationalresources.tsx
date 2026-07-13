@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import {
   BookOpen, Stethoscope, Shield, GraduationCap,
-  ArrowRight, Heart, Users, Award, Church, Baby, ExternalLink
+  ArrowRight, Heart, Users, Award, Church, Baby, ExternalLink, Scale
 } from 'lucide-react';
 
 // Services - matches database services array values
@@ -96,6 +96,11 @@ const accreditationsList = [
   { slug: 'icaa', name: 'ICAA', description: 'International Christian accreditation' },
   { slug: 'ncsa', name: 'NCSA', description: 'National Christian School Association' },
   { slug: 'welssa', name: 'WELSSA', description: 'Wisconsin Lutheran schools' },
+];
+
+// Legal & Advocacy topics
+const legalAdvocacyList = [
+  { slug: 'driving-with-autism', name: 'Driving with Autism', description: 'Safety, rights, and legal resources for autistic drivers' },
 ];
 
 // Denominations - matches database denomination values (lowercase slugs)
@@ -274,6 +279,42 @@ export default function EducationalResources() {
         </header>
 
         <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10 lg:py-12">
+          {/* Legal & Advocacy Resources Section — top placement */}
+          <section className="mb-10 sm:mb-12 lg:mb-16" aria-labelledby="legal-heading">
+            <div className="flex items-start sm:items-center gap-2.5 sm:gap-3 mb-4 sm:mb-6">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-slate-700 to-slate-900 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                <Scale className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+              </div>
+              <div>
+                <h2 id="legal-heading" className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900">Legal &amp; Advocacy Resources</h2>
+                <p className="text-gray-600 text-sm sm:text-base">Legal rights, safety guides, and family advocacy topics for Florida autism families</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+              {legalAdvocacyList.map((topic) => (
+                <Link key={topic.slug} to={`/resources/legal-advocacy/${topic.slug}`}>
+                  <article>
+                    <Card className="h-full hover:shadow-lg transition-all border-none group cursor-pointer">
+                      <CardContent className="p-3 sm:p-4 lg:p-5">
+                        <h3 className="font-bold text-gray-900 mb-1 group-hover:text-slate-700 transition-colors text-sm sm:text-base">
+                          {topic.name}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-gray-600 mb-2 sm:mb-3">
+                          {topic.description}
+                        </p>
+                        <div className="flex items-center text-xs sm:text-sm text-slate-700 font-medium">
+                          <span>Learn more</span>
+                          <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </article>
+                </Link>
+              ))}
+            </div>
+          </section>
+
           {/* Services Section */}
           <section className="mb-10 sm:mb-12 lg:mb-16" aria-labelledby="services-heading">
             <div className="flex items-start sm:items-center gap-2.5 sm:gap-3 mb-4 sm:mb-6">
