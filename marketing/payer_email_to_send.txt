@@ -1,0 +1,52 @@
+================================================================
+HOW TO SEND
+================================================================
+
+METHOD:    Reply to Monica's existing email thread.
+           (Don't compose a new email — replying preserves the
+           thread and Monica's outreach tooling tracks it as a
+           response to her original send.)
+
+TO:        mjohnson@payerlaw-outreach.com
+
+SUBJECT:   Re: Autism & Driving: Helpful Guide to Share with Your Audience
+           (Gmail auto-fills this when you hit Reply — confirm it matches.)
+
+ATTACHMENT: floridaautismservices-media-kit.pdf
+
+           To generate the PDF:
+           1. Open this file in Chrome:
+              C:\Projects\ASD-Directory\marketing\media-kit.html
+           2. Press Ctrl+P
+           3. Destination: "Save as PDF"
+           4. Layout: Portrait, Paper: Letter, Margins: Default
+           5. More Settings -> Background Graphics: ON
+              (Critical -- otherwise the header gradient prints blank)
+           6. Save as: floridaautismservices-media-kit.pdf
+           7. Attach to the email reply
+
+================================================================
+EMAIL BODY (copy everything below the line into Gmail)
+================================================================
+
+Hi Monica,
+
+Thanks for the follow-up — and for putting together the guide. It's well-aligned with what our families look for, and I'd be glad to feature it.
+
+For context: floridaautismservices.com is a curated directory serving all 67 Florida counties, built by a registered nurse who's also an autism parent. The site sees roughly 213,000 search impressions and 4,000+ clicks every 90 days at a 1.9% click-through rate — a 100% Florida audience, 100% autism-focused. To support the unpaid hours that go into keeping the directory accurate and to maintain editorial credibility, we treat external resource placements as sponsored partnerships.
+
+Two options for Payer Law Group:
+
+Option A — Sponsored Listing — $799/year
+A featured firm card in our new "Legal & Advocacy Resources" section on the Driving with Autism topic page. Includes a description of your guide, a contextual link to it, and a link to payerlawgroup.com. Renews annually.
+
+Option B — Featured Partner Guide — $1,800 setup + $499/year (recommended)
+We publish your full guide on our /guides page — our most prominent content destination — formatted to match our editorial style, with clear "Partner Guide" attribution to Payer Law Group throughout (header banner, listing card, footer). Includes everything in Option A. We retain editorial discretion on content standards; happy to work with you on edits if needed.
+
+All placements are clearly labeled as sponsored partnerships per FTC and Florida Bar 4-7 guidance. Outbound links use rel="sponsored" per Google Webmaster Guidelines, keeping both of us in good standing on disclosures.
+
+I've attached our media kit with the full audience profile, traffic data, and pricing on one page. Happy to set up a quick 15-minute call to walk through it, or take next steps over email — whichever you prefer. Which option works best for Payer Law Group?
+
+Best,
+Keith Trombly
+Founder, floridaautismservices.com
