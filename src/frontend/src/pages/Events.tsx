@@ -17,6 +17,7 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
 import { format } from "date-fns";
 import { EventVerificationBadge } from "@/components/EventVerificationBadge";
 
@@ -76,6 +77,7 @@ export default function Events() {
     const [showFilters, setShowFilters] = useState(false);
     const [viewMode, setViewMode] = useState<'list' | 'map'>('list');
     const [MapComponent, setMapComponent] = useState<any>(null);
+    const [showOngoing, setShowOngoing] = useState(false);
 
     const { data: events = [], isLoading } = useQuery({
         queryKey: ['events'],
@@ -120,6 +122,11 @@ export default function Events() {
         const maxDateStr = maxDate.toISOString().split('T')[0];
 
         return events.filter(event => {
+            // Recurring programs render in the Ongoing Programs section, not the monthly list
+            if (event.is_recurring) {
+                return false;
+            }
+
             // Filter out events with unrealistic future dates (likely data errors)
             if (event.date > maxDateStr) {
                 return false;
@@ -141,6 +148,22 @@ export default function Events() {
             return matchesSearch && matchesCategory && matchesCity && matchesTime;
         });
     }, [events, searchTerm, selectedCategory, selectedCity, timeFilter, today]);
+
+    const recurringEvents = useMemo(() => {
+        return events.filter(event => {
+            if (!event.is_recurring) return false;
+
+            const matchesSearch = !searchTerm ||
+                event.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                event.description?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                event.city?.toLowerCase().includes(searchTerm.toLowerCase());
+
+            const matchesCategory = selectedCategory === "all" || event.category === selectedCategory;
+            const matchesCity = selectedCity === "all" || event.city === selectedCity;
+
+            return matchesSearch && matchesCategory && matchesCity;
+        });
+    }, [events, searchTerm, selectedCategory, selectedCity]);
 
     const groupedEvents = useMemo(() => {
         const groups: Record<string, typeof events> = {};
@@ -469,7 +492,7 @@ export default function Events() {
                                     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto" />
                                     <p className="mt-4 text-gray-600">Loading events...</p>
                                 </div>
-                            ) : filteredEvents.length === 0 ? (
+                            ) : filteredEvents.length === 0 && recurringEvents.length === 0 ? (
                                 <Card className="border-none shadow-lg">
                                     <CardContent className="py-8 sm:py-12 text-center">
                                         <Calendar className="w-12 sm:w-16 h-12 sm:h-16 text-gray-300 mx-auto mb-4" />
@@ -578,6 +601,154 @@ export default function Events() {
                             ) : (
                                 // LIST VIEW
                                 <div className="space-y-6 sm:space-y-10">
+                                    {recurringEvents.length > 0 && (
+                                        <Collapsible open={showOngoing} onOpenChange={setShowOngoing}>
+                                            <CollapsibleTrigger className="flex items-center justify-between w-full text-left bg-white rounded-lg shadow-lg px-4 sm:px-6 py-4 hover:bg-gray-50 transition-colors group">
+                                                <div>
+                                                    <h2 className="text-xl sm:text-2xl font-bold text-gray-900 flex items-center gap-2">
+                                                        <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
+                                                        Ongoing Programs ({recurringEvents.length})
+                                                    </h2>
+                                                    <p className="text-sm text-gray-600 mt-1">
+                                                        Regularly scheduled sensory-friendly and community programs across Florida.
+                                                    </p>
+                                                </div>
+                                                <ChevronDown className={`w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-200 ${showOngoing ? "rotate-180" : ""}`} />
+                                            </CollapsibleTrigger>
+                                            <CollapsibleContent>
+                                                <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 pt-4">
+                                                    {recurringEvents.map((event) => (
+                                                        <article key={event.id}>
+                                                            <Card className="border-none shadow-lg h-full hover:shadow-xl transition-shadow group">
+                                                                <CardContent className="p-4 sm:p-6">
+                                                                    {/* Category & Registration badges */}
+                                                                    <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-3">
+                                                                        <Badge className={`${categoryColors[event.category as EventCategory] || categoryColors.other} border text-xs`}>
+                                                                            {formatCategory(event.category)}
+                                                                        </Badge>
+
+                                                                        {event.verified === true && <EventVerificationBadge accommodations_verified={event.accommodations_verified} />}
+
+                                                                        <Badge
+                                                                            variant="outline"
+                                                                            className={`text-xs ${(() => {
+                                                                                const regText = (event.registration_required || '').toString().trim();
+                                                                                if (!regText) return 'bg-gray-50 text-gray-700 border-gray-300';
+                                                                                if (regText.toLowerCase().includes('no')) return 'bg-green-50 text-green-700 border-green-300';
+                                                                                return 'bg-blue-50 text-blue-700 border-blue-300';
+                                                                            })()}`}
+                                                                        >
+                                                                            {(() => {
+                                                                                const regText = (event.registration_required || '').toString().trim();
+
+                                                                                if (!regText) return 'Registration info not available';
+                                                                                if (regText.toLowerCase().includes('no')) return 'Walk-ins Welcome';
+
+                                                                                // Remove "YES - " or "YES" prefix
+                                                                                const cleaned = regText.replace(/^YES\s*-?\s*/i, '').trim();
+
+                                                                                // If cleaning removed everything, show generic text
+                                                                                return cleaned || 'Registration Required';
+                                                                            })()}
+                                                                        </Badge>
+                                                                    </div>
+
+                                                                    {event.slug ? (
+                                                                        <Link to={`/events/${event.slug}`}>
+                                                                            <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-green-600 transition-colors cursor-pointer line-clamp-2">
+                                                                                {event.title}
+                                                                            </h3>
+                                                                        </Link>
+                                                                    ) : (
+                                                                        <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-2 sm:mb-3 line-clamp-2">
+                                                                            {event.title}
+                                                                        </h3>
+                                                                    )}
+
+                                                                    <div className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-4 text-sm text-gray-600">
+                                                                        {event.recurrence_pattern && (
+                                                                            <div className="flex items-center gap-2">
+                                                                                <Calendar className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
+                                                                                <span className="truncate">{event.recurrence_pattern}</span>
+                                                                            </div>
+                                                                        )}
+                                                                        {event.time && (
+                                                                            <div className="flex items-center gap-2">
+                                                                                <Clock className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
+                                                                                <span>{event.time}</span>
+                                                                            </div>
+                                                                        )}
+                                                                        <div className="flex items-center gap-2">
+                                                                            <MapPin className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
+                                                                            <span className="truncate">{event.venue_name}, {event.city}</span>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    {event.description && (
+                                                                        <p className="text-sm text-gray-700 mb-3 sm:mb-4 line-clamp-2 sm:line-clamp-3">
+                                                                            {event.description}
+                                                                        </p>
+                                                                    )}
+
+                                                                    {event.age_groups && event.age_groups.length > 0 && (
+                                                                        <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                                                                            <Users className="w-4 h-4 text-gray-400 flex-shrink-0" aria-hidden="true" />
+                                                                            <div className="flex flex-wrap gap-1">
+                                                                                {event.age_groups.map((age: string, idx: number) => (
+                                                                                    <Badge key={idx} variant="secondary" className="text-xs">
+                                                                                        {formatAgeGroup(age)}
+                                                                                    </Badge>
+                                                                                ))}
+                                                                            </div>
+                                                                        </div>
+                                                                    )}
+
+                                                                    {!event.registration_required || event.registration_required.toLowerCase().includes('no') ? (
+                                                                        // Walk-ins or no registration info
+                                                                        event.registration_url ? (
+                                                                            <a
+                                                                                href={event.registration_url}
+                                                                                target="_blank"
+                                                                                rel="noopener noreferrer"
+                                                                                className="block"
+                                                                            >
+                                                                                <Button variant="outline" className="w-full h-10 sm:h-9">
+                                                                                    <span className="hidden sm:inline">View Event Details</span>
+                                                                                    <span className="sm:hidden">View Details</span>
+                                                                                    <ExternalLink className="w-4 h-4 ml-2" />
+                                                                                </Button>
+                                                                            </a>
+                                                                        ) : null
+                                                                    ) : (
+                                                                        // Registration IS required
+                                                                        event.registration_url ? (
+                                                                            <a
+                                                                                href={event.registration_url}
+                                                                                target="_blank"
+                                                                                rel="noopener noreferrer"
+                                                                                className="block"
+                                                                            >
+                                                                                <Button className="w-full h-10 sm:h-9 bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700">
+                                                                                    Register Now
+                                                                                    <ExternalLink className="w-4 h-4 ml-2" />
+                                                                                </Button>
+                                                                            </a>
+                                                                        ) : event.organizer_email ? (
+                                                                            <a href={`mailto:${event.organizer_email}`}>
+                                                                                <Button variant="outline" className="w-full h-10 sm:h-9">
+                                                                                    Contact for Info
+                                                                                </Button>
+                                                                            </a>
+                                                                        ) : null
+                                                                    )}
+                                                                </CardContent>
+                                                            </Card>
+                                                        </article>
+                                                    ))}
+                                                </div>
+                                            </CollapsibleContent>
+                                        </Collapsible>
+                                    )}
                                     {Object.entries(groupedEvents).map(([month, monthEvents]) => (
                                         <div key={month}>
                                             <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">

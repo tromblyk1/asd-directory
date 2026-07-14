@@ -24,6 +24,8 @@ export interface Event {
   sensory_accommodations?: string | string[] | null;
   image_url?: string | null;
   featured?: boolean | null;
+  is_recurring?: boolean | null;
+  recurrence_pattern?: string | null;
   created_at?: string | null;
   updated_at?: string | null;
   
