@@ -680,7 +680,7 @@ export default function Events() {
                                                                         )}
                                                                         <div className="flex items-center gap-2">
                                                                             <MapPin className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
-                                                                            <span className="truncate">{event.venue_name}, {event.city}</span>
+                                                                            <span className="truncate">{event.venue_name ? `${event.venue_name}, ${event.city}` : event.city}</span>
                                                                         </div>
                                                                     </div>
 
@@ -822,7 +822,7 @@ export default function Events() {
                                                                         )}
                                                                         <div className="flex items-center gap-2">
                                                                             <MapPin className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
-                                                                            <span className="truncate">{event.venue_name}, {event.city}</span>
+                                                                            <span className="truncate">{event.venue_name ? `${event.venue_name}, ${event.city}` : event.city}</span>
                                                                         </div>
                                                                     </div>
 

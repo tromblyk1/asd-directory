@@ -1,4 +1,11 @@
 {
+  "services/tutoring": [
+    {
+      "label": "Learning Disabilities Association of Florida",
+      "url": "https://lda-florida.org/",
+      "description": "Florida resources on learning support and educational advocacy"
+    }
+  ],
   "services/support-groups": [
     {
       "label": "Autism Speaks",
