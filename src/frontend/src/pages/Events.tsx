@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
     Calendar, MapPin, Clock, Users, Search,
-    ExternalLink, Star, Filter, X, ChevronDown, Map, List
+    ExternalLink, Star, Filter, X, ChevronDown, Map, List, Repeat
 } from "lucide-react";
 import {
     Tooltip,
@@ -17,7 +17,6 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
 import { format } from "date-fns";
 import { EventVerificationBadge } from "@/components/EventVerificationBadge";
 
@@ -77,7 +76,7 @@ export default function Events() {
     const [showFilters, setShowFilters] = useState(false);
     const [viewMode, setViewMode] = useState<'list' | 'map'>('list');
     const [MapComponent, setMapComponent] = useState<any>(null);
-    const [showOngoing, setShowOngoing] = useState(false);
+    const [activeTab, setActiveTab] = useState<'upcoming' | 'ongoing'>('upcoming');
 
     const { data: events = [], isLoading } = useQuery({
         queryKey: ['events'],
@@ -181,7 +180,7 @@ export default function Events() {
     const activeFilterCount = [
         selectedCategory !== "all",
         selectedCity !== "all",
-        timeFilter !== "upcoming",
+        activeTab === 'upcoming' && timeFilter !== "upcoming",
         searchTerm.length > 0
     ].filter(Boolean).length;
 
@@ -283,29 +282,31 @@ export default function Events() {
                 </div>
             </div>
 
-            {/* Time Filter */}
-            <div className="mb-4 lg:mb-6">
-                <p className="text-sm font-medium text-gray-700 mb-2">Time</p>
-                <div className="space-y-2">
-                    {[
-                        { value: "upcoming", label: "Upcoming" },
-                        { value: "past", label: "Past Events" },
-                        { value: "all", label: "All Events" }
-                    ].map(option => (
-                        <label key={option.value} className="flex items-center gap-2 cursor-pointer py-1">
-                            <input
-                                type="radio"
-                                name="timeFilter"
-                                value={option.value}
-                                checked={timeFilter === option.value}
-                                onChange={(e) => setTimeFilter(e.target.value)}
-                                className="w-4 h-4 text-green-600"
-                            />
-                            <span className="text-sm text-gray-600">{option.label}</span>
-                        </label>
-                    ))}
+            {/* Time Filter - does not apply to Ongoing Programs */}
+            {activeTab === 'upcoming' && (
+                <div className="mb-4 lg:mb-6">
+                    <p className="text-sm font-medium text-gray-700 mb-2">Time</p>
+                    <div className="space-y-2">
+                        {[
+                            { value: "upcoming", label: "Upcoming" },
+                            { value: "past", label: "Past Events" },
+                            { value: "all", label: "All Events" }
+                        ].map(option => (
+                            <label key={option.value} className="flex items-center gap-2 cursor-pointer py-1">
+                                <input
+                                    type="radio"
+                                    name="timeFilter"
+                                    value={option.value}
+                                    checked={timeFilter === option.value}
+                                    onChange={(e) => setTimeFilter(e.target.value)}
+                                    className="w-4 h-4 text-green-600"
+                                />
+                                <span className="text-sm text-gray-600">{option.label}</span>
+                            </label>
+                        ))}
+                    </div>
                 </div>
-            </div>
+            )}
 
             {/* Category Filter */}
             <div className="mb-4 lg:mb-6">
@@ -359,7 +360,7 @@ export default function Events() {
             {/* Results Count - Desktop only */}
             <div className="hidden lg:block mt-6 pt-4 border-t">
                 <p className="text-sm text-gray-600">
-                    <span className="font-semibold text-green-600">{filteredEvents.length}</span> events found
+                    <span className="font-semibold text-green-600">{activeTab === 'ongoing' ? recurringEvents.length : filteredEvents.length}</span> events found
                 </p>
             </div>
         </>
@@ -441,15 +442,18 @@ export default function Events() {
                                 <List className="w-4 h-4 sm:mr-2" />
                                 <span className="hidden sm:inline">List</span>
                             </Button>
-                            <Button
-                                variant={viewMode === 'map' ? 'default' : 'outline'}
-                                onClick={() => setViewMode('map')}
-                                className={viewMode === 'map' ? 'bg-teal-600 hover:bg-teal-700' : ''}
-                                size="default"
-                            >
-                                <Map className="w-4 h-4 sm:mr-2" />
-                                <span className="hidden sm:inline">Map</span>
-                            </Button>
+                            {/* Map view applies to dated events only */}
+                            {activeTab === 'upcoming' && (
+                                <Button
+                                    variant={viewMode === 'map' ? 'default' : 'outline'}
+                                    onClick={() => setViewMode('map')}
+                                    className={viewMode === 'map' ? 'bg-teal-600 hover:bg-teal-700' : ''}
+                                    size="default"
+                                >
+                                    <Map className="w-4 h-4 sm:mr-2" />
+                                    <span className="hidden sm:inline">Map</span>
+                                </Button>
+                            )}
                         </div>
                     </div>
 
@@ -461,7 +465,7 @@ export default function Events() {
                                     {filterContent}
                                     <div className="mt-4 pt-4 border-t flex justify-between items-center">
                                         <p className="text-sm text-gray-600">
-                                            <span className="font-semibold text-green-600">{filteredEvents.length}</span> events
+                                            <span className="font-semibold text-green-600">{activeTab === 'ongoing' ? recurringEvents.length : filteredEvents.length}</span> events
                                         </p>
                                         <Button
                                             onClick={() => setShowFilters(false)}
@@ -487,12 +491,44 @@ export default function Events() {
 
                         {/* MAIN CONTENT */}
                         <section className="flex-1 min-w-0" aria-label="Events listing">
+                            {/* Upcoming Events / Ongoing Programs toggle */}
+                            <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-6">
+                                <button
+                                    type="button"
+                                    onClick={() => setActiveTab('upcoming')}
+                                    aria-pressed={activeTab === 'upcoming'}
+                                    className={`flex items-center justify-center gap-2 min-h-[3rem] px-3 py-3 rounded-lg text-base sm:text-lg font-semibold transition-colors ${
+                                        activeTab === 'upcoming'
+                                            ? 'bg-gradient-to-r from-green-600 to-blue-600 text-white shadow-lg'
+                                            : 'bg-white text-gray-600 border border-gray-200 shadow hover:bg-gray-50'
+                                    }`}
+                                >
+                                    <Calendar className="w-5 h-5 flex-shrink-0" aria-hidden="true" />
+                                    <span className="hidden sm:inline">Upcoming Events</span>
+                                    <span className="sm:hidden">Upcoming</span>
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => { setActiveTab('ongoing'); setViewMode('list'); }}
+                                    aria-pressed={activeTab === 'ongoing'}
+                                    className={`flex items-center justify-center gap-2 min-h-[3rem] px-3 py-3 rounded-lg text-base sm:text-lg font-semibold transition-colors ${
+                                        activeTab === 'ongoing'
+                                            ? 'bg-gradient-to-r from-green-600 to-blue-600 text-white shadow-lg'
+                                            : 'bg-white text-gray-600 border border-gray-200 shadow hover:bg-gray-50'
+                                    }`}
+                                >
+                                    <Repeat className="w-5 h-5 flex-shrink-0" aria-hidden="true" />
+                                    <span className="hidden sm:inline">Ongoing Programs ({recurringEvents.length})</span>
+                                    <span className="sm:hidden">Ongoing ({recurringEvents.length})</span>
+                                </button>
+                            </div>
+
                             {isLoading ? (
                                 <div className="text-center py-12">
                                     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto" />
                                     <p className="mt-4 text-gray-600">Loading events...</p>
                                 </div>
-                            ) : filteredEvents.length === 0 && recurringEvents.length === 0 ? (
+                            ) : (activeTab === 'upcoming' ? filteredEvents.length === 0 : recurringEvents.length === 0) ? (
                                 <Card className="border-none shadow-lg">
                                     <CardContent className="py-8 sm:py-12 text-center">
                                         <Calendar className="w-12 sm:w-16 h-12 sm:h-16 text-gray-300 mx-auto mb-4" />
@@ -504,7 +540,7 @@ export default function Events() {
                                         </p>
                                     </CardContent>
                                 </Card>
-                            ) : viewMode === 'map' ? (
+                            ) : activeTab === 'upcoming' && viewMode === 'map' ? (
                                 // MAP VIEW
                                 <div className="space-y-4">
                                     {MapComponent ? (
@@ -601,22 +637,12 @@ export default function Events() {
                             ) : (
                                 // LIST VIEW
                                 <div className="space-y-6 sm:space-y-10">
-                                    {recurringEvents.length > 0 && (
-                                        <Collapsible open={showOngoing} onOpenChange={setShowOngoing}>
-                                            <CollapsibleTrigger className="flex items-center justify-between w-full text-left bg-white rounded-lg shadow-lg px-4 sm:px-6 py-4 hover:bg-gray-50 transition-colors group">
-                                                <div>
-                                                    <h2 className="text-xl sm:text-2xl font-bold text-gray-900 flex items-center gap-2">
-                                                        <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
-                                                        Ongoing Programs ({recurringEvents.length})
-                                                    </h2>
-                                                    <p className="text-sm text-gray-600 mt-1">
-                                                        Regularly scheduled sensory-friendly and community programs across Florida.
-                                                    </p>
-                                                </div>
-                                                <ChevronDown className={`w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-200 ${showOngoing ? "rotate-180" : ""}`} />
-                                            </CollapsibleTrigger>
-                                            <CollapsibleContent>
-                                                <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 pt-4">
+                                    {activeTab === 'ongoing' && (
+                                        <div>
+                                            <p className="text-sm text-gray-600 mb-4">
+                                                Regularly scheduled sensory-friendly and community programs across Florida.
+                                            </p>
+                                                <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
                                                     {recurringEvents.map((event) => (
                                                         <article key={event.id}>
                                                             <Card className="border-none shadow-lg h-full hover:shadow-xl transition-shadow group">
@@ -746,10 +772,9 @@ export default function Events() {
                                                         </article>
                                                     ))}
                                                 </div>
-                                            </CollapsibleContent>
-                                        </Collapsible>
+                                        </div>
                                     )}
-                                    {Object.entries(groupedEvents).map(([month, monthEvents]) => (
+                                    {activeTab === 'upcoming' && Object.entries(groupedEvents).map(([month, monthEvents]) => (
                                         <div key={month}>
                                             <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
                                                 <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
