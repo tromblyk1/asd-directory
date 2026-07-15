@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ChevronDown, ArrowUp, Eye, Shield, Check } from "lucide-react";
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
 import { useSiteStats } from "@/hooks/useSiteStats";
+import { getStripeLink, isStripeLinkConfigured } from "@/lib/stripeLinks";
 
 const starSvg = (
   <svg className="w-3.5 h-3.5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
@@ -563,6 +564,17 @@ const pricingCheck = (
 export default function FeaturedDaycares() {
   const stats = useSiteStats();
 
+  const founderSlots = Math.max(0, parseInt(stats.founder_slots_remaining, 10) || 0);
+  const founderActive = founderSlots > 0;
+  const basicMonthlyKey = founderActive ? ("basic_monthly_founder" as const) : ("basic_monthly_standard" as const);
+  const basicAnnualKey = founderActive ? ("basic_annual_founder" as const) : ("basic_annual_standard" as const);
+  const basicMonthlyHref = isStripeLinkConfigured(basicMonthlyKey)
+    ? getStripeLink(basicMonthlyKey)
+    : "mailto:contact@floridaautismservices.com?subject=Featured%20Daycare%20Listing%20Inquiry%20-%20Basic%20Featured";
+  const basicAnnualHref = isStripeLinkConfigured(basicAnnualKey)
+    ? getStripeLink(basicAnnualKey)
+    : "mailto:contact@floridaautismservices.com?subject=Featured%20Daycare%20Listing%20Inquiry%20-%20Basic%20Annual";
+
   return (
     <div>
       {/* SECTION 1: Hero */}
@@ -784,7 +796,8 @@ export default function FeaturedDaycares() {
         </div>
       </section>
 
-      {/* SECTION 7: Why Now */}
+      {/* SECTION 7: Why Now (Founding Partner offer — hidden once slots run out) */}
+      {founderActive && (
       <section className="bg-gray-50 py-20 px-4">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">
@@ -795,10 +808,10 @@ export default function FeaturedDaycares() {
               FloridaAutismServices.com traffic has grown over 300% in the last month alone. As more Florida families discover the directory, Featured Listings become more valuable — and more competitive.
             </p>
             <p>
-              Right now, we're offering Founding Partner pricing to our first 10 childcare facilities. You lock in half-price rates for 6 months while the directory continues to grow around you.
+              Right now, we're offering Founding Partner pricing to our first 10 childcare facilities. You lock in half-price rates for 12 months while the directory continues to grow around you.
             </p>
             <p className="font-semibold text-gray-800">
-              Once the 10 spots are filled, this pricing is gone.
+              Only {founderSlots} of 10 spots remain. Once they're filled, this pricing is gone.
             </p>
           </div>
           <div className="mt-10">
@@ -811,17 +824,120 @@ export default function FeaturedDaycares() {
           </div>
         </div>
       </section>
+      )}
+
+      {/* ROI Section */}
+      <style>{`
+        @keyframes daycareRoiGlow {
+          0%, 100% { box-shadow: 0 0 40px rgba(20,184,166,0.3), 0 0 80px rgba(20,184,166,0.15); }
+          50% { box-shadow: 0 0 60px rgba(20,184,166,0.5), 0 0 120px rgba(20,184,166,0.3); }
+        }
+        @keyframes daycareRoiPulse {
+          0%, 100% { text-shadow: 0 0 30px rgba(13,148,136,0.3); }
+          50% { text-shadow: 0 0 60px rgba(13,148,136,0.5), 0 0 100px rgba(13,148,136,0.25); }
+        }
+        @keyframes daycareBadgeGlow {
+          0%, 100% { box-shadow: 0 0 12px rgba(34,211,238,0.2), 0 0 24px rgba(34,211,238,0.1); }
+          50% { box-shadow: 0 0 24px rgba(34,211,238,0.4), 0 0 48px rgba(34,211,238,0.2); }
+        }
+      `}</style>
+      <section className="relative py-24 sm:py-32 lg:py-40 px-4 bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900 text-white overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400" />
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
+          <div className="w-[900px] h-[900px] rounded-full bg-teal-500/8 blur-3xl" />
+        </div>
+
+        <div className="relative max-w-5xl mx-auto text-center">
+          <div className="inline-flex items-center px-8 py-3 rounded-full bg-white/10 border border-white/20 text-cyan-300 text-lg font-bold uppercase tracking-widest mb-12 backdrop-blur-sm" style={{ animation: 'daycareBadgeGlow 3s ease-in-out infinite' }}>
+            <span className="mr-3 text-2xl">&#128202;</span>
+            Backed by Research
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-8" style={{ textShadow: '0 4px 16px rgba(0,0,0,0.4), 0 2px 6px rgba(0,0,0,0.3)' }}>What's the Real ROI?</h2>
+
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-16 leading-relaxed">
+            80% of parents start their childcare search online. With average tuition of <span className="font-bold text-white">$1,000&ndash;$1,300/month</span> and an average enrollment tenure of 14 months, every new family represents significant lifetime revenue. Here's what the data says.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-20 max-w-5xl mx-auto">
+            <div className="relative bg-emerald-400/10 backdrop-blur-sm rounded-xl ring-2 ring-emerald-400 p-6 sm:p-8 text-center sm:scale-[1.05] shadow-2xl hover:scale-[1.08] transition-all duration-200 order-first">
+              <div className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-emerald-400 mb-2">$1,125</div>
+              <div className="text-xs sm:text-sm font-bold tracking-wider text-emerald-300 uppercase mb-3">avg. acquisition cost</div>
+              <p className="text-sm text-gray-300 leading-relaxed">Industry benchmark cost to acquire one new childcare enrollment through traditional marketing</p>
+              <span className="text-xs text-gray-400 mt-2 inline-block">CareLulu 2025 &sup2;</span>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 sm:p-8 text-center hover:scale-[1.03] hover:border-white/25 transition-all duration-200">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-teal-400 mb-2">$20K&ndash;$40K</div>
+              <div className="text-xs sm:text-sm font-bold tracking-wider text-teal-300 uppercase mb-3">lifetime value per child</div>
+              <p className="text-sm text-gray-400 leading-relaxed">Average revenue per child over their enrollment tenure, depending on age at entry</p>
+              <span className="text-xs text-gray-500 mt-2 inline-block">NCES 2019, Florida MRS 2023-24 &sup1;</span>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 sm:p-8 text-center hover:scale-[1.03] hover:border-white/25 transition-all duration-200">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cyan-400 mb-2">$10K+</div>
+              <div className="text-xs sm:text-sm font-bold tracking-wider text-teal-300 uppercase mb-3">FES-UA per child/year</div>
+              <p className="text-sm text-gray-400 leading-relaxed">Florida's FES-UA scholarship provides up to $10,000/year per special needs child &mdash; high-needs students up to $34,000</p>
+              <span className="text-xs text-gray-500 mt-2 inline-block">Step Up for Students 2025-26 &sup3;</span>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 sm:p-8 text-center hover:scale-[1.03] hover:border-white/25 transition-all duration-200">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-amber-400 mb-2">{founderActive ? '$15' : '$29'}</div>
+              <div className="text-xs sm:text-sm font-bold tracking-wider text-teal-300 uppercase mb-3">per month</div>
+              <p className="text-sm text-gray-400 leading-relaxed">Your {founderActive ? 'Founding Partner ' : ''}Featured Listing on FloridaAutismServices.com &mdash; running 24/7/365</p>
+            </div>
+          </div>
+
+          <div className="relative mx-auto max-w-3xl rounded-2xl hover:scale-[1.02] transition-transform duration-300" style={{ animation: 'daycareRoiGlow 3s ease-in-out infinite' }}>
+            <div className="bg-white rounded-2xl shadow-2xl p-10 sm:p-12 lg:p-14 text-gray-900 text-center">
+              <div className="text-[6rem] sm:text-[8rem] lg:text-[10rem] font-extrabold text-teal-600 leading-none mb-4" style={{ animation: 'daycareRoiPulse 4s ease-in-out infinite' }}>1</div>
+              <div className="text-2xl sm:text-3xl font-bold text-gray-800 mb-8">new enrollment</div>
+              <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                Just <strong className="text-gray-900">one new enrollment</strong> from FloridaAutismServices.com &mdash; worth $20,000&ndash;$40,000 in lifetime revenue &mdash; could cover your <strong className="text-gray-900">Featured Listing for decades</strong>. At $30/month for Enhanced, that's 83 years of listing paid for by a single toddler enrollment.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-14 mx-auto max-w-3xl border-l-4 border-teal-400 bg-white/5 rounded-r-xl p-6 sm:p-8 text-left">
+            <div className="text-xl sm:text-2xl font-bold text-white mb-3">That's not a typo.</div>
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-3">
+              The math works because childcare is a long-term relationship. At $1,000&ndash;$1,300/month in tuition with an average 14-month tenure, one toddler enrollment represents ~$30,000 in lifetime revenue. Compare that to $1,125 to acquire the same family through traditional marketing &mdash; or $200&ndash;$500+ per enrollment through Google Ads. Your {founderActive ? 'Founding Partner ' : ''}Featured Listing costs as little as {founderActive ? '$15' : '$29'}/month.
+            </p>
+            <p className="text-base sm:text-lg font-bold text-teal-400">
+              Your Featured Listing works 24/7, 365&nbsp;days&nbsp;a&nbsp;year.
+            </p>
+          </div>
+
+          {founderActive && (
+            <p className="mt-12 text-lg sm:text-xl font-bold text-white max-w-3xl mx-auto">
+              A founding partner listing costs a fraction of acquiring one enrollment through traditional marketing &mdash; and it works all year.
+            </p>
+          )}
+
+          <div className="mt-12 mx-auto max-w-4xl border-t border-white/10 pt-8 text-left">
+            <p className="text-xs font-semibold text-gray-400 mb-3 uppercase tracking-wider">Sources &amp; Citations</p>
+            <p className="text-xs text-gray-500 leading-relaxed">
+              <span className="block mb-1">&sup1; NCES (2019). National average childcare enrollment tenure of 14 months. Florida Market Rate Survey (MRS) 2023-24: infant $1,000-1,200/mo, toddler $1,100-1,300/mo, preschool $750-900/mo.</span>
+              <span className="block mb-1">&sup2; CareLulu (2025). Childcare industry customer acquisition cost benchmark of ~$1,125 per enrollment. 80% of parents begin childcare search online.</span>
+              <span className="block mb-1">&sup3; Step Up for Students / FES-UA (2025-26). Family Empowerment Scholarship for Unique Abilities: standard ~$10,000/year per child, high-needs $22,000-$34,000/year.</span>
+              <span className="block">Additional research: Google Ads childcare benchmarks ($12-53 per lead, $200-500+ per enrollment), Florida childcare market size and enrollment trends.</span>
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* SECTION 8: Pricing */}
       <section id="pricing" className="bg-white py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Founding Partner Pricing</h2>
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-orange-50 border border-orange-200 text-orange-700 font-semibold text-sm mb-4">
-              &#128640; Founding Partner — First 10 Facilities Only
-            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">{founderActive ? 'Founding Partner Pricing' : 'Featured Listing Pricing'}</h2>
+            {founderActive && (
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-orange-50 border border-orange-200 text-orange-700 font-semibold text-sm mb-4">
+                &#128640; Founding Partner — {founderSlots} of 10 Spots Left
+              </div>
+            )}
             <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-              Be one of the first featured childcare facilities on FloridaAutismServices.com and lock in half-price rates before they're gone.
+              {founderActive
+                ? "Be one of the first featured childcare facilities on FloridaAutismServices.com and lock in half-price rates before they're gone."
+                : 'Feature your facility on FloridaAutismServices.com and get seen by the families searching for you.'}
             </p>
             <p className="text-gray-500 text-sm mt-3 max-w-2xl mx-auto">
               Pricing is per location. Multi-location facilities receive volume discounts (<a href="#multi-location" className="text-teal-600 underline hover:text-teal-700">see below</a>).
@@ -836,13 +952,15 @@ export default function FeaturedDaycares() {
                 <p className="text-gray-500 text-sm mb-6">Stand out from the crowd</p>
                 <div className="mb-6">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-3xl font-extrabold text-gray-900">$15</span>
+                    <span className="text-3xl font-extrabold text-gray-900">{founderActive ? '$15' : '$29'}</span>
                     <span className="text-gray-500">/mo</span>
                   </div>
-                  <div className="text-sm text-gray-400 mt-1">
-                    <span className="line-through">$29/mo</span>
-                    <span className="ml-2 text-green-600 font-semibold">Save 48%</span>
-                  </div>
+                  {founderActive && (
+                    <div className="text-sm text-gray-400 mt-1">
+                      <span className="line-through">$29/mo</span>
+                      <span className="ml-2 text-green-600 font-semibold">Save 48%</span>
+                    </div>
+                  )}
                 </div>
                 <ul className="space-y-3 text-sm text-gray-700">
                   <li className="flex items-start gap-2">{pricingCheck}<span>Gold border and <strong>&#11088; Featured</strong> badge on search card <em>and</em> detail page</span></li>
@@ -852,8 +970,8 @@ export default function FeaturedDaycares() {
                 </ul>
               </div>
               <div className="p-8 pt-0">
-                <a href="mailto:contact@floridaautismservices.com?subject=Featured%20Daycare%20Listing%20Inquiry%20-%20Basic%20Featured" className="block w-full text-center px-6 py-3 rounded-lg font-semibold text-teal-700 bg-teal-50 border-2 border-teal-200 hover:bg-teal-100 hover:border-teal-300 transition-colors">
-                  Lock In This Rate
+                <a href={basicMonthlyHref} className="block w-full text-center px-6 py-3 rounded-lg font-semibold text-teal-700 bg-teal-50 border-2 border-teal-200 hover:bg-teal-100 hover:border-teal-300 transition-colors">
+                  {founderActive ? 'Lock In This Rate' : 'Get Started'}
                 </a>
               </div>
             </div>
@@ -868,13 +986,15 @@ export default function FeaturedDaycares() {
                 <p className="text-gray-500 text-sm mb-6">Maximum impact per dollar</p>
                 <div className="mb-6">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-3xl font-extrabold text-gray-900">$30</span>
+                    <span className="text-3xl font-extrabold text-gray-900">{founderActive ? '$30' : '$59'}</span>
                     <span className="text-gray-500">/mo</span>
                   </div>
-                  <div className="text-sm text-gray-400 mt-1">
-                    <span className="line-through">$59/mo</span>
-                    <span className="ml-2 text-green-600 font-semibold">Save 49%</span>
-                  </div>
+                  {founderActive && (
+                    <div className="text-sm text-gray-400 mt-1">
+                      <span className="line-through">$59/mo</span>
+                      <span className="ml-2 text-green-600 font-semibold">Save 49%</span>
+                    </div>
+                  )}
                 </div>
                 <ul className="space-y-3 text-sm text-gray-700">
                   <li className="flex items-start gap-2">{pricingCheck}<span>Everything in Basic, <strong>plus:</strong></span></li>
@@ -887,7 +1007,7 @@ export default function FeaturedDaycares() {
               </div>
               <div className="p-8 pt-0">
                 <a href="mailto:contact@floridaautismservices.com?subject=Featured%20Daycare%20Listing%20Inquiry%20-%20Enhanced%20Featured" className="block w-full text-center px-6 py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 transition-colors shadow-md">
-                  Lock In This Rate
+                  {founderActive ? 'Lock In This Rate' : 'Get Started'}
                 </a>
               </div>
             </div>
@@ -899,13 +1019,15 @@ export default function FeaturedDaycares() {
                 <p className="text-gray-500 text-sm mb-6">The full showcase experience</p>
                 <div className="mb-6">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-3xl font-extrabold text-gray-900">$50</span>
+                    <span className="text-3xl font-extrabold text-gray-900">{founderActive ? '$50' : '$99'}</span>
                     <span className="text-gray-500">/mo</span>
                   </div>
-                  <div className="text-sm text-gray-400 mt-1">
-                    <span className="line-through">$99/mo</span>
-                    <span className="ml-2 text-green-600 font-semibold">Save 49%</span>
-                  </div>
+                  {founderActive && (
+                    <div className="text-sm text-gray-400 mt-1">
+                      <span className="line-through">$99/mo</span>
+                      <span className="ml-2 text-green-600 font-semibold">Save 49%</span>
+                    </div>
+                  )}
                 </div>
                 <ul className="space-y-3 text-sm text-gray-700">
                   <li className="flex items-start gap-2">{pricingCheck}<span>Everything in Enhanced, <strong>plus:</strong></span></li>
@@ -920,14 +1042,16 @@ export default function FeaturedDaycares() {
               </div>
               <div className="p-8 pt-0">
                 <a href="mailto:contact@floridaautismservices.com?subject=Featured%20Daycare%20Listing%20Inquiry%20-%20Premium%20Partner" className="block w-full text-center px-6 py-3 rounded-lg font-semibold text-teal-700 bg-teal-50 border-2 border-teal-200 hover:bg-teal-100 hover:border-teal-300 transition-colors">
-                  Lock In This Rate
+                  {founderActive ? 'Lock In This Rate' : 'Get Started'}
                 </a>
               </div>
             </div>
           </div>
 
           <p className="text-center text-sm text-gray-400 mt-10">
-            Founding Partner rates are locked in for 6 months. After that, standard pricing applies. Cancel anytime.
+            {founderActive
+              ? 'Founding Partner rates are locked in for 12 months. After that, standard pricing applies. Cancel anytime.'
+              : 'Cancel anytime.'}
           </p>
 
           {/* Multi-Location Volume Discounts */}
@@ -1001,14 +1125,16 @@ export default function FeaturedDaycares() {
               <div className="p-8 flex-1">
                 <h3 className="text-xl font-bold text-gray-900 mb-1">Basic Featured</h3>
                 <p className="text-gray-500 text-sm mb-6">Annual billing</p>
-                <div className="mb-6">
-                  <div className="text-xs font-bold text-teal-600 uppercase tracking-wider mb-2">Founding Partner Rate</div>
-                  <div className="text-3xl font-extrabold text-gray-900">$153<span className="text-base font-medium text-gray-500">/year</span></div>
-                  <div className="text-sm text-gray-500 mt-1">That's just <span className="font-semibold text-gray-700">$12.75/mo</span></div>
-                  <div className="text-sm text-gray-400 mt-1 line-through">$15/mo billed monthly</div>
-                  <div className="inline-flex items-center mt-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold">Save $27/year</div>
-                </div>
-                <div className="border-t border-gray-100 pt-5">
+                {founderActive && (
+                  <div className="mb-6">
+                    <div className="text-xs font-bold text-teal-600 uppercase tracking-wider mb-2">Founding Partner Rate</div>
+                    <div className="text-3xl font-extrabold text-gray-900">$153<span className="text-base font-medium text-gray-500">/year</span></div>
+                    <div className="text-sm text-gray-500 mt-1">That's just <span className="font-semibold text-gray-700">$12.75/mo</span></div>
+                    <div className="text-sm text-gray-400 mt-1 line-through">$15/mo billed monthly</div>
+                    <div className="inline-flex items-center mt-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold">Save $27/year</div>
+                  </div>
+                )}
+                <div className={founderActive ? "border-t border-gray-100 pt-5" : ""}>
                   <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Standard Rate</div>
                   <div className="text-2xl font-extrabold text-gray-900">$296<span className="text-base font-medium text-gray-500">/year</span></div>
                   <div className="text-sm text-gray-500 mt-1">That's just <span className="font-semibold text-gray-700">$24.65/mo</span></div>
@@ -1017,8 +1143,8 @@ export default function FeaturedDaycares() {
                 </div>
               </div>
               <div className="p-8 pt-0">
-                <a href="mailto:contact@floridaautismservices.com?subject=Featured%20Daycare%20Listing%20Inquiry%20-%20Basic%20Annual" className="block w-full text-center px-6 py-3 rounded-lg font-semibold text-teal-700 bg-teal-50 border-2 border-teal-200 hover:bg-teal-100 hover:border-teal-300 transition-colors">
-                  Lock In This Rate
+                <a href={basicAnnualHref} className="block w-full text-center px-6 py-3 rounded-lg font-semibold text-teal-700 bg-teal-50 border-2 border-teal-200 hover:bg-teal-100 hover:border-teal-300 transition-colors">
+                  {founderActive ? 'Lock In This Rate' : 'Get Started'}
                 </a>
               </div>
             </div>
@@ -1031,14 +1157,16 @@ export default function FeaturedDaycares() {
               <div className="p-8 flex-1">
                 <h3 className="text-xl font-bold text-gray-900 mb-1">Enhanced Featured</h3>
                 <p className="text-gray-500 text-sm mb-6">Annual billing</p>
-                <div className="mb-6">
-                  <div className="text-xs font-bold text-teal-600 uppercase tracking-wider mb-2">Founding Partner Rate</div>
-                  <div className="text-3xl font-extrabold text-gray-900">$306<span className="text-base font-medium text-gray-500">/year</span></div>
-                  <div className="text-sm text-gray-500 mt-1">That's just <span className="font-semibold text-gray-700">$25.50/mo</span></div>
-                  <div className="text-sm text-gray-400 mt-1 line-through">$30/mo billed monthly</div>
-                  <div className="inline-flex items-center mt-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold">Save $54/year</div>
-                </div>
-                <div className="border-t border-gray-100 pt-5">
+                {founderActive && (
+                  <div className="mb-6">
+                    <div className="text-xs font-bold text-teal-600 uppercase tracking-wider mb-2">Founding Partner Rate</div>
+                    <div className="text-3xl font-extrabold text-gray-900">$306<span className="text-base font-medium text-gray-500">/year</span></div>
+                    <div className="text-sm text-gray-500 mt-1">That's just <span className="font-semibold text-gray-700">$25.50/mo</span></div>
+                    <div className="text-sm text-gray-400 mt-1 line-through">$30/mo billed monthly</div>
+                    <div className="inline-flex items-center mt-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold">Save $54/year</div>
+                  </div>
+                )}
+                <div className={founderActive ? "border-t border-gray-100 pt-5" : ""}>
                   <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Standard Rate</div>
                   <div className="text-2xl font-extrabold text-gray-900">$602<span className="text-base font-medium text-gray-500">/year</span></div>
                   <div className="text-sm text-gray-500 mt-1">That's just <span className="font-semibold text-gray-700">$50.15/mo</span></div>
@@ -1048,7 +1176,7 @@ export default function FeaturedDaycares() {
               </div>
               <div className="p-8 pt-0">
                 <a href="mailto:contact@floridaautismservices.com?subject=Featured%20Daycare%20Listing%20Inquiry%20-%20Enhanced%20Annual" className="block w-full text-center px-6 py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 transition-colors shadow-md">
-                  Lock In This Rate
+                  {founderActive ? 'Lock In This Rate' : 'Get Started'}
                 </a>
               </div>
             </div>
@@ -1058,14 +1186,16 @@ export default function FeaturedDaycares() {
               <div className="p-8 flex-1">
                 <h3 className="text-xl font-bold text-gray-900 mb-1">Premium Partner</h3>
                 <p className="text-gray-500 text-sm mb-6">Annual billing</p>
-                <div className="mb-6">
-                  <div className="text-xs font-bold text-teal-600 uppercase tracking-wider mb-2">Founding Partner Rate</div>
-                  <div className="text-3xl font-extrabold text-gray-900">$510<span className="text-base font-medium text-gray-500">/year</span></div>
-                  <div className="text-sm text-gray-500 mt-1">That's just <span className="font-semibold text-gray-700">$42.50/mo</span></div>
-                  <div className="text-sm text-gray-400 mt-1 line-through">$50/mo billed monthly</div>
-                  <div className="inline-flex items-center mt-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold">Save $90/year</div>
-                </div>
-                <div className="border-t border-gray-100 pt-5">
+                {founderActive && (
+                  <div className="mb-6">
+                    <div className="text-xs font-bold text-teal-600 uppercase tracking-wider mb-2">Founding Partner Rate</div>
+                    <div className="text-3xl font-extrabold text-gray-900">$510<span className="text-base font-medium text-gray-500">/year</span></div>
+                    <div className="text-sm text-gray-500 mt-1">That's just <span className="font-semibold text-gray-700">$42.50/mo</span></div>
+                    <div className="text-sm text-gray-400 mt-1 line-through">$50/mo billed monthly</div>
+                    <div className="inline-flex items-center mt-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold">Save $90/year</div>
+                  </div>
+                )}
+                <div className={founderActive ? "border-t border-gray-100 pt-5" : ""}>
                   <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Standard Rate</div>
                   <div className="text-2xl font-extrabold text-gray-900">$1,010<span className="text-base font-medium text-gray-500">/year</span></div>
                   <div className="text-sm text-gray-500 mt-1">That's just <span className="font-semibold text-gray-700">$84.15/mo</span></div>
@@ -1075,13 +1205,15 @@ export default function FeaturedDaycares() {
               </div>
               <div className="p-8 pt-0">
                 <a href="mailto:contact@floridaautismservices.com?subject=Featured%20Daycare%20Listing%20Inquiry%20-%20Premium%20Annual" className="block w-full text-center px-6 py-3 rounded-lg font-semibold text-teal-700 bg-teal-50 border-2 border-teal-200 hover:bg-teal-100 hover:border-teal-300 transition-colors">
-                  Lock In This Rate
+                  {founderActive ? 'Lock In This Rate' : 'Get Started'}
                 </a>
               </div>
             </div>
           </div>
           <p className="text-center text-sm text-gray-400 mt-10">
-            Annual billing is paid upfront. Founding Partner annual rates are locked in for the first year.
+            {founderActive
+              ? 'Annual billing is paid upfront. Founding Partner annual rates are locked in for the first year.'
+              : 'Annual billing is paid upfront.'}
           </p>
         </div>
       </section>
@@ -1140,98 +1272,6 @@ export default function FeaturedDaycares() {
         </div>
       </section>
 
-      {/* ROI Section */}
-      <style>{`
-        @keyframes daycareRoiGlow {
-          0%, 100% { box-shadow: 0 0 40px rgba(20,184,166,0.3), 0 0 80px rgba(20,184,166,0.15); }
-          50% { box-shadow: 0 0 60px rgba(20,184,166,0.5), 0 0 120px rgba(20,184,166,0.3); }
-        }
-        @keyframes daycareRoiPulse {
-          0%, 100% { text-shadow: 0 0 30px rgba(13,148,136,0.3); }
-          50% { text-shadow: 0 0 60px rgba(13,148,136,0.5), 0 0 100px rgba(13,148,136,0.25); }
-        }
-        @keyframes daycareBadgeGlow {
-          0%, 100% { box-shadow: 0 0 12px rgba(34,211,238,0.2), 0 0 24px rgba(34,211,238,0.1); }
-          50% { box-shadow: 0 0 24px rgba(34,211,238,0.4), 0 0 48px rgba(34,211,238,0.2); }
-        }
-      `}</style>
-      <section className="relative py-24 sm:py-32 lg:py-40 px-4 bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900 text-white overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400" />
-        <div className="absolute inset-0 pointer-events-none" aria-hidden="true" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
-          <div className="w-[900px] h-[900px] rounded-full bg-teal-500/8 blur-3xl" />
-        </div>
-
-        <div className="relative max-w-5xl mx-auto text-center">
-          <div className="inline-flex items-center px-8 py-3 rounded-full bg-white/10 border border-white/20 text-cyan-300 text-lg font-bold uppercase tracking-widest mb-12 backdrop-blur-sm" style={{ animation: 'daycareBadgeGlow 3s ease-in-out infinite' }}>
-            <span className="mr-3 text-2xl">&#128202;</span>
-            Backed by Research
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-8" style={{ textShadow: '0 4px 16px rgba(0,0,0,0.4), 0 2px 6px rgba(0,0,0,0.3)' }}>What's the Real ROI?</h2>
-
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-16 leading-relaxed">
-            80% of parents start their childcare search online. With average tuition of <span className="font-bold text-white">$1,000&ndash;$1,300/month</span> and an average enrollment tenure of 14 months, every new family represents significant lifetime revenue. Here's what the data says.
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-20 max-w-5xl mx-auto">
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 sm:p-8 text-center hover:scale-[1.03] hover:border-white/25 transition-all duration-200">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-teal-400 mb-2">$20K&ndash;$40K</div>
-              <div className="text-xs sm:text-sm font-bold tracking-wider text-teal-300 uppercase mb-3">lifetime value per child</div>
-              <p className="text-sm text-gray-400 leading-relaxed">Average revenue per child over their enrollment tenure, depending on age at entry</p>
-              <span className="text-xs text-gray-500 mt-2 inline-block">NCES 2019, Florida MRS 2023-24 &sup1;</span>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 sm:p-8 text-center hover:scale-[1.03] hover:border-white/25 transition-all duration-200">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cyan-400 mb-2">$1,125</div>
-              <div className="text-xs sm:text-sm font-bold tracking-wider text-teal-300 uppercase mb-3">avg. acquisition cost</div>
-              <p className="text-sm text-gray-400 leading-relaxed">Industry benchmark cost to acquire one new childcare enrollment through traditional marketing</p>
-              <span className="text-xs text-gray-500 mt-2 inline-block">CareLulu 2025 &sup2;</span>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 sm:p-8 text-center hover:scale-[1.03] hover:border-white/25 transition-all duration-200">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-emerald-400 mb-2">$10K+</div>
-              <div className="text-xs sm:text-sm font-bold tracking-wider text-teal-300 uppercase mb-3">FES-UA per child/year</div>
-              <p className="text-sm text-gray-400 leading-relaxed">Florida's FES-UA scholarship provides up to $10,000/year per special needs child &mdash; high-needs students up to $34,000</p>
-              <span className="text-xs text-gray-500 mt-2 inline-block">Step Up for Students 2025-26 &sup3;</span>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 sm:p-8 text-center hover:scale-[1.03] hover:border-white/25 transition-all duration-200">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-amber-400 mb-2">$15</div>
-              <div className="text-xs sm:text-sm font-bold tracking-wider text-teal-300 uppercase mb-3">per month</div>
-              <p className="text-sm text-gray-400 leading-relaxed">Your Founding Partner Featured Listing on FloridaAutismServices.com &mdash; running 24/7/365</p>
-            </div>
-          </div>
-
-          <div className="relative mx-auto max-w-3xl rounded-2xl hover:scale-[1.02] transition-transform duration-300" style={{ animation: 'daycareRoiGlow 3s ease-in-out infinite' }}>
-            <div className="bg-white rounded-2xl shadow-2xl p-10 sm:p-12 lg:p-14 text-gray-900 text-center">
-              <div className="text-[6rem] sm:text-[8rem] lg:text-[10rem] font-extrabold text-teal-600 leading-none mb-4" style={{ animation: 'daycareRoiPulse 4s ease-in-out infinite' }}>1</div>
-              <div className="text-2xl sm:text-3xl font-bold text-gray-800 mb-8">new enrollment</div>
-              <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
-                Just <strong className="text-gray-900">one new enrollment</strong> from FloridaAutismServices.com &mdash; worth $20,000&ndash;$40,000 in lifetime revenue &mdash; could cover your <strong className="text-gray-900">Featured Listing for decades</strong>. At $30/month for Enhanced, that's 83 years of listing paid for by a single toddler enrollment.
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-14 mx-auto max-w-3xl border-l-4 border-teal-400 bg-white/5 rounded-r-xl p-6 sm:p-8 text-left">
-            <div className="text-xl sm:text-2xl font-bold text-white mb-3">That's not a typo.</div>
-            <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-3">
-              The math works because childcare is a long-term relationship. At $1,000&ndash;$1,300/month in tuition with an average 14-month tenure, one toddler enrollment represents ~$30,000 in lifetime revenue. Compare that to $1,125 to acquire the same family through traditional marketing &mdash; or $200&ndash;$500+ per enrollment through Google Ads. Your Featured Listing costs as little as $15/month.
-            </p>
-            <p className="text-base sm:text-lg font-bold text-teal-400">
-              Your Featured Listing works 24/7, 365&nbsp;days&nbsp;a&nbsp;year.
-            </p>
-          </div>
-
-          <div className="mt-12 mx-auto max-w-4xl border-t border-white/10 pt-8 text-left">
-            <p className="text-xs font-semibold text-gray-400 mb-3 uppercase tracking-wider">Sources &amp; Citations</p>
-            <p className="text-xs text-gray-500 leading-relaxed">
-              <span className="block mb-1">&sup1; NCES (2019). National average childcare enrollment tenure of 14 months. Florida Market Rate Survey (MRS) 2023-24: infant $1,000-1,200/mo, toddler $1,100-1,300/mo, preschool $750-900/mo.</span>
-              <span className="block mb-1">&sup2; CareLulu (2025). Childcare industry customer acquisition cost benchmark of ~$1,125 per enrollment. 80% of parents begin childcare search online.</span>
-              <span className="block mb-1">&sup3; Step Up for Students / FES-UA (2025-26). Family Empowerment Scholarship for Unique Abilities: standard ~$10,000/year per child, high-needs $22,000-$34,000/year.</span>
-              <span className="block">Additional research: Google Ads childcare benchmarks ($12-53 per lead, $200-500+ per enrollment), Florida childcare market size and enrollment trends.</span>
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* SECTION 9: FAQ */}
       <section className="bg-gray-50 py-20 px-4">
         <div className="max-w-6xl mx-auto">
@@ -1246,10 +1286,14 @@ export default function FeaturedDaycares() {
       <section className="bg-gradient-to-r from-teal-600 to-cyan-600 text-white py-20 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight mb-6">
-            10 Founding Partner Spots. Half-Price Rates. First Come, First Served.
+            {founderActive
+              ? `${founderSlots} Founding Partner Spots Left. Half-Price Rates. First Come, First Served.`
+              : 'Ready to Stand Out? Get Featured Today.'}
           </h2>
           <p className="text-lg text-teal-50 mb-10">
-            Join the first childcare facilities to get priority placement on Florida's largest autism resource directory.
+            {founderActive
+              ? "Join the first childcare facilities to get priority placement on Florida's largest autism resource directory."
+              : "Get priority placement on Florida's largest autism resource directory."}
           </p>
           <a
             href="mailto:contact@floridaautismservices.com?subject=Featured%20Daycare%20Listing%20Inquiry"

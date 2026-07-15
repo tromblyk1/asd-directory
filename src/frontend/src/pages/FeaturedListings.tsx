@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ChevronDown, ArrowUp, Eye, Shield, Check } from "lucide-react";
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
 import { useSiteStats } from "@/hooks/useSiteStats";
+import { getStripeLink, isStripeLinkConfigured } from "@/lib/stripeLinks";
 
 const starSvg = (
   <svg className="w-3.5 h-3.5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
@@ -562,6 +563,16 @@ const pricingCheck = (
 
 export default function FeaturedListings() {
   const stats = useSiteStats();
+  const founderSlots = Math.max(0, parseInt(stats.founder_slots_remaining, 10) || 0);
+  const founderActive = founderSlots > 0;
+  const basicMonthlyKey = founderActive ? ("basic_monthly_founder" as const) : ("basic_monthly_standard" as const);
+  const basicAnnualKey = founderActive ? ("basic_annual_founder" as const) : ("basic_annual_standard" as const);
+  const basicMonthlyHref = isStripeLinkConfigured(basicMonthlyKey)
+    ? getStripeLink(basicMonthlyKey)
+    : "mailto:contact@floridaautismservices.com?subject=Featured%20Listing%20Inquiry%20-%20Basic%20Featured";
+  const basicAnnualHref = isStripeLinkConfigured(basicAnnualKey)
+    ? getStripeLink(basicAnnualKey)
+    : "mailto:contact@floridaautismservices.com?subject=Featured%20Listing%20Inquiry%20-%20Basic%20Annual";
 
   return (
     <div>
@@ -784,7 +795,8 @@ export default function FeaturedListings() {
         </div>
       </section>
 
-      {/* SECTION 7: Why Now */}
+      {/* SECTION 7: Why Now (Founding Partner offer — hidden once slots run out) */}
+      {founderActive && (
       <section className="bg-gray-50 py-20 px-4">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">
@@ -795,10 +807,10 @@ export default function FeaturedListings() {
               FloridaAutismServices.com traffic has grown over 300% in the last month alone. As more Florida families discover the directory, Featured Listings become more valuable — and more competitive.
             </p>
             <p>
-              Right now, we're offering Founding Partner pricing to our first 10 providers. You lock in half-price rates for 6 months while the directory continues to grow around you.
+              Right now, we're offering Founding Partner pricing to our first 10 providers. You lock in half-price rates for 12 months while the directory continues to grow around you.
             </p>
             <p className="font-semibold text-gray-800">
-              Once the 10 spots are filled, this pricing is gone.
+              Only {founderSlots} of 10 spots remain. Once they're filled, this pricing is gone.
             </p>
           </div>
           <div className="mt-10">
@@ -811,17 +823,122 @@ export default function FeaturedListings() {
           </div>
         </div>
       </section>
+      )}
+
+      {/* ROI Section */}
+      <style>{`
+        @keyframes featuredRoiGlow {
+          0%, 100% { box-shadow: 0 0 40px rgba(20,184,166,0.3), 0 0 80px rgba(20,184,166,0.15); }
+          50% { box-shadow: 0 0 60px rgba(20,184,166,0.5), 0 0 120px rgba(20,184,166,0.3); }
+        }
+        @keyframes featuredRoiPulse {
+          0%, 100% { text-shadow: 0 0 30px rgba(13,148,136,0.3); }
+          50% { text-shadow: 0 0 60px rgba(13,148,136,0.5), 0 0 100px rgba(13,148,136,0.25); }
+        }
+        @keyframes featuredBadgeGlow {
+          0%, 100% { box-shadow: 0 0 12px rgba(34,211,238,0.2), 0 0 24px rgba(34,211,238,0.1); }
+          50% { box-shadow: 0 0 24px rgba(34,211,238,0.4), 0 0 48px rgba(34,211,238,0.2); }
+        }
+      `}</style>
+      <section className="relative py-24 sm:py-32 lg:py-40 px-4 bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900 text-white overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400" />
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
+          <div className="w-[900px] h-[900px] rounded-full bg-teal-500/8 blur-3xl" />
+        </div>
+
+        <div className="relative max-w-5xl mx-auto text-center">
+          <div className="inline-flex items-center px-8 py-3 rounded-full bg-white/10 border border-white/20 text-cyan-300 text-lg font-bold uppercase tracking-widest mb-12 backdrop-blur-sm" style={{ animation: 'featuredBadgeGlow 3s ease-in-out infinite' }}>
+            <span className="mr-3 text-2xl">&#128202;</span>
+            Backed by Research
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-8" style={{ textShadow: '0 4px 16px rgba(0,0,0,0.4), 0 2px 6px rgba(0,0,0,0.3)' }}>What's the Real ROI?</h2>
+
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-16 leading-relaxed">
+            Children with autism use PT, OT, and speech therapy at <span className="font-bold text-white">11&ndash;16&times; the rate</span> of non-ASD peers &mdash; and they stay in therapy for years, not weeks. Here's what peer-reviewed research says about the value of every new family that finds you.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-20 max-w-5xl mx-auto">
+            <div className="relative bg-emerald-400/10 backdrop-blur-sm rounded-xl ring-2 ring-emerald-400 p-6 sm:p-8 text-center sm:scale-[1.05] shadow-2xl hover:scale-[1.08] transition-all duration-200 order-first">
+              <div className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-emerald-400 mb-2">$33</div>
+              <div className="text-xs sm:text-sm font-bold tracking-wider text-emerald-300 uppercase mb-3">per Google Ads lead</div>
+              <p className="text-sm text-gray-300 leading-relaxed">Average cost per lead for healthcare on Google Ads &mdash; and that's just for the lead, not the patient</p>
+              <span className="text-xs text-gray-400 mt-2 inline-block">LocaliQ Healthcare Benchmarks, 2026 &#8308;</span>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 sm:p-8 text-center hover:scale-[1.03] hover:border-white/25 transition-all duration-200">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-teal-400 mb-2">$10,279</div>
+              <div className="text-xs sm:text-sm font-bold tracking-wider text-teal-300 uppercase mb-3">per child per year</div>
+              <p className="text-sm text-gray-400 leading-relaxed">Average annual outpatient spending per child with treated ASD</p>
+              <span className="text-xs text-gray-500 mt-2 inline-block">AHRQ MEPS, 2025 &sup3;</span>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 sm:p-8 text-center hover:scale-[1.03] hover:border-white/25 transition-all duration-200">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cyan-400 mb-2">11&ndash;16&times;</div>
+              <div className="text-xs sm:text-sm font-bold tracking-wider text-teal-300 uppercase mb-3">higher utilization</div>
+              <p className="text-sm text-gray-400 leading-relaxed">ASD children use PT, OT, and speech services at 11&ndash;16&times; the rate of non-ASD peers ages 3&ndash;9</p>
+              <span className="text-xs text-gray-500 mt-2 inline-block">Cummings et al., JADD 2016 &sup2;</span>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 sm:p-8 text-center hover:scale-[1.03] hover:border-white/25 transition-all duration-200">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-amber-400 mb-2">{founderActive ? '$15' : '$29'}</div>
+              <div className="text-xs sm:text-sm font-bold tracking-wider text-teal-300 uppercase mb-3">per month</div>
+              <p className="text-sm text-gray-400 leading-relaxed">Your {founderActive ? 'Founding Partner ' : ''}Featured Listing on FloridaAutismServices.com &mdash; running 24/7/365</p>
+            </div>
+          </div>
+
+          <div className="relative mx-auto max-w-3xl rounded-2xl hover:scale-[1.02] transition-transform duration-300" style={{ animation: 'featuredRoiGlow 3s ease-in-out infinite' }}>
+            <div className="bg-white rounded-2xl shadow-2xl p-10 sm:p-12 lg:p-14 text-gray-900 text-center">
+              <div className="text-[6rem] sm:text-[8rem] lg:text-[10rem] font-extrabold text-teal-600 leading-none mb-4" style={{ animation: 'featuredRoiPulse 4s ease-in-out infinite' }}>1&ndash;2</div>
+              <div className="text-2xl sm:text-3xl font-bold text-gray-800 mb-8">new families</div>
+              <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                As few as <strong className="text-gray-900">1&ndash;2 new families</strong> finding your practice through FloridaAutismServices.com could potentially cover your <strong className="text-gray-900">entire Featured Listing investment</strong> for the full year &mdash; based on average outpatient therapy spending per ASD child.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-14 mx-auto max-w-3xl border-l-4 border-teal-400 bg-white/5 rounded-r-xl p-6 sm:p-8 text-left">
+            <div className="text-xl sm:text-2xl font-bold text-white mb-3">That's not a typo.</div>
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-3">
+              The math works because pediatric ASD patients have exceptionally high lifetime value. At $10,279 per child per year in outpatient spending, even a single new family represents significant revenue &mdash; while your {founderActive ? 'Founding Partner ' : ''}listing costs as little as {founderActive ? '$15' : '$29'}/month. Compare that to $33 per <em>lead</em> on Google Ads, where you pay per click with no guaranteed conversion.
+            </p>
+            <p className="text-base sm:text-lg font-bold text-teal-400">
+              Your Featured Listing works 24/7, 365&nbsp;days&nbsp;a&nbsp;year.
+            </p>
+          </div>
+
+          {founderActive && (
+            <p className="mt-12 text-lg sm:text-xl font-bold text-white max-w-3xl mx-auto">
+              A founding partner listing costs less than half of one Google Ads lead &mdash; and it works all year.
+            </p>
+          )}
+
+          <div className="mt-12 mx-auto max-w-4xl border-t border-white/10 pt-8 text-left">
+            <p className="text-xs font-semibold text-gray-400 mb-3 uppercase tracking-wider">Sources &amp; Citations</p>
+            <p className="text-xs text-gray-500 leading-relaxed">
+              <span className="block mb-1">&sup1; Cidav et al., <em>Journal of Autism and Developmental Disorders</em> (2013). Medicaid FFS claims analysis, 45,948 children with ASD. PMC4771520</span>
+              <span className="block mb-1">&sup2; Cummings et al., <em>Journal of Autism and Developmental Disorders</em> (2016). 8,325 ASD cases vs 83,195 matched controls, five major health systems. PMC4747787</span>
+              <span className="block mb-1">&sup3; AHRQ Medical Expenditure Panel Survey, Statistical Brief #565 (Monnet &amp; Zuvekas, 2025). National health expenditures for children with treated ASD, 2018&ndash;2022.</span>
+              <span className="block mb-1">&#8308; LocaliQ Healthcare Search Advertising Benchmarks (2026). Aggregated U.S. healthcare search campaign data across 16 specialties.</span>
+              <span className="block mb-1">Additional research: Florida Medicaid ASD therapy utilization (AHCA 2013), parent search behavior for autism services, therapy practice revenue impact of directory listings.</span>
+              <span className="block">Full research briefs available at: perplexity_ltv_dr_report.md, patient_acquisition_cost_in_pediatric_therapy.md, multi-discipline_therapy_revenue_per_asd_child.md, therapy_practice_revenue_impact_of_directory-referral_listings.md, florida-specific_medicaid_therapy_utilization.md, parent_search_behavior_for_autism_services.md</span>
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* SECTION 8: Pricing */}
       <section id="pricing" className="bg-white py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Founding Partner Pricing</h2>
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-orange-50 border border-orange-200 text-orange-700 font-semibold text-sm mb-4">
-              &#128640; Founding Partner — First 10 Providers Only
-            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">{founderActive ? 'Founding Partner Pricing' : 'Featured Listing Pricing'}</h2>
+            {founderActive && (
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-orange-50 border border-orange-200 text-orange-700 font-semibold text-sm mb-4">
+                &#128640; Founding Partner — {founderSlots} of 10 Spots Left
+              </div>
+            )}
             <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-              Be one of the first featured providers on FloridaAutismServices.com and lock in half-price rates before they're gone.
+              {founderActive
+                ? "Be one of the first featured providers on FloridaAutismServices.com and lock in half-price rates before they're gone."
+                : 'Feature your practice on FloridaAutismServices.com and get seen by the families searching for you.'}
             </p>
             <p className="text-gray-500 text-sm mt-3 max-w-2xl mx-auto">
               Pricing is per location. Multi-location practices receive volume discounts (<a href="#multi-location" className="text-teal-600 underline hover:text-teal-700">see below</a>).
@@ -836,13 +953,15 @@ export default function FeaturedListings() {
                 <p className="text-gray-500 text-sm mb-6">Stand out from the crowd</p>
                 <div className="mb-6">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-3xl font-extrabold text-gray-900">$15</span>
+                    <span className="text-3xl font-extrabold text-gray-900">{founderActive ? '$15' : '$29'}</span>
                     <span className="text-gray-500">/mo</span>
                   </div>
-                  <div className="text-sm text-gray-400 mt-1">
-                    <span className="line-through">$29/mo</span>
-                    <span className="ml-2 text-green-600 font-semibold">Save 48%</span>
-                  </div>
+                  {founderActive && (
+                    <div className="text-sm text-gray-400 mt-1">
+                      <span className="line-through">$29/mo</span>
+                      <span className="ml-2 text-green-600 font-semibold">Save 48%</span>
+                    </div>
+                  )}
                 </div>
                 <ul className="space-y-3 text-sm text-gray-700">
                   <li className="flex items-start gap-2">{pricingCheck}<span>Gold border and <strong>&#11088; Featured</strong> badge on search card <em>and</em> detail page</span></li>
@@ -852,8 +971,8 @@ export default function FeaturedListings() {
                 </ul>
               </div>
               <div className="p-8 pt-0">
-                <a href="mailto:contact@floridaautismservices.com?subject=Featured%20Listing%20Inquiry%20-%20Basic%20Featured" className="block w-full text-center px-6 py-3 rounded-lg font-semibold text-teal-700 bg-teal-50 border-2 border-teal-200 hover:bg-teal-100 hover:border-teal-300 transition-colors">
-                  Lock In This Rate
+                <a href={basicMonthlyHref} className="block w-full text-center px-6 py-3 rounded-lg font-semibold text-teal-700 bg-teal-50 border-2 border-teal-200 hover:bg-teal-100 hover:border-teal-300 transition-colors">
+                  {founderActive ? 'Lock In This Rate' : 'Get Started'}
                 </a>
               </div>
             </div>
@@ -868,13 +987,15 @@ export default function FeaturedListings() {
                 <p className="text-gray-500 text-sm mb-6">Maximum impact per dollar</p>
                 <div className="mb-6">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-3xl font-extrabold text-gray-900">$30</span>
+                    <span className="text-3xl font-extrabold text-gray-900">{founderActive ? '$30' : '$59'}</span>
                     <span className="text-gray-500">/mo</span>
                   </div>
-                  <div className="text-sm text-gray-400 mt-1">
-                    <span className="line-through">$59/mo</span>
-                    <span className="ml-2 text-green-600 font-semibold">Save 49%</span>
-                  </div>
+                  {founderActive && (
+                    <div className="text-sm text-gray-400 mt-1">
+                      <span className="line-through">$59/mo</span>
+                      <span className="ml-2 text-green-600 font-semibold">Save 49%</span>
+                    </div>
+                  )}
                 </div>
                 <ul className="space-y-3 text-sm text-gray-700">
                   <li className="flex items-start gap-2">{pricingCheck}<span>Everything in Basic, <strong>plus:</strong></span></li>
@@ -887,7 +1008,7 @@ export default function FeaturedListings() {
               </div>
               <div className="p-8 pt-0">
                 <a href="mailto:contact@floridaautismservices.com?subject=Featured%20Listing%20Inquiry%20-%20Enhanced%20Featured" className="block w-full text-center px-6 py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 transition-colors shadow-md">
-                  Lock In This Rate
+                  {founderActive ? 'Lock In This Rate' : 'Get Started'}
                 </a>
               </div>
             </div>
@@ -899,13 +1020,15 @@ export default function FeaturedListings() {
                 <p className="text-gray-500 text-sm mb-6">The full showcase experience</p>
                 <div className="mb-6">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-3xl font-extrabold text-gray-900">$50</span>
+                    <span className="text-3xl font-extrabold text-gray-900">{founderActive ? '$50' : '$99'}</span>
                     <span className="text-gray-500">/mo</span>
                   </div>
-                  <div className="text-sm text-gray-400 mt-1">
-                    <span className="line-through">$99/mo</span>
-                    <span className="ml-2 text-green-600 font-semibold">Save 49%</span>
-                  </div>
+                  {founderActive && (
+                    <div className="text-sm text-gray-400 mt-1">
+                      <span className="line-through">$99/mo</span>
+                      <span className="ml-2 text-green-600 font-semibold">Save 49%</span>
+                    </div>
+                  )}
                 </div>
                 <ul className="space-y-3 text-sm text-gray-700">
                   <li className="flex items-start gap-2">{pricingCheck}<span>Everything in Enhanced, <strong>plus:</strong></span></li>
@@ -920,14 +1043,16 @@ export default function FeaturedListings() {
               </div>
               <div className="p-8 pt-0">
                 <a href="mailto:contact@floridaautismservices.com?subject=Featured%20Listing%20Inquiry%20-%20Premium%20Partner" className="block w-full text-center px-6 py-3 rounded-lg font-semibold text-teal-700 bg-teal-50 border-2 border-teal-200 hover:bg-teal-100 hover:border-teal-300 transition-colors">
-                  Lock In This Rate
+                  {founderActive ? 'Lock In This Rate' : 'Get Started'}
                 </a>
               </div>
             </div>
           </div>
 
           <p className="text-center text-sm text-gray-400 mt-10">
-            Founding Partner rates are locked in for 6 months. After that, standard pricing applies. Cancel anytime.
+            {founderActive
+              ? 'Founding Partner rates are locked in for 12 months. After that, standard pricing applies. Cancel anytime.'
+              : 'Cancel anytime.'}
           </p>
 
           {/* Multi-Location Volume Discounts */}
@@ -1001,14 +1126,16 @@ export default function FeaturedListings() {
               <div className="p-8 flex-1">
                 <h3 className="text-xl font-bold text-gray-900 mb-1">Basic Featured</h3>
                 <p className="text-gray-500 text-sm mb-6">Annual billing</p>
-                <div className="mb-6">
-                  <div className="text-xs font-bold text-teal-600 uppercase tracking-wider mb-2">Founding Partner Rate</div>
-                  <div className="text-3xl font-extrabold text-gray-900">$153<span className="text-base font-medium text-gray-500">/year</span></div>
-                  <div className="text-sm text-gray-500 mt-1">That's just <span className="font-semibold text-gray-700">$12.75/mo</span></div>
-                  <div className="text-sm text-gray-400 mt-1 line-through">$15/mo billed monthly</div>
-                  <div className="inline-flex items-center mt-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold">Save $27/year</div>
-                </div>
-                <div className="border-t border-gray-100 pt-5">
+                {founderActive && (
+                  <div className="mb-6">
+                    <div className="text-xs font-bold text-teal-600 uppercase tracking-wider mb-2">Founding Partner Rate</div>
+                    <div className="text-3xl font-extrabold text-gray-900">$153<span className="text-base font-medium text-gray-500">/year</span></div>
+                    <div className="text-sm text-gray-500 mt-1">That's just <span className="font-semibold text-gray-700">$12.75/mo</span></div>
+                    <div className="text-sm text-gray-400 mt-1 line-through">$15/mo billed monthly</div>
+                    <div className="inline-flex items-center mt-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold">Save $27/year</div>
+                  </div>
+                )}
+                <div className={founderActive ? "border-t border-gray-100 pt-5" : ""}>
                   <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Standard Rate</div>
                   <div className="text-2xl font-extrabold text-gray-900">$296<span className="text-base font-medium text-gray-500">/year</span></div>
                   <div className="text-sm text-gray-500 mt-1">That's just <span className="font-semibold text-gray-700">$24.65/mo</span></div>
@@ -1017,8 +1144,8 @@ export default function FeaturedListings() {
                 </div>
               </div>
               <div className="p-8 pt-0">
-                <a href="mailto:contact@floridaautismservices.com?subject=Featured%20Listing%20Inquiry%20-%20Basic%20Annual" className="block w-full text-center px-6 py-3 rounded-lg font-semibold text-teal-700 bg-teal-50 border-2 border-teal-200 hover:bg-teal-100 hover:border-teal-300 transition-colors">
-                  Lock In This Rate
+                <a href={basicAnnualHref} className="block w-full text-center px-6 py-3 rounded-lg font-semibold text-teal-700 bg-teal-50 border-2 border-teal-200 hover:bg-teal-100 hover:border-teal-300 transition-colors">
+                  {founderActive ? 'Lock In This Rate' : 'Get Started'}
                 </a>
               </div>
             </div>
@@ -1031,14 +1158,16 @@ export default function FeaturedListings() {
               <div className="p-8 flex-1">
                 <h3 className="text-xl font-bold text-gray-900 mb-1">Enhanced Featured</h3>
                 <p className="text-gray-500 text-sm mb-6">Annual billing</p>
-                <div className="mb-6">
-                  <div className="text-xs font-bold text-teal-600 uppercase tracking-wider mb-2">Founding Partner Rate</div>
-                  <div className="text-3xl font-extrabold text-gray-900">$306<span className="text-base font-medium text-gray-500">/year</span></div>
-                  <div className="text-sm text-gray-500 mt-1">That's just <span className="font-semibold text-gray-700">$25.50/mo</span></div>
-                  <div className="text-sm text-gray-400 mt-1 line-through">$30/mo billed monthly</div>
-                  <div className="inline-flex items-center mt-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold">Save $54/year</div>
-                </div>
-                <div className="border-t border-gray-100 pt-5">
+                {founderActive && (
+                  <div className="mb-6">
+                    <div className="text-xs font-bold text-teal-600 uppercase tracking-wider mb-2">Founding Partner Rate</div>
+                    <div className="text-3xl font-extrabold text-gray-900">$306<span className="text-base font-medium text-gray-500">/year</span></div>
+                    <div className="text-sm text-gray-500 mt-1">That's just <span className="font-semibold text-gray-700">$25.50/mo</span></div>
+                    <div className="text-sm text-gray-400 mt-1 line-through">$30/mo billed monthly</div>
+                    <div className="inline-flex items-center mt-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold">Save $54/year</div>
+                  </div>
+                )}
+                <div className={founderActive ? "border-t border-gray-100 pt-5" : ""}>
                   <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Standard Rate</div>
                   <div className="text-2xl font-extrabold text-gray-900">$602<span className="text-base font-medium text-gray-500">/year</span></div>
                   <div className="text-sm text-gray-500 mt-1">That's just <span className="font-semibold text-gray-700">$50.15/mo</span></div>
@@ -1048,7 +1177,7 @@ export default function FeaturedListings() {
               </div>
               <div className="p-8 pt-0">
                 <a href="mailto:contact@floridaautismservices.com?subject=Featured%20Listing%20Inquiry%20-%20Enhanced%20Annual" className="block w-full text-center px-6 py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 transition-colors shadow-md">
-                  Lock In This Rate
+                  {founderActive ? 'Lock In This Rate' : 'Get Started'}
                 </a>
               </div>
             </div>
@@ -1058,14 +1187,16 @@ export default function FeaturedListings() {
               <div className="p-8 flex-1">
                 <h3 className="text-xl font-bold text-gray-900 mb-1">Premium Partner</h3>
                 <p className="text-gray-500 text-sm mb-6">Annual billing</p>
-                <div className="mb-6">
-                  <div className="text-xs font-bold text-teal-600 uppercase tracking-wider mb-2">Founding Partner Rate</div>
-                  <div className="text-3xl font-extrabold text-gray-900">$510<span className="text-base font-medium text-gray-500">/year</span></div>
-                  <div className="text-sm text-gray-500 mt-1">That's just <span className="font-semibold text-gray-700">$42.50/mo</span></div>
-                  <div className="text-sm text-gray-400 mt-1 line-through">$50/mo billed monthly</div>
-                  <div className="inline-flex items-center mt-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold">Save $90/year</div>
-                </div>
-                <div className="border-t border-gray-100 pt-5">
+                {founderActive && (
+                  <div className="mb-6">
+                    <div className="text-xs font-bold text-teal-600 uppercase tracking-wider mb-2">Founding Partner Rate</div>
+                    <div className="text-3xl font-extrabold text-gray-900">$510<span className="text-base font-medium text-gray-500">/year</span></div>
+                    <div className="text-sm text-gray-500 mt-1">That's just <span className="font-semibold text-gray-700">$42.50/mo</span></div>
+                    <div className="text-sm text-gray-400 mt-1 line-through">$50/mo billed monthly</div>
+                    <div className="inline-flex items-center mt-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold">Save $90/year</div>
+                  </div>
+                )}
+                <div className={founderActive ? "border-t border-gray-100 pt-5" : ""}>
                   <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Standard Rate</div>
                   <div className="text-2xl font-extrabold text-gray-900">$1,010<span className="text-base font-medium text-gray-500">/year</span></div>
                   <div className="text-sm text-gray-500 mt-1">That's just <span className="font-semibold text-gray-700">$84.15/mo</span></div>
@@ -1075,13 +1206,15 @@ export default function FeaturedListings() {
               </div>
               <div className="p-8 pt-0">
                 <a href="mailto:contact@floridaautismservices.com?subject=Featured%20Listing%20Inquiry%20-%20Premium%20Annual" className="block w-full text-center px-6 py-3 rounded-lg font-semibold text-teal-700 bg-teal-50 border-2 border-teal-200 hover:bg-teal-100 hover:border-teal-300 transition-colors">
-                  Lock In This Rate
+                  {founderActive ? 'Lock In This Rate' : 'Get Started'}
                 </a>
               </div>
             </div>
           </div>
           <p className="text-center text-sm text-gray-400 mt-10">
-            Annual billing is paid upfront. Founding Partner annual rates are locked in for the first year.
+            {founderActive
+              ? 'Annual billing is paid upfront. Founding Partner annual rates are locked in for the first year.'
+              : 'Annual billing is paid upfront.'}
           </p>
         </div>
       </section>
@@ -1140,100 +1273,6 @@ export default function FeaturedListings() {
         </div>
       </section>
 
-      {/* ROI Section */}
-      <style>{`
-        @keyframes featuredRoiGlow {
-          0%, 100% { box-shadow: 0 0 40px rgba(20,184,166,0.3), 0 0 80px rgba(20,184,166,0.15); }
-          50% { box-shadow: 0 0 60px rgba(20,184,166,0.5), 0 0 120px rgba(20,184,166,0.3); }
-        }
-        @keyframes featuredRoiPulse {
-          0%, 100% { text-shadow: 0 0 30px rgba(13,148,136,0.3); }
-          50% { text-shadow: 0 0 60px rgba(13,148,136,0.5), 0 0 100px rgba(13,148,136,0.25); }
-        }
-        @keyframes featuredBadgeGlow {
-          0%, 100% { box-shadow: 0 0 12px rgba(34,211,238,0.2), 0 0 24px rgba(34,211,238,0.1); }
-          50% { box-shadow: 0 0 24px rgba(34,211,238,0.4), 0 0 48px rgba(34,211,238,0.2); }
-        }
-      `}</style>
-      <section className="relative py-24 sm:py-32 lg:py-40 px-4 bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900 text-white overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400" />
-        <div className="absolute inset-0 pointer-events-none" aria-hidden="true" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
-          <div className="w-[900px] h-[900px] rounded-full bg-teal-500/8 blur-3xl" />
-        </div>
-
-        <div className="relative max-w-5xl mx-auto text-center">
-          <div className="inline-flex items-center px-8 py-3 rounded-full bg-white/10 border border-white/20 text-cyan-300 text-lg font-bold uppercase tracking-widest mb-12 backdrop-blur-sm" style={{ animation: 'featuredBadgeGlow 3s ease-in-out infinite' }}>
-            <span className="mr-3 text-2xl">&#128202;</span>
-            Backed by Research
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-8" style={{ textShadow: '0 4px 16px rgba(0,0,0,0.4), 0 2px 6px rgba(0,0,0,0.3)' }}>What's the Real ROI?</h2>
-
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-16 leading-relaxed">
-            Children with autism use PT, OT, and speech therapy at <span className="font-bold text-white">11&ndash;16&times; the rate</span> of non-ASD peers &mdash; and they stay in therapy for years, not weeks. Here's what peer-reviewed research says about the value of every new family that finds you.
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-20 max-w-5xl mx-auto">
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 sm:p-8 text-center hover:scale-[1.03] hover:border-white/25 transition-all duration-200">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-teal-400 mb-2">$10,279</div>
-              <div className="text-xs sm:text-sm font-bold tracking-wider text-teal-300 uppercase mb-3">per child per year</div>
-              <p className="text-sm text-gray-400 leading-relaxed">Average annual outpatient spending per child with treated ASD</p>
-              <span className="text-xs text-gray-500 mt-2 inline-block">AHRQ MEPS, 2025 &sup3;</span>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 sm:p-8 text-center hover:scale-[1.03] hover:border-white/25 transition-all duration-200">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cyan-400 mb-2">11&ndash;16&times;</div>
-              <div className="text-xs sm:text-sm font-bold tracking-wider text-teal-300 uppercase mb-3">higher utilization</div>
-              <p className="text-sm text-gray-400 leading-relaxed">ASD children use PT, OT, and speech services at 11&ndash;16&times; the rate of non-ASD peers ages 3&ndash;9</p>
-              <span className="text-xs text-gray-500 mt-2 inline-block">Cummings et al., JADD 2016 &sup2;</span>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 sm:p-8 text-center hover:scale-[1.03] hover:border-white/25 transition-all duration-200">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-emerald-400 mb-2">$33</div>
-              <div className="text-xs sm:text-sm font-bold tracking-wider text-teal-300 uppercase mb-3">per Google Ads lead</div>
-              <p className="text-sm text-gray-400 leading-relaxed">Average cost per lead for healthcare on Google Ads &mdash; and that's just for the lead, not the patient</p>
-              <span className="text-xs text-gray-500 mt-2 inline-block">LocaliQ Healthcare Benchmarks, 2026 &sup4;</span>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 sm:p-8 text-center hover:scale-[1.03] hover:border-white/25 transition-all duration-200">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-amber-400 mb-2">$15</div>
-              <div className="text-xs sm:text-sm font-bold tracking-wider text-teal-300 uppercase mb-3">per month</div>
-              <p className="text-sm text-gray-400 leading-relaxed">Your Founding Partner Featured Listing on FloridaAutismServices.com &mdash; running 24/7/365</p>
-            </div>
-          </div>
-
-          <div className="relative mx-auto max-w-3xl rounded-2xl hover:scale-[1.02] transition-transform duration-300" style={{ animation: 'featuredRoiGlow 3s ease-in-out infinite' }}>
-            <div className="bg-white rounded-2xl shadow-2xl p-10 sm:p-12 lg:p-14 text-gray-900 text-center">
-              <div className="text-[6rem] sm:text-[8rem] lg:text-[10rem] font-extrabold text-teal-600 leading-none mb-4" style={{ animation: 'featuredRoiPulse 4s ease-in-out infinite' }}>1&ndash;2</div>
-              <div className="text-2xl sm:text-3xl font-bold text-gray-800 mb-8">new families</div>
-              <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
-                As few as <strong className="text-gray-900">1&ndash;2 new families</strong> finding your practice through FloridaAutismServices.com could potentially cover your <strong className="text-gray-900">entire Featured Listing investment</strong> for the full year &mdash; based on average outpatient therapy spending per ASD child.
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-14 mx-auto max-w-3xl border-l-4 border-teal-400 bg-white/5 rounded-r-xl p-6 sm:p-8 text-left">
-            <div className="text-xl sm:text-2xl font-bold text-white mb-3">That's not a typo.</div>
-            <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-3">
-              The math works because pediatric ASD patients have exceptionally high lifetime value. At $10,279 per child per year in outpatient spending, even a single new family represents significant revenue &mdash; while your Founding Partner listing costs as little as $15/month. Compare that to $33 per <em>lead</em> on Google Ads, where you pay per click with no guaranteed conversion.
-            </p>
-            <p className="text-base sm:text-lg font-bold text-teal-400">
-              Your Featured Listing works 24/7, 365&nbsp;days&nbsp;a&nbsp;year.
-            </p>
-          </div>
-
-          <div className="mt-12 mx-auto max-w-4xl border-t border-white/10 pt-8 text-left">
-            <p className="text-xs font-semibold text-gray-400 mb-3 uppercase tracking-wider">Sources &amp; Citations</p>
-            <p className="text-xs text-gray-500 leading-relaxed">
-              <span className="block mb-1">&sup1; Cidav et al., <em>Journal of Autism and Developmental Disorders</em> (2013). Medicaid FFS claims analysis, 45,948 children with ASD. PMC4771520</span>
-              <span className="block mb-1">&sup2; Cummings et al., <em>Journal of Autism and Developmental Disorders</em> (2016). 8,325 ASD cases vs 83,195 matched controls, five major health systems. PMC4747787</span>
-              <span className="block mb-1">&sup3; AHRQ Medical Expenditure Panel Survey, Statistical Brief #565 (Monnet &amp; Zuvekas, 2025). National health expenditures for children with treated ASD, 2018&ndash;2022.</span>
-              <span className="block mb-1">&sup4; LocaliQ Healthcare Search Advertising Benchmarks (2026). Aggregated U.S. healthcare search campaign data across 16 specialties.</span>
-              <span className="block mb-1">Additional research: Florida Medicaid ASD therapy utilization (AHCA 2013), parent search behavior for autism services, therapy practice revenue impact of directory listings.</span>
-              <span className="block">Full research briefs available at: perplexity_ltv_dr_report.md, patient_acquisition_cost_in_pediatric_therapy.md, multi-discipline_therapy_revenue_per_asd_child.md, therapy_practice_revenue_impact_of_directory-referral_listings.md, florida-specific_medicaid_therapy_utilization.md, parent_search_behavior_for_autism_services.md</span>
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* SECTION 9: FAQ */}
       <section className="bg-gray-50 py-20 px-4">
         <div className="max-w-6xl mx-auto">
@@ -1248,10 +1287,14 @@ export default function FeaturedListings() {
       <section className="bg-gradient-to-r from-teal-600 to-cyan-600 text-white py-20 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight mb-6">
-            10 Founding Partner Spots. Half-Price Rates. First Come, First Served.
+            {founderActive
+              ? `${founderSlots} Founding Partner Spots Left. Half-Price Rates. First Come, First Served.`
+              : 'Ready to Stand Out? Get Featured Today.'}
           </h2>
           <p className="text-lg text-teal-50 mb-10">
-            Join the first providers to get priority placement on Florida's largest autism resource directory.
+            {founderActive
+              ? "Join the first providers to get priority placement on Florida's largest autism resource directory."
+              : "Get priority placement on Florida's largest autism resource directory."}
           </p>
           <a
             href="mailto:contact@floridaautismservices.com?subject=Featured%20Listing%20Inquiry"

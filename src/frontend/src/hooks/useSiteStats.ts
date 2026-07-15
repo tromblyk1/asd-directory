@@ -12,6 +12,7 @@ const DEFAULT_STATS: Record<string, string> = {
   featured_audience_focus: "100%",
   hero_providers_count: "3,300+",
   hero_daycares_count: "300+",
+  founder_slots_remaining: "9",
 };
 
 export function useSiteStats() {

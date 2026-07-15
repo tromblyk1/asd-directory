@@ -19,7 +19,7 @@ const navigationItems = [
   { title: "Stories & News", url: createPageUrl("Blog"), icon: BookOpen },
   { title: "Events Calendar", url: createPageUrl("Events"), icon: Calendar },
   { title: "About", url: "/about", icon: Info },
-  { title: "Submit Resource", url: "/submit", icon: Plus },
+  { title: "Submit Provider", url: "/submit-provider", icon: Plus },
   { title: "Submit Event", url: "/submit-event", icon: CalendarPlus },
   { title: "Submit Daycare", url: "/submit-daycare", icon: Baby },
   { title: "Donate", url: createPageUrl("Donate"), icon: DollarSign },
@@ -43,7 +43,7 @@ const navGroups = [
       { title: "Stories & News", url: createPageUrl("Blog"), icon: BookOpen },
       { title: "Events", url: createPageUrl("Events"), icon: Calendar },
       { title: "About", url: "/about", icon: Info },
-      { title: "Submit Resource", url: "/submit", icon: Plus },
+      { title: "Submit Provider", url: "/submit-provider", icon: Plus },
       { title: "Submit Event", url: "/submit-event", icon: CalendarPlus },
       { title: "Submit Daycare", url: "/submit-daycare", icon: Baby },
       { title: "Donate", url: createPageUrl("Donate"), icon: DollarSign },
@@ -191,7 +191,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <h4 className="font-semibold mb-3 sm:mb-4 text-base sm:text-lg">Get Involved</h4>
               <ul className="space-y-1.5 sm:space-y-2 text-sm sm:text-base">
                 <li><Link to={createPageUrl("Donate")} className="text-blue-100 hover:text-white transition-colors">Support Our Mission</Link></li>
-                <li><Link to="/submit" className="text-blue-100 hover:text-white transition-colors">Submit Resource</Link></li>
+                <li><Link to="/submit-provider" className="text-blue-100 hover:text-white transition-colors">Submit Provider</Link></li>
                 <li><Link to="/submit-event" className="text-blue-100 hover:text-white transition-colors">Submit Event</Link></li>
                 <li><Link to="/submit-daycare" className="text-blue-100 hover:text-white transition-colors">Submit Daycare</Link></li>
                 <li><Link to="/contact" className="text-blue-100 hover:text-white transition-colors">Contact</Link></li>

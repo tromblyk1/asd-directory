@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './layouts/Layout';
 
 // Import Base44 pages
@@ -38,6 +38,7 @@ import SubmitDaycare from './pages/SubmitDaycare';
 import DaycareResourceDetail from './pages/DaycareResourceDetail';
 import LegalResourceDetail from './pages/LegalResourceDetail';
 import FeaturedDaycares from './pages/FeaturedDaycares';
+import FeaturedThankYou from './pages/FeaturedThankYou';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 
 function App() {
@@ -52,7 +53,9 @@ function App() {
         <Route path="/events/:slug" element={<EventDetail />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogPost />} />
-        <Route path="/submit" element={<SubmitResource />} />
+        <Route path="/submit-provider" element={<SubmitResource />} />
+        <Route path="/submit" element={<Navigate to="/submit-provider" replace />} />
+        <Route path="/submit-resource" element={<Navigate to="/submit-provider" replace />} />
         <Route path="/submit-event" element={<SubmitEvent />} />
         <Route path="/submit-daycare" element={<SubmitDaycare />} />
         <Route path="/donate" element={<Donate />} />
@@ -71,6 +74,8 @@ function App() {
         <Route path="/churches/:slug" element={<ChurchDetail />} />
         <Route path="/featured" element={<FeaturedListings />} />
         <Route path="/featured/select-physical-therapy" element={<FeaturedSelectPT />} />
+        <Route path="/featured/thank-you" element={<FeaturedThankYou />} />
+        <Route path="/thank-you" element={<Navigate to="/featured/thank-you" replace />} />
         <Route path="/featured-daycares" element={<FeaturedDaycares />} />
 
         {/* Educational Resources Routes */}

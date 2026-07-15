@@ -48,6 +48,28 @@ export function trackListingEvent(
   }
 }
 
+// Upsell events fire before any resource exists (submissions are email-only),
+// so resource_id is null.
+export function trackUpsellEvent(eventType: string): void {
+  try {
+    if (typeof navigator !== 'undefined' && navigator.webdriver) return;
+    void supabase
+      .from('listing_events')
+      .insert({
+        resource_id: null,
+        event_type: eventType,
+        source: 'submit-upsell',
+        session_id: getSessionId(),
+      })
+      .then(
+        () => undefined,
+        () => undefined
+      );
+  } catch {
+    // Tracking must never break the UI.
+  }
+}
+
 export function appendFeaturedUtm(url: string): string {
   try {
     const u = new URL(url);

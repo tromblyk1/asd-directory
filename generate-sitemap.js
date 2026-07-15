@@ -31,7 +31,7 @@ const STATIC_PAGES = [
     { path: '/about', priority: '0.5', changefreq: 'monthly' },
     { path: '/contact', priority: '0.5', changefreq: 'monthly' },
     { path: '/donate', priority: '0.6', changefreq: 'monthly' },
-    { path: '/submit-resource', priority: '0.4', changefreq: 'monthly' },
+    { path: '/submit-provider', priority: '0.4', changefreq: 'monthly' },
     { path: '/submit-event', priority: '0.4', changefreq: 'monthly' },
     { path: '/find-daycares', priority: '0.9', changefreq: 'daily' },
     { path: '/submit-daycare', priority: '0.4', changefreq: 'monthly' },

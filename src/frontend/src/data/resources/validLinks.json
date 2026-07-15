@@ -1,11 +1,4 @@
 {
-  "services/tutoring": [
-    {
-      "label": "Learning Disabilities Association of Florida",
-      "url": "https://lda-florida.org/",
-      "description": "Florida resources on learning support and educational advocacy"
-    }
-  ],
   "services/support-groups": [
     {
       "label": "Autism Speaks",
@@ -126,10 +119,6 @@
       "url": "https://www.autismontheseas.com"
     },
     {
-      "label": "TSA Cares - Airport Assistance",
-      "url": "https://www.tsa.gov/travel/passenger-support"
-    },
-    {
       "label": "Disney Disability Access Service",
       "url": "https://disneyworld.disney.go.com/guest-services/disability-access-service"
     }
@@ -220,10 +209,6 @@
     }
   ],
   "insurances/early-steps": [
-    {
-      "label": "Florida Early Steps Official Website",
-      "url": "https://floridaearlysteps.com"
-    },
     {
       "label": "Find Your Local Early Steps Office",
       "url": "https://floridaearlysteps.com/contact/"

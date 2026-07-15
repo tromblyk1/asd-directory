@@ -17,6 +17,10 @@ import {
     SelectValue,
 } from "@/components/ui/select";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Link } from "react-router-dom";
+import { useSiteStats } from "@/hooks/useSiteStats";
+import { getStripeLink, isStripeLinkConfigured, type StripeLinkKey } from "@/lib/stripeLinks";
+import { trackUpsellEvent } from "@/lib/trackListing";
 
 // Service options for Healthcare Providers
 const HEALTHCARE_SERVICES = [
@@ -165,6 +169,12 @@ export default function SubmitResource() {
     const [submitted, setSubmitted] = useState(false);
     const [submitting, setSubmitting] = useState(false);
     const [error, setError] = useState("");
+    const [upsell, setUpsell] = useState<{ name: string; description: string } | null>(null);
+    const [upsellBilling, setUpsellBilling] = useState<'annual' | 'monthly'>('annual');
+
+    const stats = useSiteStats();
+    const founderSlots = Math.max(0, parseInt(stats.founder_slots_remaining, 10) || 0);
+    const founderActive = founderSlots > 0;
 
     // Format phone number on blur
     const formatPhoneNumber = (value: string): string => {
@@ -265,7 +275,14 @@ export default function SubmitResource() {
             
             console.log('Email notification sent successfully!');
 
-            setSubmitted(true);
+            const submittedName = formData.resource_name;
+            const submittedDescription = formData.description.trim();
+            if (submittedDescription.length > 250) {
+                setUpsell({ name: submittedName, description: submittedDescription });
+                trackUpsellEvent('upsell_shown');
+            } else {
+                setSubmitted(true);
+            }
             setFormData({
                 resource_name: "",
                 category: "",
@@ -342,6 +359,135 @@ export default function SubmitResource() {
         }));
     };
 
+    if (upsell && !submitted) {
+        const upsellKey: StripeLinkKey = upsellBilling === 'annual'
+            ? (founderActive ? 'basic_annual_founder' : 'basic_annual_standard')
+            : (founderActive ? 'basic_monthly_founder' : 'basic_monthly_standard');
+        const upsellHref = isStripeLinkConfigured(upsellKey)
+            ? getStripeLink(upsellKey)
+            : `mailto:contact@floridaautismservices.com?subject=${encodeURIComponent(`Featured Listing - ${upsell.name}`)}`;
+        const dismissUpsell = () => {
+            trackUpsellEvent('upsell_dismissed');
+            setSubmitted(true);
+        };
+
+        return (
+            <div className="min-h-screen bg-gradient-to-b from-teal-50 to-white py-10 px-4">
+                <div className="max-w-xl mx-auto">
+                    {/* Success header */}
+                    <div className="text-center mb-8">
+                        <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <CheckCircle className="w-8 h-8 text-green-600" />
+                        </div>
+                        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+                            Your listing is submitted
+                        </h1>
+                        <p className="text-gray-600">
+                            One thing before it goes live &mdash; choose how it appears.
+                        </p>
+                    </div>
+
+                    {/* Free card (muted) */}
+                    <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 sm:p-6 mb-6">
+                        <div className="flex items-baseline justify-between mb-3">
+                            <h2 className="text-base font-semibold text-gray-500">Free listing</h2>
+                            <span className="text-lg font-bold text-gray-500">$0</span>
+                        </div>
+                        <p className="font-semibold text-gray-700 mb-1">{upsell.name}</p>
+                        <p className="text-sm text-gray-500 leading-relaxed">
+                            {upsell.description.slice(0, 250)}&hellip;
+                        </p>
+                        <p className="text-xs text-gray-400 mt-4 pt-3 border-t border-gray-200">
+                            Trimmed to 250 characters &middot; no photos &middot; standard placement
+                        </p>
+                    </div>
+
+                    {/* Featured card (dominant) */}
+                    <div className="bg-white border-2 border-teal-500 rounded-xl shadow-xl p-5 sm:p-6 mb-6">
+                        {founderActive && (
+                            <div className="inline-flex items-center px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-orange-700 font-semibold text-xs mb-4">
+                                Founding partner rate
+                            </div>
+                        )}
+                        <p className="font-semibold text-gray-900 mb-1">{upsell.name}</p>
+                        <p className="text-sm text-gray-700 leading-relaxed mb-5">{upsell.description}</p>
+
+                        {/* Billing toggle — annual pre-selected */}
+                        <div className="grid grid-cols-2 gap-1 bg-gray-100 rounded-lg p-1 mb-4">
+                            <button
+                                type="button"
+                                onClick={() => setUpsellBilling('annual')}
+                                className={`py-2 rounded-md text-sm font-semibold transition-colors ${upsellBilling === 'annual' ? 'bg-white text-teal-700 shadow' : 'text-gray-500'}`}
+                            >
+                                Annual
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => setUpsellBilling('monthly')}
+                                className={`py-2 rounded-md text-sm font-semibold transition-colors ${upsellBilling === 'monthly' ? 'bg-white text-teal-700 shadow' : 'text-gray-500'}`}
+                            >
+                                Monthly
+                            </button>
+                        </div>
+
+                        {upsellBilling === 'annual' ? (
+                            <div className="mb-4">
+                                <div className="text-2xl font-extrabold text-gray-900">
+                                    {founderActive ? '$153/yr founding rate' : '$296/yr'}{' '}
+                                    <span className="text-base font-medium text-gray-500">({founderActive ? '$12.75' : '$24.65'}/mo)</span>
+                                </div>
+                                <p className="text-sm text-gray-500 mt-1">
+                                    Less than half the cost of one Google Ads healthcare lead ($33)
+                                </p>
+                            </div>
+                        ) : (
+                            <div className="mb-4">
+                                <div className="text-2xl font-extrabold text-gray-900">
+                                    {founderActive ? '$15/mo founding rate' : '$29/mo'}
+                                </div>
+                                {founderActive && (
+                                    <p className="text-sm text-gray-500 mt-1">Normally $29</p>
+                                )}
+                            </div>
+                        )}
+
+                        {founderActive && (
+                            <p className="text-sm font-semibold text-orange-600 mb-4">
+                                {founderSlots} of 10 founding spots left
+                            </p>
+                        )}
+
+                        <a
+                            href={upsellHref}
+                            onClick={() => trackUpsellEvent('upsell_converted')}
+                            className="block w-full text-center px-6 py-3.5 rounded-lg font-bold text-white bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 transition-colors shadow-md"
+                        >
+                            {founderActive ? 'Claim founding spot' : 'Get Featured'}
+                        </a>
+                        <p className="text-xs text-gray-400 text-center mt-3">
+                            Full description &middot; photos &middot; top of category &middot; featured badge
+                        </p>
+                    </div>
+
+                    <div className="text-center space-y-3">
+                        <button
+                            type="button"
+                            onClick={dismissUpsell}
+                            className="text-sm text-gray-500 hover:text-gray-700 underline"
+                        >
+                            No thanks, publish the free version
+                        </button>
+                        <div>
+                            <Link to="/featured" className="text-xs text-teal-600 hover:text-teal-700 underline">
+                                See all plans
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     if (submitted) {
         return (
             <div className="min-h-screen bg-gradient-to-b from-green-50 to-white flex items-center justify-center p-6">
@@ -354,15 +500,15 @@ export default function SubmitResource() {
                             Thank You for Your Submission!
                         </h2>
                         <p className="text-base sm:text-lg text-gray-600 mb-8">
-                            We've received your resource submission and will review it within 2-3 business days.
+                            We've received your provider submission and will review it within 2-3 business days.
                             Once verified, it will be added to our directory to help families across Florida.
                         </p>
                         <Button
                             size="lg"
-                            onClick={() => setSubmitted(false)}
+                            onClick={() => { setSubmitted(false); setUpsell(null); }}
                             className="bg-gradient-to-r from-blue-600 to-green-600"
                         >
-                            Submit Another Resource
+                            Submit Another Provider
                         </Button>
                     </CardContent>
                 </Card>
@@ -373,13 +519,13 @@ export default function SubmitResource() {
     return (
         <>
         <Helmet>
-            <title>Submit a Resource | Florida Autism Services Directory</title>
+            <title>Submit a Provider | Florida Autism Services Directory</title>
             <meta name="description" content="Submit an autism-friendly provider, therapy center, school, or community resource to the Florida Autism Services Directory. Help Florida families find the support they need." />
-            <link rel="canonical" href="https://floridaautismservices.com/submit" />
-            <meta property="og:title" content="Submit a Resource | Florida Autism Services" />
-            <meta property="og:description" content="Help us build Florida's most comprehensive autism services directory by submitting a resource." />
+            <link rel="canonical" href="https://floridaautismservices.com/submit-provider" />
+            <meta property="og:title" content="Submit a Provider | Florida Autism Services" />
+            <meta property="og:description" content="Help us build Florida's most comprehensive autism services directory by submitting a provider." />
             <meta property="og:type" content="website" />
-            <meta property="og:url" content="https://floridaautismservices.com/submit" />
+            <meta property="og:url" content="https://floridaautismservices.com/submit-provider" />
             <meta name="robots" content="index, follow" />
         </Helmet>
         <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white pb-12">
@@ -391,7 +537,7 @@ export default function SubmitResource() {
                             <FileText className="w-7 h-7 sm:w-8 sm:h-8" />
                         </div>
                         <div>
-                            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold">Submit a Resource</h1>
+                            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold">Submit a Provider</h1>
                             <p className="text-base sm:text-lg lg:text-xl text-blue-50">
                                 Help us build Florida's most comprehensive ASD directory
                             </p>
@@ -989,7 +1135,7 @@ export default function SubmitResource() {
                                     ) : (
                                         <>
                                             <CheckCircle className="w-5 h-5 mr-2" />
-                                            Submit Resource
+                                            Submit Provider
                                         </>
                                     )}
                                 </Button>

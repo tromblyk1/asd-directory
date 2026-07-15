@@ -10,7 +10,7 @@ export function createPageUrl(pageName: string): string {
     Events: '/events',
     Blog: '/blog',
     BlogPost: '/blog',
-    SubmitResource: '/submit',
+    SubmitResource: '/submit-provider',
     Donate: '/donate',
     About: '/about',
     Contact: '/contact',

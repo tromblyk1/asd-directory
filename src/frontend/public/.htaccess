@@ -1,7 +1,10 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-  
+
+  # Stripe payment links redirect to /thank-you; the real page is /featured/thank-you
+  RewriteRule ^thank-you/?$ /featured/thank-you [R=301,L]
+
   # Don't rewrite files or directories that exist
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
