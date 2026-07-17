@@ -574,6 +574,22 @@ export default function FeaturedDaycares() {
   const basicAnnualHref = isStripeLinkConfigured(basicAnnualKey)
     ? getStripeLink(basicAnnualKey)
     : "mailto:contact@floridaautismservices.com?subject=Featured%20Daycare%20Listing%20Inquiry%20-%20Basic%20Annual";
+  const enhancedMonthlyKey = founderActive ? ("enhanced_monthly_founder" as const) : ("enhanced_monthly_standard" as const);
+  const enhancedAnnualKey = founderActive ? ("enhanced_annual_founder" as const) : ("enhanced_annual_standard" as const);
+  const premiumMonthlyKey = founderActive ? ("premium_monthly_founder" as const) : ("premium_monthly_standard" as const);
+  const premiumAnnualKey = founderActive ? ("premium_annual_founder" as const) : ("premium_annual_standard" as const);
+  const enhancedMonthlyHref = isStripeLinkConfigured(enhancedMonthlyKey)
+    ? getStripeLink(enhancedMonthlyKey)
+    : "mailto:contact@floridaautismservices.com?subject=Featured%20Daycare%20Listing%20Inquiry%20-%20Enhanced%20Featured";
+  const enhancedAnnualHref = isStripeLinkConfigured(enhancedAnnualKey)
+    ? getStripeLink(enhancedAnnualKey)
+    : "mailto:contact@floridaautismservices.com?subject=Featured%20Daycare%20Listing%20Inquiry%20-%20Enhanced%20Annual";
+  const premiumMonthlyHref = isStripeLinkConfigured(premiumMonthlyKey)
+    ? getStripeLink(premiumMonthlyKey)
+    : "mailto:contact@floridaautismservices.com?subject=Featured%20Daycare%20Listing%20Inquiry%20-%20Premium%20Partner";
+  const premiumAnnualHref = isStripeLinkConfigured(premiumAnnualKey)
+    ? getStripeLink(premiumAnnualKey)
+    : "mailto:contact@floridaautismservices.com?subject=Featured%20Daycare%20Listing%20Inquiry%20-%20Premium%20Annual";
 
   return (
     <div>
@@ -1006,7 +1022,7 @@ export default function FeaturedDaycares() {
                 </ul>
               </div>
               <div className="p-8 pt-0">
-                <a href="mailto:contact@floridaautismservices.com?subject=Featured%20Daycare%20Listing%20Inquiry%20-%20Enhanced%20Featured" className="block w-full text-center px-6 py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 transition-colors shadow-md">
+                <a href={enhancedMonthlyHref} className="block w-full text-center px-6 py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 transition-colors shadow-md">
                   {founderActive ? 'Lock In This Rate' : 'Get Started'}
                 </a>
               </div>
@@ -1041,7 +1057,7 @@ export default function FeaturedDaycares() {
                 </ul>
               </div>
               <div className="p-8 pt-0">
-                <a href="mailto:contact@floridaautismservices.com?subject=Featured%20Daycare%20Listing%20Inquiry%20-%20Premium%20Partner" className="block w-full text-center px-6 py-3 rounded-lg font-semibold text-teal-700 bg-teal-50 border-2 border-teal-200 hover:bg-teal-100 hover:border-teal-300 transition-colors">
+                <a href={premiumMonthlyHref} className="block w-full text-center px-6 py-3 rounded-lg font-semibold text-teal-700 bg-teal-50 border-2 border-teal-200 hover:bg-teal-100 hover:border-teal-300 transition-colors">
                   {founderActive ? 'Lock In This Rate' : 'Get Started'}
                 </a>
               </div>
@@ -1175,7 +1191,7 @@ export default function FeaturedDaycares() {
                 </div>
               </div>
               <div className="p-8 pt-0">
-                <a href="mailto:contact@floridaautismservices.com?subject=Featured%20Daycare%20Listing%20Inquiry%20-%20Enhanced%20Annual" className="block w-full text-center px-6 py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 transition-colors shadow-md">
+                <a href={enhancedAnnualHref} className="block w-full text-center px-6 py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 transition-colors shadow-md">
                   {founderActive ? 'Lock In This Rate' : 'Get Started'}
                 </a>
               </div>
@@ -1204,7 +1220,7 @@ export default function FeaturedDaycares() {
                 </div>
               </div>
               <div className="p-8 pt-0">
-                <a href="mailto:contact@floridaautismservices.com?subject=Featured%20Daycare%20Listing%20Inquiry%20-%20Premium%20Annual" className="block w-full text-center px-6 py-3 rounded-lg font-semibold text-teal-700 bg-teal-50 border-2 border-teal-200 hover:bg-teal-100 hover:border-teal-300 transition-colors">
+                <a href={premiumAnnualHref} className="block w-full text-center px-6 py-3 rounded-lg font-semibold text-teal-700 bg-teal-50 border-2 border-teal-200 hover:bg-teal-100 hover:border-teal-300 transition-colors">
                   {founderActive ? 'Lock In This Rate' : 'Get Started'}
                 </a>
               </div>
