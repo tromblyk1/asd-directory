@@ -36,7 +36,6 @@ import FindDaycares from './pages/FindDaycares';
 import DaycareDetail from './pages/DaycareDetail';
 import SubmitDaycare from './pages/SubmitDaycare';
 import DaycareResourceDetail from './pages/DaycareResourceDetail';
-import LegalResourceDetail from './pages/LegalResourceDetail';
 import FeaturedDaycares from './pages/FeaturedDaycares';
 import FeaturedThankYou from './pages/FeaturedThankYou';
 import PrivacyPolicy from './pages/PrivacyPolicy';
@@ -88,7 +87,7 @@ function App() {
         <Route path="/resources/school-types/:slug" element={<SchoolTypeDetail />} />
         <Route path="/resources/accreditations/:slug" element={<AccreditationDetail />} />
         <Route path="/resources/daycares/:slug" element={<DaycareResourceDetail />} />
-        <Route path="/resources/legal-advocacy/:slug" element={<LegalResourceDetail />} />
+        <Route path="/resources/legal-advocacy/:slug" element={<Navigate to="/resources" replace />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       </Routes>
     </Layout>
