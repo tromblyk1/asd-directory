@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
+import { isRecentlyRevised } from "@/lib/utils";
 import {
   Tooltip,
   TooltipContent,
@@ -64,8 +65,13 @@ export default function Guides() {
       // Organic guides always first; sponsored partner guides after.
       const aSp = !!a.is_sponsored;
       const bSp = !!b.is_sponsored;
-      if (aSp === bSp) return 0;
-      return aSp ? 1 : -1;
+      if (aSp !== bSp) return aSp ? 1 : -1;
+      // Cards show the revision date, so order by it too — a substantially refreshed guide
+      // surfaces alongside new ones instead of sinking to its original publication slot.
+      return (
+        new Date(b.updated_at || b.created_at).getTime() -
+        new Date(a.updated_at || a.created_at).getTime()
+      );
     });
 
   return (
@@ -149,6 +155,7 @@ export default function Guides() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {filteredGuides.map((guide: BlogPost) => {
                 const sponsored = !!guide.is_sponsored;
+                const revised = isRecentlyRevised(guide.created_at, guide.updated_at);
                 return (
                 <Link key={guide.id} to={`/blog/${guide.slug}`}>
                   <Card className={`h-full shadow-lg hover:shadow-xl transition-shadow group cursor-pointer ${sponsored ? 'border-2 border-amber-300 bg-amber-50/30' : 'border-none'}`}>
@@ -162,22 +169,37 @@ export default function Guides() {
                       </div>
                     )}
                     <CardContent className="p-4 sm:p-6">
-                      <Tooltip>
-                        <TooltipTrigger asChild>
-                          {sponsored ? (
-                            <Badge className="bg-amber-100 text-amber-800 border-amber-300 border mb-3 cursor-help">
-                              Partner Guide
-                            </Badge>
-                          ) : (
-                            <Badge className="bg-blue-100 text-blue-800 border-blue-200 border mb-3 cursor-help">
-                              Guide
-                            </Badge>
-                          )}
-                        </TooltipTrigger>
-                        <TooltipContent>
-                          <p>{sponsored ? 'Sponsored guide produced by a partner organization' : 'In-depth educational resource'}</p>
-                        </TooltipContent>
-                      </Tooltip>
+                      <div className="flex items-center gap-2 mb-3">
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            {sponsored ? (
+                              <Badge className="bg-amber-100 text-amber-800 border-amber-300 border cursor-help">
+                                Partner Guide
+                              </Badge>
+                            ) : (
+                              <Badge className="bg-blue-100 text-blue-800 border-blue-200 border cursor-help">
+                                Guide
+                              </Badge>
+                            )}
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>{sponsored ? 'Sponsored guide produced by a partner organization' : 'In-depth educational resource'}</p>
+                          </TooltipContent>
+                        </Tooltip>
+
+                        {revised && (
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <Badge className="bg-emerald-100 text-emerald-800 border-emerald-200 border cursor-help">
+                                Updated
+                              </Badge>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p>Reviewed and revised {format(new Date(guide.updated_at), 'MMMM d, yyyy')}</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        )}
+                      </div>
 
                       <h3 className={`text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 transition-colors ${sponsored ? 'group-hover:text-amber-700' : 'group-hover:text-blue-600'}`}>
                         {guide.title}

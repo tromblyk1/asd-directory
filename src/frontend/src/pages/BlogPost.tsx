@@ -10,6 +10,7 @@ import { createPageUrl } from "@/utils";
 import ReactMarkdown from "react-markdown";
 import { format } from "date-fns";
 import { Helmet } from 'react-helmet-async';
+import { isRecentlyRevised } from "@/lib/utils";
 
 interface BlogPost {
   id: number;
@@ -75,6 +76,7 @@ export default function BlogPostPage() {
   });
 
   const isComingSoon = post?.content?.includes('## Coming Soon');
+  const revised = isRecentlyRevised(post?.created_at, post?.updated_at);
   const isGuide = post?.category === 'guide';
   const backLink = isGuide ? '/guides' : createPageUrl("Blog");
   const backText = isGuide ? 'Back to Guides' : 'Back to Stories';
@@ -305,6 +307,11 @@ export default function BlogPostPage() {
                     {format(new Date(post.created_at), 'MMMM d, yyyy')}
                   </span>
                 </div>
+                {revised && (
+                  <Badge className="bg-emerald-100 text-emerald-800 border-emerald-200 border">
+                    Updated {format(new Date(post.updated_at), 'MMMM d, yyyy')}
+                  </Badge>
+                )}
               </div>
 
               {/* Excerpt */}
