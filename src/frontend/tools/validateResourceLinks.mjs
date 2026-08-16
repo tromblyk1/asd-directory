@@ -35,6 +35,14 @@ const SOFT_404_TERMS = [
   'file not found',
 ];
 
+// Several hosts serve a challenge stub or 403 to default agent strings.
+const BROWSER_HEADERS = {
+  'User-Agent':
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
+  Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'Accept-Language': 'en-US,en;q=0.9',
+};
+
 const REQUEST_TIMEOUT_MS = 7000;
 const REQUEST_DELAY_MS = 200;
 const MAX_CONCURRENT_PER_DOMAIN = 4;
@@ -67,8 +75,12 @@ const toRouteSlug = (value) => {
     .toLowerCase();
 };
 
+// Only the title and first heading are checked. Scanning the whole body matched "404" inside
+// analytics IDs and SVG path data, silently deleting healthy links.
 const isSoft404 = (html) => {
-  const lower = html.toLowerCase();
+  const title = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] ?? '';
+  const heading = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)?.[1] ?? '';
+  const lower = `${title} ${heading}`.replace(/<[^>]+>/g, ' ').toLowerCase();
   return SOFT_404_TERMS.some((term) => lower.includes(term));
 };
 
@@ -76,7 +88,12 @@ const fetchWithTimeout = async (url, options = {}) => {
   const controller = new AbortController();
   const id = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
   try {
-    const response = await fetch(url, { ...options, signal: controller.signal, redirect: 'follow' });
+    const response = await fetch(url, {
+      ...options,
+      headers: { ...BROWSER_HEADERS, ...(options.headers ?? {}) },
+      signal: controller.signal,
+      redirect: 'follow',
+    });
     return response;
   } finally {
     clearTimeout(id);
@@ -85,10 +102,8 @@ const fetchWithTimeout = async (url, options = {}) => {
 
 const validateUrl = async (url) => {
   try {
-    const headResponse = await fetchWithTimeout(url, { method: 'HEAD' });
-    if (headResponse.status < 200 || headResponse.status >= 300) {
-      return { ok: false, reason: `Status ${headResponse.status}` };
-    }
+    // GET only. A HEAD preflight added nothing but latency, and hosts that reject the method
+    // outright were being recorded as dead links.
     const getResponse = await fetchWithTimeout(url, { method: 'GET' });
     if (getResponse.status < 200 || getResponse.status >= 300) {
       return { ok: false, reason: `Status ${getResponse.status}` };

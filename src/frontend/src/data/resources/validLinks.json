@@ -1,9 +1,35 @@
 {
+  "services/virtual-therapy": [
+    {
+      "label": "American Telemedicine Association",
+      "url": "https://www.americantelemed.org/",
+      "description": "Resources on telehealth services and best practices"
+    }
+  ],
+  "services/tutoring": [
+    {
+      "label": "Learning Disabilities Association of Florida",
+      "url": "https://lda-florida.org/",
+      "description": "Florida resources on learning support and educational advocacy"
+    }
+  ],
   "services/support-groups": [
+    {
+      "label": "Autism Society of America",
+      "url": "https://autismsociety.org/",
+      "description": "National organization with local affiliates offering support groups"
+    },
     {
       "label": "Autism Speaks",
       "url": "https://www.autismspeaks.org/",
       "description": "Resources for finding local support groups"
+    }
+  ],
+  "services/speech-therapy": [
+    {
+      "label": "American Speech-Language-Hearing Association (ASHA)",
+      "url": "https://www.asha.org/",
+      "description": "National professional organization for speech-language pathologists"
     }
   ],
   "services/skilled-nursing": [
@@ -11,6 +37,11 @@
       "label": "Florida Agency for Health Care Administration (AHCA)",
       "url": "https://ahca.myflorida.com/",
       "description": "State agency overseeing healthcare facilities and licensure in Florida"
+    },
+    {
+      "label": "Florida Board of Nursing",
+      "url": "https://floridasnursing.gov/",
+      "description": "Licensing and regulation of nurses in Florida"
     }
   ],
   "services/respite-care": [
@@ -21,6 +52,11 @@
     }
   ],
   "services/respiratory-care": [
+    {
+      "label": "American Association for Respiratory Care (AARC)",
+      "url": "https://www.aarc.org/",
+      "description": "Professional organization for respiratory therapists"
+    },
     {
       "label": "Florida Society for Respiratory Care",
       "url": "https://www.fsrc.org/",
@@ -92,6 +128,14 @@
     {
       "label": "Interdisciplinary Council on Development and Learning",
       "url": "https://www.icdl.com"
+    },
+    {
+      "label": "DIR/Floortime Coalition",
+      "url": "https://www.profectum.org"
+    },
+    {
+      "label": "Autism Speaks Intervention Guide",
+      "url": "https://www.autismspeaks.org/types-treatments"
     }
   ],
   "services/financial-planning": [
@@ -101,9 +145,33 @@
       "description": "Information on ABLE accounts and state programs for tax-advantaged disability savings"
     },
     {
+      "label": "Special Needs Alliance",
+      "url": "https://www.specialneedsalliance.org/",
+      "description": "National network of attorneys and financial planners specializing in disability planning"
+    },
+    {
       "label": "Florida ABLE (ABLE United)",
       "url": "https://www.ableunited.com/",
       "description": "Florida's ABLE savings program for individuals with disabilities"
+    }
+  ],
+  "services/feeding-therapy": [
+    {
+      "label": "American Speech-Language-Hearing Association (ASHA)",
+      "url": "https://www.asha.org/",
+      "description": "National professional organization for speech-language pathologists who provide feeding therapy"
+    },
+    {
+      "label": "Feeding Matters",
+      "url": "https://www.feedingmatters.org/",
+      "description": "National nonprofit dedicated to pediatric feeding disorder awareness and resources"
+    }
+  ],
+  "services/executive-function-coaching": [
+    {
+      "label": "CHADD (Children and Adults with ADHD)",
+      "url": "https://chadd.org/",
+      "description": "Resources on executive function (often co-occurring with autism)"
     }
   ],
   "services/dir-floortime": [
@@ -119,8 +187,35 @@
       "url": "https://www.autismontheseas.com"
     },
     {
+      "label": "IBCCES Certified Autism Centers",
+      "url": "https://www.ibcces.org/certified-autism-center"
+    },
+    {
+      "label": "TSA Cares - Airport Assistance",
+      "url": "https://www.tsa.gov/travel/passenger-support"
+    },
+    {
       "label": "Disney Disability Access Service",
       "url": "https://disneyworld.disney.go.com/guest-services/disability-access-service"
+    }
+  ],
+  "services/art-therapy": [
+    {
+      "label": "American Art Therapy Association",
+      "url": "https://arttherapy.org/",
+      "description": "Professional organization for art therapists"
+    },
+    {
+      "label": "Art Therapy Credentials Board",
+      "url": "https://www.atcb.org/",
+      "description": "Credentialing for art therapy professionals"
+    }
+  ],
+  "services/ados-testing": [
+    {
+      "label": "Autism Speaks",
+      "url": "https://www.autismspeaks.org/",
+      "description": "Information on autism diagnosis and evaluation process"
     }
   ],
   "services/aba-therapy": [
@@ -137,19 +232,53 @@
   ],
   "services/aac": [
     {
+      "label": "AssistiveWare - AAC Resources",
+      "url": "https://www.assistiveware.com/learn-aac",
+      "description": "Comprehensive guides for families new to AAC"
+    },
+    {
       "label": "PrAACtical AAC",
       "url": "https://praacticalaac.org/",
       "description": "Free resources and strategies for AAC implementation"
+    },
+    {
+      "label": "ASHA - AAC Overview",
+      "url": "https://www.asha.org/public/speech/disorders/aac/",
+      "description": "Professional guidance on augmentative communication"
+    }
+  ],
+  "scholarships/pep": [
+    {
+      "label": "Step Up For Students",
+      "url": "https://www.stepupforstudents.org/",
+      "description": "Scholarship funding organization - apply and manage your scholarship"
     }
   ],
   "scholarships/ftc": [
+    {
+      "label": "Step Up For Students",
+      "url": "https://www.stepupforstudents.org/",
+      "description": "Primary scholarship funding organization - apply and manage your scholarship"
+    },
     {
       "label": "AAA Scholarship Foundation",
       "url": "https://www.aaascholarships.org/",
       "description": "Alternative scholarship funding organization for FTC"
     }
   ],
+  "scholarships/fes-ua": [
+    {
+      "label": "Step Up For Students",
+      "url": "https://www.stepupforstudents.org/",
+      "description": "Primary scholarship funding organization - apply here and manage your scholarship"
+    }
+  ],
   "scholarships/fes-eo": [
+    {
+      "label": "Step Up For Students",
+      "url": "https://www.stepupforstudents.org/",
+      "description": "Primary scholarship funding organization - apply and manage your scholarship"
+    },
     {
       "label": "AAA Scholarship Foundation",
       "url": "https://www.aaascholarships.org/",
@@ -161,6 +290,36 @@
       "label": "Florida HSMV — Teen Driver Safety Center",
       "url": "https://www.flhsmv.gov/safety-center/teen-driver/",
       "description": "Florida Highway Safety and Motor Vehicles teen driver resources, including learner permit rules and graduated licensing."
+    },
+    {
+      "label": "Autism Society — Driving Safety Tips",
+      "url": "https://autismsociety.org/resources/",
+      "description": "Resources for autistic drivers and their families on preparing for the road."
+    }
+  ],
+  "insurances/unitedhealthcare": [
+    {
+      "label": "UnitedHealthcare",
+      "url": "https://www.uhc.com/",
+      "description": "Official UnitedHealthcare website - find providers and check benefits"
+    }
+  ],
+  "insurances/tricare": [
+    {
+      "label": "TRICARE Official Website",
+      "url": "https://www.tricare.mil"
+    },
+    {
+      "label": "TRICARE Autism Services",
+      "url": "https://www.tricare.mil/autism"
+    },
+    {
+      "label": "Extended Care Health Option (ECHO)",
+      "url": "https://www.tricare.mil/echo"
+    },
+    {
+      "label": "Find a TRICARE Provider",
+      "url": "https://www.tricare.mil/FindDoctor"
     }
   ],
   "insurances/sunshine-health": [
@@ -168,6 +327,20 @@
       "label": "Sunshine Health",
       "url": "https://www.sunshinehealth.com/",
       "description": "Official Sunshine Health website - member resources and provider search"
+    }
+  ],
+  "insurances/oscar": [
+    {
+      "label": "Oscar Health",
+      "url": "https://www.hioscar.com/",
+      "description": "Official Oscar Health website - explore plans, find providers, and manage your coverage"
+    }
+  ],
+  "insurances/medicare": [
+    {
+      "label": "Medicare.gov",
+      "url": "https://www.medicare.gov/",
+      "description": "Official Medicare website - plan information and enrollment"
     }
   ],
   "insurances/humana": [
@@ -210,12 +383,36 @@
   ],
   "insurances/early-steps": [
     {
+      "label": "Florida Early Steps Official Website",
+      "url": "https://floridaearlysteps.com"
+    },
+    {
       "label": "Find Your Local Early Steps Office",
       "url": "https://floridaearlysteps.com/contact/"
     },
     {
       "label": "Florida Department of Health - Early Steps",
       "url": "https://www.floridahealth.gov/programs-and-services/childrens-health/early-steps/"
+    }
+  ],
+  "insurances/cigna": [
+    {
+      "label": "Cigna",
+      "url": "https://www.cigna.com/",
+      "description": "Official Cigna website - find providers, check coverage, and access member resources"
+    }
+  ],
+  "insurances/childrens-medical-services": [
+    {
+      "label": "Florida CMS Program Information",
+      "url": "https://www.floridahealth.gov/programs-and-services/childrens-health/cms-plan/index.html"
+    }
+  ],
+  "insurances/avmed": [
+    {
+      "label": "AvMed",
+      "url": "https://www.avmed.org/",
+      "description": "Official AvMed website - find providers, check benefits, and manage your plan"
     }
   ],
   "insurances/allegiance": [
@@ -246,9 +443,35 @@
   ],
   "daycares/head-start": [
     {
+      "label": "Office of Head Start (OHS)",
+      "url": "https://headstart.gov/",
+      "description": "Official federal Head Start website with resources and policy guidance"
+    },
+    {
       "label": "Florida Head Start Association",
       "url": "https://www.flheadstart.org/",
       "description": "Florida state advocacy and support organization for Head Start programs"
+    }
+  ],
+  "daycares/ese-prek": [
+    {
+      "label": "Family Network on Disabilities",
+      "url": "https://fndusa.org/",
+      "description": "Florida's Parent Training and Information Center for IEP support"
+    }
+  ],
+  "accreditations/welssa": [
+    {
+      "label": "WELS",
+      "url": "https://wels.net/",
+      "description": "Wisconsin Evangelical Lutheran Synod"
+    }
+  ],
+  "accreditations/flocs": [
+    {
+      "label": "FLOCS",
+      "url": "https://www.flocs.org/",
+      "description": "Florida League of Christian Schools"
     }
   ],
   "accreditations/flga-lcms": [
@@ -256,6 +479,34 @@
       "label": "LCMS Florida-Georgia District",
       "url": "https://flgadistrict.org/",
       "description": "Florida-Georgia District Lutheran Church-Missouri Synod"
+    }
+  ],
+  "accreditations/fcis": [
+    {
+      "label": "FCIS",
+      "url": "https://www.fcis.org/",
+      "description": "Florida Council of Independent Schools"
+    }
+  ],
+  "accreditations/fccap": [
+    {
+      "label": "FCCAP",
+      "url": "https://www.fccap.org/",
+      "description": "Florida Coalition of Christian Private Schools Accreditation"
+    }
+  ],
+  "accreditations/faccs": [
+    {
+      "label": "FACCS",
+      "url": "https://www.faccs.org/",
+      "description": "Florida Association of Christian Colleges and Schools"
+    }
+  ],
+  "accreditations/cognia": [
+    {
+      "label": "Cognia",
+      "url": "https://www.cognia.org/",
+      "description": "Global school accreditation organization"
     }
   ],
   "accreditations/cobis": [
@@ -270,6 +521,13 @@
       "label": "Church of God",
       "url": "https://www.churchofgod.org/",
       "description": "Church of God denomination"
+    }
+  ],
+  "accreditations/ams": [
+    {
+      "label": "American Montessori Society",
+      "url": "https://amshq.org/",
+      "description": "American Montessori Society"
     }
   ],
   "accreditations/aisf": [
