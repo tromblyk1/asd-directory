@@ -63,6 +63,14 @@ const lazyModules: Record<ResourceFolder, Record<string, () => Promise<unknown>>
   "legal-advocacy": normalizeLazyModules(import.meta.glob("../data/resources/legal-advocacy/*.json")),
 };
 
+// The database stores this service as "aba", but the page module is aba-therapy.json and
+// /resources/services/aba-therapy is already indexed. Alias rather than rename so both resolve.
+const SLUG_ALIASES: Partial<Record<ResourceFolder, Record<string, string>>> = {
+  services: {
+    aba: "aba-therapy",
+  },
+};
+
 export async function loadResource(category: ResourceFolder, slug: string) {
   const modules = lazyModules[category];
   if (!modules) {
@@ -70,7 +78,9 @@ export async function loadResource(category: ResourceFolder, slug: string) {
     return null;
   }
 
-  for (const candidate of buildSlugCandidates(slug)) {
+  const resolvedSlug = SLUG_ALIASES[category]?.[slug] ?? slug;
+
+  for (const candidate of buildSlugCandidates(resolvedSlug)) {
     const importer = modules[candidate];
     if (!importer) {
       continue;
@@ -84,9 +94,11 @@ export async function loadResource(category: ResourceFolder, slug: string) {
       }
 
       return {
-        slug: candidate,
         category,
         ...(data as Record<string, unknown>),
+        // After the spread: the module that actually resolved is the source of truth for the
+        // slug, so an aliased request reports the canonical slug rather than the alias.
+        slug: candidate,
       };
     } catch (error) {
       // Try the next candidate; ignore individual import failures.

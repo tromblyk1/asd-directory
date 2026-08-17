@@ -1,0 +1,228 @@
+level,service,location,providers,verified
+city,aba,TAMPA,99,59
+city,aba,JACKSONVILLE,91,64
+city,aba,MIAMI,91,64
+city,aba,TALLAHASSEE,90,45
+city,physical-therapy,MIAMI,86,18
+city,aba,ORLANDO,78,44
+city,aba,LAKELAND,71,23
+city,physical-therapy,JACKSONVILLE,70,2
+city,physical-therapy,TAMPA,65,2
+city,occupational-therapy,JACKSONVILLE,56,4
+city,occupational-therapy,MIAMI,56,1
+city,occupational-therapy,TAMPA,51,3
+city,aba,FORT MYERS,49,29
+city,aba,GAINESVILLE,48,30
+city,physical-therapy,ORLANDO,47,1
+city,speech-therapy,TAMPA,47,3
+city,speech-therapy,MIAMI,46,2
+city,speech-therapy,JACKSONVILLE,45,1
+city,life-skills,TAMPA,43,27
+city,aba,WEST PALM BEACH,41,29
+city,occupational-therapy,ORLANDO,41,2
+city,aba,CAPE CORAL,38,16
+city,aba,PORT ST. LUCIE,37,15
+city,aba,CLEARWATER,36,25
+city,life-skills,MIAMI,36,21
+city,physical-therapy,HOLLYWOOD,34,0
+city,aba,HOLLYWOOD,31,15
+city,physical-therapy,FORT LAUDERDALE,31,0
+city,speech-therapy,ORLANDO,29,2
+city,aba,HIALEAH,28,15
+city,aba,SPRING HILL,26,11
+city,physical-therapy,CLEARWATER,26,0
+city,aba,FORT LAUDERDALE,25,17
+city,physical-therapy,CORAL SPRINGS,25,0
+city,aba,PEMBROKE PINES,24,13
+city,group-therapy,TAMPA,23,3
+city,occupational-therapy,HOLLYWOOD,23,0
+city,physical-therapy,TALLAHASSEE,23,2
+city,aba,MIAMI LAKES,22,9
+city,aba,PALM BAY,22,7
+city,physical-therapy,LAKELAND,21,0
+city,aba,DAVIE,20,15
+city,aba,ST. PETERSBURG,20,18
+city,physical-therapy,GAINESVILLE,20,0
+city,physical-therapy,MELBOURNE,20,0
+city,physical-therapy,PORT ST. LUCIE,20,0
+city,life-skills,JACKSONVILLE,19,11
+city,physical-therapy,FORT MYERS,19,2
+city,aba,LARGO,18,13
+city,aba,MIRAMAR,18,14
+city,feeding-therapy,TAMPA,18,0
+city,life-skills,WEST PALM BEACH,18,8
+city,aba,BOCA RATON,17,11
+city,aba,DAYTONA BEACH,17,8
+city,occupational-therapy,FORT LAUDERDALE,17,1
+city,occupational-therapy,FORT MYERS,17,3
+city,occupational-therapy,LAKELAND,17,0
+city,parent-coaching,TAMPA,17,4
+city,physical-therapy,CAPE CORAL,17,0
+city,physical-therapy,HIALEAH,17,4
+city,aba,WINTER PARK,16,8
+city,life-skills,FORT MYERS,16,8
+city,occupational-therapy,MELBOURNE,16,0
+city,physical-therapy,WEST PALM BEACH,16,0
+city,speech-therapy,TALLAHASSEE,16,2
+city,life-skills,ORLANDO,15,4
+city,occupational-therapy,CORAL SPRINGS,15,1
+city,occupational-therapy,MIAMI LAKES,15,2
+city,parent-coaching,ORLANDO,15,7
+city,virtual-therapy,TAMPA,15,2
+city,occupational-therapy,CLEARWATER,14,2
+city,physical-therapy,MIAMI LAKES,14,1
+city,physical-therapy,SPRING HILL,14,0
+city,speech-therapy,FORT LAUDERDALE,14,0
+city,speech-therapy,MELBOURNE,14,0
+city,aba,MELBOURNE,13,5
+city,aba,NORTH MIAMI BEACH,13,7
+city,occupational-therapy,HIALEAH,13,1
+city,occupational-therapy,TALLAHASSEE,13,3
+city,physical-therapy,DAVIE,13,2
+city,speech-therapy,FORT MYERS,13,3
+city,ados-testing,ORLANDO,12,8
+city,ados-testing,TAMPA,12,5
+city,group-therapy,ORLANDO,12,6
+city,life-skills,FORT LAUDERDALE,12,8
+city,life-skills,ST. PETERSBURG,12,11
+city,occupational-therapy,GAINESVILLE,12,1
+city,parent-coaching,JACKSONVILLE,12,4
+city,parent-coaching,MIAMI,12,3
+city,physical-therapy,MIRAMAR,12,0
+city,speech-therapy,MIAMI LAKES,12,2
+city,aba,ORMOND BEACH,11,4
+city,speech-therapy,CORAL SPRINGS,11,0
+city,speech-therapy,HOLLYWOOD,11,0
+city,speech-therapy,LAKELAND,11,0
+city,support-groups,TAMPA,11,2
+city,aba,BRANDON,10,9
+city,aba,CORAL GABLES,10,4
+city,aba,CORAL SPRINGS,10,5
+city,group-therapy,JACKSONVILLE,10,2
+city,life-skills,TALLAHASSEE,10,4
+city,occupational-therapy,DAVIE,10,2
+city,occupational-therapy,MIRAMAR,10,1
+city,physical-therapy,LARGO,10,2
+city,physical-therapy,MIAMI BEACH,10,0
+city,physical-therapy,NORTH MIAMI BEACH,10,1
+city,physical-therapy,ORMOND BEACH,10,0
+city,speech-therapy,CAPE CORAL,10,0
+city,speech-therapy,HIALEAH,10,1
+city,virtual-therapy,ORLANDO,10,4
+county,aba,Miami-Dade,208,124
+county,aba,Broward,197,126
+county,physical-therapy,Broward,159,8
+county,physical-therapy,Miami-Dade,150,27
+county,aba,Hillsborough,137,94
+county,aba,Orange,114,67
+county,occupational-therapy,Broward,109,7
+county,aba,Palm Beach,103,72
+county,occupational-therapy,Miami-Dade,103,7
+county,aba,Pinellas,97,76
+county,aba,Duval,91,64
+county,aba,Lee,91,48
+county,aba,Leon,89,45
+county,speech-therapy,Miami-Dade,81,8
+county,aba,Polk,79,30
+county,speech-therapy,Broward,79,6
+county,physical-therapy,Hillsborough,76,3
+county,life-skills,Broward,75,43
+county,physical-therapy,Duval,72,2
+county,occupational-therapy,Hillsborough,67,5
+county,speech-therapy,Hillsborough,65,6
+county,life-skills,Miami-Dade,64,33
+county,life-skills,Hillsborough,63,47
+county,occupational-therapy,Duval,60,4
+county,physical-therapy,Orange,59,4
+county,occupational-therapy,Orange,57,4
+county,speech-therapy,Duval,50,1
+county,aba,Alachua,49,32
+county,aba,Volusia,49,26
+county,physical-therapy,Pinellas,49,2
+county,speech-therapy,Palm Beach,49,6
+county,physical-therapy,Palm Beach,48,5
+county,parent-coaching,Broward,46,11
+county,life-skills,Pinellas,45,39
+county,occupational-therapy,Palm Beach,45,6
+county,aba,Brevard,42,14
+county,aba,St. Lucie,41,18
+county,speech-therapy,Orange,38,4
+county,group-therapy,Broward,37,6
+county,life-skills,Palm Beach,37,22
+county,physical-therapy,Lee,37,2
+county,occupational-therapy,Pinellas,35,2
+county,physical-therapy,Brevard,32,0
+county,speech-therapy,Pinellas,32,1
+county,parent-coaching,Miami-Dade,31,7
+county,virtual-therapy,Broward,30,4
+county,physical-therapy,Volusia,29,1
+county,aba,Hernando,28,12
+county,occupational-therapy,Lee,28,3
+county,speech-therapy,Lee,28,4
+county,occupational-therapy,Brevard,27,0
+county,residential-program,Broward,27,11
+county,group-therapy,Hillsborough,26,5
+county,life-skills,Lee,26,13
+county,physical-therapy,Polk,25,0
+county,occupational-therapy,Volusia,23,1
+county,physical-therapy,Leon,23,2
+county,speech-therapy,Brevard,23,0
+county,life-skills,Orange,22,8
+county,parent-coaching,Palm Beach,22,11
+county,feeding-therapy,Broward,21,2
+county,occupational-therapy,Polk,21,0
+county,parent-coaching,Orange,21,11
+county,virtual-therapy,Miami-Dade,21,7
+county,aba,Pasco,20,15
+county,life-skills,Duval,20,11
+county,ados-testing,Broward,19,8
+county,ados-testing,Orange,19,14
+county,feeding-therapy,Hillsborough,19,0
+county,parent-coaching,Hillsborough,19,6
+county,physical-therapy,Alachua,19,0
+county,group-therapy,Miami-Dade,18,6
+county,physical-therapy,Hernando,18,0
+county,group-therapy,Orange,17,9
+county,residential-program,Miami-Dade,17,7
+county,physical-therapy,St. Lucie,16,0
+county,residential-program,Palm Beach,16,3
+county,speech-therapy,Pasco,16,1
+county,support-groups,Broward,16,4
+county,virtual-therapy,Hillsborough,16,3
+county,ados-testing,Miami-Dade,15,7
+county,feeding-therapy,Miami-Dade,15,1
+county,group-therapy,Palm Beach,15,2
+county,mobile-services,Hillsborough,15,6
+county,speech-therapy,Leon,15,2
+county,speech-therapy,Volusia,15,1
+county,aba,Seminole,14,10
+county,ados-testing,Palm Beach,14,6
+county,life-skills,Volusia,14,6
+county,occupational-therapy,Alachua,14,1
+county,aba,Martin,13,7
+county,ados-testing,Hillsborough,13,6
+county,group-therapy,Pinellas,13,3
+county,mobile-services,Broward,13,10
+county,mobile-services,Palm Beach,13,8
+county,occupational-therapy,Leon,13,3
+county,occupational-therapy,Seminole,13,1
+county,parent-coaching,Duval,13,4
+county,physical-therapy,Seminole,13,2
+county,speech-therapy,Polk,13,0
+county,virtual-therapy,Orange,13,7
+county,life-skills,Pasco,12,11
+county,occupational-therapy,Pasco,12,0
+county,physical-therapy,Pasco,12,2
+county,speech-therapy,Seminole,12,0
+county,aba,Lake,11,10
+county,group-therapy,Duval,11,2
+county,support-groups,Hillsborough,11,2
+county,support-groups,Miami-Dade,11,5
+county,executive-function-coaching,Broward,10,3
+county,life-skills,Leon,10,4
+county,occupational-therapy,Hernando,10,0
+county,occupational-therapy,Martin,10,1
+county,residential-program,Hillsborough,10,8
+county,speech-therapy,Alachua,10,0
+county,speech-therapy,Hernando,10,1
+county,virtual-therapy,Palm Beach,10,1
