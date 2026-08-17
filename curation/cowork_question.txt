@@ -1,0 +1,33 @@
+Inputs verified. geocode_retry.csv = 114 rows, cities_retry.txt = 3 cities.
+
+Stopping before writing the file — resolution is running at roughly 0%, far under your 90% floor. Here's why, with the raw evidence.
+
+The full_address hypothesis doesn't hold. The previous run did send complete addresses — my workers built "<address>, <city>, FL <zip>" for every record. Your full_address column is the same string with one extra comma. I re-sent it exactly as given and got the same result.
+
+Raw response for a failing example, id 6329:
+
+GET https://geocoding.geo.census.gov/geocoder/locations/onelineaddress
+    ?address=9040+SW+SUNSET+DR%2C+Miami%2C+FL%2C+33173
+    &benchmark=Public_AR_Current&format=json
+
+{"result":{"input":{"address":{"address":"9040 SUNSET DR, Miami, FL, 33173"},
+"benchmark":{"isDefault":true,"benchmarkDescription":"Public Address Ranges - Current
+Benchmark","id":"4","benchmarkName":"Public_AR_Current"}},"addressMatches":[]}}
+
+Sample of 6 records sent verbatim: 5 returned addressMatches: []. The sixth (5766) returned a match — but to 12750 NW 17TH AVE, MIAMI, FL, 33167 when the input was 17TH ST, 33182. Wrong street, wrong ZIP. Stripping the suite designator (rung 1) changed nothing on any of them.
+
+Rung 3 is unavailable. Google returns:
+
+{"status":"REQUEST_DENIED","error_message":"You must use an API key to
+authenticate each request to Google Maps Platform APIs."}
+
+There's no Google Maps key in this environment, and the sandbox blocks direct outbound API calls, so I can't reach Google at all.
+
+But I found the actual cause. TIGER indexes many Florida streets under a different name than the one on the record:
+
+9040 SUNSET DR, Miami, FL, 33173   →  addressMatches: []
+9040 SW 72ND ST, Miami, FL, 33173  →  MATCH, x=-80.339930581255, y=25.702021966854
+
+Same building. Sunset Drive is SW 72nd Street — Census only knows the grid name. The same pattern covers Coral Way (SW 22nd/24th St), Bird Road (SW 40th St), Kendall Drive (SW 88th St), and the highway records where US-301 and FL-54 need to be HIGHWAY 301 and STATE RD 54. 30 of the 114 carry a named-road or highway token, and Miami is the single largest failure city at 13.
+
+One thing no geocoder can fix: 10 records have unusable addresses — 5808, 5835, 6066, 6166, 8470, 8934, 9272, 9350, 9797, 9960 are bare house numbers or fragments with no street name.

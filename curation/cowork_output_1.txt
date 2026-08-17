@@ -1,0 +1,19 @@
+wrongtable_4.csv confirmed at 4 rows. wrongtable_4_verdicts.csv written to C:\Projects\ASD-Directory\curation\ — 4 rows, 31 columns, all four evidence URLs loaded and confirmed before writing.
+
+name	actual_type	confidence
+GANEINU	DAYCARE	HIGH
+GRACE CHILD DEVELOPMENT CENTER AND ACADEMY	DAYCARE	HIGH
+TTS MENTORING & DEVELOPMENT SERVICES LLC	UNCLEAR	MEDIUM
+LOVE NATION CHILD DEVELOPMENT CENTER	DAYCARE	HIGH
+
+Your instinct was right on all four — none is a school.
+
+TTS is the one that didn't resolve, and I'd rather tell you that than guess. All three of its domains are dead — ttslaoc.com, ttsmentoring.com, and ttsmentoringservices.com (the last is the site BBB itself lists for them) all return NXDOMAIN. That means I have no first-party page to quote from. What survives is their own indexed HTML page titles: "Mentoring Program | Orlando, FL | 407-844-5009" on the home page and "Mentoring Program | Orlando, FL" at the path /youth-mentoring/mentoring-program. On that evidence it reads as afterschool youth mentoring — not clinical therapy, not tutoring as a primary service, and certainly not a school. BBB corroborates the character (alternate name "TT'S Learning Academy & Outreach Center LLC"; categories tutoring, computer training, dance, basketball clubs), but I used that only as corroboration, never as a service list.
+
+Two things make it worse than merely unclassifiable: the Magnolia Ave address is a virtual mailbox, not a service location — Suite 202 is a mail-forwarding address shared by dozens of unrelated LLCs, and "Unit 1015" is the box number. And there's no autism or special-needs language in any source I could find. The LLC is still active on Sunbiz and BBB-accredited as of May 2025, so it isn't closed — but with a dead web presence, no verifiable service location, and zero autism relevance, I'd delete it rather than move it.
+
+On the three daycares, a judgment call you should know about: I set autism_specific = N on all three rather than UNKNOWN. My reasoning is that each site affirmatively presents a complete general early-childhood program, which is positive evidence of not being autism-specific rather than silence. Everything genuinely unstated stayed UNKNOWN — 15 of 16 tags for Ganeinu, 13 for Love Nation. If you'd rather that be UNKNOWN too, it's a one-line change.
+
+Grace is the only one with real tag coverage: VPK, scholarships, transportation, before/after care and summer camp all Y from its own pages, and sliding_scale_fees = N because it publishes a fixed rate card.
+
+Corrections worth making beyond the table move: Grace and Love Nation both have wrong grade_levels (PK-KG and PK-03 — neither offers graded instruction), Love Nation's is_religious = true / NON-DENOMINATIONAL is unsupported by anything on its site, and Ganeinu's name is truncated in your data.

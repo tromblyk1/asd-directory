@@ -1,0 +1,104 @@
+Working folder: C:\Projects\ASD-Directory\curation\
+
+STEP 1 - VERIFY INPUTS BEFORE ANY OTHER WORK
+List the files in the working folder. Confirm both of these exist by
+EXACT filename:
+  batch_42.csv
+  duplicate_candidates.csv
+If either is missing, STOP and tell me which one. Do NOT substitute a
+similarly-named file. Do NOT guess which file I meant. Do NOT proceed
+with partial inputs.
+Then report how many rows batch_42.csv contains. It should be 42. If
+it is not 42, STOP and tell me.
+
+STEP 2 - THE TASK
+For each of the 42 records in batch_42.csv, visit the provider's own
+website and any other public sources needed, then decide:
+  1. Does this organization serve autistic or special-needs children
+     or adults in Florida?
+  2. Which services does it actually deliver?
+  3. Is it already in the directory under another record?
+
+TABLE PLACEMENT RULES (authoritative - use these, not any other
+version you may find):
+
+resources = standalone therapy/clinical providers. Parents bring
+  their child SPECIFICALLY for a service (ABA, speech, OT, PT, etc.)
+  as standalone appointments, NOT bundled with daycare enrollment.
+  Must have at least one valid service. Therapy-only clinics,
+  evaluation centers, support organizations.
+daycares = center-based childcare. Parents DROP OFF their child for
+  the day. Inclusive preschools, VPK, Head Start, after-school care,
+  summer camps with childcare. Does NOT need to offer therapy - just
+  needs to accept special-needs children.
+schools = structured K-12 education with grade levels and academic
+  curriculum. Charter, private, autism-specific schools.
+churches = faith communities. Sensory-friendly services, special-
+  needs ministries.
+ppec_centers = Prescribed Pediatric Extended Care (medical daycare).
+
+DUAL LISTINGS: one organization CAN belong in multiple tables if it
+  serves multiple functions. The test: "Can a parent access this
+  specific service WITHOUT being enrolled in the other program?"
+  If yes, it warrants a separate entry.
+BELONGS NOWHERE: no autism or special-needs relevance at all;
+  home-based babysitters or individual caregivers; closed businesses;
+  generic medical providers (urgent care, pharmacy, chiropractor,
+  adult skilled nursing, adult rehab) with no autism focus.
+
+STEP 3 - OUTPUT
+Write ONE file, batch_42_verdicts.csv, with EXACTLY these columns and
+one row per input record:
+
+id, name, verdict, services_proposed, autism_relevance,
+evidence_url, evidence_source_type, evidence_note,
+suspected_duplicate_id, verified_address, services_inferred,
+confidence, notes
+
+verdict: KEEP_BACKFILL | MOVE_DAYCARES | MOVE_SCHOOLS
+  | MOVE_CHURCHES | MOVE_PPEC | DELETE | NEEDS_REVIEW
+
+services_proposed: pipe-delimited, ONLY from this list, or empty:
+  aba | physical-therapy | occupational-therapy | speech-therapy
+  | life-skills | parent-coaching | group-therapy | virtual-therapy
+  | ados-testing | residential-program | feeding-therapy
+  | animal-therapy | mobile-services | support-groups | respite-care
+  | executive-function-coaching | tutoring | music-therapy | aac
+  | dir-floortime | transportation | art-therapy | autism-travel
+
+evidence_source_type: PROVIDER_SITE | THIRD_PARTY | BOTH
+  Services may ONLY be taken from the provider's own website. A
+  third-party directory (ABA Navigator, Yelp, Psychology Today, etc.)
+  is acceptable evidence for an ADDRESS or a closure, never for a
+  service list.
+suspected_duplicate_id: duplicate_candidates.csv lists records that
+  already share a street address with a batch record. If this record
+  appears there, verify against the provider's own site and report the
+  match_id. If it does not appear there, you may still flag a
+  duplicate you discover independently - but judge by STREET ADDRESS
+  only, never by name or phone. Empty if none. Do NOT bury a suspected
+  duplicate in notes.
+verified_address: street address as stated on the provider's own
+  site, or empty.
+services_inferred: pipe-delimited subset of services_proposed you
+  inferred rather than found stated. Empty if all were stated.
+autism_relevance: Y | N | UNCLEAR
+confidence: HIGH | MEDIUM | LOW
+evidence_note: under 15 words, your own wording, not a quote.
+
+RULES
+- Output the CSV only. NEVER execute anything against Supabase or any
+  database. Do not write SQL that runs.
+- A duplicate name does NOT mean a duplicate provider. Many providers
+  are multi-location. Compare STREET ADDRESS. Do NOT use phone number
+  as a duplicate signal - multi-location providers share one
+  corporate number.
+- Naming convention is "Provider Name - City", or
+  "Provider Name - Street, City" when 2+ locations in the same city.
+- Never output a URL you have not loaded and confirmed resolves.
+- If ambiguous, use NEEDS_REVIEW with the reason in notes. Do not
+  guess.
+- One row per input record. Never drop a record silently. If you
+  cannot reach a site, still output the row with NEEDS_REVIEW.
+- Do not modify any file other than batch_42_verdicts.csv.
+- Do not create placement_framework.md or any other file.

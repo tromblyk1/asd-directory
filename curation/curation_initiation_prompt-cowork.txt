@@ -1,0 +1,48 @@
+Working folder: C:\Projects\ASD-Directory\curation\
+
+Read pilot_5.csv and placement_framework.md.
+
+For each of the 5 records, visit the provider's website and any
+other public sources needed, then decide two things:
+  1. Does this organization serve autistic or special-needs children
+     or adults in Florida?
+  2. Which services does it actually deliver?
+
+Output a single file, pilot_5_verdicts.csv, with EXACTLY these columns
+and one row per input record:
+
+id, name, verdict, services_proposed, autism_relevance,
+evidence_url, evidence_note, confidence, notes
+
+verdict must be one of:
+  KEEP_BACKFILL | MOVE_DAYCARES | MOVE_SCHOOLS | MOVE_CHURCHES
+  | MOVE_PPEC | DELETE | NEEDS_REVIEW
+
+services_proposed must be pipe-delimited values drawn ONLY from this
+list, or empty:
+  aba | physical-therapy | occupational-therapy | speech-therapy
+  | life-skills | parent-coaching | group-therapy | virtual-therapy
+  | ados-testing | residential-program | feeding-therapy
+  | animal-therapy | mobile-services | support-groups | respite-care
+  | executive-function-coaching | tutoring | music-therapy | aac
+  | dir-floortime | transportation | art-therapy | autism-travel
+
+autism_relevance: Y | N | UNCLEAR
+confidence: HIGH | MEDIUM | LOW
+evidence_note: under 15 words, your own wording, not a quote.
+
+RULES
+- Output the CSV only. NEVER execute anything against Supabase or any
+  database. Do not write SQL that runs.
+- A duplicate name does NOT mean a duplicate provider. Many providers
+  are multi-location. Compare STREET ADDRESS to decide. Do NOT use
+  phone number as a duplicate signal - multi-location providers share
+  one corporate number.
+- Naming convention is "Provider Name - City", or
+  "Provider Name - Street, City" when 2+ locations in the same city.
+- Never output a URL you have not loaded and confirmed resolves.
+- A service goes in services_proposed only if the provider's own site
+  says they deliver it. Do not infer from the business name.
+- If ambiguous, use NEEDS_REVIEW with a reason in notes. Do not guess.
+- One row per input record. Never drop a record silently.
+- Do not modify any file other than pilot_5_verdicts.csv.

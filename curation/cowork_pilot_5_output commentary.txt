@@ -1,0 +1,14 @@
+Two files named in your prompt weren't in the folder: pilot_5.csv and placement_framework.md. I used the Supabase snippet CSV (the only 5-record file there) and the placement framework from the project instructions.
+
+Verdicts:
+
+id	name	verdict
+5815	Restore Hyper Wellness	DELETE — adult cryo/IV wellness franchise, zero autism content
+8480	Scott Lake Health and Rehab	DELETE — 120-bed adult skilled nursing facility
+8481	Stretch Zone	DELETE — assisted-stretching franchise, not PT
+8508	Across the Spectrum	NEEDS_REVIEW — real ABA provider, but likely duplicate
+8600	Learning Steps	KEEP_BACKFILL — ados-testing|virtual-therapy
+
+The one worth your attention is 8508. ABA Navigator lists the org at 9999 NE 2nd Ave #204, Miami Shores — the same street address as your existing record 10373 ("Across the Spectrum Behavioral Therapy - Miami Shores"). Same street = one location, so this is probably a dupe, and the city on 8508 is wrong regardless. I couldn't read 10373's address off the live site (it renders client-side), so I stopped short of calling it. Its services are already worked out in the CSV if it turns out to be the keeper: aba|parent-coaching|feeding-therapy|mobile-services.
+
+Sources: Restore Pembroke Pines, Scott Lake Rehab, Stretch Zone Lakeland, Across the Spectrum services, ABA Navigator listing, Learning Steps Center
