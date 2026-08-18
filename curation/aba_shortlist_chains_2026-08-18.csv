@@ -1,0 +1,76 @@
+﻿# ABA CHAIN REVIEW - one row per website domain that appears more than once in the shortlist.
+# Source: curation/aba_shortlist_2026-08-18.csv (424 rows). Generated 2026-08-18.
+#
+# The crawler stores ONE excerpt per DOMAIN, not per location. Every row under a domain
+# therefore carries the same text. A chain excerpt tells you the COMPANY offers ABA. It does
+# NOT tell you that a given branch does. Blanket-applying a company-level yes across every
+# location is exactly the error that produced the FL-DD mistagging (86% blanket-tagged aba).
+#
+# chain_verdict - company-level call, three values:
+#   N      = company does not offer ABA at all. Every row under this domain can be stripped.
+#   Y-ALL  = company offers ABA and it is reasonable that every listed location does.
+#   Y-SOME = company offers ABA somewhere, but the excerpt cannot tell you whether this
+#            branch does. Needs per-branch work later.
+#
+# Y-SOME IS EXPECTED TO BE THE COMMON ANSWER. It is not a failure and not an incomplete
+# review - it is the correct answer whenever domain-level evidence cannot reach the branch.
+# Use per_branch_needed to record which ids still need opening.
+#
+# needs_website - open the site regardless of what the excerpt says:
+#   EMPTY-EXCERPT          flag is true but no evidence text was stored
+#   NAME-ARTIFACT          excerpt is the literal string #NAME? (spreadsheet corruption)
+#   WRONG-LOCATION-EXCERPT excerpt is demonstrably from a different branch (id 7109,
+#                          Elite DNA Tallahassee, excerpt is the Fort Myers page)
+#   AGGREGATOR-DOMAIN      domain is a link aggregator, so the rows under it are UNRELATED
+#                          companies, not branches. Do not give this row a single verdict.
+"domain","record_count","cities","representative_excerpt","resource_ids","needs_website","chain_verdict","chain_note","per_branch_needed"
+"h2health.com","26","CALLAHAN; FORT MYERS; JACKSONVILLE; JACKSONVILLE BEACH; MELBOURNE; MIDDLEBURG; NEW SMYRNA BEACH; ST. AUGUSTINE; TAMPA; WEST MELBOURNE; YULEE","sical Therapy Pediatric Occupational Therapy Pediatric Speech Therapy Pediatric ABA Therapy Pediatric Music Therapy Feeding Therapy Compliance Corner Standards of ","10023|10027|10031|10063|10087|10088|10089|10093|10100|10101|10104|10105|10128|10134|10149|10201|10218|10239|10251|10253|10291|10292|10293|10294|10295|7209","","","",""
+"teampbs.com","11","BRANDON; FORT MYERS; GAINESVILLE; JACKSONVILLE; MELBOURNE; MIAMI; ORLANDO; PEMBROKE PINES; STUART; TALLAHASSEE; TAMPA","ABA Therapy in Suwannee River FL | PBS Please wait while we process your request. P","10618|10619|10620|10621|10622|10623|10624|10625|10626|10627|6743","","","",""
+"wolfsonchildrens.com","11","DAYTONA BEACH; FLEMING ISLAND; JACKSONVILLE; JACKSONVILLE BEACH; LAKE CITY; PONTE VEDRA","neurological conditions or other cognitive deficits. Applied Behavior Analysis (ABA) We work with patients to understand and modify behaviors that impact daily lif","10001|10004|10090|10096|10150|10229|10235|7535|7536|9100|9261","","","",""
+"abacentersfl.com","10","BOCA RATON; CELEBRATION; JENSEN BEACH; LONGWOOD; MIRAMAR; ORLANDO; ROYAL PALM BEACH; TAMARAC; TAMPA; WESLEY CHAPEL","ABA Centers Of Florida | Top Rated ABA Therapy & Autism Care Skip to content Call (","10594|10595|10596|10597|10598|10599|10600|10601|7217|8832","","","",""
+"elitedna.com","8","BROOKSVILLE; CAPE CORAL; FORT MYERS; GAINESVILLE; JACKSONVILLE; LAKELAND; ORMOND BEACH; TALLAHASSEE","Fort Myers Occupational Therapy, Speech & ABA Clinic | Florida Skip to main content Visit Elite DNA Home Page Toggle mobile m","5847|6671|6759|6922|7109|7307|7416|9388","WRONG-LOCATION-EXCERPT","","",""
+"abacustherapies.com","7","BOCA RATON; FORT LAUDERDALE; HOLLYWOOD; MIAMI; PALM BEACH GARDENS; WEST PALM BEACH; WESTON","Personalized ABA Therapy in Broward, Florida Personalized ABA Therapy in Broward County, Florida","10609|10610|10611|10612|10613|6662|8962","","","",""
+"bassautism.com","6","CLEARWATER; GAINESVILLE; ORMOND BEACH; PORT ORANGE; SPRING HILL","pply Now Serving Children with Autism Spectrum Disorder and Their Families BASS ABA Therapy is your guide for your child's and family's developmental journey Rated","10394|6670|6681|9169|9171|9172","","","",""
+"acornhealth.com","5","CORAL GABLES; LAKELAND; MIRAMAR; ORLANDO","Acorn Health - ABA Autism Therapy, Counseling and Treatment Comprehensive ABA Therapy Services for","6536|6622|6756|7088|8952","","","",""
+"inbloomautism.com","5","DAVIE; FORT LAUDERDALE; JACKSONVILLE; TAMPA","ative therapy for countless children. In addition to Applied Behavior Analysis (ABA) therapy, our Davie center offers our innovative Learning Readiness Program. Li","7485|8506|8507|8512|8595","","","",""
+"projectbrilliance.com","5","BOCA RATON; LAKE WORTH; PALM BEACH GARDENS; STUART; TAMPA","Project Brilliance – ABA services for children with Autism Schedule a Tour Skip to content Reaching for ","10572|10573|10574|7025|8901","","","",""
+"devereux.org","4","MELBOURNE; ORLANDO; PALM BAY; PEMBROKE PINES","in Orange and Brevard Counties offer intensive behavioral treatment grounded in Applied Behavior Analysis. These six to ten bed group homes serve individuals who have moderate ","6041|6525|6941|8826","","","",""
+"hopebridge.com","4","FORT MYERS; ORLANDO; TALLAHASSEE","es. Contact us to schedule diagnostic evaluations , applied behavior analysis ( ABA therapy ) and even more autism services , all in one facility near you in Talla","6040|7095|7119|9125","","","",""
+"mykidtherapycenter.com","4","HOMESTEAD; MIAMI; ORLANDO","My Kid Therapy Center | ABA Therapy in Miami, FL | ABA Therapy in Orlando, FL top of page Though devastatin","6992|7069|9284|9325","","","",""
+"questinc.org","4","ORLANDO; TAMPA; WINTER GARDEN","py Helping children and teens achieve their dreams and goals. 3 Specializing in ABA therapy for children and teens with autism and other developmental disabilities","10360|5808|5835|6763","","","",""
+"azultherapyservices.com","3","HIALEAH; MIAMI","Therapy Let's help your child with any communication problem or speech disorder Behavior Therapy Let us work on your kid's unhealthy behaviors and replace them with healthy on","10296|10310|7243","","","",""
+"cultivatebhe.com","3","BOCA RATON; ORANGE PARK; YULEE","ABA Therapy in Boca Raton, FL - Cultivate BHE | Autism Treatment Skip to content AB","5840|7140|9166","","","",""
+"equanimitytherapy.com","3","HOLLYWOOD; PEMBROKE PINES","Equanimity 0 A safe space for children to learn and grow. Equanimity ABA No Waitlist ABA Get accessible and personalized ABA therapy for your kids Our a","6621|9263|9264","","","",""
+"fullspectrumaba.com","3","DAYTONA BEACH; FORT MYERS; MELBOURNE","ABA Therapy for Autism | Applied Behavior Analysis | Full Spectrum ABA top of page ","7230|8626|8968","","","",""
+"healthpropediatrics.com","3","BRANDON; TAMPA","#NAME?","10071|10219|10326","NAME-ARTIFACT","","",""
+"kidsspotrehab.com","3","LUTZ; POMPANO BEACH; WEST PALM BEACH","Texas, North Carolina and Virginia. We offer Speech, Physical, Occupational and ABA Therapy services. We understand every child has different needs when it comes t","10220|10243|8980","","","",""
+"littleleaves.org","3","CORAL SPRINGS; MIAMI LAKES; WESTON","ur About Little Leaves Little Leaves is an intensive Applied Behavior Analysis (ABA) program for young children with Autism Spectrum Disorder. Designed for childre","6954|7005|7103","","","",""
+"myfavoritetherapists.com","3","DEERFIELD BEACH; ORLANDO; TAMPA","West Palm Beach ABA Therapy Center for Children with Autism Effective ABA Therapy Services | West P","10288|6617|6639","","","",""
+"sskidstherapy.com","3","CAPE CORAL; FORT MYERS; NAPLES","havior Analysis As defined by Baer, Wolf, & Risley, “Applied Behavior Analysis (ABA) is the process of systematically applying interventions based upon the princip","7474|9330|9363","","","",""
+"therapies4kids.com","3","CORAL SPRINGS; HOLLYWOOD; PEMBROKE PINES","Therapies 4 Kids, Inc. ABA News Parents of students with autism Did you know that the Florida law requires","10107|6519|9419","","","",""
+"www-healthpro-heritage-com.sandbox.hs-sites.com","3","LAKELAND; RIVERVIEW","lies Live Their Best Lives Offering Pediatric Therapy in Lakeland, FL including ABA Therapy (Applied Behavior Analysis), occupational therapy, speech therapy, phys","10269|10331|10332","","","",""
+"abaresults.com","2","FORT MYERS; GAINESVILLE","ts Camp Health Policy Contact Us Account My Account Sign out Sign In My Account ABA Results - Gainesville Individualized ABA Preschool Programs Our Early Intervent","7168|7315","","","",""
+"baysidetherapyspecialists.com","2","CLEARWATER; NEW PORT RICHEY","child, caregiver, and any other important people in the child’s lives including ABA, nannies, teachers, and teacher aids. When Children Repeat Does your child: Sta","10119|7238","","","",""
+"behavior-analysis.org","2","DAVIE","Behavior Analysis Inc. - ABA Therapy | Autism Treatment Center BEHAVIOR ANALYSIS, INC. We are south Florida'","5819|6557","","","",""
+"behaviorbasicsinc.com","2","MELBOURNE; PORT ST. LUCIE","ABA Therapy Services, ABA Clinic - St. Lucie, Palm Beach, Brevard | Behavior Basics","6904|9786","","","",""
+"bmmaba.com","2","HIALEAH; MIAMI LAKES","Home | Bless My Mind Aba top of page BLESS MY MIND ABA THERAPY Our Approach Applied Behavior Analysis is","7419|8965","","","",""
+"childrensbehavioralint.com","2","PALM SPRINGS; WEST PALM BEACH","rvention Skip to content Our Expertise is Therapy Our Passion is Autism REQUEST ABA THERAPY Providing ABA Therapy in home, school, and community settings. sources ","6563|8582","","","",""
+"compassionbehavioralhealth.com","2","HOLLYWOOD","ry has been contributing to the well being of others since 2008 when he started Applied Behavior Analysis with children, adolescents, and adults with Autism Spectrum Disorder, ","7439|7476","","","",""
+"gigisplayhouse.org","2","FORT MYERS; TAMPA","ental health, while also opening me to the possibility of working in areas like ABA, referring back to my root of speech pathology, or inclusive education. I now f","8947|9131","","","",""
+"hopefultherapies.com","2","LAKELAND","have no waitlist Receive the support you need now! Learn More Therapies Offered Applied Behavior Analysis Increase behaviors that are helpful and decrease behaviors that are ha","9048|9999","","","",""
+"kidstherapyconnection.com","2","DORAL; SOUTH MIAMI","nt and screenings in SPEECH THERAPY, OCCUPATIONAL THERAPY, PHYSICAL THERAPY and ABA THERAPY (Applied Behavior Analysis) in a fun and rewarding manner. In addition ","10002|7266","","","",""
+"kidztz.com","2","ORLANDO; WINTER GARDEN","ion: Coordinated care with families, teachers, physicians, Physical Therapists, Behavior Therapists, and Mental Health Counselors. Evidence-Based Practices: Grounded in the la","7421|9418","","","",""
+"leadingpathwaysaba.com","2","CORAL SPRINGS; WEST PALM BEACH","Leading Pathways – ABA Therapy Boca Raton Florida ABA Treatment Leading Pathways specializes in the im","6037|7001","","","",""
+"lifeskillskidstherapy.com","2","HOLLYWOOD; PEMBROKE PINES","Life Skills Kids Therapy Aba Therapy Home About Us Services Careers Contact Us Sign Up Welcome To Life Skill","7359|9282","","","",""
+"linktr.ee","2","NORTH BAY VILLAGE; PORT ST. LUCIE","D&D ABA Therapy PSL | Instagram | Linktree D&D ABA Therapy PSL Family-owned ABA team fu","7136|7360","AGGREGATOR-DOMAIN","","",""
+"littleteslapediatrics.com","2","ORLANDO","ech therapy physical therapy occupational therapy and Appied Behavior Analysis (ABA) therapy, all tailored to support unique developmental needs and help them reac","5760|5781","","","",""
+"maximumachieversllc.com","2","PALM SPRINGS; WEST PALM BEACH","Maximum Achievers, LLC | ABA Therapy in Florida - For Children with Autism and ADHD NOW ENROLLING NEW CLIENT","7045|8603","","","",""
+"optimumaba.com","2","JACKSONVILLE; MARGATE","Home - Optimum ABA Therapy Join Our Journey! Contact Us OPTIMIZE YOUR CHILD'S ABA PROGRAM At Optim","6957|9319","","","",""
+"positivebehaviorservices.com","2","FORT MYERS; HOMESTEAD","Autism Therapy FL & GA | Positive Behavior Services Expert In-Home ABA Therapy Services ABA Therapy in Florida and Georgia Our mission is to enrich th","10616|6672","","","",""
+"puzzleboxacademy.com","2","MELBOURNE; PALM BAY","rship with Kaleidoscope Interventions provides students with priority receiving ABA therapies through early intervention, in-school services, and parent training. ","6903|8559","","","",""
+"southfloridaaba.org","2","HIALEAH; MIAMI LAKES","","6072|7448","EMPTY-EXCERPT","","",""
+"sproutbehavioralservices.com","2","HOLLYWOOD; WELLINGTON","Aba Therapy | Sprout Behavioral Services | Florida top of page ABA Therapy to Nurtu","10575|10576","","","",""
+"successonthespectrum.com","2","CLEARWATER; TAMPA","ABA Therapy in Tampa - Success on the Spectrum Carrollwood WHO WE ARE Success On Th","10715|7211","","","",""
+"superkidsaba.com","2","NORTH MIAMI BEACH","ABA Therapy Miami - Super Kids ABA Center Skip to primary navigation Skip to main c","6094|7053","","","",""
+"tlhproject.com","2","MIAMI; MIAMI SPRINGS","A LOGRARLO! Conocer más Terapia de comportamiento Conocida también como terapia ABA, está pensada para aumentar los comportamientos positivos y reducir los negativ","7056|7673","","","",""
+"tukkosabatherapy.com","2","CAPE CORAL","g we do at Tukkos Therapy Center. bottom of page Services | My Site top of page ABA THERAPY Welcome to Tukkos Therapy Center! We are committed to helping individua","6771|7290","","","",""
