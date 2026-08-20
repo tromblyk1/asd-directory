@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "refresh": "node refresh_schemas.mjs",
-    "refresh-schemas": "node refresh_schemas.mjs"
+    "refresh-schemas": "node refresh_schemas.mjs",
+    "pseo-manifest": "node generate_pseo_manifest.mjs"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
