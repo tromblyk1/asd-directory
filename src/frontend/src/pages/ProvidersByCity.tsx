@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useQuery } from '@tanstack/react-query';
-import { MapPin, Phone, Globe, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { Button } from '@/components/ui/button';
@@ -127,15 +127,6 @@ export default function ProvidersByCity() {
     [providers]
   );
 
-  const signals = useMemo(
-    () => ({
-      phone: providers.filter((p) => p.phone).length,
-      website: providers.filter((p) => p.website).length,
-      address: providers.filter((p) => p.address).length,
-    }),
-    [providers]
-  );
-
   const sameCityServices = useMemo(
     () =>
       PAGES.filter((p) => p.citySlug === citySlug && p.service !== serviceSlug).sort(
@@ -212,26 +203,12 @@ export default function ProvidersByCity() {
           {label} in {page.cityName}, Florida
         </h1>
 
-        <p className="mt-3 text-gray-600">
+        <p className="mt-3 text-lg sm:text-xl font-semibold text-gray-800">
           {isLoading ? 'Loading providers…' : `${count} ${count === 1 ? 'provider' : 'providers'} listed`}
           {zips.length > 0 && (
-            <span> across {zips.length} ZIP {zips.length === 1 ? 'code' : 'codes'} ({zips.join(', ')})</span>
+            <span> across {zips.length} ZIP {zips.length === 1 ? 'code' : 'codes'}</span>
           )}
         </p>
-
-        {count > 0 && (
-          <div className="mt-4 flex flex-wrap gap-2 text-sm">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-teal-50 text-teal-800 border border-teal-100 font-medium">
-              <Phone className="w-4 h-4" /> {signals.phone} with a phone number
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-teal-50 text-teal-800 border border-teal-100 font-medium">
-              <Globe className="w-4 h-4" /> {signals.website} with a website
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-teal-50 text-teal-800 border border-teal-100 font-medium">
-              <MapPin className="w-4 h-4" /> {signals.address} with a street address
-            </span>
-          </div>
-        )}
 
         {meta && (
           <p className="mt-4 text-sm text-gray-600">

@@ -48,13 +48,19 @@ const formatRegistrationText = (text?: string | null): string => {
 const formatCategory = (category: string | null | undefined): string => {
     if (!category) return 'Other';
     const categoryNames: Record<string, string> = {
-        sensory_friendly: "Sensory-Friendly",
-        support_group: "Support Groups",
+        'sensory-friendly': "Sensory-Friendly",
+        'support-groups': "Support Groups",
         educational: "Educational",
         social: "Social",
         fundraiser: "Fundraiser",
-        professional_development: "Professional Development",
+        'professional-development': "Professional Development",
         recreational: "Recreational",
+        awareness: "Awareness",
+        community: "Community",
+        conference: "Conference",
+        expo: "Expo",
+        festival: "Festival",
+        'walk-run': "Walk/Run",
         other: "Other"
     };
     if (categoryNames[category]) return categoryNames[category];
@@ -417,6 +423,16 @@ export default function EventDetail() {
                                         </address>
                                     </div>
                                 </section>
+
+                                {/* Recurring Schedule Disclaimer */}
+                                {event.is_recurring && (
+                                    <Alert className="mb-6 sm:mb-8 bg-amber-50 border-amber-200">
+                                        <Info className="h-5 w-5 text-amber-600" aria-hidden="true" />
+                                        <AlertDescription className="text-gray-700 text-sm">
+                                            Recurring event schedules sometimes change without notice, and venues may skip holidays. Please check the event's own website for current dates and details before you go.
+                                        </AlertDescription>
+                                    </Alert>
+                                )}
 
                                 {/* Social-Only Event Callout */}
                                 {hasSocialOnly && primarySocial && (

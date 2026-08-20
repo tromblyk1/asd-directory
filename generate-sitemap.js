@@ -67,7 +67,7 @@ function getLocalResourceSlugs(folderName) {
 /**
  * Fetch all rows from a Supabase table with pagination
  */
-async function fetchAllSlugs(tableName, slugColumn = 'slug') {
+async function fetchAllSlugs(tableName, slugColumn = 'slug', filter = '') {
     const slugs = [];
     let from = 0;
     const pageSize = 1000;
@@ -75,7 +75,7 @@ async function fetchAllSlugs(tableName, slugColumn = 'slug') {
     console.log(`Fetching ${tableName}...`);
 
     while (true) {
-        const url = `${SUPABASE_URL}/rest/v1/${tableName}?select=${slugColumn}&${slugColumn}=not.is.null&order=${slugColumn}&offset=${from}&limit=${pageSize}`;
+        const url = `${SUPABASE_URL}/rest/v1/${tableName}?select=${slugColumn}&${slugColumn}=not.is.null${filter ? `&${filter}` : ''}&order=${slugColumn}&offset=${from}&limit=${pageSize}`;
 
         const response = await fetch(url, {
             headers: {
@@ -281,7 +281,7 @@ async function main() {
     console.log(`  Added ${legalSlugs.length} legal & advocacy resource pages\n`);
 
     // Fetch and add provider pages
-    const providerSlugs = await fetchAllSlugs('resources', 'slug');
+    const providerSlugs = await fetchAllSlugs('resources', 'slug', 'resource_type=eq.provider');
     for (const slug of providerSlugs) {
         urls.push(generateUrlEntry(
             `${BASE_URL}/providers/${slug}`,

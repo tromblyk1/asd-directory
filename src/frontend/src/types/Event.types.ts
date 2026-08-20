@@ -3,7 +3,7 @@ export interface Event {
   title: string;
   slug: string;
   description?: string | null;
-  category?: 'sensory_friendly' | 'support_group' | 'educational' | 'social' | 'fundraiser' | 'professional_development' | 'recreational' | 'other' | null;
+  category?: 'sensory-friendly' | 'support-groups' | 'educational' | 'social' | 'fundraiser' | 'professional-development' | 'recreational' | 'awareness' | 'community' | 'conference' | 'expo' | 'festival' | 'walk-run' | 'other' | null;
   date: string;
   time?: string | null;
   venue_name?: string | null;

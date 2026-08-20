@@ -190,6 +190,11 @@ export default function ProviderDetail() {
 
   if (error || !provider) {
     return (
+      <>
+      <Helmet>
+        <title>Provider Not Found | Florida Autism Services Directory</title>
+        <meta name="robots" content="noindex, follow" />
+      </Helmet>
       <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4 sm:p-6">
         <Card className="max-w-2xl w-full">
           <CardContent className="p-8 sm:p-12 text-center">
@@ -207,6 +212,7 @@ export default function ProviderDetail() {
           </CardContent>
         </Card>
       </div>
+      </>
     );
   }
 

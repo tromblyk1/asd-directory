@@ -20,27 +20,39 @@ import {
 import { format } from "date-fns";
 import { EventVerificationBadge } from "@/components/EventVerificationBadge";
 
-type EventCategory = 'sensory_friendly' | 'support_group' | 'educational' | 'social' | 'fundraiser' | 'professional_development' | 'recreational' | 'other';
+type EventCategory = 'sensory-friendly' | 'support-groups' | 'educational' | 'social' | 'fundraiser' | 'professional-development' | 'recreational' | 'awareness' | 'community' | 'conference' | 'expo' | 'festival' | 'walk-run' | 'other';
 
 const categoryColors: Record<EventCategory, string> = {
-    sensory_friendly: "bg-purple-100 text-purple-800 border-purple-200",
-    support_group: "bg-blue-100 text-blue-800 border-blue-200",
+    'sensory-friendly': "bg-purple-100 text-purple-800 border-purple-200",
+    'support-groups': "bg-blue-100 text-blue-800 border-blue-200",
     educational: "bg-green-100 text-green-800 border-green-200",
     social: "bg-orange-100 text-orange-800 border-orange-200",
     fundraiser: "bg-pink-100 text-pink-800 border-pink-200",
-    professional_development: "bg-indigo-100 text-indigo-800 border-indigo-200",
+    'professional-development': "bg-indigo-100 text-indigo-800 border-indigo-200",
     recreational: "bg-cyan-100 text-cyan-800 border-cyan-200",
+    awareness: "bg-amber-100 text-amber-800 border-amber-200",
+    community: "bg-rose-100 text-rose-800 border-rose-200",
+    conference: "bg-violet-100 text-violet-800 border-violet-200",
+    expo: "bg-sky-100 text-sky-800 border-sky-200",
+    festival: "bg-fuchsia-100 text-fuchsia-800 border-fuchsia-200",
+    'walk-run': "bg-lime-100 text-lime-800 border-lime-200",
     other: "bg-gray-100 text-gray-800 border-gray-200",
 };
 
 const categoryNames: Record<string, string> = {
-    sensory_friendly: "Sensory-Friendly",
-    support_group: "Support Groups",
+    'sensory-friendly': "Sensory-Friendly",
+    'support-groups': "Support Groups",
     educational: "Educational",
     social: "Social",
     fundraiser: "Fundraiser",
-    professional_development: "Professional Development",
+    'professional-development': "Professional Development",
     recreational: "Recreational",
+    awareness: "Awareness",
+    community: "Community",
+    conference: "Conference",
+    expo: "Expo",
+    festival: "Festival",
+    'walk-run': "Walk/Run",
     other: "Other"
 };
 
@@ -642,6 +654,11 @@ export default function Events() {
                                             <p className="text-sm text-gray-600 mb-4">
                                                 Regularly scheduled sensory-friendly and community programs across Florida.
                                             </p>
+                                            <div className="rounded-lg border border-amber-200 bg-amber-50 p-3 sm:p-4 mb-4">
+                                                <p className="text-sm text-gray-700">
+                                                    Recurring event schedules sometimes change without notice, and venues may skip holidays. Please check the event's own website for current dates and details before you go.
+                                                </p>
+                                            </div>
                                                 <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
                                                     {recurringEvents.map((event) => (
                                                         <article key={event.id}>
