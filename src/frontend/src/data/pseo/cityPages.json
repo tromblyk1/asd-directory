@@ -28,14 +28,6 @@
     "city": "TAMPA",
     "citySlug": "tampa",
     "cityName": "Tampa",
-    "providers": 66,
-    "band": "25+"
-  },
-  {
-    "service": "aba",
-    "city": "MIAMI",
-    "citySlug": "miami",
-    "cityName": "Miami",
     "providers": 64,
     "band": "25+"
   },
@@ -52,7 +44,15 @@
     "city": "JACKSONVILLE",
     "citySlug": "jacksonville",
     "cityName": "Jacksonville",
-    "providers": 55,
+    "providers": 54,
+    "band": "25+"
+  },
+  {
+    "service": "aba",
+    "city": "MIAMI",
+    "citySlug": "miami",
+    "cityName": "Miami",
+    "providers": 50,
     "band": "25+"
   },
   {
@@ -113,18 +113,18 @@
   },
   {
     "service": "aba",
-    "city": "HIALEAH",
-    "citySlug": "hialeah",
-    "cityName": "Hialeah",
-    "providers": 23,
-    "band": "10-24"
-  },
-  {
-    "service": "aba",
     "city": "MIAMI LAKES",
     "citySlug": "miami-lakes",
     "cityName": "Miami Lakes",
     "providers": 22,
+    "band": "10-24"
+  },
+  {
+    "service": "aba",
+    "city": "HIALEAH",
+    "citySlug": "hialeah",
+    "cityName": "Hialeah",
+    "providers": 21,
     "band": "10-24"
   },
   {
@@ -137,18 +137,18 @@
   },
   {
     "service": "aba",
-    "city": "DAVIE",
-    "citySlug": "davie",
-    "cityName": "Davie",
+    "city": "PEMBROKE PINES",
+    "citySlug": "pembroke-pines",
+    "cityName": "Pembroke Pines",
     "providers": 18,
     "band": "10-24"
   },
   {
     "service": "aba",
-    "city": "PEMBROKE PINES",
-    "citySlug": "pembroke-pines",
-    "cityName": "Pembroke Pines",
-    "providers": 18,
+    "city": "DAVIE",
+    "citySlug": "davie",
+    "cityName": "Davie",
+    "providers": 17,
     "band": "10-24"
   },
   {
@@ -193,17 +193,17 @@
   },
   {
     "service": "aba",
-    "city": "NORTH MIAMI BEACH",
-    "citySlug": "north-miami-beach",
-    "cityName": "North Miami Beach",
-    "providers": 12,
+    "city": "BOCA RATON",
+    "citySlug": "boca-raton",
+    "cityName": "Boca Raton",
+    "providers": 11,
     "band": "10-24"
   },
   {
     "service": "aba",
-    "city": "BOCA RATON",
-    "citySlug": "boca-raton",
-    "cityName": "Boca Raton",
+    "city": "NORTH MIAMI BEACH",
+    "citySlug": "north-miami-beach",
+    "cityName": "North Miami Beach",
     "providers": 11,
     "band": "10-24"
   },
@@ -225,14 +225,6 @@
   },
   {
     "service": "aba",
-    "city": "LARGO",
-    "citySlug": "largo",
-    "cityName": "Largo",
-    "providers": 10,
-    "band": "10-24"
-  },
-  {
-    "service": "aba",
     "city": "MELBOURNE",
     "citySlug": "melbourne",
     "cityName": "Melbourne",
@@ -249,9 +241,9 @@
   },
   {
     "service": "aba",
-    "city": "STUART",
-    "citySlug": "stuart",
-    "cityName": "Stuart",
+    "city": "LARGO",
+    "citySlug": "largo",
+    "cityName": "Largo",
     "providers": 8,
     "band": "5-9"
   },
@@ -276,6 +268,14 @@
     "city": "PALM SPRINGS",
     "citySlug": "palm-springs",
     "cityName": "Palm Springs",
+    "providers": 7,
+    "band": "5-9"
+  },
+  {
+    "service": "aba",
+    "city": "STUART",
+    "citySlug": "stuart",
+    "cityName": "Stuart",
     "providers": 7,
     "band": "5-9"
   },
@@ -329,14 +329,6 @@
   },
   {
     "service": "aba",
-    "city": "LAUDERHILL",
-    "citySlug": "lauderhill",
-    "cityName": "Lauderhill",
-    "providers": 5,
-    "band": "5-9"
-  },
-  {
-    "service": "aba",
     "city": "MAITLAND",
     "citySlug": "maitland",
     "cityName": "Maitland",
@@ -350,6 +342,14 @@
     "cityName": "Miami Springs",
     "providers": 5,
     "band": "5-9"
+  },
+  {
+    "service": "aba",
+    "city": "LAUDERHILL",
+    "citySlug": "lauderhill",
+    "cityName": "Lauderhill",
+    "providers": 4,
+    "band": "3-4"
   },
   {
     "service": "aba",
@@ -380,14 +380,6 @@
     "city": "MIAMI GARDENS",
     "citySlug": "miami-gardens",
     "cityName": "Miami Gardens",
-    "providers": 3,
-    "band": "3-4"
-  },
-  {
-    "service": "aba",
-    "city": "OAKLAND PARK",
-    "citySlug": "oakland-park",
-    "cityName": "Oakland Park",
     "providers": 3,
     "band": "3-4"
   },

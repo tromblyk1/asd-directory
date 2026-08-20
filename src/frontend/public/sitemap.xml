@@ -37069,12 +37069,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://floridaautismservices.com/providers/aba/miami</loc>
-    <lastmod>2026-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://floridaautismservices.com/providers/aba/lakeland</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -37082,6 +37076,12 @@
   </url>
   <url>
     <loc>https://floridaautismservices.com/providers/aba/jacksonville</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://floridaautismservices.com/providers/aba/miami</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -37129,13 +37129,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://floridaautismservices.com/providers/aba/hialeah</loc>
+    <loc>https://floridaautismservices.com/providers/aba/miami-lakes</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://floridaautismservices.com/providers/aba/miami-lakes</loc>
+    <loc>https://floridaautismservices.com/providers/aba/hialeah</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -37147,13 +37147,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://floridaautismservices.com/providers/aba/davie</loc>
+    <loc>https://floridaautismservices.com/providers/aba/pembroke-pines</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://floridaautismservices.com/providers/aba/pembroke-pines</loc>
+    <loc>https://floridaautismservices.com/providers/aba/davie</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -37189,13 +37189,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://floridaautismservices.com/providers/aba/north-miami-beach</loc>
+    <loc>https://floridaautismservices.com/providers/aba/boca-raton</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://floridaautismservices.com/providers/aba/boca-raton</loc>
+    <loc>https://floridaautismservices.com/providers/aba/north-miami-beach</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -37213,12 +37213,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://floridaautismservices.com/providers/aba/largo</loc>
-    <lastmod>2026-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://floridaautismservices.com/providers/aba/melbourne</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -37231,7 +37225,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://floridaautismservices.com/providers/aba/stuart</loc>
+    <loc>https://floridaautismservices.com/providers/aba/largo</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -37250,6 +37244,12 @@
   </url>
   <url>
     <loc>https://floridaautismservices.com/providers/aba/palm-springs</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://floridaautismservices.com/providers/aba/stuart</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -37291,12 +37291,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://floridaautismservices.com/providers/aba/lauderhill</loc>
-    <lastmod>2026-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://floridaautismservices.com/providers/aba/maitland</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -37304,6 +37298,12 @@
   </url>
   <url>
     <loc>https://floridaautismservices.com/providers/aba/miami-springs</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://floridaautismservices.com/providers/aba/lauderhill</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -37328,12 +37328,6 @@
   </url>
   <url>
     <loc>https://floridaautismservices.com/providers/aba/miami-gardens</loc>
-    <lastmod>2026-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://floridaautismservices.com/providers/aba/oakland-park</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
