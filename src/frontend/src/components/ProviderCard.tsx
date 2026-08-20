@@ -252,11 +252,17 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, rating }) 
             )}
             <div className="flex flex-wrap items-start justify-between gap-2">
               <div className="flex-1 min-w-0">
-                <Link to={`/providers/${provider.slug}`}>
-                  <h3 className={`${isPremium ? 'text-xl font-bold' : 'text-lg font-semibold'} text-gray-900 leading-tight hover:text-teal-600 transition-colors cursor-pointer`}>
+                {provider.slug ? (
+                  <Link to={`/providers/${provider.slug}`}>
+                    <h3 className={`${isPremium ? 'text-xl font-bold' : 'text-lg font-semibold'} text-gray-900 leading-tight hover:text-teal-600 transition-colors cursor-pointer`}>
+                      {provider.name || 'Unknown Provider'}
+                    </h3>
+                  </Link>
+                ) : (
+                  <h3 className={`${isPremium ? 'text-xl font-bold' : 'text-lg font-semibold'} text-gray-900 leading-tight`}>
                     {provider.name || 'Unknown Provider'}
                   </h3>
-                </Link>
+                )}
                 {provider.county && (
                   <p className="text-sm text-gray-500 mt-0.5">{provider.county} County</p>
                 )}
@@ -536,13 +542,15 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, rating }) 
               </a>
             )}
 
-            <div className="flex justify-end pt-3 mt-3 border-t border-gray-100">
-              <Link to={`/providers/${provider.slug}`}>
-                <Button variant="outline" size="sm" className="text-sm text-teal-600 border-teal-600 hover:bg-teal-50">
-                  View Details
-                </Button>
-              </Link>
-            </div>
+            {provider.slug && (
+              <div className="flex justify-end pt-3 mt-3 border-t border-gray-100">
+                <Link to={`/providers/${provider.slug}`}>
+                  <Button variant="outline" size="sm" className="text-sm text-teal-600 border-teal-600 hover:bg-teal-50">
+                    View Details
+                  </Button>
+                </Link>
+              </div>
+            )}
           </div>
         </CardContent>
       </Card>

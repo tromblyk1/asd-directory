@@ -21,6 +21,7 @@ import FindProviders from './pages/findproviders';
 import FindSchools from './pages/FindSchools';
 import SchoolDetail from './pages/SchoolDetail';
 import ProviderDetail from './pages/ProviderDetail';
+import ProvidersByCity from './pages/ProvidersByCity';
 import EducationalResources from './pages/educationalresources';
 import ServiceDetail from './pages/ServiceDetail';
 import InsuranceDetail from './pages/InsuranceDetail';
@@ -66,6 +67,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/providers" element={<FindProviders />} />
         <Route path="/providers/:slug" element={<ProviderDetail />} />
+        <Route path="/providers/:serviceSlug/:citySlug" element={<ProvidersByCity />} />
         <Route path="/schools" element={<FindSchools />} />
         <Route path="/schools/:slug" element={<SchoolDetail />} />
         <Route path="/find-daycares" element={<FindDaycares />} />
