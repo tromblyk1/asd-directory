@@ -10,6 +10,7 @@ const path = require('path');
 
 // Resource JSON directories
 const RESOURCES_DIR = path.join(__dirname, 'src', 'frontend', 'src', 'data', 'resources');
+const CITY_PAGES_PATH = path.join(__dirname, 'src', 'frontend', 'src', 'data', 'pseo', 'cityPages.json');
 
 // Supabase credentials (from .env.local)
 const SUPABASE_URL = 'https://twcofgyxiitfvoedftik.supabase.co';
@@ -376,6 +377,19 @@ async function main() {
     }
     console.log('');
 
+    // Add pSEO service+city pages from the committed manifest
+    console.log('Adding pSEO service+city pages...');
+    const cityPages = JSON.parse(fs.readFileSync(CITY_PAGES_PATH, 'utf8'));
+    for (const page of cityPages) {
+        urls.push(generateUrlEntry(
+            `${BASE_URL}/providers/${page.service}/${page.citySlug}`,
+            today,
+            'weekly',
+            page.providers >= 25 ? '0.7' : '0.6'
+        ));
+    }
+    console.log(`  Added ${cityPages.length} pSEO service+city pages\n`);
+
     // Generate sitemap XML
     const sitemapXml = generateSitemapXml(urls);
 
@@ -413,6 +427,7 @@ async function main() {
     console.log(`  - Event pages: ${eventSlugs.length}`);
     console.log(`  - Daycare pages: ${daycareSlugs.length}`);
     console.log(`  - PPEC center pages: ${ppecSlugs.length}`);
+    console.log(`  - pSEO service+city pages: ${cityPages.length}`);
     console.log('\nDone!');
 }
 
