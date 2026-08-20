@@ -1,0 +1,4 @@
+.env
+node_modules/
+events_pipeline.log
+tier2_manual.json
