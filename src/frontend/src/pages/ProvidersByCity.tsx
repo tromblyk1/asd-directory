@@ -1,11 +1,12 @@
-import { useMemo } from 'react';
+import { useMemo, useState, type FormEvent } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useQuery } from '@tanstack/react-query';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Crosshair, MapPin } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { ProviderCard, type ProviderResource } from '@/components/ProviderCard';
 import { useProviderRatings } from '@/hooks/useProviderRatings';
 import cityPages from '@/data/pseo/cityPages.json';
@@ -54,6 +55,34 @@ const distance = (a: string, b: string) => {
   return Math.sqrt(dLat * dLat + dLng * dLng);
 };
 
+type ZipCentroids = Record<string, [number, number]>;
+
+// Every provider on this page is already in one city, so a city-scale fix cannot separate
+// them. Without GPS the browser falls back to IP/WiFi triangulation, which would produce an
+// authoritative-looking random reorder. Refuse anything coarser than ~5 miles.
+const MAX_ACCURACY_METERS = 8000;
+
+const milesBetween = (aLat: number, aLng: number, bLat: number, bLng: number) => {
+  const toRad = (d: number) => (d * Math.PI) / 180;
+  const dLat = toRad(bLat - aLat);
+  const dLng = toRad(bLng - aLng);
+  const h =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRad(aLat)) * Math.cos(toRad(bLat)) * Math.sin(dLng / 2) ** 2;
+  return 3959 * 2 * Math.asin(Math.sqrt(h));
+};
+
+// Exact coordinates win; a ZIP centroid is a labelled fallback; anything else is unrankable
+// and must be kept out of the comparator entirely.
+const coordsFor = (p: ProviderResource, zips: ZipCentroids | null) => {
+  if (typeof p.latitude === 'number' && typeof p.longitude === 'number') {
+    return { lat: p.latitude, lng: p.longitude, approximate: false };
+  }
+  const zip = (p.zip_code || '').trim().match(/^\d{5}/)?.[0];
+  const hit = zip && zips ? zips[zip] : undefined;
+  return hit ? { lat: hit[0], lng: hit[1], approximate: true } : null;
+};
+
 export default function ProvidersByCity() {
   const { serviceSlug, citySlug } = useParams<{ serviceSlug: string; citySlug: string }>();
 
@@ -79,9 +108,77 @@ export default function ProvidersByCity() {
     },
   });
 
+  const [origin, setOrigin] = useState<{ lat: number; lng: number; label: string } | null>(null);
+  const [zipInput, setZipInput] = useState('');
+  const [zipError, setZipError] = useState<string | null>(null);
+  const [geoStatus, setGeoStatus] = useState<'idle' | 'loading' | 'denied' | 'imprecise'>('idle');
+  const [zipCentroids, setZipCentroids] = useState<ZipCentroids | null>(null);
+
+  // ~32 KB of ZIP centroids that most visitors never need. Loading it on first use keeps it
+  // out of the initial payload of all 373 pages; it serves both the typed-ZIP lookup and the
+  // missing-coordinate backfill, neither of which matters until a location is set.
+  const loadZipCentroids = async (): Promise<ZipCentroids> => {
+    if (zipCentroids) return zipCentroids;
+    const mod = await import('@/data/flZipCentroids.json');
+    const table = (mod.default ?? mod) as unknown as ZipCentroids;
+    setZipCentroids(table);
+    return table;
+  };
+
+  const applyZip = async (e: FormEvent) => {
+    e.preventDefault();
+    const zip = zipInput.trim();
+    if (!/^\d{5}$/.test(zip)) {
+      setZipError('Enter a 5-digit ZIP code.');
+      return;
+    }
+    const table = await loadZipCentroids();
+    const point = table[zip];
+    if (!point) {
+      setZipError(`We don't have a location for ${zip}.`);
+      return;
+    }
+    setZipError(null);
+    setGeoStatus('idle');
+    setOrigin({ lat: point[0], lng: point[1], label: zip });
+  };
+
+  const useMyLocation = () => {
+    if (!('geolocation' in navigator)) {
+      setGeoStatus('denied');
+      return;
+    }
+    setGeoStatus('loading');
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        if (position.coords.accuracy > MAX_ACCURACY_METERS) {
+          setGeoStatus('imprecise');
+          return;
+        }
+        await loadZipCentroids();
+        setZipError(null);
+        setGeoStatus('idle');
+        setOrigin({
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+          label: 'your location',
+        });
+      },
+      () => setGeoStatus('denied'),
+      { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 }
+    );
+  };
+
+  const clearLocation = () => {
+    setOrigin(null);
+    setZipInput('');
+    setZipError(null);
+    setGeoStatus('idle');
+  };
+
   // Featured tier ordering is paid placement and must hold on every page: every paying
   // tier outranks free listings, and higher tiers only outrank lower ones when both are present.
-  const ordered = useMemo(() => {
+  const { featuredOrdered, nonFeaturedRanked } = useMemo(() => {
     const tierOf = (p: ProviderResource): 'premium' | 'enhanced' | 'basic' | 'other' => {
       const t = (p.featured_tier || '').toLowerCase();
       if (t === 'premium') return 'premium';
@@ -118,14 +215,43 @@ export default function ProvidersByCity() {
     }
     shuffled.sort((a, b) => rankOf(a) - rankOf(b));
 
-    return [
-      ...featured.filter((p) => tierOf(p) === 'premium'),
-      ...featured.filter((p) => tierOf(p) === 'enhanced'),
-      ...featured.filter((p) => tierOf(p) === 'basic'),
-      ...featured.filter((p) => tierOf(p) === 'other'),
-      ...shuffled,
-    ];
+    return {
+      featuredOrdered: [
+        ...featured.filter((p) => tierOf(p) === 'premium'),
+        ...featured.filter((p) => tierOf(p) === 'enhanced'),
+        ...featured.filter((p) => tierOf(p) === 'basic'),
+        ...featured.filter((p) => tierOf(p) === 'other'),
+      ],
+      nonFeaturedRanked: shuffled,
+    };
   }, [providers]);
+
+  // Distance replaces the completeness sort within the non-featured remainder only; the paid
+  // tier blocks above are never reordered. Providers without a usable coordinate are
+  // partitioned out BEFORE sorting rather than given Infinity — Infinity minus Infinity is
+  // NaN, and a NaN comparator silently leaves the whole array in an arbitrary order.
+  const byDistance = useMemo(() => {
+    if (!origin) return null;
+    const locatable: { provider: ProviderResource; miles: number; approximate: boolean }[] = [];
+    const unlocatable: ProviderResource[] = [];
+    for (const provider of nonFeaturedRanked) {
+      const c = coordsFor(provider, zipCentroids);
+      if (!c) unlocatable.push(provider);
+      else
+        locatable.push({
+          provider,
+          miles: milesBetween(origin.lat, origin.lng, c.lat, c.lng),
+          approximate: c.approximate,
+        });
+    }
+    locatable.sort((a, b) => a.miles - b.miles);
+    return { locatable, unlocatable };
+  }, [origin, zipCentroids, nonFeaturedRanked]);
+
+  const ordered = useMemo(
+    () => [...featuredOrdered, ...nonFeaturedRanked],
+    [featuredOrdered, nonFeaturedRanked]
+  );
 
   const googlePlaceIds = useMemo(
     () => ordered.map((p) => p.google_place_id).filter((id): id is string => !!id),
@@ -221,6 +347,62 @@ export default function ProvidersByCity() {
           )}
         </p>
 
+        {count > 0 && (
+          <div className="mt-4 rounded-lg border border-gray-200 bg-gray-50 p-3">
+            {origin ? (
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <p className="text-sm text-gray-700">
+                  Sorted by distance from <span className="font-semibold">{origin.label}</span>
+                </p>
+                <Button variant="ghost" size="sm" onClick={clearLocation}>
+                  Clear
+                </Button>
+              </div>
+            ) : (
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+                <form onSubmit={applyZip} className="order-2 flex gap-2 sm:order-1">
+                  <Input
+                    type="text"
+                    inputMode="numeric"
+                    maxLength={5}
+                    placeholder="ZIP code"
+                    aria-label="ZIP code to sort by distance"
+                    value={zipInput}
+                    onChange={(e) => setZipInput(e.target.value.replace(/\D/g, ''))}
+                    className="w-32 bg-white"
+                  />
+                  <Button type="submit" size="sm">
+                    Sort by distance
+                  </Button>
+                </form>
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={useMyLocation}
+                  disabled={geoStatus === 'loading'}
+                  className="order-1 bg-white sm:order-2"
+                >
+                  <Crosshair className="mr-2 h-4 w-4" />
+                  {geoStatus === 'loading' ? 'Locating…' : 'Use my location'}
+                </Button>
+              </div>
+            )}
+            {zipError && <p className="mt-2 text-sm text-red-600">{zipError}</p>}
+            {geoStatus === 'denied' && (
+              <p className="mt-2 text-sm text-gray-600">
+                We couldn't get your location. Enter a ZIP code instead.
+              </p>
+            )}
+            {geoStatus === 'imprecise' && (
+              <p className="mt-2 text-sm text-gray-600">
+                Your location isn't precise enough to rank providers inside one city. Enter a ZIP
+                code instead.
+              </p>
+            )}
+          </div>
+        )}
+
         <div className="mt-4">
           <Link to={`/providers?service=${page.service}`}>
             <Button variant="outline">Refine these results in the full directory</Button>
@@ -245,13 +427,56 @@ export default function ProvidersByCity() {
           ) : (
             <TooltipProvider delayDuration={200}>
               <div className="space-y-3 sm:space-y-4">
-                {ordered.map((provider) => (
+                {featuredOrdered.map((provider) => (
                   <ProviderCard
                     key={provider.id}
                     provider={provider}
                     rating={provider.google_place_id ? ratings[provider.google_place_id] : null}
                   />
                 ))}
+
+                {byDistance
+                  ? byDistance.locatable.map(({ provider, miles, approximate }) => (
+                      <div key={provider.id}>
+                        <div className="mb-1 flex items-center gap-1.5 text-sm text-gray-600">
+                          <MapPin className="h-3.5 w-3.5 text-teal-600" />
+                          <span className="font-medium">
+                            {approximate ? `~${Math.round(miles)} mi` : `${miles.toFixed(1)} mi`}
+                          </span>
+                          {approximate && (
+                            <span className="text-xs text-gray-500">
+                              (approximate — based on ZIP code)
+                            </span>
+                          )}
+                        </div>
+                        <ProviderCard
+                          provider={provider}
+                          rating={provider.google_place_id ? ratings[provider.google_place_id] : null}
+                        />
+                      </div>
+                    ))
+                  : nonFeaturedRanked.map((provider) => (
+                      <ProviderCard
+                        key={provider.id}
+                        provider={provider}
+                        rating={provider.google_place_id ? ratings[provider.google_place_id] : null}
+                      />
+                    ))}
+
+                {byDistance && byDistance.unlocatable.length > 0 && (
+                  <>
+                    <h2 className="border-t border-gray-200 pt-6 text-sm font-semibold text-gray-700">
+                      Distance unavailable ({byDistance.unlocatable.length})
+                    </h2>
+                    {byDistance.unlocatable.map((provider) => (
+                      <ProviderCard
+                        key={provider.id}
+                        provider={provider}
+                        rating={provider.google_place_id ? ratings[provider.google_place_id] : null}
+                      />
+                    ))}
+                  </>
+                )}
               </div>
             </TooltipProvider>
           )}

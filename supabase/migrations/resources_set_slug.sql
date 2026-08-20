@@ -1,5 +1,11 @@
 -- Generate resources.slug on INSERT when it is omitted.
 --
+-- APPLIED 2026-08-20. Verified by a test insert that omitted slug: the row came back
+-- as trigger-test-clinic-deltona-fl-10730 with canonical_city populated, which proves
+-- both that NEW.id is available in a BEFORE INSERT trigger and that
+-- resources_set_canonical_city fires first (see the ordering block below). Test row
+-- deleted.
+--
 -- WHY: `slug` is nullable, has no default, and no trigger generated it. Postgres
 -- UNIQUE indexes permit unlimited NULLs, so `resources_slug_key` never blocked a
 -- slugless row. Any INSERT that omitted the column succeeded silently and produced
