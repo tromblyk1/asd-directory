@@ -140,7 +140,7 @@ export default function EventDetail() {
     }
 
     const today = new Date().toISOString().split('T')[0];
-    const isPast = event.date ? event.date < today : false;
+    const isPast = event.is_recurring ? false : (event.date ? event.date < today : false);
 
     // Check if event is sold out by looking for "SOLD OUT" in title or description
     const isSoldOut =
@@ -377,12 +377,16 @@ export default function EventDetail() {
                                             <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
                                         </div>
                                         <div className="min-w-0">
-                                            <p className="text-xs sm:text-sm text-gray-600 font-medium">Date</p>
+                                            <p className="text-xs sm:text-sm text-gray-600 font-medium">{event.is_recurring ? 'Schedule' : 'Date'}</p>
                                             <p className="text-base sm:text-lg font-bold text-gray-900">
-                                                <time dateTime={event.date}>
-                                                    <span className="hidden sm:inline">{format(new Date(event.date + 'T12:00:00'), 'EEEE, MMMM d, yyyy')}</span>
-                                                    <span className="sm:hidden">{format(new Date(event.date + 'T12:00:00'), 'EEE, MMM d, yyyy')}</span>
-                                                </time>
+                                                {event.is_recurring && event.recurrence_pattern ? (
+                                                    event.recurrence_pattern
+                                                ) : (
+                                                    <time dateTime={event.date}>
+                                                        <span className="hidden sm:inline">{format(new Date(event.date + 'T12:00:00'), 'EEEE, MMMM d, yyyy')}</span>
+                                                        <span className="sm:hidden">{format(new Date(event.date + 'T12:00:00'), 'EEE, MMM d, yyyy')}</span>
+                                                    </time>
+                                                )}
                                             </p>
                                         </div>
                                     </div>
