@@ -92,6 +92,16 @@ export default function ProvidersByCity() {
     const featured = providers.filter((p) => p.featured);
     const nonFeatured = providers.filter((p) => !p.featured);
 
+    // Free listings only: completeness ordering, shuffle breaks ties within a rank.
+    const rankOf = (p: ProviderResource): number => {
+      const v = !!p.verified;
+      const w = !!p.website;
+      if (v && w) return 0;
+      if (v) return 1;
+      if (w) return 2;
+      return 3;
+    };
+
     const dateStr = new Date().toISOString().slice(0, 10);
     let seed = 0;
     for (let i = 0; i < dateStr.length; i++) {
@@ -106,6 +116,7 @@ export default function ProvidersByCity() {
       const j = Math.floor(seededRandom() * (i + 1));
       [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
+    shuffled.sort((a, b) => rankOf(a) - rankOf(b));
 
     return [
       ...featured.filter((p) => tierOf(p) === 'premium'),
