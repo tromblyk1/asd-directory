@@ -37783,13 +37783,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://floridaautismservices.com/providers/aba/hollywood</loc>
+    <loc>https://floridaautismservices.com/providers/aba/cape-coral</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://floridaautismservices.com/providers/aba/cape-coral</loc>
+    <loc>https://floridaautismservices.com/providers/aba/hollywood</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -37843,13 +37843,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://floridaautismservices.com/providers/aba/st-petersburg</loc>
+    <loc>https://floridaautismservices.com/providers/aba/palm-bay</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://floridaautismservices.com/providers/aba/palm-bay</loc>
+    <loc>https://floridaautismservices.com/providers/aba/st-petersburg</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -38389,13 +38389,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://floridaautismservices.com/providers/life-skills/fort-myers</loc>
+    <loc>https://floridaautismservices.com/providers/life-skills/orlando</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://floridaautismservices.com/providers/life-skills/orlando</loc>
+    <loc>https://floridaautismservices.com/providers/life-skills/fort-myers</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -38503,6 +38503,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://floridaautismservices.com/providers/life-skills/palm-bay</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://floridaautismservices.com/providers/life-skills/pensacola</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -38534,12 +38540,6 @@
   </url>
   <url>
     <loc>https://floridaautismservices.com/providers/life-skills/miami-lakes</loc>
-    <lastmod>2026-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://floridaautismservices.com/providers/life-skills/palm-bay</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -38629,12 +38629,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://floridaautismservices.com/providers/music-therapy/hollywood</loc>
-    <lastmod>2026-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://floridaautismservices.com/providers/occupational-therapy/jacksonville</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -38662,7 +38656,7 @@
     <loc>https://floridaautismservices.com/providers/occupational-therapy/hollywood</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://floridaautismservices.com/providers/occupational-therapy/fort-lauderdale</loc>
@@ -38749,12 +38743,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://floridaautismservices.com/providers/occupational-therapy/st-petersburg</loc>
-    <lastmod>2026-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://floridaautismservices.com/providers/occupational-therapy/cape-coral</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -38773,6 +38761,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://floridaautismservices.com/providers/occupational-therapy/st-petersburg</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://floridaautismservices.com/providers/occupational-therapy/west-palm-beach</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -38786,12 +38780,6 @@
   </url>
   <url>
     <loc>https://floridaautismservices.com/providers/occupational-therapy/port-orange</loc>
-    <lastmod>2026-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://floridaautismservices.com/providers/occupational-therapy/port-st-lucie</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -38857,12 +38845,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://floridaautismservices.com/providers/occupational-therapy/brandon</loc>
-    <lastmod>2026-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://floridaautismservices.com/providers/occupational-therapy/kissimmee</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -38888,6 +38870,12 @@
   </url>
   <url>
     <loc>https://floridaautismservices.com/providers/occupational-therapy/plantation</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://floridaautismservices.com/providers/occupational-therapy/port-st-lucie</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -38924,6 +38912,12 @@
   </url>
   <url>
     <loc>https://floridaautismservices.com/providers/occupational-therapy/pompano-beach</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://floridaautismservices.com/providers/occupational-therapy/riverview</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -38989,13 +38983,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://floridaautismservices.com/providers/parent-coaching/tampa</loc>
+    <loc>https://floridaautismservices.com/providers/parent-coaching/orlando</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://floridaautismservices.com/providers/parent-coaching/orlando</loc>
+    <loc>https://floridaautismservices.com/providers/parent-coaching/tampa</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -39193,12 +39187,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://floridaautismservices.com/providers/physical-therapy/tallahassee</loc>
-    <lastmod>2026-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://floridaautismservices.com/providers/physical-therapy/lakeland</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -39217,19 +39205,25 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://floridaautismservices.com/providers/physical-therapy/tallahassee</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://floridaautismservices.com/providers/physical-therapy/fort-myers</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://floridaautismservices.com/providers/physical-therapy/port-st-lucie</loc>
+    <loc>https://floridaautismservices.com/providers/physical-therapy/hialeah</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://floridaautismservices.com/providers/physical-therapy/hialeah</loc>
+    <loc>https://floridaautismservices.com/providers/physical-therapy/port-st-lucie</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -39265,12 +39259,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://floridaautismservices.com/providers/physical-therapy/miramar</loc>
-    <lastmod>2026-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://floridaautismservices.com/providers/physical-therapy/largo</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -39295,7 +39283,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://floridaautismservices.com/providers/physical-therapy/miami-beach</loc>
+    <loc>https://floridaautismservices.com/providers/physical-therapy/miramar</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -39320,6 +39308,12 @@
   </url>
   <url>
     <loc>https://floridaautismservices.com/providers/physical-therapy/jacksonville-beach</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://floridaautismservices.com/providers/physical-therapy/miami-beach</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -39379,12 +39373,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://floridaautismservices.com/providers/physical-therapy/st-petersburg</loc>
-    <lastmod>2026-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://floridaautismservices.com/providers/physical-therapy/stuart</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -39398,12 +39386,6 @@
   </url>
   <url>
     <loc>https://floridaautismservices.com/providers/physical-therapy/west-melbourne</loc>
-    <lastmod>2026-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://floridaautismservices.com/providers/physical-therapy/holly-hill</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -39433,6 +39415,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://floridaautismservices.com/providers/physical-therapy/st-petersburg</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://floridaautismservices.com/providers/physical-therapy/sunrise</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -39452,6 +39440,12 @@
   </url>
   <url>
     <loc>https://floridaautismservices.com/providers/physical-therapy/coconut-creek</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://floridaautismservices.com/providers/physical-therapy/holly-hill</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -39494,6 +39488,12 @@
   </url>
   <url>
     <loc>https://floridaautismservices.com/providers/physical-therapy/oviedo</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://floridaautismservices.com/providers/physical-therapy/riverview</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -39607,12 +39607,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://floridaautismservices.com/providers/speech-therapy/st-petersburg</loc>
-    <lastmod>2026-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://floridaautismservices.com/providers/speech-therapy/cape-coral</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -39632,6 +39626,12 @@
   </url>
   <url>
     <loc>https://floridaautismservices.com/providers/speech-therapy/palm-harbor</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://floridaautismservices.com/providers/speech-therapy/st-petersburg</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -39686,12 +39686,6 @@
   </url>
   <url>
     <loc>https://floridaautismservices.com/providers/speech-therapy/lutz</loc>
-    <lastmod>2026-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://floridaautismservices.com/providers/speech-therapy/brandon</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -39788,6 +39782,12 @@
   </url>
   <url>
     <loc>https://floridaautismservices.com/providers/speech-therapy/pembroke-pines</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://floridaautismservices.com/providers/speech-therapy/riverview</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>

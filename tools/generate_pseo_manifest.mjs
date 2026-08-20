@@ -1,11 +1,11 @@
 // Generates the pSEO city-page manifest consumed by the app router and the sitemap.
-// Source of truth: curation/pseo_page_manifest_2026-08-20.csv, minus excluded services.
+// Source of truth: curation/pseo_page_manifest_2026-08-20_post_deletions.csv, minus excluded services.
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const CSV_IN = resolve(here, '../curation/pseo_page_manifest_2026-08-20.csv');
+const CSV_IN = resolve(here, '../curation/pseo_page_manifest_2026-08-20_post_deletions.csv');
 const JSON_OUT = resolve(here, '../src/frontend/src/data/pseo/cityPages.json');
 
 // residential-program is 27/30 chain branches; virtual-therapy has no real street location.
