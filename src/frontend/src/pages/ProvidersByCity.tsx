@@ -221,6 +221,12 @@ export default function ProvidersByCity() {
           )}
         </p>
 
+        <div className="mt-4">
+          <Link to={`/providers?service=${page.service}`}>
+            <Button variant="outline">Refine these results in the full directory</Button>
+          </Link>
+        </div>
+
         {meta && (
           <p className="mt-4 text-sm text-gray-600">
             <Link to={`/resources/services/${meta.explainer}`} className="text-teal-600 hover:underline font-medium">
@@ -249,12 +255,6 @@ export default function ProvidersByCity() {
               </div>
             </TooltipProvider>
           )}
-        </div>
-
-        <div className="mt-10 pt-8 border-t border-gray-200">
-          <Link to={`/providers?service=${page.service}`}>
-            <Button variant="outline">Refine these results in the full directory</Button>
-          </Link>
         </div>
 
         {sameCityServices.length > 0 && (
