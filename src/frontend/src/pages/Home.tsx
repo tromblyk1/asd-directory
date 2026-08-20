@@ -79,8 +79,7 @@ export default function Home() {
     queryKey: ['upcoming-events'],
     queryFn: async () => {
       try {
-        const today = new Date().toISOString().split('T')[0];
-        return await base44.entities.Event.list('date', 10);
+        return await base44.entities.Event.list('date', 500);
       } catch (error) {
         console.error('Error fetching events:', error);
         return [];
