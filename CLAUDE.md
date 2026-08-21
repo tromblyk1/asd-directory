@@ -138,7 +138,6 @@ If asked to add one thing, add ONLY that one thing. Touch nothing else.
 |------|---------|
 | `supabase.ts` | Supabase client and TypeScript types |
 | `serviceDefinitions.ts` | Service metadata |
-| `serviceMapping.ts` | Slug mappings (INSURANCE_SLUGS, SCHOLARSHIP_SLUGS, etc.) |
 | `loadResource.ts` | JSON loading utility for detail pages |
 | `utils.ts` | General utilities |
 
@@ -271,9 +270,7 @@ Update ALL of these files:
    { slug: 'new-insurance', name: 'Display Name', description: 'Short description' },
    ```
 
-5. **`serviceMapping.ts`** - Add to INSURANCE_SLUGS if used for mapping
-
-6. **Create JSON file:** `src/frontend/src/data/resources/insurances/new-insurance.json`
+5. **Create JSON file:** `src/frontend/src/data/resources/insurances/new-insurance.json`
 
 ---
 
@@ -307,9 +304,7 @@ Update ALL of these files:
 
 5. **`serviceDefinitions.ts`** - Add metadata if used
 
-6. **`serviceMapping.ts`** - Add mapping if needed
-
-7. **Create JSON file:** `src/frontend/src/data/resources/services/new-service.json`
+6. **Create JSON file:** `src/frontend/src/data/resources/services/new-service.json`
 
 ---
 
@@ -349,9 +344,7 @@ Update ALL of these files:
    { slug: 'new-scholarship', name: 'Display Name', description: 'Short description' },
    ```
 
-7. **`serviceMapping.ts`** - Add to SCHOLARSHIP_SLUGS if used
-
-8. **Create JSON file:** `src/frontend/src/data/resources/scholarships/new-scholarship.json`
+7. **Create JSON file:** `src/frontend/src/data/resources/scholarships/new-scholarship.json`
 
 ---
 
@@ -382,6 +375,16 @@ Update ALL of these files:
 
 # VALID SLUGS
 
+> **The FILENAME is the identity, not the `slug` field.** `generate-sitemap.js` derives URLs
+> from `file.replace('.json','')` and `loadResource(category, slug)` resolves by filename. No
+> runtime path reads the `slug` field inside a resource JSON. Five files don't have one at all
+> (`tricare` at 248 providers, `childrens-medical-services`, `early-steps`, `autism-travel`,
+> `floor-time`) and they work fine.
+>
+> **Any vocabulary sweep must join on filename.** Joining on `slug` silently skips those files —
+> that is how the `floor-time`/`dir-floortime` duplicate survived four consecutive audits.
+> Don't "fix" this by backfilling `slug` fields; that just creates a second place to drift.
+
 ## Services (services[] array)
 aba, speech-therapy, occupational-therapy, physical-therapy, feeding-therapy, music-therapy, animal-therapy, dir-floortime, group-therapy, ados-testing, life-skills, executive-function-coaching, parent-coaching, respite-care, residential-program, support-groups, tutoring, virtual-therapy, mobile-services, autism-travel, aac, transportation, art-therapy, financial-planning
 
@@ -390,15 +393,23 @@ rows and no badge entry; tagging it renders no badge at all.
 
 ## Insurances (insurances[] array)
 
-**In use** (17 distinct values currently in `resources.insurances`):
-accepts-most-insurances, florida-medicaid, medicare, aetna, cigna, tricare, humana, florida-blue, unitedhealthcare, sunshine-health, avmed, oscar, allegiance, evernorth, early-steps, childrens-medical-services, wellcare
+**In use** (20 distinct values in `resources.insurances` as of 2026-08-22):
+accepts-most-insurances, florida-medicaid, medicare, aetna, cigna, tricare, humana, florida-blue, unitedhealthcare, sunshine-health, avmed, oscar, allegiance, evernorth, early-steps, childrens-medical-services, wellcare, molina, florida-kidcare, florida-healthcare-plans
 
 **Registered but not yet used** — JSON detail page exists, zero rows, deliberately kept off the
 filter chip list until curation supplies data:
-molina, florida-healthcare-plans, florida-kidcare, simply-healthcare, community-care-plan, curative
+simply-healthcare, community-care-plan, curative
 
-> Keep this list current. It drifted to 11 documented against 17 in use, and curation lost tags
-> twice to slugs that were valid but undocumented. When you add a slug anywhere, add it here.
+> **This split drifts within days — regenerate it, don't maintain it.** It went from 11
+> documented against 17 in use, was reconciled on 2026-08-21, and was wrong again the next day
+> when curation's batch 1 landed molina, florida-kidcare and florida-healthcare-plans. The
+> in-use/not-yet-used boundary is a snapshot of a row counter written in prose, and prose rots.
+> Before trusting it, run:
+> ```sql
+> SELECT unnest(insurances) AS slug, count(*) FROM resources
+> WHERE resource_type = 'provider' GROUP BY 1 ORDER BY 2 DESC;
+> ```
+> The *legal slug vocabulary* below is stable and worth documenting by hand. The counts are not.
 
 ## Scholarships (scholarships[] array)
 fes-ua, fes-eo, ftc, pep
