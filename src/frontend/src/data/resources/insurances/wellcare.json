@@ -1,0 +1,33 @@
+{
+  "slug": "wellcare",
+  "category": "insurances",
+  "title": "WellCare",
+  "shortDescription": "Medicare Advantage and prescription drug plans from Centene, with behavioral health benefits.",
+  "description": "WellCare is a government-sponsored health plan brand offering Medicare Advantage and Medicare Part D prescription drug coverage. WellCare Health Plans was acquired by Centene Corporation in January 2020 and now operates as part of Centene's Medicare portfolio.\n\nIn Florida, Centene's Medicaid managed care business runs under the Sunshine Health brand rather than WellCare, so most families searching for Florida Medicaid coverage will be looking at Sunshine Health. WellCare in Florida is primarily a Medicare Advantage product, which makes it relevant to adults with autism who qualify for Medicare through disability, and to older caregivers.\n\nWellCare plans typically include behavioral health benefits, care coordination, and pharmacy coverage. Because plan design varies by county and by plan year, confirm autism-related benefits and network status with both WellCare and the provider before scheduling services.\n\nUnder Florida law (sections 627.6686 and 641.31098, Florida Statutes), large group health plans must cover ABA therapy for individuals under 18 with an autism diagnosis, with annual limits of $36,000 and lifetime limits of $200,000. These mandates apply to state-regulated commercial plans and do not govern Medicare Advantage benefits.",
+  "benefits": [
+    "Behavioral and mental health coverage included in most plans",
+    "Medicare Advantage plans with medical and pharmacy benefits combined",
+    "Care coordination and case management for members with complex needs",
+    "Part D prescription drug coverage",
+    "Backed by Centene, one of the largest government-sponsored plan operators in Florida"
+  ],
+  "requirements": [
+    "Medicare eligibility required for WellCare Medicare Advantage plans",
+    "Prior authorization typically required for ABA and other intensive services",
+    "Services must be deemed medically necessary",
+    "Provider must be in-network for full benefits",
+    "Benefits vary by county and plan year — verify before starting services"
+  ],
+  "links": [
+    {
+      "label": "WellCare",
+      "url": "https://www.wellcare.com/",
+      "description": "Official WellCare website - find plans, check benefits, and search the provider network"
+    },
+    {
+      "label": "Sunshine Health",
+      "url": "https://www.sunshinehealth.com/",
+      "description": "Centene's Florida Medicaid plan - the right place to look if you have Florida Medicaid rather than Medicare"
+    }
+  ]
+}
