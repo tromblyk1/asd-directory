@@ -1,0 +1,35 @@
+{
+  "slug": "community-care-plan",
+  "category": "insurances",
+  "title": "Community Care Plan",
+  "shortDescription": "Provider-owned South Florida health plan covering Medicaid, Healthy Kids and employer groups.",
+  "description": "Community Care Plan (CCP) is a Florida health plan owned by two public hospital systems — Broward Health (the North Broward Hospital District) and Memorial Healthcare System (the South Broward Hospital District). It began in 2000 as the South Florida Community Care Network and has grown to serve well over 100,000 members.\n\nBeing provider-owned rather than investor-owned is the thing that distinguishes it. CCP's business lines include Florida Medicaid managed care, Florida Healthy Kids, self-insured employee health plans for its owner hospital systems, and coverage programs for uninsured residents.\n\nCCP is regional, with a footprint concentrated in South Florida and extending into parts of Central and Southwest Florida. It is not a statewide plan, so a provider in the Panhandle or North Florida who does not list it is not refusing it — CCP simply does not operate there.\n\nFlorida re-procures its Medicaid managed care contracts on a multi-year cycle, and which plans serve which regions can change from one cycle to the next. Before choosing a plan or assuming a provider takes it, check AHCA's current plan list for your region and confirm the provider is contracted with CCP specifically.\n\nFor autism services under Medicaid, the state's rules apply: behavior analysis requires an autism diagnosis, a recommendation from an appropriate treating practitioner, prior authorization, and a provider enrolled with Florida Medicaid. Speech, occupational and physical therapy are covered when medically necessary.",
+  "benefits": [
+    "Behavior analysis (ABA) coverage under Florida Medicaid rules",
+    "Speech, occupational, and physical therapy when medically necessary",
+    "Florida Healthy Kids coverage for children ages 5 through 18",
+    "Owned by Broward Health and Memorial Healthcare System rather than by investors",
+    "Local member services and care coordination based in the service area",
+    "Programs for uninsured residents alongside its insured lines"
+  ],
+  "requirements": [
+    "You must live in CCP's service area - it is a regional, not statewide, plan",
+    "Florida Medicaid eligibility or Healthy Kids enrollment for those lines",
+    "Autism diagnosis required for ASD-specific services",
+    "Prior authorization required for behavior analysis and other intensive services",
+    "Provider must be enrolled with Florida Medicaid AND contracted with CCP",
+    "Regional plan participation changes between contract cycles - check AHCA's current list"
+  ],
+  "links": [
+    {
+      "label": "Community Care Plan",
+      "url": "https://ccpcares.org/",
+      "description": "Official site - member resources, provider directory, and how to apply"
+    },
+    {
+      "label": "Florida SMMC Plans by Region",
+      "url": "https://ahca.myflorida.com/medicaid/statewide-medicaid-managed-care/2025-2030-smmc-plans",
+      "description": "AHCA's official list of which Medicaid plans serve which regions - the authoritative source"
+    }
+  ]
+}

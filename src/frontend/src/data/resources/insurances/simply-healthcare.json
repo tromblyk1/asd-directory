@@ -1,0 +1,36 @@
+{
+  "slug": "simply-healthcare",
+  "category": "insurances",
+  "title": "Simply Healthcare",
+  "shortDescription": "Florida Medicaid and Medicare plans from an Elevance Health company, operating statewide.",
+  "description": "Simply Healthcare Plans is a Florida-based health plan and a subsidiary of Elevance Health, the company formerly known as Anthem. It focuses on government-sponsored coverage — Florida Medicaid, Medicare Advantage, and Florida Healthy Kids — rather than commercial employer plans.\n\nUnder the 2025-2030 Statewide Medicaid Managed Care contracts, Simply was selected to serve Florida Medicaid members statewide, including as a specialty plan for members with HIV/AIDS and for members with serious mental illness. It was also awarded a statewide Florida Healthy Kids contract. Florida re-procures these managed care contracts on a multi-year cycle, and regions and specialty designations can change between cycles, so treat plan availability as something to confirm rather than assume.\n\nFor autism services, the Florida Medicaid rules are what govern: behavior analysis services require an autism diagnosis, a recommendation from an appropriate treating practitioner, and prior authorization, and must be delivered by a provider enrolled with Florida Medicaid. Speech, occupational and physical therapy are covered when medically necessary. The serious mental illness specialty plan adds care coordination that some families with complex needs find more responsive than a general plan.\n\nIf you have Florida Medicaid, you may be able to choose Simply during open enrollment or when you first become eligible. Verify that a provider is in Simply's network specifically — being enrolled with Florida Medicaid is not the same as being contracted with every Medicaid plan.",
+  "benefits": [
+    "Behavior analysis (ABA) coverage under Florida Medicaid rules",
+    "Speech, occupational, and physical therapy when medically necessary",
+    "Statewide Medicaid availability under the 2025-2030 contracts",
+    "Specialty plan options for serious mental illness and for HIV/AIDS",
+    "Florida Healthy Kids coverage for children ages 5 through 18",
+    "Medicare Advantage plans for eligible members",
+    "No-cost or low-cost coverage for eligible Medicaid members"
+  ],
+  "requirements": [
+    "Florida Medicaid eligibility, Medicare eligibility, or Healthy Kids enrollment",
+    "Autism diagnosis required for ASD-specific services",
+    "Prior authorization required for behavior analysis and other intensive services",
+    "Services must be medically necessary and delivered under an approved treatment plan",
+    "Provider must be enrolled with Florida Medicaid AND contracted with Simply",
+    "Plan and specialty availability can change between contract cycles - confirm current status"
+  ],
+  "links": [
+    {
+      "label": "Simply Healthcare - Florida Medicaid",
+      "url": "https://www.simplyhealthcareplans.com/florida-medicaid/home.html",
+      "description": "Member site - covered benefits, provider search, and enrollment information"
+    },
+    {
+      "label": "Florida SMMC Plans by Region",
+      "url": "https://ahca.myflorida.com/medicaid/statewide-medicaid-managed-care/2025-2030-smmc-plans",
+      "description": "AHCA's official list of which Medicaid plans serve which regions - the authoritative source"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "slug": "pharmacogenetic-testing",
+  "category": "services",
+  "title": "Pharmacogenetic Testing",
+  "shortDescription": "Genetic testing that shows how your child's body is likely to process certain medications.",
+  "description": "Pharmacogenetic testing — often shortened to PGx — looks at specific genes that affect how the body absorbs, metabolizes, and clears medications. The most commonly tested are liver enzyme genes such as CYP2D6 and CYP2C19, which influence how quickly a drug is broken down. A child who metabolizes a medication very quickly may get little benefit at a standard dose; a child who metabolizes it very slowly may get side effects at a dose that would be routine for someone else.\n\nFor autistic children, this comes up most often around psychiatric medications — SSRIs for anxiety, stimulants for co-occurring ADHD, and the antipsychotics risperidone and aripiprazole, which are the two medications FDA-approved for irritability associated with autism. Families who have been through several medication trials with poor results or unusual side effects are the ones who most often ask about it.\n\nThe test itself is simple: a cheek swab or blood draw, sent to a lab, with results back in one to three weeks. The result is a report grouping medications into categories such as \"use as directed,\" \"use with caution,\" or \"consider alternatives.\"\n\nWhat it does not do is pick the medication for you. Evidence is stronger for some gene-drug pairs than others, and a PGx report is one input among many — diagnosis, symptoms, medical history, and prior medication response still drive the decision. Be cautious with any lab or clinic promising that a test will identify the right medication outright. Bring the report to the prescribing physician and let them interpret it.\n\nInsurance coverage is inconsistent. Some plans cover testing when a documented medication trial has failed; many do not cover it as a first step. Ask about prior authorization and out-of-pocket cost before testing.",
+  "benefits": [
+    "May reduce trial-and-error when starting or changing psychiatric medications",
+    "Can flag an unusually fast or slow metabolizer before a dose is chosen",
+    "Simple collection - usually a cheek swab",
+    "Results are reusable; genes do not change, so one test informs future prescribing",
+    "Can help explain past side effects or poor medication response"
+  ],
+  "whoCanBenefit": [
+    "Children who have had side effects or poor results from several medication trials",
+    "Families about to start a psychiatric medication for the first time",
+    "Children taking multiple medications where interactions are a concern",
+    "Anyone whose prescriber has specifically recommended it"
+  ],
+  "links": [
+    {
+      "label": "FDA - Table of Pharmacogenetic Associations",
+      "url": "https://www.fda.gov/medical-devices/precision-medicine/table-pharmacogenetic-associations",
+      "description": "The FDA's list of gene-drug associations it considers supported by evidence"
+    },
+    {
+      "label": "MedlinePlus - Pharmacogenomics",
+      "url": "https://medlineplus.gov/genetics/understanding/genomicresearch/pharmacogenomics/",
+      "description": "Plain-language explanation of how pharmacogenetic testing works and what it can and cannot tell you"
+    }
+  ]
+}

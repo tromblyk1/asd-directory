@@ -1,0 +1,34 @@
+{
+  "slug": "afterschool-program",
+  "category": "services",
+  "title": "Afterschool Program",
+  "shortDescription": "Structured afternoon programming with social, academic and recreational support.",
+  "description": "Afterschool programs give autistic children somewhere structured to be between the end of the school day and the end of the work day. The good ones do more than supervise: they run social skills groups, homework support, recreation, and life skills practice in a setting with a lower adult-to-child ratio and staff who understand sensory needs and behavior support.\n\nThe gap these programs fill is real. School ends around 2 or 3 in the afternoon and most parents work until 5 or later. For a child who needs predictable routine and adult support, unstructured afternoons are hard, and generic afterschool care is often a poor fit — noisy, loosely supervised, and staffed by people with no autism training.\n\nPrograms in Florida vary widely in what they actually provide. Some are run by ABA providers and deliver therapy hours in a group setting, billable to insurance. Some are recreational programs run by nonprofits or parks departments with an inclusion specialist on staff. Some are private pay day programs with a structured curriculum. These are very different things at very different prices, so ask directly: what is the staff-to-child ratio, what training do staff have, is any of this billable to insurance, and what happens when a child has a hard afternoon.\n\nFor school-age children with a Family Empowerment Scholarship for Unique Abilities (FES-UA), some afterschool and skill-building services are reimbursable. Check the current list of approved uses before assuming.",
+  "benefits": [
+    "Covers the gap between school dismissal and the end of the work day",
+    "Structured routine rather than unsupervised free time",
+    "Social skills practice with peers in a supported setting",
+    "Homework and academic support",
+    "Staff trained in autism support and behavior strategies",
+    "Some programs bill insurance when delivered as group therapy"
+  ],
+  "whoCanBenefit": [
+    "Working parents who need supervised care after school",
+    "Children who do poorly with unstructured time",
+    "Children working on social skills with same-age peers",
+    "Families who found generic afterschool care to be a bad fit",
+    "Children who benefit from extra academic support outside the classroom"
+  ],
+  "links": [
+    {
+      "label": "Afterschool Alliance - Youth with Disabilities",
+      "url": "https://afterschoolalliance.org/",
+      "description": "National organization with research and a program locator for afterschool programming"
+    },
+    {
+      "label": "Florida Department of Education - Exceptional Student Education",
+      "url": "https://www.fldoe.org/academics/exceptional-student-edu/",
+      "description": "State resources on services and supports for students with disabilities"
+    }
+  ]
+}

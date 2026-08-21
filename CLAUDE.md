@@ -383,10 +383,22 @@ Update ALL of these files:
 # VALID SLUGS
 
 ## Services (services[] array)
-aba, speech-therapy, occupational-therapy, physical-therapy, feeding-therapy, music-therapy, pet-therapy, dir-floortime, group-therapy, ados-testing, life-skills, executive-function-coaching, parent-coaching, respite-care, residential-program, support-groups, tutoring, virtual-therapy, mobile-services, autism-travel
+aba, speech-therapy, occupational-therapy, physical-therapy, feeding-therapy, music-therapy, animal-therapy, dir-floortime, group-therapy, ados-testing, life-skills, executive-function-coaching, parent-coaching, respite-care, residential-program, support-groups, tutoring, virtual-therapy, mobile-services, autism-travel
+
+**Not `pet-therapy`** — the database uses `animal-therapy` (108 providers). `pet-therapy` has zero
+rows and no badge entry; tagging it renders no badge at all.
 
 ## Insurances (insurances[] array)
-florida-medicaid, medicare, aetna, cigna, florida-blue, humana, unitedhealthcare, tricare, sunshine-health, early-steps, childrens-medical-services
+
+**In use** (17 distinct values currently in `resources.insurances`):
+accepts-most-insurances, florida-medicaid, medicare, aetna, cigna, tricare, humana, florida-blue, unitedhealthcare, sunshine-health, avmed, oscar, allegiance, evernorth, early-steps, childrens-medical-services, wellcare
+
+**Registered but not yet used** — JSON detail page exists, zero rows, deliberately kept off the
+filter chip list until curation supplies data:
+molina, florida-healthcare-plans, florida-kidcare, simply-healthcare, community-care-plan, curative
+
+> Keep this list current. It drifted to 11 documented against 17 in use, and curation lost tags
+> twice to slugs that were valid but undocumented. When you add a slug anywhere, add it here.
 
 ## Scholarships (scholarships[] array)
 fes-ua, fes-eo, ftc, pep

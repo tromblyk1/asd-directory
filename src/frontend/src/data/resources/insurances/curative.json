@@ -1,0 +1,35 @@
+{
+  "slug": "curative",
+  "category": "insurances",
+  "title": "Curative",
+  "shortDescription": "Employer-sponsored health plan with $0 copays and deductibles for members who complete a Baseline Visit.",
+  "description": "Curative is a health insurance company that entered the Florida market after receiving its Certificate of Authority from the state in August 2023. Its distinguishing feature is plan design: members who complete a \"Baseline Visit\" within 120 days of enrollment pay $0 copays and $0 deductibles for in-network care for the rest of the plan year. The idea is to remove the cost calculation that leads people to delay care.\n\nThe most important thing to know before looking for it: **Curative is employer-sponsored only.** It is sold to employers, generally those with 50 or more employees and at least 25 enrolled subscribers, in EPO, PPO and PPO+ designs on both fully-insured and level-funded funding. You cannot buy it on the Health Insurance Marketplace, and it is not a Medicaid or Medicare plan. If your employer does not offer Curative, it is not an option for your family — which also means a provider who does not list it is very often simply not seeing patients who have it.\n\nCurative holds an A- (Excellent) financial strength rating from AM Best and continues to write employer business in Florida.\n\nFor autism services, Curative's Florida commercial plans are subject to the state's autism mandate. Under sections 627.6686 and 641.31098, Florida Statutes, large group health plans must cover ABA therapy for individuals under 18 with an autism diagnosis, with annual limits of $36,000 and lifetime limits of $200,000. Self-funded and level-funded arrangements can fall under federal ERISA rules rather than the state mandate, so if your employer's plan is level-funded, confirm how autism benefits are handled rather than assuming the state limits apply.",
+  "benefits": [
+    "$0 copays and $0 deductibles for in-network care after completing a Baseline Visit",
+    "ABA therapy coverage on fully-insured Florida plans under the state mandate",
+    "Speech, occupational, and physical therapy benefits",
+    "Behavioral and mental health services",
+    "EPO, PPO and PPO+ plan designs",
+    "Nationwide employee coverage for Florida-headquartered employers"
+  ],
+  "requirements": [
+    "Available only through an employer that offers it - not sold on the Marketplace",
+    "Baseline Visit must be completed within 120 days of enrollment to unlock $0 cost sharing",
+    "Autism diagnosis required for ASD-specific coverage",
+    "Prior authorization typically required for ABA and other intensive services",
+    "Services must be deemed medically necessary",
+    "Level-funded plans may follow federal rather than Florida mandate rules - verify with your employer"
+  ],
+  "links": [
+    {
+      "label": "Curative - Florida",
+      "url": "https://curative.com/florida",
+      "description": "Florida plan information, network details, and how the Baseline Visit works"
+    },
+    {
+      "label": "Curative for Employers",
+      "url": "https://curative.com/for-employers",
+      "description": "Group plan options and eligibility requirements for employers"
+    }
+  ]
+}
