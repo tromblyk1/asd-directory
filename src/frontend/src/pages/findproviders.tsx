@@ -95,14 +95,6 @@ const insuranceOptions = [
   { value: 'evernorth', label: 'Evernorth' },
 ];
 
-// Scholarship options for filtering - ONLY values that exist in the database
-const scholarshipOptions = [
-  { value: 'fes-ua', label: 'FES-UA', tooltip: 'Family Empowerment Scholarship for Unique Abilities - For students with disabilities including autism' },
-  { value: 'fes-eo', label: 'FES-EO', tooltip: 'Family Empowerment Scholarship for Educational Options - Income-based school choice' },
-  { value: 'ftc', label: 'FTC', tooltip: 'Florida Tax Credit Scholarship - For low-income families' },
-  { value: 'pep', label: 'PEP', tooltip: 'Personalized Education Program - Flexible funding for customized learning' },
-];
-
 // Service display info for map popup (slug -> { label, description, resourceSlug })
 const servicePopupInfo: Record<string, { label: string; description: string; slug: string }> = {
   'aba': { label: 'ABA', description: 'Applied Behavior Analysis therapy', slug: 'aba-therapy' },
@@ -165,10 +157,6 @@ export default function FindProviders() {
   });
   const [selectedInsurances, setSelectedInsurances] = useState<string[]>(() => {
     const param = searchParams.get('insurance');
-    return param ? param.split(',') : [];
-  });
-  const [selectedScholarships, setSelectedScholarships] = useState<string[]>(() => {
-    const param = searchParams.get('scholarship');
     return param ? param.split(',') : [];
   });
   const [countySearchTerm, setCountySearchTerm] = useState('');
@@ -361,11 +349,7 @@ export default function FindProviders() {
       const matchesInsurance = selectedInsurances.length === 0 ||
         insuranceBandOf(provider) !== 'excluded';
 
-      // Scholarship filter (array-based)
-      const matchesScholarship = selectedScholarships.length === 0 ||
-        arrayContainsAny(provider.scholarships, selectedScholarships);
-
-      return matchesSearch && matchesCounty && matchesService && matchesInsurance && matchesScholarship;
+      return matchesSearch && matchesCounty && matchesService && matchesInsurance;
     });
 
     // Sort: featured by tier (premium → enhanced → basic → other featured), then daily-seeded shuffle for non-featured.
@@ -443,7 +427,7 @@ export default function FindProviders() {
         notListed: orderedNotListed.length,
       },
     };
-  }, [providers, searchTerm, selectedCounties, selectedServices, selectedInsurances, selectedScholarships]);
+  }, [providers, searchTerm, selectedCounties, selectedServices, selectedInsurances]);
 
   const filteredProviders = bandedResults.ordered;
   const bands = bandedResults.bands;
@@ -704,13 +688,7 @@ export default function FindProviders() {
     );
   };
 
-  const toggleScholarship = (scholarship: string) => {
-    setSelectedScholarships(prev =>
-      prev.includes(scholarship) ? prev.filter(s => s !== scholarship) : [...prev, scholarship]
-    );
-  };
-
-  const activeFiltersCount = selectedCounties.length + selectedServices.length + selectedInsurances.length + selectedScholarships.length;
+  const activeFiltersCount = selectedCounties.length + selectedServices.length + selectedInsurances.length;
 
   // Filter panel content (shared between mobile drawer and desktop sidebar)
   const FilterContent = () => (
@@ -794,39 +772,6 @@ export default function FindProviders() {
           </div>
         </div>
 
-        {/* Scholarship Filter */}
-        <div>
-          <h4 className="text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
-            Scholarships ({scholarshipOptions.length})
-          </h4>
-          <TooltipProvider delayDuration={200}>
-            <div className="space-y-2">
-              {scholarshipOptions.map(({ value, label, tooltip }) => (
-                <Tooltip key={value}>
-                  <TooltipTrigger asChild>
-                    <div className="flex items-center space-x-2 cursor-help">
-                      <Checkbox
-                        id={`scholarship-${value}`}
-                        checked={selectedScholarships.includes(value)}
-                        onCheckedChange={() => toggleScholarship(value)}
-                      />
-                      <Label
-                        htmlFor={`scholarship-${value}`}
-                        className="text-sm font-normal cursor-pointer flex-1"
-                      >
-                        {label}
-                      </Label>
-                    </div>
-                  </TooltipTrigger>
-                  <TooltipContent side="right" className="max-w-xs bg-green-600 text-white border-green-700 hidden lg:block">
-                    <p className="font-medium">{tooltip}</p>
-                  </TooltipContent>
-                </Tooltip>
-              ))}
-            </div>
-          </TooltipProvider>
-        </div>
-
         {/* Counties Filter */}
         <div>
           <h4 className="text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
@@ -866,14 +811,13 @@ export default function FindProviders() {
       </div>
 
       {/* Clear All Filters */}
-      {(searchTerm || selectedCounties.length > 0 || selectedServices.length > 0 || selectedInsurances.length > 0 || selectedScholarships.length > 0 || userLocation) && (
+      {(searchTerm || selectedCounties.length > 0 || selectedServices.length > 0 || selectedInsurances.length > 0 || userLocation) && (
         <button
           onClick={() => {
             setSearchTerm('');
             setSelectedCounties([]);
             setSelectedServices([]);
             setSelectedInsurances([]);
-            setSelectedScholarships([]);
             setCountySearchTerm('');
             setUserLocation(null);
             setLocationStatus('idle');
