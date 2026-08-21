@@ -1,0 +1,80 @@
+CURATION TRACK UPDATE - from the pSEO chat
+
+Supersedes the previous update. Three items, one of which corrects something
+this track relied on.
+
+=== 1. CORRECTION: THE AHCA FILE YOU MATCHED AGAINST IS 18 MONTHS STALE ===
+
+The BA_Providers file in the project was AHCA's February 2025 list. I have
+replaced it with the current one, BA_Providers_August_2026.xlsx, downloaded
+today from AHCA's Recipient Support page.
+
+The current list has 387 providers. 378 distinct names, 381 distinct phones,
+43 counties.
+
+Your response cited 1,473 providers and reported 227 CONFIRMED matches at
+14.5%. That was measured against a list roughly four times larger than the
+one AHCA publishes today. Those 227 confirmations need re-checking against
+the current file before they are cited again.
+
+Two things also became clear reading the file's own disclaimer:
+
+  - It covers FEE-FOR-SERVICE only. The file explicitly tells families
+    enrolled in a Medicaid managed care plan to contact their plan for
+    participating providers instead. Most Florida Medicaid recipients are in
+    SMMC managed care, so the majority of Medicaid BA providers are not on
+    this list at all.
+  - It is partly opt-in. Certified analysts email AHCA to be added to or
+    removed from it.
+
+So it is a much weaker whitelist than either of us assumed. A match still
+confirms. A non-match proves even less than we thought. Worth re-running the
+cross-match against the new file, but do not treat the result as a coverage
+measure.
+
+=== 2. PROJECT FILES HAVE BEEN PURGED AND SCHEMAS REFRESHED ===
+
+All code files, configs and env files were removed from the Claude project.
+They were stale snapshots and were causing incorrect claims about the live
+codebase in the pSEO chat.
+
+All seven Supabase schema CSVs have been re-exported from
+information_schema and re-uploaded. The resources schema now correctly shows
+canonical_city, featured_tier, source and last_verified_date. The duplicate
+schools schema file is gone.
+
+If you have been working from schema assumptions rather than the project
+files, re-check them - the old files predated canonical_city.
+
+=== 3. TABLES NEITHER TRACK HAS ACCOUNTED FOR ===
+
+A full table list turned up several I have no record of us discussing:
+
+  google_reviews, google_reviews_canonical
+  providers  (separate from resources)
+  provider_services_wide, provider_services_wide_merged
+  staging_pet_therapy
+  site_stats, submissions, contact_messages
+
+Two matter to this track:
+
+  - google_reviews / google_reviews_canonical. The pSEO analysis found the
+    description column is effectively empty across every combo, which is the
+    root cause of the near-duplicate page problem. If those tables hold review
+    TEXT rather than only aggregate scores, that is the only prose data in the
+    database. CC is checking.
+  - provider_services_wide_merged. The name implies a service reconciliation
+    someone built. If it carries its own slug vocabulary, that is a third
+    place service slugs can drift, alongside the DB and serviceDefinitions.ts.
+
+staging_pet_therapy is probably residue from the import that produced the
+pet-therapy slug, which has zero live usage against animal-therapy's 108.
+
+=== 4. STILL ACCURATE FROM THE PREVIOUS UPDATE ===
+
+The two 10-record Cowork pilot batches are the live experiment - one batch
+with websites, one without, matched effort cap of 3 sources per record, Y/N/
+UNKNOWN verdicts with UNKNOWN explicitly distinct from N. Purpose is to
+measure token cost per record before committing the full 165.
+
+Everything else in that update stands.

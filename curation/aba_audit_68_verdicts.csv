@@ -1,0 +1,72 @@
+id,name,keith_verdict,keith_url,keith_note,services_supported,services_contradicted,actual_type,confidence
+9759,Darwin Chiropractic Center,N,http://darwinchiro.com/,Chiropractic clinic; PT is adjunct for adult pain,,physical-therapy,CHIROPRACTIC,HIGH
+9301,Palm Garden of Gainesville,N,http://palmgardenofgainesville.com/,Skilled nursing and rehab facility for elderly adults,,occupational-therapy,DENTAL_MEDICAL,HIGH
+10146,Brooks Rehabilitation Home Health - Daytona Beach,N,https://brooksrehab.org/locations/home-health-daytona/,Adult and senior home health rehab agency,,speech-therapy|occupational-therapy|physical-therapy,HOME_CARE,MEDIUM
+9591,Back To Mind Chiropractic - Hollywood,N,https://www.backtomind.com/hollywood-chiropractor/,Chiropractic clinic; adult pain and injury care,,physical-therapy,CHIROPRACTIC,HIGH
+10112,KidsCare Home Health - Florida Region 10 - 8569 Pines Blvd,Y,https://kidscarehomehealth.com/pediatric-therapy-services/,"Pediatric in-home PT, OT, speech for developmental disabilities",,,THERAPY_PROVIDER,HIGH
+9285,Ony-X Fitness Therapy & Sports Rehab,N,http://www.onyxfitnesstherapy.com/,Fitness training and sports rehab for adult athletes,,occupational-therapy,FITNESS_WELLNESS,HIGH
+9565,Sacred Space Therapy / Grounded Ventures LLC,Y,http://www.sacredtherapy.space/,Pediatric and adult PT with sensory regulation coaching,physical-therapy,,THERAPY_PROVIDER,MEDIUM
+10238,Angels of Care Pediatric Home Health,Y,https://angelsofcare.com/services/therapy/,"Pediatric home health; in-home speech, OT, PT for kids",speech-therapy|occupational-therapy|physical-therapy,,HOME_CARE,MEDIUM
+9415,ChildGarden Center | Integral Therapy - Lake Worth,Y,http://www.childgardens.com/,"Pediatric ABA, speech, OT clinic for autism",,,ABA_PROVIDER,HIGH
+9255,Space Coast Early Steps,Y,https://floridaearlysteps.com/region/space-coast/,State Part C early intervention for infants/toddlers with delays,speech-therapy,,GOVERNMENT_AGENCY,HIGH
+9619,Healthspan,N,https://www.healthspanrecovery.com/services,"Adult recovery spa: cryotherapy, HBOT, sauna, PEMF",,physical-therapy,FITNESS_WELLNESS,HIGH
+9810,Nicklaus Children's Nirvair Chowdhury Midtown Urgent Care Center,N,https://www.nicklauschildrens.org/locations/urgent-care/midtown-outpatient-center,Pediatric walk-in urgent care only; no therapy here,,occupational-therapy|physical-therapy,DENTAL_MEDICAL,HIGH
+9453,Physical Therapy & Chiropractor of Miami,N,https://ptcmiami.com/pages/choose-chiropractor-or-physical-therapy-in-miami,Chiropractic clinic; PT for adult accident and pain patients,,physical-therapy,CHIROPRACTIC,HIGH
+9875,Nicklaus Children's Miramar Urgent Care Center,N,https://www.nicklauschildrens.org/locations/urgent-care/miramar-urgent-care-center,Pediatric walk-in urgent care only; no rehab here,,occupational-therapy|physical-therapy,DENTAL_MEDICAL,HIGH
+9571,Spinalworx - Chiropractic & Medical Center,N,http://spinalworx.com/,Chiropractic center; PT adjunct for adult pain and injury,,physical-therapy,CHIROPRACTIC,HIGH
+9444,Fitness Quest Physical Therapy - North Fort Myers,N,https://fitnessquestpt.com/location/north-fort-myers/,Adult orthopedic and sports PT clinic; no pediatrics,,physical-therapy,THERAPY_PROVIDER,HIGH
+9574,Maximum Fitness Physical Therapy & Sports Medicine,N,https://www.maximumfitpt.com/,Adult sports medicine and orthopedic rehab clinic,,physical-therapy,THERAPY_PROVIDER,HIGH
+9794,Department of Communication Sciences and Disorders,Y,https://healthprofessions.ucf.edu/communication-sciences-disorders/,"UCF speech clinic treating public, toddlers through adults",speech-therapy,physical-therapy,UNIVERSITY_DEPARTMENT,MEDIUM
+9641,"Orlando City Health and Wellness - Chiropractor, Physical Therapy & Massage",N,http://orlandocityhealth.com/,"Chiropractic and auto-injury clinic; PT adjunct, adults only",,physical-therapy,CHIROPRACTIC,HIGH
+9934,CORA Physical Therapy Palm Beach Gardens,N,https://coraphysicaltherapy.com/location/palm-beach-gardens-florida/,"Adult orthopedic, work comp and geriatric rehab clinic",,occupational-therapy|physical-therapy,THERAPY_PROVIDER,HIGH
+9493,Gold Coast Physical Therapy - Palm Beach Gardens,N,https://goldcoastpt.com/palm-beach-gardens/,"Adult orthopedic, vestibular and work comp PT clinic",,,THERAPY_PROVIDER,HIGH
+10168,Nicklaus Children's Palm Beach Gardens Outpatient Center,Y,https://www.nicklauschildrens.org/locations/outpatient-centers/palm-beach-gardens-outpatient-center,"Pediatric outpatient centre with PT, OT, speech-feeding therapy",speech-therapy|occupational-therapy|physical-therapy,,THERAPY_PROVIDER,HIGH
+9492,Saylor Physical Therapy - Palm Beach Gardens,N,http://saylorpt.com/palm-beach/,Adult orthopedic and sports physical therapy clinic,,,THERAPY_PROVIDER,HIGH
+10062,"Spark Pediatrics Medical Daycare (PPEC) - Palm Springs, FL",N,https://www.sparkpediatrics.com/locations/west-palm-beach-center,"PPEC medical daycare for medically complex children, not DD-specific",speech-therapy|occupational-therapy|physical-therapy,,PPEC,MEDIUM
+9801,Memorial Medical Fitness - West,N,https://www.mhs.net/services/medical-fitness-programs,"Medically supervised adult fitness program, not therapy",,occupational-therapy|physical-therapy,FITNESS_WELLNESS,MEDIUM
+9836,Back to You Chiropractic & Physical Therapy,N,https://www.backtoyourehab.com/,Adult orthopedic chiropractic and rehab clinic network,occupational-therapy|physical-therapy,,CHIROPRACTIC,MEDIUM
+9683,Papa Chiropractic - Port St. Lucie,N,https://www.papachiropractic.com/,Chiropractic practice; PT is adjunct for adults,,physical-therapy,CHIROPRACTIC,HIGH
+8569,Absolute Health and Fitness,N,http://www.absolutefitnessandhealth.com/,24-hour commercial gym with personal training classes,,life-skills,FITNESS_WELLNESS,HIGH
+9478,Robinson Chiropractic & Physical Therapy,N,http://robinson-chiropractic.com/,Chiropractic-led adult orthopedic rehab centre,,physical-therapy,CHIROPRACTIC,HIGH
+9632,Terlep Chiropractic,N,https://drterlep.com/,Chiropractic clinic; PT adjunct rehab for pain patients,,physical-therapy,CHIROPRACTIC,HIGH
+10117,"Spark Pediatrics Medical Daycare (PPEC) - Stuart, FL",N,https://www.sparkpediatrics.com/locations/stuart-center,"PPEC medical daycare for medically complex children, not DD-specific",speech-therapy|occupational-therapy|physical-therapy,,PPEC,HIGH
+7483,"BFITT Athletic Training & Fitness Institute, Inc.",N,https://www.atfipro.com/,"Corporate wellness, fitness coaching, athletic training; no ABA",,aba,FITNESS_WELLNESS,HIGH
+9541,Body Mechanix Physiotherapy and Fitness,N,https://www.tallahasseept.com/,Real PT but only adult athletes and chronic pain,physical-therapy,,THERAPY_PROVIDER,HIGH
+9708,KidsStreet Urgent Care,N,https://www.kidsstreeturgentcare.com/locations/tallahassee/,Pediatric urgent care; illnesses and minor injuries only,,physical-therapy,DENTAL_MEDICAL,HIGH
+9707,Russo Chiropractic and Rehab,N,https://www.russochiropracticfl.com/,Chiropractic practice; PT adjunct for back and auto injuries,,physical-therapy,CHIROPRACTIC,HIGH
+9254,"Our Speech Garden, LLC.",Y,http://www.ourspeechgarden.com/,Bilingual pediatric speech-language practice treating autism,speech-therapy,,THERAPY_PROVIDER,HIGH
+9469,"Clow Integrated Medical Center (formerly, Clow Chiropractic)",N,https://clowintegratedmedicalcenter.com/,Chiropractic and integrated wellness clinic for adult pain,,physical-therapy,CHIROPRACTIC,HIGH
+10171,Active Home Health Care Services,N,https://activehomehealthcare.com/services/,Adult and geriatric home health; post-surgical and stroke rehab,speech-therapy|occupational-therapy|physical-therapy,,HOME_CARE,MEDIUM
+10360,Quest Kids Therapy - Winter Garden,Y,https://questinc.org/quest-kids-therapy/,ABA therapy provider for autistic children and teens,,,ABA_PROVIDER,HIGH
+9490,"Orlando City Health and Wellness - Chiropractor, Physical Therapy & Massage",N,http://orlandocityhealth.com/,Chiropractic clinic; PT adjunct for adult accident injuries,,physical-therapy,CHIROPRACTIC,HIGH
+8676,Avard Law Offices,N,https://avardlaw.com/,"Law firm: Social Security disability, injury, veterans benefits",,aba,OTHER,HIGH
+7234,MD Now Urgent Care - North Cape Coral,N,https://www.mymdnow.com/locations/sarasota/north-cape-coral,Walk-in urgent care clinic; no therapy or autism services,,physical-therapy,DENTAL_MEDICAL,HIGH
+7203,A Safe Space Mental Health Counseling and Wellness LLC,N,https://www.psychologytoday.com/us/therapists/lisa-ellis-daytona-beach-fl/436806,"Talk-therapy counselling practice: depression, anxiety, trauma",,aba,MENTAL_HEALTH_COUNSELING,MEDIUM
+6573,Serenity Space Therapy,N,https://www.serenityspacetherapy.net/,"Adult mental-health counselling; EMDR, trauma, anxiety",,aba,MENTAL_HEALTH_COUNSELING,HIGH
+7163,Ascend Transition Services,Y,https://www.ascendswfl.com/,"IDD support agency: life skills, respite, nursing care",life-skills|respite-care,,HOME_CARE,HIGH
+7505,Dynamiks Home Care,Y,https://www.dynamikshomecare.com/fort-myers-fl,Home health with paediatric special-needs therapy and respite,speech-therapy|occupational-therapy|physical-therapy|respite-care,life-skills,HOME_CARE,MEDIUM
+6778,Department of Occupational Therapy,N,https://phhp.ufl.edu/about/departments/occupational-therapy/,University academic department: OT degrees and research,,aba,UNIVERSITY_DEPARTMENT,HIGH
+7089,SUPREME ADULT DAY CARE,UNKNOWN,,Adult day care centre; population served not established,,,UNKNOWN,LOW
+6977,FUSSION THERAPY INC. - Hialeah Gardens,Y,https://www.fussiontherapy.com/,"Paediatric speech, OT, PT and PPEC serving autistic children",,,THERAPY_PROVIDER,HIGH
+6773,Speech and Language Connection Services LLC - Hialeah Gardens,Y,http://www.speechtherapy305.com/,Paediatric speech and OT practice serving ASD children,,,THERAPY_PROVIDER,HIGH
+6596,Vocational Rehabilitation,N,https://rehabworks.org/,Florida state agency for disability employment services,,,GOVERNMENT_AGENCY,HIGH
+6984,ChildGarden Center | Integral Therapy - Lake Worth Beach,Y,http://www.childgardens.com/,"Pediatric ABA, speech, OT clinic for autism",,,ABA_PROVIDER,HIGH
+7035,Gardened Mind Therapy,N,https://gardenedmindtherapy.com/,EMDR trauma and mental health counselling practice,,,MENTAL_HEALTH_COUNSELING,HIGH
+7361,NeuroSpa,N,https://www.neurospamentalhealth.com/locations/lakeland/,"TMS, ketamine and psychiatry clinic for adults",,aba,MENTAL_HEALTH_COUNSELING,HIGH
+10372,The Garden Counseling,N,https://thegardencounseling.info/,Christian trauma and grief counselling practice,,,MENTAL_HEALTH_COUNSELING,HIGH
+8955,"USF Health Department of Pediatrics, Early Steps Program",N,https://health.usf.edu/care/pediatrics/services-specialties/early-steps,"IDEA Part C early intervention programme, not ABA",,aba,GOVERNMENT_AGENCY,MEDIUM
+7006,Space Coast Discovery,N,http://spacecoastdiscovery.org/,"Private academy, infant care through primary school",,aba,SCHOOL,MEDIUM
+6758,Main Street Children's Dentistry and Orthodontics of Miami Beach,N,https://www.mainstreetsmiles.com/dentist-office/miami-beach-fl-33140,Paediatric dental and orthodontic office; no therapy services,,aba,DENTAL_MEDICAL,HIGH
+6967,Children's Rehab PPEC - Miami Gardens,N,https://childrensrehabppec.com/ppec-in-miami-gardens-fl/,PPEC centre for medically fragile children,,,PPEC,HIGH
+8774,Easterseals South Florida - Miami Gardens (Ophelia Brown),Y,https://southflorida.easterseals.com/get-support/areas-of-support/education-services/child-development-center,"Early-intervention child development centre with onsite OT, PT, ST",speech-therapy|occupational-therapy|physical-therapy,parent-coaching|group-therapy,DAYCARE,MEDIUM
+8865,KidSpace Therapy Center,Y,http://kidspacetherapycenter.com/about-us/,Paediatric outpatient therapy clinic serving developmental delays,speech-therapy|physical-therapy|occupational-therapy|feeding-therapy,virtual-therapy,THERAPY_PROVIDER,MEDIUM
+6353,Fataj Transition & Learning Center LLC,Y,https://www.fatajtlc.com/,"BCBA-led ABA clinic and academy for autism, ages 2-12",,,ABA_PROVIDER,HIGH
+8826,Devereux Palm Bay Group Home,Y,http://www.devereux.org/site/PageServer?pagename=fl_autism_idd,"Brevard IDD group homes using ABA, with skill development",life-skills,,GROUP_HOME,HIGH
+6998,Rivers Edge Adult Day Care,UNKNOWN,,Adult day care; population elderly versus DD unresolved,,,UNKNOWN,LOW
+7115,Space Coast Mobility,N,https://spacecoastmobility.com/,"Mobility scooter, wheelchair and lift chair dealer",,aba,EQUIPMENT_SUPPLIER,HIGH
+5854,Brain Balance Palm Beach Gardens,N,https://www.brainbalancecenters.com/locations/florida/palm-beach-gardens,"Non-medical cognitive training franchise, not clinical therapy",,,FITNESS_WELLNESS,MEDIUM
+7025,Project Brilliance Palm Beach Gardens,Y,http://www.projectbrilliance.com/,ABA provider with social skills groups and parent training,group-therapy|parent-coaching,ados-testing,ABA_PROVIDER,HIGH
+5845,Lifespan Psychiatric Services,N,https://lifespanpsychiatricservices.com/,Psychiatry and medication management; no behaviour analysis,,aba,MENTAL_HEALTH_COUNSELING,HIGH
+6562,ACTS Therapeutic Group Home,N,https://www.actsfl.org/,Substance use and mental health residential treatment agency,,,GROUP_HOME,HIGH
+10712,ABA Foundations - Palm Beach Gardens,Y,https://abafoundations.com,ABA provider for autism; centre and in-home services,aba|parent-coaching|mobile-services,virtual-therapy,ABA_PROVIDER,HIGH
+10613,Abacus Therapies - Palm Beach Gardens,Y,https://abacustherapies.com/,"ABA provider for autistic children, in-home and school-based",mobile-services,parent-coaching,ABA_PROVIDER,HIGH

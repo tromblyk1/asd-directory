@@ -1,0 +1,111 @@
+id,name,city,input_address,matched_address,latitude,longitude,geocode_method,notes
+7098,"Hancock-Smith Pediatric & Behavioral Health, LLC",Alachua,13900 TECH CITY CIR,,,,FAILED,No Census match after 2 attempts
+6066,UNIQUE CARING OPPORTUNITIES INC.,Alachua,15604 NW 140TH ST,,,,FAILED,No Census match after 2 attempts
+6390,ANGELIC COMPANION SERVICES,Altamonte Springs,498 PALM SPRINGS DR STE 100,,,,FAILED,No Census match after 2 attempts
+9505,"Dr. Daniel Komforti, PT, DPT",Altamonte Springs,860 N STATE RD 434,,,,FAILED,No Census match after 2 attempts
+9401,"Talk the Talk Pediatric Therapy, LLC",Apollo Beach,300 FRANDORSON CIR,,,,FAILED,No Census match after 2 attempts
+6281,"RIDGE AREA ARC, INC.",Avon Park,4352 INDEPENDENCE ST,,,,FAILED,No Census match after 2 attempts
+6401,"HABILITATION CENTER FOR THE HANDICAPPED, INC.",Boca Raton,22313 BOCA RIO ROAD,,,,FAILED,No Census match after 2 attempts
+7942,Select Physical Therapy - Cay West,Cape Coral,1715 CAPE CORAL PKWY W,,,,FAILED,No Census match after 2 attempts
+8934,"THE ARC OF LEVY COUNTY, INC.",Chiefland,7550 149 PL,,,,FAILED,No Census match after 2 attempts
+9054,NEED A HAND? CALL ANN,Clearwater,4300 E BAY DR LOT 106,,,,FAILED,No Census match after 2 attempts
+10267,Barrett Outpatient Rehabilitation & Sports Medicine Center,Clearwater,430 MORTON PLANT ST # 101,,,,FAILED,No Census match after 2 attempts
+10148,Brooks Rehabilitation Outpatient Clinic - Deltona,Deltona,3400 HALIFAX CROSSING BLVD,,,,FAILED,No Census match after 2 attempts
+10004,Wolfson Children's Specialty Center - Baptist Clay,Fleming Island,1747 BAPTIST CLAY DR,,,,FAILED,No Census match after 2 attempts
+7575,Island Cove Behavioral Pediatrics,Fleming Island,1831 GOLDEN EAGLE WAY,,,,FAILED,No Census match after 2 attempts
+10235,Wolfson Children's Rehabilitation - Wolfson Children’s Specialty Center - Baptist Clay,Fleming Island,1747 BAPTIST CLAY DR SUITE 100,,,,FAILED,No Census match after 2 attempts
+7366,Evolutions Treatment Center - Ft Lauderdale,Fort Lauderdale,2901 W CYPRESS CREEK RD,,,,FAILED,No Census match after 2 attempts
+9433,XPE Sports Rehab,Fort Lauderdale,5300 POWERLINE RD,,,,FAILED,No Census match after 2 attempts
+8504,Sunshine Kidz Pediatric Care - Ft Lauderdale,Fort Lauderdale,2122 W CYPRESS CREEK RD,,,,FAILED,No Census match after 2 attempts
+9535,Total MD,Fort Lauderdale,2700 W CYPRESS CREEK RD STE C100,"2700 CYPRESS LN, FORT LAUDERDALE, FL, 33332",,,REJECTED_BAD_MATCH,"Census returned ""2700 CYPRESS LN, FORT LAUDERDALE, FL, 33332""; street name CYPRESS CREEK != CYPRESS; street type RD != LN; directional W != (none); zip 33309 != 33332"
+9678,Hernandez Therapy Clinic,Fort Lauderdale,2950 W CYPRESS CREEK RD,,,,FAILED,No Census match after 2 attempts
+9890,CORA Physical Therapy Fort Myers,Fort Myers,6900 DANIELS PKWY,,,,FAILED,No Census match after 2 attempts
+8066,Helping Hands,Gainesville,GAINESVILLE,,,,FAILED,No Census match after 2 attempts
+6226,SUCCESS AT WORK,Hialeah,5800 PALM AVE,,,,FAILED,No Census match after 2 attempts
+6166,"D & D REHAB CENTER, INC",Hialeah,3412 W 84TH ST # E106,,,,FAILED,No Census match after 2 attempts
+6162,AMERICAN HOME HEALTH PROVIDERS CORP.,Hialeah,3408 W 84TH ST STE 203,,,,FAILED,No Census match after 2 attempts
+10060,Loving Angels PPEC,Hialeah,13115 W OKEECHOBEE RD,,,,FAILED,No Census match after 2 attempts
+8434,Inspire Vision Therapy and Rehab,Hollywood,3475 Sheridan Street Suite 206,"3475 SHERIDAN ST, HOLLYWOOD, FL, 33021",26.033077,-80.178770,CENSUS,
+7592,Joe DiMaggio Children’s Hospital,Hollywood,1005 JOE DIMAGGIO DR,,,,FAILED,No Census match after 2 attempts
+7672,Select Physical Therapy - Hollywood,Hollywood,3325 HOLLYWOOD BLVD,,,,FAILED,No Census match after 2 attempts
+9325,My Kid Therapy Center - ABA Therapy in Miami,Homestead,1180 N KROME AVE,,,,FAILED,No Census match after 2 attempts
+5777,BUSH BRIANNA N,Jacksonville,6528 SWEETBAY LN APT 102,,,,FAILED,No Census match after 2 attempts
+8490,Baptist Behavioral Health - Wolfson Children's Bridge Program,Jacksonville,"836 Prudential Drive Pavilion Building, Suite 1507","836 PRUDENTIAL DR, JACKSONVILLE, FL, 32207",30.316226,-81.663967,CENSUS,"Ignored trailing building designator ""PAVILION"" in input"
+9561,Premier Physical Therapy,Jacksonville,4230 PABLO PROFESSIONAL CT,,,,FAILED,No Census match after 2 attempts
+9972,Reunion Rehabilitation Hospital Jacksonville,Jacksonville,12645 SALINA DR,,,,FAILED,No Census match after 2 attempts
+10096,Wolfson Children's Rehabilitation - Baptist Medical Center Beaches,Jacksonville Beach,"1375 Roberts Drive MOB B, Suite 202B","1375 ROBERTS DR, JACKSONVILLE BEACH, FL, 32250",30.273269,-81.400497,CENSUS,
+6463,"HPS, HELPING PEOPLE SUCCEED, INC.",Jensen Beach,1601 NE SUCCESS DRIVE,,,,FAILED,No Census match after 2 attempts
+9747,Sloane Stecker Physical Therapy - Jupiter,Jupiter,1155 MAIN ST STE 101,,,,FAILED,No Census match after 2 attempts
+10398,Beyond Speaking Rehab Specialists,Kissimmee,3485 W VINE ST SUITE 3485,,,,FAILED,No Census match after 2 attempts
+10202,EARLY INTERVENTION SOLUTIONS LLC,Land O Lakes,5424 LAND O' LAKES BLVD,,,,FAILED,No Census match after 2 attempts
+9637,"Advanced Rehabilitation, Inc",Largo,3690 E BAY DR S,,,,FAILED,No Census match after 2 attempts
+6383,"THE ARC NORTH FLORIDA, INC",Live Oak,511 GOLDKIST BLVD SW,,,,FAILED,No Census match after 2 attempts
+9316,A+ Handwriting Occupational Therapy,Lutz,SHEFFIELD PARK DR,,,,FAILED,No Census match after 2 attempts
+10556,St. John the Evangelist Catholic Community,Melbourne,"5645 Stadium Pkwy, Melbourne, FL 32940",,,,FAILED,No Census match after 2 attempts
+9786,"Behavior Basics, Inc., Brevard Office",Melbourne,2401 W EAU GALLIE BLVD,,,,FAILED,No Census match after 2 attempts
+9626,Honor Murphy Physical Therapy Solutions,Melbourne,2176 Sarno Road Suite 102,"2176 SARNO RD, MELBOURNE, FL, 32935",28.121725,-80.656861,CENSUS,
+10000,Lemon City Collective,Miami,7201 NE 4th Avenue Suite 105,"7201 NE 4TH AVE, MIAMI, FL, 33138",25.840314,-80.188595,CENSUS,
+10010,DREAM HOPE & BELIEVE THERAPY CORP,Miami,13155 SW 134TH ST SUITE 218 & 219,,,,FAILED,No Census match after 2 attempts
+9317,A Touch of Hope Occupational Therapy - Miami,Miami,19400 TURNBERRY WAY APT 812,,,,FAILED,No Census match after 2 attempts
+6192,HOUSING AND ASSISTIVE TECHNOLOGY IN,Miami,2000 TOWERSIDE TER APT 505,,,,FAILED,No Census match after 2 attempts
+10011,My Big World Inc,Miami,8785 SW 165TH AVE SUITE 101,,,,FAILED,No Census match after 2 attempts
+9350,Super Hero Speech,Miami,13155 SW 134TH ST,,,,FAILED,No Census match after 2 attempts
+9334,S.U.C.C.E.ED in Learning,Miami,6035 BIRD RD,,,,FAILED,No Census match after 2 attempts
+9815,Nicklaus Children’s Hospital,Miami,3100 SW 62nd Avenue,"3100 SW 62ND AVE, MIAMI, FL, 33155",25.742535,-80.295212,CENSUS,
+5766,E&R HEALTH CARE INC.,Miami,12750 NW 17TH ST UNIT 111,"12750 NW 17TH AVE, MIAMI, FL, 33167",,,REJECTED_BAD_MATCH,"Census returned ""12750 NW 17TH AVE, MIAMI, FL, 33167""; street type ST != AVE; zip 33182 != 33167"
+9458,AnatomyPT • Physical Therapy & Orthotics,Miami Beach,301 ARTHUR GODFREY RD,,,,FAILED,No Census match after 2 attempts
+9408,Always Keep Progressing - North Miami Beach - 16800 Nw 2nd Ave,Miami Gardens,16800 NW 2ND AVE,,,,FAILED,No Census match after 2 attempts
+9841,Physical Therapy NOW Miami Lakes,Miami Lakes,15985 NW 57TH AVE,,,,FAILED,No Census match after 2 attempts
+7967,Select Physical Therapy - Miami Lakes,Miami Lakes,15150 BULL RUN RD,,,,FAILED,No Census match after 2 attempts
+6439,KEY FITS SOLUTIONS LLC,Milton,3996 AVALON BLVD STE 100-C,,,,FAILED,No Census match after 2 attempts
+9568,Apollo Rehab Miramar,Miramar,3400 Lakeside Drive Suite 103,"3400 LAKESIDE DR, MIRAMAR, FL, 33027",25.974897,-80.344436,CENSUS,
+6344,Easterseals LEAP Program - Naples,Naples,8793 TAMIAMI TRL E STE 111,,,,FAILED,No Census match after 2 attempts
+7360,FISIOCORP MIAMI LLC,North Bay Village,1440 79TH STREET CAUSEWAY,,,,FAILED,No Census match after 2 attempts
+9426,Physical Therapy Time,North Miami Beach,1380 NE MIAMI GARDENS DR,,,,FAILED,No Census match after 2 attempts
+9309,"Alyssa Frey CranioSacral and Occupational Therapist CST, OT",North Palm Beach,300 MERCURY RD,,,,FAILED,No Census match after 2 attempts
+7653,Challenges Conquered Counseling Services,Oakland Park,800 E CYPRESS CREEK RD,,,,FAILED,No Census match after 2 attempts
+10215,PT Solutions of Oldsmar (formerly Westchase Physical Therapy),Oldsmar,3953 TAMPA RD,,,,FAILED,No Census match after 2 attempts
+8199,Brilliant Brains Behavior Services LLC,Oldsmar,3970 TAMPA RD SUITE E,,,,FAILED,No Census match after 2 attempts
+9173,Small Talk Speech Therapy (Orange Park),Orange Park,1700 WELLS RD STE 18,,,,FAILED,No Census match after 2 attempts
+9794,Department of Communication Sciences and Disorders,Orlando,3280 Progress Drive Suite 500,"3280 PROGRESS DR, ORLANDO, FL, 32826",28.588962,-81.199061,CENSUS,
+10249,AMP PEDIATRIC THERAPY,Orlando,6900 TAVISTOCK LAKES BLVD,,,,FAILED,No Census match after 2 attempts
+9256,"Sweet Speech, LLC",Oviedo,OVIEDO,,,,FAILED,No Census match after 2 attempts
+9900,AxisPro Physical Therapy & Hand clinic - Palm Bay,Palm Bay,5240 BABCOCK ST NE # 102,,,,FAILED,No Census match after 2 attempts
+9292,"Little Harbor Therapy, LLC",Palm Beach Gardens,JUPITER,,,,FAILED,No Census match after 2 attempts
+9324,"Holistic Family Occupational Therapy, LLC - Palm Springs",Palm Springs,2290 10TH AVE N,,,,FAILED,No Census match after 2 attempts
+9783,Apollo Rehab Parkland,Parkland,7635 N STATE RD 7,,,,FAILED,No Census match after 2 attempts
+8720,"PEGGY JOYCE HARGROVE
+JOYCE LOVE & CARE HOME",Plant City,3304 SAN MOISE PL,,,,FAILED,No Census match after 2 attempts
+10229,Wolfson Children's Rehabilitation - HealthPlace at Nocatee,Ponte Vedra,400 Colonnade Drive Suite 110,"400 COLONNADE DR, PONTE VEDRA, FL, 32081",30.110994,-81.430544,CENSUS,
+9664,MaternalFit Pelvic Physical Therapy,Port Orange,3930 S Nova Road Suite 205,"3930 S NOVA RD, PORT ORANGE, FL, 32127",29.120102,-81.000937,CENSUS,
+9949,CORA Physical Therapy St. Lucie West,Port St. Lucie,1707 ST LUCIE W BLVD,,,,FAILED,No Census match after 2 attempts
+7331,Select Physical Therapy - Port St Lucie,Port St. Lucie,156 NW CALIFORNIA BLVD,,,,FAILED,No Census match after 2 attempts
+9680,Action Physical Therapy,Port St. Lucie,1680 ST LUCIE W BLVD,,,,FAILED,No Census match after 2 attempts
+10078,North Florida Therapy Services,Quincy,860 Strong Road,"860 STRONG RD, QUINCY, FL, 32351",30.566901,-84.555768,CENSUS,
+9509,Rejuvenate Physical Therapy,Safety Harbor,1803 BRIAR CREEK BLVD,,,,FAILED,No Census match after 2 attempts
+9670,Mease Countryside Physical Therapy & Sports Rehabilitation,Safety Harbor,3251 MCMULLEN BOOTH RD STE 200,,,,FAILED,No Census match after 2 attempts
+9797,3 C's Therapy Center,Sanford,4019 W 1ST ST,,,,FAILED,No Census match after 2 attempts
+7314,Select Physical Therapy - Sebastian,Sebastian,1424 U.S. RTE 1 SUITE B,,,,FAILED,No Census match after 2 attempts
+9517,Longevity Rehab Center - Sebastian,Sebastian,13000 U.S. RTE 1 STE 7,,,,FAILED,No Census match after 2 attempts
+9235,FSU School of Communication Science and Disorders,Tallahassee,201 W Bloxham St Warren Building,"201 W BLOXHAM ST, TALLAHASSEE, FL, 32301",30.434504,-84.283131,CENSUS,"Adjacent ZIP: input 32306, Census 32301; Ignored trailing building designator ""WARREN"" in input"
+8475,Children's Learning Clinic,Tallahassee,1107 W Call St,"1107 W CALL ST, TALLAHASSEE, FL, 32304",30.444226,-84.299429,CENSUS,"Adjacent ZIP: input 32306, Census 32304"
+7459,Behavior Management Consultants - 4820 Kerry Forest Pkwy,Tallahassee,4820 KERRY FOREST PKWY,,,,FAILED,No Census match after 2 attempts
+10227,LifeCare Therapy,Tamarac,7777 N UNIVERSITY DR # 101S,,,,FAILED,No Census match after 2 attempts
+9439,Physical Therapy Associates of South Florida,Tamarac,7171 N UNIVERSITY DR,,,,FAILED,No Census match after 2 attempts
+6474,BEBES NURSING CARE LLC,Tamarac,7171 N UNIVERSITY DR STE 205,,,,FAILED,No Census match after 2 attempts
+7661,Select Physical Therapy - Tamarac,Tamarac,7160 N UNIVERSITY DR,,,,FAILED,No Census match after 2 attempts
+5835,"Quest, Inc. Training Center & Tampa Corporate Office",Tampa,3910 US-301,,,,FAILED,No Census match after 2 attempts
+8689,MERCED CARE HOME LLC,Tampa,4701 N HABANA AVE,,,,FAILED,No Census match after 2 attempts
+9962,Pelvic Solutions,Tampa,307 S BOULEVARD B,,,,FAILED,No Census match after 2 attempts
+6267,DGAN LLC,Tampa,6802 LAKEVIEW CENTER DR STE 500,,,,FAILED,No Census match after 2 attempts
+5808,Quest Kids Therapy - Tampa - 3910 Us-301,Tampa,3910 US-301,,,,FAILED,No Census match after 2 attempts
+9254,"Our Speech Garden, LLC.",Tampa,TAMPA,,,,FAILED,No Census match after 2 attempts
+9960,Optimal Performance & PT,Tampa,1812,,,,FAILED,No Census match after 2 attempts
+9307,Spellers Center Tampa - Occupational Therapy for Nonverbal Individuals with Autism/ Apraxia,Trinity,1816 HEALTH CARE DR,,,,FAILED,No Census match after 2 attempts
+10241,Purposeful Play Pediatric Therapy,Venice,680 U.S. 41 BYPASS N SUITE 2,,,,FAILED,No Census match after 2 attempts
+9203,The Learning Experience - West Melbourne,West Melbourne,4470 HOLLYWOOD BLVD,,,,FAILED,No Census match after 2 attempts
+6398,C INDIVIDUALS TRANSITION TO WORK INC.,West Palm Beach,4949 ALORA ISLES DR APT 1116,,,,FAILED,No Census match after 2 attempts
+9662,Paley Orthopedic & Spine Institute,West Palm Beach,KIMMEL 901,,,,FAILED,No Census match after 2 attempts
+8632,ABLE LIFE CARE SERVICES,West Palm Beach,4728 ALORA ISLES DR APT 7211,,,,FAILED,No Census match after 2 attempts
+9059,"MILESTONES OF EXCELLENCE, LLC",Winter Haven,2013 PINE PL APT 112,,,,FAILED,No Census match after 2 attempts
+6284,"THE ARC NASSAU, INC.",Yulee,86051 HAMILTON STREET,,,,FAILED,No Census match after 2 attempts

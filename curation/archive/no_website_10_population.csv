@@ -1,0 +1,14 @@
+id,name,city,population_focus,disposition,evidence_url,basis
+5810,"S&A BEAU2FUL BLESSINGS GROUP HOME, LLC",Clearwater,UNCLEAR,UNKNOWN,,"Indeed page loaded but shows only industry 'Private Households', no population. DSP job titles appeared in search-result listings I did not load, so they do not qualify as page evidence."
+6207,TAMPA BAY GROUP HOMES INC,Clearwater,UNCLEAR,UNKNOWN,,"Mirador page loaded categorises it 'Assisted Living' but the description is generic template text and never names an elderly population. Florida ALFs also house DD adults, so category alone does not settle it. LinkedIn robots-blocked."
+6061,"BREVARD CO. BOARD CO. COMMISSIONERS
+SPACE COAST AREA TRANSIT",Cocoa,N/A,N/A,https://321transit.com/,"County public transit agency, not a residential or care provider - DD-vs-elderly test does not apply. Separate question whether a transit authority belongs in the directory at all."
+6395,"ENHANCED LIVING CONSULTANTS, INC
+E 7 B ALF, INC",Coconut Creek,DISABILITY,KEEPER,https://homemods.org/directory/enhanced-living-consultants-inc/,"Directory page states accessibility home modifications for people with disabilities. Disability-focused, but a contractor rather than a care provider - confirm that service type belongs. The record's second name 'E 7 B ALF, INC' returns nothing and may be a different business."
+6057,"REST ASSURED HOME CARE, LLC",Cutler Bay,UNCLEAR,UNKNOWN,,No page describing the organisation could be loaded. State FloridaHealthFinder profile returned an empty template; respitecareservicescutlerbay.com is a spoofed domain.
+6077,DIVINE CHOICE HOME HEALTH AGENCY LLC,Deland,UNCLEAR,UNKNOWN,,"Vitadox listing loaded gives practice types Home Health Agency / Home Health Aide / Assisted Living; its ALF definition says 'functionally impaired adult', not elderly specifically. Population not established."
+6073,STAR RISE HOME CARE LLC,Deland,ELDERLY,FLAG_ELDERLY,https://starrisehomecare.org/,"Own site loaded and states personal care, hygiene assistance and medication management with particular emphasis on elderly clients."
+6137,BLESSED HOME CARE LLC,Dunedin,UNCLEAR,UNKNOWN,,Two searches returned nothing about this organisation. No page found.
+8642,GENTLE HOME CARE OF CENTRAL FLORIDA,Eustis,ELDERLY,FLAG_ELDERLY,https://www.indeed.com/cmp/Gentle-Home-Care-of-Central-Florida,"Indeed company page loaded lists posted roles Caregiver, In Home Caregiver, Older Adult Companion, Support Worker. 'Older Adult Companion' is explicit elder-care staffing. Note salary data is filed under Spring Hill, not Eustis."
+6334,"ASCEND TRANSITION SERVICES CORP
+ASCEND TRANSITION SERVICES",Fort Myers,DD,KEEPER,https://www.ascendswfl.com/,"Own site loaded: life skills programs, personal care, respite and nursing for adults 21+ with intellectual and developmental disabilities. Clearly DD-focused."

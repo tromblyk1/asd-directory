@@ -1,0 +1,27 @@
+Priority change. The pSEO track ran an audit on the verified flag and found that verified is 
+an import-source label, not a per-record confirmation. Full findings are in 
+curation/verified_flag_audit_2026-08-17.md in the repo.
+
+The part that belongs to this track: the FL-DD Database import is 587 provider rows, and 504 
+of them (86%) carry the aba service tag. FL-DD is a Florida Medicaid waiver provider registry 
+covering all developmental disability service types, so that tag was applied as a blanket 
+mapping, not per provider. Spot-checking the St. Petersburg subset found a recycling 
+nonprofit, an assisted living facility, an arts center, several group homes and home care 
+agencies, and one individual's personal name, all tagged aba and all marked verified.
+
+These are live on the site right now in ABA search results, and we have a paying Featured 
+customer competing against them.
+
+Three things I need from this track:
+1. Sample 30 FL-DD rows across the whole import and classify which are genuinely ABA 
+   providers, so we can size the correction.
+2. Tell me what the FL-DD import's other quality problems are - the audit already found 
+   embedded newlines in 96 names, 579 of 587 names all-caps, and phone numbers with invalid 
+   or out-of-state area codes.
+3. Recommend whether the fix is retagging services on these records, deleting a subset, or 
+   suppressing the whole source from public listings until it can be worked through.
+
+This is now ahead of the queued 201-record services backfill in priority, because that 
+backfill also concentrates on aba and would add to the same problem.
+
+Database only. No code changes.

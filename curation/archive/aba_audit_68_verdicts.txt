@@ -1,0 +1,70 @@
+aba_audit_68_verdicts.csv written to the curation folder.
+
+Closing report — 71 rows (73 in the file, minus the two you told me to disregard):
+
+Y = 21 · N = 48 · UNKNOWN = 2 · 105 sources across the retained records, max 3 on any one.
+
+actual_type	n		actual_type	n
+THERAPY_PROVIDER	21		GOVERNMENT_AGENCY	3
+CHIROPRACTIC	12		PPEC	3
+MEDICAL_OTHER	12		OTHER	2
+FITNESS_WELLNESS	6		SCHOOL	2
+HOME_CARE	5		GROUP_HOME	2
+UNKNOWN	2		DAYCARE	1
+
+Three things I had to reconcile across subagents rather than pass through:
+
+The two Spark Pediatrics PPECs came back with opposite verdicts on identical facts. I fetched the Stuart page myself to settle it: their population is tracheostomy, ventilator dependency, seizure disorders, failure to thrive — medically complex children, with autism and developmental disability never named. Both are now N, PPEC, with the three therapy tags marked supported since they genuinely deliver them. The failure is population, not service.
+
+9415 and 6984 are the same organization — ChildGarden Center, same website, one filed as "Lake Worth" and one "Lake Worth Beach." One agent returned Y, the other returned UNKNOWN while simultaneously describing it as a pediatric ABA clinic with HIGH confidence. Both are now Y. 9641 and 9490 are also duplicates — Orlando City Health and Wellness, same site, both N. Two duplicate pairs in one batch.
+
+I verified the Devereux URL myself because it looked constructed. It loads, and it explicitly describes Brevard County I/DD group homes using applied behavior analysis — so 8826 is a legitimate Y.
+
+Now, on the 28 spec you just sent. aba_audit_28.csv exists in the folder, 3,996 bytes.
+
+Its taxonomy is strictly finer than the one you gave me for this batch, and that's a problem for merging. Roughly 17 of my 71 rows would carry a more precise type under it:
+
+ABA_PROVIDER would split out of my THERAPY_PROVIDER bucket — ABA Foundations, Abacus, Fataj, Project Brilliance, Quest Kids, both ChildGarden rows (7 rows).
+MENTAL_HEALTH_COUNSELING would replace MEDICAL_OTHER for Serenity Space, Gardened Mind, The Garden Counseling, A Safe Space, NeuroSpa, Lifespan Psychiatric (6 rows).
+DENTAL_MEDICAL for Main Street Children's Dentistry, UNIVERSITY_DEPARTMENT for the UF OT department and arguably UCF Communication Sciences, EQUIPMENT_SUPPLIER for Space Coast Mobility (4 rows).
+
+No verdict would change — the new rules about fitness "behavior change" coaching and counseling-isn't-ABA match the calls I already made. It's purely type precision. But UCF Communication Sciences is the one genuine edge case: I typed it THERAPY_PROVIDER and gave it Y because it runs a public clinic. Your new rule says a university department that trains clinicians isn't a clinic, but if it operates a public clinic, name it. Under the finer taxonomy it's UNIVERSITY_DEPARTMENT with the clinic named — same Y, different type.
+
+One more thing worth your attention: Vocational Rehabilitation (6596) I typed GOVERNMENT_AGENCY. Your new spec distinguishes FUNDING_AGENCY, and VR both funds and provides services, so that one needs your call on which side it lands.
+
+The 68 and 28 batches now have incompatible actual_type vocabularies. How do you want them reconciled?
+Run 28, then re-type 68 to match (Recommended)
+Ran a command, used a tool
+
+28 rows exactly, all with websites. Ten of them are records I just audited in the 68 batch — 7483, 7203, 6573, 6778, 7361, 8955, 7006, 6758, 7115, 5845 — with identical services_txt. I'll carry those verdicts over rather than re-spend sources, and research the 18 new ones.
+
+Ran 3 commands, ran 3 agents, used 2 tools · 2 notes
+
+Both files written to the curation folder. aba_audit_68_verdicts.csv has been reissued in place with the finer vocabulary — 22 rows re-typed, no verdict changed.
+
+aba_audit_28.csv verified at exactly 28 rows, all with websites.
+
+Closing report — 28 batch: Y = 1 · N = 26 · UNKNOWN = 1 · 27 new sources.
+
+actual_type	n		actual_type	n
+MENTAL_HEALTH_COUNSELING	17		FUNDING_AGENCY	1
+DENTAL_MEDICAL	2		UNIVERSITY_DEPARTMENT	1
+CHIROPRACTIC	2		THERAPY_PROVIDER	1
+FITNESS_WELLNESS	1		GOVERNMENT_AGENCY	1
+SCHOOL	1		EQUIPMENT_SUPPLIER	1
+
+Ten of the 28 were records I'd already settled in the 68 batch with identical services_txt, so I carried those verdicts over and spent zero new sources on them — 27 fetches covered the 18 genuinely new records.
+
+The batch is 17/28 mental health counseling. That's the signature of the bad mapping: something matched "behavioral" or "wellness" in a business name and stamped aba on it. Talk therapy, EMDR, TMS, Spravato, medication management — none of it is behavior analysis.
+
+The one Y is the interesting record. Palm Beach Behavioral Health & Wellness (7181) is a psychology practice, not an ABA provider — but it genuinely performs autism diagnostic evaluations and telehealth. So aba is contradicted while ados-testing and virtual-therapy are supported. It earns Y on a different tag than the one that put it in this batch. Worth noting your three-tag records are the only place that nuance can surface; the 25 single-tag aba records can only be all-or-nothing.
+
+Children's Services Council of Broward (9067) is a funder, not a provider — exactly the distinction your new rule anticipated. It grants money to the organizations that deliver services.
+
+I made one correction to a subagent result: Lakeside Counseling (8821) came back as N with an empty keith_url after its site returned no readable content. N requires positive evidence I can point at, so that's UNKNOWN.
+
+On the re-typed 68 file, two calls you should sanity-check:
+
+UCF Communication Sciences and Disorders (9794) moved from THERAPY_PROVIDER to UNIVERSITY_DEPARTMENT but kept its Y, because it runs a public speech clinic treating toddlers through adults. Under your rule it's a department, but the Y stands on the clinic. I didn't name the clinic in the note because I couldn't verify its proper name.
+
+Vocational Rehabilitation (6596) I left as GOVERNMENT_AGENCY rather than FUNDING_AGENCY. Florida VR both purchases and delivers employment services, so it sits on the line your new rule draws — your call which side it belongs on.

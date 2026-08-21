@@ -1,0 +1,29 @@
+id,name,keith_verdict,keith_url,keith_note,services_supported,services_contradicted,actual_type,confidence
+7181,Palm Beach Behavioral Health & Wellness,Y,https://www.pbbhw.com/,Psychology practice doing autism diagnostic evaluations and telehealth,ados-testing|virtual-therapy,aba,MENTAL_HEALTH_COUNSELING,MEDIUM
+7483,"BFITT Athletic Training & Fitness Institute, Inc.",N,https://www.atfipro.com/,"Corporate wellness, fitness coaching, athletic training; no ABA",,aba,FITNESS_WELLNESS,HIGH
+7203,A Safe Space Mental Health Counseling and Wellness LLC,N,https://www.psychologytoday.com/us/therapists/lisa-ellis-daytona-beach-fl/436806,"Talk-therapy counselling practice: depression, anxiety, trauma",,aba,MENTAL_HEALTH_COUNSELING,MEDIUM
+9067,Children's Services Council of Broward County,N,https://www.cscbroward.org/,County funding agency granting money to service providers,,aba,FUNDING_AGENCY,HIGH
+6573,Serenity Space Therapy,N,https://www.serenityspacetherapy.net/,"Adult mental-health counselling; EMDR, trauma, anxiety",,aba,MENTAL_HEALTH_COUNSELING,HIGH
+6778,Department of Occupational Therapy,N,https://phhp.ufl.edu/about/departments/occupational-therapy/,University academic department: OT degrees and research,,aba,UNIVERSITY_DEPARTMENT,HIGH
+6616,"Every Girl Living- Counseling, Coaching, Wellness Consulting, Yoga",N,https://www.everygirlliving.com/,"Women's counselling, life coaching and yoga wellness practice",,aba,MENTAL_HEALTH_COUNSELING,HIGH
+6788,Grow the Vine Speech & Wellness,N,https://www.gtvspeechgym.com/services-7,"Speech-language pathology; swallowing, voice, tongue-tie therapy",,aba,THERAPY_PROVIDER,HIGH
+6751,Learning to Achieve Wellness - TMS Therapy & Spravato,N,https://learningtoachievewellness.com/,"Psychiatric practice: TMS, Spravato, medication management, talk therapy",,aba,MENTAL_HEALTH_COUNSELING,HIGH
+7361,NeuroSpa,N,https://www.neurospamentalhealth.com/locations/lakeland/,"TMS, ketamine and psychiatry clinic for adults",,aba,MENTAL_HEALTH_COUNSELING,HIGH
+6805,"Tri-County Human Services, Inc.",N,https://tchsonline.org/,Substance use and mental health nonprofit with residential detox,,aba,MENTAL_HEALTH_COUNSELING,HIGH
+8955,"USF Health Department of Pediatrics, Early Steps Program",N,https://health.usf.edu/care/pediatrics/services-specialties/early-steps,"IDEA Part C early intervention programme, not ABA",,aba,GOVERNMENT_AGENCY,MEDIUM
+8881,Health First Behavioral Wellness,N,https://hf.org/healthcare-home/behavioral-health/mental-health-services,"Hospital outpatient behavioural health, adult mental health programmes",,aba,MENTAL_HEALTH_COUNSELING,HIGH
+7006,Space Coast Discovery,N,http://spacecoastdiscovery.org/,"Private academy, infant care through primary school",,aba,SCHOOL,MEDIUM
+7351,Envision Wellness,N,https://envisionwellness.co/,"Psychology practice: therapy plus IQ, ADHD, psychoeducational testing",,aba,MENTAL_HEALTH_COUNSELING,HIGH
+6758,Main Street Children's Dentistry and Orthodontics of Miami Beach,N,https://www.mainstreetsmiles.com/dentist-office/miami-beach-fl-33140,Paediatric dental and orthodontic practice; no therapy services,,aba,DENTAL_MEDICAL,HIGH
+7017,Vitality Health & Wellness,N,https://www.vhw.co/,Concierge functional medicine and psychiatry practice,,aba,DENTAL_MEDICAL,MEDIUM
+7261,Salix Behavioral and Wellness Services,N,https://www.salixbw.com/,"Psychotherapy practice using CBT, DBT-informed skills, art therapy",,aba,MENTAL_HEALTH_COUNSELING,HIGH
+7115,Space Coast Mobility,N,https://spacecoastmobility.com/,"Mobility scooter, wheelchair and lift chair dealer",,aba,EQUIPMENT_SUPPLIER,HIGH
+8821,Lakeside Counseling and Wellness Center,UNKNOWN,,Counselling centre; own site returned no readable content,,,MENTAL_HEALTH_COUNSELING,LOW
+9140,Papillon Health and Wellness Psychotherapy,N,https://papillonhealthandwellness.com/,"Trauma-informed psychotherapy, clinical supervision, professional coaching",,aba,MENTAL_HEALTH_COUNSELING,HIGH
+7102,Achieve Wellness Group,N,https://www.psychologytoday.com/us/therapists/achieve-wellness-group-llc-spring-hill-fl/154004,Psychotherapy practice; CBT for adults and seniors,,aba,MENTAL_HEALTH_COUNSELING,HIGH
+8829,"Inspire Wellness Counseling, LLC - Linda Spenceley, LMHC",N,https://lindalmhc.com/,Solo LMHC individual and couples talk therapy,,aba,MENTAL_HEALTH_COUNSELING,HIGH
+6688,Believe Hope Inspire Wellness Services LLC,N,https://believehopeinspire.com/,Solo LCSW counselling practice for individuals and couples,,aba,MENTAL_HEALTH_COUNSELING,HIGH
+5845,Lifespan Psychiatric Services,N,https://lifespanpsychiatricservices.com/,Psychiatry and medication management; no behaviour analysis,,aba,MENTAL_HEALTH_COUNSELING,HIGH
+8841,North Florida Spine and Wellness,N,http://www.healthytallahassee.com/,Chiropractic and functional medicine clinic,,aba,CHIROPRACTIC,HIGH
+7390,Pathway Wellness,N,https://www.pathwaywellness.com/,Adult chiropractic and longevity wellness clinic,,aba,CHIROPRACTIC,HIGH
+6652,Restoration and Wellness Counseling Center,N,https://www.psychologytoday.com/us/therapists/tia-baker-tallahassee-fl/860265,"LMHC counselling centre; anxiety, depression, relationships",,aba,MENTAL_HEALTH_COUNSELING,HIGH

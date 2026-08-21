@@ -1,0 +1,227 @@
+service,canonical_city,providers,single_city,multi_city,no_website
+aac,TAMPA,4,0,4,0
+aba,BOYNTON BEACH,4,0,2,2
+aba,BRADENTON,4,0,1,3
+aba,NEW PORT RICHEY,4,0,1,3
+aba,OCALA,4,0,0,4
+aba,PALM HARBOR,4,0,1,3
+aba,SEMINOLE,4,0,0,4
+aba,VERO BEACH,4,0,1,3
+ados-testing,HOLLYWOOD,4,0,4,0
+group-therapy,BRANDON,4,0,4,0
+life-skills,BRADENTON,4,0,1,3
+life-skills,PALM HARBOR,4,0,0,4
+life-skills,PLANTATION,4,0,0,4
+life-skills,SEMINOLE,4,0,0,4
+life-skills,TEMPLE TERRACE,4,0,0,4
+mobile-services,MIAMI,4,0,4,0
+physical-therapy,BRANDON,4,0,4,0
+physical-therapy,LONGWOOD,4,0,4,0
+residential-program,FORT PIERCE,4,0,0,4
+speech-therapy,NEW PORT RICHEY,4,0,4,0
+aba,APOPKA,3,0,0,3
+aba,DANIA BEACH,3,0,1,2
+aba,KISSIMMEE,3,0,1,2
+aba,LAKE MARY,3,0,1,2
+aba,LAND O LAKES,3,0,0,3
+aba,LEESBURG,3,0,0,3
+aba,OCOEE,3,0,1,2
+aba,PALM BEACH GARDENS,3,0,3,0
+aba,PANAMA CITY,3,0,0,3
+aba,SUNRISE,3,0,2,1
+aba,TEMPLE TERRACE,3,0,0,3
+aba,YULEE,3,0,2,1
+ados-testing,BOCA RATON,3,0,3,0
+animal-therapy,ST. AUGUSTINE,3,0,0,3
+feeding-therapy,LAKELAND,3,0,3,0
+group-therapy,PALM HARBOR,3,0,2,1
+life-skills,COOPER CITY,3,0,0,3
+life-skills,HOMESTEAD,3,0,2,1
+life-skills,LAND O LAKES,3,0,0,3
+life-skills,PINELLAS PARK,3,0,0,3
+life-skills,RUSKIN,3,0,0,3
+mobile-services,BRANDON,3,0,3,0
+mobile-services,CLEARWATER,3,0,1,2
+mobile-services,MIRAMAR,3,0,3,0
+mobile-services,RIVERVIEW,3,0,1,2
+mobile-services,ST. AUGUSTINE,3,0,1,2
+occupational-therapy,NEW PORT RICHEY,3,0,3,0
+occupational-therapy,ORANGE CITY,3,0,3,0
+occupational-therapy,PLANT CITY,3,0,3,0
+parent-coaching,BRANDON,3,0,3,0
+parent-coaching,STUART,3,0,3,0
+physical-therapy,NEW PORT RICHEY,3,0,3,0
+physical-therapy,ORANGE CITY,3,0,3,0
+physical-therapy,PLANT CITY,3,0,3,0
+residential-program,LAUDERHILL,3,0,0,3
+residential-program,MIAMI GARDENS,3,0,0,3
+residential-program,NORTH MIAMI BEACH,3,0,0,3
+speech-therapy,ORANGE CITY,3,0,3,0
+speech-therapy,PLANT CITY,3,0,3,0
+speech-therapy,WESTON,3,0,3,0
+aba,CLERMONT,4,1,2,1
+aba,PENSACOLA,4,1,0,3
+aba,WESLEY CHAPEL,4,1,1,2
+ados-testing,DAVIE,4,1,3,0
+feeding-therapy,CORAL SPRINGS,4,1,3,0
+life-skills,SARASOTA,4,1,0,3
+occupational-therapy,MIAMI GARDENS,4,1,3,0
+occupational-therapy,RIVERVIEW,4,1,3,0
+parent-coaching,MIAMI LAKES,4,1,3,0
+speech-therapy,MIAMI GARDENS,4,1,3,0
+speech-therapy,RIVERVIEW,4,1,3,0
+speech-therapy,WINTER PARK,4,1,3,0
+virtual-therapy,MIAMI LAKES,4,1,3,0
+aba,COOPER CITY,3,1,0,2
+aba,DELTONA,3,1,0,2
+aba,GREENACRES,3,1,0,2
+aba,HOLLY HILL,3,1,0,2
+aba,ORANGE PARK,3,1,1,1
+aba,PINELLAS PARK,3,1,0,2
+ados-testing,MAITLAND,3,1,2,0
+animal-therapy,NAPLES,3,1,0,2
+animal-therapy,ORLANDO,3,1,1,1
+feeding-therapy,SPRING HILL,3,1,2,0
+group-therapy,BOCA RATON,3,1,2,0
+group-therapy,CAPE CORAL,3,1,2,0
+group-therapy,CLERMONT,3,1,2,0
+group-therapy,PALM BEACH GARDENS,3,1,2,0
+group-therapy,STUART,3,1,2,0
+life-skills,ST. AUGUSTINE,3,1,0,2
+life-skills,TAMARAC,3,1,1,1
+life-skills,WINTER PARK,3,1,2,0
+mobile-services,PALM BEACH GARDENS,3,1,2,0
+mobile-services,WESLEY CHAPEL,3,1,1,1
+mobile-services,WEST PALM BEACH,3,1,1,1
+occupational-therapy,BROOKSVILLE,3,1,2,0
+occupational-therapy,LAKE WORTH,3,1,2,0
+occupational-therapy,MIAMI BEACH,3,1,2,0
+occupational-therapy,PALM BAY,3,1,2,0
+occupational-therapy,ST. AUGUSTINE,3,1,2,0
+occupational-therapy,WEST MELBOURNE,3,1,2,0
+occupational-therapy,WESTON,3,1,2,0
+parent-coaching,PALM BEACH GARDENS,3,1,2,0
+parent-coaching,WESTON,3,1,2,0
+parent-coaching,WINTER PARK,3,1,2,0
+physical-therapy,FORT PIERCE,3,1,2,0
+physical-therapy,LAKE WORTH,3,1,2,0
+physical-therapy,RIVERVIEW,3,1,2,0
+physical-therapy,ST. AUGUSTINE,3,1,2,0
+residential-program,BRANDON,3,1,0,2
+residential-program,HIALEAH,3,1,0,2
+residential-program,SUNRISE,3,1,0,2
+speech-therapy,BROOKSVILLE,3,1,2,0
+speech-therapy,DELAND,3,1,2,0
+speech-therapy,ORMOND BEACH,3,1,2,0
+speech-therapy,ST. AUGUSTINE,3,1,2,0
+tutoring,HOLLYWOOD,3,1,2,0
+aba,DUNEDIN,4,2,0,2
+ados-testing,GAINESVILLE,4,2,2,0
+ados-testing,MIAMI,4,2,2,0
+ados-testing,MIAMI LAKES,4,2,2,0
+feeding-therapy,CAPE CORAL,4,2,2,0
+feeding-therapy,PEMBROKE PINES,4,2,2,0
+group-therapy,PEMBROKE PINES,4,2,2,0
+life-skills,BRANDON,4,2,0,2
+life-skills,PALM BAY,4,2,2,0
+occupational-therapy,HUDSON,4,2,2,0
+occupational-therapy,POMPANO BEACH,4,2,2,0
+occupational-therapy,ROYAL PALM BEACH,4,2,2,0
+occupational-therapy,SOUTH MIAMI,4,2,2,0
+parent-coaching,PEMBROKE PINES,4,2,2,0
+physical-therapy,BROOKSVILLE,4,2,2,0
+physical-therapy,HUDSON,4,2,2,0
+physical-therapy,PALM BEACH GARDENS,4,2,2,0
+residential-program,TAMPA,4,2,1,1
+speech-therapy,HUDSON,4,2,2,0
+speech-therapy,PEMBROKE PINES,4,2,2,0
+speech-therapy,ROYAL PALM BEACH,4,2,2,0
+speech-therapy,SOUTH MIAMI,4,2,2,0
+speech-therapy,WINTER HAVEN,4,2,2,0
+support-groups,ORLANDO,4,2,2,0
+virtual-therapy,MIRAMAR,4,2,2,0
+aac,ST. PETERSBURG,3,2,1,0
+aba,FORT PIERCE,3,2,0,1
+aba,JUPITER,3,2,0,1
+aba,OAKLAND PARK,3,2,0,1
+aba,POMPANO BEACH,3,2,1,0
+animal-therapy,HUDSON,3,2,0,1
+animal-therapy,WEST PALM BEACH,3,2,1,0
+group-therapy,JACKSONVILLE BEACH,3,2,1,0
+group-therapy,MAITLAND,3,2,1,0
+group-therapy,MIRAMAR,3,2,1,0
+group-therapy,PORT ST. LUCIE,3,2,1,0
+life-skills,COCONUT CREEK,3,2,0,1
+life-skills,CORAL GABLES,3,2,1,0
+life-skills,MAITLAND,3,2,0,1
+mobile-services,FORT LAUDERDALE,3,2,1,0
+mobile-services,MELBOURNE,3,2,1,0
+mobile-services,ST. PETERSBURG,3,2,0,1
+occupational-therapy,LAUDERHILL,3,2,1,0
+occupational-therapy,ROCKLEDGE,3,2,1,0
+occupational-therapy,SOUTHWEST RANCHES,3,2,1,0
+occupational-therapy,TRINITY,3,2,1,0
+occupational-therapy,WINTER GARDEN,3,2,1,0
+occupational-therapy,YULEE,3,2,1,0
+parent-coaching,CLERMONT,3,2,1,0
+parent-coaching,GAINESVILLE,3,2,1,0
+parent-coaching,MAITLAND,3,2,1,0
+parent-coaching,MIRAMAR,3,2,1,0
+physical-therapy,DUNEDIN,3,2,1,0
+physical-therapy,LAKE MARY,3,2,0,1
+physical-therapy,OVIEDO,3,2,0,1
+physical-therapy,YULEE,3,2,1,0
+speech-therapy,LAUDERHILL,3,2,1,0
+speech-therapy,ORANGE PARK,3,2,1,0
+speech-therapy,POMPANO BEACH,3,2,1,0
+speech-therapy,ROCKLEDGE,3,2,1,0
+speech-therapy,SOUTHWEST RANCHES,3,2,1,0
+speech-therapy,WEST MELBOURNE,3,2,1,0
+speech-therapy,YULEE,3,2,1,0
+support-groups,DAVIE,3,2,1,0
+virtual-therapy,SPRING HILL,3,2,1,0
+aba,SOUTH MIAMI,4,3,1,0
+group-therapy,DAVIE,4,3,1,0
+life-skills,FORT PIERCE,4,3,0,1
+life-skills,LAKELAND,4,3,1,0
+life-skills,MIAMI LAKES,4,3,1,0
+parent-coaching,CAPE CORAL,4,3,1,0
+parent-coaching,LAKELAND,4,3,1,0
+physical-therapy,COCONUT CREEK,4,3,1,0
+physical-therapy,JUPITER,4,3,1,0
+speech-therapy,BOYNTON BEACH,4,3,1,0
+speech-therapy,CLERMONT,4,3,1,0
+support-groups,CAPE CORAL,4,3,1,0
+support-groups,LAKELAND,4,3,1,0
+support-groups,TALLAHASSEE,4,3,1,0
+tutoring,TAMPA,4,3,1,0
+virtual-therapy,CLEARWATER,4,3,1,0
+virtual-therapy,DAVIE,4,3,1,0
+virtual-therapy,FORT MYERS,4,3,1,0
+virtual-therapy,LAKELAND,4,3,1,0
+aba,MIAMI BEACH,3,3,0,0
+executive-function-coaching,TALLAHASSEE,3,3,0,0
+music-therapy,HOLLYWOOD,3,3,0,0
+occupational-therapy,BOYNTON BEACH,3,3,0,0
+occupational-therapy,OVIEDO,3,3,0,0
+parent-coaching,COCONUT CREEK,3,3,0,0
+parent-coaching,NORTH MIAMI BEACH,3,3,0,0
+physical-therapy,NORTH PALM BEACH,3,3,0,0
+physical-therapy,SANFORD,3,3,0,0
+speech-therapy,JUPITER,3,3,0,0
+speech-therapy,MAITLAND,3,3,0,0
+speech-therapy,NORTH MIAMI BEACH,3,3,0,0
+speech-therapy,NORTH PALM BEACH,3,3,0,0
+speech-therapy,ODESSA,3,3,0,0
+speech-therapy,PARKLAND,3,3,0,0
+speech-therapy,SANFORD,3,3,0,0
+virtual-therapy,CAPE CORAL,3,3,0,0
+music-therapy,TALLAHASSEE,4,4,0,0
+occupational-therapy,COCONUT CREEK,4,4,0,0
+occupational-therapy,JUPITER,4,4,0,0
+occupational-therapy,NORTH PALM BEACH,4,4,0,0
+parent-coaching,CLEARWATER,4,4,0,0
+parent-coaching,HIALEAH,4,4,0,0
+parent-coaching,ST. PETERSBURG,4,4,0,0
+respite-care,JACKSONVILLE,4,4,0,0
+support-groups,GAINESVILLE,4,4,0,0

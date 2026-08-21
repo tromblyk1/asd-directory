@@ -1,0 +1,1948 @@
+[
+ {
+  "id": "7098",
+  "query": "13900 TECH CITY CIR, Alachua, FL 32615",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "6066",
+  "query": "15604 NW 140TH ST, Alachua, FL 32615",
+  "error": null,
+  "response": [
+   {
+    "place_id": 299737956,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 147495614,
+    "lat": "29.7906195",
+    "lon": "-82.4942465",
+    "class": "highway",
+    "type": "secondary",
+    "place_rank": 26,
+    "importance": 0.053383205157549365,
+    "addresstype": "road",
+    "name": "Northwest 140th Street",
+    "display_name": "Northwest 140th Street, Alachua, Alachua County, Florida, 32616, United States",
+    "address": {
+     "road": "Northwest 140th Street",
+     "town": "Alachua",
+     "county": "Alachua County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "32616",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "29.7876180",
+     "29.7936211",
+     "-82.4942658",
+     "-82.4942130"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "9505",
+  "query": "860 N STATE RD 434, Altamonte Springs, FL 32714",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "6390",
+  "query": "498 PALM SPRINGS DR STE 100, Altamonte Springs, FL 32701",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "9401",
+  "query": "300 FRANDORSON CIR, Apollo Beach, FL 33572",
+  "error": null,
+  "response": [
+   {
+    "place_id": 303915501,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 10984868,
+    "lat": "27.7692856",
+    "lon": "-82.3935459",
+    "class": "highway",
+    "type": "residential",
+    "place_rank": 26,
+    "importance": 0.05337041809719993,
+    "addresstype": "road",
+    "name": "Frandorson Circle",
+    "display_name": "Frandorson Circle, North Ruskin, Apollo Beach, Hillsborough County, Florida, 33572, United States",
+    "address": {
+     "road": "Frandorson Circle",
+     "neighbourhood": "North Ruskin",
+     "town": "Apollo Beach",
+     "county": "Hillsborough County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33572",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "27.7688701",
+     "27.7694940",
+     "-82.3938830",
+     "-82.3935226"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "6281",
+  "query": "4352 INDEPENDENCE ST, Avon Park, FL 33825",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "6401",
+  "query": "22313 BOCA RIO ROAD, Boca Raton, FL 33433",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "7942",
+  "query": "1715 CAPE CORAL PKWY W, Cape Coral, FL 33914",
+  "error": null,
+  "response": [
+   {
+    "place_id": 303190493,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "node",
+    "osm_id": 3923808735,
+    "lat": "26.5633959",
+    "lon": "-82.0093449",
+    "class": "amenity",
+    "type": "restaurant",
+    "place_rank": 30,
+    "importance": 6.185931181806695e-05,
+    "addresstype": "amenity",
+    "name": "Lobster Lady Seafood Market",
+    "display_name": "Lobster Lady Seafood Market, 1715, Cape Coral Parkway West, Cape Coral, Lee County, Florida, 33914, United States",
+    "address": {
+     "amenity": "Lobster Lady Seafood Market",
+     "house_number": "1715",
+     "road": "Cape Coral Parkway West",
+     "city": "Cape Coral",
+     "county": "Lee County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33914",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "26.5633459",
+     "26.5634459",
+     "-82.0093949",
+     "-82.0092949"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "10267",
+  "query": "430 MORTON PLANT ST # 101, Clearwater, FL 33756",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "10148",
+  "query": "3400 HALIFAX CROSSING BLVD, Deltona, FL 32725",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "7575",
+  "query": "1831 GOLDEN EAGLE WAY, Fleming Island, FL 32003",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "10004",
+  "query": "1747 BAPTIST CLAY DR, Fleming Island, FL 32003",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "10235",
+  "query": "1747 BAPTIST CLAY DR SUITE 100, Fleming Island, FL 32003",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "9535",
+  "query": "2700 W CYPRESS CREEK RD STE C100, Fort Lauderdale, FL 33309",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "9433",
+  "query": "5300 POWERLINE RD, Fort Lauderdale, FL 33309",
+  "error": null,
+  "response": [
+   {
+    "place_id": 307164826,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "node",
+    "osm_id": 8665236909,
+    "lat": "26.1915977",
+    "lon": "-80.1534226",
+    "class": "tourism",
+    "type": "theme_park",
+    "place_rank": 30,
+    "importance": 4.0000762951049326e-05,
+    "addresstype": "tourism",
+    "name": "Xtreme Action Park",
+    "display_name": "Xtreme Action Park, 5300, Powerline Road, Twin Lakes, Fort Lauderdale, Broward County, Florida, 33309, United States",
+    "address": {
+     "tourism": "Xtreme Action Park",
+     "house_number": "5300",
+     "road": "Powerline Road",
+     "hamlet": "Twin Lakes",
+     "city": "Fort Lauderdale",
+     "county": "Broward County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33309",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "26.1915477",
+     "26.1916477",
+     "-80.1534726",
+     "-80.1533726"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "7366",
+  "query": "2901 W CYPRESS CREEK RD, Fort Lauderdale, FL 33309",
+  "error": null,
+  "response": [
+   {
+    "place_id": 304378967,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 1347202355,
+    "lat": "26.2031762",
+    "lon": "-80.1528967",
+    "class": "highway",
+    "type": "primary",
+    "place_rank": 26,
+    "importance": 0.053401924925612236,
+    "addresstype": "road",
+    "name": "West Cypress Creek Road",
+    "display_name": "West Cypress Creek Road, Fort Lauderdale, Broward County, Florida, 33309, United States",
+    "address": {
+     "road": "West Cypress Creek Road",
+     "city": "Fort Lauderdale",
+     "county": "Broward County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33309",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "26.2031675",
+     "26.2031864",
+     "-80.1534104",
+     "-80.1523830"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "8504",
+  "query": "2122 W CYPRESS CREEK RD, Fort Lauderdale, FL 33309",
+  "error": null,
+  "response": [
+   {
+    "place_id": 418360864,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 1516554695,
+    "lat": "26.2018519",
+    "lon": "-80.1725817",
+    "class": "office",
+    "type": "yes",
+    "place_rank": 30,
+    "importance": 6.85915922788894e-05,
+    "addresstype": "office",
+    "name": "",
+    "display_name": "2122, West Cypress Creek Road, Fort Lauderdale, Broward County, Florida, 33309, United States",
+    "address": {
+     "house_number": "2122",
+     "road": "West Cypress Creek Road",
+     "city": "Fort Lauderdale",
+     "county": "Broward County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33309",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "26.2016840",
+     "26.2020221",
+     "-80.1731449",
+     "-80.1720240"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "9678",
+  "query": "2950 W CYPRESS CREEK RD, Fort Lauderdale, FL 33309",
+  "error": null,
+  "response": [
+   {
+    "place_id": 387511646,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 157199286,
+    "lat": "26.2027360",
+    "lon": "-80.1796235",
+    "class": "place",
+    "type": "house",
+    "place_rank": 30,
+    "importance": 9.99999999995449e-06,
+    "addresstype": "place",
+    "name": "",
+    "display_name": "2950, West Cypress Creek Road, Fort Lauderdale, Broward County, Florida, 33309, United States",
+    "address": {
+     "house_number": "2950",
+     "road": "West Cypress Creek Road",
+     "city": "Fort Lauderdale",
+     "county": "Broward County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33309",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "26.2026860",
+     "26.2027860",
+     "-80.1796735",
+     "-80.1795735"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "9890",
+  "query": "6900 DANIELS PKWY, Fort Myers, FL 33912",
+  "error": null,
+  "response": [
+   {
+    "place_id": 306014720,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "node",
+    "osm_id": 11502423793,
+    "lat": "26.5454521",
+    "lon": "-81.8419590",
+    "class": "amenity",
+    "type": "restaurant",
+    "place_rank": 30,
+    "importance": 4.0000762951049326e-05,
+    "addresstype": "amenity",
+    "name": "3 Pepper Burrito Co.",
+    "display_name": "3 Pepper Burrito Co., 6900, Daniels Parkway, Fort Myers, Lee County, Florida, 33912, United States",
+    "address": {
+     "amenity": "3 Pepper Burrito Co.",
+     "house_number": "6900",
+     "road": "Daniels Parkway",
+     "city": "Fort Myers",
+     "county": "Lee County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33912",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "26.5454021",
+     "26.5455021",
+     "-81.8420090",
+     "-81.8419090"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "6064",
+  "query": "2440 US HIGHWAY 441/27, Fruitland Park, FL 34731",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "6166",
+  "query": "3412 W 84TH ST # E106, Hialeah, FL 33018",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "6226",
+  "query": "5800 PALM AVE, Hialeah, FL 33012",
+  "error": null,
+  "response": [
+   {
+    "place_id": 303394919,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 435736866,
+    "lat": "25.8752513",
+    "lon": "-80.2853176",
+    "class": "building",
+    "type": "yes",
+    "place_rank": 30,
+    "importance": 7.754558632787088e-05,
+    "addresstype": "building",
+    "name": "",
+    "display_name": "5800, Palm Avenue, Hialeah, Miami-Dade County, Florida, 33012, United States",
+    "address": {
+     "house_number": "5800",
+     "road": "Palm Avenue",
+     "city": "Hialeah",
+     "county": "Miami-Dade County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33012",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "25.8750807",
+     "25.8754199",
+     "-80.2854247",
+     "-80.2844139"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "6162",
+  "query": "3408 W 84TH ST STE 203, Hialeah, FL 33018",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "10060",
+  "query": "13115 W OKEECHOBEE RD, Hialeah, FL 33018",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "7672",
+  "query": "3325 HOLLYWOOD BLVD, Hollywood, FL 33021",
+  "error": null,
+  "response": [
+   {
+    "place_id": 302773858,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 1055893642,
+    "lat": "26.0117085",
+    "lon": "-80.1834120",
+    "class": "highway",
+    "type": "trunk",
+    "place_rank": 26,
+    "importance": 0.05339739299610891,
+    "addresstype": "road",
+    "name": "Hollywood Boulevard",
+    "display_name": "Hollywood Boulevard, West Hollywood, Hollywood, Broward County, Florida, 33021, United States",
+    "address": {
+     "road": "Hollywood Boulevard",
+     "hamlet": "West Hollywood",
+     "city": "Hollywood",
+     "county": "Broward County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33021",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "26.0115940",
+     "26.0117218",
+     "-80.1838244",
+     "-80.1830160"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "7592",
+  "query": "1005 JOE DIMAGGIO DR, Hollywood, FL 33021",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "9325",
+  "query": "1180 N KROME AVE, Homestead, FL 33030",
+  "error": null,
+  "response": [
+   {
+    "place_id": 305531433,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 190525201,
+    "lat": "25.4815315",
+    "lon": "-80.4774727",
+    "class": "highway",
+    "type": "trunk",
+    "place_rank": 26,
+    "importance": 0.05339017700465397,
+    "addresstype": "road",
+    "name": "North Krome Avenue",
+    "display_name": "North Krome Avenue, Homestead, Miami-Dade County, Florida, 33030, United States",
+    "address": {
+     "road": "North Krome Avenue",
+     "city": "Homestead",
+     "county": "Miami-Dade County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33030",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "25.4789932",
+     "25.4840698",
+     "-80.4775020",
+     "-80.4774487"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "9972",
+  "query": "12645 SALINA DR, Jacksonville, FL 32246",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "9561",
+  "query": "4230 PABLO PROFESSIONAL CT, Jacksonville, FL 32224",
+  "error": null,
+  "response": [
+   {
+    "place_id": 301684281,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "node",
+    "osm_id": 8645621355,
+    "lat": "30.2689561",
+    "lon": "-81.4450606",
+    "class": "place",
+    "type": "house",
+    "place_rank": 30,
+    "importance": 7.092774853127363e-05,
+    "addresstype": "place",
+    "name": "",
+    "display_name": "4230, Pablo Professional Court, Jacksonville, Duval County, Florida, 32224, United States",
+    "address": {
+     "house_number": "4230",
+     "road": "Pablo Professional Court",
+     "city": "Jacksonville",
+     "county": "Duval County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "32224",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "30.2689061",
+     "30.2690061",
+     "-81.4451106",
+     "-81.4450106"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "6463",
+  "query": "1601 NE SUCCESS DRIVE, Jensen Beach, FL 34957",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "9747",
+  "query": "1155 MAIN ST STE 101, Jupiter, FL 33458",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "10202",
+  "query": "5424 LAND O' LAKES BLVD, Land O Lakes, FL 34639",
+  "error": null,
+  "response": [
+   {
+    "place_id": 388710718,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 783529622,
+    "lat": "28.2340973",
+    "lon": "-82.4592686",
+    "class": "place",
+    "type": "house",
+    "place_rank": 30,
+    "importance": 9.99999999995449e-06,
+    "addresstype": "place",
+    "name": "",
+    "display_name": "5424, Land O' Lakes Boulevard, Land O' Lakes, Pasco County, Florida, 34639, United States",
+    "address": {
+     "house_number": "5424",
+     "road": "Land O' Lakes Boulevard",
+     "town": "Land O' Lakes",
+     "county": "Pasco County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "34639",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "28.2340473",
+     "28.2341473",
+     "-82.4593186",
+     "-82.4592186"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "9637",
+  "query": "3690 E BAY DR S, Largo, FL 33771",
+  "error": null,
+  "response": [
+   {
+    "place_id": 306810172,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 11120042,
+    "lat": "25.0477159",
+    "lon": "-80.4907770",
+    "class": "highway",
+    "type": "residential",
+    "place_rank": 26,
+    "importance": 0.053382465094987376,
+    "addresstype": "road",
+    "name": "South Bay Harbor Drive",
+    "display_name": "South Bay Harbor Drive, Sunset Point, Key Largo, Monroe County, Florida, 33037, United States",
+    "address": {
+     "road": "South Bay Harbor Drive",
+     "hamlet": "Sunset Point",
+     "town": "Key Largo",
+     "county": "Monroe County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33037",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "25.0476285",
+     "25.0477319",
+     "-80.4932576",
+     "-80.4883113"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "6383",
+  "query": "511 GOLDKIST BLVD SW, Live Oak, FL 32064",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "8470",
+  "query": "17824 US Highway 41, Lutz, FL 33549",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "10206",
+  "query": "18946 N DALE MABRY HWY, Lutz, FL 33548",
+  "error": null,
+  "response": [
+   {
+    "place_id": 419891770,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 760616688,
+    "lat": "28.1530729",
+    "lon": "-82.4896496",
+    "class": "highway",
+    "type": "trunk",
+    "place_rank": 26,
+    "importance": 0.05338227893492024,
+    "addresstype": "road",
+    "name": "North Dale Mabry Highway",
+    "display_name": "North Dale Mabry Highway, Douglas Place, Lutz, Hillsborough County, Florida, 33618, United States",
+    "address": {
+     "road": "North Dale Mabry Highway",
+     "neighbourhood": "Douglas Place",
+     "town": "Lutz",
+     "county": "Hillsborough County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33618",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "28.1528203",
+     "28.1533254",
+     "-82.4899885",
+     "-82.4893107"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "9786",
+  "query": "2401 W EAU GALLIE BLVD, Melbourne, FL 32935",
+  "error": null,
+  "response": [
+   {
+    "place_id": 387042661,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 1414640529,
+    "lat": "28.1286906",
+    "lon": "-80.6590618",
+    "class": "place",
+    "type": "house",
+    "place_rank": 30,
+    "importance": 9.99999999995449e-06,
+    "addresstype": "place",
+    "name": "",
+    "display_name": "2401, West Eau Gallie Boulevard, Melbourne, Brevard County, Florida, 32935, United States",
+    "address": {
+     "house_number": "2401",
+     "road": "West Eau Gallie Boulevard",
+     "city": "Melbourne",
+     "county": "Brevard County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "32935",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "28.1286406",
+     "28.1287406",
+     "-80.6591118",
+     "-80.6590118"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "10010",
+  "query": "13155 SW 134TH ST SUITE 218 & 219, Miami, FL 33186",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "9334",
+  "query": "6035 BIRD RD, Miami, FL 33155",
+  "error": null,
+  "response": [
+   {
+    "place_id": 306327718,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "node",
+    "osm_id": 6028333837,
+    "lat": "25.7340862",
+    "lon": "-80.2926417",
+    "class": "place",
+    "type": "house",
+    "place_rank": 30,
+    "importance": 7.754558632787088e-05,
+    "addresstype": "place",
+    "name": "",
+    "display_name": "6035, Southwest 40th Street, Ludlam, Miami, Miami-Dade County, Florida, 33155, United States",
+    "address": {
+     "house_number": "6035",
+     "road": "Southwest 40th Street",
+     "hamlet": "Ludlam",
+     "city": "Miami",
+     "county": "Miami-Dade County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33155",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "25.7340362",
+     "25.7341362",
+     "-80.2926917",
+     "-80.2925917"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "5766",
+  "query": "12750 NW 17TH ST UNIT 111, Miami, FL 33182",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "9350",
+  "query": "13155 SW 134TH ST, Miami, FL 33186",
+  "error": null,
+  "response": [
+   {
+    "place_id": 305365247,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 436041493,
+    "lat": "25.6434071",
+    "lon": "-80.4056151",
+    "class": "building",
+    "type": "yes",
+    "place_rank": 30,
+    "importance": 5.170290684362581e-05,
+    "addresstype": "building",
+    "name": "",
+    "display_name": "13155, Southwest 134th Street, Three Lakes, Miami-Dade County, Florida, 33186, United States",
+    "address": {
+     "house_number": "13155",
+     "road": "Southwest 134th Street",
+     "hamlet": "Three Lakes",
+     "county": "Miami-Dade County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33186",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "25.6433050",
+     "25.6435630",
+     "-80.4061416",
+     "-80.4050856"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "10011",
+  "query": "8785 SW 165TH AVE SUITE 101, Miami, FL 33193",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "6902",
+  "query": "2150 S DIXIE HWY, Miami, FL 33133",
+  "error": null,
+  "response": [
+   {
+    "place_id": 306541147,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 532606894,
+    "lat": "25.7334703",
+    "lon": "-80.2529469",
+    "class": "highway",
+    "type": "trunk",
+    "place_rank": 26,
+    "importance": 0.05341087891966122,
+    "addresstype": "road",
+    "name": "South Dixie Highway",
+    "display_name": "South Dixie Highway, South Bay Estates, Miami, Miami-Dade County, Florida, 33133, United States",
+    "address": {
+     "road": "South Dixie Highway",
+     "hamlet": "South Bay Estates",
+     "city": "Miami",
+     "county": "Miami-Dade County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33133",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "25.7326130",
+     "25.7342725",
+     "-80.2538890",
+     "-80.2519589"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "9458",
+  "query": "301 ARTHUR GODFREY RD, Miami Beach, FL 33140",
+  "error": null,
+  "response": [
+   {
+    "place_id": 305346415,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "node",
+    "osm_id": 8153358983,
+    "lat": "25.8140019",
+    "lon": "-80.1268597",
+    "class": "tourism",
+    "type": "apartment",
+    "place_rank": 30,
+    "importance": 7.754558632787088e-05,
+    "addresstype": "tourism",
+    "name": "Luxury Rentals Miami Beach",
+    "display_name": "Luxury Rentals Miami Beach, 301, 41st Street, Miami Beach, Miami-Dade County, Florida, 33140, United States",
+    "address": {
+     "tourism": "Luxury Rentals Miami Beach",
+     "house_number": "301",
+     "road": "41st Street",
+     "city": "Miami Beach",
+     "county": "Miami-Dade County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33140",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "25.8139519",
+     "25.8140519",
+     "-80.1269097",
+     "-80.1268097"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "9408",
+  "query": "16800 NW 2ND AVE, Miami Gardens, FL 33169",
+  "error": null,
+  "response": [
+   {
+    "place_id": 307349697,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 423902158,
+    "lat": "25.9526410",
+    "lon": "-80.2056153",
+    "class": "highway",
+    "type": "primary",
+    "place_rank": 26,
+    "importance": 0.053394486152437595,
+    "addresstype": "road",
+    "name": "Northwest 2nd Avenue",
+    "display_name": "Northwest 2nd Avenue, Norland, Miami Gardens, Miami-Dade County, Florida, 33169, United States",
+    "address": {
+     "road": "Northwest 2nd Avenue",
+     "hamlet": "Norland",
+     "town": "Miami Gardens",
+     "county": "Miami-Dade County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33169",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "25.9518244",
+     "25.9534577",
+     "-80.2056406",
+     "-80.2055899"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "7967",
+  "query": "15150 BULL RUN RD, Miami Lakes, FL 33014",
+  "error": null,
+  "response": [
+   {
+    "place_id": 305530878,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 435748653,
+    "lat": "25.9111967",
+    "lon": "-80.3122172",
+    "class": "leisure",
+    "type": "fitness_centre",
+    "place_rank": 30,
+    "importance": 4.6850537880476345e-05,
+    "addresstype": "leisure",
+    "name": "Miami Lakes Athletic Club",
+    "display_name": "Miami Lakes Athletic Club, 15150, Bull Run Road, Miami Lakes, Miami-Dade County, Florida, 33014, United States",
+    "address": {
+     "leisure": "Miami Lakes Athletic Club",
+     "house_number": "15150",
+     "road": "Bull Run Road",
+     "town": "Miami Lakes",
+     "county": "Miami-Dade County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33014",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "25.9109280",
+     "25.9113941",
+     "-80.3126223",
+     "-80.3118189"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "9841",
+  "query": "15985 NW 57TH AVE, Miami Lakes, FL 33014",
+  "error": null,
+  "response": [
+   {
+    "place_id": 303409483,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 683289712,
+    "lat": "25.9080051",
+    "lon": "-80.2925271",
+    "class": "highway",
+    "type": "primary",
+    "place_rank": 26,
+    "importance": 0.05338018387121382,
+    "addresstype": "road",
+    "name": "Northwest 57th Avenue",
+    "display_name": "Northwest 57th Avenue, Miami Lakes, Miami-Dade County, Florida, 33014, United States",
+    "address": {
+     "road": "Northwest 57th Avenue",
+     "town": "Miami Lakes",
+     "county": "Miami-Dade County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33014",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "25.9062658",
+     "25.9097443",
+     "-80.2926113",
+     "-80.2924429"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "6439",
+  "query": "3996 AVALON BLVD STE 100-C, Milton, FL 32583",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "6344",
+  "query": "8793 TAMIAMI TRL E STE 111, Naples, FL 34113",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "7360",
+  "query": "1440 79TH STREET CAUSEWAY, North Bay Village, FL 33141",
+  "error": null,
+  "response": [
+   {
+    "place_id": 306860011,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "node",
+    "osm_id": 6059081952,
+    "lat": "25.8482704",
+    "lon": "-80.1552793",
+    "class": "place",
+    "type": "house",
+    "place_rank": 30,
+    "importance": 7.754558632787088e-05,
+    "addresstype": "place",
+    "name": "",
+    "display_name": "1440, John F. Kennedy Causeway, North Bay Village, Miami-Dade County, Florida, 33141, United States",
+    "address": {
+     "house_number": "1440",
+     "road": "John F. Kennedy Causeway",
+     "village": "North Bay Village",
+     "county": "Miami-Dade County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33141",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "25.8482204",
+     "25.8483204",
+     "-80.1553293",
+     "-80.1552293"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "9426",
+  "query": "1380 NE MIAMI GARDENS DR, North Miami Beach, FL 33179",
+  "error": null,
+  "response": [
+   {
+    "place_id": 305115407,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 435519952,
+    "lat": "25.9442308",
+    "lon": "-80.1733892",
+    "class": "building",
+    "type": "yes",
+    "place_rank": 30,
+    "importance": 3.500190737769158e-05,
+    "addresstype": "building",
+    "name": "",
+    "display_name": "1380, Northeast Miami Gardens Drive, North Miami Beach, Miami-Dade County, Florida, 33179, United States",
+    "address": {
+     "house_number": "1380",
+     "road": "Northeast Miami Gardens Drive",
+     "town": "North Miami Beach",
+     "county": "Miami-Dade County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33179",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "25.9439602",
+     "25.9446319",
+     "-80.1737571",
+     "-80.1730375"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "9309",
+  "query": "300 MERCURY RD, North Palm Beach, FL 33408",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "7653",
+  "query": "800 E CYPRESS CREEK RD, Oakland Park, FL 33334",
+  "error": null,
+  "response": [
+   {
+    "place_id": 304753852,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 190463099,
+    "lat": "26.2037235",
+    "lon": "-80.1429100",
+    "class": "highway",
+    "type": "primary",
+    "place_rank": 26,
+    "importance": 0.053401924925612236,
+    "addresstype": "road",
+    "name": "Cypress Creek Road",
+    "display_name": "Cypress Creek Road, Oakland Park, Broward County, Florida, 33334, United States",
+    "address": {
+     "road": "Cypress Creek Road",
+     "town": "Oakland Park",
+     "county": "Broward County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33334",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "26.2036759",
+     "26.2037576",
+     "-80.1438259",
+     "-80.1419935"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "10215",
+  "query": "3953 TAMPA RD, Oldsmar, FL 34677",
+  "error": null,
+  "response": [
+   {
+    "place_id": 409692297,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 1348915372,
+    "lat": "28.0389461",
+    "lon": "-82.6638240",
+    "class": "place",
+    "type": "house",
+    "place_rank": 30,
+    "importance": 9.99999999995449e-06,
+    "addresstype": "place",
+    "name": "",
+    "display_name": "3953, Tampa Road, Oldsmar, Pinellas County, Florida, 34677, United States",
+    "address": {
+     "house_number": "3953",
+     "road": "Tampa Road",
+     "town": "Oldsmar",
+     "county": "Pinellas County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "34677",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "28.0388961",
+     "28.0389961",
+     "-82.6638740",
+     "-82.6637740"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "8199",
+  "query": "3970 TAMPA RD SUITE E, Oldsmar, FL 34677",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "9173",
+  "query": "1700 WELLS RD STE 18, Orange Park, FL 32073",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "10249",
+  "query": "6900 TAVISTOCK LAKES BLVD, Orlando, FL 32827",
+  "error": null,
+  "response": [
+   {
+    "place_id": 298484834,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "node",
+    "osm_id": 5333473372,
+    "lat": "28.3723819",
+    "lon": "-81.2787171",
+    "class": "amenity",
+    "type": "restaurant",
+    "place_rank": 30,
+    "importance": 7.306095979243179e-05,
+    "addresstype": "amenity",
+    "name": "Bosphorous Turkish Cuisine",
+    "display_name": "Bosphorous Turkish Cuisine, 6900, Tavistock Lakes Boulevard, Lake Nona, Orlando, Orange County, Florida, 32827, United States",
+    "address": {
+     "amenity": "Bosphorous Turkish Cuisine",
+     "house_number": "6900",
+     "road": "Tavistock Lakes Boulevard",
+     "neighbourhood": "Lake Nona",
+     "city": "Orlando",
+     "county": "Orange County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "32827",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "28.3723319",
+     "28.3724319",
+     "-81.2787671",
+     "-81.2786671"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "9900",
+  "query": "5240 BABCOCK ST NE # 102, Palm Bay, FL 32905",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "9324",
+  "query": "2290 10TH AVE N, Palm Springs, FL 33461",
+  "error": null,
+  "response": [
+   {
+    "place_id": 306031179,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 917662486,
+    "lat": "26.6285718",
+    "lon": "-80.0902401",
+    "class": "highway",
+    "type": "tertiary",
+    "place_rank": 26,
+    "importance": 0.05338631952391848,
+    "addresstype": "road",
+    "name": "10th Avenue North",
+    "display_name": "10th Avenue North, Palm Springs, Palm Beach County, Florida, 33463, United States",
+    "address": {
+     "road": "10th Avenue North",
+     "town": "Palm Springs",
+     "county": "Palm Beach County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33463",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "26.6285660",
+     "26.6285814",
+     "-80.0905901",
+     "-80.0898901"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "9783",
+  "query": "7635 N STATE RD 7, Parkland, FL 33073",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "8720",
+  "query": "3304 SAN MOISE PL, Plant City, FL 33567",
+  "error": null,
+  "response": [
+   {
+    "place_id": 305954630,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 611931840,
+    "lat": "27.9600577",
+    "lon": "-82.1567597",
+    "class": "highway",
+    "type": "residential",
+    "place_rank": 26,
+    "importance": 0.05338532005798425,
+    "addresstype": "road",
+    "name": "San Moise Place",
+    "display_name": "San Moise Place, Magnolia Green, Plant City, Hillsborough County, Florida, 33567, United States",
+    "address": {
+     "road": "San Moise Place",
+     "neighbourhood": "Magnolia Green",
+     "town": "Plant City",
+     "county": "Hillsborough County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33567",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "27.9600554",
+     "27.9617880",
+     "-82.1596093",
+     "-82.1562417"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "9732",
+  "query": "1650 N FEDERAL HWY, Pompano Beach, FL 33062",
+  "error": null,
+  "response": [
+   {
+    "place_id": 394697272,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 457188427,
+    "lat": "26.2102957",
+    "lon": "-80.1073209",
+    "class": "place",
+    "type": "house",
+    "place_rank": 30,
+    "importance": 9.99999999995449e-06,
+    "addresstype": "place",
+    "name": "",
+    "display_name": "1650, North Federal Highway, Pompano Isles, Pompano Beach, Broward County, Florida, 33062, United States",
+    "address": {
+     "house_number": "1650",
+     "road": "North Federal Highway",
+     "hamlet": "Pompano Isles",
+     "city": "Pompano Beach",
+     "county": "Broward County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33062",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "26.2102457",
+     "26.2103457",
+     "-80.1073709",
+     "-80.1072709"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "9949",
+  "query": "1707 ST LUCIE W BLVD, Port St. Lucie, FL 34986",
+  "error": null,
+  "response": [
+   {
+    "place_id": 304601402,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 359420730,
+    "lat": "27.3167103",
+    "lon": "-80.3775805",
+    "class": "highway",
+    "type": "residential",
+    "place_rank": 26,
+    "importance": 0.053394415960936865,
+    "addresstype": "road",
+    "name": "Saint Lucie West Boulevard",
+    "display_name": "Saint Lucie West Boulevard, Port Saint Lucie, Saint Lucie County, Florida, 34986, United States",
+    "address": {
+     "road": "Saint Lucie West Boulevard",
+     "city": "Port Saint Lucie",
+     "county": "Saint Lucie County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "34986",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "27.3167033",
+     "27.3176886",
+     "-80.3790824",
+     "-80.3770445"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "7331",
+  "query": "156 NW CALIFORNIA BLVD, Port St. Lucie, FL 34986",
+  "error": null,
+  "response": [
+   {
+    "place_id": 409402220,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 134915097,
+    "lat": "27.3139483",
+    "lon": "-80.4003408",
+    "class": "place",
+    "type": "house",
+    "place_rank": 30,
+    "importance": 9.99999999995449e-06,
+    "addresstype": "place",
+    "name": "",
+    "display_name": "156, Northwest California Boulevard, Port Saint Lucie, Saint Lucie County, Florida, 34986, United States",
+    "address": {
+     "house_number": "156",
+     "road": "Northwest California Boulevard",
+     "city": "Port Saint Lucie",
+     "county": "Saint Lucie County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "34986",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "27.3138983",
+     "27.3139983",
+     "-80.4003908",
+     "-80.4002908"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "9768",
+  "query": "9077 S FEDERAL HWY, Port St. Lucie, FL 34952",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "9680",
+  "query": "1680 ST LUCIE W BLVD, Port St. Lucie, FL 34986",
+  "error": null,
+  "response": [
+   {
+    "place_id": 305100745,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 359420730,
+    "lat": "27.3167103",
+    "lon": "-80.3775805",
+    "class": "highway",
+    "type": "residential",
+    "place_rank": 26,
+    "importance": 0.053394415960936865,
+    "addresstype": "road",
+    "name": "Saint Lucie West Boulevard",
+    "display_name": "Saint Lucie West Boulevard, Port Saint Lucie, Saint Lucie County, Florida, 34986, United States",
+    "address": {
+     "road": "Saint Lucie West Boulevard",
+     "city": "Port Saint Lucie",
+     "county": "Saint Lucie County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "34986",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "27.3167033",
+     "27.3176886",
+     "-80.3790824",
+     "-80.3770445"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "9437",
+  "query": "8509 SOUTH FEDERAL HIGHWAY U, Port St. Lucie, FL 34952",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "9516",
+  "query": "7791 S U.S. HWY 1, Port St. Lucie, FL 34952",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "9272",
+  "query": "420 S State Road 7 #174, Royal Palm Beach, FL 33414",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "9509",
+  "query": "1803 BRIAR CREEK BLVD, Safety Harbor, FL 34695",
+  "error": null,
+  "response": [
+   {
+    "place_id": 302262452,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 454507838,
+    "lat": "28.0368459",
+    "lon": "-82.7037813",
+    "class": "highway",
+    "type": "residential",
+    "place_rank": 26,
+    "importance": 0.053376376745250594,
+    "addresstype": "road",
+    "name": "Briar Creek Boulevard",
+    "display_name": "Briar Creek Boulevard, Bridgeport, Safety Harbor, Pinellas County, Florida, 34695, United States",
+    "address": {
+     "road": "Briar Creek Boulevard",
+     "hamlet": "Bridgeport",
+     "town": "Safety Harbor",
+     "county": "Pinellas County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "34695",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "28.0360079",
+     "28.0373970",
+     "-82.7089810",
+     "-82.6986425"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "9670",
+  "query": "3251 MCMULLEN BOOTH RD STE 200, Safety Harbor, FL 34695",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "9797",
+  "query": "4019 W 1ST ST, Sanford, FL 32771",
+  "error": null,
+  "response": [
+   {
+    "place_id": 302443521,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 995746978,
+    "lat": "28.8117043",
+    "lon": "-81.2821630",
+    "class": "highway",
+    "type": "primary",
+    "place_rank": 26,
+    "importance": 0.05338925383382922,
+    "addresstype": "road",
+    "name": "West 1st Street",
+    "display_name": "West 1st Street, Sanford, Seminole County, Florida, 32771, United States",
+    "address": {
+     "road": "West 1st Street",
+     "city": "Sanford",
+     "county": "Seminole County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "32771",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "28.8116987",
+     "28.8117098",
+     "-81.2826264",
+     "-81.2816996"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "9517",
+  "query": "13000 U.S. RTE 1 STE 7, Sebastian, FL 32958",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "7314",
+  "query": "1424 U.S. RTE 1 SUITE B, Sebastian, FL 32958",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "7459",
+  "query": "4820 KERRY FOREST PKWY, Tallahassee, FL 32309",
+  "error": null,
+  "response": [
+   {
+    "place_id": 302859078,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 694737404,
+    "lat": "30.5421116",
+    "lon": "-84.2279375",
+    "class": "highway",
+    "type": "tertiary",
+    "place_rank": 26,
+    "importance": 0.05340073472190429,
+    "addresstype": "road",
+    "name": "Kerry Forest Parkway",
+    "display_name": "Kerry Forest Parkway, Tallahassee, Leon County, Florida, 32309, United States",
+    "address": {
+     "road": "Kerry Forest Parkway",
+     "city": "Tallahassee",
+     "county": "Leon County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "32309",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "30.5420467",
+     "30.5421768",
+     "-84.2281069",
+     "-84.2277680"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "7661",
+  "query": "7160 N UNIVERSITY DR, Tamarac, FL 33321",
+  "error": null,
+  "response": [
+   {
+    "place_id": 396997011,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 1306301056,
+    "lat": "26.2119215",
+    "lon": "-80.2522881",
+    "class": "place",
+    "type": "house",
+    "place_rank": 30,
+    "importance": 9.99999999995449e-06,
+    "addresstype": "place",
+    "name": "",
+    "display_name": "7160, North University Drive, Tamarac, Broward County, Florida, 33321, United States",
+    "address": {
+     "house_number": "7160",
+     "road": "North University Drive",
+     "town": "Tamarac",
+     "county": "Broward County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33321",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "26.2118715",
+     "26.2119715",
+     "-80.2523381",
+     "-80.2522381"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "9439",
+  "query": "7171 N UNIVERSITY DR, Tamarac, FL 33321",
+  "error": null,
+  "response": [
+   {
+    "place_id": 303009203,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 332849615,
+    "lat": "26.2107110",
+    "lon": "-80.2533944",
+    "class": "building",
+    "type": "yes",
+    "place_rank": 30,
+    "importance": 5.4505989166048944e-05,
+    "addresstype": "building",
+    "name": "",
+    "display_name": "7171, North University Drive, Tamarac, Broward County, Florida, 33321, United States",
+    "address": {
+     "house_number": "7171",
+     "road": "North University Drive",
+     "town": "Tamarac",
+     "county": "Broward County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33321",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "26.2104598",
+     "26.2109609",
+     "-80.2535238",
+     "-80.2532701"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "6474",
+  "query": "7171 N UNIVERSITY DR STE 205, Tamarac, FL 33321",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "10227",
+  "query": "7777 N UNIVERSITY DR # 101S, Tamarac, FL 33321",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "6267",
+  "query": "6802 LAKEVIEW CENTER DR STE 500, Tampa, FL 33619",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "9962",
+  "query": "307 S BOULEVARD B, Tampa, FL 33606",
+  "error": null,
+  "response": [
+   {
+    "place_id": 303411728,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 33100057,
+    "lat": "28.0544506",
+    "lon": "-82.4260193",
+    "class": "highway",
+    "type": "secondary",
+    "place_rank": 26,
+    "importance": 0.05340529869535359,
+    "addresstype": "road",
+    "name": "Bruce B Downs Boulevard",
+    "display_name": "Bruce B Downs Boulevard, Tampa, Hillsborough County, Florida, 33620, United States",
+    "address": {
+     "road": "Bruce B Downs Boulevard",
+     "city": "Tampa",
+     "county": "Hillsborough County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33620",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "28.0543533",
+     "28.0545479",
+     "-82.4260220",
+     "-82.4260167"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "5835",
+  "query": "3910 US-301, Tampa, FL 33619",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "8689",
+  "query": "4701 N HABANA AVE, Tampa, FL 33614",
+  "error": null,
+  "response": [
+   {
+    "place_id": 306583333,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 1150715312,
+    "lat": "27.9956970",
+    "lon": "-82.4885456",
+    "class": "highway",
+    "type": "tertiary",
+    "place_rank": 26,
+    "importance": 0.05340529869535359,
+    "addresstype": "road",
+    "name": "North Habana Avenue",
+    "display_name": "North Habana Avenue, Habana Court North, Tampa, Hillsborough County, Florida, 33614, United States",
+    "address": {
+     "road": "North Habana Avenue",
+     "neighbourhood": "Habana Court North",
+     "city": "Tampa",
+     "county": "Hillsborough County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "33614",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "27.9952786",
+     "27.9961153",
+     "-82.4885634",
+     "-82.4885338"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "5808",
+  "query": "3910 US-301, Tampa, FL 33619",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "9307",
+  "query": "1816 HEALTH CARE DR, Trinity, FL 34655",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "10241",
+  "query": "680 U.S. 41 BYPASS N SUITE 2, Venice, FL 34285",
+  "error": null,
+  "response": []
+ },
+ {
+  "id": "9203",
+  "query": "4470 HOLLYWOOD BLVD, West Melbourne, FL 32904",
+  "error": null,
+  "response": [
+   {
+    "place_id": 301458336,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 1455968888,
+    "lat": "28.0539876",
+    "lon": "-80.6540740",
+    "class": "highway",
+    "type": "tertiary",
+    "place_rank": 26,
+    "importance": 0.05338374532692451,
+    "addresstype": "road",
+    "name": "Hollywood Boulevard",
+    "display_name": "Hollywood Boulevard, Stratford Pointe, Westbrooke, West Melbourne, Brevard County, Florida, 32904, United States",
+    "address": {
+     "road": "Hollywood Boulevard",
+     "neighbourhood": "Stratford Pointe",
+     "quarter": "Westbrooke",
+     "town": "West Melbourne",
+     "county": "Brevard County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "32904",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "28.0533913",
+     "28.0545839",
+     "-80.6541068",
+     "-80.6540412"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "6284",
+  "query": "86051 HAMILTON STREET, Yulee, FL 32097",
+  "error": null,
+  "response": [
+   {
+    "place_id": 299446548,
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 847017892,
+    "lat": "30.6403305",
+    "lon": "-81.6121795",
+    "class": "highway",
+    "type": "service",
+    "place_rank": 27,
+    "importance": 0.040044006256198965,
+    "addresstype": "road",
+    "name": "Hamilton Street",
+    "display_name": "Hamilton Street, Yulee, Nassau County, Florida, 32041, United States",
+    "address": {
+     "road": "Hamilton Street",
+     "town": "Yulee",
+     "county": "Nassau County",
+     "state": "Florida",
+     "ISO3166-2-lvl4": "US-FL",
+     "postcode": "32041",
+     "country": "United States",
+     "country_code": "us"
+    },
+    "boundingbox": [
+     "30.6398373",
+     "30.6408237",
+     "-81.6126996",
+     "-81.6116594"
+    ]
+   }
+  ]
+ }
+]

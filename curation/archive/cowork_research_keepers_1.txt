@@ -1,0 +1,92 @@
+Working folder: C:\Projects\ASD-Directory\curation\
+
+STEP 1 - VERIFY INPUT
+Confirm bucket_audit.csv exists by EXACT filename. If missing, STOP.
+Report its row count before proceeding.
+
+STEP 2 - CONTEXT
+These records were bulk-imported into a Florida autism services
+directory from a state waiver provider registry. The import applied
+service tags as a blanket mapping, so the existing services_txt
+column is UNRELIABLE - treat it as a guess, not as input.
+
+Every record here has already been reviewed by a human who decided
+to keep it. Your job is NOT to re-decide that. Your job is to
+determine what services each one actually provides and to collect
+its current contact details.
+
+The keith_url column holds a site the reviewer already found. START
+THERE. Only search independently if that URL is empty or dead.
+
+STEP 3 - THE TASK
+For each record, determine which services it actually delivers, and
+collect its contact details, from the organization's own website.
+
+Output bucket_audit_verdicts.csv with these columns:
+
+id, name, services_proposed, services_removed, insurances_found,
+autism_relevance, belongs_in_resources, site_address, site_city,
+site_county, site_zip, site_phone, site_email, site_hours, website,
+facebook_url, instagram_url, x_url, youtube_url, linkedin_url,
+tiktok_url, description, evidence_url, services_inferred,
+confidence, notes
+
+REPORT, DO NOT MERGE. Every site_* column is what the SITE says, not
+a correction to the record. Leave a site_* column EMPTY if the site
+does not state it. Never copy a value across from the input CSV to
+fill a gap - an empty cell is the useful answer.
+
+services_proposed: pipe-delimited, ONLY from this list, or empty:
+  aba | physical-therapy | occupational-therapy | speech-therapy
+  | life-skills | parent-coaching | group-therapy | virtual-therapy
+  | ados-testing | residential-program | feeding-therapy
+  | animal-therapy | mobile-services | support-groups | respite-care
+  | executive-function-coaching | tutoring | music-therapy | aac
+  | dir-floortime | transportation | art-therapy | autism-travel
+
+Mapping guidance for these provider types:
+  group home / assisted living / adult family care -> residential-program
+  adult day training / vocational / supported living -> life-skills
+  transit / paratransit / medical transport -> transportation
+  in-home or community-based service delivery -> mobile-services
+  respite services -> respite-care
+Do NOT apply aba unless the site itself states applied behavior
+analysis or behavior analysis services. This is the specific error
+being corrected.
+animal-therapy means animal-assisted THERAPY delivered by a provider
+- equine therapy, therapy dog visits, hippotherapy. It does NOT mean
+service dog training. A service dog trainer places a trained task
+animal with an individual handler and is NOT animal-therapy. If a
+record is a service dog trainer, leave services_proposed empty and
+say so in notes.
+
+services_removed: any tag in the record's current services_txt that
+  the site does NOT support. This is how the correction gets logged.
+
+insurances_found: pipe-delimited, ONLY from this list, or empty:
+  florida-medicaid | medicare | aetna | cigna | florida-blue | humana
+  | unitedhealthcare | tricare | sunshine-health | avmed | oscar
+  | evernorth | allegiance | childrens-medical-services
+Only from an explicit statement of accepted plans on the site. Do
+NOT use accepts-most-insurances. Do NOT infer Medicaid from the fact
+that the provider is in a state registry.
+
+social URLs: only links present on the site itself, pointing at that
+  organization's own account. Leave empty otherwise. Do not search
+  for social accounts independently.
+
+belongs_in_resources: Y | N | UNCLEAR. Answer N if it is really a
+  childcare center, a K-12 school, a church, or a PPEC medical
+  daycare rather than a service provider. Say which in notes.
+autism_relevance: Y | N | UNCLEAR - does it serve autistic or
+  developmentally disabled people specifically.
+site_hours: as written on the site, e.g. "Mon-Fri 8:00am-5:00pm".
+site_county: Florida county in title case.
+description: 250 characters maximum, your own wording, no marketing
+  copy lifted from the site.
+services_inferred: subset of services_proposed you inferred rather
+  than found stated.
+confidence: HIGH | MEDIUM | LOW
+
+RULES
+- Output the CSV only. NEVER execute anything against Supabase or

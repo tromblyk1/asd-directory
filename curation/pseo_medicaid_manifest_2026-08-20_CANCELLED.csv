@@ -1,0 +1,51 @@
+# CANCELLED 2026-08-21 by Keith. DO NOT BUILD THESE PAGES.
+#
+# Reason: insurance coverage is too sparse for any honest page title. Across the 35 cities
+# below, only 663 of 2,095 providers (31.6%) have ANY insurance data; 1,432 have none.
+# Tallahassee is 9% (8 medicaid-tagged rows against 126 local providers).
+#
+# The FL-DD dilemma closes it. FL-DD is the only genuine Medicaid registry in the dataset,
+# but it is the ADULT DD waiver registry. Excluding it (as this manifest does) strips the
+# rows with the strongest Medicaid provenance. Including it puts adult day training and
+# supported-living vendors on a page a parent reads as pediatric therapy. Neither choice
+# produces an honest page, so there is no version of this to build.
+#
+# Evidence: curation/insurance_filter_unknown_semantics_2026-08-21.md
+# Retained as an audit artifact only. No code reads this file.
+#
+canonical_city,providers,single_city,multi_city,no_website,band,providers_all_sources,fldd_excluded
+ORLANDO,28,8,19,1,25+,40,12
+MIAMI,19,13,6,0,10-24,64,45
+TAMPA,18,10,8,0,10-24,56,38
+JACKSONVILLE,17,11,4,2,10-24,55,38
+FORT MYERS,15,11,4,0,10-24,23,8
+CLEARWATER,10,5,5,0,10-24,20,10
+WEST PALM BEACH,9,9,0,0,5-9,26,17
+FORT LAUDERDALE,7,3,4,0,5-9,14,7
+GAINESVILLE,7,4,3,0,5-9,11,4
+CORAL SPRINGS,6,4,2,0,5-9,7,1
+HIALEAH,6,4,2,0,5-9,16,10
+HOLLYWOOD,6,3,3,0,5-9,12,6
+LAKELAND,6,3,3,0,5-9,9,3
+MIRAMAR,6,1,5,0,5-9,18,12
+SPRING HILL,6,6,0,0,5-9,9,3
+CAPE CORAL,5,3,2,0,5-9,11,6
+DAVIE,5,2,3,0,5-9,8,3
+MELBOURNE,5,4,1,0,5-9,6,1
+MIAMI LAKES,5,2,3,0,5-9,7,2
+PEMBROKE PINES,5,2,3,0,5-9,11,6
+TALLAHASSEE,5,2,3,0,5-9,10,5
+BOCA RATON,4,3,1,0,3-4,11,7
+NORTH MIAMI BEACH,4,3,1,0,3-4,8,4
+PALM HARBOR,4,2,2,0,3-4,8,4
+PORT ST. LUCIE,4,4,0,0,3-4,7,3
+STUART,4,0,4,0,3-4,6,2
+BROOKSVILLE,3,1,2,0,3-4,3,0
+CORAL GABLES,3,1,2,0,3-4,3,0
+LAKE WORTH,3,2,1,0,3-4,9,6
+LAUDERHILL,3,3,0,0,3-4,11,8
+NEW PORT RICHEY,3,0,3,0,3-4,6,3
+PALM BAY,3,3,0,0,3-4,8,5
+PALM BEACH GARDENS,3,1,2,0,3-4,3,0
+PLANTATION,3,2,1,0,3-4,8,5
+SUNRISE,3,2,1,0,3-4,6,3

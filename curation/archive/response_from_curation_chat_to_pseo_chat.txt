@@ -1,0 +1,134 @@
+CURATION TRACK RESPONSE - FL-DD / aba tagging
+
+=== FIRST, TWO CORRECTIONS TO THE PREMISE ===
+
+1. FL-DD IS NOT THE BIGGEST SOURCE OF BAD aba TAGS.
+   legacy_migration carries 870 aba tags to FL-DD's 504.
+   Together: 1,374 of 1,562 total aba tags (88%) come from two bulk
+   imports. Only 188 come from anywhere else.
+   Fixing FL-DD alone leaves the majority of the problem in place.
+
+   aba tags by source:
+     legacy_migration              870
+     FL-DD Database                504
+     Google Places (PT/OT/ST)       93
+     null                           82
+     submission                     10
+     provider-submission             2
+     Website verification Feb 2026   1
+
+2. THE verified FLAG IS NOT UNIFORMLY BROKEN.
+   It is broken specifically on the bulk imports:
+     FL-DD Database      484 of 587 verified
+     legacy_migration    450 of 1,154 verified
+   It is legitimate on the curated accreditation rosters, where
+   membership IS the verification:
+     PATH International              45/45
+     American Hippotherapy Assoc     22/22
+     ADI Accredited                   5/5
+     EAGALA                           5/5
+   Do not treat those as suspect. The exposure is ~934 records, not
+   all 1,500+.
+
+=== Q1: SAMPLE 30 AND CLASSIFY ===
+
+Did better than a sample. Classified all 587 FL-DD rows AND all
+1,562 aba-tagged rows by name pattern, then cross-matched every
+aba-tagged record against an authoritative source.
+
+AUTHORITATIVE SOURCE FOUND: BA_Providers___February_2025.xlsx is
+already in the project files. It is AHCA's Medicaid Behavior
+Analysis Service Providers list (August 2025) - 1,473 enrolled BA
+providers with name, address, city, zip, phone, counties served.
+1,281 distinct names, 1,339 distinct phones.
+
+Matched all 1,562 aba-tagged records against it on normalized name,
+phone, and address:
+
+  CONFIRMED (AHCA registry match)                    227  (14.5%)
+  CONTRADICTED (name identifies another provider
+    type AND no AHCA match) - ALREADY STRIPPED       100
+  UNRESOLVED                                       1,235
+
+IMPORTANT LIMIT ON THIS METHOD: the AHCA list is a WHITELIST, not a
+blacklist. Only 16 of 504 FL-DD records matched, because FL-DD is
+the DD WAIVER registry and AHCA is the MEDICAID BEHAVIOR ANALYSIS
+registry - different programs. A private-pay-only ABA clinic never
+appears on a Medicaid list at all. Absence from AHCA proves nothing.
+Do not use non-matching as grounds for removal.
+
+Of the 1,235 unresolved, 600 have NO website AND no AHCA match.
+Unverifiable by any automated means.
+
+=== Q2: OTHER FL-DD QUALITY PROBLEMS ===
+
+587 records total:
+  no website                 571  (97%)
+  no description             576  (98%)
+  all-caps names             579
+  embedded newlines in name   96
+  non-FL area code            26
+  no coordinates              27
+  distinct canonical cities  172
+
+The 97% no-website figure matters more than the tagging. A parent
+landing on one of these gets a name and a phone number. Even
+correctly tagged, most of these records have close to zero value on
+a generated page.
+
+=== Q3: RECOMMENDATION ===
+
+RETAG. Do not delete wholesale, do not suppress the source.
+
+Deleting is wrong because most of these are legitimate providers of
+SOMETHING - a group home is residential-program, adult day training
+is life-skills, a transport authority is transportation. Those are
+real slugs in the vocabulary and real needs for families. The error
+is the blanket aba mapping, not the records.
+
+Suppressing the whole source discards 587 rows of statewide coverage
+to fix one bad column.
+
+ALREADY EXECUTED on this track:
+  - 100 records had aba stripped: those whose own name identifies
+    them as residential, home care, adult day/vocational, transport,
+    or out-of-scope, AND with no AHCA match. Includes Space Coast
+    Area Transit and Suwannee Valley Transit Authority, which were
+    tagged as ABA providers. Reversible - array_remove only, other
+    tags intact, needs_review = true with a reason string.
+  - 7 records deleted outright after manual review.
+  - A 232-record manual audit is in progress on the remaining
+    government/transport/residential/home-care/out-of-scope buckets.
+
+WHAT I AM NOT DOING, AND WHY: the 1,235 unresolved records will not
+be stripped on a name heuristic. 376 of them look like personal
+names, and a solo BCBA practicing under their own name is a
+completely legitimate ABA provider. Guessing there would delete real
+providers to fix fake ones.
+
+=== THE LEVER THAT ACTUALLY SOLVES YOUR CUSTOMER PROBLEM ===
+
+1,235 records will not be hand-verified before the Featured
+customer's renewal. SQL has gone as far as it can.
+
+The fix that works on a useful timescale is a DISPLAY-SIDE
+CORROBORATION FILTER: a provider appears on an ABA city page only if
+it has a website, an AHCA registry match, or a manual verification.
+No data deleted, fully reversible, and it clears the group homes out
+of ABA results immediately.
+
+That is a code change, so it belongs to your track, not this one.
+
+=== DIRECTLY RELEVANT TO THE PILOT COHORT ===
+
+ST. PETERSBURG is 19 of 20 ABA providers from FL-DD (95%).
+RUSKIN and APOPKA are 100%.
+
+Any cohort ranked on current ABA counts is ranking on the bulk
+import. Re-rank after the corroboration filter exists.
+
+=== STILL PARKED ===
+
+The 201-record services backfill remains parked. 70 of those are
+aba. Will not unpark it until the corroboration approach is decided,
+since adding to a tag under audit is backwards.

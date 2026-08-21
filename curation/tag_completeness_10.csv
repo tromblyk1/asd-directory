@@ -1,0 +1,11 @@
+id,name,city,address,phone,website,services_txt,subcategory,source
+6596,Vocational Rehabilitation,Jacksonville,2050 Art Museum Dr,(904) 348-2770,https://rehabworks.org/,,ABA Therapy,legacy_migration
+6773,Speech and Language Connection Services LLC - Hialeah Gardens,Hialeah Gardens,10550 NW 77th Ct #224,(305) 456-8031,http://www.speechtherapy305.com/,null,ABA Therapy,legacy_migration
+6967,Children's Rehab PPEC - Miami Gardens,Miami Gardens,2727 NW 167th St C,(305) 622-7575,https://childrensrehabppec.com/ppec-in-miami-gardens-fl/,null,ABA Therapy,legacy_migration
+6977,FUSSION THERAPY INC. - Hialeah Gardens,Hialeah Gardens,8040 NW 95th St,(954) 793-0775,https://www.fussiontherapy.com/,null,ABA Therapy,legacy_migration
+6984,ChildGarden Center | Integral Therapy - Lake Worth Beach,Lake Worth Beach,1028 N Federal Hwy,(561) 909-8980,http://www.childgardens.com/,null,ABA Therapy,legacy_migration
+7163,Ascend Transition Services,Fort Myers,6213 Presidential Ct # 130,(239) 851-8608,https://www.ascendswfl.com/,life-skills|respite-care,ABA Therapy,legacy_migration
+9565,Sacred Space Therapy / Grounded Ventures LLC,Hollywood,2146 N 72ND TERRACE,(954) 257-5370,http://www.sacredtherapy.space/,physical-therapy,Physical Therapy,Google Places (PT/OT/ST)
+10112,KidsCare Home Health - Florida Region 10 - 8569 Pines Blvd,Hollywood,8569 PINES BLVD # 209,(954) 538-8588,https://kidscarehomehealth.com/florida/,null,"Physical Therapy, Occupational Therapy, Speech Therapy",Google Places (PT/OT/ST)
+10238,Angels of Care Pediatric Home Health,Jacksonville,6621 SOUTHPOINT DR N,(904) 683-8666,https://angelsofcare.com/,speech-therapy|occupational-therapy|physical-therapy,"Physical Therapy, Occupational Therapy, Speech Therapy",Google Places (PT/OT/ST)
+10360,Quest Kids Therapy - Winter Garden,Winter Garden,1200 E PLANT ST,407.218.4340,https://questinc.org/quest-kids-therapy/,null,Therapy Services,Google Places (PT/OT/ST)

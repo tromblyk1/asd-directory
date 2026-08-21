@@ -1,0 +1,96 @@
+# CANCELLED 2026-08-21 by Keith. DO NOT BUILD THESE PAGES.
+#
+# Reason: insurance coverage is too sparse for any honest page title, and the FL-DD dilemma
+# has no resolution. See the header of pseo_medicaid_manifest_2026-08-20_CANCELLED.csv and
+# curation/insurance_filter_unknown_semantics_2026-08-21.md for the full argument.
+#
+# The two fldd columns below are exactly the dilemma: FL-DD is the only genuine Medicaid
+# registry in the data, but it is the ADULT DD waiver registry. Excluding it strips the best
+# provenance; including it puts adult day training vendors on a page parents read as
+# pediatric therapy.
+#
+# Retained as an audit artifact only. No code reads this file.
+#
+canonical_city,medicaid_all,medicaid_fldd,medicaid_excl_fldd,clears_3_with_fldd,clears_3_without_fldd
+MIAMI,64,45,19,Y,Y
+TAMPA,56,38,18,Y,Y
+JACKSONVILLE,55,38,17,Y,Y
+ORLANDO,40,12,28,Y,Y
+WEST PALM BEACH,26,17,9,Y,Y
+FORT MYERS,23,8,15,Y,Y
+ST. PETERSBURG,22,21,1,Y,N
+CLEARWATER,20,10,10,Y,Y
+MIRAMAR,18,12,6,Y,Y
+HIALEAH,16,10,6,Y,Y
+FORT LAUDERDALE,14,7,7,Y,Y
+LARGO,13,11,2,Y,N
+HOLLYWOOD,12,6,6,Y,Y
+BOCA RATON,11,7,4,Y,Y
+CAPE CORAL,11,6,5,Y,Y
+GAINESVILLE,11,4,7,Y,Y
+LAUDERHILL,11,8,3,Y,Y
+PEMBROKE PINES,11,6,5,Y,Y
+TALLAHASSEE,10,5,5,Y,Y
+BRANDON,9,8,1,Y,N
+LAKE WORTH,9,6,3,Y,Y
+LAKELAND,9,3,6,Y,Y
+SPRING HILL,9,3,6,Y,Y
+DAVIE,8,3,5,Y,Y
+FORT PIERCE,8,6,2,Y,N
+NORTH MIAMI BEACH,8,4,4,Y,Y
+PALM BAY,8,5,3,Y,Y
+PALM HARBOR,8,4,4,Y,Y
+PLANTATION,8,5,3,Y,Y
+RIVERVIEW,8,8,0,Y,N
+CORAL SPRINGS,7,1,6,Y,Y
+MIAMI GARDENS,7,6,1,Y,N
+MIAMI LAKES,7,2,5,Y,Y
+PORT ST. LUCIE,7,3,4,Y,Y
+MELBOURNE,6,1,5,Y,Y
+NEW PORT RICHEY,6,3,3,Y,Y
+OCALA,6,4,2,Y,N
+ST. AUGUSTINE,6,5,1,Y,N
+STUART,6,2,4,Y,Y
+SUNRISE,6,3,3,Y,Y
+LEESBURG,5,5,0,Y,N
+PENSACOLA,5,5,0,Y,N
+RUSKIN,5,5,0,Y,N
+SEMINOLE,5,5,0,Y,N
+TAMARAC,5,3,2,Y,N
+DELAND,4,3,1,Y,N
+DORAL,4,2,2,Y,N
+JUPITER,4,2,2,Y,N
+LAND O LAKES,4,4,0,Y,N
+NAPLES,4,3,1,Y,N
+OCOEE,4,4,0,Y,N
+PALM SPRINGS,4,2,2,Y,N
+PINELLAS PARK,4,3,1,Y,N
+SARASOTA,4,4,0,Y,N
+TEMPLE TERRACE,4,4,0,Y,N
+VERO BEACH,4,3,1,Y,N
+ALTAMONTE SPRINGS,3,2,1,Y,N
+APOPKA,3,3,0,Y,N
+BOYNTON BEACH,3,3,0,Y,N
+BRADENTON,3,3,0,Y,N
+BROOKSVILLE,3,0,3,Y,Y
+COOPER CITY,3,3,0,Y,N
+CORAL GABLES,3,0,3,Y,Y
+CUTLER BAY,3,3,0,Y,N
+DUNEDIN,3,3,0,Y,N
+GREENACRES,3,2,1,Y,N
+HALLANDALE BEACH,3,1,2,Y,N
+HOMESTEAD,3,2,1,Y,N
+KISSIMMEE,3,2,1,Y,N
+LAKE MARY,3,2,1,Y,N
+LOXAHATCHEE,3,3,0,Y,N
+LUTZ,3,2,1,Y,N
+NORTH PALM BEACH,3,2,1,Y,N
+ORANGE PARK,3,1,2,Y,N
+OVIEDO,3,1,2,Y,N
+PALM BEACH GARDENS,3,0,3,Y,Y
+PANAMA CITY,3,3,0,Y,N
+PLANT CITY,3,3,0,Y,N
+TARPON SPRINGS,3,2,1,Y,N
+WESTON,3,2,1,Y,N
+WINTER HAVEN,3,3,0,Y,N
+WINTER PARK,3,1,2,Y,N

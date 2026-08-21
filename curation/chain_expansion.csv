@@ -1,0 +1,89 @@
+chain,location_name,street_address,suite,city,zip,county,phone,location_page_url,already_in_directory,matching_id,services_offered,confidence
+Acorn Health,"Altamonte Springs, FL",106 Boston Avenue,Suite 105,Altamonte Springs,32701,Seminole,,https://acornhealth.com/locations/,N,,aba,HIGH
+Acorn Health,"Championsgate, FL",8390 Champions Gate Blvd.,Suite 110,Championsgate,33896,Osceola,(407) 753-7932,https://acornhealth.com/locations/championsgate-fl/,N,,aba|ados-testing|life-skills|mobile-services,MEDIUM
+Acorn Health,"Coral Gables, FL",1500 Douglas Road,Suite 230,Coral Gables,33134,Miami-Dade,,https://acornhealth.com/locations/,Y,8952,aba,HIGH
+Acorn Health,"Kissimmee, FL",3831 West Vine Street,Suite 60,Kissimmee,34741,Osceola,,https://acornhealth.com/locations/,N,,aba,HIGH
+Acorn Health,"Lake Mary, FL",200 Waymont Ct.,Suite 122,Lake Mary,32746,Seminole,,https://acornhealth.com/locations/,N,,aba,HIGH
+Acorn Health,"Lakeland, FL",600 Lake Hollingsworth Dr,,Lakeland,33803,Polk,,https://acornhealth.com/locations/,Y,6756,aba,HIGH
+Acorn Health,"Longwood, FL",1775 West State Road 434,,Longwood,32750,Seminole,,https://acornhealth.com/locations/,N,,aba,HIGH
+Acorn Health,"Miramar, FL",3122 Commerce Parkway,,Miramar,33025,Broward,,https://acornhealth.com/locations/,Y,6536,aba,HIGH
+Acorn Health,"Orlando, FL",1160 South Semoran Blvd,Suite AB,Orlando,32807,Orange,,https://acornhealth.com/locations/,Y,7088,aba,HIGH
+Acorn Health,"East Orange, FL",2000 N. Alafaya Trail,,Orlando,32826,Orange,(407) 974-6557,https://acornhealth.com/locations/east-orange-fl/,N,,aba|life-skills|parent-coaching|mobile-services,HIGH
+Acorn Health,"Orlando, FL - Downtown",644 Ferguson Drive,Suite 200,Orlando,32805,Orange,,https://acornhealth.com/locations/,Y,6622,aba,HIGH
+Acorn Health,"Riverview, FL",10817 Bloomingdale Ave,,Riverview,33578,Hillsborough,(813) 336-3529,https://acornhealth.com/locations/riverview-fl/,N,,aba|ados-testing|life-skills|parent-coaching|mobile-services,HIGH
+Acorn Health,"St. Johns, FL",120 Everest Lane,Suite 1,St. Johns,32259,St. Johns,(904) 297-2433,https://acornhealth.com/locations/st-johns-fl/,N,,aba|ados-testing|parent-coaching|mobile-services,HIGH
+Acorn Health,"Tampa, FL",5020 Gunn Highway,Suite 250,Tampa,33624,Hillsborough,,https://acornhealth.com/locations/,N,,aba,HIGH
+Acorn Health,"Winter Garden, FL",13650 W Colonial Dr,Suite 150,Winter Garden,34787,Orange,(407) 988-2356,https://acornhealth.com/locations/winter-garden-fl/,N,,aba|ados-testing|mobile-services,HIGH
+BASS,Orlando - Altamonte Springs,745 Orienta Ave,#1011,Altamonte Springs,32701,Seminole,(877) 823-4283,https://www.bassautism.com/locations/orlando-altamonte-springs,N,,aba,HIGH
+BASS,Clearwater - St. Petersburg,13700 58th Street North,Unit 207,Clearwater,33760,Pinellas,(877) 823-4283,https://www.bassautism.com/locations/clearwater-st-petersburg,Y,6681,aba,HIGH
+BASS,Clearwater - Belcher,50 S Belcher Road,Suite 103,Clearwater,33765,Pinellas,(877) 823-4283,https://www.bassautism.com/locations/clearwater-belcher,N,,aba,HIGH
+BASS,DeBary (COMING SOON - not yet open),110 Pond Court,Suites 101 & 102,DeBary,32713,Volusia,(877) 823-4283,https://www.bassautism.com/locations/debary,N,,,LOW
+BASS,Gainesville East,1000 NE 16th Ave,Suite D,Gainesville,32601,Alachua,(877) 823-4283,https://www.bassautism.com/locations/gainesville-east,Y,9169,aba,HIGH
+BASS,Gainesville West,2035 SW 75th Street,Suite B,Gainesville,32607,Alachua,(877) 823-4283,https://www.bassautism.com/locations/gainesville-west,Y,9171,aba,HIGH
+BASS,New Port Richey,4532 US HWY 19,,New Port Richey,34652,Pasco,(877) 823-4283,https://www.bassautism.com/locations/new-port-richey,N,,aba,HIGH
+BASS,Ocala,2102 SW 20th Place,Suite 302,Ocala,34471,Marion,(877) 823-4283,https://www.bassautism.com/locations/ocala,N,,aba,HIGH
+BASS,Ocala West (COMING SOON - not yet open),9401 SW State Rd. 200,Suites 2001 & 2002,Ocala,34476,Marion,(877) 823-4283,https://www.bassautism.com/locations/ocala-west,N,,,LOW
+BASS,Orange City,2730 Enterprise Road,,Orange City,32763,Volusia,(877) 823-4283,https://www.bassautism.com/locations/orange-city,N,,aba,HIGH
+BASS,Jacksonville - Blanding,155-1 Blanding Blvd,,Orange Park,32073,Clay,(877) 823-4283,https://www.bassautism.com/locations/jacksonville---orange-park---blanding,N,,aba,HIGH
+BASS,Jacksonville - Orange Park,550 Wells Rd,Suite 3,Orange Park,32073,Clay,(877) 823-4283,https://www.bassautism.com/locations/jacksonville-orange-park,N,,aba,HIGH
+BASS,Ormond Beach,485 S Nova Road,Unit 111,Ormond Beach,32174,Volusia,(877) 823-4283,https://www.bassautism.com/locations/ormond-beach,Y,10394,aba,HIGH
+BASS,Oviedo,91 Geneva Drive,,Oviedo,32765,Seminole,(877) 823-4283,https://www.bassautism.com/locations/oviedo,N,,aba,HIGH
+BASS,Palm Harbor,3605 Alternate 19 North,,Palm Harbor,34683,Pinellas,(877) 823-4283,https://www.bassautism.com/locations/palm-harbor,N,,aba,HIGH
+BASS,Port Orange,823 Dunlawton Ave,,Port Orange,32127,Volusia,(877) 823-4283,https://www.bassautism.com/locations/port-orange,Y,9172,aba,HIGH
+BASS,Spring Hill,233 Della Court,,Spring Hill,34606,Hernando,(877) 823-4283,https://www.bassautism.com/locations/spring-hill,Y,6670,aba,HIGH
+BASS,Tampa - Westchase,13139 W. Linebaugh Ave.,Unit 101,Tampa,33626,Hillsborough,(877) 823-4283,https://www.bassautism.com/locations/tampa-westchase,N,,aba,HIGH
+BASS,Tampa - Carrollwood,3910 Northdale Boulevard,Suite 210,Tampa,33624,Hillsborough,(877) 823-4283,https://www.bassautism.com/locations/tampa-clocktower,N,,aba,HIGH
+BASS,Tampa - Palms,5330 Primrose Lake Circle,,Tampa,33647,Hillsborough,(877) 823-4283,https://www.bassautism.com/locations/tampa-palms,N,,aba,HIGH
+BASS,Wesley Chapel,2640 Cypress Ridge Boulevard,Suite 101,Wesley Chapel,33544,Pasco,(877) 823-4283,https://www.bassautism.com/locations/wesley-chapel,N,,aba,HIGH
+BlueSprig,Florida Autism Center - Apopka,514 S. Hunt Club Blvd.,,Apopka,32703,Orange,(407) 613-2335,https://www.bluesprigautism.com/centers/florida/florida-autism-center-apopka/,N,,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Brandon,815 S. Parsons Avenue,,Brandon,33511,Hillsborough,(941) 263-1451,https://www.bluesprigautism.com/locations/florida/,N,,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Clearwater,29228 US Hwy 19 N,,Clearwater,33761,Pinellas,(727) 351-4191,https://www.bluesprigautism.com/locations/florida/,Y,8838,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Clermont,17335 Pagonia Drive,Suite 109,Clermont,34711,Lake,(407) 614-4299,https://www.bluesprigautism.com/locations/florida/,N,,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Daytona Beach,500 Health Blvd.,Suite 100,Daytona Beach,32114,Volusia,(386) 267-3161,https://www.bluesprigautism.com/locations/florida/,Y,7378,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,"Florida Autism Center - Gainesville, Florida",1015 NW. 56th Terrace,,Gainesville,32605,Alachua,(352) 835-5520,https://www.bluesprigautism.com/locations/florida/,Y,6861,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center UFCAN Specialty Clinics,4101 NW 89th Blvd.,,Gainesville,32606,Alachua,(352) 554-9162,https://www.bluesprigautism.com/centers/florida/florida-autism-center-speciality-clinics/,N,,aba|feeding-therapy|parent-coaching,HIGH
+BlueSprig,Florida Autism Center - Atlantic Beach,13553 Atlantic Blvd.,Unit 100,Jacksonville,32225,Duval,(904) 420-7030,https://www.bluesprigautism.com/locations/florida/,N,,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Jacksonville Northwest,45 Alabama Avenue,,Jacksonville,32218,Duval,(904) 420-2304,https://www.bluesprigautism.com/locations/florida/,N,,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Kissimmee,810 N John Young Parkway,,Kissimmee,34741,Osceola,(407) 501-7960,https://www.bluesprigautism.com/locations/florida/,N,,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Lake Mary,791 Rinehart Rd.,,Lake Mary,32746,Seminole,(407) 413-9550,https://www.bluesprigautism.com/locations/florida/,N,,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Lakewood Ranch,6976 Professional Pkwy E,,Lakewood Ranch,34240,Sarasota,(941) 308-4641,https://www.bluesprigautism.com/locations/florida/,N,,aba|parent-coaching|virtual-therapy|mobile-services,MEDIUM
+BlueSprig,Florida Autism Center - Lehigh Acres,5220 Lee Blvd.,Bldg 6,Lehigh Acres,33971,Lee,(239) 932-2220,https://www.bluesprigautism.com/locations/florida/,N,,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Fish Hawk,5454 Lithia Pinecrest Rd.,,Lithia,33547,Hillsborough,(813) 467-9280,https://www.bluesprigautism.com/locations/florida/,N,,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Lutz,17815 Hunting Bow Cir.,,Lutz,33558,Hillsborough,(813) 491-4425,https://www.bluesprigautism.com/locations/florida/,N,,aba|parent-coaching|virtual-therapy|mobile-services,MEDIUM
+BlueSprig,Florida Autism Center - Melbourne,1535 Nasa Blvd,Unit C-1,Melbourne,32901,Brevard,(321) 235-6199,https://www.bluesprigautism.com/locations/florida/,N,,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Viera,5500 Murrell Road,Suite 100,Melbourne,32940,Brevard,(321) 426-7759,https://www.bluesprigautism.com/locations/florida/,N,,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Mount Dora,17435 US HWY-441,Unit 101,Mt Dora,32757,Lake,(352) 434-0455,https://www.bluesprigautism.com/locations/florida/,N,,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - New Port Richey,7326 Little Rd.,,New Port Richey,34654,Pasco,(727) 364-2212,https://www.bluesprigautism.com/locations/florida/,N,,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Fort Myers,4085 Hancock Bridge Parkway,Unit 101,North Fort Myers,33903,Lee,(239) 677-3767,https://www.bluesprigautism.com/locations/florida/,Y,7214,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - North Port,2574 Commerce Pkwy,,North Port,34289,Sarasota,(813) 498-1093,https://www.bluesprigautism.com/locations/florida/,N,,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Ocala,2437 SE 17th Street,Suite 102,Ocala,34471,Marion,(352) 509-5210,https://www.bluesprigautism.com/locations/florida/,N,,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Ocoee,2930 Maguire Road,Suite 200,Ocoee,34761,Orange,(407) 602-5010,https://www.bluesprigautism.com/locations/florida/,N,,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Orange Park,1567 Kingsley Ave.,,Orange Park,32073,Clay,(904) 602-9740,https://www.bluesprigautism.com/locations/florida/,N,,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Lake Nona,10920 Moss Park Rd.,Suite 130,Orlando,32832,Orange,(407) 930-4339,https://www.bluesprigautism.com/locations/florida/,N,,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Lake Buena Vista,11476 S. Apopka Vineland Rd,Suite 118,Orlando,32836,Orange,(407) 955-4001,https://www.bluesprigautism.com/locations/florida/,N,,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Waterford Lakes,2100 North Alafaya Trail,Suite 300,Orlando,32826,Orange,(407) 720-4101,https://www.bluesprigautism.com/locations/florida/,N,,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Palm Beach Gardens,2979 PGA Boulevard,Suite 200,Palm Beach Gardens,33410,Palm Beach,(561) 260-5900,https://www.bluesprigautism.com/centers/florida/florida-autism-center-palm-beach-gardens/,N,,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Palm Coast,515 Palm Coast Parkway,Suites 6/7,Palm Coast,32137,Flagler,(386) 951-3044,https://www.bluesprigautism.com/locations/florida/,N,,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Port St. Lucie,247 SW Port St. Lucie Blvd.,,Port St. Lucie,34984,St. Lucie,(772) 207-1356,https://www.bluesprigautism.com/locations/florida/,Y,7100,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - St. Augustine,124 Capulet Drive,Unit 102,Saint Augustine,32092,St. Johns,(904) 429-3859,https://www.bluesprigautism.com/locations/florida/,N,,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Spring Hill,4235 Rachel Blvd,,Spring Hill,34607,Hernando,(352) 505-9428,https://www.bluesprigautism.com/locations/florida/,Y,6668,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Tallahassee,2868 Mahan Dr,"Unit 25,26,27",Tallahassee,32308,Leon,(850) 391-6060,https://www.bluesprigautism.com/locations/florida/,Y,7094,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Westchase,12725 Race Track Rd.,,Tampa,33626,Hillsborough,(813) 467-7190,https://www.bluesprigautism.com/locations/florida/,N,,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Temple Terrace,12911 North Telecom Pkwy,,Temple Terrace,33637,Hillsborough,(813) 553-7880,https://www.bluesprigautism.com/locations/florida/,N,,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Wesley Chapel,2389 Oak Myrtle Lane,,Wesley Chapel,33544,Pasco,(813) 862-3030,https://www.bluesprigautism.com/locations/florida/,N,,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Winter Park,2305 Glenwood Drive,,Winter Park,32792,Orange,(407) 743-0312,https://www.bluesprigautism.com/locations/florida/,Y,6747,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+BlueSprig,Florida Autism Center - Yulee,464099 State RD 200,STE 2,Yulee,32097,Nassau,(904) 875-4461,https://www.bluesprigautism.com/locations/florida/,N,,aba|parent-coaching|virtual-therapy|mobile-services,HIGH
+Cultivate,"Cultivate Behavioral Health & Education - Boca Raton, FL",9970 S. Central Park Blvd,Suite 401,Boca Raton,33428,Palm Beach,,https://cultivatebhe.com/locations/florida/,Y,7140,aba,HIGH
+Cultivate,"Cultivate Behavioral Health & Education - Boynton Beach, FL",8188 Jog Road,Suite 101,Boynton Beach,33472,Palm Beach,561-459-3384,https://cultivatebhe.com/locations/florida/boynton-beach-fl/,N,,aba|parent-coaching|mobile-services,HIGH
+Cultivate,"Cultivate Behavioral Health & Education - Bradenton, FL",522 9th St. W,,Bradenton,34205,Manatee,,https://cultivatebhe.com/locations/florida/,N,,aba,HIGH
+Cultivate,"Cultivate Behavioral Health & Education - Coral Gables, FL (in-home only; company publishes NO street address for this site)",,,Coral Gables,,Miami-Dade,305-951-0532,https://cultivatebhe.com/locations/florida/coral-gables-fl/,N,,aba|mobile-services|parent-coaching,LOW
+Cultivate,"Cultivate Behavioral Health & Education - Coral Springs, FL",1725 N University Dr,Suite 325,Coral Springs,33071,Broward,,https://cultivatebhe.com/locations/florida/,N,,aba,HIGH
+Cultivate,"Cultivate Behavioral Health & Education - Cutler Bay, FL (in-home only; company publishes NO street address for this site)",,,Cutler Bay,,Miami-Dade,305-951-0532,https://cultivatebhe.com/locations/florida/cutler-bay/,N,,aba|mobile-services|parent-coaching,LOW
+Cultivate,"Cultivate Behavioral Health & Education - Kendale Lakes, FL (in-home only; company publishes NO street address for this site)",,,Kendale Lakes,,Miami-Dade,305-951-0532,https://cultivatebhe.com/locations/florida/kendale-lakes/,N,,aba|mobile-services,LOW
+Cultivate,"Cultivate Behavioral Health & Education - Kendall, FL (in-home only; company publishes NO street address for this site)",,,Kendall,,Miami-Dade,305-951-0532,https://cultivatebhe.com/locations/florida/kendall/,N,,aba|mobile-services|ados-testing,LOW
+Cultivate,"Cultivate Behavioral Health & Education - Orange Park, FL",350 Corporate Way,Suite 400,Orange Park,32073,Clay,,https://cultivatebhe.com/locations/florida/,Y,9166,aba,HIGH
+Cultivate,"Cultivate Behavioral Health & Education - Palm Beach, FL (in-home only; company publishes NO street address for this site)",,,Palm Beach,,Palm Beach,561-459-3384,https://cultivatebhe.com/locations/florida/palm-beach-fl/,N,,aba|mobile-services|parent-coaching,LOW
+Cultivate,"Cultivate Behavioral Health & Education - Sebastian, FL",1424 US Hwy 1,Ste C,Sebastian,32958,Indian River,,https://cultivatebhe.com/locations/florida/,N,,aba,HIGH
+Cultivate,"Cultivate Behavioral Health & Education - Sunrise, FL",1398 SW 160th Avenue,Suite 401,Sunrise,33326,Broward,,https://cultivatebhe.com/locations/florida/,N,,aba,HIGH
+Cultivate,"Cultivate Behavioral Health & Education - Vero Beach, FL (in-home only; company publishes NO street address for this site)",,,Vero Beach,,Indian River,844-854-7400,https://cultivatebhe.com/locations/florida/vero-beach/,N,,aba|mobile-services,LOW
+Cultivate,"Cultivate Behavioral Health & Education - Yulee, FL",87009 Professional Way,,Yulee,32097,Nassau,,https://cultivatebhe.com/locations/florida/,Y,5840,aba,HIGH
