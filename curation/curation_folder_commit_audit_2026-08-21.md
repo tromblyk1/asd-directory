@@ -12,7 +12,7 @@ The audit below was run against that assumption, not against a private-repo assu
 
 | | |
 |---|---:|
-| Files | **110** |
+| Files | **112** (110 at scan time, plus this report and the scholarship one) |
 | Total size | 1.8 MB |
 | `.csv` | 66 |
 | `.md` | 28 |
@@ -94,7 +94,7 @@ Law screenshots are untracked PNGs. **No pricing, no rates, no deal terms anywhe
 
 ## 7. Recommendation
 
-**Commit all 110 files. No gitignore additions needed.**
+**Commit all 112 files. No gitignore additions needed.**
 
 The counter-argument I considered and rejected: excluding the scraped-excerpt and email-bearing
 CSVs would leave the markdown decision records without their supporting evidence, which defeats
