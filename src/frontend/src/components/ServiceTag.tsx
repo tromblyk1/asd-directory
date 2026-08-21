@@ -267,7 +267,7 @@ const SERVICE_METADATA: Record<string, {
     color: 'bg-purple-100 text-purple-800 border-purple-200 hover:bg-purple-200',
     type: 'insurance',
   },
-  'molina-healthcare': {
+  'molina': {
     name: 'Molina Healthcare',
     description: 'Managed care insurance',
     color: 'bg-purple-100 text-purple-800 border-purple-200 hover:bg-purple-200',

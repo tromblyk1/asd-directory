@@ -1,0 +1,35 @@
+{
+  "slug": "molina",
+  "category": "insurances",
+  "title": "Molina Healthcare",
+  "shortDescription": "Managed care plans for Medicaid, Medicare and Marketplace members, with behavioral health coverage.",
+  "description": "Molina Healthcare is a managed care company that focuses on government-sponsored health programs — Medicaid, Medicare, and Health Insurance Marketplace plans. Founded in 1980 by Dr. C. David Molina, an emergency room physician who saw families turned away for lack of coverage, the company built its model around serving low-income and underserved members.\n\nMolina Healthcare of Florida offers coverage to Florida families through Medicaid managed care and Marketplace plans. Plan availability and service area vary by region and by plan year, so a family in one part of the state may have Molina as an option while a family in another does not.\n\nMolina plans generally include behavioral health services, care coordination, and long-term services and supports for members who qualify. For autism specifically, the services most families are looking for — ABA therapy, speech therapy, occupational therapy — are typically covered when medically necessary and prescribed following an autism diagnosis, subject to prior authorization.\n\nBecause Molina's Florida footprint is primarily Medicaid, the Florida Medicaid rules on autism services generally apply: a diagnosis and a treatment plan from an appropriate provider, prior authorization for behavior analysis, and services delivered by an enrolled, in-network provider.",
+  "benefits": [
+    "Behavioral health coverage including ABA therapy when medically necessary",
+    "Speech, occupational, and physical therapy benefits",
+    "Care coordination and case management for members with complex needs",
+    "Long-term services and supports for qualifying members",
+    "No-cost or low-cost coverage for eligible Medicaid members",
+    "Marketplace plans for families who do not qualify for Medicaid"
+  ],
+  "requirements": [
+    "Medicaid eligibility, Medicare eligibility, or Marketplace enrollment depending on the plan",
+    "Autism diagnosis required for ASD-specific services",
+    "Prior authorization typically required for ABA and other intensive services",
+    "Services must be deemed medically necessary and delivered under a treatment plan",
+    "Provider must be in-network and, for Medicaid, enrolled with Florida Medicaid",
+    "Plan availability varies by region — confirm Molina is offered in your county"
+  ],
+  "links": [
+    {
+      "label": "Molina Healthcare of Florida",
+      "url": "https://www.molinahealthcare.com/members/fl/en-us/mem/medicaid/overvw/coverd/Pages/coverd.aspx",
+      "description": "Florida plan overview - covered services, member resources, and provider search"
+    },
+    {
+      "label": "Molina Healthcare",
+      "url": "https://www.molinahealthcare.com/",
+      "description": "Main Molina site - find a plan, check eligibility, and manage your membership"
+    }
+  ]
+}

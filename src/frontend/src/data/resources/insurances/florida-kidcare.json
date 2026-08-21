@@ -1,0 +1,41 @@
+{
+  "slug": "florida-kidcare",
+  "category": "insurances",
+  "title": "Florida KidCare",
+  "shortDescription": "The umbrella name for Florida's children's health coverage programs — not a plan providers contract with directly.",
+  "description": "Florida KidCare is not an insurance plan. It is the umbrella name for Florida's health coverage programs for children from birth through age 18, and the single front door families use to apply. Once an application is submitted, the state routes the child to whichever program fits their age and household income.\n\nThere are four programs under the umbrella:\n\n**Medicaid for children** — full coverage for eligible children from birth through age 18, at the lowest income levels. **MediKids** — for children ages 1 through 4. **Florida Healthy Kids** — for children ages 5 through 18. **Children's Medical Services (CMS) Health Plan** — for children of any age with special health care needs, including many autistic children, administered through Sunshine Health.\n\nThis matters for how you use this directory. A therapy provider does not contract with \"Florida KidCare\" — they contract with the underlying plan. When a provider tells you they take KidCare, the useful follow-up question is *which program*: Florida Medicaid, the CMS Health Plan, or one of the Florida Healthy Kids plans. That answer is what determines whether your child's coverage actually works at that office.\n\nFor autistic children specifically, the CMS Health Plan is often the relevant one. It is designed for children with special health care needs and includes care coordination alongside medical and behavioral benefits. Children who qualify for it are frequently better served there than in a general plan.\n\nFamilies apply once, at floridakidcare.org, and the state determines which program the child qualifies for. Eligibility is income-based, and many families pay a low monthly premium or nothing at all; a full-pay option exists for families over the income limits.",
+  "benefits": [
+    "One application covers all four programs — the state routes your child to the right one",
+    "Coverage from birth through age 18",
+    "Doctor visits, hospital care, prescriptions, dental and vision",
+    "Behavioral health services, including ABA therapy when medically necessary",
+    "Speech, occupational, and physical therapy",
+    "The CMS Health Plan option adds care coordination for children with special health care needs",
+    "Low or no monthly premium for most eligible families"
+  ],
+  "requirements": [
+    "Child must be under 19 and a Florida resident",
+    "Eligibility and program placement are determined by age and household income",
+    "Ask providers which specific program they accept — Medicaid, CMS Health Plan, or Healthy Kids — not whether they accept \"KidCare\"",
+    "Autism diagnosis required for ASD-specific services",
+    "Prior authorization typically required for ABA and other intensive services",
+    "Provider must be in-network for the underlying plan your child is enrolled in"
+  ],
+  "links": [
+    {
+      "label": "Florida KidCare",
+      "url": "https://www.floridakidcare.org/",
+      "description": "Official site - apply, check eligibility, and see which program your child qualifies for"
+    },
+    {
+      "label": "Children's Medical Services Health Plan",
+      "url": "https://www.sunshinehealth.com/members/medicaid/childrens-medical-services-health-plan.html",
+      "description": "The KidCare program for children with special health care needs, administered by Sunshine Health"
+    },
+    {
+      "label": "Florida Healthy Kids",
+      "url": "https://www.healthykids.org/",
+      "description": "The KidCare program for children ages 5 through 18"
+    }
+  ]
+}

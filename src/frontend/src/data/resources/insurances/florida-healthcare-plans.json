@@ -1,0 +1,30 @@
+{
+  "slug": "florida-healthcare-plans",
+  "category": "insurances",
+  "title": "Florida Health Care Plans",
+  "shortDescription": "Regional HMO serving Volusia, Flagler and neighboring counties — not a statewide plan.",
+  "description": "Florida Health Care Plans (FHCP) is a regional health maintenance organization founded in 1974 and headquartered in Holly Hill, Florida. It is part of AdventHealth, and it operates its own network of primary care centers, pharmacies, and specialty offices alongside a contracted provider network.\n\nThe most important thing to know before you filter for it: FHCP is regional, not statewide. Its core service area is Volusia and Flagler counties, with expansion into several neighboring Central and Northeast Florida counties. If you live in South Florida, the Panhandle, or the Tampa Bay area, FHCP is almost certainly not available to you — and a provider elsewhere in the state who does not list it is not refusing it, they simply are not in its network area.\n\nFHCP offers commercial group plans, individual and family plans, and Medicare Advantage. Its integrated model means many services are delivered through FHCP-owned facilities, which can simplify referrals and care coordination but also means network rules matter more than with a broad statewide PPO.\n\nUnder Florida law (sections 627.6686 and 641.31098, Florida Statutes), large group health plans and HMO contracts must cover ABA therapy for individuals under 18 with an autism diagnosis, with annual limits of $36,000 and lifetime limits of $200,000. FHCP's commercial plans are subject to these state mandates.",
+  "benefits": [
+    "ABA therapy coverage on commercial plans as mandated by Florida law",
+    "Speech, occupational, and physical therapy benefits",
+    "Behavioral and mental health services",
+    "Integrated care model with FHCP-owned primary care centers and pharmacies",
+    "Local member services based in the service area rather than a national call center",
+    "Commercial group, individual and family, and Medicare Advantage options"
+  ],
+  "requirements": [
+    "You must live in the FHCP service area — primarily Volusia and Flagler counties and neighboring areas",
+    "Referral from a primary care physician often required for specialty services",
+    "Prior authorization typically required for ABA and other intensive services",
+    "Autism diagnosis required for ASD-specific coverage",
+    "Services must be deemed medically necessary",
+    "Provider must be in-network; out-of-area providers are generally not covered"
+  ],
+  "links": [
+    {
+      "label": "Florida Health Care Plans",
+      "url": "https://www.fhcp.com/",
+      "description": "Official FHCP website - plans, service area, provider directory, and member resources"
+    }
+  ]
+}
