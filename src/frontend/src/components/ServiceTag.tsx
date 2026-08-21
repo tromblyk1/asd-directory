@@ -321,6 +321,24 @@ const SERVICE_METADATA: Record<string, {
     color: 'bg-purple-100 text-purple-800 border-purple-200 hover:bg-purple-200',
     type: 'insurance',
   },
+  'simply-healthcare': {
+    name: 'Simply Healthcare',
+    description: 'Florida Medicaid, Medicare and Healthy Kids plans from an Elevance Health company',
+    color: 'bg-purple-100 text-purple-800 border-purple-200 hover:bg-purple-200',
+    type: 'insurance',
+  },
+  'community-care-plan': {
+    name: 'Community Care Plan',
+    description: 'Regional South Florida plan owned by Broward Health and Memorial Healthcare System',
+    color: 'bg-purple-100 text-purple-800 border-purple-200 hover:bg-purple-200',
+    type: 'insurance',
+  },
+  'curative': {
+    name: 'Curative',
+    description: 'Employer-sponsored plan with $0 copays and deductibles after a Baseline Visit',
+    color: 'bg-purple-100 text-purple-800 border-purple-200 hover:bg-purple-200',
+    type: 'insurance',
+  },
 
   // Scholarships (Green - matches education page)
   'pep': {

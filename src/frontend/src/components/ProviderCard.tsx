@@ -133,6 +133,9 @@ const insuranceBadges: Record<string, { label: string; tooltip: string; link: st
   'oscar': { label: 'Oscar Health', tooltip: 'Tech-forward health insurer with autism therapy coverage in Florida', link: '/resources/insurances/oscar' },
   'allegiance': { label: 'Allegiance', tooltip: 'Third-party administrator for self-funded health plans, a Cigna subsidiary', link: '/resources/insurances/allegiance' },
   'evernorth': { label: 'Evernorth', tooltip: 'Cigna behavioral health division offering autism and mental health services', link: '/resources/insurances/evernorth' },
+  'simply-healthcare': { label: 'Simply Healthcare', tooltip: 'Florida Medicaid, Medicare and Healthy Kids plans from an Elevance Health company', link: '/resources/insurances/simply-healthcare' },
+  'community-care-plan': { label: 'Community Care Plan', tooltip: 'Regional South Florida plan owned by Broward Health and Memorial Healthcare System', link: '/resources/insurances/community-care-plan' },
+  'curative': { label: 'Curative', tooltip: 'Employer-sponsored plan with $0 copays and deductibles after a Baseline Visit', link: '/resources/insurances/curative' },
 };
 
 // Scholarship badge definitions - GREEN colors

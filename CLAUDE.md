@@ -383,7 +383,7 @@ Update ALL of these files:
 # VALID SLUGS
 
 ## Services (services[] array)
-aba, speech-therapy, occupational-therapy, physical-therapy, feeding-therapy, music-therapy, animal-therapy, dir-floortime, group-therapy, ados-testing, life-skills, executive-function-coaching, parent-coaching, respite-care, residential-program, support-groups, tutoring, virtual-therapy, mobile-services, autism-travel
+aba, speech-therapy, occupational-therapy, physical-therapy, feeding-therapy, music-therapy, animal-therapy, dir-floortime, group-therapy, ados-testing, life-skills, executive-function-coaching, parent-coaching, respite-care, residential-program, support-groups, tutoring, virtual-therapy, mobile-services, autism-travel, aac, transportation, art-therapy, financial-planning
 
 **Not `pet-therapy`** — the database uses `animal-therapy` (108 providers). `pet-therapy` has zero
 rows and no badge entry; tagging it renders no badge at all.
