@@ -17,6 +17,15 @@ const PROVIDERS_PER_PAGE = 50;
 const DEFAULT_SEARCH_RADIUS = 25; // miles
 const MAX_MAP_PROVIDERS = 500;
 
+type InsuranceBand = 'confirmed' | 'likely' | 'not-listed';
+// Already normalized (lowercased, separators stripped) to match normalizeForComparison output.
+const ACCEPTS_MOST_NORM = 'acceptsmostinsurances';
+const INSURANCE_BAND_LABELS: Record<InsuranceBand, string> = {
+  confirmed: 'Confirmed — accepts this plan',
+  likely: 'Likely — accepts most insurances',
+  'not-listed': 'Has not listed insurance — call to confirm coverage',
+};
+
 // Haversine formula to calculate distance between two coordinates in miles
 const calculateDistance = (lat1: number, lon1: number, lat2: number, lon2: number): number => {
   const R = 3959; // Earth's radius in miles
@@ -272,15 +281,16 @@ export default function FindProviders() {
   };
 
   // Helper to check if array contains any of the selected values (case-insensitive)
+  // Matching is EXACT on the normalized slug. It used to also accept substring matches in both
+  // directions, which silently equates any slug that contains another: `medicaid` would match
+  // `florida-medicaid`, and every provider tagged with the narrower value would be swept into
+  // results for the broader one. No current value collides, so tightening this changed nothing
+  // on the day it landed — it exists to keep a future slug from breaking the filter invisibly.
   const arrayContainsAny = (arr: string[] | null | undefined, selectedValues: string[]): boolean => {
     if (!arr || arr.length === 0 || selectedValues.length === 0) return selectedValues.length === 0;
     const normalizedArr = arr.map(normalizeForComparison);
-    return selectedValues.some(selected => 
-      normalizedArr.some(item => 
-        item === normalizeForComparison(selected) ||
-        item.includes(normalizeForComparison(selected)) ||
-        normalizeForComparison(selected).includes(item)
-      )
+    return selectedValues.some(selected =>
+      normalizedArr.includes(normalizeForComparison(selected))
     );
   };
 
@@ -304,12 +314,25 @@ export default function FindProviders() {
   }, [providers]);
 
   // Filter providers
-  const filteredProviders = useMemo(() => {
+  const bandedResults = useMemo(() => {
     // Normalize spaces and hyphens so "speech therapy" matches the "speech-therapy" slug, etc.
     const normalize = (s: string | null | undefined) => (s || '').toLowerCase().replace(/[\s-]+/g, '');
     const searchTermNorm = normalize(searchTerm);
     const matchField = (field: string | null | undefined) => normalize(field).includes(searchTermNorm);
     const matchArray = (arr: string[] | null | undefined) => arr?.some(s => normalize(s).includes(searchTermNorm)) ?? false;
+
+    // Three bands, only when a payer is selected:
+    //   'confirmed'  — carries the selected tag
+    //   'likely'     — carries accepts-most-insurances (its own tag; it never matches a specific payer)
+    //   'not-listed' — no insurance data at all
+    //   'excluded'   — has insurance data, none of it the selected payer. The only real "no".
+    const insuranceBandOf = (provider: ProviderResource): InsuranceBand | 'excluded' => {
+      if (arrayContainsAny(provider.insurances, selectedInsurances)) return 'confirmed';
+      const ins = provider.insurances;
+      if (!ins || ins.length === 0) return 'not-listed';
+      if (ins.map(normalizeForComparison).includes(ACCEPTS_MOST_NORM)) return 'likely';
+      return 'excluded';
+    };
 
     const filtered = providers.filter(provider => {
       // Search filter: name, city, county, ZIP, services, insurances, scholarships (all normalized)
@@ -332,9 +355,11 @@ export default function FindProviders() {
       const matchesService = selectedServices.length === 0 ||
         arrayContainsAny(provider.services, selectedServices);
 
-      // Insurance filter (array-based)
+      // Insurance filter (array-based). An empty insurances array does NOT mean "does not accept" —
+      // it means nobody has collected the data (1,978 of 3,054 providers on 2026-08-21). Those are
+      // kept and banded below instead of being dropped, so the filter never turns unknown into no.
       const matchesInsurance = selectedInsurances.length === 0 ||
-        arrayContainsAny(provider.insurances, selectedInsurances);
+        insuranceBandOf(provider) !== 'excluded';
 
       // Scholarship filter (array-based)
       const matchesScholarship = selectedScholarships.length === 0 ||
@@ -347,9 +372,6 @@ export default function FindProviders() {
     // Every paying tier ranks above all non-featured listings — Basic providers are paying for "above all
     // standard results" placement, so they always outrank free listings. Differentiation between tiers only
     // applies when higher tiers are present in the same result set: Premium beats Enhanced beats Basic.
-    const featured = filtered.filter(p => p.featured);
-    const nonFeatured = filtered.filter(p => !p.featured);
-
     const tierOf = (p: ProviderResource): 'premium' | 'enhanced' | 'basic' | 'other' => {
       const t = (p.featured_tier || '').toLowerCase();
       if (t === 'premium') return 'premium';
@@ -357,10 +379,6 @@ export default function FindProviders() {
       if (t === 'basic') return 'basic';
       return 'other';
     };
-    const premiumFeatured = featured.filter(p => tierOf(p) === 'premium');
-    const enhancedFeatured = featured.filter(p => tierOf(p) === 'enhanced');
-    const basicFeatured = featured.filter(p => tierOf(p) === 'basic');
-    const otherFeatured = featured.filter(p => tierOf(p) === 'other');
 
     const dateStr = new Date().toISOString().slice(0, 10);
     let seed = 0;
@@ -371,13 +389,77 @@ export default function FindProviders() {
       seed = (seed * 16807 + 0) % 2147483647;
       return (seed & 0x7fffffff) / 2147483647;
     };
-    for (let i = nonFeatured.length - 1; i > 0; i--) {
-      const j = Math.floor(seededRandom() * (i + 1));
-      [nonFeatured[i], nonFeatured[j]] = [nonFeatured[j], nonFeatured[i]];
+
+    const orderByFeaturedTier = (list: ProviderResource[]): ProviderResource[] => {
+      const featured = list.filter(p => p.featured);
+      const nonFeatured = list.filter(p => !p.featured);
+      for (let i = nonFeatured.length - 1; i > 0; i--) {
+        const j = Math.floor(seededRandom() * (i + 1));
+        [nonFeatured[i], nonFeatured[j]] = [nonFeatured[j], nonFeatured[i]];
+      }
+      return [
+        ...featured.filter(p => tierOf(p) === 'premium'),
+        ...featured.filter(p => tierOf(p) === 'enhanced'),
+        ...featured.filter(p => tierOf(p) === 'basic'),
+        ...featured.filter(p => tierOf(p) === 'other'),
+        ...nonFeatured,
+      ];
+    };
+
+    if (selectedInsurances.length === 0) {
+      return { ordered: orderByFeaturedTier(filtered), bands: null };
     }
 
-    return [...premiumFeatured, ...enhancedFeatured, ...basicFeatured, ...otherFeatured, ...nonFeatured];
+    // BAND IS THE OUTER PARTITION; the featured tier sort applies WITHIN each band.
+    //
+    // This deliberately inverts the precedent set by the distance sort on ProvidersByCity, where
+    // featured stays pinned above everything and distance only reorders the remainder. The
+    // difference: distance is a preference the user expressed, so paid placement outranks it; a
+    // band is a claim about the provider, so it outranks paid placement. A paid listing must never
+    // be presented as a confirmed match it hasn't earned.
+    //
+    // Decided 2026-08-21, when exactly one featured provider existed site-wide and it had
+    // insurance data — so this cost nothing at the time. It was chosen deliberately rather than
+    // by default, and it binds as the featured program grows.
+    const confirmed: ProviderResource[] = [];
+    const likely: ProviderResource[] = [];
+    const notListed: ProviderResource[] = [];
+    for (const p of filtered) {
+      const band = insuranceBandOf(p);
+      if (band === 'confirmed') confirmed.push(p);
+      else if (band === 'likely') likely.push(p);
+      else if (band === 'not-listed') notListed.push(p);
+    }
+
+    const orderedConfirmed = orderByFeaturedTier(confirmed);
+    const orderedLikely = orderByFeaturedTier(likely);
+    const orderedNotListed = orderByFeaturedTier(notListed);
+
+    return {
+      ordered: [...orderedConfirmed, ...orderedLikely, ...orderedNotListed],
+      bands: {
+        confirmed: orderedConfirmed.length,
+        likely: orderedLikely.length,
+        notListed: orderedNotListed.length,
+      },
+    };
   }, [providers, searchTerm, selectedCounties, selectedServices, selectedInsurances, selectedScholarships]);
+
+  const filteredProviders = bandedResults.ordered;
+  const bands = bandedResults.bands;
+  // Bands a+b are the actual matches. Band C ("not listed") is shown but never counted as one,
+  // and never mapped — a pin carries no band label, so mapping it would present it as a match.
+  const matchedProviders = useMemo(
+    () => (bands ? filteredProviders.slice(0, bands.confirmed + bands.likely) : filteredProviders),
+    [filteredProviders, bands]
+  );
+
+  const bandAtIndex = (index: number): InsuranceBand | null => {
+    if (!bands) return null;
+    if (index < bands.confirmed) return 'confirmed';
+    if (index < bands.confirmed + bands.likely) return 'likely';
+    return 'not-listed';
+  };
 
   // Request user's location
   const requestUserLocation = () => {
@@ -535,7 +617,7 @@ export default function FindProviders() {
   const locationFilteredProviders = useMemo(() => {
     if (!searchCenter) return [];
     
-    return filteredProviders.filter(provider => {
+    return matchedProviders.filter(provider => {
       if (!provider.latitude || !provider.longitude) return false;
       const distance = calculateDistance(
         searchCenter[0], searchCenter[1],
@@ -543,15 +625,15 @@ export default function FindProviders() {
       );
       return distance <= searchRadius;
     });
-  }, [filteredProviders, searchCenter, searchRadius]);
+  }, [matchedProviders, searchCenter, searchRadius]);
 
   // Providers with coordinates for map
   const mappableProviders = useMemo(() => {
     if (searchCenter) {
       return locationFilteredProviders;
     }
-    return filteredProviders.filter(p => p.latitude && p.longitude);
-  }, [filteredProviders, locationFilteredProviders, searchCenter]);
+    return matchedProviders.filter(p => p.latitude && p.longitude);
+  }, [matchedProviders, locationFilteredProviders, searchCenter]);
 
   // Determine if map should render
   const shouldRenderMap = useMemo(() => {
@@ -566,12 +648,12 @@ export default function FindProviders() {
     
     // If only county filters, allow up to 1500 providers (MapBoundsUpdater will zoom to fit)
     if (hasOnlyCountyFilters) {
-      return filteredProviders.length <= 1500;
+      return matchedProviders.length <= 1500;
     }
-    
+
     // Otherwise, use the 500 limit
-    return filteredProviders.length <= MAX_MAP_PROVIDERS;
-  }, [filteredProviders, locationFilteredProviders, searchCenter, selectedCounties, selectedServices, selectedInsurances]);
+    return matchedProviders.length <= MAX_MAP_PROVIDERS;
+  }, [matchedProviders, locationFilteredProviders, searchCenter, selectedCounties, selectedServices, selectedInsurances]);
 
   // Visible providers with pagination
   const visibleProviders = useMemo(() => {
@@ -982,20 +1064,39 @@ export default function FindProviders() {
           <div className="flex-1 min-w-0">
             {/* Results Count */}
             <div className="mb-4 sm:mb-6 flex items-center justify-between">
-              <p className="text-sm sm:text-base text-gray-600">
-                Showing{' '}
-                <span className="font-semibold text-gray-900">
-                  {viewMode === 'list' ? visibleProviders.length : mappableProviders.length}
-                </span>{' '}
-                of{' '}
-                <span className="font-semibold text-gray-900">
-                  {filteredProviders.length}
-                </span>{' '}
-                providers
-                {providers.length > 0 && filteredProviders.length !== providers.length && (
-                  <span className="text-xs sm:text-sm ml-2">({providers.length} total)</span>
-                )}
-              </p>
+              {bands ? (
+                <p className="text-sm sm:text-base text-gray-600">
+                  <span className="font-semibold text-gray-900">
+                    {bands.confirmed + bands.likely}
+                  </span>{' '}
+                  {bands.confirmed + bands.likely === 1 ? 'provider accepts' : 'providers accept'} this plan
+                  {bands.likely > 0 && (
+                    <span className="text-xs sm:text-sm ml-1">
+                      ({bands.confirmed} confirmed, {bands.likely} likely)
+                    </span>
+                  )}
+                  {bands.notListed > 0 && (
+                    <span className="text-xs sm:text-sm ml-2 text-gray-500">
+                      · {bands.notListed} more {bands.notListed === 1 ? 'has' : 'have'} not listed insurance
+                    </span>
+                  )}
+                </p>
+              ) : (
+                <p className="text-sm sm:text-base text-gray-600">
+                  Showing{' '}
+                  <span className="font-semibold text-gray-900">
+                    {viewMode === 'list' ? visibleProviders.length : mappableProviders.length}
+                  </span>{' '}
+                  of{' '}
+                  <span className="font-semibold text-gray-900">
+                    {filteredProviders.length}
+                  </span>{' '}
+                  providers
+                  {providers.length > 0 && filteredProviders.length !== providers.length && (
+                    <span className="text-xs sm:text-sm ml-2">({providers.length} total)</span>
+                  )}
+                </p>
+              )}
             </div>
 
             {isLoading ? (
@@ -1015,13 +1116,30 @@ export default function FindProviders() {
             ) : viewMode === 'list' ? (
               <TooltipProvider delayDuration={200}>
                 <div className="space-y-3 sm:space-y-4">
-                  {visibleProviders.map((provider) => (
-                    <ProviderCard 
-                      key={provider.id} 
-                      provider={provider}
-                      rating={provider.google_place_id ? ratings[provider.google_place_id] : null}
-                    />
-                  ))}
+                  {visibleProviders.map((provider, index) => {
+                    // `ordered` is grouped by band, so the band is derivable from the index and the
+                    // header is emitted at each boundary. Pagination slices the flat array, so a
+                    // boundary that falls past visibleCount simply appears on the next page.
+                    const band = bandAtIndex(index);
+                    const showHeader = band !== null && (index === 0 || band !== bandAtIndex(index - 1));
+                    return (
+                      <React.Fragment key={provider.id}>
+                        {showHeader && (
+                          <h3
+                            className={`text-sm font-semibold uppercase tracking-wide pt-2 ${
+                              band === 'not-listed' ? 'text-gray-500' : 'text-gray-700'
+                            }`}
+                          >
+                            {INSURANCE_BAND_LABELS[band]}
+                          </h3>
+                        )}
+                        <ProviderCard
+                          provider={provider}
+                          rating={provider.google_place_id ? ratings[provider.google_place_id] : null}
+                        />
+                      </React.Fragment>
+                    );
+                  })}
                 </div>
                 {hasMoreProviders && (
                   <div className="mt-6 sm:mt-8 text-center">
