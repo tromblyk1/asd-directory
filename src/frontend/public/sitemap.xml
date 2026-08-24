@@ -127,6 +127,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://floridaautismservices.com/resources/services/adult-day-training</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://floridaautismservices.com/resources/services/afterschool-program</loc>
     <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>
@@ -187,6 +193,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://floridaautismservices.com/resources/services/in-home-nursing</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://floridaautismservices.com/resources/services/inpp</loc>
     <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>
@@ -235,6 +247,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://floridaautismservices.com/resources/services/prevocational-training</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://floridaautismservices.com/resources/services/residential-program</loc>
     <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>
@@ -266,6 +284,18 @@
   </url>
   <url>
     <loc>https://floridaautismservices.com/resources/services/support-groups</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://floridaautismservices.com/resources/services/supported-employment</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://floridaautismservices.com/resources/services/supported-living</loc>
     <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

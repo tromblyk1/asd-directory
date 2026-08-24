@@ -1,0 +1,44 @@
+{
+  "slug": "in-home-nursing",
+  "category": "services",
+  "title": "In-Home Nursing",
+  "shortDescription": "Skilled medical care from a licensed nurse in the person's own home.",
+  "description": "In-home nursing brings a licensed nurse to the person's own home to provide skilled medical care — medication administration, feeding tube or tracheostomy management, seizure monitoring, wound care, and similar services that require clinical training. For autistic children and adults with complex medical needs it can be the difference between living at home and living in a facility. In Florida it is funded through Medicaid, private duty nursing benefits, or the iBudget waiver depending on the person's situation, and authorized hours vary widely by individual need. This is medical care, distinct from a companion or a supported living coach.\n\nUnlike most of the services in this directory, in-home nursing is not gated behind the APD waiting list for everyone — which route applies depends mostly on age, and the difference is large. For a person under 21, private duty nursing is a direct Florida Medicaid benefit governed by Rule 59G-4.261, Florida Administrative Code. There is no waiver requirement and no waiting list. It does have to be medically necessary and authorized in advance, so expect a written order from the treating physician, a nursing assessment, and a plan of care, with the authorization handled by whichever Medicaid managed care plan the person is enrolled in and renewed on a set schedule.\n\nAt 21, that state plan benefit ends. For adults, nursing comes through the iBudget waiver administered by the Agency for Persons with Disabilities (APD), which covers both private duty nursing — continuous care — and skilled nursing, which is part-time or intermittent, under its Therapeutic Supports and Wellness group. Reaching it means being enrolled in the waiver. APD maintains a pre-enrollment list and reports more than 23,000 people waiting for waiver services, sorted into priority categories under section 393.065(5), Florida Statutes, rather than by the date they applied.\n\nThat gap between the two routes is the practical reason to apply to APD long before anyone expects to need it. A family whose child is well covered by Medicaid private duty nursing today can still reach the 21st birthday with no waiver slot behind it, and the nursing simply stops. Applying to your regional APD office costs nothing and starts the clock — eligibility criteria and the current form are on APD's Applying for Services page.",
+  "benefits": [
+    "Skilled medical care delivered at home rather than in a facility",
+    "Medication administration by a licensed nurse",
+    "Feeding tube and tracheostomy management",
+    "Seizure monitoring and response",
+    "Wound care and other clinical procedures",
+    "For children under 21, available through Medicaid with no waiver and no waiting list"
+  ],
+  "whoCanBenefit": [
+    "Autistic children and adults with complex medical needs",
+    "People who would otherwise require facility-based care",
+    "Those with feeding tubes, tracheostomies, or ventilator support",
+    "Individuals with seizure disorders needing monitoring",
+    "Families approaching the 21st birthday who need to plan the transition off Medicaid private duty nursing"
+  ],
+  "links": [
+    {
+      "label": "AHCA — Private Duty Nursing Services",
+      "url": "https://ahca.myflorida.com/medicaid/medicaid-policy-quality-and-operations/medicaid-policy-and-quality/medicaid-policy/medical-and-behavioral-health-coverage-policy/specialized-health-services/private-duty-nursing-services.html",
+      "description": "Florida Medicaid's coverage policy for private duty nursing, the route for recipients under 21"
+    },
+    {
+      "label": "Rule 59G-4.261, Florida Administrative Code",
+      "url": "https://www.flrules.org/gateway/ruleno.asp?id=59G-4.261",
+      "description": "The rule governing private duty nursing and family home health aide services"
+    },
+    {
+      "label": "APD — Applying for Services",
+      "url": "https://apd.myflorida.com/customers/application/",
+      "description": "Eligibility criteria and the current application form for APD services and the iBudget waiver"
+    },
+    {
+      "label": "APD — Pre-enrollment Priority Categorization",
+      "url": "https://apd.myflorida.com/customers/preenrollment/",
+      "description": "How the waiting list works and how priority categories are assigned"
+    }
+  ]
+}
