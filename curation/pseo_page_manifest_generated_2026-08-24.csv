@@ -1,0 +1,374 @@
+service,canonical_city,providers,single_city,multi_city,no_website,band
+aac,ST. PETERSBURG,3,2,1,0,3-4
+aba,AVENTURA,5,4,0,1,5-9
+aba,BOCA RATON,10,5,4,1,10-24
+aba,BROOKSVILLE,5,3,2,0,5-9
+aba,CAPE CORAL,32,22,2,8,25+
+aba,CLEARWATER,21,15,3,3,10-24
+aba,COCONUT CREEK,6,6,0,0,5-9
+aba,CORAL GABLES,12,10,2,0,10-24
+aba,CORAL SPRINGS,9,5,3,1,5-9
+aba,DAVIE,16,14,1,1,10-24
+aba,DAYTONA BEACH,13,7,3,3,10-24
+aba,FORT LAUDERDALE,15,9,4,2,10-24
+aba,FORT MYERS,44,28,8,8,25+
+aba,GAINESVILLE,41,27,6,8,25+
+aba,HALLANDALE BEACH,5,4,0,1,5-9
+aba,HIALEAH,21,14,2,5,10-24
+aba,HOLLYWOOD,30,22,8,0,25+
+aba,JACKSONVILLE,51,34,12,5,25+
+aba,LAKE WORTH BEACH,5,5,0,0,5-9
+aba,LAKELAND,61,46,4,11,25+
+aba,LARGO,8,7,0,1,5-9
+aba,LAUDERHILL,4,4,0,0,3-4
+aba,MAITLAND,3,3,0,0,3-4
+aba,MELBOURNE,10,7,3,0,10-24
+aba,MIAMI,48,33,7,8,25+
+aba,MIAMI BEACH,3,3,0,0,3-4
+aba,MIAMI GARDENS,3,2,1,0,3-4
+aba,MIAMI LAKES,21,13,4,4,10-24
+aba,MIAMI SPRINGS,5,4,1,0,5-9
+aba,MIRAMAR,10,6,4,0,10-24
+aba,NORTH MIAMI,4,2,1,1,3-4
+aba,NORTH MIAMI BEACH,11,11,0,0,10-24
+aba,ORLANDO,66,46,14,6,25+
+aba,ORMOND BEACH,11,9,2,0,10-24
+aba,PALM BAY,16,13,1,2,10-24
+aba,PALM SPRINGS,6,3,3,0,5-9
+aba,PEMBROKE PINES,18,11,5,2,10-24
+aba,PLANTATION,3,2,0,1,3-4
+aba,PORT ORANGE,6,5,1,0,5-9
+aba,PORT ST. LUCIE,33,22,3,8,25+
+aba,SOUTH MIAMI,4,3,1,0,3-4
+aba,SPRING HILL,21,12,2,7,10-24
+aba,STUART,7,3,3,1,5-9
+aba,TALLAHASSEE,78,60,4,14,25+
+aba,TAMARAC,6,5,1,0,5-9
+aba,TAMPA,62,44,13,5,25+
+aba,WEST PALM BEACH,31,29,2,0,25+
+aba,WESTON,8,4,2,2,5-9
+aba,WINTER PARK,16,10,3,3,10-24
+ados-testing,CORAL SPRINGS,4,2,2,0,3-4
+ados-testing,FORT MYERS,4,3,1,0,3-4
+ados-testing,GAINESVILLE,3,2,1,0,3-4
+ados-testing,JACKSONVILLE,3,2,1,0,3-4
+ados-testing,MIAMI LAKES,3,2,1,0,3-4
+ados-testing,ORLANDO,8,1,7,0,5-9
+ados-testing,TALLAHASSEE,4,4,0,0,3-4
+ados-testing,TAMPA,9,6,3,0,5-9
+animal-therapy,HUDSON,3,2,0,1,3-4
+animal-therapy,JACKSONVILLE,6,0,2,4,5-9
+animal-therapy,WEST PALM BEACH,3,2,1,0,3-4
+executive-function-coaching,CLEARWATER,6,6,0,0,5-9
+executive-function-coaching,TALLAHASSEE,3,3,0,0,3-4
+executive-function-coaching,TAMPA,5,5,0,0,5-9
+feeding-therapy,CAPE CORAL,4,2,2,0,3-4
+feeding-therapy,CLEARWATER,5,2,3,0,5-9
+feeding-therapy,HOLLYWOOD,11,7,4,0,10-24
+feeding-therapy,JACKSONVILLE,9,2,7,0,5-9
+feeding-therapy,MIAMI,10,5,5,0,10-24
+feeding-therapy,MIAMI LAKES,6,4,2,0,5-9
+feeding-therapy,ORLANDO,9,5,4,0,5-9
+feeding-therapy,PEMBROKE PINES,4,2,2,0,3-4
+feeding-therapy,TAMPA,21,8,13,0,10-24
+group-therapy,CLEARWATER,9,6,3,0,5-9
+group-therapy,CORAL SPRINGS,5,1,4,0,5-9
+group-therapy,DAVIE,4,3,1,0,3-4
+group-therapy,FORT LAUDERDALE,5,1,4,0,5-9
+group-therapy,GAINESVILLE,6,5,1,0,5-9
+group-therapy,HOLLYWOOD,9,4,5,0,5-9
+group-therapy,JACKSONVILLE,9,2,7,0,5-9
+group-therapy,JACKSONVILLE BEACH,3,2,1,0,3-4
+group-therapy,LAKELAND,6,3,3,0,5-9
+group-therapy,MELBOURNE,6,3,3,0,5-9
+group-therapy,MIAMI,8,4,4,0,5-9
+group-therapy,MIRAMAR,3,2,1,0,3-4
+group-therapy,ORLANDO,10,3,7,0,10-24
+group-therapy,PEMBROKE PINES,4,2,2,0,3-4
+group-therapy,PORT ST. LUCIE,3,2,1,0,3-4
+group-therapy,TALLAHASSEE,5,4,1,0,5-9
+group-therapy,TAMPA,24,8,16,0,10-24
+group-therapy,WEST PALM BEACH,5,4,1,0,5-9
+life-skills,BOCA RATON,6,2,1,3,5-9
+life-skills,BRANDON,4,2,0,2,3-4
+life-skills,CAPE CORAL,9,4,2,3,5-9
+life-skills,CLEARWATER,6,1,0,5,5-9
+life-skills,COCONUT CREEK,3,2,0,1,3-4
+life-skills,CORAL GABLES,3,2,1,0,3-4
+life-skills,DAVIE,7,4,2,1,5-9
+life-skills,DAYTONA BEACH,5,2,2,1,5-9
+life-skills,FORT LAUDERDALE,12,4,1,7,10-24
+life-skills,FORT MYERS,16,7,2,7,10-24
+life-skills,FORT PIERCE,4,3,0,1,3-4
+life-skills,GAINESVILLE,5,3,0,2,5-9
+life-skills,HIALEAH,8,6,0,2,5-9
+life-skills,HOLLYWOOD,7,4,0,3,5-9
+life-skills,JACKSONVILLE,20,5,4,11,10-24
+life-skills,LAKELAND,4,3,1,0,3-4
+life-skills,LARGO,9,3,0,6,5-9
+life-skills,LAUDERHILL,6,1,1,4,5-9
+life-skills,MAITLAND,3,2,0,1,3-4
+life-skills,MELBOURNE,6,4,2,0,5-9
+life-skills,MIAMI,36,14,4,18,25+
+life-skills,MIAMI LAKES,4,3,1,0,3-4
+life-skills,MIRAMAR,9,4,1,4,5-9
+life-skills,NAPLES,5,0,3,2,5-9
+life-skills,ORLANDO,17,11,3,3,10-24
+life-skills,PALM BAY,5,3,2,0,5-9
+life-skills,PEMBROKE PINES,9,4,1,4,5-9
+life-skills,PENSACOLA,5,2,0,3,5-9
+life-skills,PORT ST. LUCIE,5,3,0,2,5-9
+life-skills,ST. PETERSBURG,12,2,0,10,10-24
+life-skills,TALLAHASSEE,9,5,1,3,5-9
+life-skills,TAMPA,44,14,6,24,25+
+life-skills,WEST PALM BEACH,18,11,0,7,10-24
+mobile-services,BOCA RATON,7,4,3,0,5-9
+mobile-services,FORT LAUDERDALE,3,2,1,0,3-4
+mobile-services,FORT MYERS,6,3,3,0,5-9
+mobile-services,HOLLYWOOD,8,2,6,0,5-9
+mobile-services,JACKSONVILLE,5,3,2,0,5-9
+mobile-services,MELBOURNE,3,2,1,0,3-4
+mobile-services,ORLANDO,6,3,2,1,5-9
+mobile-services,ST. PETERSBURG,3,2,0,1,3-4
+mobile-services,TAMPA,11,3,4,4,10-24
+music-therapy,JACKSONVILLE,6,1,5,0,5-9
+music-therapy,TALLAHASSEE,4,4,0,0,3-4
+occupational-therapy,BOCA RATON,9,8,1,0,5-9
+occupational-therapy,BOYNTON BEACH,3,3,0,0,3-4
+occupational-therapy,CAPE CORAL,8,3,5,0,5-9
+occupational-therapy,CLEARWATER,13,3,10,0,10-24
+occupational-therapy,COCONUT CREEK,4,4,0,0,3-4
+occupational-therapy,CORAL GABLES,6,5,1,0,5-9
+occupational-therapy,CORAL SPRINGS,14,9,5,0,10-24
+occupational-therapy,DAVIE,11,7,4,0,10-24
+occupational-therapy,DORAL,6,3,3,0,5-9
+occupational-therapy,FORT LAUDERDALE,17,12,5,0,10-24
+occupational-therapy,FORT MYERS,18,11,7,0,10-24
+occupational-therapy,GAINESVILLE,11,9,2,0,10-24
+occupational-therapy,HIALEAH,15,9,6,0,10-24
+occupational-therapy,HOLLYWOOD,24,15,9,0,10-24
+occupational-therapy,HUDSON,4,2,2,0,3-4
+occupational-therapy,JACKSONVILLE,58,24,34,0,25+
+occupational-therapy,JACKSONVILLE BEACH,6,2,4,0,5-9
+occupational-therapy,JUPITER,4,4,0,0,3-4
+occupational-therapy,KISSIMMEE,5,4,1,0,5-9
+occupational-therapy,LAKELAND,18,8,10,0,10-24
+occupational-therapy,LARGO,6,1,5,0,5-9
+occupational-therapy,LAUDERHILL,3,2,1,0,3-4
+occupational-therapy,LONGWOOD,5,1,4,0,5-9
+occupational-therapy,LUTZ,6,5,1,0,5-9
+occupational-therapy,MAITLAND,5,5,0,0,5-9
+occupational-therapy,MELBOURNE,16,9,7,0,10-24
+occupational-therapy,MIAMI,59,40,19,0,25+
+occupational-therapy,MIAMI LAKES,17,11,6,0,10-24
+occupational-therapy,MIRAMAR,10,3,7,0,10-24
+occupational-therapy,NORTH MIAMI BEACH,7,4,3,0,5-9
+occupational-therapy,NORTH PALM BEACH,4,4,0,0,3-4
+occupational-therapy,ORLANDO,43,18,24,1,25+
+occupational-therapy,ORMOND BEACH,8,3,5,0,5-9
+occupational-therapy,OVIEDO,3,3,0,0,3-4
+occupational-therapy,PALM BEACH GARDENS,5,3,2,0,5-9
+occupational-therapy,PALM HARBOR,10,3,7,0,10-24
+occupational-therapy,PALM SPRINGS,5,1,4,0,5-9
+occupational-therapy,PEMBROKE PINES,6,2,4,0,5-9
+occupational-therapy,PLANTATION,5,3,2,0,5-9
+occupational-therapy,POMPANO BEACH,4,2,2,0,3-4
+occupational-therapy,PORT ORANGE,7,2,5,0,5-9
+occupational-therapy,PORT ST. LUCIE,5,1,4,0,5-9
+occupational-therapy,RIVERVIEW,4,2,2,0,3-4
+occupational-therapy,ROCKLEDGE,3,2,1,0,3-4
+occupational-therapy,ROYAL PALM BEACH,4,2,2,0,3-4
+occupational-therapy,SOUTH MIAMI,4,2,2,0,3-4
+occupational-therapy,SOUTHWEST RANCHES,3,2,1,0,3-4
+occupational-therapy,SPRING HILL,8,2,6,0,5-9
+occupational-therapy,ST. PETERSBURG,8,7,1,0,5-9
+occupational-therapy,STUART,6,3,3,0,5-9
+occupational-therapy,SUNRISE,6,5,1,0,5-9
+occupational-therapy,TALLAHASSEE,13,10,3,0,10-24
+occupational-therapy,TAMPA,54,16,38,0,25+
+occupational-therapy,TRINITY,3,2,1,0,3-4
+occupational-therapy,WEST PALM BEACH,8,8,0,0,5-9
+occupational-therapy,WINTER GARDEN,3,2,1,0,3-4
+occupational-therapy,WINTER HAVEN,5,2,3,0,5-9
+occupational-therapy,WINTER PARK,7,2,5,0,5-9
+occupational-therapy,YULEE,3,2,1,0,3-4
+parent-coaching,BOCA RATON,7,3,4,0,5-9
+parent-coaching,CAPE CORAL,4,3,1,0,3-4
+parent-coaching,CLEARWATER,4,4,0,0,3-4
+parent-coaching,COCONUT CREEK,3,3,0,0,3-4
+parent-coaching,CORAL SPRINGS,6,3,3,0,5-9
+parent-coaching,DAVIE,6,4,2,0,5-9
+parent-coaching,FORT LAUDERDALE,7,4,3,0,5-9
+parent-coaching,FORT MYERS,5,2,3,0,5-9
+parent-coaching,GAINESVILLE,3,2,1,0,3-4
+parent-coaching,HIALEAH,4,4,0,0,3-4
+parent-coaching,HOLLYWOOD,10,4,6,0,10-24
+parent-coaching,JACKSONVILLE,12,8,4,0,10-24
+parent-coaching,LAKELAND,3,3,0,0,3-4
+parent-coaching,MELBOURNE,6,4,2,0,5-9
+parent-coaching,MIAMI,12,8,4,0,10-24
+parent-coaching,MIRAMAR,3,2,1,0,3-4
+parent-coaching,NORTH MIAMI BEACH,3,3,0,0,3-4
+parent-coaching,ORLANDO,14,8,6,0,10-24
+parent-coaching,PEMBROKE PINES,4,2,2,0,3-4
+parent-coaching,PORT ST. LUCIE,5,5,0,0,5-9
+parent-coaching,ST. PETERSBURG,4,4,0,0,3-4
+parent-coaching,TALLAHASSEE,5,4,1,0,5-9
+parent-coaching,TAMPA,16,10,6,0,10-24
+parent-coaching,WEST PALM BEACH,8,6,2,0,5-9
+physical-therapy,BOCA RATON,6,5,1,0,5-9
+physical-therapy,BROOKSVILLE,4,2,2,0,3-4
+physical-therapy,CAPE CORAL,15,10,5,0,10-24
+physical-therapy,CLEARWATER,26,16,10,0,25+
+physical-therapy,COCONUT CREEK,4,3,1,0,3-4
+physical-therapy,CORAL GABLES,8,5,3,0,5-9
+physical-therapy,CORAL SPRINGS,25,18,7,0,25+
+physical-therapy,DAVIE,14,10,3,1,10-24
+physical-therapy,DUNEDIN,3,2,1,0,3-4
+physical-therapy,FORT LAUDERDALE,32,23,9,0,25+
+physical-therapy,FORT MYERS,19,13,6,0,10-24
+physical-therapy,GAINESVILLE,20,17,3,0,10-24
+physical-therapy,HALLANDALE BEACH,6,5,1,0,5-9
+physical-therapy,HIALEAH,18,9,6,3,10-24
+physical-therapy,HOLLY HILL,4,3,1,0,3-4
+physical-therapy,HOLLYWOOD,36,22,14,0,25+
+physical-therapy,HUDSON,4,2,2,0,3-4
+physical-therapy,JACKSONVILLE,74,39,34,1,25+
+physical-therapy,JACKSONVILLE BEACH,7,3,4,0,5-9
+physical-therapy,JUPITER,4,3,1,0,3-4
+physical-therapy,LAKE MARY,3,2,0,1,3-4
+physical-therapy,LAKELAND,21,12,9,0,10-24
+physical-therapy,LARGO,10,1,7,2,10-24
+physical-therapy,LAUDERHILL,6,2,3,1,5-9
+physical-therapy,LUTZ,6,5,1,0,5-9
+physical-therapy,MAITLAND,6,6,0,0,5-9
+physical-therapy,MELBOURNE,20,12,8,0,10-24
+physical-therapy,MIAMI,85,42,26,17,25+
+physical-therapy,MIAMI BEACH,7,4,3,0,5-9
+physical-therapy,MIAMI GARDENS,5,2,3,0,5-9
+physical-therapy,MIAMI LAKES,15,9,5,1,10-24
+physical-therapy,MIRAMAR,9,3,6,0,5-9
+physical-therapy,NORTH MIAMI BEACH,10,6,3,1,10-24
+physical-therapy,NORTH PALM BEACH,3,3,0,0,3-4
+physical-therapy,OAKLAND PARK,5,2,2,1,5-9
+physical-therapy,ORLANDO,47,23,24,0,25+
+physical-therapy,ORMOND BEACH,10,6,4,0,10-24
+physical-therapy,OVIEDO,3,2,0,1,3-4
+physical-therapy,PALM BAY,6,2,4,0,5-9
+physical-therapy,PALM BEACH GARDENS,4,2,2,0,3-4
+physical-therapy,PALM HARBOR,10,3,7,0,10-24
+physical-therapy,PALM SPRINGS,6,3,3,0,5-9
+physical-therapy,PEMBROKE PINES,7,3,4,0,5-9
+physical-therapy,POMPANO BEACH,5,2,3,0,5-9
+physical-therapy,PORT ORANGE,9,4,5,0,5-9
+physical-therapy,PORT ST. LUCIE,17,11,6,0,10-24
+physical-therapy,RIVERVIEW,3,2,1,0,3-4
+physical-therapy,SANFORD,3,3,0,0,3-4
+physical-therapy,SOUTH MIAMI,6,4,2,0,5-9
+physical-therapy,SOUTHWEST RANCHES,5,4,0,1,5-9
+physical-therapy,SPRING HILL,13,7,6,0,10-24
+physical-therapy,ST. PETERSBURG,5,4,1,0,5-9
+physical-therapy,STUART,6,3,2,1,5-9
+physical-therapy,SUNRISE,5,4,1,0,5-9
+physical-therapy,TALLAHASSEE,20,18,2,0,10-24
+physical-therapy,TAMARAC,6,3,3,0,5-9
+physical-therapy,TAMPA,67,28,37,2,25+
+physical-therapy,WEST MELBOURNE,6,4,2,0,5-9
+physical-therapy,WEST PALM BEACH,17,14,3,0,10-24
+physical-therapy,WINTER HAVEN,5,2,3,0,5-9
+physical-therapy,WINTER PARK,8,4,4,0,5-9
+physical-therapy,YULEE,3,2,1,0,3-4
+residential-program,ORLANDO,6,1,0,5,5-9
+residential-program,TAMPA,3,2,1,0,3-4
+respite-care,JACKSONVILLE,4,4,0,0,3-4
+respite-care,MIAMI,5,3,2,0,5-9
+respite-care,TAMPA,8,5,1,2,5-9
+speech-therapy,BOCA RATON,9,7,2,0,5-9
+speech-therapy,BOYNTON BEACH,4,3,1,0,3-4
+speech-therapy,CAPE CORAL,10,7,3,0,10-24
+speech-therapy,CLEARWATER,9,2,7,0,5-9
+speech-therapy,CLERMONT,4,3,1,0,3-4
+speech-therapy,CORAL GABLES,6,6,0,0,5-9
+speech-therapy,CORAL SPRINGS,12,8,4,0,10-24
+speech-therapy,DAVIE,9,6,3,0,5-9
+speech-therapy,DORAL,5,2,3,0,5-9
+speech-therapy,FORT LAUDERDALE,16,14,2,0,10-24
+speech-therapy,FORT MYERS,14,8,6,0,10-24
+speech-therapy,GAINESVILLE,10,9,1,0,10-24
+speech-therapy,HIALEAH,12,8,4,0,10-24
+speech-therapy,HOLLYWOOD,15,11,4,0,10-24
+speech-therapy,HUDSON,4,2,2,0,3-4
+speech-therapy,JACKSONVILLE,49,19,30,0,25+
+speech-therapy,JACKSONVILLE BEACH,5,1,4,0,5-9
+speech-therapy,JUPITER,3,3,0,0,3-4
+speech-therapy,KISSIMMEE,5,4,1,0,5-9
+speech-therapy,LAKE WORTH,6,4,2,0,5-9
+speech-therapy,LAKELAND,12,5,7,0,10-24
+speech-therapy,LARGO,5,1,4,0,5-9
+speech-therapy,LAUDERHILL,3,2,1,0,3-4
+speech-therapy,LONGWOOD,5,1,4,0,5-9
+speech-therapy,LUTZ,6,5,1,0,5-9
+speech-therapy,MAITLAND,3,3,0,0,3-4
+speech-therapy,MELBOURNE,14,8,6,0,10-24
+speech-therapy,MIAMI,49,39,10,0,25+
+speech-therapy,MIAMI LAKES,14,10,4,0,10-24
+speech-therapy,MIRAMAR,10,4,6,0,10-24
+speech-therapy,NORTH MIAMI BEACH,3,3,0,0,3-4
+speech-therapy,NORTH PALM BEACH,3,3,0,0,3-4
+speech-therapy,ODESSA,3,3,0,0,3-4
+speech-therapy,ORANGE PARK,3,2,1,0,3-4
+speech-therapy,ORLANDO,32,22,9,1,25+
+speech-therapy,OVIEDO,5,5,0,0,5-9
+speech-therapy,PALM BEACH GARDENS,9,7,2,0,5-9
+speech-therapy,PALM HARBOR,10,4,6,0,10-24
+speech-therapy,PALM SPRINGS,5,2,3,0,5-9
+speech-therapy,PARKLAND,3,3,0,0,3-4
+speech-therapy,PEMBROKE PINES,4,2,2,0,3-4
+speech-therapy,PLANTATION,5,3,2,0,5-9
+speech-therapy,POMPANO BEACH,3,2,1,0,3-4
+speech-therapy,PORT ORANGE,5,2,3,0,5-9
+speech-therapy,PORT ST. LUCIE,5,3,2,0,5-9
+speech-therapy,RIVERVIEW,4,2,2,0,3-4
+speech-therapy,ROCKLEDGE,3,2,1,0,3-4
+speech-therapy,ROYAL PALM BEACH,4,2,2,0,3-4
+speech-therapy,SANFORD,3,3,0,0,3-4
+speech-therapy,SOUTH MIAMI,4,2,2,0,3-4
+speech-therapy,SOUTHWEST RANCHES,3,2,1,0,3-4
+speech-therapy,SPRING HILL,8,1,7,0,5-9
+speech-therapy,ST. PETERSBURG,10,8,1,1,10-24
+speech-therapy,STUART,5,4,1,0,5-9
+speech-therapy,SUNRISE,5,4,1,0,5-9
+speech-therapy,TALLAHASSEE,16,15,1,0,10-24
+speech-therapy,TAMPA,51,18,32,1,25+
+speech-therapy,WEST MELBOURNE,3,2,1,0,3-4
+speech-therapy,WEST PALM BEACH,9,9,0,0,5-9
+speech-therapy,WINTER HAVEN,4,2,2,0,3-4
+speech-therapy,YULEE,3,2,1,0,3-4
+support-groups,CAPE CORAL,4,3,1,0,3-4
+support-groups,DAVIE,3,2,1,0,3-4
+support-groups,GAINESVILLE,4,4,0,0,3-4
+support-groups,JACKSONVILLE,6,3,3,0,5-9
+support-groups,LAKELAND,4,3,1,0,3-4
+support-groups,MIAMI,5,3,2,0,5-9
+support-groups,ORLANDO,4,2,2,0,3-4
+support-groups,TALLAHASSEE,4,3,1,0,3-4
+support-groups,TAMPA,11,9,2,0,10-24
+support-groups,WEST PALM BEACH,5,5,0,0,5-9
+tutoring,TAMPA,4,3,1,0,3-4
+virtual-therapy,CAPE CORAL,3,3,0,0,3-4
+virtual-therapy,CLEARWATER,4,3,1,0,3-4
+virtual-therapy,CORAL SPRINGS,5,2,3,0,5-9
+virtual-therapy,DAVIE,4,3,1,0,3-4
+virtual-therapy,FORT LAUDERDALE,7,4,3,0,5-9
+virtual-therapy,FORT MYERS,3,3,0,0,3-4
+virtual-therapy,GAINESVILLE,5,5,0,0,5-9
+virtual-therapy,HOLLYWOOD,7,6,1,0,5-9
+virtual-therapy,JACKSONVILLE,5,2,3,0,5-9
+virtual-therapy,LAKELAND,3,3,0,0,3-4
+virtual-therapy,MELBOURNE,5,4,1,0,5-9
+virtual-therapy,MIAMI,8,7,1,0,5-9
+virtual-therapy,MIRAMAR,4,2,2,0,3-4
+virtual-therapy,ORLANDO,8,7,1,0,5-9
+virtual-therapy,SPRING HILL,3,2,1,0,3-4
+virtual-therapy,TALLAHASSEE,6,6,0,0,5-9
+virtual-therapy,TAMPA,14,11,3,0,10-24
