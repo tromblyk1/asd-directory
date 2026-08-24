@@ -166,13 +166,13 @@ If asked to add one thing, add ONLY that one thing. Touch nothing else.
 ### `resources` table (providers)
 - **Array fields:** `services[]`, `insurances[]`, `scholarships[]`
 - **Key fields:** id, name, resource_type ('provider'), county, city, state, zip_code, address, phone, email, website, latitude, longitude, verified, description
-- ~3,700+ providers
+- 3,038 providers (as of 2026-08-23 — query the DB, don't trust this number)
 
 ### `schools` table
 - **Uses `district` field (NOT county!)**
 - **Boolean fields:** fes_ua_participant, fes_eo_participant, ftc_participant, pep_participant
 - **Other:** denomination, accreditation (comma-separated), is_nonprofit, is_religious, grade_levels
-- ~3,600+ schools
+- 2,504 schools (as of 2026-08-23 — query the DB, don't trust this number)
 
 ### `events` table
 - Event calendar listings

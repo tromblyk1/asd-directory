@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import { base44 } from "@/api/base44Client";
+import { supabase } from "@/lib/supabase";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -93,11 +93,17 @@ export default function ResourceDetail() {
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
 
-    const { data: resource, isLoading } = useQuery({
+    const { data: resource, isLoading, error } = useQuery({
         queryKey: ['resource', id],
         queryFn: async () => {
-            const result = await base44.entities.Resource.get(id!);
-            return result;
+            const { data, error } = await supabase
+                .from('resources')
+                .select('*')
+                .eq('id', id)
+                .maybeSingle();
+
+            if (error) throw error;
+            return data ?? null;
         },
         enabled: !!id,
     });
@@ -107,6 +113,25 @@ export default function ResourceDetail() {
             <div className="min-h-screen bg-gray-50 flex items-center justify-center">
                 <div className="animate-spin rounded-full h-10 w-10 sm:h-12 sm:w-12 border-b-2 border-blue-600" />
             </div>
+        );
+    }
+
+    // A failed query is not a missing row — emit no robots directive so a transient
+    // Supabase failure can't deindex a live page.
+    if (error) {
+        return (
+            <>
+                <Helmet>
+                    <title>Temporarily Unavailable | Florida Autism Services Directory</title>
+                </Helmet>
+                <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+                    <div className="text-center">
+                        <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Something went wrong</h2>
+                        <p className="text-gray-600 mb-6">We couldn't load this resource just now. Please try again.</p>
+                        <Button onClick={() => window.location.reload()}>Retry</Button>
+                    </div>
+                </div>
+            </>
         );
     }
 

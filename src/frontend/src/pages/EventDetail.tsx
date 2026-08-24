@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { base44 } from "@/api/base44Client";
+import { supabase } from "@/lib/supabase";
 import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -105,11 +105,17 @@ export default function EventDetail() {
         }
     }, []);
 
-    const { data: event, isLoading } = useQuery<Event>({
+    const { data: event, isLoading, error } = useQuery<Event | null>({
         queryKey: ['event', slug],
         queryFn: async () => {
-            const events = await base44.entities.Event.filter({ slug });
-            return events[0];
+            const { data, error } = await supabase
+                .from('events')
+                .select('*')
+                .eq('slug', slug)
+                .maybeSingle();
+
+            if (error) throw error;
+            return (data as Event) ?? null;
         },
         enabled: !!slug,
         staleTime: 0,
@@ -121,6 +127,29 @@ export default function EventDetail() {
             <div className="min-h-screen bg-gray-50 flex items-center justify-center">
                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600" />
             </div>
+        );
+    }
+
+    // A failed query is not a missing row — emit no robots directive so a transient
+    // Supabase failure can't deindex a live page.
+    if (error) {
+        return (
+            <>
+                <Helmet>
+                    <title>Temporarily Unavailable | Florida Autism Services Directory</title>
+                </Helmet>
+                <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+                    <Card className="max-w-2xl w-full">
+                        <CardContent className="p-6 sm:p-12 text-center">
+                            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Something went wrong</h2>
+                            <p className="text-gray-600 mb-6">
+                                We couldn't load this event just now. Please try again.
+                            </p>
+                            <Button onClick={() => window.location.reload()}>Retry</Button>
+                        </CardContent>
+                    </Card>
+                </div>
+            </>
         );
     }
 

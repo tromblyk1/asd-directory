@@ -104,12 +104,13 @@ export default function DaycareDetail() {
     queryKey: ['daycare', slug],
     queryFn: async () => {
       // Try ppec_centers first
-      const { data: ppecData } = await supabase
+      const { data: ppecData, error: ppecError } = await supabase
         .from('ppec_centers')
         .select('*')
         .eq('slug', slug)
         .maybeSingle();
 
+      if (ppecError) throw ppecError;
       if (ppecData) return ppecData as PPECCenter;
 
       // Fall back to daycares table
@@ -120,8 +121,7 @@ export default function DaycareDetail() {
         .maybeSingle();
 
       if (error) throw error;
-      if (!daycareData) throw new Error('Not found');
-      return daycareData as PPECCenter;
+      return (daycareData as PPECCenter) ?? null;
     },
     enabled: !!slug,
   });
@@ -148,7 +148,31 @@ export default function DaycareDetail() {
     );
   }
 
-  if (error || !daycare) {
+  // A failed query is not a missing row — emit no robots directive so a transient
+  // Supabase failure can't deindex a live page.
+  if (error) {
+    return (
+      <>
+      <Helmet>
+        <title>Temporarily Unavailable | Florida Autism Services Directory</title>
+      </Helmet>
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4 sm:p-6">
+        <Card className="max-w-2xl w-full">
+          <CardContent className="p-8 sm:p-12 text-center">
+            <Baby className="w-12 h-12 sm:w-16 sm:h-16 text-gray-300 mx-auto mb-4" />
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Something went wrong</h2>
+            <p className="text-gray-600 mb-6">
+              We couldn't load this daycare just now. Please try again.
+            </p>
+            <Button onClick={() => window.location.reload()}>Retry</Button>
+          </CardContent>
+        </Card>
+      </div>
+      </>
+    );
+  }
+
+  if (!daycare) {
     return (
       <>
       <Helmet>
