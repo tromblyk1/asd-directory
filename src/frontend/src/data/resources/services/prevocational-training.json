@@ -1,0 +1,44 @@
+{
+  "slug": "prevocational-training",
+  "category": "services",
+  "title": "Prevocational Training",
+  "shortDescription": "Builds the general workplace skills that come before a specific job.",
+  "description": "Prevocational training builds the general skills that come before a specific job — following instructions, workplace safety, attendance and timeliness, communicating with supervisors, and task persistence. In Florida it is an iBudget waiver service and is generally intended as a step toward supported or competitive employment rather than a long-term placement. Federal rules have narrowed its use in recent years in favor of integrated employment, so availability is limited and providers are relatively few.\n\nThat narrowing is concrete rather than abstract. When Florida redesigned these services effective October 1, 2022, prevocational training was established as Life Skills Development Level 4 with a maximum of 36 months per person, explicitly framed as a bridge to competitive integrated employment. If you are considering it, treat it as a time-limited step with supported employment as the destination, and ask a prospective provider what their plan is for the transition.\n\nHow this gets paid for in Florida is worth understanding before you start calling providers. Prevocational training is an iBudget waiver service administered by the Agency for Persons with Disabilities (APD), and a person generally has to be enrolled in the waiver before a provider can bill for it. There are more eligible applicants than funded slots, so APD maintains a pre-enrollment list, and APD reports more than 23,000 people waiting for waiver services. Placement is not first-come, first-served: under section 393.065(5), Florida Statutes, APD sorts applicants into priority categories and uses a Pre-enrollment Prioritization Tool to decide who receives an enrollment offer as funding becomes available.\n\nIf the person you are supporting is not on the list yet, the place to start is an application to your regional APD office; eligibility criteria and the current form are on APD's Applying for Services page. Because this service is capped and the destination is employment anyway, it is also worth contacting Vocational Rehabilitation, which is a separate state program with its own application and no waiver requirement.",
+  "benefits": [
+    "Builds workplace habits before a specific job is on the line",
+    "Practice with attendance, timeliness, and following a schedule",
+    "Workplace safety awareness",
+    "Communicating with supervisors and asking for help",
+    "Task persistence and working through difficulty",
+    "Designed as a bridge into supported or competitive employment"
+  ],
+  "whoCanBenefit": [
+    "Autistic adults who are not job-ready but want to work",
+    "Students and young adults leaving school services",
+    "People who have struggled to keep jobs for non-task reasons",
+    "Those moving from adult day training toward employment",
+    "Anyone who needs a structured step before a real worksite"
+  ],
+  "links": [
+    {
+      "label": "APD — Applying for Services",
+      "url": "https://apd.myflorida.com/customers/application/",
+      "description": "Eligibility criteria and the current application form for APD services and the iBudget waiver"
+    },
+    {
+      "label": "APD — Pre-enrollment Priority Categorization",
+      "url": "https://apd.myflorida.com/customers/preenrollment/",
+      "description": "How the waiting list works and how priority categories are assigned"
+    },
+    {
+      "label": "APD — iBudget Waiver Services",
+      "url": "https://apd.myflorida.com/medicaid/ibudget/ibudgetservices.htm",
+      "description": "The full list of services covered under the iBudget waiver"
+    },
+    {
+      "label": "Florida Vocational Rehabilitation",
+      "url": "https://www.rehabworks.org/",
+      "description": "Separate state employment program with its own application — no waiver required. 800-451-4327"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "adult-day-training",
+  "category": "services",
+  "title": "Adult Day Training",
+  "shortDescription": "Structured weekday programs for autistic adults after they age out of school services.",
+  "description": "Adult day training programs provide structured daytime activities for autistic adults after they age out of school, typically focused on daily living skills, community participation, social connection, and prevocational preparation. Programs run on a weekday schedule and are usually funded through Florida's iBudget waiver rather than insurance. Quality and philosophy differ widely between providers — some emphasize community integration and individual goals, others operate primarily as center-based programs — so families and self-advocates should visit before enrolling and ask specifically how participants spend a typical day.\n\nHow this gets paid for in Florida is worth understanding before you start calling providers. Adult day training is an iBudget waiver service administered by the Agency for Persons with Disabilities (APD), and a person generally has to be enrolled in the waiver before a provider can bill for it. There are more eligible applicants than funded slots, so APD maintains a pre-enrollment list, and APD reports more than 23,000 people waiting for waiver services. Placement is not first-come, first-served: under section 393.065(5), Florida Statutes, APD sorts applicants into priority categories and uses a Pre-enrollment Prioritization Tool to decide who receives an enrollment offer as funding becomes available. Because a change in circumstances can change a priority category, it is worth keeping APD informed rather than simply waiting.\n\nIf the person you are supporting is not on the list yet, the place to start is an application to your regional APD office. Eligibility criteria and the current form are on APD's Applying for Services page. This is a long process, and the most common regret families describe is finding out the list existed only when they went looking for a program — so if a transition out of school is anywhere on the horizon, applying early is the single most useful thing you can do.",
+  "benefits": [
+    "Structured weekday routine after school services end",
+    "Daily living and self-help skills practiced with support",
+    "Regular social contact and peer connection",
+    "Community participation outside the home",
+    "Prevocational preparation for those aiming at employment",
+    "Respite for family caregivers during working hours"
+  ],
+  "whoCanBenefit": [
+    "Autistic adults who have aged out of school-based services",
+    "Young adults at age 22 with no next step in place",
+    "Adults who need daytime structure and supervision",
+    "Those building skills before attempting supported employment",
+    "Families needing reliable weekday coverage"
+  ],
+  "links": [
+    {
+      "label": "APD — Applying for Services",
+      "url": "https://apd.myflorida.com/customers/application/",
+      "description": "Eligibility criteria and the current application form for APD services and the iBudget waiver"
+    },
+    {
+      "label": "APD — Pre-enrollment Priority Categorization",
+      "url": "https://apd.myflorida.com/customers/preenrollment/",
+      "description": "How the waiting list works and how priority categories are assigned"
+    },
+    {
+      "label": "APD — iBudget Waiver Services",
+      "url": "https://apd.myflorida.com/medicaid/ibudget/ibudgetservices.htm",
+      "description": "The full list of services covered under the iBudget waiver"
+    }
+  ]
+}

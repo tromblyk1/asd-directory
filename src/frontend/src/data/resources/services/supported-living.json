@@ -1,0 +1,39 @@
+{
+  "slug": "supported-living",
+  "category": "services",
+  "title": "Supported Living",
+  "shortDescription": "Coaching that lets an autistic adult live in their own home rather than a group facility.",
+  "description": "Supported living coaching helps an autistic adult live in their own home or apartment rather than in a group facility, with a coach assisting on budgeting, cooking, medical appointments, transportation, and problem-solving. The coach visits on a scheduled basis rather than living on-site, and the person holds their own lease. In Florida this is an iBudget waiver service through the Agency for Persons with Disabilities. It is distinct from a residential or group home program, where the provider controls the housing.\n\nHow this gets paid for in Florida is worth understanding before you start calling providers. Supported living coaching is an iBudget waiver service administered by the Agency for Persons with Disabilities (APD), and a person generally has to be enrolled in the waiver before a provider can bill for it. There are more eligible applicants than funded slots, so APD maintains a pre-enrollment list, and APD reports more than 23,000 people waiting for waiver services. Placement is not first-come, first-served: under section 393.065(5), Florida Statutes, APD sorts applicants into priority categories and uses a Pre-enrollment Prioritization Tool to decide who receives an enrollment offer as funding becomes available. Because a change in circumstances can change a priority category, it is worth keeping APD informed rather than simply waiting.\n\nIf the person you are supporting is not on the list yet, the place to start is an application to your regional APD office. Eligibility criteria and the current form are on APD's Applying for Services page. Applying early matters here more than it looks, because the lease is held by the person receiving support — arranging housing and arranging the coaching are two separate problems, and the funding side is the one with the longer lead time.",
+  "benefits": [
+    "The person holds their own lease and controls their own housing",
+    "Support with budgeting, bills, and money management",
+    "Help with cooking, shopping, and household routines",
+    "Assistance scheduling and getting to medical appointments",
+    "Coaching on transportation and community navigation",
+    "Scheduled visits rather than live-in staff, preserving privacy"
+  ],
+  "whoCanBenefit": [
+    "Autistic adults who want to live independently with some support",
+    "People moving out of a family home for the first time",
+    "Adults transitioning out of a group home or residential program",
+    "Those who manage most daily tasks but need help with systems and paperwork",
+    "Anyone who wants independence without giving up control of their housing"
+  ],
+  "links": [
+    {
+      "label": "APD — Applying for Services",
+      "url": "https://apd.myflorida.com/customers/application/",
+      "description": "Eligibility criteria and the current application form for APD services and the iBudget waiver"
+    },
+    {
+      "label": "APD — Pre-enrollment Priority Categorization",
+      "url": "https://apd.myflorida.com/customers/preenrollment/",
+      "description": "How the waiting list works and how priority categories are assigned"
+    },
+    {
+      "label": "APD — iBudget Waiver Services",
+      "url": "https://apd.myflorida.com/medicaid/ibudget/ibudgetservices.htm",
+      "description": "The full list of services covered under the iBudget waiver"
+    }
+  ]
+}
