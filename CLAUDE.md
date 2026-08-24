@@ -386,13 +386,16 @@ Update ALL of these files:
 > Don't "fix" this by backfilling `slug` fields; that just creates a second place to drift.
 
 ## Services (services[] array)
-aba, speech-therapy, occupational-therapy, physical-therapy, feeding-therapy, music-therapy, animal-therapy, dir-floortime, group-therapy, ados-testing, life-skills, executive-function-coaching, parent-coaching, respite-care, residential-program, support-groups, tutoring, virtual-therapy, mobile-services, autism-travel, aac, transportation, art-therapy, financial-planning, supported-employment, adult-day-training, supported-living, prevocational-training, in-home-nursing
+aba, speech-therapy, occupational-therapy, physical-therapy, feeding-therapy, music-therapy, animal-therapy, dir-floortime, group-therapy, ados-testing, life-skills, executive-function-coaching, parent-coaching, respite-care, residential-program, support-groups, tutoring, virtual-therapy, mobile-services, autism-travel, aac, transportation, art-therapy, financial-planning, recreation-programs, supported-employment, adult-day-training, supported-living, prevocational-training, in-home-nursing
 
 **The last five are APD iBudget waiver services.** Their detail pages shipped 2026-08-24
 ahead of any record being tagged — a slug's page is a prerequisite, not a follow-up.
 They are deliberately absent from `serviceOptions`, `servicePopupInfo`, `ServiceTag.tsx`,
 `ProviderCard.tsx` and `educationalresources.tsx`; do not add them to those surfaces
 without being asked.
+
+**`recreation-programs` is in the same prerequisite state** — detail page shipped 2026-08-24,
+not yet on any chip or badge surface, awaiting curation tagging the first six records.
 
 **Not `pet-therapy`** — the database uses `animal-therapy` (108 providers). `pet-therapy` has zero
 rows and no badge entry; tagging it renders no badge at all.

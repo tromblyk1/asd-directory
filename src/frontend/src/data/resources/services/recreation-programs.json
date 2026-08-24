@@ -1,0 +1,54 @@
+{
+  "slug": "recreation-programs",
+  "category": "services",
+  "title": "Recreation Programs",
+  "shortDescription": "Sensory-friendly sports, arts, social and camp programs an autistic person takes part in.",
+  "description": "Recreation programs cover the sensory-friendly and special-needs sports leagues, music and art programs, social clubs, and summer camps that an autistic person takes part in. The distinction from the therapy services elsewhere in this directory is worth holding onto: these are programs a person participates in, not a clinical service delivered to them. There is usually no treatment plan, no authorization and no billing code behind them. The point is that someone has something to do, somewhere to belong, and people to do it with. In practice the organizers are a mix of nonprofits, faith communities, private programs and county parks departments, and they range from a weekly soccer practice to a two-week overnight camp.\n\nBecause these are not Medicaid or iBudget waiver services, cost and eligibility vary by program rather than by funding stream, and there is no single application that unlocks them. That cuts both ways. There is no waiting list standing between you and a soccer league, but there is also no one agency to call who can see the whole picture, which is why good programs so often get found by word of mouth. Three routes cover most of what Florida families actually use.\n\nThe first is your county parks and recreation department, which is the most consistently overlooked. Most large Florida counties run adaptive programming, but they do not agree on what to call it — Hillsborough County uses Adaptive Recreation and HC Adaptive Sports, Broward County runs a Special Populations Section, and Miami-Dade calls its version Therapeutic Recreation and Inclusion. Searching your county's site for any of those three phrases will usually surface it. The cost is low or nothing: Hillsborough's adaptive sports program serves more than 300 athletes a year across eight sports for ages 7 to 22 and charges $25 to participate, and several Broward programs, including adaptive boxing and a Special Olympics Florida partnership, are free. Broward's programming continues into adulthood and senior services, which is worth knowing if the person you are supporting has aged out of everything school-based.\n\nThe second route applies if the person is a K-12 student already receiving the Family Empowerment Scholarship for Students with Unique Abilities. FES-UA covers more recreation than most families realize. Sports lessons, team participation fees and stand-alone athletic event fees are eligible under physical education, as are dance lessons and gym or fitness memberships, and fees for specialized summer education programs are eligible as well. Camps that were not designed specifically for students with unique needs generally require pre-authorization before you enroll, so read the current purchasing guide before you pay rather than after.\n\nThe third route is simply to ask. Special-needs camps and nonprofit programs commonly hold financial assistance funds that are never mentioned on the registration page. Easterseals Camp Challenge in Sorrento, which serves children from age six and adults of any age, includes a financial aid application in its regular application packet. If the sticker price is the obstacle, the fix is usually one phone call rather than a form.",
+  "benefits": [
+    "Structured social contact outside of school and therapy hours",
+    "Formats built for autistic participants rather than adapted on the fly",
+    "Physical activity matched to the person's abilities",
+    "Music, art and enrichment with no clinical goal attached",
+    "Overnight and school-break camps that also give families a break",
+    "County adaptive programs are typically low cost or free"
+  ],
+  "whoCanBenefit": [
+    "Autistic children and adults who want activity and community, not treatment",
+    "Families whose calendar is all appointments and no recreation",
+    "Adults who have aged out of school-based activities and teams",
+    "People who find mainstream leagues, classes and camps overwhelming",
+    "Anyone looking for a first step into a peer group"
+  ],
+  "links": [
+    {
+      "label": "Hillsborough County — HC Adaptive Sports",
+      "url": "https://hcfl.gov/residents/parks-and-leisure/adaptive-sports/hc-adaptive-sports",
+      "description": "Year-round adaptive sports for ages 7-22 across eight sports, $25 to participate"
+    },
+    {
+      "label": "Broward County Parks — Special Populations",
+      "url": "https://www.broward.org/Parks/Pages/SpecialPopulations.aspx",
+      "description": "Year-round recreation for children through seniors with disabilities; several programs are free"
+    },
+    {
+      "label": "Miami-Dade — Therapeutic Recreation and Inclusion",
+      "url": "https://www.miamidade.gov/global/service.page?Mduid_service=ser1531255192150175",
+      "description": "Adapted aquatics, hand cycling and sports programs run by the county"
+    },
+    {
+      "label": "Family Empowerment Scholarship — Unique Abilities",
+      "url": "https://www.stepupforstudents.org/scholarships/unique-abilities/",
+      "description": "The K-12 scholarship that can cover sports fees, memberships and specialized summer programs"
+    },
+    {
+      "label": "FES-UA Purchasing Guide",
+      "url": "https://go.stepupforstudents.org/hubfs/GUIDES/FES-UA-Purchasing-Guide.pdf",
+      "description": "What the scholarship will and will not reimburse, including the rules on camps"
+    },
+    {
+      "label": "Easterseals Camp Challenge",
+      "url": "https://florida.easterseals.com/get-support/areas-of-support/camps-and-recreation/camp-challenge",
+      "description": "Overnight camp in Sorrento for children and adults with disabilities; financial aid available"
+    }
+  ]
+}

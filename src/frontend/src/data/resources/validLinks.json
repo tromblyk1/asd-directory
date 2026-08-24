@@ -13,6 +13,45 @@
       "description": "Florida resources on learning support and educational advocacy"
     }
   ],
+  "services/supported-living": [
+    {
+      "label": "APD — Applying for Services",
+      "url": "https://apd.myflorida.com/customers/application/",
+      "description": "Eligibility criteria and the current application form for APD services and the iBudget waiver"
+    },
+    {
+      "label": "APD — Pre-enrollment Priority Categorization",
+      "url": "https://apd.myflorida.com/customers/preenrollment/",
+      "description": "How the waiting list works and how priority categories are assigned"
+    },
+    {
+      "label": "APD — iBudget Waiver Services",
+      "url": "https://apd.myflorida.com/medicaid/ibudget/ibudgetservices.htm",
+      "description": "The full list of services covered under the iBudget waiver"
+    }
+  ],
+  "services/supported-employment": [
+    {
+      "label": "APD — Applying for Services",
+      "url": "https://apd.myflorida.com/customers/application/",
+      "description": "Eligibility criteria and the current application form for APD services and the iBudget waiver"
+    },
+    {
+      "label": "APD — Pre-enrollment Priority Categorization",
+      "url": "https://apd.myflorida.com/customers/preenrollment/",
+      "description": "How the waiting list works and how priority categories are assigned"
+    },
+    {
+      "label": "Florida Vocational Rehabilitation",
+      "url": "https://www.rehabworks.org/",
+      "description": "Separate state employment program with its own application — no waiver required. 800-451-4327"
+    },
+    {
+      "label": "APD — Employment and Adult Day Training Initiatives",
+      "url": "https://apd.myflorida.com/customers/supported-employment/",
+      "description": "Includes the Employment Enhancement Project, which serves some people on the pre-enrollment list"
+    }
+  ],
   "services/support-groups": [
     {
       "label": "Autism Society of America",
@@ -70,11 +109,77 @@
       "description": "Resources on residential options and housing"
     }
   ],
+  "services/recreation-programs": [
+    {
+      "label": "Hillsborough County — HC Adaptive Sports",
+      "url": "https://hcfl.gov/residents/parks-and-leisure/adaptive-sports/hc-adaptive-sports",
+      "description": "Year-round adaptive sports for ages 7-22 across eight sports, $25 to participate"
+    },
+    {
+      "label": "Broward County Parks — Special Populations",
+      "url": "https://www.broward.org/Parks/Pages/SpecialPopulations.aspx",
+      "description": "Year-round recreation for children through seniors with disabilities; several programs are free"
+    },
+    {
+      "label": "Miami-Dade — Therapeutic Recreation and Inclusion",
+      "url": "https://www.miamidade.gov/global/service.page?Mduid_service=ser1531255192150175",
+      "description": "Adapted aquatics, hand cycling and sports programs run by the county"
+    },
+    {
+      "label": "Family Empowerment Scholarship — Unique Abilities",
+      "url": "https://www.stepupforstudents.org/scholarships/unique-abilities/",
+      "description": "The K-12 scholarship that can cover sports fees, memberships and specialized summer programs"
+    },
+    {
+      "label": "FES-UA Purchasing Guide",
+      "url": "https://go.stepupforstudents.org/hubfs/GUIDES/FES-UA-Purchasing-Guide.pdf",
+      "description": "What the scholarship will and will not reimburse, including the rules on camps"
+    },
+    {
+      "label": "Easterseals Camp Challenge",
+      "url": "https://florida.easterseals.com/get-support/areas-of-support/camps-and-recreation/camp-challenge",
+      "description": "Overnight camp in Sorrento for children and adults with disabilities; financial aid available"
+    }
+  ],
+  "services/prevocational-training": [
+    {
+      "label": "APD — Applying for Services",
+      "url": "https://apd.myflorida.com/customers/application/",
+      "description": "Eligibility criteria and the current application form for APD services and the iBudget waiver"
+    },
+    {
+      "label": "APD — Pre-enrollment Priority Categorization",
+      "url": "https://apd.myflorida.com/customers/preenrollment/",
+      "description": "How the waiting list works and how priority categories are assigned"
+    },
+    {
+      "label": "APD — iBudget Waiver Services",
+      "url": "https://apd.myflorida.com/medicaid/ibudget/ibudgetservices.htm",
+      "description": "The full list of services covered under the iBudget waiver"
+    },
+    {
+      "label": "Florida Vocational Rehabilitation",
+      "url": "https://www.rehabworks.org/",
+      "description": "Separate state employment program with its own application — no waiver required. 800-451-4327"
+    }
+  ],
   "services/physical-therapy": [
     {
       "label": "American Physical Therapy Association (APTA)",
       "url": "https://www.apta.org/",
       "description": "National professional organization for physical therapists"
+    }
+  ],
+  "services/pharmacogenetic-testing": [
+    {
+      "label": "FDA - Table of Pharmacogenetic Associations",
+      "url": "https://www.fda.gov/medical-devices/precision-medicine/table-pharmacogenetic-associations",
+      "description": "The FDA's list of gene-drug associations it considers supported by evidence"
+    },
+    {
+      "label": "MedlinePlus - Pharmacogenomics",
+      "url": "https://medlineplus.gov/genetics/understanding/genomicresearch/pharmacogenomics/",
+      "description": "Plain-language explanation of how pharmacogenetic testing works and what it can and cannot tell you"
     }
   ],
   "services/parent-coaching": [
@@ -115,6 +220,35 @@
       "label": "Autism Speaks",
       "url": "https://www.autismspeaks.org/",
       "description": "Resources on life skills and transition planning"
+    }
+  ],
+  "services/inpp": [
+    {
+      "label": "INPP International",
+      "url": "https://inpp.org.uk/",
+      "description": "The Institute for Neuro-Physiological Psychology - method background and practitioner directory"
+    }
+  ],
+  "services/in-home-nursing": [
+    {
+      "label": "AHCA — Private Duty Nursing Services",
+      "url": "https://ahca.myflorida.com/medicaid/medicaid-policy-quality-and-operations/medicaid-policy-and-quality/medicaid-policy/medical-and-behavioral-health-coverage-policy/specialized-health-services/private-duty-nursing-services.html",
+      "description": "Florida Medicaid's coverage policy for private duty nursing, the route for recipients under 21"
+    },
+    {
+      "label": "Rule 59G-4.261, Florida Administrative Code",
+      "url": "https://www.flrules.org/gateway/ruleno.asp?id=59G-4.261",
+      "description": "The rule governing private duty nursing and family home health aide services"
+    },
+    {
+      "label": "APD — Applying for Services",
+      "url": "https://apd.myflorida.com/customers/application/",
+      "description": "Eligibility criteria and the current application form for APD services and the iBudget waiver"
+    },
+    {
+      "label": "APD — Pre-enrollment Priority Categorization",
+      "url": "https://apd.myflorida.com/customers/preenrollment/",
+      "description": "How the waiting list works and how priority categories are assigned"
     }
   ],
   "services/group-therapy": [
@@ -211,6 +345,30 @@
       "description": "Credentialing for art therapy professionals"
     }
   ],
+  "services/afterschool-program": [
+    {
+      "label": "Afterschool Alliance - Youth with Disabilities",
+      "url": "https://afterschoolalliance.org/",
+      "description": "National organization with research and a program locator for afterschool programming"
+    }
+  ],
+  "services/adult-day-training": [
+    {
+      "label": "APD — Applying for Services",
+      "url": "https://apd.myflorida.com/customers/application/",
+      "description": "Eligibility criteria and the current application form for APD services and the iBudget waiver"
+    },
+    {
+      "label": "APD — Pre-enrollment Priority Categorization",
+      "url": "https://apd.myflorida.com/customers/preenrollment/",
+      "description": "How the waiting list works and how priority categories are assigned"
+    },
+    {
+      "label": "APD — iBudget Waiver Services",
+      "url": "https://apd.myflorida.com/medicaid/ibudget/ibudgetservices.htm",
+      "description": "The full list of services covered under the iBudget waiver"
+    }
+  ],
   "services/ados-testing": [
     {
       "label": "Autism Speaks",
@@ -297,6 +455,18 @@
       "description": "Resources for autistic drivers and their families on preparing for the road."
     }
   ],
+  "insurances/wellcare": [
+    {
+      "label": "WellCare",
+      "url": "https://www.wellcare.com/",
+      "description": "Official WellCare website - find plans, check benefits, and search the provider network"
+    },
+    {
+      "label": "Sunshine Health",
+      "url": "https://www.sunshinehealth.com/",
+      "description": "Centene's Florida Medicaid plan - the right place to look if you have Florida Medicaid rather than Medicare"
+    }
+  ],
   "insurances/unitedhealthcare": [
     {
       "label": "UnitedHealthcare",
@@ -329,11 +499,30 @@
       "description": "Official Sunshine Health website - member resources and provider search"
     }
   ],
+  "insurances/simply-healthcare": [
+    {
+      "label": "Simply Healthcare - Florida Medicaid",
+      "url": "https://www.simplyhealthcareplans.com/florida-medicaid/home.html",
+      "description": "Member site - covered benefits, provider search, and enrollment information"
+    }
+  ],
   "insurances/oscar": [
     {
       "label": "Oscar Health",
       "url": "https://www.hioscar.com/",
       "description": "Official Oscar Health website - explore plans, find providers, and manage your coverage"
+    }
+  ],
+  "insurances/molina": [
+    {
+      "label": "Molina Healthcare of Florida",
+      "url": "https://www.molinahealthcare.com/members/fl/en-us/mem/medicaid/overvw/coverd/Pages/coverd.aspx",
+      "description": "Florida plan overview - covered services, member resources, and provider search"
+    },
+    {
+      "label": "Molina Healthcare",
+      "url": "https://www.molinahealthcare.com/",
+      "description": "Main Molina site - find a plan, check eligibility, and manage your membership"
     }
   ],
   "insurances/medicare": [
@@ -367,6 +556,13 @@
       "description": "Administers iBudget waiver for home and community-based services"
     }
   ],
+  "insurances/florida-healthcare-plans": [
+    {
+      "label": "Florida Health Care Plans",
+      "url": "https://www.fhcp.com/",
+      "description": "Official FHCP website - plans, service area, provider directory, and member resources"
+    }
+  ],
   "insurances/florida-blue": [
     {
       "label": "Florida Blue",
@@ -393,6 +589,25 @@
     {
       "label": "Florida Department of Health - Early Steps",
       "url": "https://www.floridahealth.gov/programs-and-services/childrens-health/early-steps/"
+    }
+  ],
+  "insurances/curative": [
+    {
+      "label": "Curative - Florida",
+      "url": "https://curative.com/florida",
+      "description": "Florida plan information, network details, and how the Baseline Visit works"
+    },
+    {
+      "label": "Curative for Employers",
+      "url": "https://curative.com/for-employers",
+      "description": "Group plan options and eligibility requirements for employers"
+    }
+  ],
+  "insurances/community-care-plan": [
+    {
+      "label": "Community Care Plan",
+      "url": "https://ccpcares.org/",
+      "description": "Official site - member resources, provider directory, and how to apply"
     }
   ],
   "insurances/cigna": [
