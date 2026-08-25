@@ -20,7 +20,7 @@
     "city": "ORLANDO",
     "citySlug": "orlando",
     "cityName": "Orlando",
-    "providers": 61,
+    "providers": 59,
     "band": "25+"
   },
   {
@@ -44,7 +44,7 @@
     "city": "JACKSONVILLE",
     "citySlug": "jacksonville",
     "cityName": "Jacksonville",
-    "providers": 49,
+    "providers": 48,
     "band": "25+"
   },
   {
@@ -52,7 +52,7 @@
     "city": "MIAMI",
     "citySlug": "miami",
     "cityName": "Miami",
-    "providers": 46,
+    "providers": 43,
     "band": "25+"
   },
   {
@@ -89,17 +89,17 @@
   },
   {
     "service": "aba",
-    "city": "WEST PALM BEACH",
-    "citySlug": "west-palm-beach",
-    "cityName": "West Palm Beach",
-    "providers": 28,
+    "city": "HOLLYWOOD",
+    "citySlug": "hollywood",
+    "cityName": "Hollywood",
+    "providers": 27,
     "band": "25+"
   },
   {
     "service": "aba",
-    "city": "HOLLYWOOD",
-    "citySlug": "hollywood",
-    "cityName": "Hollywood",
+    "city": "WEST PALM BEACH",
+    "citySlug": "west-palm-beach",
+    "cityName": "West Palm Beach",
     "providers": 27,
     "band": "25+"
   },
@@ -209,19 +209,19 @@
   },
   {
     "service": "aba",
-    "city": "NORTH MIAMI BEACH",
-    "citySlug": "north-miami-beach",
-    "cityName": "North Miami Beach",
-    "providers": 10,
-    "band": "10-24"
-  },
-  {
-    "service": "aba",
     "city": "ORMOND BEACH",
     "citySlug": "ormond-beach",
     "cityName": "Ormond Beach",
     "providers": 10,
     "band": "10-24"
+  },
+  {
+    "service": "aba",
+    "city": "NORTH MIAMI BEACH",
+    "citySlug": "north-miami-beach",
+    "cityName": "North Miami Beach",
+    "providers": 9,
+    "band": "5-9"
   },
   {
     "service": "aba",
@@ -313,14 +313,6 @@
   },
   {
     "service": "aba",
-    "city": "MIAMI SPRINGS",
-    "citySlug": "miami-springs",
-    "cityName": "Miami Springs",
-    "providers": 5,
-    "band": "5-9"
-  },
-  {
-    "service": "aba",
     "city": "TAMARAC",
     "citySlug": "tamarac",
     "cityName": "Tamarac",
@@ -337,6 +329,14 @@
   },
   {
     "service": "aba",
+    "city": "MIAMI SPRINGS",
+    "citySlug": "miami-springs",
+    "cityName": "Miami Springs",
+    "providers": 4,
+    "band": "3-4"
+  },
+  {
+    "service": "aba",
     "city": "NORTH MIAMI",
     "citySlug": "north-miami",
     "cityName": "North Miami",
@@ -348,14 +348,6 @@
     "city": "HALLANDALE BEACH",
     "citySlug": "hallandale-beach",
     "cityName": "Hallandale Beach",
-    "providers": 3,
-    "band": "3-4"
-  },
-  {
-    "service": "aba",
-    "city": "MAITLAND",
-    "citySlug": "maitland",
-    "cityName": "Maitland",
     "providers": 3,
     "band": "3-4"
   },
@@ -764,7 +756,7 @@
     "city": "TAMPA",
     "citySlug": "tampa",
     "cityName": "Tampa",
-    "providers": 20,
+    "providers": 21,
     "band": "10-24"
   },
   {
@@ -849,14 +841,6 @@
   },
   {
     "service": "life-skills",
-    "city": "MIRAMAR",
-    "citySlug": "miramar",
-    "cityName": "Miramar",
-    "providers": 5,
-    "band": "5-9"
-  },
-  {
-    "service": "life-skills",
     "city": "PEMBROKE PINES",
     "citySlug": "pembroke-pines",
     "cityName": "Pembroke Pines",
@@ -892,6 +876,14 @@
     "city": "MIAMI LAKES",
     "citySlug": "miami-lakes",
     "cityName": "Miami Lakes",
+    "providers": 4,
+    "band": "3-4"
+  },
+  {
+    "service": "life-skills",
+    "city": "MIRAMAR",
+    "citySlug": "miramar",
+    "cityName": "Miramar",
     "providers": 4,
     "band": "3-4"
   },
@@ -956,7 +948,7 @@
     "city": "TAMPA",
     "citySlug": "tampa",
     "cityName": "Tampa",
-    "providers": 11,
+    "providers": 12,
     "band": "10-24"
   },
   {
@@ -1068,7 +1060,7 @@
     "city": "ORLANDO",
     "citySlug": "orlando",
     "cityName": "Orlando",
-    "providers": 44,
+    "providers": 45,
     "band": "25+"
   },
   {
@@ -1732,7 +1724,7 @@
     "city": "ORLANDO",
     "citySlug": "orlando",
     "cityName": "Orlando",
-    "providers": 47,
+    "providers": 48,
     "band": "25+"
   },
   {
@@ -2204,7 +2196,7 @@
     "city": "TAMPA",
     "citySlug": "tampa",
     "cityName": "Tampa",
-    "providers": 8,
+    "providers": 9,
     "band": "5-9"
   },
   {
@@ -2740,7 +2732,7 @@
     "city": "JACKSONVILLE",
     "citySlug": "jacksonville",
     "cityName": "Jacksonville",
-    "providers": 6,
+    "providers": 7,
     "band": "5-9"
   },
   {
@@ -2748,7 +2740,7 @@
     "city": "MIAMI",
     "citySlug": "miami",
     "cityName": "Miami",
-    "providers": 5,
+    "providers": 6,
     "band": "5-9"
   },
   {
