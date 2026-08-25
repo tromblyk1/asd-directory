@@ -447,6 +447,46 @@ The `deploy/` folder contains a standalone Node SFTP script. It reads creds from
 
 ---
 
+# pSEO PIPELINE
+
+The `/providers/:service/:city` pages are driven by a committed manifest,
+`src/frontend/src/data/pseo/cityPages.json`. Regenerate it after every curation batch.
+
+**Run in this order. Do not skip the reconcile.**
+
+```bash
+node tools/generate_pseo_manifest.mjs     # ~1s   rewrites cityPages.json + the audit CSV
+node tools/reconcile_pseo_manifest.mjs    # ~2s   EXIT 1 = do not deploy
+node generate-sitemap.js                  # ~2s   pure mirror of the manifest
+cd src/frontend && npm run build          # ~111s
+cd ../../deploy && npm run deploy         # ~22s
+```
+
+**Why the reconcile exists.** The generator only ever sees one instant, so it cannot tell
+that its own output went stale between being written and reaching the server. On 2026-08-25
+a manifest was correct when written, ~91 rows were deleted during the build-and-deploy
+window, and `aba/brooksville` shipped as a 200 advertising 5 providers against 2 real ones.
+The reconcile does a second, later read and diffs the page set.
+
+- **STALE / MISSING** — the page set disagrees. **Exit 1. Do not build or deploy.** Wait for
+  the batch to settle, regenerate, reconcile again.
+- **COUNT DRIFT** — same pages, different provider counts. Warns and passes; counts move
+  constantly and do not break a page. A long drift list means a batch is still landing.
+
+It sits before the 111s build and 22s deploy on purpose — catching a mid-batch read there
+saves redoing both.
+
+**Reconcile-and-retry, not refuse-to-run.** Do not add a "batch in flight" guard that blocks
+regeneration. There is no reliable signal for it: curation's batch notes have been a lower
+bound every time (12 records reported against 92 actual). The reconcile measures the thing
+itself rather than a proxy for it.
+
+**The eligibility rule is deliberately duplicated** between the generator and the reconcile
+script rather than shared — an independent reimplementation catches generator bugs as well as
+data movement. If the rule changes, change it in both files.
+
+---
+
 # GIT WORKFLOW
 
 Commit message format:
