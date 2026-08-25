@@ -9,18 +9,18 @@
   },
   {
     "service": "aba",
-    "city": "TALLAHASSEE",
-    "citySlug": "tallahassee",
-    "cityName": "Tallahassee",
-    "providers": 69,
+    "city": "ORLANDO",
+    "citySlug": "orlando",
+    "cityName": "Orlando",
+    "providers": 58,
     "band": "25+"
   },
   {
     "service": "aba",
-    "city": "ORLANDO",
-    "citySlug": "orlando",
-    "cityName": "Orlando",
-    "providers": 59,
+    "city": "TALLAHASSEE",
+    "citySlug": "tallahassee",
+    "cityName": "Tallahassee",
+    "providers": 57,
     "band": "25+"
   },
   {
@@ -28,23 +28,7 @@
     "city": "TAMPA",
     "citySlug": "tampa",
     "cityName": "Tampa",
-    "providers": 59,
-    "band": "25+"
-  },
-  {
-    "service": "aba",
-    "city": "LAKELAND",
-    "citySlug": "lakeland",
-    "cityName": "Lakeland",
-    "providers": 53,
-    "band": "25+"
-  },
-  {
-    "service": "aba",
-    "city": "JACKSONVILLE",
-    "citySlug": "jacksonville",
-    "cityName": "Jacksonville",
-    "providers": 48,
+    "providers": 56,
     "band": "25+"
   },
   {
@@ -57,10 +41,26 @@
   },
   {
     "service": "aba",
+    "city": "JACKSONVILLE",
+    "citySlug": "jacksonville",
+    "cityName": "Jacksonville",
+    "providers": 41,
+    "band": "25+"
+  },
+  {
+    "service": "aba",
     "city": "FORT MYERS",
     "citySlug": "fort-myers",
     "cityName": "Fort Myers",
-    "providers": 38,
+    "providers": 34,
+    "band": "25+"
+  },
+  {
+    "service": "aba",
+    "city": "LAKELAND",
+    "citySlug": "lakeland",
+    "cityName": "Lakeland",
+    "providers": 34,
     "band": "25+"
   },
   {
@@ -68,23 +68,7 @@
     "city": "GAINESVILLE",
     "citySlug": "gainesville",
     "cityName": "Gainesville",
-    "providers": 36,
-    "band": "25+"
-  },
-  {
-    "service": "aba",
-    "city": "PORT ST. LUCIE",
-    "citySlug": "port-st-lucie",
-    "cityName": "Port St. Lucie",
     "providers": 30,
-    "band": "25+"
-  },
-  {
-    "service": "aba",
-    "city": "CAPE CORAL",
-    "citySlug": "cape-coral",
-    "cityName": "Cape Coral",
-    "providers": 28,
     "band": "25+"
   },
   {
@@ -92,7 +76,7 @@
     "city": "HOLLYWOOD",
     "citySlug": "hollywood",
     "cityName": "Hollywood",
-    "providers": 27,
+    "providers": 26,
     "band": "25+"
   },
   {
@@ -100,22 +84,30 @@
     "city": "WEST PALM BEACH",
     "citySlug": "west-palm-beach",
     "cityName": "West Palm Beach",
-    "providers": 27,
+    "providers": 26,
     "band": "25+"
+  },
+  {
+    "service": "aba",
+    "city": "PORT ST. LUCIE",
+    "citySlug": "port-st-lucie",
+    "cityName": "Port St. Lucie",
+    "providers": 25,
+    "band": "25+"
+  },
+  {
+    "service": "aba",
+    "city": "CAPE CORAL",
+    "citySlug": "cape-coral",
+    "cityName": "Cape Coral",
+    "providers": 21,
+    "band": "10-24"
   },
   {
     "service": "aba",
     "city": "HIALEAH",
     "citySlug": "hialeah",
     "cityName": "Hialeah",
-    "providers": 21,
-    "band": "10-24"
-  },
-  {
-    "service": "aba",
-    "city": "SPRING HILL",
-    "citySlug": "spring-hill",
-    "cityName": "Spring Hill",
     "providers": 21,
     "band": "10-24"
   },
@@ -129,18 +121,26 @@
   },
   {
     "service": "aba",
-    "city": "CLEARWATER",
-    "citySlug": "clearwater",
-    "cityName": "Clearwater",
-    "providers": 18,
+    "city": "PEMBROKE PINES",
+    "citySlug": "pembroke-pines",
+    "cityName": "Pembroke Pines",
+    "providers": 17,
     "band": "10-24"
   },
   {
     "service": "aba",
-    "city": "PEMBROKE PINES",
-    "citySlug": "pembroke-pines",
-    "cityName": "Pembroke Pines",
-    "providers": 18,
+    "city": "CLEARWATER",
+    "citySlug": "clearwater",
+    "cityName": "Clearwater",
+    "providers": 16,
+    "band": "10-24"
+  },
+  {
+    "service": "aba",
+    "city": "SPRING HILL",
+    "citySlug": "spring-hill",
+    "cityName": "Spring Hill",
+    "providers": 16,
     "band": "10-24"
   },
   {
@@ -172,7 +172,7 @@
     "city": "FORT LAUDERDALE",
     "citySlug": "fort-lauderdale",
     "cityName": "Fort Lauderdale",
-    "providers": 13,
+    "providers": 12,
     "band": "10-24"
   },
   {
@@ -181,14 +181,6 @@
     "citySlug": "coral-gables",
     "cityName": "Coral Gables",
     "providers": 11,
-    "band": "10-24"
-  },
-  {
-    "service": "aba",
-    "city": "DAYTONA BEACH",
-    "citySlug": "daytona-beach",
-    "cityName": "Daytona Beach",
-    "providers": 10,
     "band": "10-24"
   },
   {
@@ -209,22 +201,6 @@
   },
   {
     "service": "aba",
-    "city": "ORMOND BEACH",
-    "citySlug": "ormond-beach",
-    "cityName": "Ormond Beach",
-    "providers": 10,
-    "band": "10-24"
-  },
-  {
-    "service": "aba",
-    "city": "NORTH MIAMI BEACH",
-    "citySlug": "north-miami-beach",
-    "cityName": "North Miami Beach",
-    "providers": 9,
-    "band": "5-9"
-  },
-  {
-    "service": "aba",
     "city": "BOCA RATON",
     "citySlug": "boca-raton",
     "cityName": "Boca Raton",
@@ -241,10 +217,26 @@
   },
   {
     "service": "aba",
+    "city": "NORTH MIAMI BEACH",
+    "citySlug": "north-miami-beach",
+    "cityName": "North Miami Beach",
+    "providers": 8,
+    "band": "5-9"
+  },
+  {
+    "service": "aba",
     "city": "WESTON",
     "citySlug": "weston",
     "cityName": "Weston",
     "providers": 8,
+    "band": "5-9"
+  },
+  {
+    "service": "aba",
+    "city": "DAYTONA BEACH",
+    "citySlug": "daytona-beach",
+    "cityName": "Daytona Beach",
+    "providers": 7,
     "band": "5-9"
   },
   {
@@ -257,17 +249,17 @@
   },
   {
     "service": "aba",
-    "city": "PALM SPRINGS",
-    "citySlug": "palm-springs",
-    "cityName": "Palm Springs",
-    "providers": 6,
+    "city": "ORMOND BEACH",
+    "citySlug": "ormond-beach",
+    "cityName": "Ormond Beach",
+    "providers": 7,
     "band": "5-9"
   },
   {
     "service": "aba",
-    "city": "PORT ORANGE",
-    "citySlug": "port-orange",
-    "cityName": "Port Orange",
+    "city": "PALM SPRINGS",
+    "citySlug": "palm-springs",
+    "cityName": "Palm Springs",
     "providers": 6,
     "band": "5-9"
   },
@@ -289,14 +281,6 @@
   },
   {
     "service": "aba",
-    "city": "BROOKSVILLE",
-    "citySlug": "brooksville",
-    "cityName": "Brooksville",
-    "providers": 5,
-    "band": "5-9"
-  },
-  {
-    "service": "aba",
     "city": "COCONUT CREEK",
     "citySlug": "coconut-creek",
     "cityName": "Coconut Creek",
@@ -308,14 +292,6 @@
     "city": "LAKE WORTH BEACH",
     "citySlug": "lake-worth-beach",
     "cityName": "Lake Worth Beach",
-    "providers": 5,
-    "band": "5-9"
-  },
-  {
-    "service": "aba",
-    "city": "TAMARAC",
-    "citySlug": "tamarac",
-    "cityName": "Tamarac",
     "providers": 5,
     "band": "5-9"
   },
@@ -340,6 +316,22 @@
     "city": "NORTH MIAMI",
     "citySlug": "north-miami",
     "cityName": "North Miami",
+    "providers": 4,
+    "band": "3-4"
+  },
+  {
+    "service": "aba",
+    "city": "PORT ORANGE",
+    "citySlug": "port-orange",
+    "cityName": "Port Orange",
+    "providers": 4,
+    "band": "3-4"
+  },
+  {
+    "service": "aba",
+    "city": "TAMARAC",
+    "citySlug": "tamarac",
+    "cityName": "Tamarac",
     "providers": 4,
     "band": "3-4"
   },
@@ -681,6 +673,14 @@
   },
   {
     "service": "group-therapy",
+    "city": "TALLAHASSEE",
+    "citySlug": "tallahassee",
+    "cityName": "Tallahassee",
+    "providers": 6,
+    "band": "5-9"
+  },
+  {
+    "service": "group-therapy",
     "city": "CORAL SPRINGS",
     "citySlug": "coral-springs",
     "cityName": "Coral Springs",
@@ -692,14 +692,6 @@
     "city": "FORT LAUDERDALE",
     "citySlug": "fort-lauderdale",
     "cityName": "Fort Lauderdale",
-    "providers": 5,
-    "band": "5-9"
-  },
-  {
-    "service": "group-therapy",
-    "city": "TALLAHASSEE",
-    "citySlug": "tallahassee",
-    "cityName": "Tallahassee",
     "providers": 5,
     "band": "5-9"
   },
@@ -801,6 +793,14 @@
   },
   {
     "service": "life-skills",
+    "city": "TALLAHASSEE",
+    "citySlug": "tallahassee",
+    "cityName": "Tallahassee",
+    "providers": 7,
+    "band": "5-9"
+  },
+  {
+    "service": "life-skills",
     "city": "DAVIE",
     "citySlug": "davie",
     "cityName": "Davie",
@@ -828,14 +828,6 @@
     "city": "MELBOURNE",
     "citySlug": "melbourne",
     "cityName": "Melbourne",
-    "providers": 6,
-    "band": "5-9"
-  },
-  {
-    "service": "life-skills",
-    "city": "TALLAHASSEE",
-    "citySlug": "tallahassee",
-    "cityName": "Tallahassee",
     "providers": 6,
     "band": "5-9"
   },
