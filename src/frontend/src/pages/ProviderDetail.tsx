@@ -87,6 +87,8 @@ const serviceDisplayInfo: Record<string, { title: string; slug: string }> = {
   'financial-planning': { title: 'Financial Planning', slug: 'financial-planning' },
   'virtual-therapy': { title: 'Virtual Therapy', slug: 'virtual-therapy' },
   'mobile-services': { title: 'Mobile Services', slug: 'mobile-services' },
+  'transportation': { title: 'Transportation', slug: 'transportation' },
+  'art-therapy': { title: 'Art Therapy', slug: 'art-therapy' },
   'supported-employment': { title: 'Supported Employment', slug: 'supported-employment' },
   'adult-day-training': { title: 'Adult Day Training', slug: 'adult-day-training' },
   'supported-living': { title: 'Supported Living', slug: 'supported-living' },

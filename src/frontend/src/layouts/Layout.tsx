@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { 
   Heart, Home, Church, Calendar, BookOpen, FileText,
-  Plus, DollarSign, Menu, X, Search, Phone, Mail, GraduationCap, Info, MessageSquare, School, CalendarPlus, Baby
+  Plus, DollarSign, Menu, X, Search, Mail, GraduationCap, Info, MessageSquare, School, CalendarPlus, Baby
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -198,10 +198,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <li><Link to="/featured" className="text-blue-100 hover:text-white transition-colors">For Providers</Link></li>
               </ul>
               <div className="mt-4 sm:mt-6 space-y-2">
-                <a href="tel:3213003447" className="flex items-center gap-2 text-blue-100 hover:text-white transition-colors text-sm sm:text-base">
-                  <Phone className="w-4 h-4 flex-shrink-0" />
-                  <span>(321) 300-3447</span>
-                </a>
                 <a href="mailto:info@floridaautismservices.com" className="flex items-center gap-2 text-blue-100 hover:text-white transition-colors text-sm sm:text-base">
                   <Mail className="w-4 h-4 flex-shrink-0" />
                   <span className="break-all">info@floridaautismservices.com</span>

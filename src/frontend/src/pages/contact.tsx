@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { 
-  Phone, Mail, Clock, Send, MessageSquare, 
+  Mail, Clock, Send, MessageSquare,
   MapPin, CheckCircle 
 } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
@@ -42,11 +42,9 @@ export default function Contact() {
       "@type": "Organization",
       "name": "Florida Autism Services Directory",
       "url": "https://floridaautismservices.com",
-      "telephone": "+1-321-300-3447",
       "email": "info@floridaautismservices.com",
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+1-321-300-3447",
         "contactType": "customer service",
         "email": "info@floridaautismservices.com",
         "areaServed": "US-FL",
@@ -77,7 +75,6 @@ export default function Contact() {
     "name": "Florida Autism Services Directory",
     "description": "Comprehensive directory connecting Florida families with autism-friendly resources, providers, and schools statewide.",
     "url": "https://floridaautismservices.com",
-    "telephone": "+1-321-300-3447",
     "email": "info@floridaautismservices.com",
     "areaServed": { "@type": "State", "name": "Florida" },
     "priceRange": "Free",
@@ -93,11 +90,11 @@ export default function Contact() {
     <>
       <Helmet>
         <title>Contact Us | Florida Autism Services Directory</title>
-        <meta name="description" content="Contact Florida Autism Services for questions about autism resources, providers, schools, and services across Florida. Call (321) 300-3447 or email us. Response within 1-2 business days." />
+        <meta name="description" content="Contact Florida Autism Services for questions about autism resources, providers, schools, and services across Florida. Email us or send a message. Response within 1-2 business days." />
         <meta name="keywords" content="contact Florida autism services, autism help Florida, autism questions, autism support contact, autism directory contact" />
         <link rel="canonical" href="https://floridaautismservices.com/contact" />
         <meta property="og:title" content="Contact Us | Florida Autism Services" />
-        <meta property="og:description" content="Questions about autism services in Florida? Contact us by phone at (321) 300-3447 or send us a message." />
+        <meta property="og:description" content="Questions about autism services in Florida? Email us or send us a message." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://floridaautismservices.com/contact" />
         <meta property="og:site_name" content="Florida Autism Services Directory" />
@@ -248,20 +245,6 @@ export default function Contact() {
                   <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6">Contact Information</h2>
                   
                   <address className="space-y-3 sm:space-y-4 not-italic">
-                    <div className="flex items-start gap-2 sm:gap-3">
-                      <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 flex-shrink-0 mt-1" aria-hidden="true" />
-                      <div>
-                        <h3 className="font-medium text-gray-900 text-sm sm:text-base">Phone</h3>
-                        <a 
-                          href="tel:3213003447" 
-                          className="text-blue-600 hover:text-blue-700 text-sm sm:text-base"
-                          aria-label="Call Florida Autism Services at (321) 300-3447"
-                        >
-                          (321) 300-3447
-                        </a>
-                      </div>
-                    </div>
-
                     <div className="flex items-start gap-2 sm:gap-3">
                       <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 flex-shrink-0 mt-1" aria-hidden="true" />
                       <div>
