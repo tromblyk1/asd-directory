@@ -282,7 +282,7 @@ export default function Contact() {
                 <CardContent className="p-4 sm:p-6">
                   <h3 className="font-bold text-gray-900 mb-2 sm:mb-3 text-sm sm:text-base">Need Immediate Help?</h3>
                   <p className="text-xs sm:text-sm text-gray-700 mb-3 sm:mb-4">
-                    For urgent questions about autism services or resources, call us directly during business hours.
+                    For urgent questions about autism services or resources, email us and we will reply as quickly as we can during business hours.
                   </p>
                   <p className="text-xs text-gray-600">
                     <strong>Hours:</strong> Monday - Friday, 9am - 5pm EST
