@@ -87,6 +87,12 @@ const serviceDisplayInfo: Record<string, { title: string; slug: string }> = {
   'financial-planning': { title: 'Financial Planning', slug: 'financial-planning' },
   'virtual-therapy': { title: 'Virtual Therapy', slug: 'virtual-therapy' },
   'mobile-services': { title: 'Mobile Services', slug: 'mobile-services' },
+  'supported-employment': { title: 'Supported Employment', slug: 'supported-employment' },
+  'adult-day-training': { title: 'Adult Day Training', slug: 'adult-day-training' },
+  'supported-living': { title: 'Supported Living', slug: 'supported-living' },
+  'prevocational-training': { title: 'Prevocational Training', slug: 'prevocational-training' },
+  'in-home-nursing': { title: 'In-Home Nursing', slug: 'in-home-nursing' },
+  'recreation-programs': { title: 'Recreation Programs', slug: 'recreation-programs' },
 };
 
 // Insurance slug mapping

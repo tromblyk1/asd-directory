@@ -73,6 +73,13 @@ const serviceOptions = [
   { value: 'art-therapy', label: 'Art Therapy', description: 'Creative arts therapy', tooltip: 'Creative expression through visual arts to support emotional and developmental growth' },
   { value: 'afterschool-program', label: 'Afterschool Program', description: 'After school care', tooltip: 'Structured afternoon programming providing social, academic, and recreational support' },
   { value: 'financial-planning', label: 'Financial Planning', description: 'Special needs planning', tooltip: 'Financial planners specializing in ABLE accounts, special needs trusts, guardianship, and benefits preservation' },
+  { value: 'aac', label: 'AAC', description: 'Communication devices', tooltip: 'Augmentative and Alternative Communication systems and devices for individuals who are nonverbal or have limited speech' },
+  { value: 'supported-employment', label: 'Supported Employment', description: 'Job coaching', tooltip: 'Job coaching that helps autistic adults find and keep a competitive job in the community' },
+  { value: 'adult-day-training', label: 'Adult Day Training', description: 'Adult day programs', tooltip: 'Structured weekday programs for autistic adults after they age out of school services' },
+  { value: 'supported-living', label: 'Supported Living', description: 'Independent living support', tooltip: 'Coaching that lets an autistic adult live in their own home rather than a group facility' },
+  { value: 'prevocational-training', label: 'Prevocational Training', description: 'Pre-employment skills', tooltip: 'Builds the general workplace skills that come before a specific job' },
+  { value: 'in-home-nursing', label: 'In-Home Nursing', description: 'Skilled nursing at home', tooltip: "Skilled medical care from a licensed nurse in the person's own home" },
+  { value: 'recreation-programs', label: 'Recreation Programs', description: 'Sports, arts and camps', tooltip: 'Sensory-friendly sports, arts, social and camp programs an autistic person takes part in' },
 ];
 
 // Insurance options for filtering - ONLY values that exist in the database
@@ -120,6 +127,13 @@ const servicePopupInfo: Record<string, { label: string; description: string; slu
   'transportation': { label: 'Transport', description: 'Transportation services', slug: 'transportation' },
   'art-therapy': { label: 'Art', description: 'Art therapy', slug: 'art-therapy' },
   'afterschool-program': { label: 'Afterschool', description: 'Afterschool program', slug: 'afterschool-program' },
+  'aac': { label: 'AAC', description: 'Augmentative and alternative communication', slug: 'aac' },
+  'supported-employment': { label: 'Supported Employment', description: 'Job coaching and employment support', slug: 'supported-employment' },
+  'adult-day-training': { label: 'Adult Day Training', description: 'Adult day training program', slug: 'adult-day-training' },
+  'supported-living': { label: 'Supported Living', description: 'Independent living coaching', slug: 'supported-living' },
+  'prevocational-training': { label: 'Prevocational', description: 'Prevocational training', slug: 'prevocational-training' },
+  'in-home-nursing': { label: 'In-Home Nursing', description: 'Skilled nursing in the home', slug: 'in-home-nursing' },
+  'recreation-programs': { label: 'Recreation', description: 'Recreation programs', slug: 'recreation-programs' },
 };
 
 // Insurance display info for map popup

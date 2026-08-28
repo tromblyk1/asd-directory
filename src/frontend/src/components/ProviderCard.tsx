@@ -92,6 +92,12 @@ const serviceBadges: Record<string, { label: string; tooltip: string; link: stri
   'respiratory-care': { label: 'Respiratory Care', tooltip: 'Respiratory therapy including oxygen management and breathing treatments', link: '/resources/services/respiratory-care' },
   'art-therapy': { label: 'Art Therapy', tooltip: 'Creative expression through visual arts for emotional and developmental growth', link: '/resources/services/art-therapy' },
   'afterschool-program': { label: 'Afterschool Program', tooltip: 'Structured afternoon programming with social, academic, and recreational support', link: '/resources/services/afterschool-program' },
+  'supported-employment': { label: 'Supported Employment', tooltip: 'Job coaching that helps autistic adults find and keep a competitive job in the community', link: '/resources/services/supported-employment' },
+  'adult-day-training': { label: 'Adult Day Training', tooltip: 'Structured weekday programs for autistic adults after they age out of school services', link: '/resources/services/adult-day-training' },
+  'supported-living': { label: 'Supported Living', tooltip: 'Coaching that lets an autistic adult live in their own home rather than a group facility', link: '/resources/services/supported-living' },
+  'prevocational-training': { label: 'Prevocational Training', tooltip: 'Builds the general workplace skills that come before a specific job', link: '/resources/services/prevocational-training' },
+  'in-home-nursing': { label: 'In-Home Nursing', tooltip: "Skilled medical care from a licensed nurse in the person's own home", link: '/resources/services/in-home-nursing' },
+  'recreation-programs': { label: 'Recreation Programs', tooltip: 'Sensory-friendly sports, arts, social and camp programs an autistic person takes part in', link: '/resources/services/recreation-programs' },
 };
 
 // Insurance badge definitions - PURPLE colors

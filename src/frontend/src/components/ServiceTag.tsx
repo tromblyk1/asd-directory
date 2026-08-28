@@ -199,6 +199,42 @@ const SERVICE_METADATA: Record<string, {
     color: 'bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-200',
     type: 'service',
   },
+  'supported-employment': {
+    name: 'Supported Employment',
+    description: 'Job coaching that helps autistic adults find and keep a competitive job in the community',
+    color: 'bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-200',
+    type: 'service',
+  },
+  'adult-day-training': {
+    name: 'Adult Day Training',
+    description: 'Structured weekday programs for autistic adults after they age out of school services',
+    color: 'bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-200',
+    type: 'service',
+  },
+  'supported-living': {
+    name: 'Supported Living',
+    description: 'Coaching that lets an autistic adult live in their own home rather than a group facility',
+    color: 'bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-200',
+    type: 'service',
+  },
+  'prevocational-training': {
+    name: 'Prevocational Training',
+    description: 'Builds the general workplace skills that come before a specific job',
+    color: 'bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-200',
+    type: 'service',
+  },
+  'in-home-nursing': {
+    name: 'In-Home Nursing',
+    description: "Skilled medical care from a licensed nurse in the person's own home",
+    color: 'bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-200',
+    type: 'service',
+  },
+  'recreation-programs': {
+    name: 'Recreation Programs',
+    description: 'Sensory-friendly sports, arts, social and camp programs an autistic person takes part in',
+    color: 'bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-200',
+    type: 'service',
+  },
 
   // Insurance (Purple - matches education page)
   'accepts-most-insurances': {
