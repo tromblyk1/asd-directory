@@ -222,13 +222,6 @@
       "description": "Resources on life skills and transition planning"
     }
   ],
-  "services/inpp": [
-    {
-      "label": "INPP International",
-      "url": "https://inpp.org.uk/",
-      "description": "The Institute for Neuro-Physiological Psychology - method background and practitioner directory"
-    }
-  ],
   "services/in-home-nursing": [
     {
       "label": "AHCA — Private Duty Nursing Services",
@@ -251,13 +244,6 @@
       "description": "How the waiting list works and how priority categories are assigned"
     }
   ],
-  "services/group-therapy": [
-    {
-      "label": "Autism Speaks",
-      "url": "https://www.autismspeaks.org/",
-      "description": "Resources on social skills programs and groups"
-    }
-  ],
   "services/floor-time": [
     {
       "label": "Interdisciplinary Council on Development and Learning",
@@ -266,10 +252,6 @@
     {
       "label": "DIR/Floortime Coalition",
       "url": "https://www.profectum.org"
-    },
-    {
-      "label": "Autism Speaks Intervention Guide",
-      "url": "https://www.autismspeaks.org/types-treatments"
     }
   ],
   "services/financial-planning": [
@@ -327,10 +309,6 @@
     {
       "label": "TSA Cares - Airport Assistance",
       "url": "https://www.tsa.gov/travel/passenger-support"
-    },
-    {
-      "label": "Disney Disability Access Service",
-      "url": "https://disneyworld.disney.go.com/guest-services/disability-access-service"
     }
   ],
   "services/art-therapy": [
@@ -367,13 +345,6 @@
       "label": "APD — iBudget Waiver Services",
       "url": "https://apd.myflorida.com/medicaid/ibudget/ibudgetservices.htm",
       "description": "The full list of services covered under the iBudget waiver"
-    }
-  ],
-  "services/ados-testing": [
-    {
-      "label": "Autism Speaks",
-      "url": "https://www.autismspeaks.org/",
-      "description": "Information on autism diagnosis and evaluation process"
     }
   ],
   "services/aba-therapy": [
