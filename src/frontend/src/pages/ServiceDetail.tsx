@@ -34,7 +34,6 @@ const slugToServiceFilter: Record<string, string> = {
   'music-therapy': 'music-therapy',
   'dir-floortime': 'dir-floortime',
   'floor-time': 'dir-floortime',
-  'inpp': 'inpp',
   'aac': 'aac',
   'aac-speech': 'aac',
   'respite-care': 'respite-care',

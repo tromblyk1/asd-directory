@@ -61,12 +61,6 @@ const SERVICE_METADATA: Record<string, {
     color: 'bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-200',
     type: 'service',
   },
-  'inpp': {
-    name: 'INPP',
-    description: 'Neurophysiological development program',
-    color: 'bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-200',
-    type: 'service',
-  },
   'aac': {
     name: 'AAC',
     description: 'Augmentative and Alternative Communication',

@@ -48,13 +48,6 @@ export const SERVICE_DEFINITIONS: Record<string, ServiceDefinition> = {
     long:
       "Music Therapy leverages rhythm, singing, movement, and instrument play to engage multiple areas of the brain. Board-certified music therapists design creative sessions that target emotional regulation, social interaction, physical skills, and communication goals.",
   },
-  inpp: {
-    title: "INPP (Neuromotor Maturity)",
-    slug: "inpp",
-    short: "Retrains retained reflexes to support coordination, balance, and learning.",
-    long:
-      "The INPP (Institute for Neuro-Physiological Psychology) method evaluates primitive reflexes that may persist beyond infancy and affect development. Guided movement programs help integrate these reflexes, improving posture, balance, and classroom readiness.",
-  },
   aac_speech: {
     title: "AAC / Speech Devices",
     slug: "aac-speech",
@@ -104,7 +97,7 @@ export const SERVICE_DEFINITIONS: Record<string, ServiceDefinition> = {
     long:
       "Support Groups connect families, self-advocates, and caregivers who share lived experiences. Facilitated meetings provide a space to exchange resources, celebrate milestones, problem-solve challenges, and foster a sense of community belonging.",
   },
-  pet_therapy: {
+  animal_therapy: {
     title: "Animal Therapy",
     slug: "animal-therapy",
     short: "Animal-assisted sessions promoting calm, motivation, and social engagement.",

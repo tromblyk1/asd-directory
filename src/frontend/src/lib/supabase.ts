@@ -55,7 +55,6 @@ export interface Provider {
   residential_habilitation?: boolean | null;
   support_groups?: boolean | null;
   church_support?: boolean | null;
-  pet_therapy?: boolean | null;
   virtual_therapy?: boolean | null;
   ados_testing?: boolean | null;
   pharmacogenetic_testing?: boolean | null;
@@ -67,7 +66,6 @@ export interface Provider {
   group_therapy?: boolean | null;
   music_therapy?: boolean | null;
   dir_floortime?: boolean | null;
-  inpp?: boolean | null;
   aac_speech?: boolean | null;
 
   // Social media links

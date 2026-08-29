@@ -70,7 +70,6 @@ const serviceBadges: Record<string, { label: string; tooltip: string; link: stri
   'feeding-therapy': { label: 'Feeding Therapy', tooltip: 'Help with eating difficulties and food aversions', link: '/resources/services/feeding-therapy' },
   'music-therapy': { label: 'Music Therapy', tooltip: 'Therapeutic music interventions for development', link: '/resources/services/music-therapy' },
   'dir-floortime': { label: 'DIR/Floortime', tooltip: 'Developmental, Individual Difference, Relationship-based therapy', link: '/resources/services/floor-time' },
-  'inpp': { label: 'INPP', tooltip: 'Institute for Neuro-Physiological Psychology movement programs', link: '/resources/services/inpp' },
   'aac': { label: 'AAC', tooltip: 'Augmentative and Alternative Communication devices and training', link: '/resources/services/aac' },
   'respite-care': { label: 'Respite Care', tooltip: 'Temporary caregiver relief services', link: '/resources/services/respite-care' },
   'life-skills': { label: 'Life Skills', tooltip: 'Daily living and independence training', link: '/resources/services/life-skills' },
