@@ -9,34 +9,18 @@
   },
   {
     "service": "aba",
-    "city": "ORLANDO",
-    "citySlug": "orlando",
-    "cityName": "Orlando",
-    "providers": 58,
-    "band": "25+"
-  },
-  {
-    "service": "aba",
     "city": "TAMPA",
     "citySlug": "tampa",
     "cityName": "Tampa",
-    "providers": 56,
+    "providers": 39,
     "band": "25+"
   },
   {
     "service": "aba",
-    "city": "TALLAHASSEE",
-    "citySlug": "tallahassee",
-    "cityName": "Tallahassee",
-    "providers": 53,
-    "band": "25+"
-  },
-  {
-    "service": "aba",
-    "city": "JACKSONVILLE",
-    "citySlug": "jacksonville",
-    "cityName": "Jacksonville",
-    "providers": 41,
+    "city": "ORLANDO",
+    "citySlug": "orlando",
+    "cityName": "Orlando",
+    "providers": 35,
     "band": "25+"
   },
   {
@@ -44,70 +28,38 @@
     "city": "MIAMI",
     "citySlug": "miami",
     "cityName": "Miami",
-    "providers": 41,
-    "band": "25+"
-  },
-  {
-    "service": "aba",
-    "city": "LAKELAND",
-    "citySlug": "lakeland",
-    "cityName": "Lakeland",
-    "providers": 34,
-    "band": "25+"
-  },
-  {
-    "service": "aba",
-    "city": "FORT MYERS",
-    "citySlug": "fort-myers",
-    "cityName": "Fort Myers",
-    "providers": 32,
-    "band": "25+"
-  },
-  {
-    "service": "aba",
-    "city": "GAINESVILLE",
-    "citySlug": "gainesville",
-    "cityName": "Gainesville",
-    "providers": 29,
-    "band": "25+"
-  },
-  {
-    "service": "aba",
-    "city": "HOLLYWOOD",
-    "citySlug": "hollywood",
-    "cityName": "Hollywood",
     "providers": 26,
     "band": "25+"
+  },
+  {
+    "service": "aba",
+    "city": "JACKSONVILLE",
+    "citySlug": "jacksonville",
+    "cityName": "Jacksonville",
+    "providers": 23,
+    "band": "10-24"
   },
   {
     "service": "aba",
     "city": "WEST PALM BEACH",
     "citySlug": "west-palm-beach",
     "cityName": "West Palm Beach",
-    "providers": 26,
-    "band": "25+"
-  },
-  {
-    "service": "aba",
-    "city": "PORT ST. LUCIE",
-    "citySlug": "port-st-lucie",
-    "cityName": "Port St. Lucie",
-    "providers": 24,
+    "providers": 22,
     "band": "10-24"
   },
   {
     "service": "aba",
-    "city": "CAPE CORAL",
-    "citySlug": "cape-coral",
-    "cityName": "Cape Coral",
+    "city": "FORT MYERS",
+    "citySlug": "fort-myers",
+    "cityName": "Fort Myers",
     "providers": 21,
     "band": "10-24"
   },
   {
     "service": "aba",
-    "city": "HIALEAH",
-    "citySlug": "hialeah",
-    "cityName": "Hialeah",
+    "city": "HOLLYWOOD",
+    "citySlug": "hollywood",
+    "cityName": "Hollywood",
     "providers": 21,
     "band": "10-24"
   },
@@ -116,71 +68,55 @@
     "city": "MIAMI LAKES",
     "citySlug": "miami-lakes",
     "cityName": "Miami Lakes",
-    "providers": 19,
+    "providers": 18,
     "band": "10-24"
   },
   {
     "service": "aba",
-    "city": "PEMBROKE PINES",
-    "citySlug": "pembroke-pines",
-    "cityName": "Pembroke Pines",
-    "providers": 17,
-    "band": "10-24"
-  },
-  {
-    "service": "aba",
-    "city": "CLEARWATER",
-    "citySlug": "clearwater",
-    "cityName": "Clearwater",
-    "providers": 16,
-    "band": "10-24"
-  },
-  {
-    "service": "aba",
-    "city": "SPRING HILL",
-    "citySlug": "spring-hill",
-    "cityName": "Spring Hill",
-    "providers": 16,
-    "band": "10-24"
-  },
-  {
-    "service": "aba",
-    "city": "DAVIE",
-    "citySlug": "davie",
-    "cityName": "Davie",
+    "city": "CAPE CORAL",
+    "citySlug": "cape-coral",
+    "cityName": "Cape Coral",
     "providers": 15,
     "band": "10-24"
   },
   {
     "service": "aba",
-    "city": "PALM BAY",
-    "citySlug": "palm-bay",
-    "cityName": "Palm Bay",
+    "city": "HIALEAH",
+    "citySlug": "hialeah",
+    "cityName": "Hialeah",
     "providers": 15,
     "band": "10-24"
   },
   {
     "service": "aba",
-    "city": "WINTER PARK",
-    "citySlug": "winter-park",
-    "cityName": "Winter Park",
-    "providers": 13,
+    "city": "PORT ST. LUCIE",
+    "citySlug": "port-st-lucie",
+    "cityName": "Port St. Lucie",
+    "providers": 14,
     "band": "10-24"
   },
   {
     "service": "aba",
-    "city": "FORT LAUDERDALE",
-    "citySlug": "fort-lauderdale",
-    "cityName": "Fort Lauderdale",
+    "city": "TALLAHASSEE",
+    "citySlug": "tallahassee",
+    "cityName": "Tallahassee",
+    "providers": 14,
+    "band": "10-24"
+  },
+  {
+    "service": "aba",
+    "city": "GAINESVILLE",
+    "citySlug": "gainesville",
+    "cityName": "Gainesville",
     "providers": 11,
     "band": "10-24"
   },
   {
     "service": "aba",
-    "city": "CORAL GABLES",
-    "citySlug": "coral-gables",
-    "cityName": "Coral Gables",
-    "providers": 10,
+    "city": "LAKELAND",
+    "citySlug": "lakeland",
+    "cityName": "Lakeland",
+    "providers": 11,
     "band": "10-24"
   },
   {
@@ -193,11 +129,43 @@
   },
   {
     "service": "aba",
+    "city": "CORAL GABLES",
+    "citySlug": "coral-gables",
+    "cityName": "Coral Gables",
+    "providers": 9,
+    "band": "5-9"
+  },
+  {
+    "service": "aba",
+    "city": "FORT LAUDERDALE",
+    "citySlug": "fort-lauderdale",
+    "cityName": "Fort Lauderdale",
+    "providers": 9,
+    "band": "5-9"
+  },
+  {
+    "service": "aba",
     "city": "MIRAMAR",
     "citySlug": "miramar",
     "cityName": "Miramar",
-    "providers": 10,
-    "band": "10-24"
+    "providers": 9,
+    "band": "5-9"
+  },
+  {
+    "service": "aba",
+    "city": "PEMBROKE PINES",
+    "citySlug": "pembroke-pines",
+    "cityName": "Pembroke Pines",
+    "providers": 9,
+    "band": "5-9"
+  },
+  {
+    "service": "aba",
+    "city": "WINTER PARK",
+    "citySlug": "winter-park",
+    "cityName": "Winter Park",
+    "providers": 9,
+    "band": "5-9"
   },
   {
     "service": "aba",
@@ -209,49 +177,33 @@
   },
   {
     "service": "aba",
+    "city": "DAVIE",
+    "citySlug": "davie",
+    "cityName": "Davie",
+    "providers": 8,
+    "band": "5-9"
+  },
+  {
+    "service": "aba",
+    "city": "CLEARWATER",
+    "citySlug": "clearwater",
+    "cityName": "Clearwater",
+    "providers": 7,
+    "band": "5-9"
+  },
+  {
+    "service": "aba",
     "city": "CORAL SPRINGS",
     "citySlug": "coral-springs",
     "cityName": "Coral Springs",
-    "providers": 8,
+    "providers": 6,
     "band": "5-9"
   },
   {
     "service": "aba",
-    "city": "NORTH MIAMI BEACH",
-    "citySlug": "north-miami-beach",
-    "cityName": "North Miami Beach",
-    "providers": 8,
-    "band": "5-9"
-  },
-  {
-    "service": "aba",
-    "city": "WESTON",
-    "citySlug": "weston",
-    "cityName": "Weston",
-    "providers": 8,
-    "band": "5-9"
-  },
-  {
-    "service": "aba",
-    "city": "DAYTONA BEACH",
-    "citySlug": "daytona-beach",
-    "cityName": "Daytona Beach",
-    "providers": 7,
-    "band": "5-9"
-  },
-  {
-    "service": "aba",
-    "city": "LARGO",
-    "citySlug": "largo",
-    "cityName": "Largo",
-    "providers": 7,
-    "band": "5-9"
-  },
-  {
-    "service": "aba",
-    "city": "ORMOND BEACH",
-    "citySlug": "ormond-beach",
-    "cityName": "Ormond Beach",
+    "city": "PALM BAY",
+    "citySlug": "palm-bay",
+    "cityName": "Palm Bay",
     "providers": 6,
     "band": "5-9"
   },
@@ -260,14 +212,6 @@
     "city": "PALM SPRINGS",
     "citySlug": "palm-springs",
     "cityName": "Palm Springs",
-    "providers": 6,
-    "band": "5-9"
-  },
-  {
-    "service": "aba",
-    "city": "STUART",
-    "citySlug": "stuart",
-    "cityName": "Stuart",
     "providers": 6,
     "band": "5-9"
   },
@@ -297,9 +241,33 @@
   },
   {
     "service": "aba",
-    "city": "LAUDERHILL",
-    "citySlug": "lauderhill",
-    "cityName": "Lauderhill",
+    "city": "NORTH MIAMI BEACH",
+    "citySlug": "north-miami-beach",
+    "cityName": "North Miami Beach",
+    "providers": 5,
+    "band": "5-9"
+  },
+  {
+    "service": "aba",
+    "city": "STUART",
+    "citySlug": "stuart",
+    "cityName": "Stuart",
+    "providers": 5,
+    "band": "5-9"
+  },
+  {
+    "service": "aba",
+    "city": "WESTON",
+    "citySlug": "weston",
+    "cityName": "Weston",
+    "providers": 5,
+    "band": "5-9"
+  },
+  {
+    "service": "aba",
+    "city": "LARGO",
+    "citySlug": "largo",
+    "cityName": "Largo",
     "providers": 4,
     "band": "3-4"
   },
@@ -313,14 +281,6 @@
   },
   {
     "service": "aba",
-    "city": "NORTH MIAMI",
-    "citySlug": "north-miami",
-    "cityName": "North Miami",
-    "providers": 4,
-    "band": "3-4"
-  },
-  {
-    "service": "aba",
     "city": "PORT ORANGE",
     "citySlug": "port-orange",
     "cityName": "Port Orange",
@@ -329,25 +289,17 @@
   },
   {
     "service": "aba",
-    "city": "TAMARAC",
-    "citySlug": "tamarac",
-    "cityName": "Tamarac",
+    "city": "ST. PETERSBURG",
+    "citySlug": "st-petersburg",
+    "cityName": "St. Petersburg",
     "providers": 4,
     "band": "3-4"
   },
   {
     "service": "aba",
-    "city": "HALLANDALE BEACH",
-    "citySlug": "hallandale-beach",
-    "cityName": "Hallandale Beach",
-    "providers": 3,
-    "band": "3-4"
-  },
-  {
-    "service": "aba",
-    "city": "MIAMI BEACH",
-    "citySlug": "miami-beach",
-    "cityName": "Miami Beach",
+    "city": "LAUDERHILL",
+    "citySlug": "lauderhill",
+    "cityName": "Lauderhill",
     "providers": 3,
     "band": "3-4"
   },
@@ -361,19 +313,27 @@
   },
   {
     "service": "aba",
-    "city": "PLANTATION",
-    "citySlug": "plantation",
-    "cityName": "Plantation",
+    "city": "ORMOND BEACH",
+    "citySlug": "ormond-beach",
+    "cityName": "Ormond Beach",
     "providers": 3,
     "band": "3-4"
   },
   {
     "service": "aba",
-    "city": "SOUTH MIAMI",
-    "citySlug": "south-miami",
-    "cityName": "South Miami",
+    "city": "TAMARAC",
+    "citySlug": "tamarac",
+    "cityName": "Tamarac",
     "providers": 3,
     "band": "3-4"
+  },
+  {
+    "service": "ados-testing",
+    "city": "ORLANDO",
+    "citySlug": "orlando",
+    "cityName": "Orlando",
+    "providers": 13,
+    "band": "10-24"
   },
   {
     "service": "ados-testing",
@@ -385,18 +345,18 @@
   },
   {
     "service": "ados-testing",
-    "city": "ORLANDO",
-    "citySlug": "orlando",
-    "cityName": "Orlando",
-    "providers": 10,
-    "band": "10-24"
-  },
-  {
-    "service": "ados-testing",
     "city": "FORT MYERS",
     "citySlug": "fort-myers",
     "cityName": "Fort Myers",
-    "providers": 5,
+    "providers": 6,
+    "band": "5-9"
+  },
+  {
+    "service": "ados-testing",
+    "city": "MIAMI",
+    "citySlug": "miami",
+    "cityName": "Miami",
+    "providers": 6,
     "band": "5-9"
   },
   {
@@ -404,7 +364,7 @@
     "city": "TALLAHASSEE",
     "citySlug": "tallahassee",
     "cityName": "Tallahassee",
-    "providers": 5,
+    "providers": 6,
     "band": "5-9"
   },
   {
@@ -425,9 +385,9 @@
   },
   {
     "service": "ados-testing",
-    "city": "MIAMI",
-    "citySlug": "miami",
-    "cityName": "Miami",
+    "city": "GAINESVILLE",
+    "citySlug": "gainesville",
+    "cityName": "Gainesville",
     "providers": 4,
     "band": "3-4"
   },
@@ -437,14 +397,6 @@
     "citySlug": "miami-lakes",
     "cityName": "Miami Lakes",
     "providers": 4,
-    "band": "3-4"
-  },
-  {
-    "service": "ados-testing",
-    "city": "GAINESVILLE",
-    "citySlug": "gainesville",
-    "cityName": "Gainesville",
-    "providers": 3,
     "band": "3-4"
   },
   {
@@ -460,7 +412,7 @@
     "city": "TAMPA",
     "citySlug": "tampa",
     "cityName": "Tampa",
-    "providers": 17,
+    "providers": 19,
     "band": "10-24"
   },
   {
@@ -473,27 +425,19 @@
   },
   {
     "service": "adult-day-training",
+    "city": "CLEARWATER",
+    "citySlug": "clearwater",
+    "cityName": "Clearwater",
+    "providers": 5,
+    "band": "5-9"
+  },
+  {
+    "service": "adult-day-training",
     "city": "WEST PALM BEACH",
     "citySlug": "west-palm-beach",
     "cityName": "West Palm Beach",
     "providers": 5,
     "band": "5-9"
-  },
-  {
-    "service": "animal-therapy",
-    "city": "JACKSONVILLE",
-    "citySlug": "jacksonville",
-    "cityName": "Jacksonville",
-    "providers": 6,
-    "band": "5-9"
-  },
-  {
-    "service": "animal-therapy",
-    "city": "HUDSON",
-    "citySlug": "hudson",
-    "cityName": "Hudson",
-    "providers": 3,
-    "band": "3-4"
   },
   {
     "service": "animal-therapy",
@@ -528,11 +472,19 @@
     "band": "3-4"
   },
   {
+    "service": "executive-function-coaching",
+    "city": "WINTER PARK",
+    "citySlug": "winter-park",
+    "cityName": "Winter Park",
+    "providers": 3,
+    "band": "3-4"
+  },
+  {
     "service": "feeding-therapy",
     "city": "TAMPA",
     "citySlug": "tampa",
     "cityName": "Tampa",
-    "providers": 21,
+    "providers": 22,
     "band": "10-24"
   },
   {
@@ -540,6 +492,14 @@
     "city": "HOLLYWOOD",
     "citySlug": "hollywood",
     "cityName": "Hollywood",
+    "providers": 12,
+    "band": "10-24"
+  },
+  {
+    "service": "feeding-therapy",
+    "city": "ORLANDO",
+    "citySlug": "orlando",
+    "cityName": "Orlando",
     "providers": 11,
     "band": "10-24"
   },
@@ -556,15 +516,15 @@
     "city": "JACKSONVILLE",
     "citySlug": "jacksonville",
     "cityName": "Jacksonville",
-    "providers": 9,
+    "providers": 8,
     "band": "5-9"
   },
   {
     "service": "feeding-therapy",
-    "city": "ORLANDO",
-    "citySlug": "orlando",
-    "cityName": "Orlando",
-    "providers": 9,
+    "city": "CLEARWATER",
+    "citySlug": "clearwater",
+    "cityName": "Clearwater",
+    "providers": 6,
     "band": "5-9"
   },
   {
@@ -577,9 +537,9 @@
   },
   {
     "service": "feeding-therapy",
-    "city": "CLEARWATER",
-    "citySlug": "clearwater",
-    "cityName": "Clearwater",
+    "city": "PEMBROKE PINES",
+    "citySlug": "pembroke-pines",
+    "cityName": "Pembroke Pines",
     "providers": 5,
     "band": "5-9"
   },
@@ -593,10 +553,18 @@
   },
   {
     "service": "feeding-therapy",
-    "city": "PEMBROKE PINES",
-    "citySlug": "pembroke-pines",
-    "cityName": "Pembroke Pines",
+    "city": "PORT ST. LUCIE",
+    "citySlug": "port-st-lucie",
+    "cityName": "Port St. Lucie",
     "providers": 4,
+    "band": "3-4"
+  },
+  {
+    "service": "feeding-therapy",
+    "city": "TALLAHASSEE",
+    "citySlug": "tallahassee",
+    "cityName": "Tallahassee",
+    "providers": 3,
     "band": "3-4"
   },
   {
@@ -604,14 +572,22 @@
     "city": "TAMPA",
     "citySlug": "tampa",
     "cityName": "Tampa",
-    "providers": 24,
-    "band": "10-24"
+    "providers": 25,
+    "band": "25+"
   },
   {
     "service": "group-therapy",
     "city": "ORLANDO",
     "citySlug": "orlando",
     "cityName": "Orlando",
+    "providers": 11,
+    "band": "10-24"
+  },
+  {
+    "service": "group-therapy",
+    "city": "HOLLYWOOD",
+    "citySlug": "hollywood",
+    "cityName": "Hollywood",
     "providers": 10,
     "band": "10-24"
   },
@@ -625,9 +601,9 @@
   },
   {
     "service": "group-therapy",
-    "city": "HOLLYWOOD",
-    "citySlug": "hollywood",
-    "cityName": "Hollywood",
+    "city": "MIAMI",
+    "citySlug": "miami",
+    "cityName": "Miami",
     "providers": 9,
     "band": "5-9"
   },
@@ -636,15 +612,15 @@
     "city": "JACKSONVILLE",
     "citySlug": "jacksonville",
     "cityName": "Jacksonville",
-    "providers": 9,
+    "providers": 8,
     "band": "5-9"
   },
   {
     "service": "group-therapy",
-    "city": "MIAMI",
-    "citySlug": "miami",
-    "cityName": "Miami",
-    "providers": 8,
+    "city": "TALLAHASSEE",
+    "citySlug": "tallahassee",
+    "cityName": "Tallahassee",
+    "providers": 7,
     "band": "5-9"
   },
   {
@@ -673,17 +649,17 @@
   },
   {
     "service": "group-therapy",
-    "city": "TALLAHASSEE",
-    "citySlug": "tallahassee",
-    "cityName": "Tallahassee",
-    "providers": 6,
+    "city": "CORAL SPRINGS",
+    "citySlug": "coral-springs",
+    "cityName": "Coral Springs",
+    "providers": 5,
     "band": "5-9"
   },
   {
     "service": "group-therapy",
-    "city": "CORAL SPRINGS",
-    "citySlug": "coral-springs",
-    "cityName": "Coral Springs",
+    "city": "DAVIE",
+    "citySlug": "davie",
+    "cityName": "Davie",
     "providers": 5,
     "band": "5-9"
   },
@@ -702,14 +678,6 @@
     "cityName": "West Palm Beach",
     "providers": 5,
     "band": "5-9"
-  },
-  {
-    "service": "group-therapy",
-    "city": "DAVIE",
-    "citySlug": "davie",
-    "cityName": "Davie",
-    "providers": 4,
-    "band": "3-4"
   },
   {
     "service": "group-therapy",
@@ -744,11 +712,27 @@
     "band": "3-4"
   },
   {
+    "service": "group-therapy",
+    "city": "WESTON",
+    "citySlug": "weston",
+    "cityName": "Weston",
+    "providers": 3,
+    "band": "3-4"
+  },
+  {
+    "service": "group-therapy",
+    "city": "WINTER PARK",
+    "citySlug": "winter-park",
+    "cityName": "Winter Park",
+    "providers": 3,
+    "band": "3-4"
+  },
+  {
     "service": "life-skills",
     "city": "TAMPA",
     "citySlug": "tampa",
     "cityName": "Tampa",
-    "providers": 21,
+    "providers": 23,
     "band": "10-24"
   },
   {
@@ -756,7 +740,7 @@
     "city": "MIAMI",
     "citySlug": "miami",
     "cityName": "Miami",
-    "providers": 17,
+    "providers": 19,
     "band": "10-24"
   },
   {
@@ -764,7 +748,7 @@
     "city": "ORLANDO",
     "citySlug": "orlando",
     "cityName": "Orlando",
-    "providers": 14,
+    "providers": 16,
     "band": "10-24"
   },
   {
@@ -788,7 +772,7 @@
     "city": "JACKSONVILLE",
     "citySlug": "jacksonville",
     "cityName": "Jacksonville",
-    "providers": 9,
+    "providers": 8,
     "band": "5-9"
   },
   {
@@ -796,7 +780,7 @@
     "city": "TALLAHASSEE",
     "citySlug": "tallahassee",
     "cityName": "Tallahassee",
-    "providers": 7,
+    "providers": 8,
     "band": "5-9"
   },
   {
@@ -804,7 +788,7 @@
     "city": "DAVIE",
     "citySlug": "davie",
     "cityName": "Davie",
-    "providers": 6,
+    "providers": 7,
     "band": "5-9"
   },
   {
@@ -833,6 +817,30 @@
   },
   {
     "service": "life-skills",
+    "city": "HOLLYWOOD",
+    "citySlug": "hollywood",
+    "cityName": "Hollywood",
+    "providers": 5,
+    "band": "5-9"
+  },
+  {
+    "service": "life-skills",
+    "city": "LAKELAND",
+    "citySlug": "lakeland",
+    "cityName": "Lakeland",
+    "providers": 5,
+    "band": "5-9"
+  },
+  {
+    "service": "life-skills",
+    "city": "MIAMI LAKES",
+    "citySlug": "miami-lakes",
+    "cityName": "Miami Lakes",
+    "providers": 5,
+    "band": "5-9"
+  },
+  {
+    "service": "life-skills",
     "city": "PEMBROKE PINES",
     "citySlug": "pembroke-pines",
     "cityName": "Pembroke Pines",
@@ -841,33 +849,17 @@
   },
   {
     "service": "life-skills",
+    "city": "WINTER PARK",
+    "citySlug": "winter-park",
+    "cityName": "Winter Park",
+    "providers": 5,
+    "band": "5-9"
+  },
+  {
+    "service": "life-skills",
     "city": "CAPE CORAL",
     "citySlug": "cape-coral",
     "cityName": "Cape Coral",
-    "providers": 4,
-    "band": "3-4"
-  },
-  {
-    "service": "life-skills",
-    "city": "HOLLYWOOD",
-    "citySlug": "hollywood",
-    "cityName": "Hollywood",
-    "providers": 4,
-    "band": "3-4"
-  },
-  {
-    "service": "life-skills",
-    "city": "LAKELAND",
-    "citySlug": "lakeland",
-    "cityName": "Lakeland",
-    "providers": 4,
-    "band": "3-4"
-  },
-  {
-    "service": "life-skills",
-    "city": "MIAMI LAKES",
-    "citySlug": "miami-lakes",
-    "cityName": "Miami Lakes",
     "providers": 4,
     "band": "3-4"
   },
@@ -929,9 +921,25 @@
   },
   {
     "service": "life-skills",
+    "city": "LARGO",
+    "citySlug": "largo",
+    "cityName": "Largo",
+    "providers": 3,
+    "band": "3-4"
+  },
+  {
+    "service": "life-skills",
     "city": "PORT ST. LUCIE",
     "citySlug": "port-st-lucie",
     "cityName": "Port St. Lucie",
+    "providers": 3,
+    "band": "3-4"
+  },
+  {
+    "service": "life-skills",
+    "city": "WESTON",
+    "citySlug": "weston",
+    "cityName": "Weston",
     "providers": 3,
     "band": "3-4"
   },
@@ -945,10 +953,26 @@
   },
   {
     "service": "mobile-services",
+    "city": "FORT MYERS",
+    "citySlug": "fort-myers",
+    "cityName": "Fort Myers",
+    "providers": 9,
+    "band": "5-9"
+  },
+  {
+    "service": "mobile-services",
     "city": "HOLLYWOOD",
     "citySlug": "hollywood",
     "cityName": "Hollywood",
-    "providers": 8,
+    "providers": 9,
+    "band": "5-9"
+  },
+  {
+    "service": "mobile-services",
+    "city": "JACKSONVILLE",
+    "citySlug": "jacksonville",
+    "cityName": "Jacksonville",
+    "providers": 9,
     "band": "5-9"
   },
   {
@@ -961,10 +985,10 @@
   },
   {
     "service": "mobile-services",
-    "city": "FORT MYERS",
-    "citySlug": "fort-myers",
-    "cityName": "Fort Myers",
-    "providers": 6,
+    "city": "MIAMI",
+    "citySlug": "miami",
+    "cityName": "Miami",
+    "providers": 7,
     "band": "5-9"
   },
   {
@@ -977,17 +1001,41 @@
   },
   {
     "service": "mobile-services",
-    "city": "JACKSONVILLE",
-    "citySlug": "jacksonville",
-    "cityName": "Jacksonville",
-    "providers": 5,
-    "band": "5-9"
-  },
-  {
-    "service": "mobile-services",
     "city": "FORT LAUDERDALE",
     "citySlug": "fort-lauderdale",
     "cityName": "Fort Lauderdale",
+    "providers": 4,
+    "band": "3-4"
+  },
+  {
+    "service": "mobile-services",
+    "city": "ST. PETERSBURG",
+    "citySlug": "st-petersburg",
+    "cityName": "St. Petersburg",
+    "providers": 4,
+    "band": "3-4"
+  },
+  {
+    "service": "mobile-services",
+    "city": "WEST PALM BEACH",
+    "citySlug": "west-palm-beach",
+    "cityName": "West Palm Beach",
+    "providers": 4,
+    "band": "3-4"
+  },
+  {
+    "service": "mobile-services",
+    "city": "WINTER PARK",
+    "citySlug": "winter-park",
+    "cityName": "Winter Park",
+    "providers": 4,
+    "band": "3-4"
+  },
+  {
+    "service": "mobile-services",
+    "city": "HIALEAH",
+    "citySlug": "hialeah",
+    "cityName": "Hialeah",
     "providers": 3,
     "band": "3-4"
   },
@@ -1000,22 +1048,6 @@
     "band": "3-4"
   },
   {
-    "service": "mobile-services",
-    "city": "ST. PETERSBURG",
-    "citySlug": "st-petersburg",
-    "cityName": "St. Petersburg",
-    "providers": 3,
-    "band": "3-4"
-  },
-  {
-    "service": "music-therapy",
-    "city": "JACKSONVILLE",
-    "citySlug": "jacksonville",
-    "cityName": "Jacksonville",
-    "providers": 6,
-    "band": "5-9"
-  },
-  {
     "service": "music-therapy",
     "city": "TALLAHASSEE",
     "citySlug": "tallahassee",
@@ -1025,6 +1057,14 @@
   },
   {
     "service": "occupational-therapy",
+    "city": "MIAMI",
+    "citySlug": "miami",
+    "cityName": "Miami",
+    "providers": 62,
+    "band": "25+"
+  },
+  {
+    "service": "occupational-therapy",
     "city": "JACKSONVILLE",
     "citySlug": "jacksonville",
     "cityName": "Jacksonville",
@@ -1033,18 +1073,10 @@
   },
   {
     "service": "occupational-therapy",
-    "city": "MIAMI",
-    "citySlug": "miami",
-    "cityName": "Miami",
-    "providers": 59,
-    "band": "25+"
-  },
-  {
-    "service": "occupational-therapy",
     "city": "TAMPA",
     "citySlug": "tampa",
     "cityName": "Tampa",
-    "providers": 55,
+    "providers": 58,
     "band": "25+"
   },
   {
@@ -1052,7 +1084,7 @@
     "city": "ORLANDO",
     "citySlug": "orlando",
     "cityName": "Orlando",
-    "providers": 45,
+    "providers": 48,
     "band": "25+"
   },
   {
@@ -1068,7 +1100,15 @@
     "city": "LAKELAND",
     "citySlug": "lakeland",
     "cityName": "Lakeland",
-    "providers": 20,
+    "providers": 22,
+    "band": "10-24"
+  },
+  {
+    "service": "occupational-therapy",
+    "city": "HIALEAH",
+    "citySlug": "hialeah",
+    "cityName": "Hialeah",
+    "providers": 21,
     "band": "10-24"
   },
   {
@@ -1076,7 +1116,7 @@
     "city": "FORT MYERS",
     "citySlug": "fort-myers",
     "cityName": "Fort Myers",
-    "providers": 18,
+    "providers": 19,
     "band": "10-24"
   },
   {
@@ -1084,7 +1124,7 @@
     "city": "FORT LAUDERDALE",
     "citySlug": "fort-lauderdale",
     "cityName": "Fort Lauderdale",
-    "providers": 17,
+    "providers": 18,
     "band": "10-24"
   },
   {
@@ -1105,10 +1145,18 @@
   },
   {
     "service": "occupational-therapy",
-    "city": "HIALEAH",
-    "citySlug": "hialeah",
-    "cityName": "Hialeah",
+    "city": "TALLAHASSEE",
+    "citySlug": "tallahassee",
+    "cityName": "Tallahassee",
     "providers": 15,
+    "band": "10-24"
+  },
+  {
+    "service": "occupational-therapy",
+    "city": "CLEARWATER",
+    "citySlug": "clearwater",
+    "cityName": "Clearwater",
+    "providers": 14,
     "band": "10-24"
   },
   {
@@ -1121,26 +1169,10 @@
   },
   {
     "service": "occupational-therapy",
-    "city": "CLEARWATER",
-    "citySlug": "clearwater",
-    "cityName": "Clearwater",
-    "providers": 13,
-    "band": "10-24"
-  },
-  {
-    "service": "occupational-therapy",
-    "city": "TALLAHASSEE",
-    "citySlug": "tallahassee",
-    "cityName": "Tallahassee",
-    "providers": 13,
-    "band": "10-24"
-  },
-  {
-    "service": "occupational-therapy",
     "city": "DAVIE",
     "citySlug": "davie",
     "cityName": "Davie",
-    "providers": 11,
+    "providers": 12,
     "band": "10-24"
   },
   {
@@ -1148,6 +1180,14 @@
     "city": "GAINESVILLE",
     "citySlug": "gainesville",
     "cityName": "Gainesville",
+    "providers": 12,
+    "band": "10-24"
+  },
+  {
+    "service": "occupational-therapy",
+    "city": "SPRING HILL",
+    "citySlug": "spring-hill",
+    "cityName": "Spring Hill",
     "providers": 11,
     "band": "10-24"
   },
@@ -1180,7 +1220,23 @@
     "city": "CAPE CORAL",
     "citySlug": "cape-coral",
     "cityName": "Cape Coral",
-    "providers": 8,
+    "providers": 9,
+    "band": "5-9"
+  },
+  {
+    "service": "occupational-therapy",
+    "city": "NORTH MIAMI BEACH",
+    "citySlug": "north-miami-beach",
+    "cityName": "North Miami Beach",
+    "providers": 9,
+    "band": "5-9"
+  },
+  {
+    "service": "occupational-therapy",
+    "city": "WEST PALM BEACH",
+    "citySlug": "west-palm-beach",
+    "cityName": "West Palm Beach",
+    "providers": 9,
     "band": "5-9"
   },
   {
@@ -1193,9 +1249,9 @@
   },
   {
     "service": "occupational-therapy",
-    "city": "SPRING HILL",
-    "citySlug": "spring-hill",
-    "cityName": "Spring Hill",
+    "city": "PEMBROKE PINES",
+    "citySlug": "pembroke-pines",
+    "cityName": "Pembroke Pines",
     "providers": 8,
     "band": "5-9"
   },
@@ -1209,17 +1265,17 @@
   },
   {
     "service": "occupational-therapy",
-    "city": "WEST PALM BEACH",
-    "citySlug": "west-palm-beach",
-    "cityName": "West Palm Beach",
+    "city": "WINTER PARK",
+    "citySlug": "winter-park",
+    "cityName": "Winter Park",
     "providers": 8,
     "band": "5-9"
   },
   {
     "service": "occupational-therapy",
-    "city": "NORTH MIAMI BEACH",
-    "citySlug": "north-miami-beach",
-    "cityName": "North Miami Beach",
+    "city": "LARGO",
+    "citySlug": "largo",
+    "cityName": "Largo",
     "providers": 7,
     "band": "5-9"
   },
@@ -1233,9 +1289,9 @@
   },
   {
     "service": "occupational-therapy",
-    "city": "WINTER PARK",
-    "citySlug": "winter-park",
-    "cityName": "Winter Park",
+    "city": "PORT ST. LUCIE",
+    "citySlug": "port-st-lucie",
+    "cityName": "Port St. Lucie",
     "providers": 7,
     "band": "5-9"
   },
@@ -1257,41 +1313,9 @@
   },
   {
     "service": "occupational-therapy",
-    "city": "JACKSONVILLE BEACH",
-    "citySlug": "jacksonville-beach",
-    "cityName": "Jacksonville Beach",
-    "providers": 6,
-    "band": "5-9"
-  },
-  {
-    "service": "occupational-therapy",
-    "city": "LARGO",
-    "citySlug": "largo",
-    "cityName": "Largo",
-    "providers": 6,
-    "band": "5-9"
-  },
-  {
-    "service": "occupational-therapy",
     "city": "LUTZ",
     "citySlug": "lutz",
     "cityName": "Lutz",
-    "providers": 6,
-    "band": "5-9"
-  },
-  {
-    "service": "occupational-therapy",
-    "city": "PEMBROKE PINES",
-    "citySlug": "pembroke-pines",
-    "cityName": "Pembroke Pines",
-    "providers": 6,
-    "band": "5-9"
-  },
-  {
-    "service": "occupational-therapy",
-    "city": "PORT ST. LUCIE",
-    "citySlug": "port-st-lucie",
-    "cityName": "Port St. Lucie",
     "providers": 6,
     "band": "5-9"
   },
@@ -1309,6 +1333,14 @@
     "citySlug": "sunrise",
     "cityName": "Sunrise",
     "providers": 6,
+    "band": "5-9"
+  },
+  {
+    "service": "occupational-therapy",
+    "city": "JACKSONVILLE BEACH",
+    "citySlug": "jacksonville-beach",
+    "cityName": "Jacksonville Beach",
+    "providers": 5,
     "band": "5-9"
   },
   {
@@ -1337,6 +1369,14 @@
   },
   {
     "service": "occupational-therapy",
+    "city": "PALM BAY",
+    "citySlug": "palm-bay",
+    "cityName": "Palm Bay",
+    "providers": 5,
+    "band": "5-9"
+  },
+  {
+    "service": "occupational-therapy",
     "city": "PALM BEACH GARDENS",
     "citySlug": "palm-beach-gardens",
     "cityName": "Palm Beach Gardens",
@@ -1356,6 +1396,14 @@
     "city": "PLANTATION",
     "citySlug": "plantation",
     "cityName": "Plantation",
+    "providers": 5,
+    "band": "5-9"
+  },
+  {
+    "service": "occupational-therapy",
+    "city": "WESTON",
+    "citySlug": "weston",
+    "cityName": "Weston",
     "providers": 5,
     "band": "5-9"
   },
@@ -1388,6 +1436,14 @@
     "city": "JUPITER",
     "citySlug": "jupiter",
     "cityName": "Jupiter",
+    "providers": 4,
+    "band": "3-4"
+  },
+  {
+    "service": "occupational-therapy",
+    "city": "LAUDERHILL",
+    "citySlug": "lauderhill",
+    "cityName": "Lauderhill",
     "providers": 4,
     "band": "3-4"
   },
@@ -1436,14 +1492,6 @@
     "city": "BOYNTON BEACH",
     "citySlug": "boynton-beach",
     "cityName": "Boynton Beach",
-    "providers": 3,
-    "band": "3-4"
-  },
-  {
-    "service": "occupational-therapy",
-    "city": "LAUDERHILL",
-    "citySlug": "lauderhill",
-    "cityName": "Lauderhill",
     "providers": 3,
     "band": "3-4"
   },
@@ -1500,7 +1548,7 @@
     "city": "TAMPA",
     "citySlug": "tampa",
     "cityName": "Tampa",
-    "providers": 16,
+    "providers": 17,
     "band": "10-24"
   },
   {
@@ -1508,7 +1556,7 @@
     "city": "ORLANDO",
     "citySlug": "orlando",
     "cityName": "Orlando",
-    "providers": 14,
+    "providers": 15,
     "band": "10-24"
   },
   {
@@ -1516,7 +1564,7 @@
     "city": "JACKSONVILLE",
     "citySlug": "jacksonville",
     "cityName": "Jacksonville",
-    "providers": 12,
+    "providers": 14,
     "band": "10-24"
   },
   {
@@ -1524,7 +1572,7 @@
     "city": "MIAMI",
     "citySlug": "miami",
     "cityName": "Miami",
-    "providers": 12,
+    "providers": 13,
     "band": "10-24"
   },
   {
@@ -1532,8 +1580,24 @@
     "city": "HOLLYWOOD",
     "citySlug": "hollywood",
     "cityName": "Hollywood",
-    "providers": 10,
+    "providers": 12,
     "band": "10-24"
+  },
+  {
+    "service": "parent-coaching",
+    "city": "FORT LAUDERDALE",
+    "citySlug": "fort-lauderdale",
+    "cityName": "Fort Lauderdale",
+    "providers": 9,
+    "band": "5-9"
+  },
+  {
+    "service": "parent-coaching",
+    "city": "DAVIE",
+    "citySlug": "davie",
+    "cityName": "Davie",
+    "providers": 8,
+    "band": "5-9"
   },
   {
     "service": "parent-coaching",
@@ -1553,14 +1617,6 @@
   },
   {
     "service": "parent-coaching",
-    "city": "FORT LAUDERDALE",
-    "citySlug": "fort-lauderdale",
-    "cityName": "Fort Lauderdale",
-    "providers": 7,
-    "band": "5-9"
-  },
-  {
-    "service": "parent-coaching",
     "city": "CORAL SPRINGS",
     "citySlug": "coral-springs",
     "cityName": "Coral Springs",
@@ -1569,9 +1625,9 @@
   },
   {
     "service": "parent-coaching",
-    "city": "DAVIE",
-    "citySlug": "davie",
-    "cityName": "Davie",
+    "city": "FORT MYERS",
+    "citySlug": "fort-myers",
+    "cityName": "Fort Myers",
     "providers": 6,
     "band": "5-9"
   },
@@ -1585,9 +1641,33 @@
   },
   {
     "service": "parent-coaching",
-    "city": "FORT MYERS",
-    "citySlug": "fort-myers",
-    "cityName": "Fort Myers",
+    "city": "MIAMI LAKES",
+    "citySlug": "miami-lakes",
+    "cityName": "Miami Lakes",
+    "providers": 6,
+    "band": "5-9"
+  },
+  {
+    "service": "parent-coaching",
+    "city": "PEMBROKE PINES",
+    "citySlug": "pembroke-pines",
+    "cityName": "Pembroke Pines",
+    "providers": 6,
+    "band": "5-9"
+  },
+  {
+    "service": "parent-coaching",
+    "city": "TALLAHASSEE",
+    "citySlug": "tallahassee",
+    "cityName": "Tallahassee",
+    "providers": 6,
+    "band": "5-9"
+  },
+  {
+    "service": "parent-coaching",
+    "city": "HIALEAH",
+    "citySlug": "hialeah",
+    "cityName": "Hialeah",
     "providers": 5,
     "band": "5-9"
   },
@@ -1601,9 +1681,17 @@
   },
   {
     "service": "parent-coaching",
-    "city": "TALLAHASSEE",
-    "citySlug": "tallahassee",
-    "cityName": "Tallahassee",
+    "city": "ST. PETERSBURG",
+    "citySlug": "st-petersburg",
+    "cityName": "St. Petersburg",
+    "providers": 5,
+    "band": "5-9"
+  },
+  {
+    "service": "parent-coaching",
+    "city": "WINTER PARK",
+    "citySlug": "winter-park",
+    "cityName": "Winter Park",
     "providers": 5,
     "band": "5-9"
   },
@@ -1625,25 +1713,9 @@
   },
   {
     "service": "parent-coaching",
-    "city": "HIALEAH",
-    "citySlug": "hialeah",
-    "cityName": "Hialeah",
-    "providers": 4,
-    "band": "3-4"
-  },
-  {
-    "service": "parent-coaching",
-    "city": "PEMBROKE PINES",
-    "citySlug": "pembroke-pines",
-    "cityName": "Pembroke Pines",
-    "providers": 4,
-    "band": "3-4"
-  },
-  {
-    "service": "parent-coaching",
-    "city": "ST. PETERSBURG",
-    "citySlug": "st-petersburg",
-    "cityName": "St. Petersburg",
+    "city": "WESTON",
+    "citySlug": "weston",
+    "cityName": "Weston",
     "providers": 4,
     "band": "3-4"
   },
@@ -1692,7 +1764,7 @@
     "city": "MIAMI",
     "citySlug": "miami",
     "cityName": "Miami",
-    "providers": 85,
+    "providers": 88,
     "band": "25+"
   },
   {
@@ -1708,7 +1780,7 @@
     "city": "TAMPA",
     "citySlug": "tampa",
     "cityName": "Tampa",
-    "providers": 67,
+    "providers": 68,
     "band": "25+"
   },
   {
@@ -1716,7 +1788,7 @@
     "city": "ORLANDO",
     "citySlug": "orlando",
     "cityName": "Orlando",
-    "providers": 48,
+    "providers": 49,
     "band": "25+"
   },
   {
@@ -1732,7 +1804,7 @@
     "city": "FORT LAUDERDALE",
     "citySlug": "fort-lauderdale",
     "cityName": "Fort Lauderdale",
-    "providers": 32,
+    "providers": 33,
     "band": "25+"
   },
   {
@@ -1740,7 +1812,7 @@
     "city": "CLEARWATER",
     "citySlug": "clearwater",
     "cityName": "Clearwater",
-    "providers": 27,
+    "providers": 28,
     "band": "25+"
   },
   {
@@ -1756,7 +1828,15 @@
     "city": "LAKELAND",
     "citySlug": "lakeland",
     "cityName": "Lakeland",
-    "providers": 21,
+    "providers": 23,
+    "band": "10-24"
+  },
+  {
+    "service": "physical-therapy",
+    "city": "HIALEAH",
+    "citySlug": "hialeah",
+    "cityName": "Hialeah",
+    "providers": 22,
     "band": "10-24"
   },
   {
@@ -1764,7 +1844,7 @@
     "city": "FORT MYERS",
     "citySlug": "fort-myers",
     "cityName": "Fort Myers",
-    "providers": 20,
+    "providers": 21,
     "band": "10-24"
   },
   {
@@ -1772,7 +1852,15 @@
     "city": "GAINESVILLE",
     "citySlug": "gainesville",
     "cityName": "Gainesville",
-    "providers": 20,
+    "providers": 21,
+    "band": "10-24"
+  },
+  {
+    "service": "physical-therapy",
+    "city": "TALLAHASSEE",
+    "citySlug": "tallahassee",
+    "cityName": "Tallahassee",
+    "providers": 21,
     "band": "10-24"
   },
   {
@@ -1785,17 +1873,9 @@
   },
   {
     "service": "physical-therapy",
-    "city": "TALLAHASSEE",
-    "citySlug": "tallahassee",
-    "cityName": "Tallahassee",
-    "providers": 20,
-    "band": "10-24"
-  },
-  {
-    "service": "physical-therapy",
-    "city": "HIALEAH",
-    "citySlug": "hialeah",
-    "cityName": "Hialeah",
+    "city": "WEST PALM BEACH",
+    "citySlug": "west-palm-beach",
+    "cityName": "West Palm Beach",
     "providers": 18,
     "band": "10-24"
   },
@@ -1809,17 +1889,17 @@
   },
   {
     "service": "physical-therapy",
-    "city": "WEST PALM BEACH",
-    "citySlug": "west-palm-beach",
-    "cityName": "West Palm Beach",
-    "providers": 17,
+    "city": "CAPE CORAL",
+    "citySlug": "cape-coral",
+    "cityName": "Cape Coral",
+    "providers": 16,
     "band": "10-24"
   },
   {
     "service": "physical-therapy",
-    "city": "CAPE CORAL",
-    "citySlug": "cape-coral",
-    "cityName": "Cape Coral",
+    "city": "DAVIE",
+    "citySlug": "davie",
+    "cityName": "Davie",
     "providers": 15,
     "band": "10-24"
   },
@@ -1833,26 +1913,10 @@
   },
   {
     "service": "physical-therapy",
-    "city": "DAVIE",
-    "citySlug": "davie",
-    "cityName": "Davie",
-    "providers": 14,
-    "band": "10-24"
-  },
-  {
-    "service": "physical-therapy",
     "city": "SPRING HILL",
     "citySlug": "spring-hill",
     "cityName": "Spring Hill",
-    "providers": 13,
-    "band": "10-24"
-  },
-  {
-    "service": "physical-therapy",
-    "city": "LARGO",
-    "citySlug": "largo",
-    "cityName": "Largo",
-    "providers": 10,
+    "providers": 14,
     "band": "10-24"
   },
   {
@@ -1860,6 +1924,14 @@
     "city": "NORTH MIAMI BEACH",
     "citySlug": "north-miami-beach",
     "cityName": "North Miami Beach",
+    "providers": 11,
+    "band": "10-24"
+  },
+  {
+    "service": "physical-therapy",
+    "city": "LARGO",
+    "citySlug": "largo",
+    "cityName": "Largo",
     "providers": 10,
     "band": "10-24"
   },
@@ -1897,34 +1969,10 @@
   },
   {
     "service": "physical-therapy",
-    "city": "CORAL GABLES",
-    "citySlug": "coral-gables",
-    "cityName": "Coral Gables",
-    "providers": 8,
-    "band": "5-9"
-  },
-  {
-    "service": "physical-therapy",
     "city": "WINTER PARK",
     "citySlug": "winter-park",
     "cityName": "Winter Park",
-    "providers": 8,
-    "band": "5-9"
-  },
-  {
-    "service": "physical-therapy",
-    "city": "JACKSONVILLE BEACH",
-    "citySlug": "jacksonville-beach",
-    "cityName": "Jacksonville Beach",
-    "providers": 7,
-    "band": "5-9"
-  },
-  {
-    "service": "physical-therapy",
-    "city": "MIAMI BEACH",
-    "citySlug": "miami-beach",
-    "cityName": "Miami Beach",
-    "providers": 7,
+    "providers": 9,
     "band": "5-9"
   },
   {
@@ -1932,6 +1980,30 @@
     "city": "PEMBROKE PINES",
     "citySlug": "pembroke-pines",
     "cityName": "Pembroke Pines",
+    "providers": 8,
+    "band": "5-9"
+  },
+  {
+    "service": "physical-therapy",
+    "city": "CORAL GABLES",
+    "citySlug": "coral-gables",
+    "cityName": "Coral Gables",
+    "providers": 7,
+    "band": "5-9"
+  },
+  {
+    "service": "physical-therapy",
+    "city": "LAUDERHILL",
+    "citySlug": "lauderhill",
+    "cityName": "Lauderhill",
+    "providers": 7,
+    "band": "5-9"
+  },
+  {
+    "service": "physical-therapy",
+    "city": "PALM BAY",
+    "citySlug": "palm-bay",
+    "cityName": "Palm Bay",
     "providers": 7,
     "band": "5-9"
   },
@@ -1953,9 +2025,9 @@
   },
   {
     "service": "physical-therapy",
-    "city": "LAUDERHILL",
-    "citySlug": "lauderhill",
-    "cityName": "Lauderhill",
+    "city": "JACKSONVILLE BEACH",
+    "citySlug": "jacksonville-beach",
+    "cityName": "Jacksonville Beach",
     "providers": 6,
     "band": "5-9"
   },
@@ -1977,9 +2049,17 @@
   },
   {
     "service": "physical-therapy",
-    "city": "PALM BAY",
-    "citySlug": "palm-bay",
-    "cityName": "Palm Bay",
+    "city": "MIAMI BEACH",
+    "citySlug": "miami-beach",
+    "cityName": "Miami Beach",
+    "providers": 6,
+    "band": "5-9"
+  },
+  {
+    "service": "physical-therapy",
+    "city": "OAKLAND PARK",
+    "citySlug": "oakland-park",
+    "cityName": "Oakland Park",
     "providers": 6,
     "band": "5-9"
   },
@@ -2028,14 +2108,6 @@
     "city": "MIAMI GARDENS",
     "citySlug": "miami-gardens",
     "cityName": "Miami Gardens",
-    "providers": 5,
-    "band": "5-9"
-  },
-  {
-    "service": "physical-therapy",
-    "city": "OAKLAND PARK",
-    "citySlug": "oakland-park",
-    "cityName": "Oakland Park",
     "providers": 5,
     "band": "5-9"
   },
@@ -2188,7 +2260,15 @@
     "city": "TAMPA",
     "citySlug": "tampa",
     "cityName": "Tampa",
-    "providers": 9,
+    "providers": 10,
+    "band": "10-24"
+  },
+  {
+    "service": "respite-care",
+    "city": "JACKSONVILLE",
+    "citySlug": "jacksonville",
+    "cityName": "Jacksonville",
+    "providers": 5,
     "band": "5-9"
   },
   {
@@ -2200,18 +2280,18 @@
     "band": "5-9"
   },
   {
-    "service": "respite-care",
-    "city": "JACKSONVILLE",
-    "citySlug": "jacksonville",
-    "cityName": "Jacksonville",
-    "providers": 4,
-    "band": "3-4"
-  },
-  {
     "service": "speech-therapy",
     "city": "TAMPA",
     "citySlug": "tampa",
     "cityName": "Tampa",
+    "providers": 56,
+    "band": "25+"
+  },
+  {
+    "service": "speech-therapy",
+    "city": "MIAMI",
+    "citySlug": "miami",
+    "cityName": "Miami",
     "providers": 52,
     "band": "25+"
   },
@@ -2220,15 +2300,7 @@
     "city": "JACKSONVILLE",
     "citySlug": "jacksonville",
     "cityName": "Jacksonville",
-    "providers": 49,
-    "band": "25+"
-  },
-  {
-    "service": "speech-therapy",
-    "city": "MIAMI",
-    "citySlug": "miami",
-    "cityName": "Miami",
-    "providers": 49,
+    "providers": 50,
     "band": "25+"
   },
   {
@@ -2236,7 +2308,7 @@
     "city": "ORLANDO",
     "citySlug": "orlando",
     "cityName": "Orlando",
-    "providers": 34,
+    "providers": 38,
     "band": "25+"
   },
   {
@@ -2244,7 +2316,15 @@
     "city": "TALLAHASSEE",
     "citySlug": "tallahassee",
     "cityName": "Tallahassee",
-    "providers": 21,
+    "providers": 27,
+    "band": "25+"
+  },
+  {
+    "service": "speech-therapy",
+    "city": "LAKELAND",
+    "citySlug": "lakeland",
+    "cityName": "Lakeland",
+    "providers": 20,
     "band": "10-24"
   },
   {
@@ -2252,7 +2332,7 @@
     "city": "FORT LAUDERDALE",
     "citySlug": "fort-lauderdale",
     "cityName": "Fort Lauderdale",
-    "providers": 18,
+    "providers": 19,
     "band": "10-24"
   },
   {
@@ -2260,7 +2340,15 @@
     "city": "FORT MYERS",
     "citySlug": "fort-myers",
     "cityName": "Fort Myers",
-    "providers": 17,
+    "providers": 18,
+    "band": "10-24"
+  },
+  {
+    "service": "speech-therapy",
+    "city": "HIALEAH",
+    "citySlug": "hialeah",
+    "cityName": "Hialeah",
+    "providers": 18,
     "band": "10-24"
   },
   {
@@ -2273,10 +2361,18 @@
   },
   {
     "service": "speech-therapy",
-    "city": "LAKELAND",
-    "citySlug": "lakeland",
-    "cityName": "Lakeland",
-    "providers": 15,
+    "city": "CAPE CORAL",
+    "citySlug": "cape-coral",
+    "cityName": "Cape Coral",
+    "providers": 14,
+    "band": "10-24"
+  },
+  {
+    "service": "speech-therapy",
+    "city": "GAINESVILLE",
+    "citySlug": "gainesville",
+    "cityName": "Gainesville",
+    "providers": 14,
     "band": "10-24"
   },
   {
@@ -2297,6 +2393,14 @@
   },
   {
     "service": "speech-therapy",
+    "city": "CLEARWATER",
+    "citySlug": "clearwater",
+    "cityName": "Clearwater",
+    "providers": 13,
+    "band": "10-24"
+  },
+  {
+    "service": "speech-therapy",
     "city": "CORAL SPRINGS",
     "citySlug": "coral-springs",
     "cityName": "Coral Springs",
@@ -2305,41 +2409,17 @@
   },
   {
     "service": "speech-therapy",
-    "city": "GAINESVILLE",
-    "citySlug": "gainesville",
-    "cityName": "Gainesville",
-    "providers": 13,
-    "band": "10-24"
-  },
-  {
-    "service": "speech-therapy",
-    "city": "CAPE CORAL",
-    "citySlug": "cape-coral",
-    "cityName": "Cape Coral",
-    "providers": 12,
-    "band": "10-24"
-  },
-  {
-    "service": "speech-therapy",
-    "city": "HIALEAH",
-    "citySlug": "hialeah",
-    "cityName": "Hialeah",
-    "providers": 12,
-    "band": "10-24"
-  },
-  {
-    "service": "speech-therapy",
-    "city": "CLEARWATER",
-    "citySlug": "clearwater",
-    "cityName": "Clearwater",
-    "providers": 11,
-    "band": "10-24"
-  },
-  {
-    "service": "speech-therapy",
     "city": "WEST PALM BEACH",
     "citySlug": "west-palm-beach",
     "cityName": "West Palm Beach",
+    "providers": 12,
+    "band": "10-24"
+  },
+  {
+    "service": "speech-therapy",
+    "city": "SPRING HILL",
+    "citySlug": "spring-hill",
+    "cityName": "Spring Hill",
     "providers": 11,
     "band": "10-24"
   },
@@ -2348,6 +2428,14 @@
     "city": "BOCA RATON",
     "citySlug": "boca-raton",
     "cityName": "Boca Raton",
+    "providers": 10,
+    "band": "10-24"
+  },
+  {
+    "service": "speech-therapy",
+    "city": "DAVIE",
+    "citySlug": "davie",
+    "cityName": "Davie",
     "providers": 10,
     "band": "10-24"
   },
@@ -2377,14 +2465,6 @@
   },
   {
     "service": "speech-therapy",
-    "city": "DAVIE",
-    "citySlug": "davie",
-    "cityName": "Davie",
-    "providers": 9,
-    "band": "5-9"
-  },
-  {
-    "service": "speech-therapy",
     "city": "PALM BEACH GARDENS",
     "citySlug": "palm-beach-gardens",
     "cityName": "Palm Beach Gardens",
@@ -2393,10 +2473,10 @@
   },
   {
     "service": "speech-therapy",
-    "city": "SPRING HILL",
-    "citySlug": "spring-hill",
-    "cityName": "Spring Hill",
-    "providers": 8,
+    "city": "PORT ST. LUCIE",
+    "citySlug": "port-st-lucie",
+    "cityName": "Port St. Lucie",
+    "providers": 9,
     "band": "5-9"
   },
   {
@@ -2404,14 +2484,6 @@
     "city": "CORAL GABLES",
     "citySlug": "coral-gables",
     "cityName": "Coral Gables",
-    "providers": 7,
-    "band": "5-9"
-  },
-  {
-    "service": "speech-therapy",
-    "city": "PORT ST. LUCIE",
-    "citySlug": "port-st-lucie",
-    "cityName": "Port St. Lucie",
     "providers": 7,
     "band": "5-9"
   },
@@ -2433,17 +2505,33 @@
   },
   {
     "service": "speech-therapy",
-    "city": "DORAL",
-    "citySlug": "doral",
-    "cityName": "Doral",
-    "providers": 5,
+    "city": "NORTH MIAMI BEACH",
+    "citySlug": "north-miami-beach",
+    "cityName": "North Miami Beach",
+    "providers": 6,
     "band": "5-9"
   },
   {
     "service": "speech-therapy",
-    "city": "JACKSONVILLE BEACH",
-    "citySlug": "jacksonville-beach",
-    "cityName": "Jacksonville Beach",
+    "city": "PEMBROKE PINES",
+    "citySlug": "pembroke-pines",
+    "cityName": "Pembroke Pines",
+    "providers": 6,
+    "band": "5-9"
+  },
+  {
+    "service": "speech-therapy",
+    "city": "WINTER PARK",
+    "citySlug": "winter-park",
+    "cityName": "Winter Park",
+    "providers": 6,
+    "band": "5-9"
+  },
+  {
+    "service": "speech-therapy",
+    "city": "DORAL",
+    "citySlug": "doral",
+    "cityName": "Doral",
     "providers": 5,
     "band": "5-9"
   },
@@ -2476,6 +2564,14 @@
     "city": "OVIEDO",
     "citySlug": "oviedo",
     "cityName": "Oviedo",
+    "providers": 5,
+    "band": "5-9"
+  },
+  {
+    "service": "speech-therapy",
+    "city": "PALM BAY",
+    "citySlug": "palm-bay",
+    "cityName": "Palm Bay",
     "providers": 5,
     "band": "5-9"
   },
@@ -2521,9 +2617,9 @@
   },
   {
     "service": "speech-therapy",
-    "city": "WINTER PARK",
-    "citySlug": "winter-park",
-    "cityName": "Winter Park",
+    "city": "WESTON",
+    "citySlug": "weston",
+    "cityName": "Weston",
     "providers": 5,
     "band": "5-9"
   },
@@ -2553,17 +2649,9 @@
   },
   {
     "service": "speech-therapy",
-    "city": "NORTH MIAMI BEACH",
-    "citySlug": "north-miami-beach",
-    "cityName": "North Miami Beach",
-    "providers": 4,
-    "band": "3-4"
-  },
-  {
-    "service": "speech-therapy",
-    "city": "PEMBROKE PINES",
-    "citySlug": "pembroke-pines",
-    "cityName": "Pembroke Pines",
+    "city": "LAUDERHILL",
+    "citySlug": "lauderhill",
+    "cityName": "Lauderhill",
     "providers": 4,
     "band": "3-4"
   },
@@ -2612,14 +2700,6 @@
     "city": "JUPITER",
     "citySlug": "jupiter",
     "cityName": "Jupiter",
-    "providers": 3,
-    "band": "3-4"
-  },
-  {
-    "service": "speech-therapy",
-    "city": "LAUDERHILL",
-    "citySlug": "lauderhill",
-    "cityName": "Lauderhill",
     "providers": 3,
     "band": "3-4"
   },
@@ -2721,18 +2801,34 @@
   },
   {
     "service": "support-groups",
-    "city": "JACKSONVILLE",
-    "citySlug": "jacksonville",
-    "cityName": "Jacksonville",
-    "providers": 7,
-    "band": "5-9"
-  },
-  {
-    "service": "support-groups",
     "city": "MIAMI",
     "citySlug": "miami",
     "cityName": "Miami",
     "providers": 6,
+    "band": "5-9"
+  },
+  {
+    "service": "support-groups",
+    "city": "DAVIE",
+    "citySlug": "davie",
+    "cityName": "Davie",
+    "providers": 5,
+    "band": "5-9"
+  },
+  {
+    "service": "support-groups",
+    "city": "JACKSONVILLE",
+    "citySlug": "jacksonville",
+    "cityName": "Jacksonville",
+    "providers": 5,
+    "band": "5-9"
+  },
+  {
+    "service": "support-groups",
+    "city": "ORLANDO",
+    "citySlug": "orlando",
+    "cityName": "Orlando",
+    "providers": 5,
     "band": "5-9"
   },
   {
@@ -2777,17 +2873,9 @@
   },
   {
     "service": "support-groups",
-    "city": "ORLANDO",
-    "citySlug": "orlando",
-    "cityName": "Orlando",
-    "providers": 4,
-    "band": "3-4"
-  },
-  {
-    "service": "support-groups",
-    "city": "DAVIE",
-    "citySlug": "davie",
-    "cityName": "Davie",
+    "city": "FORT LAUDERDALE",
+    "citySlug": "fort-lauderdale",
+    "cityName": "Fort Lauderdale",
     "providers": 3,
     "band": "3-4"
   },
@@ -2804,7 +2892,7 @@
     "city": "JACKSONVILLE",
     "citySlug": "jacksonville",
     "cityName": "Jacksonville",
-    "providers": 10,
+    "providers": 11,
     "band": "10-24"
   },
   {
@@ -2814,6 +2902,14 @@
     "cityName": "Tampa",
     "providers": 5,
     "band": "5-9"
+  },
+  {
+    "service": "supported-employment",
+    "city": "TALLAHASSEE",
+    "citySlug": "tallahassee",
+    "cityName": "Tallahassee",
+    "providers": 4,
+    "band": "3-4"
   },
   {
     "service": "supported-living",
