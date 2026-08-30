@@ -1,8 +1,9 @@
-import { useMemo, useState, type FormEvent } from 'react';
+import { useEffect, useMemo, useState, type FormEvent } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useQuery } from '@tanstack/react-query';
-import { ArrowRight, Crosshair, MapPin } from 'lucide-react';
+// `Map` is aliased: the bare name would shadow the global Map constructor used to tally chips.
+import { ArrowRight, Crosshair, List, Map as MapIcon, MapPin, X } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { Button } from '@/components/ui/button';
@@ -51,6 +52,36 @@ const SERVICE_LABELS: Record<string, { label: string; explainer: string }> = {
   'supported-living': { label: 'Supported Living', explainer: 'supported-living' },
   'tutoring': { label: 'Tutoring', explainer: 'tutoring' },
 };
+
+// Chips are derived from the values actually present on the page, so an unmapped slug renders
+// de-slugged rather than disappearing — a missing label must never silently drop a filter.
+const INSURANCE_LABELS: Record<string, string> = {
+  'accepts-most-insurances': 'Accepts Most Insurances',
+  'florida-medicaid': 'Florida Medicaid',
+  'medicare': 'Medicare',
+  'aetna': 'Aetna',
+  'cigna': 'Cigna',
+  'tricare': 'TRICARE',
+  'humana': 'Humana',
+  'florida-blue': 'Florida Blue',
+  'unitedhealthcare': 'UnitedHealthcare',
+  'sunshine-health': 'Sunshine Health',
+  'early-steps': 'Early Steps',
+  'childrens-medical-services': 'CMS - Sunshine',
+  'avmed': 'AvMed',
+  'oscar': 'Oscar Health',
+  'allegiance': 'Allegiance',
+  'evernorth': 'Evernorth',
+  'wellcare': 'WellCare',
+  'molina': 'Molina',
+  'florida-kidcare': 'Florida KidCare',
+  'florida-healthcare-plans': 'Florida Healthcare Plans',
+  'simply-healthcare': 'Simply Healthcare',
+  'community-care-plan': 'Community Care Plan',
+  'curative': 'Curative',
+};
+
+const deSlug = (s: string) => s.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 
 const NEARBY_THRESHOLD = 10;
 
@@ -121,6 +152,10 @@ export default function ProvidersByCity() {
   const [zipError, setZipError] = useState<string | null>(null);
   const [geoStatus, setGeoStatus] = useState<'idle' | 'loading' | 'denied' | 'imprecise'>('idle');
   const [zipCentroids, setZipCentroids] = useState<ZipCentroids | null>(null);
+  const [viewMode, setViewMode] = useState<'list' | 'map'>('list');
+  const [MapComponent, setMapComponent] = useState<any>(null);
+  const [selectedInsurances, setSelectedInsurances] = useState<string[]>([]);
+  const [selectedServices, setSelectedServices] = useState<string[]>([]);
 
   // ~32 KB of ZIP centroids that most visitors never need. Loading it on first use keeps it
   // out of the initial payload of all 373 pages; it serves both the typed-ZIP lookup and the
@@ -132,6 +167,25 @@ export default function ProvidersByCity() {
     setZipCentroids(table);
     return table;
   };
+
+  // Leaflet is ~150 KB and most visitors never open the map, so it loads on first toggle only.
+  // The ZIP table comes with it: without it, every provider missing a real coordinate would
+  // silently vanish from the map rather than appearing as an approximate marker.
+  useEffect(() => {
+    if (viewMode !== 'map' || typeof window === 'undefined' || MapComponent) return;
+
+    if (!document.querySelector('link[href*="leaflet.css"]')) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+      link.integrity = 'sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=';
+      link.crossOrigin = '';
+      document.head.appendChild(link);
+    }
+
+    void loadZipCentroids();
+    import('react-leaflet').then((module) => setMapComponent(() => module));
+  }, [viewMode, MapComponent]);
 
   const applyZip = async (e: FormEvent) => {
     e.preventDefault();
@@ -184,6 +238,57 @@ export default function ProvidersByCity() {
     setGeoStatus('idle');
   };
 
+  // Chip vocabulary comes from this page's own records, never from a global option list, so a
+  // chip can never return zero on arrival. The page's own service is excluded because every
+  // record carries it by construction — the page IS that filter.
+  const { insuranceChips, serviceChips } = useMemo(() => {
+    const tally = (pick: (p: ProviderResource) => string[] | null) => {
+      const counts = new Map<string, number>();
+      for (const p of providers) {
+        for (const v of pick(p) || []) counts.set(v, (counts.get(v) || 0) + 1);
+      }
+      return [...counts.entries()]
+        .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+        .map(([value, count]) => ({ value, count }));
+    };
+    return {
+      insuranceChips: tally((p) => p.insurances),
+      serviceChips: tally((p) => p.services).filter((c) => c.value !== page?.service),
+    };
+  }, [providers, page?.service]);
+
+  const matches = (p: ProviderResource, ins: string[], svc: string[]) =>
+    (ins.length === 0 || ins.some((v) => (p.insurances || []).includes(v))) &&
+    (svc.length === 0 || svc.every((v) => (p.services || []).includes(v)));
+
+  const filteredProviders = useMemo(
+    () => providers.filter((p) => matches(p, selectedInsurances, selectedServices)),
+    [providers, selectedInsurances, selectedServices]
+  );
+
+  const hasFilters = selectedInsurances.length > 0 || selectedServices.length > 0;
+
+  const clearFilters = () => {
+    setSelectedInsurances([]);
+    setSelectedServices([]);
+  };
+
+  // A chip that would empty the list is dimmed rather than hidden — a chip vanishing mid-click
+  // moves the ones next to it and makes the row feel unstable.
+  const wouldYield = (facet: 'ins' | 'svc', value: string) => {
+    const ins = facet === 'ins' ? [...selectedInsurances, value] : selectedInsurances;
+    const svc = facet === 'svc' ? [...selectedServices, value] : selectedServices;
+    return providers.filter((p) => matches(p, ins, svc)).length;
+  };
+
+  const toggle = (facet: 'ins' | 'svc', value: string) => {
+    const [list, set] =
+      facet === 'ins'
+        ? [selectedInsurances, setSelectedInsurances]
+        : [selectedServices, setSelectedServices];
+    set(list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
+  };
+
   // Featured tier ordering is paid placement and must hold on every page: every paying
   // tier outranks free listings, and higher tiers only outrank lower ones when both are present.
   const { featuredOrdered, nonFeaturedRanked } = useMemo(() => {
@@ -194,8 +299,8 @@ export default function ProvidersByCity() {
       if (t === 'basic') return 'basic';
       return 'other';
     };
-    const featured = providers.filter((p) => p.featured);
-    const nonFeatured = providers.filter((p) => !p.featured);
+    const featured = filteredProviders.filter((p) => p.featured);
+    const nonFeatured = filteredProviders.filter((p) => !p.featured);
 
     // Free listings only: completeness ordering, shuffle breaks ties within a rank.
     const rankOf = (p: ProviderResource): number => {
@@ -232,7 +337,7 @@ export default function ProvidersByCity() {
       ],
       nonFeaturedRanked: shuffled,
     };
-  }, [providers]);
+  }, [filteredProviders]);
 
   // Distance replaces the completeness sort within the non-featured remainder only; the paid
   // tier blocks above are never reordered. Providers without a usable coordinate are
@@ -260,6 +365,46 @@ export default function ProvidersByCity() {
     () => [...featuredOrdered, ...nonFeaturedRanked],
     [featuredOrdered, nonFeaturedRanked]
   );
+
+  // Exact and ZIP-derived points are kept apart all the way to the marker: they are drawn
+  // differently, and conflating them would put a precise-looking dot on a whole ZIP code.
+  const mapPoints = useMemo(() => {
+    const points: { provider: ProviderResource; lat: number; lng: number; approximate: boolean }[] = [];
+    for (const provider of ordered) {
+      const c = coordsFor(provider, zipCentroids);
+      if (c) points.push({ provider, lat: c.lat, lng: c.lng, approximate: c.approximate });
+    }
+    return points;
+  }, [ordered, zipCentroids]);
+
+  const approximateCount = mapPoints.filter((p) => p.approximate).length;
+
+  const mapCenter = useMemo((): [number, number] => {
+    if (mapPoints.length > 0) {
+      const lat = mapPoints.reduce((s, p) => s + p.lat, 0) / mapPoints.length;
+      const lng = mapPoints.reduce((s, p) => s + p.lng, 0) / mapPoints.length;
+      return [lat, lng];
+    }
+    const c = page ? COORDS[page.city] : null;
+    return c ? [c.latitude, c.longitude] : [27.9944, -81.7603];
+  }, [mapPoints, page]);
+
+  // MapContainer only reads center/zoom on mount, so fitting has to happen from inside it.
+  const MapBoundsUpdater = ({ points }: { points: typeof mapPoints }) => {
+    const map = MapComponent?.useMap();
+    useEffect(() => {
+      if (!map || points.length === 0) return;
+      if (points.length === 1) {
+        map.setView([points[0].lat, points[0].lng], 13);
+        return;
+      }
+      map.fitBounds(
+        points.map((p) => [p.lat, p.lng] as [number, number]),
+        { padding: [40, 40], maxZoom: 14 }
+      );
+    }, [map, points]);
+    return null;
+  };
 
   const googlePlaceIds = useMemo(
     () => ordered.map((p) => p.google_place_id).filter((id): id is string => !!id),
@@ -411,7 +556,111 @@ export default function ProvidersByCity() {
           </div>
         )}
 
-        <div className="mt-4">
+        {count > 0 && (insuranceChips.length > 0 || serviceChips.length > 0) && (
+          <div className="mt-4 rounded-lg border border-gray-200 bg-white p-3">
+            {insuranceChips.length > 0 && (
+              <div>
+                <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
+                  Accepts insurance
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {insuranceChips.map(({ value, count: n }) => {
+                    const active = selectedInsurances.includes(value);
+                    const dead = !active && wouldYield('ins', value) === 0;
+                    return (
+                      <button
+                        key={value}
+                        type="button"
+                        onClick={() => toggle('ins', value)}
+                        disabled={dead}
+                        aria-pressed={active}
+                        className={`rounded-full border px-3 py-1 text-sm transition-colors ${
+                          active
+                            ? 'border-purple-300 bg-purple-100 font-semibold text-purple-800'
+                            : dead
+                              ? 'cursor-not-allowed border-gray-100 bg-gray-50 text-gray-300'
+                              : 'border-purple-200 bg-white text-purple-800 hover:bg-purple-50'
+                        }`}
+                      >
+                        {INSURANCE_LABELS[value] || deSlug(value)}
+                        <span className={active ? 'ml-1 text-purple-600' : 'ml-1 text-gray-400'}>{n}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {serviceChips.length > 0 && (
+              <div className={insuranceChips.length > 0 ? 'mt-3 border-t border-gray-100 pt-3' : ''}>
+                <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
+                  Also offers
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {serviceChips.map(({ value, count: n }) => {
+                    const active = selectedServices.includes(value);
+                    const dead = !active && wouldYield('svc', value) === 0;
+                    return (
+                      <button
+                        key={value}
+                        type="button"
+                        onClick={() => toggle('svc', value)}
+                        disabled={dead}
+                        aria-pressed={active}
+                        className={`rounded-full border px-3 py-1 text-sm transition-colors ${
+                          active
+                            ? 'border-blue-300 bg-blue-100 font-semibold text-blue-800'
+                            : dead
+                              ? 'cursor-not-allowed border-gray-100 bg-gray-50 text-gray-300'
+                              : 'border-blue-200 bg-white text-blue-800 hover:bg-blue-50'
+                        }`}
+                      >
+                        {SERVICE_LABELS[value]?.label || deSlug(value)}
+                        <span className={active ? 'ml-1 text-blue-600' : 'ml-1 text-gray-400'}>{n}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {hasFilters && (
+              <div className="mt-3 flex flex-wrap items-center justify-between gap-2 border-t border-gray-100 pt-3">
+                <p className="text-sm text-gray-700">
+                  Showing <span className="font-semibold">{filteredProviders.length}</span> of {count}
+                </p>
+                <Button variant="ghost" size="sm" onClick={clearFilters}>
+                  <X className="mr-1 h-4 w-4" />
+                  Clear filters
+                </Button>
+              </div>
+            )}
+          </div>
+        )}
+
+        <div className="mt-4 flex flex-wrap items-center gap-2">
+          {count > 0 && (
+            <div className="flex gap-2">
+              <Button
+                variant={viewMode === 'list' ? 'default' : 'outline'}
+                size="sm"
+                className={viewMode === 'list' ? 'bg-teal-600 hover:bg-teal-700' : ''}
+                onClick={() => setViewMode('list')}
+              >
+                <List className="h-4 w-4 sm:mr-2" />
+                <span className="hidden sm:inline">List</span>
+              </Button>
+              <Button
+                variant={viewMode === 'map' ? 'default' : 'outline'}
+                size="sm"
+                className={viewMode === 'map' ? 'bg-teal-600 hover:bg-teal-700' : ''}
+                onClick={() => setViewMode('map')}
+              >
+                <MapIcon className="h-4 w-4 sm:mr-2" />
+                <span className="hidden sm:inline">Map</span>
+              </Button>
+            </div>
+          )}
           <Link to={`/providers?service=${page.service}`}>
             <Button variant="outline">Refine these results in the full directory</Button>
           </Link>
@@ -432,6 +681,95 @@ export default function ProvidersByCity() {
             <p className="text-gray-600">
               No providers are currently listed. <Link to="/providers" className="text-teal-600 hover:underline">Browse the full directory</Link>.
             </p>
+          ) : filteredProviders.length === 0 ? (
+            <div className="rounded-lg border border-gray-200 bg-gray-50 p-6 text-center">
+              <p className="text-gray-700">No providers match these filters.</p>
+              <Button variant="outline" size="sm" className="mt-3 bg-white" onClick={clearFilters}>
+                Clear filters
+              </Button>
+            </div>
+          ) : viewMode === 'map' ? (
+            <div>
+              <div className="h-[480px] overflow-hidden rounded-lg border border-gray-200">
+                {!MapComponent ? (
+                  <div className="flex h-full items-center justify-center text-gray-500">
+                    Loading map…
+                  </div>
+                ) : mapPoints.length === 0 ? (
+                  <div className="flex h-full flex-col items-center justify-center px-6 text-center">
+                    <MapPin className="mb-3 h-10 w-10 text-gray-400" />
+                    <p className="text-gray-600">
+                      None of these providers have a mappable location yet.
+                    </p>
+                  </div>
+                ) : (
+                  <MapComponent.MapContainer
+                    center={mapCenter}
+                    zoom={11}
+                    scrollWheelZoom={false}
+                    className="h-full w-full"
+                  >
+                    <MapComponent.TileLayer
+                      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    <MapBoundsUpdater points={mapPoints} />
+                    {mapPoints.map(({ provider, lat, lng, approximate }) => (
+                      <MapComponent.CircleMarker
+                        key={provider.id}
+                        center={[lat, lng]}
+                        radius={approximate ? 14 : 8}
+                        fillColor="#0d9488"
+                        fillOpacity={approximate ? 0.12 : 1}
+                        stroke={true}
+                        color={approximate ? '#0d9488' : '#ffffff'}
+                        weight={approximate ? 2 : 3}
+                        dashArray={approximate ? '4, 4' : undefined}
+                      >
+                        <MapComponent.Popup>
+                          <p className="font-semibold">{provider.name}</p>
+                          {provider.address && (
+                            <p className="text-gray-600">{provider.address}</p>
+                          )}
+                          {approximate ? (
+                            <p className="mt-1 italic text-gray-500">
+                              Approximate — placed at the centre of ZIP {provider.zip_code}, not at
+                              the provider's address.
+                            </p>
+                          ) : null}
+                          {provider.slug && (
+                            <Link
+                              to={`/providers/${provider.slug}`}
+                              className="mt-1 inline-block font-medium text-teal-600 hover:underline"
+                            >
+                              View details
+                            </Link>
+                          )}
+                        </MapComponent.Popup>
+                      </MapComponent.CircleMarker>
+                    ))}
+                  </MapComponent.MapContainer>
+                )}
+              </div>
+
+              {MapComponent && mapPoints.length > 0 && (
+                <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-gray-600">
+                  <span className="flex items-center gap-1.5">
+                    <span className="inline-block h-2.5 w-2.5 rounded-full border-2 border-white bg-teal-600 ring-1 ring-gray-300" />
+                    Exact address
+                  </span>
+                  {approximateCount > 0 && (
+                    <span className="flex items-center gap-1.5">
+                      <span className="inline-block h-3.5 w-3.5 rounded-full border-2 border-dashed border-teal-600 bg-teal-600/10" />
+                      Approximate — ZIP code area only ({approximateCount})
+                    </span>
+                  )}
+                  {ordered.length > mapPoints.length && (
+                    <span>{ordered.length - mapPoints.length} not mappable</span>
+                  )}
+                </div>
+              )}
+            </div>
           ) : (
             <TooltipProvider delayDuration={200}>
               <div className="space-y-3 sm:space-y-4">
@@ -446,14 +784,14 @@ export default function ProvidersByCity() {
                 {byDistance
                   ? byDistance.locatable.map(({ provider, miles, approximate }) => (
                       <div key={provider.id}>
-                        <div className="mb-1 flex items-center gap-1.5 text-sm text-gray-600">
-                          <MapPin className="h-3.5 w-3.5 text-teal-600" />
-                          <span className="font-medium">
+                        <div className="mb-1.5 flex flex-wrap items-center gap-2">
+                          <span className="inline-flex items-center gap-1 rounded-full border border-teal-100 bg-teal-50 px-2.5 py-1 text-sm font-semibold text-teal-700">
+                            <MapPin className="h-4 w-4" />
                             {approximate ? `~${Math.round(miles)} mi` : `${miles.toFixed(1)} mi`}
                           </span>
                           {approximate && (
                             <span className="text-xs text-gray-500">
-                              (approximate — based on ZIP code)
+                              approximate — based on ZIP code
                             </span>
                           )}
                         </div>

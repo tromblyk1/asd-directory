@@ -524,8 +524,8 @@ export default function ProviderDetail() {
                     </div>
                   )}
 
-                  {/* Social Media Links */}
-                  {(provider.facebook_url || provider.instagram_url || provider.twitter_url || provider.youtube_url || provider.linkedin_url) && (
+                  {/* Social Media Links - Featured only */}
+                  {isFeaturedAny && (provider.facebook_url || provider.instagram_url || provider.twitter_url || provider.youtube_url || provider.linkedin_url) && (
                     <div className="flex items-start gap-3">
                       <Globe className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
                       <div>
