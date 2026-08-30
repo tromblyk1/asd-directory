@@ -52,13 +52,25 @@ $insurances = $input['insurances'] ?? [];
 $accommodations = $input['accommodations'] ?? [];
 $programs = $input['programs'] ?? [];
 
+// Daycare / PPEC fields
+$address2 = htmlspecialchars($input['address2'] ?? '');
+$county = htmlspecialchars($input['county'] ?? '');
+$state = htmlspecialchars($input['state'] ?? '');
+$zip_code = htmlspecialchars($input['zip_code'] ?? '');
+$licensed_beds = htmlspecialchars((string)($input['licensed_beds'] ?? ''));
+$profit_status = htmlspecialchars($input['profit_status'] ?? '');
+$owner = htmlspecialchars($input['owner'] ?? '');
+$admin_ceo = htmlspecialchars($input['admin_ceo'] ?? '');
+$license_number = htmlspecialchars($input['license_number'] ?? '');
+
 // Format category for display
 $category_labels = [
     'healthcare' => 'Healthcare Provider',
     'school' => 'School',
     'faith' => 'Faith Community',
     'support' => 'Support Services',
-    'recreation' => 'Recreation & Activities'
+    'recreation' => 'Recreation & Activities',
+    'daycare' => 'Daycare / PPEC Center'
 ];
 $category_display = $category_labels[$category] ?? ucwords($category);
 
@@ -119,6 +131,20 @@ if ($category === 'healthcare') {
                 <div class='field'><span class='label'>Scholarships:</span> <span class='value'>$scholarships_display</span></div>
                 <div class='field'><span class='label'>Denomination:</span> <span class='value'>$denomination_display</span></div>
                 <div class='field'><span class='label'>Accreditations:</span> <span class='value'>$accreditations_display</span></div>
+            </div>";
+} elseif ($category === 'daycare') {
+    $subcategory_section = "
+            <div class='section'>
+                <div class='section-title'>Daycare / PPEC Details</div>
+                <div class='field'><span class='label'>License Number:</span> <span class='value'>" . ($license_number ?: 'Not provided') . "</span></div>
+                <div class='field'><span class='label'>Licensed Beds:</span> <span class='value'>" . ($licensed_beds !== '' ? $licensed_beds : 'Not provided') . "</span></div>
+                <div class='field'><span class='label'>Profit Status:</span> <span class='value'>" . ($profit_status ?: 'Not provided') . "</span></div>
+                <div class='field'><span class='label'>Owner:</span> <span class='value'>" . ($owner ?: 'Not provided') . "</span></div>
+                <div class='field'><span class='label'>Admin / CEO:</span> <span class='value'>" . ($admin_ceo ?: 'Not provided') . "</span></div>
+                <div class='field'><span class='label'>Address 2:</span> <span class='value'>" . ($address2 ?: 'Not provided') . "</span></div>
+                <div class='field'><span class='label'>County:</span> <span class='value'>" . ($county ?: 'Not provided') . "</span></div>
+                <div class='field'><span class='label'>State:</span> <span class='value'>" . ($state ?: 'Not provided') . "</span></div>
+                <div class='field'><span class='label'>Zip Code:</span> <span class='value'>" . ($zip_code ?: 'Not provided') . "</span></div>
             </div>";
 } elseif ($category === 'faith') {
     $subcategory_section = "
@@ -183,7 +209,7 @@ $admin_message = "
             </div>
         </div>
         <div class='footer'>
-            This submission has been saved to the database and is awaiting review.
+            Florida Autism Services Directory
         </div>
     </div>
 </body>

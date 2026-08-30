@@ -106,8 +106,8 @@ export default function SubmitDaycare() {
         setError("");
 
         const submissionData = {
-            type: 'daycare',
-            name: formData.name,
+            category: 'daycare',
+            resource_name: formData.name,
             address: formData.address,
             address2: formData.address2,
             city: formData.city,

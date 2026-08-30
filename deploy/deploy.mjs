@@ -7,6 +7,11 @@ import fs from 'node:fs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const LOCAL_DIST = path.resolve(__dirname, '../src/frontend/dist');
 
+// PHP endpoints live outside dist/ so Vite can't copy them into the web root;
+// they belong in /api/ and are uploaded separately below.
+const LOCAL_PHP_DIR = path.resolve(__dirname, '../src/frontend');
+const PHP_FILES = ['send-submission-email.php', 'send-event-submission-email.php'];
+
 const required = ['SFTP_HOST', 'SFTP_PORT', 'SFTP_USER', 'SFTP_PASS', 'REMOTE_PATH'];
 const missing = required.filter((k) => !process.env[k]);
 if (missing.length) {
@@ -18,6 +23,12 @@ if (missing.length) {
 if (!fs.existsSync(LOCAL_DIST) || !fs.existsSync(path.join(LOCAL_DIST, 'index.html'))) {
   console.error(`\nNo build found at ${LOCAL_DIST}`);
   console.error(`Run \`npm run build\` in src/frontend/ first.\n`);
+  process.exit(1);
+}
+
+const missingPhp = PHP_FILES.filter((f) => !fs.existsSync(path.join(LOCAL_PHP_DIR, f)));
+if (missingPhp.length) {
+  console.error(`\nMissing PHP endpoint(s) in ${LOCAL_PHP_DIR}: ${missingPhp.join(', ')}`);
   process.exit(1);
 }
 
@@ -44,13 +55,27 @@ async function main() {
   console.log(`         → ${remotePath}`);
   console.log(`  (only overwrites — does NOT delete remote files)\n`);
 
+  let inDistPhase = true;
   sftp.on('upload', (info) => {
+    if (!inDistPhase) return;
     uploadCount++;
     const rel = info.source.replace(LOCAL_DIST + path.sep, '').replace(/\\/g, '/');
     console.log(`  ✓ ${rel}`);
   });
 
   await sftp.uploadDir(LOCAL_DIST, remotePath);
+
+  inDistPhase = false;
+
+  const remoteApi = `${remotePath.replace(/\/+$/, '')}/api`;
+  console.log(`\n→ Uploading PHP endpoints`);
+  console.log(`         → ${remoteApi}\n`);
+
+  for (const file of PHP_FILES) {
+    await sftp.fastPut(path.join(LOCAL_PHP_DIR, file), `${remoteApi}/${file}`);
+    uploadCount++;
+    console.log(`  ✓ api/${file}`);
+  }
 
   console.log(`\n✓ Done. ${uploadCount} files uploaded.\n`);
   await sftp.end();
