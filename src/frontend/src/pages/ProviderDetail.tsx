@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { supabase } from '@/lib/supabase';
+import { humanizeDetailSlug } from '@/lib/utils';
 import { useQuery } from '@tanstack/react-query';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -187,10 +188,18 @@ export default function ProviderDetail() {
   };
 
   if (isLoading) {
+    const pendingName = humanizeDetailSlug(slug) || 'Provider';
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-600" />
-      </div>
+      <>
+        <Helmet>
+          <title>{pendingName} | Florida Autism Services</title>
+        </Helmet>
+        <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4 sm:p-6 text-center">
+          <h1 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">{pendingName}</h1>
+          <p className="text-gray-600 mb-6">Loading provider details for {pendingName}…</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-600" />
+        </div>
+      </>
     );
   }
 
