@@ -1,0 +1,32 @@
+Report: curation/unaccounted_tables_audit_2026-08-18.md — put it in a file per your standing preference rather than
+  the "no files written" in the prompt; say the word if you wanted chat-only this time.
+
+  One of these is live, not orphaned. google_reviews_canonical backs a materialized view provider_ratings_summary, which
+   the app reads in hooks/useProviderRatings.ts:51. Don't drop it — and since it's a matview, the star breakdowns on the
+   live site are frozen until someone refreshes it. Worth checking when that last ran.
+
+  provider_services_wide is the find. 1,039 rows of website-crawl output that stores a quoted excerpt as evidence for
+  every service flag — 338 ABA_Excerpt values, 1,124 rows joinable to resources by normalized phone. It has its own
+  false positives (flags "cognitive behavior therapy" as ABA off the word "behavior"), but the evidence is stored, so a
+  human adjudicates in seconds instead of opening websites. That's the head start on the re-tag project. It already
+  resolved one unknown from yesterday: Learnary in Lakeland is genuine ABA — Lakeland's real count goes 7 → 8. Covers
+  only 9 of the 24 slugs in use, so it won't help the long tail.
+
+  Review text exists but doesn't rescue page generation. 12,519 reviews with text, avg 506 chars — but coverage on ABA
+  providers is 18.9% Tampa, 21.9% Orlando, 16.7% Tallahassee, 4.4% Lakeland (3 providers, 14 reviews). Four of five
+  providers per page would still have no prose. It's also densest on exactly the mistagged Places rows and sparsest on
+  the genuine ABA set. Separately, bulk-republishing Google UGC is a ToS problem and reads as scraped content.
+
+  The rest: providers is the frozen (2025-10-28) wide-boolean ancestor of resources, unread — but keep it, it has
+  serves_children/teens/adults, which directly addresses the adult-provider mistags. provider_services_wide_merged is 0
+  rows, an abandoned merge target. staging_pet_therapy is 1,414 bare identifiers with no payload — dead, droppable,
+  though I'd leave DDL alone mid-investigation.
+
+  Incidental: CLAUDE.md's VALID SLUGS lists pet-therapy, which has 0 rows. The live slug is animal-therapy (107 rows)
+  and the app uses it correctly everywhere — the doc is wrong, not the code. 24 slugs in use, not 20.
+
+  Next:
+  1. Cross-check ABA_Excerpt against yesterday's 148 hand-verified rows — gives a measured precision figure for the
+  crawler flag
+  2. Fix the pet-therapy → animal-therapy line in CLAUDE.md and add the four undocumented slugs
+  3. Commit the four curation docs and push (b8af786 still unpushed)

@@ -1,0 +1,187 @@
+All 32 candidate cities have coordinate entries — but with caveats worth flagging before anything is generated (below
+  the tables).
+
+  City-level cohort ranked by verified count
+
+  Top 42; everything below #42 has ≤4 verified.
+
+  ┌─────┬──────────────────┬───────────────────┬───────────┬──────────┬────────────┐
+  │  #  │     service      │       city        │ providers │ verified │ verified % │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 1   │ aba              │ JACKSONVILLE      │ 91        │ 64       │ 70%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 2   │ aba              │ MIAMI             │ 91        │ 64       │ 70%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 3   │ aba              │ TAMPA             │ 99        │ 59       │ 60%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 4   │ aba              │ TALLAHASSEE       │ 90        │ 45       │ 50%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 5   │ aba              │ ORLANDO           │ 78        │ 44       │ 56%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 6   │ aba              │ GAINESVILLE       │ 48        │ 30       │ 63%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 7   │ aba              │ FORT MYERS        │ 49        │ 29       │ 59%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 8   │ aba              │ WEST PALM BEACH   │ 41        │ 29       │ 71%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 9   │ life-skills      │ TAMPA             │ 43        │ 27       │ 63%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 10  │ aba              │ CLEARWATER        │ 36        │ 25       │ 69%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 11  │ aba              │ LAKELAND          │ 71        │ 23       │ 32%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 12  │ life-skills      │ MIAMI             │ 36        │ 21       │ 58%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 13  │ physical-therapy │ MIAMI             │ 86        │ 18       │ 21%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 14  │ aba              │ ST. PETERSBURG    │ 20        │ 18       │ 90%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 15  │ aba              │ FORT LAUDERDALE   │ 25        │ 17       │ 68%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 16  │ aba              │ CAPE CORAL        │ 38        │ 16       │ 42%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 17  │ aba              │ DAVIE             │ 20        │ 15       │ 75%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 18  │ aba              │ HIALEAH           │ 28        │ 15       │ 54%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 19  │ aba              │ HOLLYWOOD         │ 31        │ 15       │ 48%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 20  │ aba              │ PORT ST. LUCIE    │ 37        │ 15       │ 41%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 21  │ aba              │ MIRAMAR           │ 18        │ 14       │ 78%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 22  │ aba              │ LARGO             │ 18        │ 13       │ 72%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 23  │ aba              │ PEMBROKE PINES    │ 24        │ 13       │ 54%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 24  │ aba              │ BOCA RATON        │ 17        │ 11       │ 65%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 25  │ aba              │ SPRING HILL       │ 26        │ 11       │ 42%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 26  │ life-skills      │ JACKSONVILLE      │ 19        │ 11       │ 58%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 27  │ life-skills      │ ST. PETERSBURG    │ 12        │ 11       │ 92%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 28  │ aba              │ BRANDON           │ 10        │ 9        │ 90%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 29  │ aba              │ MIAMI LAKES       │ 22        │ 9        │ 41%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 30  │ ados-testing     │ ORLANDO           │ 12        │ 8        │ 67%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 31  │ aba              │ DAYTONA BEACH     │ 17        │ 8        │ 47%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 32  │ aba              │ WINTER PARK       │ 16        │ 8        │ 50%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 33  │ life-skills      │ FORT LAUDERDALE   │ 12        │ 8        │ 67%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 34  │ life-skills      │ FORT MYERS        │ 16        │ 8        │ 50%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 35  │ life-skills      │ WEST PALM BEACH   │ 18        │ 8        │ 44%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 36  │ aba              │ NORTH MIAMI BEACH │ 13        │ 7        │ 54%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 37  │ aba              │ PALM BAY          │ 22        │ 7        │ 32%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 38  │ parent-coaching  │ ORLANDO           │ 15        │ 7        │ 47%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 39  │ group-therapy    │ ORLANDO           │ 12        │ 6        │ 50%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 40  │ aba              │ CORAL SPRINGS     │ 10        │ 5        │ 50%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 41  │ aba              │ MELBOURNE         │ 13        │ 5        │ 38%        │
+  ├─────┼──────────────────┼───────────────────┼───────────┼──────────┼────────────┤
+  │ 42  │ ados-testing     │ TAMPA             │ 12        │ 5        │ 42%        │
+  └─────┴──────────────────┴───────────────────┴───────────┴──────────┴────────────┘
+
+  Re-ranking inverts the raw list hard. physical-therapy MIAMI was #5 on raw count and drops to #13. physical-therapy
+  JACKSONVILLE (70 providers) drops from #8 to roughly #75 with 2 verified. Conversely aba ST. PETERSBURG (20 raw, #43)
+  rises to #14, and aba BRANDON (10 raw, dead last tier) rises to #28 at 90% verified.
+
+  Proposed 20-page pilot
+
+  Floor: ≥10 verified, one deliberate exception. Only 26 city combos in the entire cohort clear 10 verified — 22 aba and
+   4 life-skills.
+
+  ┌─────┬──────────────┬─────────────────┬──────────┬─────┐
+  │  #  │   service    │      city       │ verified │  %  │
+  ├─────┼──────────────┼─────────────────┼──────────┼─────┤
+  │ 1   │ aba          │ Jacksonville    │ 64       │ 70% │
+  ├─────┼──────────────┼─────────────────┼──────────┼─────┤
+  │ 2   │ aba          │ Miami           │ 64       │ 70% │
+  ├─────┼──────────────┼─────────────────┼──────────┼─────┤
+  │ 3   │ aba          │ Tampa           │ 59       │ 60% │
+  ├─────┼──────────────┼─────────────────┼──────────┼─────┤
+  │ 4   │ aba          │ Tallahassee     │ 45       │ 50% │
+  ├─────┼──────────────┼─────────────────┼──────────┼─────┤
+  │ 5   │ aba          │ Orlando         │ 44       │ 56% │
+  ├─────┼──────────────┼─────────────────┼──────────┼─────┤
+  │ 6   │ aba          │ Gainesville     │ 30       │ 63% │
+  ├─────┼──────────────┼─────────────────┼──────────┼─────┤
+  │ 7   │ aba          │ Fort Myers      │ 29       │ 59% │
+  ├─────┼──────────────┼─────────────────┼──────────┼─────┤
+  │ 8   │ aba          │ West Palm Beach │ 29       │ 71% │
+  ├─────┼──────────────┼─────────────────┼──────────┼─────┤
+  │ 9   │ aba          │ Clearwater      │ 25       │ 69% │
+  ├─────┼──────────────┼─────────────────┼──────────┼─────┤
+  │ 10  │ aba          │ Lakeland        │ 23       │ 32% │
+  ├─────┼──────────────┼─────────────────┼──────────┼─────┤
+  │ 11  │ aba          │ St. Petersburg  │ 18       │ 90% │
+  ├─────┼──────────────┼─────────────────┼──────────┼─────┤
+  │ 12  │ aba          │ Fort Lauderdale │ 17       │ 68% │
+  ├─────┼──────────────┼─────────────────┼──────────┼─────┤
+  │ 13  │ aba          │ Cape Coral      │ 16       │ 42% │
+  ├─────┼──────────────┼─────────────────┼──────────┼─────┤
+  │ 14  │ aba          │ Davie           │ 15       │ 75% │
+  ├─────┼──────────────┼─────────────────┼──────────┼─────┤
+  │ 15  │ aba          │ Miramar         │ 14       │ 78% │
+  ├─────┼──────────────┼─────────────────┼──────────┼─────┤
+  │ 16  │ life-skills  │ Tampa           │ 27       │ 63% │
+  ├─────┼──────────────┼─────────────────┼──────────┼─────┤
+  │ 17  │ life-skills  │ Miami           │ 21       │ 58% │
+  ├─────┼──────────────┼─────────────────┼──────────┼─────┤
+  │ 18  │ life-skills  │ Jacksonville    │ 11       │ 58% │
+  ├─────┼──────────────┼─────────────────┼──────────┼─────┤
+  │ 19  │ life-skills  │ St. Petersburg  │ 11       │ 92% │
+  ├─────┼──────────────┼─────────────────┼──────────┼─────┤
+  │ 20  │ ados-testing │ Orlando         │ 8        │ 67% │
+  └─────┴──────────────┴─────────────────┴──────────┴─────┘
+
+  No PT/OT/ST, including the Miami exception. physical-therapy MIAMI is the only one that even argues for itself — 18
+  verified is more than 10 of my picks have. I left it out anyway: 21% verified means a parent landing there sees
+  roughly four unverified listings for every verified one, and the curation doc's queued 201-record services backfill
+  lands mostly on PT/OT/ST, which will move these numbers within days. Building the page now means building it on a
+  number that is about to change. Worth revisiting as page 21 after the backfill.
+
+  The service-mix tradeoff, stated plainly: the data supports two services at credible depth, not five. I chose 15 aba +
+   4 life-skills + 1 ados-testing over a cosmetically varied set because the alternative is padding with 5-verified
+  combos to manufacture variety. A pilot exists to answer "does this format rank at all" — 20 thin pages answer that
+  question wrong and can't be un-indexed cheaply. The templating risk is real but it lives in the copy, not the service
+  count: 15 ABA pages differentiated only by a swapped city name will read as generated regardless of how many services
+  sit beside them. Spend the effort on per-city substance (actual local provider names, county scholarship notes, real
+  travel distances) rather than on service spread.
+
+  City coverage: 15 distinct cities. Pages 16-20 deliberately double up on Tampa, Miami, Jacksonville, St. Pete and
+  Orlando rather than reaching into new cities, which buys a read on whether two service pages in one city cannibalize
+  each other — useful signal before scaling to ~700. If you'd rather maximize distinct-city coverage, swap 18/19 for aba
+   Hialeah (15) and aba Hollywood (15) and accept a 17-aba/2-life-skills/1-ados split.
+
+  cityCoordinates.json flags
+
+  All 15 proposed cities have entries, but three problems block the nearby-city module regardless:
+
+  1. Nothing consumes the file. No .ts/.tsx in src/frontend references cityCoordinates — only the planning docs and
+  _archive/scripts/generate_city_coordinates.js. The module is unbuilt, not merely unwired.
+  2. Key format is inconsistent across the 286 keys — TAMPA and MIAMI are upper-case, Tallahassee, Orlando, Davie, Palm
+  Bay are title-case. Any lookup must normalize.
+  3. ST. PETERSBURG will miss on exact match. The JSON key is ST PETERSBURG, no period; canonical_city is ST. PETERSBURG
+   with one. That breaks two proposed pages (#11, #19). Port St. Lucie has the same shape mismatch and is in the cohort
+  at #20 raw.
+
+  Proposal only — nothing generated, nothing written, no DB changes.
+
+  Suggested next prompts:
+  1. Write the pilot list to a committed spec file under curation/ with the verified counts frozen as of today.
+  2. Fix the cityCoordinates.json key normalization so canonical_city values resolve — ST. PETERSBURG and Port St. Lucie
+   specifically.
+  3. Run the queued 201-record services backfill, then re-rank and tell me whether physical-therapy Miami clears the
+  bar.

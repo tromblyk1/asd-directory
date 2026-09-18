@@ -1,0 +1,163 @@
+DATA CURATION STATUS UPDATE - for pSEO page generation
+
+Parallel curation work on the `resources` table has changed data your
+combo counts depend on. Read this before selecting or freezing a
+pilot cohort.
+
+=== 1. BLOCKER: `aba` slug mismatch - verify before generating ===
+
+DB stores the slug as `aba` (1,562 tag instances, ~4x the next
+largest service). The only page module file is `aba-therapy.json`,
+and loadResource.ts derives the route slug from the FILENAME.
+
+Result: either /services/aba/* has no backing content, or
+/services/aba-therapy/* matches zero providers. Roughly 40% of the
+service surface area rides on this.
+
+NOT YET VERIFIED - ServiceTag.tsx and the service route component
+were not reviewable from the curation side, so a mapping layer may
+exist. Confirm this before generating any pages.
+
+=== 2. Group on `canonical_city`, never on `city` ===
+
+A canonical_city column plus a BEFORE INSERT OR UPDATE trigger is
+live on `resources`, calling public.canonicalize_city(text).
+
+The function uppercases, strips a trailing ", FLORIDA" / ", FL",
+returns NULL for anything matching '% COUNTY' and for FLORIDA / FL /
+REMOTE / VIRTUAL / ONLINE / STATEWIDE / MULTIPLE FL LOCATIONS /
+TAMPA BAY AREA, then applies a 14-branch alias CASE.
+
+286 distinct raw `city` values collapse to 263 canonical values.
+
+Example: ST. PETERSBURG is 36 providers across three spellings
+(St. Petersburg 33, Saint Petersburg 2, St Petersburg 1). Group on
+raw `city` and it splits into three pages of 33/2/1.
+
+The generator must call canonicalize_city() or replicate its CASE
+table.
+
+=== 3. cityCoordinates.json is keyed on the wrong column ===
+
+It must be keyed to canonical_city (263 keys), not city. That is the
+actual cause of the missing ST. PETERSBURG entry - not a missing key
+so much as the wrong key space. Junk keys (STE102, SR 31) are a
+symptom of the same thing.
+
+A corrected file has been produced: 286 keys -> 282, covering all 263
+canonical cities. It drops 10 address-fragment keys and 15 alias
+spellings that canonicalize_city() already resolves.
+
+CRITICAL - THESE TWO CHANGES SHIP TOGETHER OR NEITHER DOES:
+48 keys in the current file are mixed-case (Orlando, Tallahassee,
+Lakeland, Hollywood, Pembroke Pines) because the file was originally
+built against the raw `city` column, which is title case.
+canonical_city is always UPPERCASE. The corrected file is fully
+uppercased. Swapping the file without switching the lookup to
+canonical_city breaks those 48 cities.
+
+The corrected file is not ready to hand over yet - 21 cities still
+carry "_NEEDS_COORDS": true placeholders. Geocoding stalled (see
+section 6).
+
+=== 4. serviceDefinitions.ts is stale - do not use as slug truth ===
+
+concept    | DB (truth)      | JSON file            | serviceDefinitions.ts
+ABA        | aba             | aba-therapy.json  X  | aba
+Speech     | speech-therapy  | speech-therapy.json  | speech             X
+Life skills| life-skills     | life-skills.json     | life-skills-daily-living X
+Floortime  | dir-floortime   | dir-floortime.json + orphan floor-time.json | dir-floortime
+
+Also: `pet-therapy` and `inpp` appear in the project-instruction slug
+list with ZERO db usage. The real slug is `animal-therapy` (108).
+`financial-planning` (1) exists in the DB but appears in no valid
+list and has no JSON file.
+
+Do not hardcode a service slug list from the project instructions
+file. The DB and the per-slug JSON files are the working sources of
+truth.
+
+=== 5. CANONICAL SERVICE VOCABULARY (24 slugs, from DB) ===
+
+aba 1562 | physical-therapy 956 | occupational-therapy 742 |
+speech-therapy 633 | life-skills 496 | parent-coaching 225 |
+group-therapy 211 | virtual-therapy 155 | ados-testing 126 |
+residential-program 121 | feeding-therapy 119 | animal-therapy 108 |
+mobile-services 105 | support-groups 95 | respite-care 46 |
+executive-function-coaching 42 | tutoring 35 | music-therapy 34 |
+aac 10 | dir-floortime 5 | transportation 1 | art-therapy 1 |
+financial-planning 1 | autism-travel 1
+
+No typo'd slugs in production.
+
+FOUR SINGLETONS (transportation, art-therapy, financial-planning,
+autism-travel) would each generate a page backed by one provider.
+Needs a volume-floor decision.
+
+FIVE RECORDS canonicalize to NULL (Florida, Multiple FL locations,
+Remote, Broward County, Tampa Bay Area). These providers belong to no
+city page. Statewide/virtual policy decision needed.
+
+=== 6. DO NOT FREEZE COMBO COUNTS YET ===
+
+EXECUTED so far:
+  - 4 records deleted (id 8508 from resources; 3 from schools:
+    Sandrino x2, Blessed Pediatric - all already existed in
+    ppec_centers)
+  - id 10373 backfilled with aba, parent-coaching, feeding-therapy,
+    mobile-services
+  - 89 records geocoded
+  - 207 records had county filled
+  - 8 records had address-fragment `city` values corrected
+    (B2 -> Lakeland, Bldg. A -> Tallahassee, etc). COMBO-NEUTRAL -
+    each recomputed to the canonical value it already held.
+
+QUEUED, NOT YET RUN - THIS ONE MOVES YOUR COUNTS:
+  - 201-record services backfill. These records currently have NULL
+    services and belong to ZERO service+city combos. After it runs
+    they join 1-8 each: roughly +320 record-to-combo assignments,
+    concentrated in aba, physical-therapy, occupational-therapy,
+    speech-therapy. Some thin combos will cross a volume floor.
+    RE-PULL COMBO COUNTS AFTER THIS LANDS.
+
+PENDING DECISIONS, ALL REDUCE COUNTS:
+  - 19 verified deletes (adult PT chains, adult rehab, psych
+    practices, wellness franchises)
+  - 13 duplicate clusters, ~14 records
+  - PPEC-in-resources policy: 42 PPEC records live in `resources` in
+    addition to the ppec_centers table and the Find Daycares surface.
+    Removing them strips 42 records of speech/OT/PT + city combos.
+    UNRESOLVED.
+  - Horizons Pediatric Center PPEC: 6593 vs 10161, same address and
+    license, one must go.
+
+PROJECTED NET: between -35 and -77 records, against +201 records
+gaining service tags.
+
+=== 7. DATA QUALITY FINDINGS THAT AFFECT COUNTS ===
+
+DUPLICATE DENSITY IS UNMEASURED. SQL address-matching found 9
+duplicate pairs. Independent website verification of just 42 records
+found 8 MORE clusters SQL could not see - same physical site stored
+with a different address string or a different city label. There is
+currently no reliable count of unique providers.
+
+CITY LABELS ARE WRONG AT A MATERIAL RATE. Confirmed cases where
+stored city != actual city: id 8573 Miramar->Pembroke Pines,
+8582 Palm Springs->West Palm Beach, 8603 Palm Springs->West Palm
+Beach, 8557 Holly Hill->Daytona Beach, 8508 Miami->Miami Shores.
+
+Separately, 20 records have a NAME SUFFIX naming a different city
+than their address - border clinics marketing under the larger
+neighboring city (e.g. "Select Physical Therapy - West Palm Beach" at
+a Palm Springs address). Address is treated as truth; the name suffix
+is cosmetic but WILL READ AS AN ERROR on generated pages.
+
+GEOCODING IS STALLED. 263 of 3,339 providers had no coordinates
+(NOTE: an earlier status doc said 17 - that was wrong, it was a
+subset figure). 89 resolved. The remaining ~174 cannot be geocoded -
+the Census TIGER index does not carry many Florida vanity street
+names (Sunset Dr = SW 72nd St in Miami-Dade), and no alternative
+geocoder is reachable from the research environment. These records
+keep canonical_city and still appear in city listings; they lose map
+pins only.

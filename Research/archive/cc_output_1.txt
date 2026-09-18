@@ -1,0 +1,25 @@
+Fix applied — src/frontend/src/lib/loadResource.ts:66-72 adds SLUG_ALIASES mapping services.aba → aba-therapy,
+  resolved at line 81 before candidate building. aba-therapy.json is untouched, its internal "slug": "aba-therapy" is
+  unchanged, and /resources/services/aba-therapy keeps working. Both slugs now resolve to the same module.
+
+  On the spread ordering you flagged: I moved slug: candidate to after the spread (line 101). I verified this is
+  behavior-neutral first — across all five categories, no JSON declares a slug that differs from its filename; the only
+  outliers (autism-travel, floor-time, and three insurances) simply have no slug field, where the candidate already won.
+   So the only case this changes is the alias, which now deterministically reports aba-therapy instead of depending on
+  the JSON happening to carry a slug field.
+
+  Two reports, not fixed:
+
+  1. floor-time.json is referenced in four live places — it is not a safe orphan delete:
+  - ProviderCard.tsx:72 — the dir-floortime badge links to /resources/services/floor-time
+  - DaycareCard.tsx:85 — same badge, same link
+  - ServiceDetail.tsx:36 — 'floor-time': 'dir-floortime' in slugToServiceFilter
+  - public/sitemap.xml:172 — the URL is published in the sitemap
+
+  So every DIR/Floortime badge on a provider or daycare card sends users to floor-time, not dir-floortime. The curation
+  doc calls it a zero-usage orphan; that's true of the database, but the frontend routes to it exclusively.
+
+  2. The curation doc is wrong about financial-planning — the JSON file exists.
+  src/frontend/src/data/resources/services/financial-planning.json, 2,750 bytes, with "slug": "financial-planning", and
+  it's already in ServiceDetail.tsx:52. Blocker #2's table lists it as "none — no file"; only the aba row in that table
+  is actually broken.

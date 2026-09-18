@@ -1,0 +1,10 @@
+ Pushed: 179d56c..818ef7b → main. Two files, 242 insertions. All 20 images/ deletions are still unstaged and untracked
+  dirs untouched.
+
+  One wording slip in the commit body: it says aba-therapy.json "is left renamed" — should read "unrenamed". The file
+  was not renamed; only loadResource.ts changed. Leaving it unless you want a follow-up commit to note the correction.
+
+  Suggested next prompts:
+  1. Work blocker #2 from the curation doc.
+  2. Re-rank the ≥10 cohort by verified count and cut the pilot list to combos with ≥10 verified providers.
+  3. Tell me what those images/*.webp deletions are and whether they should be restored.

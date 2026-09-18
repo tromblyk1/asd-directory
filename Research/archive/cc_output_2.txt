@@ -1,0 +1,32 @@
+Blocker #1 is closed. Final state:
+
+  slugToServiceFilter already had it — ServiceDetail.tsx:29 contains 'aba-therapy': 'aba'. Per your instruction I
+  changed nothing there.
+
+  ┌─────────────────────────────────┬───────────────────────────────────────────────────────┬────────────────────────┐
+  │              Route              │                        Renders                        │       CTA target       │
+  ├─────────────────────────────────┼───────────────────────────────────────────────────────┼────────────────────────┤
+  │ /resources/services/aba-therapy │ ABA Therapy copy (Overview, Key Benefits, Who Can     │ /providers?service=aba │
+  │                                 │ Benefit, Learn More ×2)                               │                        │
+  ├─────────────────────────────────┼───────────────────────────────────────────────────────┼────────────────────────┤
+  │ /resources/services/aba         │ Identical copy, no "Service Not Found"                │ /providers?service=aba │
+  ├─────────────────────────────────┼───────────────────────────────────────────────────────┼────────────────────────┤
+  │ /providers?service=aba          │ "Showing 50 of 1562 providers (3339 total)"           │ —                      │
+  └─────────────────────────────────┴───────────────────────────────────────────────────────┴────────────────────────┘
+
+  1,562 matches the DB exactly (aba = 1,562 tags, aba-therapy = 0).
+
+  Three things to carry into page generation:
+  - ServiceDetail.tsx renders no provider list — no Supabase query, just editorial copy plus the CTA link. The
+  empty-list failure mode you described can't occur on that route; the count only materializes on /providers.
+  - /providers?service=aba-therapy also returns 1,562, but only by accident: findproviders.tsx:153-156 reads the param
+  raw with no normalization, and line 282 does normalizeForComparison(selected).includes(item) — substring, not
+  equality. The generator must emit service=aba, not rely on that.
+  - Uncommitted: src/frontend/src/lib/loadResource.ts (the SLUG_ALIASES fix, +14/−2) and
+  Research/pseo_pilot_cohort_ge10_2026-08-16.csv. The images/*.webp deletions predate this session.
+
+  Suggested next prompts:
+  1. Commit the loadResource.ts SLUG_ALIASES fix and the pSEO cohort CSV, then push.
+  2. Work blocker #2 from the curation doc.
+  3. Re-rank the ≥10 cohort by verified count instead of raw count and cut the pilot list to combos with ≥10 verified
+  providers.

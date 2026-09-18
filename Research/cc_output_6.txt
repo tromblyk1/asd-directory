@@ -1,0 +1,39 @@
+ Nine-table reference audit — no files modified.
+
+  providers                    | UNREFERENCED (live code) | only:
+  src/frontend/supabase/migrations/20251011015315_create_florida_autism_services_schema.sql:113 CREATE TABLE + :208-212
+  indexes + :227/:234-288 RLS (superseded schema); _archive/02_migrate_data.mjs:75 .from('providers');
+  _archive/scripts/generate_city_coordinates.js:23 .from('providers'); supabase/functions/stripe-webhook/index.ts:13
+  comment only
+  provider_services_wide       | UNREFERENCED
+  provider_services_wide_merged| UNREFERENCED
+  staging_pet_therapy          | UNREFERENCED
+  google_reviews               | UNREFERENCED
+  google_reviews_canonical     | REFERENCED (indirect) | src/frontend/src/hooks/useProviderRatings.ts:51 and :112
+  .from('provider_ratings_summary') — matview built on google_reviews_canonical; no direct .from() on the base table
+  anywhere
+  site_stats                   | REFERENCED | src/frontend/src/hooks/useSiteStats.ts:23 .from("site_stats") runtime
+  read; supabase/functions/stripe-webhook/index.ts:91 supabase.rpc("decrement_founder_slots") → writes site_stats via
+  supabase/migrations/add_founder_slots_and_upsell_events.sql:11; same file :2 seed INSERT;
+  supabase/migrations/create_site_stats.sql:10,17,19,20,25 DDL+RLS+seed;
+  supabase/migrations/site_stats_updated_at_trigger.sql:1,16,18 trigger DDL; tools/refresh_schemas.mjs:23 config entry
+  naming the table
+  submissions                  | REFERENCED (bound, never invoked) | src/frontend/src/api/base44Client.ts:211
+  Submission: new Entity('submissions') — Entity wraps supabase.from(tableName); no caller anywhere in src (grep for
+  entities.Submission → 0 hits). Also _archive/02_migrate_data.mjs:303
+  contact_messages             | UNREFERENCED (live code) | only: src/frontend/src/_archive/pages-old/ContactPage.tsx:26
+   .from('contact_messages'); src/frontend/supabase/migrations/20251011015315_...sql:196 CREATE TABLE + RLS
+
+  Three things worth flagging:
+
+  No TYPE_ONLY hits exist. src/frontend/src/lib/supabase.ts contains zero matches for all nine names, and there is no
+  generated types file in the repo (database.types.ts etc. — only src/types/Event.types.ts, unrelated). Every hit above
+  is either runtime code, DDL, or archived.
+
+  The 2025-10-11 schema file is superseded, not live. It creates providers with zip_code / is_verified / service_types,
+  but the live table audited yesterday has zip / verified / service_type. It also creates provider_submissions, not
+  submissions — so the submissions table the base44 Entity points at has no DDL in this repo at all.
+
+  submissions is the ambiguous one. It's a genuine runtime binding constructed at module load, but nothing calls it —
+  the three Submit* pages contain only the string "Thank You for Your Submission!". Functionally dead, structurally
+  live.
