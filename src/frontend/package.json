@@ -6,7 +6,7 @@
   "scripts": {
     "validate:links": "node tools/validateResourceLinks.mjs",
     "dev": "vite",
-    "build": "npm run validate:links && vite build",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit -p tsconfig.app.json"

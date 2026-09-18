@@ -1,5 +1,12 @@
 #!/usr/bin/env node
 
+// Manual audit only — deliberately NOT part of `npm run build`. Two reasons: it makes build
+// output depend on 153 third-party sites being reachable, and its output is currently read by
+// nothing live (only src/_archive/pages-old/** imports validLinks.json; the detail pages read
+// `links` straight off each resource JSON). Run it to find dead outbound links, not to gate a
+// deploy. Before wiring the output back into rendering, note it has silently dropped healthy
+// links twice — a whole-body "404" substring match, then HTTP 403 from bot-blocking hosts.
+
 import { promises as fs } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
