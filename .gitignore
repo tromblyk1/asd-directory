@@ -35,6 +35,7 @@ desktop.ini
 
 # === Claude Code settings with secrets ===
 src/frontend/.claude/settings.local.json
+.claude/scheduled_tasks.lock
 
 # === OS cruft ===
 *.bak
