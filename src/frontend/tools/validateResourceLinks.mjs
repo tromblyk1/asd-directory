@@ -105,6 +105,12 @@ const validateUrl = async (url) => {
     // GET only. A HEAD preflight added nothing but latency, and hosts that reject the method
     // outright were being recorded as dead links.
     const getResponse = await fetchWithTimeout(url, { method: 'GET' });
+    // 403 means the host refused an automated client, not that the page is gone — fhcp.com
+    // serves browsers fine and still blocks this checker past the browser headers above.
+    // Accept it unvalidated; there is no real body to soft-404 check.
+    if (getResponse.status === 403) {
+      return { ok: true };
+    }
     if (getResponse.status < 200 || getResponse.status >= 300) {
       return { ok: false, reason: `Status ${getResponse.status}` };
     }

@@ -13,6 +13,13 @@
       "description": "Florida resources on learning support and educational advocacy"
     }
   ],
+  "services/transportation": [
+    {
+      "label": "Florida APD Transportation Services",
+      "url": "https://apd.myflorida.com/waiver/",
+      "description": "Information on Medicaid waiver transportation funding"
+    }
+  ],
   "services/supported-living": [
     {
       "label": "APD — Applying for Services",
@@ -338,11 +345,28 @@
       "description": "Credentialing for art therapy professionals"
     }
   ],
+  "services/animal-therapy": [
+    {
+      "label": "Pet Partners",
+      "url": "https://petpartners.org/",
+      "description": "Leading organization for animal-assisted therapy registration and resources"
+    },
+    {
+      "label": "Professional Association of Therapeutic Horsemanship (PATH)",
+      "url": "https://www.pathintl.org/",
+      "description": "Organization for equine-assisted therapy programs"
+    }
+  ],
   "services/afterschool-program": [
     {
       "label": "Afterschool Alliance - Youth with Disabilities",
       "url": "https://afterschoolalliance.org/",
       "description": "National organization with research and a program locator for afterschool programming"
+    },
+    {
+      "label": "Florida Department of Education - Exceptional Student Education",
+      "url": "https://www.fldoe.org/academics/exceptional-student-edu/",
+      "description": "State resources on services and supports for students with disabilities"
     }
   ],
   "services/adult-day-training": [
@@ -403,6 +427,11 @@
       "label": "Step Up For Students",
       "url": "https://www.stepupforstudents.org/",
       "description": "Scholarship funding organization - apply and manage your scholarship"
+    },
+    {
+      "label": "Florida Department of Education",
+      "url": "https://www.fldoe.org/",
+      "description": "Official state education agency with scholarship program information"
     }
   ],
   "scholarships/ftc": [
@@ -415,6 +444,11 @@
       "label": "AAA Scholarship Foundation",
       "url": "https://www.aaascholarships.org/",
       "description": "Alternative scholarship funding organization for FTC"
+    },
+    {
+      "label": "Florida Department of Education",
+      "url": "https://www.fldoe.org/",
+      "description": "Official state education agency with scholarship program information"
     }
   ],
   "scholarships/fes-ua": [
@@ -422,6 +456,11 @@
       "label": "Step Up For Students",
       "url": "https://www.stepupforstudents.org/",
       "description": "Primary scholarship funding organization - apply here and manage your scholarship"
+    },
+    {
+      "label": "Florida Department of Education",
+      "url": "https://www.fldoe.org/",
+      "description": "Official state education agency with scholarship program information"
     }
   ],
   "scholarships/fes-eo": [
@@ -434,6 +473,11 @@
       "label": "AAA Scholarship Foundation",
       "url": "https://www.aaascholarships.org/",
       "description": "Alternative scholarship funding organization for FES-EO"
+    },
+    {
+      "label": "Florida Department of Education",
+      "url": "https://www.fldoe.org/",
+      "description": "Official state education agency with scholarship program information"
     }
   ],
   "legal-advocacy/driving-with-autism": [
@@ -446,6 +490,11 @@
       "label": "Autism Society — Driving Safety Tips",
       "url": "https://autismsociety.org/resources/",
       "description": "Resources for autistic drivers and their families on preparing for the road."
+    },
+    {
+      "label": "NHTSA — Driver Education",
+      "url": "https://www.nhtsa.gov/road-safety/teen-driving",
+      "description": "Federal teen-driving safety resources applicable to all new drivers."
     }
   ],
   "insurances/wellcare": [
@@ -547,6 +596,25 @@
       "label": "Agency for Persons with Disabilities (APD)",
       "url": "https://apd.myflorida.com/",
       "description": "Administers iBudget waiver for home and community-based services"
+    }
+  ],
+  "insurances/florida-kidcare": [
+    {
+      "label": "Florida KidCare",
+      "url": "https://www.floridakidcare.org/",
+      "description": "Official site - apply, check eligibility, and see which program your child qualifies for"
+    },
+    {
+      "label": "Florida Healthy Kids",
+      "url": "https://www.healthykids.org/",
+      "description": "The KidCare program for children ages 5 through 18"
+    }
+  ],
+  "insurances/florida-healthcare-plans": [
+    {
+      "label": "Florida Health Care Plans",
+      "url": "https://www.fhcp.com/",
+      "description": "Official FHCP website - plans, service area, provider directory, and member resources"
     }
   ],
   "insurances/florida-blue": [
@@ -656,6 +724,11 @@
   ],
   "daycares/ese-prek": [
     {
+      "label": "Florida Department of Education — ESE",
+      "url": "https://www.fldoe.org/academics/exceptional-student-edu/",
+      "description": "State resource for Exceptional Student Education programs and guidance"
+    },
+    {
       "label": "Family Network on Disabilities",
       "url": "https://fndusa.org/",
       "description": "Florida's Parent Training and Information Center for IEP support"
@@ -701,6 +774,13 @@
       "label": "FACCS",
       "url": "https://www.faccs.org/",
       "description": "Florida Association of Christian Colleges and Schools"
+    }
+  ],
+  "accreditations/csi": [
+    {
+      "label": "CSI",
+      "url": "https://www.csionline.org/",
+      "description": "Christian Schools International"
     }
   ],
   "accreditations/cognia": [
