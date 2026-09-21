@@ -5,6 +5,18 @@
   # Stripe payment links redirect to /thank-you; the real page is /featured/thank-you
   RewriteRule ^thank-you/?$ /featured/thank-you [R=301,L]
 
+  # Easterseals rebrand + one address cleanup: the rows live under new slugs, so the old
+  # URLs were serving a noindexed "Not Found" and showing up as Soft 404 in Search Console.
+  # Verified live 2026-09-21 as 302, then promoted to 301.
+  RewriteRule ^providers/easter-seals-florida-inc-naples-fl-6344/?$ /providers/easterseals-leap-program-naples-fl [R=301,L]
+  RewriteRule ^providers/easter-seals-florida-inc-palm-bay-fl-6389/?$ /providers/easterseals-adult-day-training-palm-bay-fl [R=301,L]
+  RewriteRule ^providers/easterseals-florida-igoe-amar-center-west-palm-beach-fl-7381/?$ /providers/easterseals-igoe-amar-center-west-palm-beach-fl [R=301,L]
+  RewriteRule ^providers/easter-seals-south-florida-opa-locka-fl-8774/?$ /providers/easterseals-south-florida-miami-gardens-ophelia-brown-fl [R=301,L]
+  RewriteRule ^providers/easterseals-necfl-daytona-beach-fl-8970/?$ /providers/easterseals-autism-center-of-excellence-daytona-beach-fl [R=301,L]
+  RewriteRule ^providers/eastersealsearly-steps-north-beaches-deland-fl-9212/?$ /providers/easterseals-elite-aba-services-deland-fl [R=301,L]
+  RewriteRule ^providers/speech-works-pediatric-therapy-orange-city-2750-enterprise-rd-orange-city-fl-10281/?$ /providers/speech-works-pediatric-therapy-orange-city-fl-10281 [R=301,L]
+  RewriteRule ^providers/easterseals-northeast-central-florida-new-smyrna-beach-fl-10554/?$ /providers/easterseals-at-edgars-farm-new-smyrna-beach-fl [R=301,L]
+
   # Don't rewrite files or directories that exist
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
