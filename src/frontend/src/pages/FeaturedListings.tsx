@@ -839,9 +839,10 @@ export default function FeaturedListings() {
                   { feature: "Gold border & badge", free: false, basic: "Featured", enhanced: "Featured", premium: "Premium Partner" },
                   { feature: "Position on service + city pages and in provider search", free: "After Featured", basic: "Above standard", enhanced: "Above Basic", premium: "First" },
                   { feature: "Photo or logo on search card and detail page", free: false, basic: false, enhanced: true, premium: "Larger" },
+                  { feature: "Description length (listing page)", free: "200 characters", basic: "500", enhanced: "1,000", premium: "Unlimited" },
                   { feature: "Description shown on search card", free: false, basic: false, enhanced: "3 lines", premium: "Full" },
                   { feature: 'Prominent "Visit Website" button on search card', free: false, basic: false, enhanced: true, premium: true },
-                  { feature: "Social media links", free: false, basic: "Detail page", enhanced: "Card + detail", premium: "Card + detail" },
+                  { feature: "Social media links", free: false, basic: "Detail page", enhanced: "Card and detail page", premium: "Card and detail page" },
                 ].map((row, i) => (
                   <tr key={i} className={i % 2 === 0 ? "bg-gray-50" : ""}>
                     <td className="py-3 px-4 text-gray-700">{row.feature}</td>
