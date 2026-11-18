@@ -39,6 +39,8 @@ export interface ProviderResource {
   description: string | null;
   resource_type: string | null;
   google_place_id?: string | null;
+  rating?: number | string | null;
+  user_ratings_total?: number | null;
   social_links?: Record<string, string> | null;
   featured?: boolean | null;
   featured_tier?: string | null;
@@ -277,16 +279,16 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, rating }) 
                 {!provider.county && provider.city && (
                   <p className="text-sm text-gray-500 mt-0.5">{provider.city}, {provider.state || 'FL'}</p>
                 )}
-                {rating && (
+                {provider.rating != null && (
                   <div className="mt-1 flex items-center gap-1.5">
-                    <img 
-                      src="https://www.google.com/favicon.ico" 
-                      alt="Google" 
+                    <img
+                      src="https://www.google.com/favicon.ico"
+                      alt="Google"
                       className="w-4 h-4"
                     />
-                    <StarRating 
-                      rating={rating.avg_rating} 
-                      reviewCount={rating.review_count}
+                    <StarRating
+                      rating={Number(provider.rating)}
+                      reviewCount={provider.user_ratings_total ?? 0}
                       size="sm"
                     />
                   </div>

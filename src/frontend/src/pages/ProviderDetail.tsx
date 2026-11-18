@@ -51,6 +51,8 @@ interface ProviderResource {
   description: string | null;
   resource_type: string | null;
   google_place_id: string | null;
+  rating?: number | string | null;
+  user_ratings_total?: number | null;
   featured?: boolean | null;
   featured_tier?: string | null;
   image_url?: string | null;
@@ -403,16 +405,16 @@ export default function ProviderDetail() {
           <p className="text-teal-100 text-base sm:text-lg">
             {provider.city}{provider.county ? `, ${provider.county} County` : ''}, {provider.state || 'FL'}
           </p>
-          {providerRating && (
+          {provider.rating != null && (
             <div className="mt-2 sm:mt-3 flex items-center gap-2">
-              <img 
-                src="https://www.google.com/favicon.ico" 
-                alt="Google" 
+              <img
+                src="https://www.google.com/favicon.ico"
+                alt="Google"
                 className="w-4 h-4 sm:w-5 sm:h-5"
               />
-              <StarRating 
-                rating={providerRating.avg_rating} 
-                reviewCount={providerRating.review_count}
+              <StarRating
+                rating={Number(provider.rating)}
+                reviewCount={provider.user_ratings_total ?? 0}
                 size="lg"
                 className="text-white [&_span]:text-white"
               />
