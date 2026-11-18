@@ -24,7 +24,6 @@ import {
 } from 'lucide-react';
 import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 import ServiceTag from '@/components/ServiceTag';
-import { useProviderRating } from '@/hooks/useProviderRatings';
 import { StarRating } from '@/components/StarRating';
 import { SocialLinksDisplay } from '@/components/SocialLinksDisplay';
 import { trackListingEvent, appendFeaturedUtm } from '@/lib/trackListing';
@@ -163,9 +162,6 @@ export default function ProviderDetail() {
     },
     enabled: !!slug,
   });
-
-  // Fetch Google rating for this provider
-  const { rating: providerRating } = useProviderRating(provider?.google_place_id || null);
 
   useEffect(() => {
     if (!provider) return;

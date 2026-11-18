@@ -11,7 +11,6 @@ import { ProviderCard, ProviderResource } from '@/components/ProviderCard';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
-import { useProviderRatings } from '@/hooks/useProviderRatings';
 
 const PROVIDERS_PER_PAGE = 50;
 const DEFAULT_SEARCH_RADIUS = 25; // miles
@@ -658,16 +657,6 @@ export default function FindProviders() {
     return filteredProviders.slice(0, visibleCount);
   }, [filteredProviders, visibleCount]);
 
-  // Get google_place_ids for visible providers to batch fetch ratings
-  const visibleGooglePlaceIds = useMemo(() => {
-    return visibleProviders
-      .map(p => p.google_place_id)
-      .filter((id): id is string => !!id);
-  }, [visibleProviders]);
-
-  // Batch fetch ratings for visible providers
-  const { ratings } = useProviderRatings(visibleGooglePlaceIds);
-
   const hasMoreProviders = visibleCount < filteredProviders.length;
   const remainingCount = filteredProviders.length - visibleCount;
 
@@ -1093,7 +1082,6 @@ export default function FindProviders() {
                         )}
                         <ProviderCard
                           provider={provider}
-                          rating={provider.google_place_id ? ratings[provider.google_place_id] : null}
                         />
                       </React.Fragment>
                     );

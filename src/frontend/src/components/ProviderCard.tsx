@@ -12,7 +12,6 @@ import {
 } from '@/components/ui/tooltip';
 import { StarRating } from '@/components/StarRating';
 import { SocialLinksDisplay } from '@/components/SocialLinksDisplay';
-import type { ProviderRating } from '@/hooks/useProviderRatings';
 import { trackListingEvent, appendFeaturedUtm } from '@/lib/trackListing';
 
 // Provider type matching resources table structure
@@ -55,7 +54,6 @@ export interface ProviderResource {
 
 interface ProviderCardProps {
   provider: ProviderResource;
-  rating?: ProviderRating | null;
 }
 
 // Service badge definitions - BLUE colors
@@ -153,7 +151,7 @@ const scholarshipBadges: Record<string, { label: string; tooltip: string; link: 
   'pep': { label: 'PEP', tooltip: 'Personalized Education Program - Flexible funding for customized learning', link: '/resources/scholarships/pep' },
 };
 
-export const ProviderCard: React.FC<ProviderCardProps> = ({ provider, rating }) => {
+export const ProviderCard: React.FC<ProviderCardProps> = ({ provider }) => {
   const [emailCopied, setEmailCopied] = useState(false);
 
   const normalizeKey = (str: string): string => {

@@ -9,7 +9,6 @@ import { TooltipProvider } from '@/components/ui/tooltip';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ProviderCard, type ProviderResource } from '@/components/ProviderCard';
-import { useProviderRatings } from '@/hooks/useProviderRatings';
 import cityPages from '@/data/pseo/cityPages.json';
 import cityCoordinates from '@/data/cityCoordinates.json';
 
@@ -406,12 +405,6 @@ export default function ProvidersByCity() {
     return null;
   };
 
-  const googlePlaceIds = useMemo(
-    () => ordered.map((p) => p.google_place_id).filter((id): id is string => !!id),
-    [ordered]
-  );
-  const { ratings } = useProviderRatings(googlePlaceIds);
-
   const zips = useMemo(
     () => [...new Set(providers.map((p) => p.zip_code).filter(Boolean))].sort(),
     [providers]
@@ -777,7 +770,6 @@ export default function ProvidersByCity() {
                   <ProviderCard
                     key={provider.id}
                     provider={provider}
-                    rating={provider.google_place_id ? ratings[provider.google_place_id] : null}
                   />
                 ))}
 
@@ -797,7 +789,6 @@ export default function ProvidersByCity() {
                         </div>
                         <ProviderCard
                           provider={provider}
-                          rating={provider.google_place_id ? ratings[provider.google_place_id] : null}
                         />
                       </div>
                     ))
@@ -805,7 +796,6 @@ export default function ProvidersByCity() {
                       <ProviderCard
                         key={provider.id}
                         provider={provider}
-                        rating={provider.google_place_id ? ratings[provider.google_place_id] : null}
                       />
                     ))}
 
@@ -818,7 +808,6 @@ export default function ProvidersByCity() {
                       <ProviderCard
                         key={provider.id}
                         provider={provider}
-                        rating={provider.google_place_id ? ratings[provider.google_place_id] : null}
                       />
                     ))}
                   </>
