@@ -394,8 +394,11 @@ They are deliberately absent from `serviceOptions`, `servicePopupInfo`, `Service
 `ProviderCard.tsx` and `educationalresources.tsx`; do not add them to those surfaces
 without being asked.
 
-**`recreation-programs` is in the same prerequisite state** — detail page shipped 2026-08-24,
-not yet on any chip or badge surface, awaiting curation tagging the first six records.
+**`recreation-programs` is fully supported** (verified 2026-10-03, 13 tagged records) — it has
+a `ServiceTag.tsx` SERVICE_METADATA mapping, a Find Providers filter entry (`serviceOptions` +
+`servicePopupInfo`), a `ProvidersByCity.tsx` SERVICE_LABELS display name, a `ProviderCard.tsx`
+badge, a `ProviderDetail.tsx` serviceDisplayInfo entry, and a service JSON detail page. It left
+prerequisite state in the 2026-08-27 badge-map fix; it is not an exception to anything.
 
 **Not `pet-therapy`** — the database uses `animal-therapy` (108 providers). `pet-therapy` has zero
 rows and no badge entry; tagging it renders no badge at all.
