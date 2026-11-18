@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { ChevronDown, ArrowUp, Eye, Shield, Check } from "lucide-react";
+import { useState, type FormEvent } from "react";
+import { ChevronDown, Check } from "lucide-react";
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
 import { useSiteStats } from "@/hooks/useSiteStats";
 import { getStripeLink, isStripeLinkConfigured } from "@/lib/stripeLinks";
@@ -58,20 +58,6 @@ const InsuranceBadges = () => (
       <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800 border border-purple-200">Aetna</span>
       <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800 border border-purple-200">Florida Blue</span>
     </div>
-  </div>
-);
-
-const WhyChooseUs = () => (
-  <div className="bg-teal-50 border border-teal-200 rounded-lg p-4 mb-4">
-    <h4 className="text-sm font-bold text-teal-800 mb-2 flex items-center gap-1.5">
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-      Why Choose Us
-    </h4>
-    <ul className="text-sm text-teal-700 space-y-1.5">
-      <li className="flex items-start gap-2"><span className="text-teal-500 mt-0.5">&bull;</span> Board-certified BCBAs with 10+ years of experience</li>
-      <li className="flex items-start gap-2"><span className="text-teal-500 mt-0.5">&bull;</span> In-clinic, in-home, and telehealth options</li>
-      <li className="flex items-start gap-2"><span className="text-teal-500 mt-0.5">&bull;</span> Family-centered approach with free parent training workshops</li>
-    </ul>
   </div>
 );
 
@@ -253,283 +239,24 @@ function PremiumSearchCard() {
   );
 }
 
-// ─── Detail Page Cards ─────────────────────────────────────────────────
-
-function StandardDetailCard() {
-  return (
-    <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden h-full">
-      <div className="bg-gradient-to-r from-teal-600 to-cyan-600 text-white px-6 py-5">
-        <h4 className="text-xl font-bold">Sunshine ABA & Behavioral Health</h4>
-        <p className="text-teal-100 text-sm mt-1">1234 Therapy Lane, Orlando, FL 32801 &bull; Orange County</p>
-      </div>
-      <div className="p-6">
-        <div className="flex items-center gap-2 mb-4">
-          <VerifiedBadge />
-          <div className="flex items-center gap-1">
-            <img src="https://www.google.com/favicon.ico" alt="Google" className="w-4 h-4" />
-            {starSvg}
-            <span className="text-sm text-gray-600 font-medium">4.0</span>
-            <span className="text-xs text-gray-400">(47 reviews)</span>
-          </div>
-        </div>
-        <p className="text-sm text-gray-600 mb-4">Sunshine ABA & Behavioral Health provides compassionate, evidence-based ABA therapy for children and teens on the autism spectrum across Central Florida.</p>
-        <ServiceBadges />
-        <div className="mt-3"><InsuranceBadges /></div>
-        <div className="grid grid-cols-2 gap-3 text-sm border-t border-gray-100 pt-4 mt-4">
-          <div className="flex items-center text-gray-600">{phoneSvg}(407) 555-0142</div>
-          <div className="flex items-center text-gray-600">{globeSvg}Visit Website</div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function BasicDetailCard() {
-  return (
-    <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden h-full" style={{ border: "2px solid #d97706" }}>
-      <div className="bg-gradient-to-r from-teal-600 to-cyan-600 text-white px-6 py-5 relative">
-        <div className="absolute top-3 right-3">
-          <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-700 border border-amber-300 shadow-sm">&#11088; Featured</span>
-        </div>
-        <h4 className="text-xl font-bold">Sunshine ABA & Behavioral Health</h4>
-        <p className="text-teal-100 text-sm mt-1">1234 Therapy Lane, Orlando, FL 32801 &bull; Orange County</p>
-      </div>
-      <div className="p-6">
-        <div className="flex items-center gap-2 mb-4">
-          <VerifiedBadge />
-          <div className="flex items-center gap-1">
-            <img src="https://www.google.com/favicon.ico" alt="Google" className="w-4 h-4" />
-            {starSvg}
-            <span className="text-sm text-gray-600 font-medium">4.0</span>
-            <span className="text-xs text-gray-400">(47 reviews)</span>
-          </div>
-        </div>
-        <p className="text-sm text-gray-600 mb-4">Sunshine ABA & Behavioral Health provides compassionate, evidence-based ABA therapy for children and teens on the autism spectrum across Central Florida.</p>
-        <ServiceBadges />
-        <div className="mt-3"><InsuranceBadges /></div>
-        <div className="grid grid-cols-2 gap-3 text-sm border-t border-gray-100 pt-4 mt-4">
-          <div className="flex items-center text-gray-600">{phoneSvg}(407) 555-0142</div>
-          <div className="flex items-center text-gray-600">{globeSvg}Visit Website</div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function EnhancedDetailCard() {
-  return (
-    <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden h-full" style={{ border: "2px solid #d97706" }}>
-      <div className="relative">
-        <div className="w-full h-48 bg-gray-100 border-b-2 border-dashed border-gray-300 flex flex-col items-center justify-center">
-          {cameraSvg("w-12 h-12 text-gray-400 mb-2")}
-          <span className="text-base font-semibold text-gray-400">Your Clinic Photo or Logo</span>
-          <span className="text-xs text-gray-300 mt-1">Displayed prominently at the top of your page</span>
-        </div>
-        <div className="absolute top-3 right-3">
-          <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-700 border border-amber-300 shadow-sm">&#11088; Featured</span>
-        </div>
-      </div>
-      <div className="p-6">
-        <h4 className="text-xl font-bold text-gray-900 mb-1">Sunshine ABA & Behavioral Health</h4>
-        <p className="text-sm text-gray-500 mb-3">1234 Therapy Lane, Orlando, FL 32801 &bull; Orange County</p>
-        <div className="flex items-center gap-2 mb-4">
-          <VerifiedBadge />
-          <div className="flex items-center gap-1">
-            <img src="https://www.google.com/favicon.ico" alt="Google" className="w-4 h-4" />
-            {starSvg}
-            <span className="text-sm text-gray-600 font-medium">4.0</span>
-            <span className="text-xs text-gray-400">(47 reviews)</span>
-          </div>
-        </div>
-        <p className="text-sm text-gray-600 mb-4">Sunshine ABA & Behavioral Health provides compassionate, evidence-based ABA therapy for children and teens on the autism spectrum across Central Florida. Our board-certified BCBAs design individualized treatment plans.</p>
-        <WhyChooseUs />
-        <ServiceBadges />
-        <div className="mt-3"><InsuranceBadges /></div>
-        <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm border-t border-gray-100 pt-4 mt-4 mb-4">
-          <div className="flex items-center text-gray-600">{phoneSvg}(407) 555-0142</div>
-          <div className="flex items-center text-gray-600">{emailSvg}info@sunshineaba.com</div>
-        </div>
-        <div className="flex items-center gap-3 mb-4">
-          <span className="text-xs font-semibold uppercase tracking-wide text-gray-500">Follow Us</span>
-          <SocialIcons />
-        </div>
-        <a href="#" className="inline-flex items-center justify-center w-full px-4 py-2.5 text-sm font-semibold rounded-md bg-teal-600 text-white hover:bg-teal-700 transition-colors">
-          <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
-          Visit Website
-        </a>
-      </div>
-    </div>
-  );
-}
-
-function PremiumDetailCard() {
-  return (
-    <div className="rounded-lg shadow-lg hover:shadow-xl transition-shadow overflow-hidden h-full" style={{ border: "3px solid transparent", backgroundImage: "linear-gradient(white, white), linear-gradient(135deg, #f59e0b, #d97706, #b45309, #d97706, #f59e0b)", backgroundOrigin: "border-box", backgroundClip: "padding-box, border-box" }}>
-      <div className="relative">
-        <div className="w-full h-56 bg-gray-100 border-b flex flex-col items-center justify-center">
-          {cameraSvg("w-14 h-14 text-gray-400 mb-2")}
-          <span className="text-base font-semibold text-gray-400">Your Clinic Photo or Logo</span>
-          <span className="text-xs text-gray-300 mt-1">Full-width hero showcase — Premium only</span>
-        </div>
-        <div className="absolute top-3 right-3">
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-gradient-to-r from-amber-200 to-yellow-100 text-amber-800 border border-amber-400 shadow-md">&#11088; Premium Partner</span>
-        </div>
-      </div>
-      <div className="p-6" style={{ background: "linear-gradient(135deg, #fffbeb 0%, #ffffff 40%, #fffbeb 100%)" }}>
-        <h4 className="text-2xl font-bold text-gray-900 mb-1">Sunshine ABA & Behavioral Health</h4>
-        <p className="text-sm text-gray-500 mb-3">1234 Therapy Lane, Orlando, FL 32801 &bull; Orange County</p>
-        <div className="flex items-center gap-2 mb-4">
-          <VerifiedBadge />
-          <div className="flex items-center gap-1">
-            <img src="https://www.google.com/favicon.ico" alt="Google" className="w-4 h-4" />
-            {starSvg}
-            <span className="text-sm text-gray-600 font-medium">4.0</span>
-            <span className="text-xs text-gray-400">(47 reviews)</span>
-          </div>
-        </div>
-        <p className="text-sm text-gray-600 mb-4">Sunshine ABA & Behavioral Health provides compassionate, evidence-based ABA therapy for children and teens on the autism spectrum across Central Florida. Our board-certified BCBAs design individualized treatment plans that empower families.</p>
-        <WhyChooseUs />
-        <ServiceBadges />
-        <div className="mt-3"><InsuranceBadges /></div>
-        <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm border-t border-gray-100 pt-4 mt-4 mb-4">
-          <div className="flex items-center text-gray-600">{phoneSvg}(407) 555-0142</div>
-          <div className="flex items-center text-gray-600">{emailSvg}info@sunshineaba.com</div>
-        </div>
-        <div className="flex items-center gap-3 mb-4">
-          <span className="text-xs font-semibold uppercase tracking-wide text-gray-500">Follow Us</span>
-          <SocialIcons />
-        </div>
-        <a href="#" className="inline-flex items-center justify-center w-full px-4 py-3 text-base font-semibold rounded-md bg-teal-600 text-white hover:bg-teal-700 transition-colors shadow-md">
-          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
-          Visit Website
-        </a>
-      </div>
-    </div>
-  );
-}
-
-// ─── Search Position Visual ────────────────────────────────────────────
-
-const positionData = [
-  {
-    key: "standard",
-    label: "Standard",
-    description: "Your listing appears in standard order based on relevance",
-    bars: [
-      { cls: "bg-gray-200", w: "w-full" },
-      { cls: "bg-gray-200", w: "w-11/12" },
-      { cls: "bg-gray-200", w: "w-full" },
-      { cls: "bg-teal-200 border border-teal-300", w: "w-11/12", you: true },
-      { cls: "bg-gray-200", w: "w-full" },
-      { cls: "bg-gray-200", w: "w-10/12" },
-    ],
-  },
-  {
-    key: "basic",
-    label: "Basic",
-    description: "Your listing appears above all standard listings",
-    bars: [
-      { cls: "bg-gradient-to-r from-amber-200 to-yellow-100 border border-amber-300 opacity-50", w: "w-full" },
-      { cls: "bg-gradient-to-r from-amber-100 to-yellow-50 border border-amber-200 opacity-50", w: "w-11/12" },
-      { cls: "bg-gradient-to-r from-amber-100 to-yellow-50 border border-amber-200 opacity-50", w: "w-full" },
-      { cls: "bg-amber-100 border border-amber-300", w: "w-11/12", you: true },
-      { cls: "bg-gray-200", w: "w-full" },
-      { cls: "bg-gray-200", w: "w-10/12" },
-    ],
-  },
-  {
-    key: "enhanced",
-    label: "Enhanced",
-    description: "Your listing appears above Basic and Standard listings",
-    bars: [
-      { cls: "bg-gradient-to-r from-amber-200 to-yellow-100 border border-amber-300 opacity-50", w: "w-full" },
-      { cls: "bg-amber-100 border border-amber-300", w: "w-full", you: true },
-      { cls: "bg-amber-50 border border-amber-200 opacity-50", w: "w-11/12" },
-      { cls: "bg-gray-200", w: "w-full" },
-      { cls: "bg-gray-200", w: "w-11/12" },
-      { cls: "bg-gray-200", w: "w-10/12" },
-    ],
-  },
-  {
-    key: "premium",
-    label: "Premium",
-    description: "Your listing is pinned to the top of all search results",
-    bars: [
-      { cls: "bg-gradient-to-r from-amber-300 to-yellow-200 border border-amber-400 shadow-sm", w: "w-full", you: true, youLabel: "You (#1)" },
-      { cls: "bg-amber-100 border border-amber-200 opacity-50", w: "w-11/12" },
-      { cls: "bg-amber-50 border border-amber-200 opacity-40", w: "w-full" },
-      { cls: "bg-gray-200", w: "w-11/12" },
-      { cls: "bg-gray-200", w: "w-full" },
-      { cls: "bg-gray-200", w: "w-10/12" },
-    ],
-  },
-];
-
-function SearchPositionVisual() {
-  const [active, setActive] = useState("standard");
-  const data = positionData.find((d) => d.key === active)!;
-
-  return (
-    <div className="max-w-lg mx-auto">
-      <div className="flex justify-center gap-2 mb-6">
-        {positionData.map((d) => (
-          <button
-            key={d.key}
-            onClick={() => setActive(d.key)}
-            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
-              active === d.key
-                ? "bg-teal-600 text-white shadow-md"
-                : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-            }`}
-          >
-            {d.label}
-          </button>
-        ))}
-      </div>
-      <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6">
-        <div className="space-y-2">
-          {data.bars.map((bar, i) => (
-            <div key={i} className={`h-4 rounded-full ${bar.w} ${bar.cls} relative`}>
-              {bar.you && (
-                <span className="absolute -right-2 top-1/2 -translate-y-1/2 translate-x-full text-xs font-bold text-amber-700 whitespace-nowrap ml-2">
-                  &larr; {bar.youLabel || "You"}
-                </span>
-              )}
-            </div>
-          ))}
-        </div>
-        <p className="text-sm text-gray-500 text-center mt-4">{data.description}</p>
-      </div>
-    </div>
-  );
-}
-
 // ─── FAQ ────────────────────────────────────────────────────────────────
 
 const faqItems = [
   {
-    q: "How does Featured placement work?",
-    a: "When families search for providers on FloridaAutismServices.com, Featured listings appear above standard results. Premium Partners are pinned to the very top, followed by Enhanced, then Basic. Within each tier, listings are ordered by relevance to the search.",
+    q: "Will this actually bring me a client?",
+    a: "We can't promise a number, and we won't pretend to. What we can show you is that families are already arriving (the Google Search numbers are at the top of this page), and most of them are looking up a specific provider or school by name. Featured works on what happens next. Your listing is the one that stands out when they land on it, and your practice is listed first on our service + city pages. For most practices, one new client covers more than a full year of Featured, and billing is month to month, so you can cancel anytime.",
+  },
+  {
+    q: "Where exactly do Featured listings appear first?",
+    a: "On our service + city pages (for example, ADOS testing in Orlando) and in the main Find Providers results, Featured listings are shown above every standard listing. Premium is listed first, then Enhanced, then Basic. One exception: when a family filters by insurance, providers confirmed to accept that plan are grouped first, and Featured listings lead within each group.",
   },
   {
     q: "What do I need to provide?",
-    a: "For Basic, nothing extra — we enhance your existing listing. For Enhanced and Premium, we'll ask for a clinic photo or logo and a short 'Why Choose Us' description (2-3 sentences). We handle the rest.",
+    a: "For Basic, nothing extra. We upgrade your existing listing. For Enhanced and Premium, we'll ask for a clinic photo or logo and the description you want families to read. We handle the rest, and your listing is upgraded within 48 hours.",
   },
   {
-    q: "Can I upgrade or downgrade my tier?",
-    a: "Yes. You can change tiers at any time. If you upgrade during your Founding Partner period, you keep the discounted rate on your new tier.",
-  },
-  {
-    q: "How is this different from Google Ads?",
-    a: "Google Ads charges you per click and competes with every healthcare provider in your area. Featured Listings give you persistent, always-on visibility specifically to parents searching for autism services in Florida — for a flat monthly rate.",
-  },
-  {
-    q: "What if I'm not happy with the results?",
-    a: "There's no long-term contract. You can cancel anytime. We're confident the visibility speaks for itself, which is why we offer month-to-month billing.",
-  },
-  {
-    q: "How do I get started?",
-    a: "Just click any 'Lock In This Rate' button or email us at contact@floridaautismservices.com. We'll have your listing upgraded within 48 hours.",
+    q: "Can I change tiers or cancel?",
+    a: "Yes. There's no long-term contract. You can change tiers or cancel at any time. If you upgrade during your Founding Partner period, you keep the discounted rate on your new tier.",
   },
 ];
 
@@ -558,6 +285,118 @@ function FAQSection() {
 const pricingCheck = (
   <svg className="w-5 h-5 text-teal-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
 );
+
+// ─── Primary CTA ───────────────────────────────────────────────────────
+
+function PrimaryCta({ onDark = false }: { onDark?: boolean }) {
+  return (
+    <button
+      onClick={() => smoothScroll("pricing")}
+      className={
+        "inline-flex items-center px-8 py-4 text-lg font-bold rounded-lg transition-colors shadow-lg " +
+        (onDark ? "bg-white text-teal-700 hover:bg-teal-50" : "bg-teal-600 text-white hover:bg-teal-700")
+      }
+    >
+      Choose Your Featured Tier
+    </button>
+  );
+}
+
+// ─── "Get the details by email" form ───────────────────────────────────
+
+function DetailsByEmailForm() {
+  const [form, setForm] = useState({ name: "", practice: "", email: "", company: "" });
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setStatus("sending");
+    try {
+      const response = await fetch("https://floridaautismservices.com/api/send-featured-inquiry-email.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          practice_name: form.practice,
+          email: form.email,
+          company: form.company,
+        }),
+      });
+      if (!response.ok) throw new Error("Request failed");
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
+  };
+
+  if (status === "sent") {
+    return (
+      <p className="text-center text-gray-700 font-medium">
+        Thanks. We'll email you the details shortly.
+      </p>
+    );
+  }
+
+  const inputClass =
+    "w-full rounded-md border border-gray-300 px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-teal-500";
+
+  return (
+    <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+      <input
+        type="text"
+        required
+        placeholder="Your name"
+        aria-label="Your name"
+        value={form.name}
+        onChange={(e) => setForm({ ...form, name: e.target.value })}
+        className={inputClass}
+      />
+      <input
+        type="text"
+        required
+        placeholder="Practice name"
+        aria-label="Practice name"
+        value={form.practice}
+        onChange={(e) => setForm({ ...form, practice: e.target.value })}
+        className={inputClass}
+      />
+      <input
+        type="email"
+        required
+        placeholder="Email"
+        aria-label="Email"
+        value={form.email}
+        onChange={(e) => setForm({ ...form, email: e.target.value })}
+        className={inputClass}
+      />
+      {/* Honeypot: hidden from people, filled by bots. */}
+      <input
+        type="text"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        value={form.company}
+        onChange={(e) => setForm({ ...form, company: e.target.value })}
+        className="hidden"
+      />
+      <div className="sm:col-span-3 text-center">
+        <button
+          type="submit"
+          disabled={status === "sending"}
+          className="inline-flex items-center px-5 py-2 text-sm font-semibold rounded-md border border-teal-600 text-teal-700 hover:bg-teal-50 transition-colors disabled:opacity-60"
+        >
+          {status === "sending" ? "Sending..." : "Email me the details"}
+        </button>
+        {status === "error" && (
+          <p className="text-sm text-red-600 mt-3">
+            That didn't go through. Please email info@floridaautismservices.com instead.
+          </p>
+        )}
+      </div>
+    </form>
+  );
+}
+
 
 // ─── Main Page Component ───────────────────────────────────────────────
 
@@ -592,354 +431,101 @@ export default function FeaturedListings() {
 
   return (
     <div>
-      {/* SECTION 1: Hero */}
+      {/* SECTION 1: Headline */}
       <section className="bg-gradient-to-r from-teal-600 to-cyan-600 text-white py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-6">
-            Get Found First by Florida Autism Families
-          </h1>
-          <p className="text-lg sm:text-xl text-teal-50 max-w-3xl mx-auto mb-10">
-            Featured listings put your practice at the top of search results on Florida's largest autism resource directory — so the families who need you can actually find you.
+          <p className="text-sm font-semibold uppercase tracking-wider text-teal-100 mb-4">
+            For Florida autism service providers
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-0 mb-10">
-            <div className="px-6 sm:border-r sm:border-white/30">
-              <p className="text-2xl font-bold">{stats.hero_providers_count}</p>
-              <p className="text-teal-100 text-sm">Providers Listed</p>
-            </div>
-            <div className="px-6 sm:border-r sm:border-white/30">
-              <p className="text-2xl font-bold">{stats.featured_ctr_3mo}</p>
-              <p className="text-teal-100 text-sm">Click-Through Rate</p>
-            </div>
-            <div className="px-6">
-              <p className="text-2xl font-bold">{stats.featured_audience_focus}</p>
-              <p className="text-teal-100 text-sm">Autism-Focused Traffic</p>
-            </div>
-          </div>
-          <button
-            onClick={() => smoothScroll("pricing")}
-            className="inline-flex items-center px-8 py-4 text-lg font-bold rounded-lg bg-white text-teal-700 hover:bg-teal-50 transition-colors shadow-lg"
-          >
-            See Featured Listing Options &darr;
-          </button>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-6">
+            When Families Land on Your Listing, Make It the One They Act On
+          </h1>
+          <p className="text-lg sm:text-xl text-teal-50 max-w-3xl mx-auto">
+            Families are already finding provider listings in our directory. Featured makes yours stand out, and lists your practice first on our service + city pages.
+          </p>
         </div>
       </section>
 
-      {/* SECTION 2: The Problem */}
-      <section className="bg-white py-20 px-4">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">
-            You're Listed. But Are You Being Found?
-          </h2>
-          <div className="text-gray-600 text-lg leading-relaxed space-y-6">
-            <p>
-              Right now, your practice is one of over 3,300 providers in our directory. When a parent in your county searches for ABA therapy, they see a long list of results. They click the first few. Maybe the first five. Then they pick up the phone.
-            </p>
-            <p className="font-semibold text-gray-800">
-              The question is: are you in those first five?
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Growth Chart — moved above pricing for urgency */}
+      {/* SECTION 2: Proof */}
       <section className="bg-gray-50 py-16 px-4">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Our Growth Speaks for Itself</h2>
-          <p className="text-gray-500 mb-8 text-base max-w-2xl mx-auto">Real data from Google Search Console — families are finding us, every single day.</p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Families Are Already Here</h2>
+          <p className="text-gray-500 mb-8 text-base">
+            Most of our traffic is families searching for a specific provider or school by name.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
             <div className="bg-white rounded-xl shadow-md border border-gray-100 p-6 text-center">
               <div className="text-3xl sm:text-4xl font-bold text-teal-600">{stats.featured_impressions_3mo}</div>
               <div className="text-sm text-gray-500 mt-2">Search Impressions &bull; 3 Months</div>
             </div>
             <div className="bg-white rounded-xl shadow-md border border-gray-100 p-6 text-center">
               <div className="text-3xl sm:text-4xl font-bold text-teal-600">{stats.featured_clicks_3mo}</div>
-              <div className="text-sm text-gray-500 mt-2">Clicks to Listings &bull; 3 Months</div>
+              <div className="text-sm text-gray-500 mt-2">Clicks from Google Search &bull; 3 Months</div>
             </div>
             <div className="bg-white rounded-xl shadow-md border border-gray-100 p-6 text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-teal-600">{stats.featured_ctr_3mo}</div>
-              <div className="text-sm text-gray-500 mt-2">Click-Through Rate &bull; 3 Months</div>
+              <div className="text-3xl sm:text-4xl font-bold text-teal-600">{stats.hero_providers_count}</div>
+              <div className="text-sm text-gray-500 mt-2">Providers Listed</div>
             </div>
           </div>
-          <div className="mt-6 max-w-3xl mx-auto bg-white shadow-md rounded-lg border-l-4 border-teal-500 px-6 py-6">
-            <p className="text-xs uppercase tracking-wider text-teal-700 font-semibold text-center mb-4">Consistent Monthly Performance</p>
-            <div className="flex items-center justify-center gap-8 sm:gap-12">
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl font-extrabold text-gray-900">{stats.featured_impressions_per_month}</div>
-                <div className="text-sm text-gray-500 mt-1">Impressions / Month</div>
-              </div>
-              <div className="text-3xl sm:text-4xl text-gray-300 font-light">•</div>
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl font-extrabold text-gray-900">{stats.featured_clicks_per_month}</div>
-                <div className="text-sm text-gray-500 mt-1">Clicks / Month</div>
-              </div>
-              <div className="text-3xl sm:text-4xl text-gray-300 font-light">•</div>
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl font-extrabold text-gray-900">{stats.featured_audience_focus}</div>
-                <div className="text-sm text-gray-500 mt-1">FL Autism Audience</div>
-              </div>
-            </div>
-            <p className="text-xs text-gray-400 mt-4 text-center">Source: Google Search Console &bull; 90-day average</p>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 3: The Solution */}
-      <section className="bg-gray-50 py-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-14">
-            Featured Listings Put You Where Families Look First
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div className="text-center">
-              <div className="w-14 h-14 rounded-full bg-teal-100 flex items-center justify-center mx-auto mb-5">
-                <ArrowUp className="w-7 h-7 text-teal-600" />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-3">Priority Placement</h3>
-              <p className="text-gray-600">
-                Your listing jumps above standard results. When families search for your services in your county, you're at the top — not buried on page two.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-14 h-14 rounded-full bg-teal-100 flex items-center justify-center mx-auto mb-5">
-                <Eye className="w-7 h-7 text-teal-600" />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-3">Enhanced Visibility</h3>
-              <p className="text-gray-600">
-                Clinic photos, expanded descriptions, and a "Visit Website" button make your listing impossible to scroll past.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-14 h-14 rounded-full bg-teal-100 flex items-center justify-center mx-auto mb-5">
-                <Shield className="w-7 h-7 text-teal-600" />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-3">Premium Credibility</h3>
-              <p className="text-gray-600">
-                Featured and Premium Partner badges signal to families that you're an established, trusted provider.
-              </p>
-            </div>
-          </div>
-          <div className="text-center mt-14">
-            <button
-              onClick={() => smoothScroll("search-cards")}
-              className="inline-flex items-center px-8 py-3 text-base font-semibold rounded-lg bg-teal-600 text-white hover:bg-teal-700 transition-colors shadow-md"
-            >
-              See What Your Listing Could Look Like &darr;
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 4: Search Position Visual */}
-      <section className="bg-white py-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-4">
-            Where Featured Providers Appear in Search Results
-          </h2>
-          <p className="text-gray-500 text-lg text-center mb-10">Click each tier to see the difference.</p>
-          <SearchPositionVisual />
-        </div>
-      </section>
-
-      {/* SECTION 5: Search Result Cards */}
-      <section id="search-cards" className="bg-gray-50 py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-3">
-            How Your Listing Looks in Search Results
-          </h2>
-          <p className="text-gray-500 text-lg text-center mb-12">
-            Same provider. Four visibility levels. See the difference.
+          <p className="text-gray-600 mt-6">
+            That's about <strong className="text-gray-900">{stats.featured_impressions_per_month} impressions</strong> and{" "}
+            <strong className="text-gray-900">{stats.featured_clicks_per_month} clicks</strong> every month.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-            <div>
-              <p className="text-sm font-bold text-gray-500 text-center mb-3">Standard — Free</p>
-              <div className="hover:-translate-y-1 transition-transform"><StandardSearchCard /></div>
-            </div>
-            <div>
-              <p className="text-sm font-bold text-amber-700 text-center mb-3">&#11088; Basic — $29/mo</p>
-              <div className="hover:-translate-y-1 transition-transform"><BasicSearchCard /></div>
-            </div>
-            <div>
-              <p className="text-sm font-bold text-amber-700 text-center mb-3">&#11088; Enhanced — $59/mo</p>
-              <div className="hover:-translate-y-1 transition-transform"><EnhancedSearchCard /></div>
-            </div>
-            <div>
-              <p className="text-sm font-bold text-amber-800 text-center mb-3">&#11088; Premium — $99/mo</p>
-              <div className="hover:-translate-y-1 transition-transform"><PremiumSearchCard /></div>
-            </div>
-          </div>
-          <div className="text-center mt-14">
-            <button
-              onClick={() => smoothScroll("pricing")}
-              className="inline-flex items-center px-8 py-3 text-base font-semibold rounded-lg bg-teal-600 text-white hover:bg-teal-700 transition-colors shadow-md"
-            >
-              Ready to Stand Out? See Pricing &darr;
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 6: Detail Page Cards */}
-      <section className="bg-white py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-3">
-            How Your Detail Page Looks to Families
-          </h2>
-          <p className="text-gray-500 text-lg text-center mb-12">
-            When a parent clicks your listing, this is what they see.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-            <div>
-              <p className="text-sm font-bold text-gray-500 text-center mb-3">Standard — Free</p>
-              <div className="hover:-translate-y-1 transition-transform"><StandardDetailCard /></div>
-            </div>
-            <div>
-              <p className="text-sm font-bold text-amber-700 text-center mb-3">&#11088; Basic — $29/mo</p>
-              <div className="hover:-translate-y-1 transition-transform"><BasicDetailCard /></div>
-            </div>
-            <div>
-              <p className="text-sm font-bold text-amber-700 text-center mb-3">&#11088; Enhanced — $59/mo</p>
-              <div className="hover:-translate-y-1 transition-transform"><EnhancedDetailCard /></div>
-            </div>
-            <div>
-              <p className="text-sm font-bold text-amber-800 text-center mb-3">&#11088; Premium — $99/mo</p>
-              <div className="hover:-translate-y-1 transition-transform"><PremiumDetailCard /></div>
-            </div>
-          </div>
-          <p className="text-center text-gray-500 italic mt-10 max-w-2xl mx-auto">
-            Enhanced and Premium listings include clinic photos, a "Why Choose Us" section, and direct website links — everything a parent needs to choose you.
-          </p>
-        </div>
-      </section>
-
-      {/* SECTION 7: Why Now (Founding Partner offer — hidden once slots run out) */}
-      {founderActive && (
-      <section className="bg-gray-50 py-20 px-4">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">
-            Our Traffic Is Growing. Your Opportunity Won't Last.
-          </h2>
-          <div className="text-gray-600 text-lg leading-relaxed space-y-6">
-            <p>
-              FloridaAutismServices.com traffic has grown over 300% in the last month alone. As more Florida families discover the directory, Featured Listings become more valuable — and more competitive.
-            </p>
-            <p>
-              Right now, we're offering Founding Partner pricing to our first 10 providers. You lock in half-price rates for 12 months while the directory continues to grow around you.
-            </p>
-            <p className="font-semibold text-gray-800">
-              Only {founderSlots} of 10 spots remain. Once they're filled, this pricing is gone.
-            </p>
-          </div>
+          <p className="text-xs text-gray-400 mt-2">Source: Google Search Console &bull; last 3 months</p>
           <div className="mt-10">
-            <button
-              onClick={() => smoothScroll("pricing")}
-              className="inline-flex items-center px-8 py-3 text-base font-semibold rounded-lg bg-teal-600 text-white hover:bg-teal-700 transition-colors shadow-md"
-            >
-              Lock In Founding Partner Pricing &darr;
-            </button>
+            <PrimaryCta />
           </div>
         </div>
       </section>
-      )}
 
-      {/* ROI Section */}
-      <style>{`
-        @keyframes featuredRoiGlow {
-          0%, 100% { box-shadow: 0 0 40px rgba(20,184,166,0.3), 0 0 80px rgba(20,184,166,0.15); }
-          50% { box-shadow: 0 0 60px rgba(20,184,166,0.5), 0 0 120px rgba(20,184,166,0.3); }
-        }
-        @keyframes featuredRoiPulse {
-          0%, 100% { text-shadow: 0 0 30px rgba(13,148,136,0.3); }
-          50% { text-shadow: 0 0 60px rgba(13,148,136,0.5), 0 0 100px rgba(13,148,136,0.25); }
-        }
-        @keyframes featuredBadgeGlow {
-          0%, 100% { box-shadow: 0 0 12px rgba(34,211,238,0.2), 0 0 24px rgba(34,211,238,0.1); }
-          50% { box-shadow: 0 0 24px rgba(34,211,238,0.4), 0 0 48px rgba(34,211,238,0.2); }
-        }
-      `}</style>
-      <section className="relative py-24 sm:py-32 lg:py-40 px-4 bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900 text-white overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400" />
-        <div className="absolute inset-0 pointer-events-none" aria-hidden="true" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
-          <div className="w-[900px] h-[900px] rounded-full bg-teal-500/8 blur-3xl" />
-        </div>
-
-        <div className="relative max-w-5xl mx-auto text-center">
-          <div className="inline-flex items-center px-8 py-3 rounded-full bg-white/10 border border-white/20 text-cyan-300 text-lg font-bold uppercase tracking-widest mb-12 backdrop-blur-sm" style={{ animation: 'featuredBadgeGlow 3s ease-in-out infinite' }}>
-            <span className="mr-3 text-2xl">&#128202;</span>
-            Backed by Research
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-8" style={{ textShadow: '0 4px 16px rgba(0,0,0,0.4), 0 2px 6px rgba(0,0,0,0.3)' }}>What's the Real ROI?</h2>
-
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-16 leading-relaxed">
-            Children with autism use PT, OT, and speech therapy at <span className="font-bold text-white">11&ndash;16&times; the rate</span> of non-ASD peers &mdash; and they stay in therapy for years, not weeks. Here's what peer-reviewed research says about the value of every new family that finds you.
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-20 max-w-5xl mx-auto">
-            <div className="relative bg-emerald-400/10 backdrop-blur-sm rounded-xl ring-2 ring-emerald-400 p-6 sm:p-8 text-center sm:scale-[1.05] shadow-2xl hover:scale-[1.08] transition-all duration-200 order-first">
-              <div className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-emerald-400 mb-2">$33</div>
-              <div className="text-xs sm:text-sm font-bold tracking-wider text-emerald-300 uppercase mb-3">per Google Ads lead</div>
-              <p className="text-sm text-gray-300 leading-relaxed">Average cost per lead for healthcare on Google Ads &mdash; and that's just for the lead, not the patient</p>
-              <span className="text-xs text-gray-400 mt-2 inline-block">LocaliQ Healthcare Benchmarks, 2026 &#8308;</span>
+      {/* SECTION 3: What you get */}
+      <section className="bg-white py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-12">What You Get</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+            <div className="text-center">
+              <h3 className="text-lg font-bold text-gray-900 mb-3">The listing families act on</h3>
+              <p className="text-gray-600">
+                A gold border and Featured badge set your listing apart, in search results and on your own page. Enhanced and Premium add your photo or logo, your description, and a prominent "Visit Website" button right on the search card.
+              </p>
             </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 sm:p-8 text-center hover:scale-[1.03] hover:border-white/25 transition-all duration-200">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-teal-400 mb-2">$10,279</div>
-              <div className="text-xs sm:text-sm font-bold tracking-wider text-teal-300 uppercase mb-3">per child per year</div>
-              <p className="text-sm text-gray-400 leading-relaxed">Average annual outpatient spending per child with treated ASD</p>
-              <span className="text-xs text-gray-500 mt-2 inline-block">AHRQ MEPS, 2025 &sup3;</span>
+            <div className="text-center">
+              <h3 className="text-lg font-bold text-gray-900 mb-3">First on service + city pages</h3>
+              <p className="text-gray-600">
+                Featured providers are listed first on pages like ADOS testing in Orlando, ahead of every standard listing.
+              </p>
             </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 sm:p-8 text-center hover:scale-[1.03] hover:border-white/25 transition-all duration-200">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cyan-400 mb-2">11&ndash;16&times;</div>
-              <div className="text-xs sm:text-sm font-bold tracking-wider text-teal-300 uppercase mb-3">higher utilization</div>
-              <p className="text-sm text-gray-400 leading-relaxed">ASD children use PT, OT, and speech services at 11&ndash;16&times; the rate of non-ASD peers ages 3&ndash;9</p>
-              <span className="text-xs text-gray-500 mt-2 inline-block">Cummings et al., JADD 2016 &sup2;</span>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 sm:p-8 text-center hover:scale-[1.03] hover:border-white/25 transition-all duration-200">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-amber-400 mb-2">{founderActive ? '$15' : '$29'}</div>
-              <div className="text-xs sm:text-sm font-bold tracking-wider text-teal-300 uppercase mb-3">per month</div>
-              <p className="text-sm text-gray-400 leading-relaxed">Your {founderActive ? 'Founding Partner ' : ''}Featured Listing on FloridaAutismServices.com &mdash; running 24/7/365</p>
-            </div>
-          </div>
-
-          <div className="relative mx-auto max-w-3xl rounded-2xl hover:scale-[1.02] transition-transform duration-300" style={{ animation: 'featuredRoiGlow 3s ease-in-out infinite' }}>
-            <div className="bg-white rounded-2xl shadow-2xl p-10 sm:p-12 lg:p-14 text-gray-900 text-center">
-              <div className="text-[6rem] sm:text-[8rem] lg:text-[10rem] font-extrabold text-teal-600 leading-none mb-4" style={{ animation: 'featuredRoiPulse 4s ease-in-out infinite' }}>1&ndash;2</div>
-              <div className="text-2xl sm:text-3xl font-bold text-gray-800 mb-8">new families</div>
-              <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
-                As few as <strong className="text-gray-900">1&ndash;2 new families</strong> finding your practice through FloridaAutismServices.com could potentially cover your <strong className="text-gray-900">entire Featured Listing investment</strong> for the full year &mdash; based on average outpatient therapy spending per ASD child.
+            <div className="text-center">
+              <h3 className="text-lg font-bold text-gray-900 mb-3">First in provider search</h3>
+              <p className="text-gray-600">
+                The same order holds when families browse the main Find Providers results: Premium first, then Enhanced, then Basic, then everyone else.
               </p>
             </div>
           </div>
 
-          <div className="mt-14 mx-auto max-w-3xl border-l-4 border-teal-400 bg-white/5 rounded-r-xl p-6 sm:p-8 text-left">
-            <div className="text-xl sm:text-2xl font-bold text-white mb-3">That's not a typo.</div>
-            <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-3">
-              The math works because pediatric ASD patients have exceptionally high lifetime value. At $10,279 per child per year in outpatient spending, even a single new family represents significant revenue &mdash; while your {founderActive ? 'Founding Partner ' : ''}listing costs as little as {founderActive ? '$15' : '$29'}/month. Compare that to $33 per <em>lead</em> on Google Ads, where you pay per click with no guaranteed conversion.
-            </p>
-            <p className="text-base sm:text-lg font-bold text-teal-400">
-              Your Featured Listing works 24/7, 365&nbsp;days&nbsp;a&nbsp;year.
-            </p>
-          </div>
-
-          {founderActive && (
-            <p className="mt-12 text-lg sm:text-xl font-bold text-white max-w-3xl mx-auto">
-              A founding partner listing costs less than half of one Google Ads lead &mdash; and it works all year.
-            </p>
-          )}
-
-          <div className="mt-12 mx-auto max-w-4xl border-t border-white/10 pt-8 text-left">
-            <p className="text-xs font-semibold text-gray-400 mb-3 uppercase tracking-wider">Sources &amp; Citations</p>
-            <p className="text-xs text-gray-500 leading-relaxed">
-              <span className="block mb-1">&sup1; Cidav et al., <em>Journal of Autism and Developmental Disorders</em> (2013). Medicaid FFS claims analysis, 45,948 children with ASD. PMC4771520</span>
-              <span className="block mb-1">&sup2; Cummings et al., <em>Journal of Autism and Developmental Disorders</em> (2016). 8,325 ASD cases vs 83,195 matched controls, five major health systems. PMC4747787</span>
-              <span className="block mb-1">&sup3; AHRQ Medical Expenditure Panel Survey, Statistical Brief #565 (Monnet &amp; Zuvekas, 2025). National health expenditures for children with treated ASD, 2018&ndash;2022.</span>
-              <span className="block mb-1">&#8308; LocaliQ Healthcare Search Advertising Benchmarks (2026). Aggregated U.S. healthcare search campaign data across 16 specialties.</span>
-              <span className="block mb-1">Additional research: Florida Medicaid ASD therapy utilization (AHCA 2013), parent search behavior for autism services, therapy practice revenue impact of directory listings.</span>
-              <span className="block">Full research briefs available at: perplexity_ltv_dr_report.md, patient_acquisition_cost_in_pediatric_therapy.md, multi-discipline_therapy_revenue_per_asd_child.md, therapy_practice_revenue_impact_of_directory-referral_listings.md, florida-specific_medicaid_therapy_utilization.md, parent_search_behavior_for_autism_services.md</span>
-            </p>
+          <h3 className="text-xl font-bold text-gray-900 text-center mt-16 mb-3">How Your Listing Looks in Search Results</h3>
+          <p className="text-gray-500 text-center mb-10">Same provider, four levels.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+            <div>
+              <p className="text-sm font-bold text-gray-500 text-center mb-3">Standard — Free</p>
+              <StandardSearchCard />
+            </div>
+            <div>
+              <p className="text-sm font-bold text-amber-700 text-center mb-3">&#11088; Basic — $29/mo</p>
+              <BasicSearchCard />
+            </div>
+            <div>
+              <p className="text-sm font-bold text-amber-700 text-center mb-3">&#11088; Enhanced — $59/mo</p>
+              <EnhancedSearchCard />
+            </div>
+            <div>
+              <p className="text-sm font-bold text-amber-800 text-center mb-3">&#11088; Premium — $99/mo</p>
+              <PremiumSearchCard />
+            </div>
           </div>
         </div>
       </section>
+
 
       {/* SECTION 8: Pricing */}
       <section id="pricing" className="bg-white py-20 px-4">
@@ -981,9 +567,8 @@ export default function FeaturedListings() {
                 </div>
                 <ul className="space-y-3 text-sm text-gray-700">
                   <li className="flex items-start gap-2">{pricingCheck}<span>Gold border and <strong>&#11088; Featured</strong> badge on search card <em>and</em> detail page</span></li>
-                  <li className="flex items-start gap-2">{pricingCheck}<span>Sorted <strong>above all standard results</strong> in search</span></li>
-                  <li className="flex items-start gap-2">{pricingCheck}<span>Priority visibility in county and service searches</span></li>
-                  <li className="flex items-start gap-2">{pricingCheck}<span>Up to <strong>500 character</strong> description</span></li>
+                  <li className="flex items-start gap-2">{pricingCheck}<span>Listed <strong>above all standard listings</strong> on service + city pages and in provider search</span></li>
+                  <li className="flex items-start gap-2">{pricingCheck}<span><strong>Social media links</strong> on your detail page</span></li>
                 </ul>
               </div>
               <div className="p-8 pt-0">
@@ -996,7 +581,7 @@ export default function FeaturedListings() {
             {/* Enhanced (highlighted) */}
             <div className="bg-white rounded-xl border-2 border-teal-500 shadow-xl hover:shadow-2xl transition-shadow overflow-hidden flex flex-col relative">
               <div className="bg-gradient-to-r from-teal-600 to-cyan-600 text-white text-center text-xs font-bold uppercase tracking-wider py-2">
-                Most Popular
+                Recommended
               </div>
               <div className="p-8 flex-1">
                 <h3 className="text-xl font-bold text-gray-900 mb-1">Enhanced Featured</h3>
@@ -1016,10 +601,10 @@ export default function FeaturedListings() {
                 <ul className="space-y-3 text-sm text-gray-700">
                   <li className="flex items-start gap-2">{pricingCheck}<span>Everything in Basic, <strong>plus:</strong></span></li>
                   <li className="flex items-start gap-2">{pricingCheck}<span><strong>Logo or photo</strong> on your search card <em>and</em> detail page</span></li>
-                  <li className="flex items-start gap-2">{pricingCheck}<span><strong>"Why Choose Us"</strong> highlighted section on your detail page</span></li>
-                  <li className="flex items-start gap-2">{pricingCheck}<span>Prominent <strong>"Visit Website"</strong> button driving direct traffic</span></li>
-                  <li className="flex items-start gap-2">{pricingCheck}<span><strong>Social media links</strong> (Facebook, Instagram, etc.)</span></li>
-                  <li className="flex items-start gap-2">{pricingCheck}<span>Up to <strong>1,000 character</strong> description</span></li>
+                  <li className="flex items-start gap-2">{pricingCheck}<span>Your <strong>description shown on the search card</strong></span></li>
+                  <li className="flex items-start gap-2">{pricingCheck}<span>Prominent <strong>"Visit Website"</strong> button on the search card</span></li>
+                  <li className="flex items-start gap-2">{pricingCheck}<span><strong>Social media links</strong> on the search card</span></li>
+                  <li className="flex items-start gap-2">{pricingCheck}<span>Listed <strong>ahead of Basic</strong> listings</span></li>
                 </ul>
               </div>
               <div className="p-8 pt-0">
@@ -1048,13 +633,10 @@ export default function FeaturedListings() {
                 </div>
                 <ul className="space-y-3 text-sm text-gray-700">
                   <li className="flex items-start gap-2">{pricingCheck}<span>Everything in Enhanced, <strong>plus:</strong></span></li>
-                  <li className="flex items-start gap-2">{pricingCheck}<span><strong>Full photo showcase</strong> on search results <em>and</em> detail page</span></li>
-                  <li className="flex items-start gap-2">{pricingCheck}<span><strong>Pinned to #1</strong> in all search results</span></li>
+                  <li className="flex items-start gap-2">{pricingCheck}<span><strong>Larger photo</strong> on search card <em>and</em> detail page</span></li>
                   <li className="flex items-start gap-2">{pricingCheck}<span><strong>&#11088; Premium Partner</strong> badge + gold gradient border</span></li>
-                  <li className="flex items-start gap-2">{pricingCheck}<span><strong>Video testimonials</strong> on detail page</span></li>
-                  <li className="flex items-start gap-2">{pricingCheck}<span><strong>Unlimited</strong> description length</span></li>
-                  <li className="flex items-start gap-2">{pricingCheck}<span>Priority support</span></li>
-                  <li className="flex items-start gap-2">{pricingCheck}<span>Custom branding options</span></li>
+                  <li className="flex items-start gap-2">{pricingCheck}<span><strong>Full description</strong> on the search card, not shortened</span></li>
+                  <li className="flex items-start gap-2">{pricingCheck}<span>Listed <strong>first</strong>, ahead of every other tier</span></li>
                 </ul>
               </div>
               <div className="p-8 pt-0">
@@ -1239,7 +821,7 @@ export default function FeaturedListings() {
       <section className="bg-white py-20 px-4">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-3">What's Included at Each Tier</h2>
-          <p className="text-gray-500 text-center mb-12 text-lg">Compare features across all Featured Listing tiers</p>
+          <p className="text-gray-500 text-center mb-12 text-lg">What each tier actually changes on your listing</p>
 
           <div className="overflow-x-auto">
             <table className="w-full min-w-[700px] text-sm border-collapse">
@@ -1254,18 +836,12 @@ export default function FeaturedListings() {
               </thead>
               <tbody>
                 {[
-                  { feature: "County search visibility", free: true, basic: true, enhanced: true, premium: true },
-                  { feature: "Search result position", free: "Random", basic: "#4-6", enhanced: "#2-3", premium: "#1" },
-                  { feature: "Description limit", free: "250 chars", basic: "500 chars", enhanced: "1,000 chars", premium: "Unlimited" },
-                  { feature: "Gold border & Featured badge", free: false, basic: true, enhanced: true, premium: true },
-                  { feature: "Clinic photos on listings", free: false, basic: false, enhanced: true, premium: true },
-                  { feature: '"Why Choose Us" section', free: false, basic: false, enhanced: true, premium: true },
-                  { feature: 'Prominent "Visit Website" button', free: false, basic: false, enhanced: true, premium: true },
-                  { feature: "Social media links", free: false, basic: false, enhanced: true, premium: true },
-                  { feature: "Pinned to #1", free: false, basic: false, enhanced: false, premium: true },
-                  { feature: "Video testimonials", free: false, basic: false, enhanced: false, premium: true },
-                  { feature: "Priority support", free: false, basic: false, enhanced: false, premium: true },
-                  { feature: "Custom branding options", free: false, basic: false, enhanced: false, premium: true },
+                  { feature: "Gold border & badge", free: false, basic: "Featured", enhanced: "Featured", premium: "Premium Partner" },
+                  { feature: "Position on service + city pages and in provider search", free: "After Featured", basic: "Above standard", enhanced: "Above Basic", premium: "First" },
+                  { feature: "Photo or logo on search card and detail page", free: false, basic: false, enhanced: true, premium: "Larger" },
+                  { feature: "Description shown on search card", free: false, basic: false, enhanced: "3 lines", premium: "Full" },
+                  { feature: 'Prominent "Visit Website" button on search card', free: false, basic: false, enhanced: true, premium: true },
+                  { feature: "Social media links", free: false, basic: "Detail page", enhanced: "Card + detail", premium: "Card + detail" },
                 ].map((row, i) => (
                   <tr key={i} className={i % 2 === 0 ? "bg-gray-50" : ""}>
                     <td className="py-3 px-4 text-gray-700">{row.feature}</td>
@@ -1289,38 +865,54 @@ export default function FeaturedListings() {
         </div>
       </section>
 
-      {/* SECTION 9: FAQ */}
+      {/* CTA after tiers */}
+      <section className="bg-white pb-20 px-4">
+        <div className="text-center">
+          <PrimaryCta />
+        </div>
+      </section>
+
+      {/* ROI line */}
+      <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900 text-white py-20 px-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-snug">
+            For most practices, one new client found through the directory covers more than a full year of Featured.
+          </p>
+        </div>
+      </section>
+
+      {/* FAQ */}
       <section className="bg-gray-50 py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-12">
-            Frequently Asked Questions
+            Questions Providers Ask
           </h2>
           <FAQSection />
         </div>
       </section>
 
-      {/* SECTION 10: Final CTA */}
+      {/* Final CTA */}
       <section className="bg-gradient-to-r from-teal-600 to-cyan-600 text-white py-20 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight mb-6">
             {founderActive
-              ? `${founderSlots} Founding Partner Spots Left. Half-Price Rates. First Come, First Served.`
-              : 'Ready to Stand Out? Get Featured Today.'}
+              ? `${founderSlots} Founding Partner Spots Left at Half Price`
+              : 'Make Your Listing the One Families Act On'}
           </h2>
           <p className="text-lg text-teal-50 mb-10">
-            {founderActive
-              ? "Join the first providers to get priority placement on Florida's largest autism resource directory."
-              : "Get priority placement on Florida's largest autism resource directory."}
+            Pick a tier and check out in a couple of minutes. Your listing is upgraded within 48 hours.
           </p>
-          <a
-            href="mailto:contact@floridaautismservices.com?subject=Featured%20Listing%20Inquiry"
-            className="inline-flex items-center px-8 py-4 text-lg font-bold rounded-lg bg-white text-teal-700 hover:bg-teal-50 transition-colors shadow-lg"
-          >
-            Get Started — Email Us Today
-          </a>
-          <p className="text-teal-100 text-sm mt-6">
-            Or email us directly at contact@floridaautismservices.com
-          </p>
+          <PrimaryCta onDark />
+        </div>
+      </section>
+
+      {/* Not ready yet */}
+      <section className="bg-white py-12 px-4">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-base font-semibold text-gray-800 text-center mb-4">
+            Not ready yet? Get the details by email
+          </h2>
+          <DetailsByEmailForm />
         </div>
       </section>
     </div>

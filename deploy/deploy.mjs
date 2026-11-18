@@ -10,7 +10,7 @@ const LOCAL_DIST = path.resolve(__dirname, '../src/frontend/dist');
 // PHP endpoints live outside dist/ so Vite can't copy them into the web root;
 // they belong in /api/ and are uploaded separately below.
 const LOCAL_PHP_DIR = path.resolve(__dirname, '../src/frontend');
-const PHP_FILES = ['send-submission-email.php', 'send-event-submission-email.php'];
+const PHP_FILES = ['send-submission-email.php', 'send-event-submission-email.php', 'send-featured-inquiry-email.php'];
 
 const required = ['SFTP_HOST', 'SFTP_PORT', 'SFTP_USER', 'SFTP_PASS', 'REMOTE_PATH'];
 const missing = required.filter((k) => !process.env[k]);

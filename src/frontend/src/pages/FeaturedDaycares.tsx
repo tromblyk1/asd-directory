@@ -607,10 +607,6 @@ export default function FeaturedDaycares() {
               <p className="text-2xl font-bold">{stats.hero_daycares_count}</p>
               <p className="text-teal-100 text-sm">Childcare Facilities Listed</p>
             </div>
-            <div className="px-6 sm:border-r sm:border-white/30">
-              <p className="text-2xl font-bold">{stats.featured_ctr_3mo}</p>
-              <p className="text-teal-100 text-sm">Click-Through Rate</p>
-            </div>
             <div className="px-6">
               <p className="text-2xl font-bold">{stats.featured_audience_focus}</p>
               <p className="text-teal-100 text-sm">Special Needs Focused</p>
@@ -647,7 +643,7 @@ export default function FeaturedDaycares() {
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Our Growth Speaks for Itself</h2>
           <p className="text-gray-500 mb-8 text-base max-w-2xl mx-auto">Real data from Google Search Console — families are finding us, every single day.</p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-3xl mx-auto">
             <div className="bg-white rounded-xl shadow-md border border-gray-100 p-6 text-center">
               <div className="text-3xl sm:text-4xl font-bold text-teal-600">{stats.featured_impressions_3mo}</div>
               <div className="text-sm text-gray-500 mt-2">Search Impressions &bull; 3 Months</div>
@@ -655,10 +651,6 @@ export default function FeaturedDaycares() {
             <div className="bg-white rounded-xl shadow-md border border-gray-100 p-6 text-center">
               <div className="text-3xl sm:text-4xl font-bold text-teal-600">{stats.featured_clicks_3mo}</div>
               <div className="text-sm text-gray-500 mt-2">Clicks to Listings &bull; 3 Months</div>
-            </div>
-            <div className="bg-white rounded-xl shadow-md border border-gray-100 p-6 text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-teal-600">{stats.featured_ctr_3mo}</div>
-              <div className="text-sm text-gray-500 mt-2">Click-Through Rate &bull; 3 Months</div>
             </div>
           </div>
           <div className="mt-6 max-w-3xl mx-auto bg-white shadow-md rounded-lg border-l-4 border-teal-500 px-6 py-6">

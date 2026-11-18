@@ -55,6 +55,30 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  // /featured is a sales funnel: logo + one way back, no site nav or footer links.
+  if (location.pathname === "/featured" || location.pathname === "/featured/") {
+    return (
+      <div className="min-h-screen bg-white">
+        <header className="bg-white border-b border-blue-100 sticky top-0 z-[1100] shadow-sm">
+          <div className="px-4 sm:px-6 py-2 flex items-center justify-between">
+            <Link to={createPageUrl("Home")} className="flex items-center gap-3">
+              <img src="/logo.png" alt="Florida Autism Services" className="h-10 sm:h-12 w-auto" />
+            </Link>
+            <Link to="/providers" className="text-sm text-gray-500 hover:text-teal-700 transition-colors">
+              &larr; Back to directory
+            </Link>
+          </div>
+        </header>
+        <main className="min-h-screen">{children}</main>
+        <footer className="bg-gradient-to-r from-blue-900 to-green-900 text-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 text-center text-blue-100 text-sm">
+            <p>&copy; 2025 Florida Autism Services. Built with love for the neurodivergent community.</p>
+          </div>
+        </footer>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-green-50">
       {/* Desktop Header */}
